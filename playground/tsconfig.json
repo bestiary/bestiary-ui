@@ -1,0 +1,26 @@
+{
+    "extends": "../tsconfig.base.json",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@bestiary-ui/components/*": [
+                "../packages/components/src/*"
+            ],
+            "@bestiary-ui/components": [
+                "../packages/components/src/index"
+            ],
+            "@bestiary-ui/utils": [
+                "../packages/utils/src/index"
+            ],
+            "@bestiary-ui/style": [
+                "../packages/style/src/index.css"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.d.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue"
+    ]
+}

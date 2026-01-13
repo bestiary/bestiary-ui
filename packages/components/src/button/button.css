@@ -1,0 +1,48 @@
+.b-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: var(--b-font-family);
+    border-radius: var(--b-radius-md);
+    outline: none;
+}
+
+.b-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Sizes */
+.b-button--sm {
+    padding: 0.25rem 0.5rem;
+    font-size: var(--b-font-size-sm);
+}
+
+.b-button--md {
+    padding: 0.5rem 1rem;
+    font-size: var(--b-font-size-md);
+}
+
+.b-button--lg {
+    padding: 0.75rem 1.5rem;
+    font-size: var(--b-font-size-lg);
+}
+
+/* Types */
+.b-button--primary {
+    background-color: var(--b-color-primary);
+    color: var(--b-color-white);
+}
+
+.b-button--primary:hover:not(:disabled) {
+    background-color: var(--b-color-primary-hover);
+}
+
+.b-button--secondary {
+    background-color: var(--b-bg-color);
+    color: var(--b-text-color);
+    border-color: var(--b-border-color);
+}

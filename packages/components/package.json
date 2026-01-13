@@ -1,0 +1,40 @@
+{
+    "name": "@bestiary-ui/components",
+    "version": "0.0.1",
+    "type": "module",
+    "main": "../bestiary-ui/components/index.js",
+    "module": "../bestiary-ui/components/index.js",
+    "types": "../bestiary-ui/components/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "../bestiary-ui/components/index.d.ts",
+            "import": "../bestiary-ui/components/index.js",
+            "require": "../bestiary-ui/components/index.cjs"
+        },
+        "./button": {
+            "types": "../bestiary-ui/components/button/index.d.ts",
+            "import": "../bestiary-ui/components/button/index.js",
+            "require": "../bestiary-ui/components/button/index.cjs"
+        },
+        "./card": {
+            "types": "../bestiary-ui/components/card/index.d.ts",
+            "import": "../bestiary-ui/components/card/index.js",
+            "require": "../bestiary-ui/components/card/index.cjs"
+        },
+        "./style.css": "../bestiary-ui/components/style.css",
+        "./*": "./*"
+    },
+    "files": [
+        "dist"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "peerDependencies": {
+        "vue": "^3.4.0"
+    },
+    "dependencies": {
+        "@bestiary-ui/utils": "workspace:*",
+        "@bestiary-ui/style": "workspace:*"
+    }
+}

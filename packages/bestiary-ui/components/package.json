@@ -1,0 +1,37 @@
+{
+    "name": "@bestiary-ui/components",
+    "version": "0.0.1",
+    "type": "module",
+    "main": "./index.js",
+    "module": "./index.js",
+    "types": "./index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./index.d.ts",
+            "import": "./index.js",
+            "require": "./index.cjs"
+        },
+        "./button": {
+            "types": "./button/index.d.ts",
+            "import": "./button/index.js",
+            "require": "./button/index.cjs"
+        },
+        "./card": {
+            "types": "./card/index.d.ts",
+            "import": "./card/index.js",
+            "require": "./card/index.cjs"
+        },
+        "./style.css": "./style.css",
+        "./*": "./*"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "peerDependencies": {
+        "vue": "^3.4.0"
+    },
+    "dependencies": {
+        "@bestiary-ui/utils": "^0.0.1",
+        "@bestiary-ui/style": "^0.0.1"
+    }
+}

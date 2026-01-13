@@ -1,0 +1,16 @@
+{
+    "name": "@bestiary-ui/style",
+    "version": "0.0.1",
+    "type": "module",
+    "main": "./index.css",
+    "exports": {
+        ".": "./index.css",
+        "./tokens.css": "./tokens.css",
+        "./base.css": "./base.css",
+        "./light.css": "./light.css",
+        "./dark.css": "./dark.css"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
