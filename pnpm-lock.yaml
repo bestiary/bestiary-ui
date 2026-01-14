@@ -17,6 +17,9 @@ importers:
       '@vitejs/plugin-vue':
         specifier: ^5.0.0
         version: 5.2.4(vite@5.4.21(@types/node@20.19.29))(vue@3.5.26(typescript@5.9.3))
+      esbuild:
+        specifier: ^0.27.2
+        version: 0.27.2
       fast-glob:
         specifier: ^3.3.2
         version: 3.3.3

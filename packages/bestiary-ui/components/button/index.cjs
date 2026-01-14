@@ -1,1 +1,0 @@
-"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const e=require("./Button.vue.cjs"),u=require("../utils/with-install.cjs"),t=u.withInstall(e.default);exports.BButton=t;exports.default=t;

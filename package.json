@@ -4,7 +4,6 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm -C playground dev",
-    "dev:dist": "pnpm -C playground dev:dist",
     "build": "tsx scripts/build.ts",
     "build:components": "tsx scripts/build.ts --components",
     "build:utils": "tsx scripts/build.ts --utils",
@@ -15,6 +14,7 @@
     "@types/fs-extra": "^11.0.0",
     "@types/node": "^20.10.0",
     "@vitejs/plugin-vue": "^5.0.0",
+    "esbuild": "^0.27.2",
     "fast-glob": "^3.3.2",
     "fs-extra": "^11.2.0",
     "tsx": "^4.7.0",

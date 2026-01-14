@@ -1,1 +1,0 @@
-"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const e=require("@bestiary-ui/utils"),t={shadow:{type:e.definePropType(String),default:"always"},header:{type:String,default:""},bodyStyle:{type:e.definePropType(Object),default:()=>({})}};exports.cardProps=t;

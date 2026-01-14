@@ -1,1 +1,0 @@
-"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const t=require("./Card.vue.cjs"),r=require("../utils/with-install.cjs"),s=require("./card.types.cjs"),e=r.withInstall(t.default);exports.cardProps=s.cardProps;exports.BCard=e;exports.default=e;

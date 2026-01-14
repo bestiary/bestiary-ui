@@ -1,1 +1,0 @@
-"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const t=require("./components.cjs"),o={install(s){for(const n in t){const e=t[n];e.install&&s.use(e)}}};exports.BestiaryUI=o;exports.default=o;

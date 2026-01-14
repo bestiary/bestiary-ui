@@ -2,6 +2,8 @@ import { execSync } from 'child_process'
 import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import fs from 'fs-extra'
+import glob from 'fast-glob'
+import { transform } from 'esbuild'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -79,6 +81,14 @@ async function buildStyle() {
     const styleSrc = resolve(pkgDir, 'style/src')
     await fs.ensureDir(dest)
     await fs.copy(styleSrc, dest)
+
+    const files = await glob('**/*.css', { cwd: dest, absolute: true })
+    for (const file of files) {
+        const content = await fs.readFile(file, 'utf-8')
+        const { code } = await transform(content, { loader: 'css', minify: true })
+        await fs.writeFile(file, code)
+    }
+
     await fixPackageJson(resolve(pkgDir, 'style/package.json'), resolve(dest, 'package.json'))
 }
 
