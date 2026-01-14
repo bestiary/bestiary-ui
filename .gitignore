@@ -1,5 +1,6 @@
 # Dependencies
 node_modules/
+**/node_modules/
 .pnpm-store/
 
 # Build outputs
@@ -12,6 +13,13 @@ coverage/
 packages/bestiary-ui/
 packages/*/dist/
 playground/dist/
+
+
+# Vite / tooling cache
+.vite/
+**/.vite/
+.vitest/
+**/.vitest/
 
 # Environment variables
 .env

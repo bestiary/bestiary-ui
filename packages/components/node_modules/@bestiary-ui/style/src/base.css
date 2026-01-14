@@ -1,6 +1,0 @@
-/* Base styles, no reset */
-body {
-    font-family: var(--b-font-family);
-    font-size: var(--b-font-size-md);
-    margin: 0;
-}
