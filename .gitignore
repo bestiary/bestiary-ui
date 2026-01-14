@@ -14,6 +14,7 @@ packages/bestiary-ui/
 packages/*/dist/
 playground/dist/
 playground-build/dist/
+packed/
 
 
 # Vite / tooling cache
