@@ -166,13 +166,13 @@ packages:
     engines: {node: '>=6.9.0'}
 
   '@bestiary-ui/components@file:packed/bestiary-ui-components-0.0.1.tgz':
-    resolution: {integrity: sha512-bLaAq/yjXuANFuGkFav47cBnyMcVy8bmzk1XKyMjJK7Au/7dokvLMd6VfM1UE7FM6IGoQC3+sIjw8Jolqxyuaw==, tarball: file:packed/bestiary-ui-components-0.0.1.tgz}
+    resolution: {integrity: sha512-Ejlr0u7gTmdoaZ3RN2/cSDLHuVTMf15aa43dWHrAOMpv8figKPffaHoVsmuDMVEKZXMqDOEB5UtJmRhhH0ZW0Q==, tarball: file:packed/bestiary-ui-components-0.0.1.tgz}
     version: 0.0.1
     peerDependencies:
       vue: ^3.4.0
 
   '@bestiary-ui/icons@file:packed/bestiary-ui-icons-0.0.1.tgz':
-    resolution: {integrity: sha512-Ei0C0oWalF2ax+N0/wucNVYR+2dDjptCSkv3tBAssz81yE0nQpnWxcXLNShjvInK5V4tuTSCBK0Lw9JbBaLZAQ==, tarball: file:packed/bestiary-ui-icons-0.0.1.tgz}
+    resolution: {integrity: sha512-5AC2KEJdbmAT2TJCYcpBfnsGPlZ2PuT+czd/Lo+DudfvB4gBLVtCQVC/zxDF16/5YbDLwlATrPdNxaYiKWa32w==, tarball: file:packed/bestiary-ui-icons-0.0.1.tgz}
     version: 0.0.1
     peerDependencies:
       vue: ^3.4.0
@@ -181,7 +181,7 @@ packages:
     resolution: {integrity: sha512-mVmvFNpABBszCkICZJd/57jQybpvoh1byKm4yh3On5DIplAfy3+z8zJ+ksrwISkq9kvnZLJLiIK+xFb5iQD52Q==}
 
   '@bestiary-ui/style@file:packed/bestiary-ui-style-0.0.1.tgz':
-    resolution: {integrity: sha512-0RsaEhaV0AtlUriyV5nbml0OGAMt2Wjv1zB2zyJCWPVbHQpwpPfIz8GtcFqOFRuFebxuRFhoUoQqGYhjLy5ZvQ==, tarball: file:packed/bestiary-ui-style-0.0.1.tgz}
+    resolution: {integrity: sha512-Zyekc1vLHI3H3n65V/PPiauJ1Bk2qrnpJ/40XDTkb5UdN9KaVw0QZRzU3dLAeX/jl+eBPO5rdjNi/QdfWNhBmw==, tarball: file:packed/bestiary-ui-style-0.0.1.tgz}
     version: 0.0.1
 
   '@bestiary-ui/utils@0.0.1':

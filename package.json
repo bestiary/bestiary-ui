@@ -5,7 +5,6 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm -C playground dev",
-    "dev:build": "pnpm -C playground-build dev",
     "pack:libs": "pnpm exec tsx scripts/pack.ts",
     "build": "tsx scripts/build.ts",
     "build:components": "tsx scripts/build.ts --components",
