@@ -1,7 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import '@bestiary-ui/style' // Global styles
-
+import router from './router'
+import '@bestiary-ui/style'
 
 const app = createApp(App)
+app.use(router)
 app.mount('#app')
