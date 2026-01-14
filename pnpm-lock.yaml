@@ -93,6 +93,37 @@ importers:
         specifier: ^2.0.0
         version: 2.2.12(typescript@5.9.3)
 
+  playground-build:
+    dependencies:
+      '@bestiary-ui/components':
+        specifier: file:../packed/bestiary-ui-components-0.0.1.tgz
+        version: file:packed/bestiary-ui-components-0.0.1.tgz(vue@3.5.26(typescript@5.9.3))
+      '@bestiary-ui/style':
+        specifier: file:../packed/bestiary-ui-style-0.0.1.tgz
+        version: file:packed/bestiary-ui-style-0.0.1.tgz
+      '@bestiary-ui/utils':
+        specifier: file:../packed/bestiary-ui-utils-0.0.1.tgz
+        version: file:packed/bestiary-ui-utils-0.0.1.tgz(vue@3.5.26(typescript@5.9.3))
+      vue:
+        specifier: ^3.4.0
+        version: 3.5.26(typescript@5.9.3)
+    devDependencies:
+      '@vitejs/plugin-vue':
+        specifier: ^5.0.0
+        version: 5.2.4(vite@5.4.21(@types/node@20.19.29))(vue@3.5.26(typescript@5.9.3))
+      rollup:
+        specifier: ^4.55.1
+        version: 4.55.1
+      typescript:
+        specifier: ^5.3.0
+        version: 5.9.3
+      vite:
+        specifier: ^5.0.0
+        version: 5.4.21(@types/node@20.19.29)
+      vue-tsc:
+        specifier: ^2.0.0
+        version: 2.2.12(typescript@5.9.3)
+
 packages:
 
   '@babel/helper-string-parser@7.27.1':
@@ -111,6 +142,30 @@ packages:
   '@babel/types@7.28.6':
     resolution: {integrity: sha512-0ZrskXVEHSWIqZM/sQZ4EV3jZJXRkio/WCxaqKZP1g//CEWEPSfeZFcms4XeKBCHU0ZKnIkdJeU/kF+eRp5lBg==}
     engines: {node: '>=6.9.0'}
+
+  '@bestiary-ui/components@file:packed/bestiary-ui-components-0.0.1.tgz':
+    resolution: {integrity: sha512-bLaAq/yjXuANFuGkFav47cBnyMcVy8bmzk1XKyMjJK7Au/7dokvLMd6VfM1UE7FM6IGoQC3+sIjw8Jolqxyuaw==, tarball: file:packed/bestiary-ui-components-0.0.1.tgz}
+    version: 0.0.1
+    peerDependencies:
+      vue: ^3.4.0
+
+  '@bestiary-ui/style@0.0.1':
+    resolution: {integrity: sha512-mVmvFNpABBszCkICZJd/57jQybpvoh1byKm4yh3On5DIplAfy3+z8zJ+ksrwISkq9kvnZLJLiIK+xFb5iQD52Q==}
+
+  '@bestiary-ui/style@file:packed/bestiary-ui-style-0.0.1.tgz':
+    resolution: {integrity: sha512-0RsaEhaV0AtlUriyV5nbml0OGAMt2Wjv1zB2zyJCWPVbHQpwpPfIz8GtcFqOFRuFebxuRFhoUoQqGYhjLy5ZvQ==, tarball: file:packed/bestiary-ui-style-0.0.1.tgz}
+    version: 0.0.1
+
+  '@bestiary-ui/utils@0.0.1':
+    resolution: {integrity: sha512-W79EXLauXoLSQTXCTUER6JDC/qT4Y2OOzMSjxfBg0larT0Pj1wQ2D1iRVSWHkhK350xYgnfTGYBz93/9szcQLQ==}
+    peerDependencies:
+      vue: ^3.4.0
+
+  '@bestiary-ui/utils@file:packed/bestiary-ui-utils-0.0.1.tgz':
+    resolution: {integrity: sha512-QVEhwdxV49HREdxcOVZ96OH1AmGy/Gz8iLoTi+9HycpwONAdLaqilCJDiwm+1ex5vgLu1Oi7ADeR9S5CUVkJOg==, tarball: file:packed/bestiary-ui-utils-0.0.1.tgz}
+    version: 0.0.1
+    peerDependencies:
+      vue: ^3.4.0
 
   '@esbuild/aix-ppc64@0.21.5':
     resolution: {integrity: sha512-1SDgH6ZSPTlggy1yI6+Dbkiz8xzpHJEVAlF/AM1tHPLsf5STom9rwtjE4hKAF20FfXXNTFqEYXyJNWh1GiZedQ==}
@@ -1114,6 +1169,24 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
+
+  '@bestiary-ui/components@file:packed/bestiary-ui-components-0.0.1.tgz(vue@3.5.26(typescript@5.9.3))':
+    dependencies:
+      '@bestiary-ui/style': 0.0.1
+      '@bestiary-ui/utils': 0.0.1(vue@3.5.26(typescript@5.9.3))
+      vue: 3.5.26(typescript@5.9.3)
+
+  '@bestiary-ui/style@0.0.1': {}
+
+  '@bestiary-ui/style@file:packed/bestiary-ui-style-0.0.1.tgz': {}
+
+  '@bestiary-ui/utils@0.0.1(vue@3.5.26(typescript@5.9.3))':
+    dependencies:
+      vue: 3.5.26(typescript@5.9.3)
+
+  '@bestiary-ui/utils@file:packed/bestiary-ui-utils-0.0.1.tgz(vue@3.5.26(typescript@5.9.3))':
+    dependencies:
+      vue: 3.5.26(typescript@5.9.3)
 
   '@esbuild/aix-ppc64@0.21.5':
     optional: true

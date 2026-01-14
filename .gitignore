@@ -13,6 +13,7 @@ coverage/
 packages/bestiary-ui/
 packages/*/dist/
 playground/dist/
+playground-build/dist/
 
 
 # Vite / tooling cache

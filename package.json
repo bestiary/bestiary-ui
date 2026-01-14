@@ -1,9 +1,11 @@
 {
   "name": "bestiary-ui-monorepo",
+  "version": "0.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "pnpm -C playground dev",
+    "pack": "tsx scripts/pack.ts",
     "build": "tsx scripts/build.ts",
     "build:components": "tsx scripts/build.ts --components",
     "build:utils": "tsx scripts/build.ts --utils",
