@@ -2,6 +2,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: var(--b-ref-space-2);
     border: 1px solid transparent;
     border-radius: var(--b-button-radius);
     font-family: var(--b-font-family);
@@ -10,6 +11,14 @@
     cursor: pointer;
     outline: none;
     user-select: none;
+}
+
+.b-button svg,
+.b-button [class*="icon"] {
+    flex-shrink: 0;
+    width: 1.25em;
+    height: 1.25em;
+    fill: currentColor;
 }
 
 .b-button:disabled {
@@ -21,15 +30,29 @@
     padding: var(--b-ref-space-1) var(--b-ref-space-2);
     font-size: var(--b-font-size-sm);
 }
+.b-button--sm.b-button--square,
+.b-button--sm.b-button--circle {
+    height: var(--b-button-h-sm);
+}
 
 .b-button--md {
     padding: var(--b-ref-space-2) var(--b-ref-space-4);
     font-size: var(--b-font-size-md);
 }
 
+.b-button--md.b-button--square,
+.b-button--md.b-button--circle {
+    height: var(--b-button-h-md);
+}
+
 .b-button--lg {
     padding: var(--b-ref-space-3) var(--b-ref-space-6);
     font-size: var(--b-font-size-lg);
+}
+
+.b-button--lg.b-button--square,
+.b-button--lg.b-button--circle {
+    height: var(--b-button-h-lg);
 }
 
 /* Primary */
@@ -51,6 +74,24 @@
 
 .b-button--secondary:hover:not(:disabled) {
     background-color: var(--b-ref-neutral-100);
+}
+
+/* --- Shapes --- */
+.b-button--rectangle {
+    border-radius: var(--b-button-radius, var(--b-ref-radius-md));
+    padding: var(--b-ref-space-2) var(--b-ref-space-4);
+}
+
+.b-button--square {
+    border-radius: var(--b-button-radius, var(--b-ref-radius-md));
+    padding: 0 !important; /* Прибираємо падінги, щоб спрацювали розміри */
+    aspect-ratio: 1 / 1;    /* Робить кнопку ідеально квадратною */
+}
+
+.b-button--circle {
+    border-radius: var(--b-ref-radius-full) !important;
+    padding: 0 !important;
+    aspect-ratio: 1 / 1;
 }
 
 [data-theme='dark'] .b-button--secondary:hover:not(:disabled) {

@@ -35,6 +35,7 @@
     },
     "dependencies": {
         "@bestiary-ui/utils": "workspace:*",
-        "@bestiary-ui/style": "workspace:*"
+        "@bestiary-ui/style": "workspace:*",
+        "@bestiary-ui/icons": "workspace:*"
     }
 }

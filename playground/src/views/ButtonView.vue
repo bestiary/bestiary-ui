@@ -29,9 +29,22 @@
                 <Button type="primary" disabled>Disabled Primary</Button>
             </div>
         </div>
+
+        <div class="section">
+            <h3>With Icon</h3>
+            <div class="row">
+                <Button><PlusIcon/>Left</Button>
+                <Button>Right<PlusIcon/></Button>
+                <Button size="sm"><PlusIcon/></Button>
+                <Button><PlusIcon/></Button>
+                <Button shape="square"><PlusIcon/></Button>
+                <Button shape="circle"><PlusIcon/></Button>
+            </div>
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import Button from '@bestiary-ui/components/button'
+import { PlusIcon } from "@bestiary-ui/icons/24/solid";
 </script>

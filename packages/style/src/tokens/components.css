@@ -12,4 +12,8 @@
     --b-button-secondary-bg: var(--b-bg-surface);
     --b-button-secondary-text: var(--b-text-main);
     --b-button-secondary-border: var(--b-border-color);
+
+    --b-button-h-sm: var(--b-size-sm);
+    --b-button-h-md: var(--b-size-md);
+    --b-button-h-lg: var(--b-size-lg);
 }
