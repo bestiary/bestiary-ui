@@ -21,6 +21,11 @@
             "import": "../bestiary-ui/components/card/index.js",
             "require": "../bestiary-ui/components/card/index.cjs"
         },
+        "./badge": {
+            "types": "../bestiary-ui/components/badge/index.d.ts",
+            "import": "../bestiary-ui/components/badge/index.js",
+            "require": "../bestiary-ui/components/badge/index.cjs"
+        },
         "./style.css": "../bestiary-ui/components/style.css",
         "./*": "./*"
     },

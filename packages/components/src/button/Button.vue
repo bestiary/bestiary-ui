@@ -18,7 +18,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
     size: 'md',
     shape: 'rectangle',
     disabled: false
-})
+});
 
 const classes = computed(() => {
     return [
@@ -27,5 +27,5 @@ const classes = computed(() => {
         `b-button--${props.size}`,
         `b-button--${props.shape}`,
     ]
-})
+});
 </script>

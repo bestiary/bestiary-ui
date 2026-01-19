@@ -1,0 +1,13 @@
+.b-badge {
+    display: inline-flex;
+    border-radius: var(--b-badge-border-radius);
+    align-items: center;
+    justify-content: center;
+    padding: var(--b-badge-padding);
+    background: var(--b-badge-primary-bg);
+    color: var(--b-badge-primary-color);
+    font-size: var(--b-badge-font-size);
+    font-weight: var(--b-badge-font-weight);
+    min-width: var(--b-badge-min-width);
+    height: var(--b-badge-height);
+}

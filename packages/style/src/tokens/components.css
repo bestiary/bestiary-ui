@@ -39,6 +39,18 @@
     --b-card-padding-sm-x: var(--b-ref-space-4);
     --b-card-padding-sm-y: var(--b-ref-space-4);
     /* CART END */
+
+    /* BADGE START */
+    --b-badge-border-radius: var(--b-ref-radius-md);
+    --b-badge-padding: var(--b-ref-space-0) var(--b-ref-space-2);
+    --b-badge-primary-bg: var(--b-color-primary);
+    --b-badge-primary-color: var(--b-text-muted);
+    --b-badge-font-size: var(--b-font-size-xs);
+    --b-badge-font-weight: var(--b-font-weight-bold);
+    --b-badge-min-width: var(--b-ref-space-6);
+    --b-badge-height: var(--b-ref-space-6);
+
+    /* BADGE END */
 }
 
 [data-theme='dark'] {
