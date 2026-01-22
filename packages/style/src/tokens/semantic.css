@@ -70,6 +70,9 @@
     --b-size-sm: var(--b-ref-control-size-sm); /* 32px */
     --b-size-md: var(--b-ref-control-size-md); /* 40px */
     --b-size-lg: var(--b-ref-control-size-lg); /* 48px */
+
+    --b-aspect-square: var(--b-ref-aspect-square);
+    --b-aspect-video: var(--b-ref-aspect-video);
 }
 /* ==========================================
    DARK THEME

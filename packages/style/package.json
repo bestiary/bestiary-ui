@@ -17,7 +17,7 @@
         "./grid.css": "../bestiary-ui/style/utilities/grid.css",
         "./text.css": "../bestiary-ui/style/utilities/text.css",
         "./backgrounds.css": "../bestiary-ui/style/utilities/backgrounds.css",
-        "./display.css": "../bestiary-ui/style/utilities/display.css",
+        "./layout.css": "../bestiary-ui/style/utilities/layout.css",
         "./borders.css": "../bestiary-ui/style/utilities/borders.css"
     },
     "files": [

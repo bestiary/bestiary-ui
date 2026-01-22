@@ -1,0 +1,188 @@
+/* ==========================================
+   ASPECT_RATIO
+   ========================================== */
+.b-aspect-square { aspect-ratio: var(--b-aspect-square) !important; }
+.b-aspect-video  { aspect-ratio: var(--b-aspect-video) !important; }
+.b-aspect-auto   { aspect-ratio: auto !important; }
+
+/* ==========================================
+   COLUMNS
+   ========================================== */
+.b-columns-3xs { columns: var(--b-ref-size-3xs) !important; }
+.b-columns-2xs { columns: var(--b-ref-size-2xs) !important; }
+.b-columns-xs { columns: var(--b-ref-size-xs) !important; }
+.b-columns-sm { columns: var(--b-ref-size-sm) !important; }
+.b-columns-md { columns: var(--b-ref-size-md) !important; }
+.b-columns-lg { columns: var(--b-ref-size-lg) !important; }
+.b-columns-xl { columns: var(--b-ref-size-xl) !important; }
+.b-columns-2xl { columns: var(--b-ref-size-2xl) !important; }
+.b-columns-3xl { columns: var(--b-ref-size-3xl) !important; }
+.b-columns-4xl { columns: var(--b-ref-size-4xl) !important; }
+.b-columns-5xl { columns: var(--b-ref-size-5xl) !important; }
+.b-columns-6xl { columns: var(--b-ref-size-6xl) !important; }
+.b-columns-7xl { columns: var(--b-ref-size-7xl) !important; }
+.b-columns-3xs { columns: auto !important; }
+
+/* ==========================================
+   BREAK
+   ========================================== */
+
+/* After */
+.b-break-after-auto       { break-after: auto !important; }
+.b-break-after-avoid      { break-after: avoid !important; }
+.b-break-after-all        { break-after: all !important; }
+.b-break-after-avoid-page { break-after: avoid-page !important; }
+.b-break-after-page       { break-after: page !important; }
+.b-break-after-left       { break-after: left !important; }
+.b-break-after-right      { break-after: right !important; }
+.b-break-after-column     { break-after: column !important; }
+
+/* Before */
+.b-break-before-auto       { break-before: auto !important; }
+.b-break-before-avoid      { break-before: avoid !important; }
+.b-break-before-all        { break-before: all !important; }
+.b-break-before-avoid-page { break-before: avoid-page !important; }
+.b-break-before-page       { break-before: page !important; }
+.b-break-before-left       { break-before: left !important; }
+.b-break-before-right      { break-before: right !important; }
+.b-break-before-column     { break-before: column !important; }
+
+/* Inside */
+.b-break-before-auto         { break-inside: auto !important; }
+.b-break-before-avoid        { break-inside: avoid !important; }
+.b-break-before-avoid-page   { break-inside: avoid-page !important; }
+.b-break-before-avoid-column { break-inside: avoid-column !important; }
+
+/* ==========================================
+   BOX DECORATION BREAK
+   ========================================== */
+.b-box-decoration-clone { box-decoration-break: clone !important; }
+.b-box-decoration-slice { box-decoration-break: slice !important; }
+
+/* ==========================================
+   BOX SIZING
+   ========================================== */
+.b-box-sizing  { box-sizing: border-box !important; }
+.b-box-content { box-sizing: content-box !important; }
+
+/* ==========================================
+   DISPLAY
+   ========================================== */
+.b-inline       { display: inline !important; }
+.b-block        { display: block !important; }
+.b-inline-block { display: inline-block !important; }
+.b-hidden       { display: none !important; }
+
+/* ==========================================
+   FLOAT
+   ========================================== */
+.b-float-right { float: right !important; }
+.b-float-left  { float: left !important; }
+.b-float-start { float: inline-start !important; }
+.b-float-end   { float: inline-end !important; }
+.b-float-none  { float: none !important; }
+
+/* ==========================================
+   CLEAR
+   ========================================== */
+.b-clear-left { clear: left !important; }
+.b-clear-right { clear: right !important; }
+.b-clear-both { clear: both !important; }
+.b-clear-start { clear: inline-start !important; }
+.b-clear-end { clear: inline-end !important; }
+.b-clear-none { clear: none !important; }
+
+/* ==========================================
+   ISOLATION
+   ========================================== */
+.b-isolate { isolation: isolate !important; }
+.b-isolation-auto { isolation: auto !important; }
+
+/* ==========================================
+   OBJECT FIT
+   ========================================== */
+.b-object-contain    { object-fit: contain !important; }
+.b-object-cover      { object-fit: cover !important; }
+.b-object-fill       { object-fit: fill !important; }
+.b-object-none       { object-fit: none !important; }
+.b-object-scale-down { object-fit: scale-down !important; }
+
+/* ==========================================
+   OBJECT POSITION
+   ========================================== */
+.b-object-top-left     { object-position: top left !important; }
+.b-object-top          { object-position: top !important; }
+.b-object-top-right    { object-position: top right !important; }
+.b-object-left         { object-position: left !important; }
+.b-object-center       { object-position: center !important; }
+.b-object-right        { object-position: right !important; }
+.b-object-bottom-left  { object-position: bottom left !important; }
+.b-object-bottom       { object-position: bottom !important; }
+.b-object-bottom-right { object-position: bottom right !important; }
+
+/* ==========================================
+   OVERFLOW
+   ========================================== */
+
+/* All */
+.b-overflow-auto    { overflow: auto !important; }
+.b-overflow-hidden  { overflow: hidden !important; }
+.b-overflow-clip    { overflow: clip !important; }
+.b-overflow-visible { overflow: visible !important; }
+.b-overflow-scroll  { overflow: scroll !important; }
+
+/* X */
+.b-overflow-x-auto    { overflow-x: auto !important; }
+.b-overflow-x-hidden  { overflow-x: hidden !important; }
+.b-overflow-x-clip    { overflow-x: clip !important; }
+.b-overflow-x-visible { overflow-x: visible !important; }
+.b-overflow-x-scroll  { overflow-x: scroll !important; }
+
+/* Y */
+.b-overflow-y-auto    { overflow-y: auto !important; }
+.b-overflow-y-hidden  { overflow-y: hidden !important; }
+.b-overflow-y-clip    { overflow-y: clip !important; }
+.b-overflow-y-visible { overflow-y: visible !important; }
+.b-overflow-y-scroll  { overflow-y: scroll !important; }
+
+/* ==========================================
+   OVERSCROLL
+   ========================================== */
+.b-overscroll-auto      { overscroll-behavior: auto !important; }
+.b-overscroll-contain   { overscroll-behavior: contain !important; }
+.b-overscroll-none      { overscroll-behavior: none !important; }
+.b-overscroll-x-auto    { overscroll-behavior-x: auto !important; }
+.b-overscroll-x-contain { overscroll-behavior-x: contain !important; }
+.b-overscroll-x-none    { overscroll-behavior-x: none !important; }
+.b-overscroll-y-auto    { overscroll-behavior-y: auto !important; }
+.b-overscroll-y-contain { overscroll-behavior-y: contain !important; }
+.b-overscroll-y-none    { overscroll-behavior-y: none !important; }
+
+/* ==========================================
+   POSITION
+   ========================================== */
+.b-static { position: static !important; }
+.b-fixed { position: fixed !important; }
+.b-absolute { position: absolute !important; }
+.b-relative { position: relative !important; }
+.b-sticky { position: sticky !important; }
+
+/* ==========================================
+   VISIBILITY
+   ========================================== */
+.b-visible { visibility: visible !important; }
+.b-invisible { visibility: hidden !important; }
+.b-collapse { visibility: collapse !important; }
+
+/* ==========================================
+   Z-INDEX
+   ========================================== */
+.b-z-auto     { z-index: var(--b-ref-z-auto) !important; }
+.b-z-hide     { z-index: var(--b-ref-z-hide) !important; }
+.b-z-base     { z-index: var(--b-ref-z-base) !important; }
+.b-z-dropdown { z-index: var(--b-ref-z-dropdown) !important; }
+.b-z-sticky   { z-index: var(--b-ref-z-sticky) !important; }
+.b-z-modal    { z-index: var(--b-ref-z-modal) !important; }
+.b-z-popover  { z-index: var(--b-ref-z-popover) !important; }
+.b-z-toast    { z-index: var(--b-ref-z-toast) !important; }
+.b-z-tooltip  { z-index: var(--b-ref-z-tooltip) !important; }

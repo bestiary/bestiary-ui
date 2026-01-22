@@ -136,6 +136,17 @@
     /* ==========================================
        FRACTIONS
        ========================================== */
+    --b-ref-aspect-square:         1 / 1;
+    --b-ref-aspect-video:          16 / 9;
+    --b-ref-aspect-video-clasic:   4 / 3;
+    --b-ref-aspect-video-vertical: 16 / 10;
+    --b-ref-aspect-cinema:         21 / 9;
+    --b-ref-aspect-stories-v:      4 / 5;
+    --b-ref-aspect-stories-h:      5 / 4;
+
+    /* ==========================================
+       FRACTIONS
+       ========================================== */
     --b-ref-fraction-1-2: 50%;
     --b-ref-fraction-1-3: 33.3333%;
     --b-ref-fraction-1-4: 25%;
