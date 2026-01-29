@@ -31,14 +31,7 @@ export default defineConfig({
             outDir: resolve(__dirname, "../../packages/bestiary-ui/components"),
             cleanVueFileName: true,
             tsconfigPath: resolve(__dirname, "tsconfig.json"),
-            entryRoot: resolve(__dirname, "src"),
-            beforeWriteFile: (filePath, content) => {
-                // Replace relative paths to other internal packages with their aliases
-                // Example: import("../../../../utils/src") -> import("@bestiary-ui/utils")
-                // And: from "../../../../utils/src" -> from "@bestiary-ui/utils"
-                const newContent = content.replace(/(["'])(?:\.\.\/)+([^/]+)\/src\1/g, '$1@bestiary-ui/$2$1');
-                return { filePath, content: newContent };
-            }
+            entryRoot: resolve(__dirname, "src")
         })
     ],
     build: {

@@ -1,7 +1,7 @@
 import Splitter from "./Splitter.vue";
-import { withInstall, type SFCWithInstall } from "@bestiary-ui/utils";
+import { withInstall } from "@bestiary-ui/utils";
 
-export const BSplitter = withInstall(Splitter) as SFCWithInstall<typeof Splitter>;
+export const BSplitter = withInstall(Splitter);
 export default Splitter;
 
-export * from "./splitter.types";
+export * from "./splitter.types.ts";

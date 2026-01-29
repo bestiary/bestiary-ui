@@ -15,11 +15,7 @@ export default defineConfig({
             cleanVueFileName: true,
             include: ["generated/**/*.ts", "generated/**/*.vue"],
             outDir: resolve(__dirname, "../../packages/bestiary-ui/icons"),
-            entryRoot: resolve(__dirname, "generated"),
-            beforeWriteFile: (filePath, content) => {
-                const newContent = content.replace(/(["'])(?:\.\.\/)+([^/]+)\/src\1/g, '$1@bestiary-ui/$2$1');
-                return { filePath, content: newContent };
-            }
+            entryRoot: resolve(__dirname, "generated")
         })
     ],
     build: {

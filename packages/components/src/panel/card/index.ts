@@ -1,7 +1,7 @@
 import Card from "./Card.vue";
-import { withInstall, type SFCWithInstall } from "@bestiary-ui/utils";
+import { withInstall } from "@bestiary-ui/utils";
 
-export const BCard = withInstall(Card) as SFCWithInstall<typeof Card>;
+export const BCard = withInstall(Card);
 export default Card;
 
-export * from "./card.types";
+export * from "./card.types.ts";

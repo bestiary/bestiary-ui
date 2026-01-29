@@ -1,7 +1,7 @@
 import Divider from "./Divider.vue";
-import { withInstall, type SFCWithInstall } from "@bestiary-ui/utils";
+import { withInstall } from "@bestiary-ui/utils";
 
-export const BDivider = withInstall(Divider) as SFCWithInstall<typeof Divider>;
+export const BDivider = withInstall(Divider);
 export default Divider;
 
-export * from "./divider.types";
+export * from "./divider.types.ts";

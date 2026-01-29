@@ -1,7 +1,7 @@
 import SplitterPanel from "./SplitterPanel.vue";
-import { withInstall, type SFCWithInstall } from "@bestiary-ui/utils";
+import { withInstall } from "@bestiary-ui/utils";
 
-export const BSplitterPanel = withInstall(SplitterPanel) as SFCWithInstall<typeof SplitterPanel>;
+export const BSplitterPanel = withInstall(SplitterPanel);
 export default SplitterPanel;
 
-export * from "./splitterpanel.types";
+export * from "./splitterpanel.types.ts";

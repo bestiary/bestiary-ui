@@ -26,7 +26,6 @@ export default defineConfig({
             outDir: resolve(__dirname, "../../packages/bestiary-ui/utils"),
             cleanVueFileName: true,
             tsconfigPath: resolve(__dirname, "tsconfig.json"),
-            entryRoot: resolve(__dirname, "src"),
         }),
     ],
 })
