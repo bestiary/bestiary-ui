@@ -59,8 +59,11 @@
         "vue": "^3.4.0"
     },
     "dependencies": {
-        "@bestiary-ui/utils": "workspace:*",
+        "@bestiary-ui/icons": "workspace:*",
         "@bestiary-ui/style": "workspace:*",
-        "@bestiary-ui/icons": "workspace:*"
+        "@bestiary-ui/utils": "workspace:*"
+    },
+    "devDependencies": {
+        "vite-plugin-lib-inject-css": "^2.2.2"
     }
 }

@@ -48,8 +48,8 @@ const classes = computed(() => [
 ]);
 
 const getPanels = () => {
-    const children = slots.default?.() || [];
-    return children.filter(child => (child.type as any).name === "BSplitterPanel");
+    const children = (slots as any).default?.() || [];
+    return children.filter((child: any) => (child.type as any).name === "BSplitterPanel");
 };
 
 onMounted(() => {

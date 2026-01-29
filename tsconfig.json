@@ -1,0 +1,31 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@bestiary-ui/*": [
+                "packages/*/src"
+            ]
+        }
+    },
+    "include": [
+        "scripts/**/*.ts"
+    ],
+    "references": [
+        {
+            "path": "packages/components"
+        },
+        {
+            "path": "packages/utils"
+        },
+        {
+            "path": "packages/style"
+        },
+        {
+            "path": "packages/icons"
+        },
+        {
+            "path": "playground"
+        }
+    ]
+}

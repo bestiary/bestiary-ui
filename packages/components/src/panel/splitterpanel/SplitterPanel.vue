@@ -13,7 +13,7 @@ defineOptions({ name: "BSplitterPanel" });
 const props = defineProps(splitterPanelProps);
 
 const slots = useSlots();
-const isNested = computed(() => slots.default?.().some(vnode => (vnode.type as any).name === "BSplitter"));
+const isNested = computed(() => (slots as any).default?.().some((vnode: any) => (vnode.type as any).name === "BSplitter"));
 
 const panelStyle = computed(() => ({
     flexBasis: props.size ? `${props.size}%` : undefined

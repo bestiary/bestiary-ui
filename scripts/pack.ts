@@ -1,9 +1,8 @@
 import { execSync } from 'child_process'
-import { resolve, dirname, join } from 'path'
+import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import fs from 'fs-extra'
 
-// @ts-ignore TS1343
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 

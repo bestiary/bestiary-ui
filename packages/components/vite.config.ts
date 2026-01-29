@@ -1,9 +1,10 @@
-import { defineConfig } from 'vite'
+import {defineConfig, UserConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
 import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import glob from 'fast-glob'
+import { libInjectCss } from 'vite-plugin-lib-inject-css'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -22,14 +23,15 @@ export default defineConfig(async () => {
         return acc
     }, {} as Record<string, string>)
 
-    return {
+    const config: UserConfig = {
         plugins: [
             vue(),
+            libInjectCss(),
             dts({
                 outDir: resolve(__dirname, '../../packages/bestiary-ui/components'),
                 cleanVueFileName: true,
                 tsconfigPath: resolve(__dirname, 'tsconfig.json'),
-                entryRoot: resolve(__dirname, 'src'),
+                entryRoot: resolve(__dirname, 'src')
             })
         ],
         build: {
@@ -37,10 +39,10 @@ export default defineConfig(async () => {
             emptyOutDir: true,
             lib: {
                 entry: input,
-                formats: ['es', 'cjs']
+                formats: ['es', 'cjs'] as ('es' | 'cjs')[]
             },
             rollupOptions: {
-                external: ['vue', '@bestiary-ui/utils', '@bestiary-ui/style', "@bestiary-ui/icons"],
+                external: ['vue', '@bestiary-ui/utils', '@bestiary-ui/style'],
                 output: [
                     {
                         format: 'es',
@@ -70,4 +72,5 @@ export default defineConfig(async () => {
             }
         }
     }
+    return config
 })
