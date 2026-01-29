@@ -112,6 +112,13 @@ async function buildComponents() {
     const dest = resolve(distDir, "components");
     await clean(dest);
     execSync("vite build", { stdio: "inherit", cwd: resolve(pkgDir, "components") });
+
+    // Copy global.d.ts
+    const globalDts = resolve(pkgDir, "components/src/global.d.ts");
+    if (await fs.pathExists(globalDts)) {
+        await fs.copy(globalDts, resolve(dest, "global.d.ts"));
+    }
+
     console.log("📦 Finalizing Components...");
     await fixPackageJson(resolve(pkgDir, "components/package.json"), resolve(dest, "package.json"));
 }
@@ -149,7 +156,7 @@ async function build() {
         await buildStyle();
     }
 
-    if (args.includes("--icons")) {
+    if (buildAll || args.includes("--icons")) {
         await buildIcons();
     }
 

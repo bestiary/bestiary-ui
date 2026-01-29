@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import {cardProps} from "./card.types.ts";
+import {cardProps} from "./card.types";
 import "./card.css";
 import {computed} from "vue";
 

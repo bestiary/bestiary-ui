@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import {computed} from "vue";
-import {badgeProps} from "./badge.types.ts";
+import {badgeProps} from "./badge.types";
 import "./badge.css"
 
 defineOptions({name: "BBadge"});

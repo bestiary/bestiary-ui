@@ -1,7 +1,7 @@
 import OverlayBadge from "./OverlayBadge.vue";
-import { withInstall } from "@bestiary-ui/utils";
+import { withInstall, type SFCWithInstall } from "@bestiary-ui/utils";
 
-export const BOverlayBadge = withInstall(OverlayBadge);
+export const BOverlayBadge = withInstall(OverlayBadge) as SFCWithInstall<typeof OverlayBadge>;
 export default OverlayBadge;
 
-export * from "./overlayBadge.types.ts";
+export * from "./overlayBadge.types";

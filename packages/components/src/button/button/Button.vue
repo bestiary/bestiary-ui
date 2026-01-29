@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import {computed} from "vue";
-import {buttonProps} from "./button.types.ts";
+import {buttonProps} from "./button.types";
 import "./button.css";
 
 defineOptions({ name: "BButton" });
