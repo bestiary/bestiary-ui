@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "../../packages/bestiary-ui/icons",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "moduleResolution": "bundler",
+    "types": ["node"]
+  },
+  "include": ["generated/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

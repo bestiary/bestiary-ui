@@ -8,7 +8,7 @@ const __dirname = dirname(__filename);
 
 const root = resolve(__dirname, "..");
 const iconsPkgDir = resolve(root, "packages/icons");
-const srcDir = resolve(iconsPkgDir, "src");
+const srcDir = resolve(iconsPkgDir, "src/24");
 const genDir = resolve(iconsPkgDir, "generated");
 
 function toPascalCase(str: string) {
@@ -18,66 +18,75 @@ function toPascalCase(str: string) {
 }
 
 async function generateIcons() {
-    console.log("🚀 Generating Icon Components...");
+    console.log("🚀 Generating Bestiary Icons (Functional TS Mode)...");
 
     await fs.remove(genDir);
     await fs.ensureDir(genDir);
 
-    // Find all svg files
     const svgFiles = await glob("**/*.svg", { cwd: srcDir });
-
-    const entries: Record<string, string[]> = {};
+    const allComponents: string[] = [];
 
     for (const file of svgFiles) {
         const fullPath = resolve(srcDir, file);
-        const relativeDir = dirname(file); // e.g., 16/solid
+        const relativeDir = dirname(file);
+        const styleSuffix = toPascalCase(relativeDir);
         const name = basename(file, extname(file));
-        const pascalName = toPascalCase(name) + "Icon";
+        const pascalName = toPascalCase(name) + styleSuffix;
 
         let svgContent = await fs.readFile(fullPath, "utf-8");
+
+        // Очищення кольорів
         svgContent = svgContent.replace(/fill="#[a-zA-Z0-9]+"/g, 'fill="currentColor"');
         svgContent = svgContent.replace(/stroke="#[a-zA-Z0-9]+"/g, 'stroke="currentColor"');
-        svgContent = svgContent.replace(
-            '<svg',
-            '<svg :width="size || \'1em\'" :height="size || \'1em\'" :style="{ color }" v-bind="$attrs" aria-hidden="true"'
-        );
 
-        const vueComponent = `<template>${svgContent}</template>
-        <script setup lang="ts">
-        /**
-         * Bestiary UI Icon: ${pascalName}
-         */
-        interface IconProps {
-            size?: string | number
-            color?: string
-        }
-        defineProps<IconProps>()
-        </script>`;
+        // Витягуємо вміст всередині <svg> та viewBox
+        const innerSVG = svgContent.match(/<svg[^>]*>([\s\S]*)<\/svg>/)?.[1] || "";
+        const viewBox = svgContent.match(/viewBox="([^"]*)"/)?.[1] || "0 0 24 24";
 
-        const targetDir = resolve(genDir, relativeDir);
-        await fs.ensureDir(targetDir);
-        await fs.writeFile(resolve(targetDir, `${pascalName}.vue`), vueComponent);
+        // Генеруємо чистий TS код компонента
+        const componentContent = `
+import { h, defineComponent } from 'vue'
 
-        // Collect for index.ts
-        if (!entries[relativeDir]) entries[relativeDir] = [];
-        entries[relativeDir].push(pascalName);
+export default defineComponent({
+  name: '${pascalName}',
+  props: {
+    size: { 
+      type: [String, Number], 
+      default: '1em' 
+    },
+    color: { 
+      type: String, 
+      default: undefined 
+    }
+  },
+  setup(props, { attrs }) {
+    return () => h('svg', {
+      ...attrs,
+      width: props.size,
+      height: props.size,
+      viewBox: '${viewBox}',
+      fill: 'none',
+      'aria-hidden': 'true',
+      style: { color: props.color },
+      innerHTML: \`${innerSVG.trim()}\`
+    })
+  }
+})
+`;
+
+        await fs.writeFile(resolve(genDir, `${pascalName}.ts`), componentContent);
+        allComponents.push(pascalName);
     }
 
-    // Generate index.ts for each subdirectory
-    for (const [dir, components] of Object.entries(entries)) {
-        const indexContent = components
-            .map(c => `export { default as ${c} } from "./${c}.vue"`)
-            .join('\n');
-        await fs.writeFile(resolve(genDir, dir, "index.ts"), indexContent);
-    }
-
-    // Root index.ts (optional, but good to have)
-    const rootIndexContent = Object.keys(entries)
-        .map(dir => `export * from "./${dir}"`)
+    // index.ts з іменованими експортами
+    const indexContent = allComponents
+        .sort()
+        .map(c => `export { default as ${c} } from "./${c}"`)
         .join('\n');
-    await fs.writeFile(resolve(genDir, "index.ts"), rootIndexContent);
 
-    console.log(`✨ Generated ${svgFiles.length} icons in ${genDir}`);
+    await fs.writeFile(resolve(genDir, "index.ts"), indexContent);
+
+    console.log(`✨ Generated ${allComponents.length} functional TS icons.`);
 }
 
 generateIcons().catch(console.error);
