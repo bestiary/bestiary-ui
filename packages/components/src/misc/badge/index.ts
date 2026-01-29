@@ -1,5 +1,5 @@
 import Badge from "./Badge.vue";
-import { withInstall } from "../../utils/with-install";
+import { withInstall } from "@bestiary-ui/utils";
 
 export const BBadge = withInstall(Badge);
 export default Badge;

@@ -10,6 +10,11 @@
             <div
                 v-if="index !== panels.length - 1"
                 class="b-splitter__gutter"
+                role="separator"
+                :aria-orientation="layout"
+                :aria-valuenow="Math.round(panelSizes[index] || 0)"
+                :aria-valuemin="0"
+                :aria-valuemax="100"
                 @pointerdown="onGutterPointerDown($event, index)"
             >
                 <div class="b-splitter__gutter-handle"></div>
@@ -19,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, useSlots, VNode } from "vue";
+import { ref, computed, watch, useSlots, VNode, Slots } from "vue";
 import { splitterProps } from "./splitter.types";
 import "./splitter.css";
 
@@ -27,9 +32,14 @@ defineOptions({ name: "BSplitter" });
 const props = defineProps(splitterProps);
 
 const containerRef = ref<HTMLElement | null>(null);
-const slots = useSlots();
+const slots = useSlots() as Slots;
 
-const panels = ref<VNode[]>([]);
+const panels = computed(() => {
+    if (!slots.default) return [];
+    // Filter by the custom marker added to SplitterPanel
+    return (slots.default() as VNode[]).filter((child: any) => child.type?.__BESTIARY_SPLITTER_PANEL__);
+});
+
 const panelSizes = ref<number[]>([]);
 const dragging = ref(false);
 const currentGutterIndex = ref(-1);
@@ -47,19 +57,15 @@ const classes = computed(() => [
     { "b-splitter--dragging": dragging.value }
 ]);
 
-const getPanels = () => {
-    const children = slots.default?.() || [];
-    return children.filter(child => (child.type as any).name === "BSplitterPanel");
-};
-
-onMounted(() => {
-    panels.value = getPanels();
-    const count = panels.value.length;
-    panelSizes.value = panels.value.map(p => (p.props?.size as number) || (100 / count));
-});
+// Initialize and react to panel count changes
+watch(() => panels.value.length, (count) => {
+    if (count > 0 && panelSizes.value.length !== count) {
+        panelSizes.value = panels.value.map(p => (p.props?.size as number) || (100 / count));
+    }
+}, { immediate: true });
 
 const getPanelStyle = (index: number) => {
-    const size = panelSizes.value[index];
+    const size = panelSizes.value[index] || 0;
     const gutterCount = panels.value.length - 1;
     const gutterOffset = (gutterCount * props.gutterSize) / panels.value.length;
 

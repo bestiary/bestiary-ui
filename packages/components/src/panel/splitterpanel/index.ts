@@ -1,7 +1,7 @@
 import SplitterPanel from "./SplitterPanel.vue";
-import { withInstall } from "../../utils/with-install.ts";
+import { withInstall } from "@bestiary-ui/utils";
 
 export const BSplitterPanel = withInstall(SplitterPanel);
 export default SplitterPanel;
 
-export * from "./splitterpanel.types.ts"
+export * from "./splitterpanel.types.ts";

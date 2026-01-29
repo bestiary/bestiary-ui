@@ -17,7 +17,7 @@
                 </Card>
                 <Card type="info" size="sm" shadow="never">
                     <div class="b-flex b-items-center b-gap-3">
-                        <InformationCircleIcon class="b-text-primary" />
+                        <InformationCircleSolid class="b-text-primary" />
                         <span class="b-text-sm">Ваш підписка закінчується через 3 дні.</span>
                     </div>
                 </Card>
@@ -26,13 +26,13 @@
                     <div class="b-flex b-justify-between b-items-start b-mb-4">
 
                         <div class="b-flex b-items-center b-justify-center b-rounded-lg b-bg-primary b-text-white b-p-3" style="width: 56px; height: 56px;">
-                            <UsersIcon size="lg" />
+                            <UsersSolid size="lg" />
                         </div>
 
-                        <BBadge type="success" shape="circle" size="large">
-                            <ArrowTrendingUpIcon size="sm" />
+                        <Badge type="success" shape="circle" size="large">
+                            <ArrowTrendingUpSolid size="sm" />
                             +12.5%
-                        </BBadge>
+                        </Badge>
                     </div>
 
                     <div class="b-flex b-flex-col">
@@ -69,8 +69,8 @@
 
                     <template #footer>
                         <div class="b-flex b-gap-4 b-mt-1">
-                            <Button type="secondary" size="sm" class="b-w-full">Cancel</Button>
-                            <Button class="b-w-full" size="sm">Save</Button>
+                            <Button type="secondary" class="b-w-full">Cancel</Button>
+                            <Button class="b-w-full">Save</Button>
                         </div>
                     </template>
                 </Card>
@@ -91,7 +91,7 @@
                     <template #footer>
                         <div class="b-flex b-justify-between b-items-center">
                             <span class="b-font-bold b-text-lg">$199.00</span>
-                            <Button size="sm">Купити</Button>
+                            <Button>Купити</Button>
                         </div>
                     </template>
                 </Card>
@@ -123,7 +123,7 @@
 
                 <Card :body-style="{ display: 'flex', gap: '20px', alignItems: 'center' }">
                     <div class="b-w-16 b-h-16 b-bg-surface b-border b-rounded-full b-flex b-items-center b-justify-center">
-                        <UserIcon size="lg" />
+                        <UserSolid size="lg" />
                     </div>
 
                     <div class="b-flex-1">
@@ -132,7 +132,7 @@
                     </div>
 
                     <Button shape="circle" type="secondary">
-                        <CogIcon />
+                        <CogSolid />
                     </Button>
                 </Card>
 
@@ -157,12 +157,14 @@
 <script setup lang="ts">
 import Card from '@bestiary-ui/components/panel/card'
 import Button from "@bestiary-ui/components/button/button";
-import {InformationCircleIcon} from "@bestiary-ui/icons/24/solid"
-import {UserIcon} from "@bestiary-ui/icons/24/solid"
-import {CogIcon} from "@bestiary-ui/icons/24/solid"
-import {UsersIcon} from "@bestiary-ui/icons/24/solid";
-import {ArrowTrendingUpIcon} from "@bestiary-ui/icons/24/solid";
-import BBadge from "@bestiary-ui/components/misc/badge";
+import {
+    InformationCircleSolid,
+    UserSolid,
+    CogSolid,
+    UsersSolid,
+    ArrowTrendingUpSolid,
+} from "@bestiary-ui/icons";
+import Badge from "@bestiary-ui/components/misc/badge";
 </script>
 
 <style scoped>

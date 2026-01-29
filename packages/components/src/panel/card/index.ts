@@ -1,7 +1,7 @@
-import Card from './Card.vue'
-import { withInstall } from '../../utils/with-install.ts'
+import Card from "./Card.vue";
+import { withInstall } from "@bestiary-ui/utils";
 
-export const BCard = withInstall(Card)
+export const BCard = withInstall(Card);
 export default Card;
 
-export * from './card.types.ts'
+export * from "./card.types.ts";

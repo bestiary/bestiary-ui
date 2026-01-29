@@ -34,22 +34,22 @@
         <div class="section">
             <h3>With Icon</h3>
             <div class="row">
-                <Button size="small"><PlusIcon/>Left</Button>
-                <Button size="small">Right<PlusIcon/></Button>
+                <Button size="small"><PlusSolid/>Left</Button>
+                <Button size="small">Right<PlusSolid/></Button>
             </div>
         </div>
 
         <div class="section">
             <h3>Shape</h3>
             <div class="row">
-                <Button shape="square"><PlusIcon/></Button>
-                <Button shape="circle"><PlusIcon/></Button>
+                <Button shape="square"><PlusSolid/></Button>
+                <Button shape="circle"><PlusSolid/></Button>
             </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import Button from '@bestiary-ui/components/button/button'
-import { PlusIcon } from "@bestiary-ui/icons/24/solid";
+import Button from "@bestiary-ui/components/button/button";
+import { PlusSolid } from "@bestiary-ui/icons";
 </script>

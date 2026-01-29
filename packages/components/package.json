@@ -46,7 +46,6 @@
             "import": "../bestiary-ui/components/misc/overlaybadge/index.js",
             "require": "../bestiary-ui/components/misc/overlaybadge/index.cjs"
         },
-        "./style.css": "../bestiary-ui/components/style.css",
         "./*": "./*"
     },
     "files": [
@@ -56,11 +55,13 @@
         "access": "public"
     },
     "peerDependencies": {
-        "vue": "^3.4.0"
+        "vue": "^3.4.0",
+        "@bestiary-ui/style": "workspace:*"
     },
     "dependencies": {
-        "@bestiary-ui/utils": "workspace:*",
-        "@bestiary-ui/style": "workspace:*",
-        "@bestiary-ui/icons": "workspace:*"
+        "@bestiary-ui/utils": "workspace:*"
+    },
+    "devDependencies": {
+        "vite-plugin-lib-inject-css": "^2.2.2"
     }
 }

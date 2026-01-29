@@ -1,7 +1,7 @@
 import Divider from "./Divider.vue";
-import { withInstall } from "../../utils/with-install.ts";
+import { withInstall } from "@bestiary-ui/utils";
 
 export const BDivider = withInstall(Divider);
 export default Divider;
 
-export * from './divider.types.ts'
+export * from "./divider.types.ts";

@@ -5,15 +5,21 @@
 </template>
 
 <script setup lang="ts">
-import { computed, useSlots } from "vue";
+import { computed, useSlots, VNode, Slots } from "vue";
 import { splitterPanelProps } from "./splitterpanel.types";
 
-defineOptions({ name: "BSplitterPanel" });
+defineOptions({ 
+    name: "BSplitterPanel",
+    __BESTIARY_SPLITTER_PANEL__: true
+});
 
 const props = defineProps(splitterPanelProps);
 
-const slots = useSlots();
-const isNested = computed(() => slots.default?.().some(vnode => (vnode.type as any).name === "BSplitter"));
+const slots = useSlots() as Slots;
+const isNested = computed(() => {
+    if (!slots.default) return false;
+    return (slots.default({}) as VNode[]).some((vnode: VNode) => (vnode.type as any)?.name === "BSplitter");
+});
 
 const panelStyle = computed(() => ({
     flexBasis: props.size ? `${props.size}%` : undefined
@@ -23,7 +29,7 @@ const classes = computed(() => {
     return [
         "b-splitter-panel",
         {
-            ["b-splitter-panel--nested"]: isNested,
+            ["b-splitter-panel--nested"]: isNested.value,
         }
     ]
 });

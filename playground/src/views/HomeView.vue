@@ -4,17 +4,19 @@
         <p>Select a component from the menu to see examples and test implementation.</p>
         
         <div class="stats">
-            <div class="stat-card">
-                <h3>Components</h3>
+            <Card title="Components" shadow="always">
                 <p>Buttons, Cards, and more.</p>
-            </div>
-            <div class="stat-card">
-                <h3>Icons</h3>
-                <p>300+ icons from Heroicons.</p>
-            </div>
+            </Card>
+            <Card title="Icons" shadow="always">
+                <p>Icons from Heroicons.</p>
+            </Card>
         </div>
     </div>
 </template>
+
+<script setup lang="ts">
+import Card from "@bestiary-ui/components/panel/card";
+</script>
 
 <style scoped>
 .home-view {

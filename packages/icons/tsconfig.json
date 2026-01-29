@@ -4,10 +4,10 @@
         "composite": true,
         "emitDeclarationOnly": true,
         "noEmit": false,
-        "outDir": "../../packages/bestiary-ui/utils"
+        "outDir": "../../packages/bestiary-ui/icons"
     },
     "include": [
-        "src",
+        "generated",
         "vite.config.ts"
     ]
 }
