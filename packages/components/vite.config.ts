@@ -29,7 +29,7 @@ export default defineConfig(async () => {
                 outDir: resolve(__dirname, '../../packages/bestiary-ui/components'),
                 cleanVueFileName: true,
                 tsconfigPath: resolve(__dirname, 'tsconfig.json'),
-                entryRoot: resolve(__dirname, 'src')
+                entryRoot: resolve(__dirname, 'src'),
             })
         ],
         build: {
@@ -40,7 +40,7 @@ export default defineConfig(async () => {
                 formats: ['es', 'cjs']
             },
             rollupOptions: {
-                external: ['vue', '@bestiary-ui/utils', '@bestiary-ui/style'],
+                external: ['vue', '@bestiary-ui/utils', '@bestiary-ui/style', "@bestiary-ui/icons"],
                 output: [
                     {
                         format: 'es',

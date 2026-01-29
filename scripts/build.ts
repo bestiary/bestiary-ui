@@ -96,7 +96,9 @@ async function buildComponents() {
     console.log("🧱 Building Components...");
     const dest = resolve(distDir, "components");
     await clean(dest);
+
     execSync("vite build", { stdio: "inherit", cwd: resolve(pkgDir, "components") });
+
     console.log("📦 Finalizing Components...");
     await fixPackageJson(resolve(pkgDir, "components/package.json"), resolve(dest, "package.json"));
 }
@@ -134,7 +136,7 @@ async function build() {
         await buildStyle();
     }
 
-    if (buildAll || args.includes("--icons")) {
+    if (args.includes("--icons")) {
         await buildIcons();
     }
 
