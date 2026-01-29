@@ -1,9 +1,9 @@
-import { CSSProperties } from "vue";
-import { definePropType } from "@bestiary-ui/utils";
+import { CSSProperties } from 'vue'
+import { definePropType } from '@bestiary-ui/utils'
 
-export type CardType = "info";
-export type CardSize = "sm" | "lg" | "none";
-export type CardShadow = "always" | "hover" | "never";
+export type CardType = 'info'
+export type CardSize = 'sm' | 'lg' | 'none'
+export type CardShadow = 'always' | 'hover' | 'never'
 
 export const cardProps = {
     type: {

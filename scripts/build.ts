@@ -59,23 +59,8 @@ async function fixPackageJson(pkgPath: string, destPath: string) {
         }
     }
 
-    // 2. Fix peerDependencies (replace workspace:*)
-    if (pkg.peerDependencies) {
-        for (const dep of Object.keys(pkg.peerDependencies)) {
-            if (pkg.peerDependencies[dep].startsWith("workspace:")) {
-                const depName = dep.replace("@bestiary-ui/", "");
-                const depPkgPath = resolve(pkgDir, depName, "package.json");
-                if (await fs.pathExists(depPkgPath)) {
-                    const depPkg = await fs.readJSON(depPkgPath);
-                    pkg.peerDependencies[dep] = `^${depPkg.version}`;
-                }
-            }
-        }
-    }
-
-    // 3. Fix files and cleanup (allow all files in the root, remove devDependencies)
+    // 3. Fix files (allow all files in the root)
     delete pkg.files;
-    delete pkg.devDependencies;
 
     await fs.writeJSON(destPath, pkg, { spaces: 4 });
 }
@@ -149,7 +134,7 @@ async function build() {
         await buildStyle();
     }
 
-    if (args.includes("--icons")) {
+    if (buildAll || args.includes("--icons")) {
         await buildIcons();
     }
 

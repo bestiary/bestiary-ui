@@ -15,17 +15,24 @@ Vue 3 UI component library by Bestiary.
 pnpm add @bestiary-ui/components @bestiary-ui/icons @bestiary-ui/style
 ```
 
+## Usage
+
+To ensure components are displayed correctly, you need to include **two** types of styles: global tokens and the component-specific styles.
+
 ### Global Setup
 
 ```ts
 import { createApp } from 'vue'
 import App from './App.vue'
 
-// 1. Import components (styles are imported automatically)
+// 1. Import components
 import BestiaryUIComponents from '@bestiary-ui/components'
 
-// 2. Import global styles (tokens, themes, variables)
+// 2. Import global styles (themes, variables)
 import '@bestiary-ui/style'
+
+// 3. Import component styles (structure)
+import '@bestiary-ui/components/style.css'
 
 const app = createApp(App)
 app.use(BestiaryUIComponents)

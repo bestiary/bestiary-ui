@@ -2,13 +2,10 @@
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
         "composite": true,
-        "emitDeclarationOnly": true,
-        "noEmit": false,
         "outDir": "../../packages/bestiary-ui/components"
     },
     "include": [
-        "src",
-        "vite.config.ts"
+        "src"
     ],
     "references": [
         {

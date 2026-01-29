@@ -32,8 +32,8 @@ import {cardProps} from "./card.types.ts";
 import "./card.css";
 import {computed} from "vue";
 
-defineOptions({name: 'BCard'});
-const props = defineProps(cardProps);
+defineOptions({name: 'BCard'})
+const props = defineProps(cardProps)
 
 const classes = computed(() => {
     return [

@@ -13,7 +13,6 @@
         "./typography.css": "../bestiary-ui/style/base/typography.css",
 
         "./spacing.css": "../bestiary-ui/style/utilities/spacing.css",
-        "./sizing.css": "../bestiary-ui/style/utilities/sizing.css",
         "./flex.css": "../bestiary-ui/style/utilities/flex.css",
         "./grid.css": "../bestiary-ui/style/utilities/grid.css",
         "./text.css": "../bestiary-ui/style/utilities/text.css",
