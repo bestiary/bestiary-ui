@@ -6,19 +6,19 @@
             <h3>Different Sizes & Styles</h3>
             <div class="row">
                 <div class="icon-item">
-                    <BeakerIcon24Solid class="icon-md text-primary" />
+                    <BeakerSolid class="icon-md text-primary" />
                     <span>24 Solid</span>
                 </div>
                 <div class="icon-item">
-                    <BeakerIcon24Outline class="icon-md text-warning" />
+                    <BeakerOutline class="icon-md text-warning" />
                     <span>24 Outline</span>
                 </div>
                 <div class="icon-item">
-                    <BeakerIcon20Solid class="icon-sm text-success" />
+                    <BeakerSolid class="icon-sm text-success" />
                     <span>20 Solid</span>
                 </div>
                 <div class="icon-item">
-                    <BeakerIcon16Solid class="icon-xs text-danger" />
+                    <BeakerSolid class="icon-xs text-danger" />
                     <span>16 Solid</span>
                 </div>
             </div>
@@ -27,22 +27,21 @@
         <div class="section">
             <h3>Responsive Coloring</h3>
             <div class="row">
-                <AcademicCapIcon24Solid class="icon-lg" />
-                <FireIcon24Solid class="icon-lg text-danger" />
-                <StarIcon24Solid class="icon-lg text-warning" />
+                <AcademicCapSolid class="icon-lg" />
+                <FireSolid class="icon-lg text-danger" />
+                <StarSolid class="icon-lg text-warning" />
             </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { BeakerIcon as BeakerIcon24Solid } from '@bestiary-ui/icons/24/solid'
-import { BeakerIcon as BeakerIcon24Outline } from '@bestiary-ui/icons/24/outline'
-import { BeakerIcon as BeakerIcon20Solid } from '@bestiary-ui/icons/20/solid'
-import { BeakerIcon as BeakerIcon16Solid } from '@bestiary-ui/icons/16/solid'
-import { AcademicCapIcon as AcademicCapIcon24Solid } from '@bestiary-ui/icons/24/solid'
-import { FireIcon as FireIcon24Solid } from '@bestiary-ui/icons/24/solid'
-import { StarIcon as StarIcon24Solid } from '@bestiary-ui/icons/24/solid'
+import {
+    BeakerSolid,
+    BeakerOutline,
+    AcademicCapSolid,
+    FireSolid,
+    StarSolid } from "@bestiary-ui/icons";
 </script>
 
 <style scoped>
@@ -52,6 +51,6 @@ import { StarIcon as StarIcon24Solid } from '@bestiary-ui/icons/24/solid'
     align-items: center;
     gap: 0.5rem;
     font-size: 0.8rem;
-    color: var(--b-text-color-light);
+    color: var(--b-text-muted);
 }
 </style>

@@ -3,24 +3,12 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@bestiary-ui/components/*": [
-                "../packages/components/src/*"
-            ],
-            "@bestiary-ui/components": [
-                "../packages/components/src/index"
-            ],
-            "@bestiary-ui/utils": [
-                "../packages/utils/src/index"
-            ],
-            "@bestiary-ui/style": [
-                "../packages/style/src/index.css"
-            ],
-            "@bestiary-ui/icons/*": [
-                "../packages/icons/generated/*"
-            ],
-            "@bestiary-ui/icons": [
-                "../packages/icons/generated/index"
-            ]
+            "@bestiary-ui/components/*": ["../packages/components/src/*"],
+            "@bestiary-ui/components": ["../packages/components/src/index"],
+            "@bestiary-ui/utils": ["../packages/utils/src/index"],
+            "@bestiary-ui/style": ["../packages/style/src/index.css"],
+            "@bestiary-ui/icons/*": ["../packages/icons/generated/*"],
+            "@bestiary-ui/icons": ["../packages/icons/generated/index"]
         }
     },
     "include": [
@@ -28,5 +16,8 @@
         "src/**/*.d.ts",
         "src/**/*.tsx",
         "src/**/*.vue"
+    ],
+    "references": [
+        {"path": "./tsconfig.node.json"}
     ]
 }

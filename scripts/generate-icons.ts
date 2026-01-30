@@ -35,15 +35,14 @@ async function generateIcons() {
 
         let svgContent = await fs.readFile(fullPath, "utf-8");
 
-        // Очищення кольорів
+        // Clear colors
         svgContent = svgContent.replace(/fill="#[a-zA-Z0-9]+"/g, 'fill="currentColor"');
         svgContent = svgContent.replace(/stroke="#[a-zA-Z0-9]+"/g, 'stroke="currentColor"');
 
-        // Витягуємо вміст всередині <svg> та viewBox
         const innerSVG = svgContent.match(/<svg[^>]*>([\s\S]*)<\/svg>/)?.[1] || "";
         const viewBox = svgContent.match(/viewBox="([^"]*)"/)?.[1] || "0 0 24 24";
 
-        // Генеруємо чистий TS код компонента
+        // TS code fro component
         const componentContent = `
 import { h, defineComponent } from 'vue'
 
@@ -78,7 +77,7 @@ export default defineComponent({
         allComponents.push(pascalName);
     }
 
-    // index.ts з іменованими експортами
+    // index.ts
     const indexContent = allComponents
         .sort()
         .map(c => `export { default as ${c} } from "./${c}"`)

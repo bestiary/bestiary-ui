@@ -4,6 +4,8 @@
         "composite": true,
         "module": "ESNext",
         "moduleResolution": "Bundler",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
         "types": [
             "node"
         ]

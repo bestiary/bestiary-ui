@@ -49,6 +49,9 @@
         "./style.css": "../bestiary-ui/components/style.css",
         "./*": "./*"
     },
+    "sideEffects": [
+        "**/*.css"
+    ],
     "files": [
         "dist"
     ],
