@@ -44,16 +44,24 @@ async function fixPackageJson(pkgPath: string, destPath: string) {
     }
 
     // 2. Fix dependencies (replace workspace:*)
-    if (pkg.dependencies) {
-        for (const dep of Object.keys(pkg.dependencies)) {
-            if (pkg.dependencies[dep].startsWith("workspace:")) {
-                // Find the package in the workspace to get its version
-                // Assuming standard naming convention @bestiary-ui/<name> -> packages/<name>
-                const depName = dep.replace("@bestiary-ui/", "");
-                const depPkgPath = resolve(pkgDir, depName, "package.json");
-                if (await fs.pathExists(depPkgPath)) {
-                    const depPkg = await fs.readJSON(depPkgPath);
-                    pkg.dependencies[dep] = `^${depPkg.version}`;
+    const dependencyTypes = ['dependencies', 'peerDependencies', 'devDependencies'];
+
+    for (const type of dependencyTypes) {
+        if (pkg[type]) {
+            for (const dep of Object.keys(pkg[type])) {
+                if (pkg[type][dep].startsWith("workspace:")) {
+                    const depName = dep.replace("@bestiary-ui/", "");
+                    const depPkgPath = resolve(pkgDir, depName, "package.json");
+
+                    if (await fs.pathExists(depPkgPath)) {
+                        const depPkg = await fs.readJSON(depPkgPath);
+
+                        if (type === 'peerDependencies') {
+                            pkg[type][dep] = `>=${depPkg.version}`;
+                        } else {
+                            pkg[type][dep] = `^${depPkg.version}`;
+                        }
+                    }
                 }
             }
         }

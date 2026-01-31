@@ -56,3 +56,14 @@ Thumbs.db
 
 # Vite
 .vite/
+
+# VitePress (Документація)
+packages/docs/.vitepress/dist/
+packages/docs/.vitepress/cache/
+
+# Changesets
+.changeset/pre.json
+
+# Local error logs
+core
+*.lcov
