@@ -10,6 +10,7 @@ const root = resolve(__dirname, "..");
 const iconsPkgDir = resolve(root, "packages/icons");
 const srcDir = resolve(iconsPkgDir, "src/24");
 const genDir = resolve(iconsPkgDir, "generated");
+const srcSubDir = resolve(genDir, "src");
 
 function toPascalCase(str: string) {
     return str
@@ -21,7 +22,7 @@ async function generateIcons() {
     console.log("🚀 Generating Bestiary Icons (Functional TS Mode)...");
 
     await fs.remove(genDir);
-    await fs.ensureDir(genDir);
+    await fs.ensureDir(srcSubDir);
 
     const svgFiles = await glob("**/*.svg", { cwd: srcDir });
     const allComponents: string[] = [];
@@ -73,18 +74,17 @@ export default defineComponent({
 })
 `;
 
-        await fs.writeFile(resolve(genDir, `${pascalName}.ts`), componentContent);
+        await fs.writeFile(resolve(srcSubDir, `${pascalName}.ts`), componentContent);
         allComponents.push(pascalName);
     }
 
     // index.ts
     const indexContent = allComponents
         .sort()
-        .map(c => `export { default as ${c} } from "./${c}"`)
+        .map(c => `export { default as ${c} } from "./src/${c}"`)
         .join('\n');
 
     await fs.writeFile(resolve(genDir, "index.ts"), indexContent);
-
     console.log(`✨ Generated ${allComponents.length} functional TS icons.`);
 }
 

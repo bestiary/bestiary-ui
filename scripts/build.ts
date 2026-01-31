@@ -105,6 +105,7 @@ async function buildComponents() {
 
 async function buildIcons() {
     console.log("✨ Building Icons...");
+    const iconsRoot = resolve(pkgDir, "icons");
     const dest = resolve(distDir, "icons");
     await clean(dest);
 
@@ -114,6 +115,9 @@ async function buildIcons() {
 
     // 2. Build with Vite
     execSync("vite build", { stdio: "inherit", cwd: resolve(pkgDir, "icons") });
+
+    await fs.copy(resolve(iconsRoot, "README.md"), resolve(dest, "README.md"));
+    await fs.copy(resolve(iconsRoot, "LICENSE"), resolve(dest, "LICENSE"));
 
     console.log("📦 Finalizing Icons...");
     await fixPackageJson(resolve(pkgDir, "icons/package.json"), resolve(dest, "package.json"));
