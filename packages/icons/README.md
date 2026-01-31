@@ -2,10 +2,10 @@
 
 SVG icon components for Vue 3. Part of the Bestiary UI ecosystem.
 
-![alt text](https://img.shields.io/npm/v/@bestiary-ui/icons.svg)
+![alt text](https://img.shields.io/npm/v/%40bestiary-ui%2Ficons.svg)
 
 
-![alt text](https://img.shields.io/npm/l/@bestiary-ui/icons.svg)
+![license](https://img.shields.io/npm/l/%40bestiary-ui%2Ficons.svg)
 
 ## Features
 
