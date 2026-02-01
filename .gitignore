@@ -67,3 +67,7 @@ packages/docs/.vitepress/cache/
 # Local error logs
 core
 *.lcov
+
+# System files
+.DS_Store
+.temp/

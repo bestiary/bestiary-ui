@@ -1,0 +1,129 @@
+:root {
+    --brand-color: #7dae78;
+    --brand-hover: #6b9a66;
+
+    /* VitePress Override - Light Theme */
+    --vp-c-brand-1: var(--brand-color);
+    --vp-c-brand-2: var(--brand-hover);
+    --vp-home-hero-name-color: transparent;
+    --vp-home-hero-name-background: linear-gradient(135deg, #7dae78 0%, #6b9a66 100%);
+
+    /* Sizes */
+    --hero-name-size: 68px;
+    --hero-text-size: 48px;
+    --hero-tagline-size: 22px;
+
+    --vp-c-bg: #f1f3f4;
+    --vp-c-bg-soft: #ffffff;
+}
+
+/* Dark Theme Overrides */
+.dark {
+    --brand-hover: #8bc386;
+    --vp-home-hero-name-background: linear-gradient(135deg, #8bc386 0%, #7dae78 100%);
+
+    --vp-c-bg: #121214;
+    --vp-c-bg-soft: #1e1e20;
+    --vp-c-bg-alt: #121214;
+    --vp-c-divider: #2d2d30;
+}
+
+.VPHero .name {
+    font-size: var(--hero-name-size) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+    line-height: 76px !important;
+}
+
+.VPHero .text {
+    font-size: var(--hero-text-size) !important;
+    color: var(--vp-c-text-1) !important;
+    font-weight: 700 !important;
+    max-width: 800px;
+    line-height: 50px !important;
+}
+
+.VPHero .tagline {
+    font-size: var(--hero-tagline-size) !important;
+    color: var(--vp-c-text-2) !important;
+    max-width: 650px;
+    line-height: 1.5 !important;
+}
+
+.VPHero .actions .VPButton.brand {
+    border-radius: 8px !important;
+    background-color: var(--brand-color) !important;
+    color: #ffffff !important; /* Текст на кнопці завжди білий */
+    transition: background-color 0.3s ease;
+}
+
+.VPHero .actions .VPButton.brand:hover {
+    background-color: var(--brand-hover) !important;
+}
+
+.VPHero .actions .VPButton.alt {
+    border-radius: 8px !important;
+    border-color: var(--vp-c-divider) !important;
+}
+
+.VPFeature {
+    border-radius: 16px !important;
+    background-color: var(--vp-c-bg-soft) !important;
+    border: 1px solid var(--vp-c-divider) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.VPFeature:hover {
+    transform: translateY(-5px);
+    border-color: var(--brand-color) !important;
+    box-shadow: 0 12px 30px -10px rgba(125, 174, 120, 0.3) !important;
+}
+
+.VPFeature .icon {
+    background-color: rgba(125, 174, 120, 0.1) !important;
+    border-radius: 10px !important;
+    width: 48px !important;
+    height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 24px !important;
+}
+
+.VPFeature .title {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    color: var(--vp-c-text-1) !important;
+    margin-top: 16px !important;
+}
+
+.VPFeature .details {
+    font-size: 15px !important;
+    color: var(--vp-c-text-2) !important;
+    line-height: 1.6 !important;
+    margin-top: 8px !important;
+}
+
+.VPBadge {
+    background-color: var(--vp-c-bg-soft) !important;
+    border: 1px solid var(--brand-color) !important;
+}
+
+@media (max-width: 960px) {
+    :root {
+        --hero-name-size: 48px;
+        --hero-text-size: 36px;
+        --hero-tagline-size: 18px;
+    }
+}
+
+@media (max-width: 640px) {
+    :root {
+        --hero-name-size: 40px;
+        --hero-text-size: 28px;
+    }
+}
+
+:root {
+    --vp-font-family-base: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+}

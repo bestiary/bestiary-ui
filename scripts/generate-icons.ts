@@ -85,6 +85,14 @@ export default defineComponent({
         .join('\n');
 
     await fs.writeFile(resolve(genDir, "index.ts"), indexContent);
+
+    const metadata = allComponents.map(name => ({
+        name,
+        type: name.includes("Solid") ? "Solid" : "Outline"
+    }));
+
+    await fs.writeJSON(resolve(genDir, "metadata.json"), metadata);
+
     console.log(`✨ Generated ${allComponents.length} functional TS icons.`);
 }
 

@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "allowJs": true,
+    "noEmit": true
+  },
+  "include": [
+    "**/*",
+    "env.d.ts",
+    ".vitepress/**/*",
+    "../../packages/components/src/**/*.vue"
+  ]
+}
