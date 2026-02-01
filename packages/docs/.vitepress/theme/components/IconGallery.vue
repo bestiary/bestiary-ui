@@ -40,7 +40,7 @@
 <script setup>
 import { ref, computed } from "vue";
 import * as AllIcons from "@bestiary-ui/icons";
-import metadata from "../../../../icons/generated/metadata.json";
+import metadata from "@bestiary-ui/icons/metadata.json";
 
 const search = ref("");
 const type = ref("all");

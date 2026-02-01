@@ -34,6 +34,10 @@ jobs:
 
             - name: Build Library & Docs
               run: |
+                  pnpm build
+                  
+                  ls -R packages/icons/generated || echo "Folder not found"
+                  
                   pnpm --filter @bestiary-ui/docs build
 
             - name: Setup Pages

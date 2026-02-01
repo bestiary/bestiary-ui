@@ -148,7 +148,7 @@ async function build() {
         await buildStyle();
     }
 
-    if (args.includes("--icons")) {
+    if (buildAll || args.includes("--icons")) {
         await buildIcons();
     }
 
