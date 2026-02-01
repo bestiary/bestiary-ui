@@ -18,10 +18,10 @@ export default defineConfig({
             {
                 text: "Modules",
                 items: [
-                    { text: `Components (v${pkgComponents.version})`, link: "/components/button" },
-                    { text: `Icons (v${pkgIcons.version})`, link: "/collection/icons" },
-                    { text: `Style (v${pkgStyle.version})`, link: "/style/tokens" },
-                    { text: `Utils (v${pkgUtils.version})`, link: "/utils/introduction" }
+                    { text: `Components (v${pkgComponents.version})`, link: "/collection/components/" },
+                    { text: `Icons (v${pkgIcons.version})`, link: "/collection/icons/" },
+                    { text: `Style (v${pkgStyle.version})`, link: "/collection/style/" },
+                    { text: `Utils (v${pkgUtils.version})`, link: "/collection/utils/" }
                 ]
             }
         ],
@@ -41,10 +41,7 @@ export default defineConfig({
                 {
                     text: `Components v${pkgComponents.version}`,
                     items: [
-                        { text: "Button", link: "/components/button" },
-                        { text: "Badge", link: "/components/badge" },
-                        { text: "Splitter", link: "/components/splitter" },
-                        { text: "Card", link: "/components/card" }
+                        { text: "Introduction", link: "/collection/components/" },
                     ]
                 }
             ],
@@ -52,8 +49,15 @@ export default defineConfig({
                 {
                     text: `Style v${pkgStyle.version}`,
                     items: [
-                        { text: "Design Tokens", link: "/style/tokens" },
-                        { text: "Utility Classes", link: "/style/utilities" }
+                        { text: "Introduction", link: "/collection/style/" },
+                    ]
+                }
+            ],
+            "/icons/": [
+                {
+                    text: `Icons v${pkgIcons.version}`,
+                    items: [
+                        { text: "Icons", link: "/collection/icons/" },
                     ]
                 }
             ]

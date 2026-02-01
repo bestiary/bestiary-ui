@@ -22,6 +22,8 @@
     "release:icons": "pnpm build --icons && npm publish packages/bestiary-ui/icons --access public",
     "release:components": "pnpm build --components && npm publish packages/bestiary-ui/components --access public",
 
+    "docs:dev": "pnpm --filter @bestiary-ui/docs dev",
+
     "typecheck": "vue-tsc --noEmit -p tsconfig.base.json --composite false"
   },
   "devDependencies": {
