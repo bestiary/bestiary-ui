@@ -1,6 +1,6 @@
 {
   "name": "@bestiary-ui/icons",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Heroicons-based SVG components for Vue 3",
   "private": false,
   "type": "module",

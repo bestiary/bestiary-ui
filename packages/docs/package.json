@@ -14,9 +14,9 @@
   "license": "ISC",
   "packageManager": "pnpm@10.26.2",
   "devDependencies": {
-    "@bestiary-ui/components": "^0.0.2",
-    "@bestiary-ui/icons": "^1.0.0",
-    "@bestiary-ui/style": "^0.0.1",
+    "@bestiary-ui/components": "workspace:*",
+    "@bestiary-ui/icons": "workspace:*",
+    "@bestiary-ui/style": "workspace:*",
     "vitepress": "^1.6.4",
     "vue": "^3.5.26"
   }
