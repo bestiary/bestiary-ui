@@ -81,4 +81,4 @@ This icon set is based on the amazing [Heroicons](https://heroicons.com) library
 The original SVG files are licensed under the MIT License.
 License
 
-MIT © [Bestiary UI](https://github.com/bestiary-ui/bestiary-ui/blob/main/packages/icons/LICENSE)
+MIT © [Bestiary UI](https://github.com/bestiary/bestiary-ui/blob/main/packages/icons/LICENSE)

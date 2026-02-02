@@ -11,7 +11,7 @@ hero:
           link: /guide/installation
         - theme: alt
           text: View on GitHub
-          link: https://github.com/bestiary-ui/bestiary-ui
+          link: https://github.com/bestiary/bestiary-ui
 
 features:
     - icon: 🧱

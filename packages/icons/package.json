@@ -6,10 +6,10 @@
   "type": "module",
   "author": "Bestiary UI",
   "license": "MIT",
-  "homepage": "https://github.com/bestiary-ui/bestiary-ui/tree/main/packages/icons#readme",
+  "homepage": "https://github.com/bestiary/bestiary-ui/tree/main/packages/icons#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bestiary-ui/bestiary-ui.git",
+    "url": "git+https://github.com/bestiary/bestiary-ui.git",
     "directory": "packages/icons"
   },
   "main": "./index.js",

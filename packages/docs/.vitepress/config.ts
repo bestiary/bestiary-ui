@@ -64,7 +64,7 @@ export default defineConfig({
         },
 
         socialLinks: [
-            { icon: "github", link: "https://github.com/bestiary-ui/bestiary-ui" }
+            { icon: "github", link: "https://github.com/bestiary/bestiary-ui" }
         ],
 
         footer: {

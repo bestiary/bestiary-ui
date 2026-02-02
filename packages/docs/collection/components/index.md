@@ -16,4 +16,4 @@ The following components are already in the works:
 - `BSplitter`
 - `BDivider`
 
-> Stay tuned for the **v0.1.0** release. Check our [GitHub](https://github.com/bestiary-ui/bestiary-ui) for the latest updates.
+> Stay tuned for the **v0.1.0** release. Check our [GitHub](https://github.com/bestiary/bestiary-ui) for the latest updates.
