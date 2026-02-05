@@ -44,16 +44,24 @@ async function fixPackageJson(pkgPath: string, destPath: string) {
     }
 
     // 2. Fix dependencies (replace workspace:*)
-    if (pkg.dependencies) {
-        for (const dep of Object.keys(pkg.dependencies)) {
-            if (pkg.dependencies[dep].startsWith("workspace:")) {
-                // Find the package in the workspace to get its version
-                // Assuming standard naming convention @bestiary-ui/<name> -> packages/<name>
-                const depName = dep.replace("@bestiary-ui/", "");
-                const depPkgPath = resolve(pkgDir, depName, "package.json");
-                if (await fs.pathExists(depPkgPath)) {
-                    const depPkg = await fs.readJSON(depPkgPath);
-                    pkg.dependencies[dep] = `^${depPkg.version}`;
+    const dependencyTypes = ['dependencies', 'peerDependencies', 'devDependencies'];
+
+    for (const type of dependencyTypes) {
+        if (pkg[type]) {
+            for (const dep of Object.keys(pkg[type])) {
+                if (pkg[type][dep].startsWith("workspace:")) {
+                    const depName = dep.replace("@bestiary-ui/", "");
+                    const depPkgPath = resolve(pkgDir, depName, "package.json");
+
+                    if (await fs.pathExists(depPkgPath)) {
+                        const depPkg = await fs.readJSON(depPkgPath);
+
+                        if (type === 'peerDependencies') {
+                            pkg[type][dep] = `>=${depPkg.version}`;
+                        } else {
+                            pkg[type][dep] = `^${depPkg.version}`;
+                        }
+                    }
                 }
             }
         }
@@ -105,6 +113,7 @@ async function buildComponents() {
 
 async function buildIcons() {
     console.log("✨ Building Icons...");
+    const iconsRoot = resolve(pkgDir, "icons");
     const dest = resolve(distDir, "icons");
     await clean(dest);
 
@@ -114,6 +123,9 @@ async function buildIcons() {
 
     // 2. Build with Vite
     execSync("vite build", { stdio: "inherit", cwd: resolve(pkgDir, "icons") });
+
+    await fs.copy(resolve(iconsRoot, "README.md"), resolve(dest, "README.md"));
+    await fs.copy(resolve(iconsRoot, "LICENSE"), resolve(dest, "LICENSE"));
 
     console.log("📦 Finalizing Icons...");
     await fixPackageJson(resolve(pkgDir, "icons/package.json"), resolve(dest, "package.json"));
@@ -136,7 +148,7 @@ async function build() {
         await buildStyle();
     }
 
-    if (args.includes("--icons")) {
+    if (buildAll || args.includes("--icons")) {
         await buildIcons();
     }
 

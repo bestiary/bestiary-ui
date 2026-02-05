@@ -1,8 +1,17 @@
 {
   "name": "@bestiary-ui/icons",
-  "version": "0.0.1",
+  "version": "1.0.1",
+  "description": "Heroicons-based SVG components for Vue 3",
   "private": false,
   "type": "module",
+  "author": "Bestiary UI",
+  "license": "MIT",
+  "homepage": "https://github.com/bestiary/bestiary-ui/tree/main/packages/icons#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bestiary/bestiary-ui.git",
+    "directory": "packages/icons"
+  },
   "main": "./index.js",
   "module": "./index.js",
   "types": "./index.d.ts",
