@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import Card from "@bestiary-ui/components/panel/card";
+import Card from "@bestiary-ui/components/data-display/card";
 </script>
 
 <style scoped>

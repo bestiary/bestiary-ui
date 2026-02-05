@@ -50,6 +50,6 @@
 </template>
 
 <script setup lang="ts">
-import Button from '@bestiary-ui/components/button/button'
+import Button from '@bestiary-ui/components/general/button'
 import { PlusSolid } from "@bestiary-ui/icons";
 </script>

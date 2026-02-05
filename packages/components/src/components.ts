@@ -1,9 +1,9 @@
-export * from "./button/button";
+export * from "./general/button";
 
-export * from "./misc/badge";
-export * from "./misc/overlaybadge";
+export * from "./data-display/badge";
+export * from "./data-display/overlaybadge";
+export * from "./data-display/card";
 
-export * from "./panel/card";
-export * from "./panel/divider";
-export * from "./panel/splitter";
-export * from "./panel/splitterpanel";
+export * from "./layout/divider";
+export * from "./layout/splitter";
+export * from "./layout/splitterpanel";

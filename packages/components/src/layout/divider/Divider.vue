@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import {dividerProps} from "./divider.types";
+import {dividerProps} from "./divider.types.ts";
 import {computed} from "vue";
 import "./divider.css";
 

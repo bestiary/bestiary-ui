@@ -155,10 +155,10 @@
 </template>
 
 <script setup lang="ts">
-import Card from "@bestiary-ui/components/panel/card";
-import Button from "@bestiary-ui/components/button/button";
+import Card from "@bestiary-ui/components/data-display/card";
+import Button from "@bestiary-ui/components/general/button";
 import {InformationCircleSolid, UserSolid, CogSolid, UsersSolid, ArrowTrendingUpSolid} from "@bestiary-ui/icons";
-import Badge from "@bestiary-ui/components/misc/badge";
+import Badge from "@bestiary-ui/components/data-display/badge";
 </script>
 
 <style scoped>

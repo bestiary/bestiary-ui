@@ -86,8 +86,8 @@
 </template>
 
 <script setup lang="ts">
-import Badge from "@bestiary-ui/components/misc/badge";
-import OverlayBadge from "@bestiary-ui/components/misc/overlaybadge";
-import Button from "@bestiary-ui/components/button/button";
+import Badge from "@bestiary-ui/components/data-display/badge";
+import OverlayBadge from "@bestiary-ui/components/data-display/overlaybadge";
+import Button from "@bestiary-ui/components/general/button";
 import {ArrowUpSolid, BellSolid, EnvelopeSolid, UserSolid, ShoppingCartSolid} from "@bestiary-ui/icons";
 </script>

@@ -56,6 +56,6 @@
 </template>
 
 <script setup lang="ts">
-import Splitter from "@bestiary-ui/components/panel/splitter";
-import SplitterPanel from "@bestiary-ui/components/panel/splitterpanel";
+import Splitter from "@bestiary-ui/components/layout/splitter";
+import SplitterPanel from "@bestiary-ui/components/layout/splitterpanel";
 </script>

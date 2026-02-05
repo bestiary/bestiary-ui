@@ -189,5 +189,5 @@
 </template>
 
 <script setup lang="ts">
-import Divider from '@bestiary-ui/components/panel/divider'
+import Divider from '@bestiary-ui/components/layout/divider'
 </script>

@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, useSlots, VNode } from "vue";
-import { splitterProps } from "./splitter.types";
+import { splitterProps } from "./splitter.types.ts";
 import "./splitter.css";
 
 defineOptions({ name: "BSplitter" });

@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import { computed, useSlots } from "vue";
-import { splitterPanelProps } from "./splitterpanel.types";
+import { splitterPanelProps } from "./splitterpanel.types.ts";
 
 defineOptions({ name: "BSplitterPanel" });
 
