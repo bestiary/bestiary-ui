@@ -58,8 +58,8 @@ Thumbs.db
 .vite/
 
 # VitePress (Документація)
-packages/docs/.vitepress/dist/
-packages/docs/.vitepress/cache/
+docs/.vitepress/dist/
+docs/.vitepress/cache/
 
 # Changesets
 .changeset/pre.json

@@ -1,10 +1,10 @@
 import { defineConfig } from "vitepress";
 import { resolve } from "path";
 
-import pkgComponents from "../../components/package.json";
-import pkgIcons from "../../icons/package.json";
-import pkgStyle from "../../style/package.json";
-import pkgUtils from "../../utils/package.json";
+import pkgComponents from "../../packages/components/package.json";
+import pkgIcons from "../../packages/icons/package.json";
+import pkgStyle from "../../packages/style/package.json";
+import pkgUtils from "../../packages/utils/package.json";
 
 export default defineConfig({
     title: "Bestiary UI",
@@ -76,10 +76,10 @@ export default defineConfig({
     vite: {
         resolve: {
             alias: {
-                "@bestiary-ui/components": resolve(__dirname, "../../components/src"),
-                "@bestiary-ui/style": resolve(__dirname, "../../style/src/index.css"),
-                "@bestiary-ui/icons": resolve(__dirname, "../../icons/generated"),
-                "@bestiary-ui/icons/metadata.json": resolve(__dirname, "../../icons/generated/metadata.json")
+                "@bestiary-ui/components": resolve(__dirname, "../../packages/components/src"),
+                "@bestiary-ui/style": resolve(__dirname, "../../packages/style/src/index.css"),
+                "@bestiary-ui/icons": resolve(__dirname, "../../packages/icons/generated"),
+                "@bestiary-ui/icons/metadata.json": resolve(__dirname, "../../packages/icons/generated/metadata.json")
             }
         }
     }

@@ -62,8 +62,7 @@
     },
     "peerDependencies": {
         "vue": "^3.4.0",
-        "@bestiary-ui/icons": "workspace:*",
-        "@bestiary-ui/style": "workspace:*"
+        "@bestiary-ui/icons": "workspace:*"
     },
     "peerDependenciesMeta": {
         "@bestiary-ui/icons": {
