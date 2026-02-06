@@ -18,7 +18,8 @@
         "./text.css": "../bestiary-ui/style/utilities/text.css",
         "./backgrounds.css": "../bestiary-ui/style/utilities/backgrounds.css",
         "./layout.css": "../bestiary-ui/style/utilities/layout.css",
-        "./borders.css": "../bestiary-ui/style/utilities/borders.css"
+        "./borders.css": "../bestiary-ui/style/utilities/borders.css",
+        "./effects.css": "../bestiary-ui/style/utilities/effects.css"
     },
     "files": [
         "dist"

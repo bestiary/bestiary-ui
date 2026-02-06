@@ -1,20 +1,59 @@
 import {definePropType} from "@bestiary-ui/utils";
+import {Component} from "vue";
 
-export type ButtonType = "secondary" | "success" | "warning" | "danger" | "info";
-export type ButtonSize = "small" | "large" | "xlarge";
-export type ButtonShape = "square" | "circle";
+export type ButtonType = "primary" | "secondary" | "success" | "warning" | "danger" | "info";
+export type ButtonSize = "small" | "medium" | "large" | "xlarge";
+export type ButtonIconPos = "top" | "left" | "bottom" | "right";
+export type ButtonBadgePos = "top" | "left" | "bottom" | "right";
+export type ButtonBadgeType = "primary" | "secondary" | "info" | "success" | "warn" | "danger" | "contrast";
 
 export const buttonProps = {
     type: {
         type: definePropType<ButtonType>(String),
+        default: "primary"
     },
     size: {
         type: definePropType<ButtonSize>(String),
+        default: "medium"
     },
-    shape: {
-        type: definePropType<ButtonShape>(String),
+    icon: {
+        type: definePropType<Component>(Object),
+        default: null
+    },
+    iconPos: {
+        type: definePropType<ButtonIconPos>(String),
+        default: "left"
+    },
+    badge: {
+        type: definePropType<string | number>([String, Number]),
+        default: null
+    },
+    badgePos: {
+        type: definePropType<ButtonBadgePos>(String),
+        default: "right"
+    },
+    badgeType: {
+        type: definePropType<ButtonBadgeType>(String),
+        default: "primary"
+    },
+    loadingIcon: {
+        type: definePropType<Component>(Object),
+        default: null
+    },
+    label: {
+        type: String,
+        default: null
+    },
+    rounded: {
+        type: Boolean,
+        default: false
     },
     disabled: {
         type: Boolean,
+        default: false
+    },
+    loading: {
+        type: Boolean,
+        default: false
     }
 } as const;

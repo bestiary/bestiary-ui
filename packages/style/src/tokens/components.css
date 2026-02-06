@@ -1,21 +1,5 @@
 :root {
-    /* ==========================================
-       BUTTON
-       ========================================== */
-    --b-button-height:       var(--b-size-sm);
-    --b-button-border:       1px solid var(--b-button-border-color);
-    --b-button-radius:       var(--b-ref-radius-md);
-    --b-button-padding-x:    var(--b-ref-space-3);
-    --b-button-font-family:  var(--b-font-family);
-    --b-button-font-size:    var(--b-font-size-md);
-    --b-button-line-height:  var(--b-line-height-none);
-    --b-button-font-weight:  var(--b-font-weight-medium);
-    --b-button-bg:           var(--b-color-primary);
-    --b-button-bg-hover:     var(--b-color-primary-hover);
-    --b-button-color:        var(--b-text-on-primary);
-    --b-button-color-hover:  var(--b-text-on-primary);
-    --b-button-border-color: transparent;
-    --b-button-transition:   all var(--b-ref-duration-normal) var(--b-ref-ease-in-out);
+
 
     /* ==========================================
        CARD

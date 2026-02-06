@@ -17,10 +17,10 @@
         <div class="section">
             <h3>Sizes</h3>
             <div class="row">
-                <Button size="small">Small</Button>
-                <Button>Standard</Button>
-                <Button size="large">Large</Button>
-                <Button size="xlarge">Extra large</Button>
+                <Button :icon="PlusSolid" size="small">Small</Button>
+                <Button :icon="PlusSolid" size="medium">Standard</Button>
+                <Button :icon="PlusSolid" size="large">Large</Button>
+                <Button :icon="PlusSolid" size="xlarge">Extra large</Button>
             </div>
         </div>
 
@@ -28,22 +28,37 @@
             <h3>States</h3>
             <div class="row">
                 <Button disabled>Disabled</Button>
+                <Button loading>Loading</Button>
             </div>
         </div>
 
         <div class="section">
             <h3>With Icon</h3>
             <div class="row">
-                <Button size="small"><PlusSolid/>Left</Button>
-                <Button size="small">Right<PlusSolid/></Button>
+                <Button :icon="PlusSolid" iconPos="top">Top</Button>
+                <Button :icon="PlusSolid" iconPos="bottom">Bottom</Button>
+                <Button :icon="PlusSolid" iconPos="left">Left</Button>
+                <Button :icon="PlusSolid" iconPos="right">Right</Button>
+                <Button :icon="PlusSolid"></Button>
             </div>
         </div>
 
         <div class="section">
-            <h3>Shape</h3>
+            <h3>With Badge</h3>
             <div class="row">
-                <Button shape="square"><PlusSolid/></Button>
-                <Button shape="circle"><PlusSolid/></Button>
+                <Button badge="1" badgeType="secondary" badgePos="top">Top</Button>
+                <Button badge="2" badgeType="secondary" badgePos="bottom">Bottom</Button>
+                <Button badge="3" badgeType="secondary" badgePos="left">Left</Button>
+                <Button badge="4" badgeType="secondary" badgePos="right">Right</Button>
+                <Button :icon="PlusSolid" badge="5" badgeType="secondary">Icon & Badge</Button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Rounded</h3>
+            <div class="row">
+                <Button rounded>Rounded</Button>
+                <Button :icon="PlusSolid" rounded></Button>
             </div>
         </div>
     </div>

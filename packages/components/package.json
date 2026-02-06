@@ -68,13 +68,11 @@
     "peerDependenciesMeta": {
         "@bestiary-ui/icons": {
             "optional": true
-        },
-        "@bestiary-ui/style": {
-            "optional": true
         }
     },
     "dependencies": {
-        "@bestiary-ui/utils": "workspace:*"
+        "@bestiary-ui/utils": "workspace:*",
+        "@bestiary-ui/style": "workspace:*"
     },
     "devDependencies": {
         "vite-plugin-lib-inject-css": "^2.2.2"

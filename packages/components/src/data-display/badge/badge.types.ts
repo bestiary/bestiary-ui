@@ -11,6 +11,7 @@ export const badgeProps = {
     },
     type: {
         type: definePropType<BadgeType>(String),
+        default: "primary"
     },
     size: {
         type: definePropType<BadgeSize>(String),
