@@ -26,26 +26,67 @@ export default defineConfig({
             }
         ],
 
-
         sidebar: {
             "/guide/": [
                 {
                     text: "Introduction",
                     items: [
-                        { text: "Installation", link: "/guide/installation" },
-                        // { text: "Architecture", link: "/guide/architecture" }
+                        { text: "Installation", link: "/guide/installation" }
                     ]
                 }
             ],
-            "/components/": [
+            "/collection/components/": [
                 {
-                    text: `Components v${pkgComponents.version}`,
+                    text: "Getting Started",
                     items: [
                         { text: "Introduction", link: "/collection/components/" },
+                        { text: `Changelog ${pkgComponents.version}`, link: "/collection/components/changelog" }
                     ]
-                }
+                },
+                {
+                    text: "General",
+                    collapsed: false,
+                    items: [
+                        { text: "Button", link: "/collection/components/button" },
+                    ]
+                },
+                {
+                    text: "Layout",
+                    collapsed: false,
+                    items: [
+
+                    ]
+                },
+                {
+                    text: "Navigation",
+                    collapsed: false,
+                    items: [
+
+                    ]
+                },
+                {
+                    text: "Data Entry",
+                    collapsed: false,
+                    items: [
+
+                    ]
+                },
+                {
+                    text: "Data Display",
+                    collapsed: false,
+                    items: [
+                        { text: "Badge", link: "/collection/components/data-display/badge" },
+                    ]
+                },
+                {
+                    text: "Feedback",
+                    collapsed: false,
+                    items: [
+
+                    ]
+                },
             ],
-            "/style/": [
+            "/collection/style/": [
                 {
                     text: `Style v${pkgStyle.version}`,
                     items: [
@@ -53,7 +94,7 @@ export default defineConfig({
                     ]
                 }
             ],
-            "/icons/": [
+            "/collection/icons/": [
                 {
                     text: `Icons v${pkgIcons.version}`,
                     items: [

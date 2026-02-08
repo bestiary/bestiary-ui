@@ -1,22 +1,23 @@
 import {definePropType} from "@bestiary-ui/utils";
-import {PropType} from "vue";
 
-export type BadgeType = "secondary" | "info" | "success" | "warn" | "danger" | "contrast";
-export type BadgeSize = "small" | "large" | "xlarge";
-export type BadgeShape = "circle";
+export type BadgeSeverity = "primary" | "secondary" | "info" | "success" | "warn" | "danger" | "contrast";
+export type BadgeSize = "small" | "medium" | "large" | "xlarge";
 
 export const badgeProps = {
     value: {
-        type: [String, Number] as PropType<string | number>
+        type: definePropType<string | number>([String, Number]),
+        default: null
     },
-    type: {
-        type: definePropType<BadgeType>(String),
+    severity: {
+        type: definePropType<BadgeSeverity>(String),
         default: "primary"
     },
     size: {
         type: definePropType<BadgeSize>(String),
+        default: "medium"
     },
-    shape: {
-        type: definePropType<BadgeShape>(String),
+    rounded: {
+        type: Boolean,
+        default: false
     }
 } as const;

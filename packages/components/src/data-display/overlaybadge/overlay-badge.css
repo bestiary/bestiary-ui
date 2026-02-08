@@ -6,8 +6,8 @@
 
 .b-overlay-badge__badge {
     position: absolute !important;
-    top: 0;
-    right: 0;
+    top: 20%;
+    right: 10%;
     transform: translate(50%, -50%);
     outline: 2px solid var(--b-bg-surface);
     z-index: var(--b-ref-z-base, 1);

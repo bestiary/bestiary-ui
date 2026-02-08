@@ -1,15 +1,16 @@
 import {definePropType} from "@bestiary-ui/utils";
 import {Component} from "vue";
 
-export type ButtonType = "primary" | "secondary" | "success" | "warning" | "danger" | "info";
+export type ButtonSeverity = "primary" | "secondary" | "success" | "warning" | "danger" | "info";
 export type ButtonSize = "small" | "medium" | "large" | "xlarge";
 export type ButtonIconPos = "top" | "left" | "bottom" | "right";
 export type ButtonBadgePos = "top" | "left" | "bottom" | "right";
-export type ButtonBadgeType = "primary" | "secondary" | "info" | "success" | "warn" | "danger" | "contrast";
+export type ButtonBadgeSeverity = "primary" | "secondary" | "info" | "success" | "warn" | "danger" | "contrast";
+export type ButtonType = "button" | "submit" | "reset";
 
 export const buttonProps = {
-    type: {
-        type: definePropType<ButtonType>(String),
+    severity: {
+        type: definePropType<ButtonSeverity>(String),
         default: "primary"
     },
     size: {
@@ -32,8 +33,8 @@ export const buttonProps = {
         type: definePropType<ButtonBadgePos>(String),
         default: "right"
     },
-    badgeType: {
-        type: definePropType<ButtonBadgeType>(String),
+    badgeSeverity: {
+        type: definePropType<ButtonBadgeSeverity>(String),
         default: "primary"
     },
     loadingIcon: {
@@ -47,6 +48,10 @@ export const buttonProps = {
     rounded: {
         type: Boolean,
         default: false
+    },
+    type: {
+        type: definePropType<ButtonType>(String),
+        default: "button"
     },
     disabled: {
         type: Boolean,

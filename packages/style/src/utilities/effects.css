@@ -1,4 +1,16 @@
 /* ==========================================
+   BOX SHADOW
+   ========================================== */
+.b-shadow-2xs  { box-shadow: var(--b-ref-shadow-2xs) }
+.b-shadow-xs   { box-shadow: var(--b-ref-shadow-xs) }
+.b-shadow-sm   { box-shadow: var(--b-ref-shadow-sm) }
+.b-shadow-md   { box-shadow: var(--b-ref-shadow-md) }
+.b-shadow-lg   { box-shadow: var(--b-ref-shadow-lg) }
+.b-shadow-xl   { box-shadow: var(--b-ref-shadow-xl) }
+.b-shadow-2xl  { box-shadow: var(--b-ref-shadow-2xl) }
+.b-shadow-none { box-shadow: var(--b-ref-shadow-none) }
+
+/* ==========================================
    EFFECTS
    ========================================== */
 

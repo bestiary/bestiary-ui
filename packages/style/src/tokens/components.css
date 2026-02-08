@@ -44,20 +44,6 @@
     --b-splitter-gutter-bg:            var(--b-bg-base);
     --b-splitter-gutter-handle-width:  var(--b-ref-space-1);
     --b-splitter-gutter-handle-height: var(--b-ref-space-6);
-
-    /* ==========================================
-       BADGE
-       ========================================== */
-    --b-badge-border-radius:      var(--b-ref-radius-md);
-    --b-badge-border-radius-full: var(--b-ref-radius-full);
-    --b-badge-padding:            var(--b-ref-space-1) var(--b-ref-space-1);
-    --b-badge-bg:                 var(--b-color-primary);
-    --b-badge-color:              var(--b-text-on-primary);
-    --b-badge-font-size:          var(--b-font-size-xs);
-    --b-badge-font-weight:        var(--b-font-weight-bold);
-    --b-badge-min-width:          var(--b-ref-space-6);
-    --b-badge-height:             var(--b-ref-space-5);
-    --b-badge-gap:                var(--b-ref-space-1);
 }
 
 [data-theme='dark'] {

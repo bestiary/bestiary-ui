@@ -97,6 +97,10 @@
     margin-top: 16px !important;
 }
 
+.vp-doc h2 {
+    border-top: none;
+}
+
 .VPFeature .details {
     font-size: 15px !important;
     color: var(--vp-c-text-2) !important;
@@ -115,6 +119,15 @@
         --hero-text-size: 36px;
         --hero-tagline-size: 18px;
     }
+}
+
+.display-content {
+    display: flex;
+    gap: var(--b-ref-space-2);
+    padding: var(--b-ref-space-4);
+    justify-content: center;
+    border-radius: var(--b-ref-radius-lg);
+    background-color: var(--b-background-surface);
 }
 
 @media (max-width: 640px) {

@@ -18,9 +18,9 @@ const classes = computed(() => {
     return [
         'b-badge',
         {
-            [`b-badge--type-${props.type}`]: props.type,
+            [`b-badge--severity-${props.severity}`]: props.severity,
             [`b-badge--size-${props.size}`]: props.size,
-            [`b-badge--shape-${props.shape}`]: props.shape,
+            [`b-badge--rounded`]: props.rounded,
         }
     ];
 });

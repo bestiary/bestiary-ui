@@ -10,14 +10,16 @@
 
     --b-color-secondary: var(--b-ref-neutral-200);
     --b-color-secondary-hover: var(--b-ref-neutral-300);
+    --b-color-secondary-active: var(--b-ref-neutral-300);
     --b-text-on-secondary: var(--b-ref-neutral-500);
 
     /* ==========================================
        BACKGROUNDS
        ========================================== */
-    --b-bg-base: var(--b-ref-neutral-100);
-    --b-bg-surface: var(--b-ref-neutral-0);
-    --b-bg-overlay: rgba(0, 0, 0, 0.5);
+    --b-background-base: var(--b-ref-neutral-100);
+    --b-background-surface: var(--b-ref-neutral-0);
+    --b-background-inverse: var(--b-ref-neutral-1000);
+    --b-background-overlay: rgba(0, 0, 0, 0.5);
 
     /* ==========================================
        TEXT
@@ -25,6 +27,13 @@
     --b-text-main: var(--b-ref-neutral-1000);
     --b-text-muted: var(--b-ref-neutral-500);
     --b-text-inverse: var(--b-ref-neutral-0);
+
+    /* ==========================================
+       LINKS
+       ========================================== */
+    --b-color-link: var(--b-color-primary);
+    --b-color-link-hover: var(--b-color-primary-hover);
+    --b-text-decoration-link: none;
 
     /* ==========================================
        BORDERS
@@ -36,18 +45,22 @@
     /* ==========================================
        FEEDBACK & STATUS
        ========================================== */
+    /* Success */
     --b-color-success: var(--b-ref-green-400);
     --b-color-success-hover: var(--b-ref-green-500);
     --b-color-success-muted: var(--b-ref-green-50);
 
+    /* Error */
     --b-color-error: var(--b-ref-red-500);
     --b-color-error-hover: var(--b-ref-red-600);
     --b-color-error-muted: var(--b-ref-red-50);
 
+    /* Warning */
     --b-color-warning: var(--b-ref-amber-500);
     --b-color-warning-hover: var(--b-ref-amber-600);
     --b-color-warning-muted: var(--b-ref-amber-50);
 
+    /* Info */
     --b-color-info: var(--b-ref-blue-500);
     --b-color-info-hover: var(--b-ref-blue-600);
     --b-color-info-muted: var(--b-ref-blue-50);
@@ -55,12 +68,11 @@
     /* ==========================================
        INTEGRATION
        ========================================== */
+    /* Office */
     --b-color-word: var(--b-ref-office-word-500);
     --b-color-word-muted: var(--b-ref-office-word-50);
-
     --b-color-powerpoint: var(--b-ref-office-ppt-500);
     --b-color-powerpoint-muted: var(--b-ref-office-ppt-50);
-
     --b-color-excel: var(--b-ref-office-excel-500);
     --b-color-excel-muted: var(--b-ref-office-excel-50);
 
@@ -93,19 +105,24 @@
     --b-color-primary-hover: var(--b-ref-green-400);
     --b-color-primary-active: var(--b-ref-green-300);
     --b-color-primary-muted:   var(--b-ref-green-900);
-    --b-text-on-primary: var(--b-ref-neutral-1000);
+
+    --b-color-secondary:       var(--b-ref-neutral-700);
+    --b-color-secondary-hover: var(--b-ref-neutral-600);
+    --b-text-on-secondary:     var(--b-ref-neutral-200);
 
     /* ==========================================
        BACKGROUNDS
        ========================================== */
-    --b-bg-base: var(--b-ref-neutral-900);
-    --b-bg-surface: var(--b-ref-neutral-800);
+    --b-background-base: var(--b-ref-neutral-900);
+    --b-background-surface: var(--b-ref-neutral-800);
+    --b-background-inverse: var(--b-ref-neutral-100);
 
     /* ==========================================
        TEXT
        ========================================== */
     --b-text-main: var(--b-ref-neutral-0);
     --b-text-muted: var(--b-ref-neutral-400);
+    --b-text-inverse: var(--b-ref-neutral-1000);
 
     /* ==========================================
        BORDERS
@@ -116,20 +133,25 @@
     /* ==========================================
        FEEDBACK & STATUS
        ========================================== */
+    /* Succuss */
     --b-color-success: var(--b-ref-green-400);
     --b-color-success-muted: var(--b-ref-green-900);
 
+    /* Error */
     --b-color-error: var(--b-ref-red-400);
     --b-color-error-muted: var(--b-ref-red-900);
 
+    /* Warning */
     --b-color-warning: var(--b-ref-amber-400);
     --b-color-warning-muted: var(--b-ref-amber-900);
 
+    /* Info */
     --b-color-info: var(--b-ref-blue-400);
     --b-color-info-muted: var(--b-ref-blue-900);
 
     /* ==========================================
        SHADOWS & ELEVATION
        ========================================== */
+    --b-shadow: none;
     --b-shadow-card: var(--b-ref-shadow-dark);
 }

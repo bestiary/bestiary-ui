@@ -114,10 +114,9 @@ pre {
 a {
     color: var(--b-color-primary);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color var(--b-ref-duration-normal) ease;
 }
 
 a:hover {
     color: var(--b-color-primary-hover);
-    text-decoration: underline;
 }
