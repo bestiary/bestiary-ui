@@ -39,7 +39,7 @@
     box-sizing: border-box;
 }
 
-.b-badge--rounded { border-radius: var(--b-badge-border-radius-full); }
+.b-badge--rounded { --b-badge-border-radius: var(--b-ref-radius-full); }
 
 .b-badge--severity-primary   { --b-badge-background: var(--b-color-primary);       --b-badge-color: var(--b-text-on-primary); }
 .b-badge--severity-secondary { --b-badge-background: var(--b-color-primary-muted); --b-badge-color: var(--b-text-muted); }

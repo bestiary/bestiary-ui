@@ -47,7 +47,7 @@ export default defineConfig({
                     text: "General",
                     collapsed: false,
                     items: [
-                        { text: "Button", link: "/collection/components/button" },
+                        { text: "Button", link: "/collection/components/general/button" },
                     ]
                 },
                 {

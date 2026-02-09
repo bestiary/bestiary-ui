@@ -12,7 +12,7 @@ Badge is a small status indicator for another element.
 
 ## Import
 
-```vue
+```ts
 import { BBadge } from "@bestiary-ui/components"
 ```
 
