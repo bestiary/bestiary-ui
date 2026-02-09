@@ -6,9 +6,11 @@
             <div class="logo">Bestiary UI</div>
             <nav class="nav-menu">
                 <router-link to="/" class="nav-item">Home</router-link>
-                <div class="nav-group">Components</div>
+                <div class="nav-group">General</div>
                 <router-link to="/buttons" class="nav-item">Buttons</router-link>
                 <router-link to="/badges" class="nav-item">Badges</router-link>
+                <div class="nav-group">Data Entry</div>
+                <router-link to="/input" class="nav-item">Input</router-link>
                 <div class="nav-group">Panel</div>
                 <router-link to="/cards" class="nav-item">Cards</router-link>
                 <router-link to="/divider" class="nav-item">Divider</router-link>

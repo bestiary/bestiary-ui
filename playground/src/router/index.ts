@@ -37,7 +37,12 @@ const router = createRouter({
         {
             path: "/splitter",
             name: "splitter",
-            "component": () => import("../views/SplitterView.vue")
+            component: () => import("../views/SplitterView.vue")
+        },
+        {
+            path: "/input",
+            name: "input",
+            component: () => import("../views/InputView.vue")
         }
     ]
 });
