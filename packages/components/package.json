@@ -26,6 +26,18 @@
             "import": "../bestiary-ui/components/data-display/overlaybadge/index.js",
             "require": "../bestiary-ui/components/data-display/overlaybadge/index.cjs"
         },
+
+        "./inputtext": {
+            "types": "../bestiary-ui/components/data-entry/input-text/index.d.ts",
+            "import": "../bestiary-ui/components/data-entry/input-text/index.js",
+            "require": "../bestiary-ui/components/data-entry/input-text/index.cjs"
+        },
+        "./password": {
+            "types": "../bestiary-ui/components/data-entry/password/index.d.ts",
+            "import": "../bestiary-ui/components/data-entry/password/index.js",
+            "require": "../bestiary-ui/components/data-entry/password/index.cjs"
+        },
+
         "./card": {
             "types": "../bestiary-ui/components/data-display/card/index.d.ts",
             "import": "../bestiary-ui/components/data-display/card/index.js",

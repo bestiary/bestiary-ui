@@ -1,21 +1,22 @@
 .b-input-text {
     /* --- Local Tokens (CSS API) --- */
-    --b-input-text-height:        var(--b-size-sm); /* 32px */
-    --b-input-text-width:         var(--b-ref-size-3xs); /* 256px */
-    --b-input-text-padding-x:     var(--b-ref-space-3);
-    --b-input-text-padding-y:     0;
-    --b-input-text-gap:           var(--b-ref-space-1);
-    --b-input-text-background:    var(--b-background-surface);
-    --b-input-text-color:         var(--b-text-main);
-    --b-input-text-border-width:  1px;
-    --b-input-text-border-style:  solid;
-    --b-input-text-border-color:  var(--b-border-color);
-    --b-input-text-border-radius: var(--b-ref-radius-md);
-    --b-input-text-placeholder:   var(--b-text-muted);
-    --b-input-text-transition:    all var(--b-ref-duration-normal) var(--b-ref-ease-in-out);
-    --b-input-text-focus-ring:    0 0 0 2px var(--b-focus-ring);
-    --b-input-text-font-size:     var(--b-font-size-md);
-    --b-input-text-icon-size:     var(--b-ref-space-5);
+    --b-input-text-height:             var(--b-size-sm); /* 32px */
+    --b-input-text-width:              var(--b-ref-size-3xs); /* 256px */
+    --b-input-text-padding-x:          var(--b-ref-space-3);
+    --b-input-text-padding-y:          0;
+    --b-input-text-gap:                var(--b-ref-space-1);
+    --b-input-text-background:         var(--b-background-surface);
+    --b-input-text-color:              var(--b-text-main);
+    --b-input-text-border-width:       1px;
+    --b-input-text-border-style:       solid;
+    --b-input-text-border-color:       var(--b-border-color);
+    --b-input-text-hover-border-color: var(--b-color-primary-hover);
+    --b-input-text-border-radius:      var(--b-ref-radius-md);
+    --b-input-text-placeholder:        var(--b-text-muted);
+    --b-input-text-transition:         all var(--b-ref-duration-normal) var(--b-ref-ease-in-out);
+    --b-input-text-focus-ring:         0 0 0 2px var(--b-focus-ring);
+    --b-input-text-font-size:          var(--b-font-size-md);
+    --b-input-text-icon-size:          var(--b-ref-space-5);
 
     display: inline-flex;
     flex-direction: column;
@@ -90,12 +91,13 @@
 }
 
 .b-input-text:not(.b-input-text--disabled):hover .b-input-text__wrapper {
-    border-color: var(--b-input-text-border-color);
+    border-color: var(--b-input-text-hover-border-color);
 }
 
 /* Invalid */
 .b-input-text--invalid {
     --b-input-text-border-color: var(--b-color-error);
+    --b-input-text-hover-border-color: var(--b-color-error);
     --b-input-text-focus-ring: 0 0 0 2px rgba(239, 68, 68, 0.2);
     --b-input-text-placeholder: var(--b-color-error);
 }
@@ -143,7 +145,7 @@
 .b-input-text__suffix { margin-left: var(--b-ref-space-2); }
 
 .b-input-text svg {
-    width: 1.2em;
-    height: 1.2em;
+    width: var(--b-input-text-icon-size);
+    height: var(--b-input-text-icon-size);
     fill: currentColor;
 }

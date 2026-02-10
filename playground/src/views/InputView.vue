@@ -64,11 +64,19 @@
             </BInputText>
         </div>
 
+        <div class="section">
+            <h4>Password</h4>
+            <div class="b-flex b-gap-2">
+                <BPassword v-model="value2" />
+            </div>
+        </div>
+
     </div>
 </template>
 
 <script setup lang="ts">
 import {BInputText} from "@bestiary-ui/components";
+import {BPassword} from "@bestiary-ui/components";
 import {MagnifyingGlassSolid} from "@bestiary-ui/icons";
 import {ref} from "vue";
 
