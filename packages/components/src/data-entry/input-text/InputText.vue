@@ -1,10 +1,5 @@
 <template>
     <div :class="classes">
-        <!-- Label -->
-        <label v-if="label" class="b-input-text__label" @click="focusInput">
-            {{ label }}
-        </label>
-
         <div class="b-input-text__wrapper" @click="focusInput">
             <!-- Left slot) -->
             <div v-if="$slots.prefix" class="b-input-text__prefix">

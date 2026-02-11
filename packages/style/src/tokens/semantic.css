@@ -118,6 +118,10 @@
     --b-color-secondary-hover: var(--b-ref-neutral-600);
     --b-text-on-secondary:     var(--b-ref-neutral-200);
 
+    --b-color-inverse: var(--b-ref-neutral-300);
+    --b-color-inverse-hover: var(--b-ref-neutral-200);
+    --b-text-on-inverse: var(--b-ref-neutral-800);
+
     /* ==========================================
        BACKGROUNDS
        ========================================== */

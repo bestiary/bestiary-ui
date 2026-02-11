@@ -92,8 +92,8 @@
 /* Size */
 .b-message--size-small   { --b-message-padding-x: var(--b-ref-space-2); --b-message-padding-y: var(--b-ref-space-1); --b-message-font-size: var(--b-font-size-sm); }
 .b-message--size-medium  { --b-message-padding-x: var(--b-ref-space-3); --b-message-padding-y: var(--b-ref-space-2); --b-message-font-size: var(--b-font-size-md); }
-.b-message--size-large   { --b-message-padding-x: var(--b-ref-space-4); --b-message-padding-y: var(--b-ref-space-3); --b-message-font-size: var(--b-font-size-lg); }
-.b-message--size-xlarge  { --b-message-padding-x: var(--b-ref-space-5); --b-message-padding-y: var(--b-ref-space-4); --b-message-font-size: var(--b-font-size-lg); }
+.b-message--size-large   { --b-message-padding-x: var(--b-ref-space-4); --b-message-padding-y: var(--b-ref-space-3); --b-message-font-size: var(--b-font-size-md); }
+.b-message--size-xlarge  { --b-message-padding-x: var(--b-ref-space-5); --b-message-padding-y: var(--b-ref-space-4); --b-message-font-size: var(--b-font-size-md); }
 
 /* Fade */
 .b-message--fade-enter-active {

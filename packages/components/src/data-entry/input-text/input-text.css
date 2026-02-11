@@ -37,14 +37,6 @@
     --b-input-text-border-radius: var(--b-ref-radius-full);
 }
 
-/* Label */
-.b-input-text__label {
-    font-size: var(--b-font-size-sm);
-    font-weight: var(--b-font-weight-medium);
-    color: var(--b-text-muted);
-    cursor: default;
-}
-
 /* Wrapper*/
 .b-input-text__wrapper {
     display: flex;
@@ -105,10 +97,10 @@
 /* Disabled */
 .b-input-text--disabled {
     opacity: var(--b-ref-opacity-muted);
+    cursor: not-allowed;
 }
 .b-input-text--disabled .b-input-text__wrapper {
     background-color: var(--b-color-secondary);
-    cursor: not-allowed;
 }
 
 /* --- Variants --- */
@@ -118,6 +110,7 @@
 }
 .b-input-text--variant-filled:not(.b-input-text--disabled):hover {
     --b-input-text-background: var(--b-color-secondary-hover);
+    --b-input-text-border-color: transparent;
 }
 
 /* --- Sizes --- */

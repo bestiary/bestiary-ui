@@ -12,6 +12,15 @@ const props = defineProps(passwordProps);
 const model = defineModel<string>({default: ""});
 const inputRef = ref<HTMLInputElement>();
 const isPasswordVisible = ref<boolean>(false);
+const overlayVisible = ref<boolean>(false);
+
+const onFocus = () => {
+    overlayVisible.value = true;
+};
+
+const onBlur = () => {
+    overlayVisible.value = false;
+};
 
 const DefaultVisibleIcon = () => h('svg', { width: '24', height: '24', viewBox: '0 0 24 24', fill: 'none', xmlns: 'http://www.w3.org/2000/svg' }, [
     h('path', { d: 'M2.03555 12.3224C1.96647 12.1151 1.9664 11.8907 2.03536 11.6834C3.42372 7.50972 7.36079 4.5 12.0008 4.5C16.6387 4.5 20.5742 7.50692 21.9643 11.6776C22.0334 11.8849 22.0335 12.1093 21.9645 12.3166C20.5761 16.4903 16.6391 19.5 11.9991 19.5C7.36119 19.5 3.42564 16.4931 2.03555 12.3224Z', stroke: 'currentColor', 'stroke-width': '1.5', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }),
@@ -59,19 +68,16 @@ const strength = computed(() => {
 
 const strengthLabel = computed(() => {
     if (!model.value) return props.promptLabel;
-    if (strength.value === "weak") return props.weakLabel;
-    if (strength.value === "medium") return props.mediumLabel;
-    if (strength.value === "strong") return props.strongLabel;
+    const s = strength.value;
+    if (s === "weak") return props.weakLabel;
+    if (s === "medium") return props.mediumLabel;
+    if (s === "strong") return props.strongLabel;
     return props.promptLabel;
 });
 </script>
 
 <template>
     <div :class="classes">
-        <label v-if="label" class="b-password__label" @click="focusInput">
-            {{ label }}
-        </label>
-
         <div class="b-password__wrapper" @click="focusInput">
             <input
                 ref="inputRef"
@@ -81,6 +87,8 @@ const strengthLabel = computed(() => {
                 v-bind="$attrs"
                 :disabled="disabled"
                 :readonly="readonly"
+                @focus="onFocus"
+                @blur="onBlur"
             />
 
             <!-- Toggle Mask Icon -->
@@ -94,14 +102,28 @@ const strengthLabel = computed(() => {
                     : (visibleIcon || DefaultVisibleIcon)"
                 />
             </div>
-        </div>
 
-        <!-- Strength Indicator (Feedback) -->
-        <div v-if="feedback && model" class="b-password__feedback">
-            <div class="b-password__meter">
-                <div :class="['b-password__meter-fill', `is-${strength}`]"></div>
-            </div>
-            <span class="b-password__strength-text">{{ strengthLabel }}</span>
+            <transition name="b-password--fade">
+                <div v-if="overlayVisible && feedback" class="b-password__panel">
+                    <!-- Header -->
+                    <div v-if="$slots.header" class="b-password__header">
+                        <slot name="header" />
+                    </div>
+
+                    <!-- Default Meter -->
+                    <div class="b-password__meter-content">
+                        <div class="b-password__meter">
+                            <div :class="['b-password__meter-fill', `is-${strength}`]"></div>
+                        </div>
+                        <span class="b-password__strength-text">{{ strengthLabel }}</span>
+                    </div>
+
+                    <!-- Footer -->
+                    <div v-if="$slots.footer" class="b-password__footer">
+                        <slot name="footer" :strength="strength" />
+                    </div>
+                </div>
+            </transition>
         </div>
     </div>
 </template>

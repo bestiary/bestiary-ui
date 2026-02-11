@@ -5,7 +5,7 @@
         <div class="section">
             <h4>Basic</h4>
             <div class="b-flex b-gap-2">
-                <BInputText v-model="name"/>
+                <BInputText v-model="name" placeholder="Search"/>
             </div>
         </div>
 
@@ -67,7 +67,21 @@
         <div class="section">
             <h4>Password</h4>
             <div class="b-flex b-gap-2">
-                <BPassword v-model="value2" />
+                <BPassword v-model="value2" feedback/>
+
+                <BPassword v-model="value3" feedback>
+                    <template #header>
+                        <div class="font-semibold text-xm mb-4">Reset Password</div>
+                    </template>
+                    <template #footer>
+                        <ul class="pl-2 my-0 leading-normal text-sm">
+                            <li>At least one lowercase</li>
+                            <li>At least one uppercase</li>
+                            <li>At least one numeric</li>
+                            <li>Minimum 8 characters</li>
+                        </ul>
+                    </template>
+                </BPassword>
             </div>
         </div>
 
@@ -75,8 +89,7 @@
 </template>
 
 <script setup lang="ts">
-import {BInputText} from "@bestiary-ui/components";
-import {BPassword} from "@bestiary-ui/components";
+import {BInputText, BPassword, BDivider} from "@bestiary-ui/components";
 import {MagnifyingGlassSolid} from "@bestiary-ui/icons";
 import {ref} from "vue";
 

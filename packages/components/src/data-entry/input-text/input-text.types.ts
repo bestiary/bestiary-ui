@@ -35,9 +35,5 @@ export const inputTextProps = {
     readonly: {
         type: Boolean,
         default: false
-    },
-    label: {
-        type: String,
-        default: null
     }
 } as const;
