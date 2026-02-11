@@ -59,7 +59,7 @@
 body {
     font-family: var(--b-font-family);
     font-size: var(--b-font-size-md);
-    line-height: var(--b-line-height-normal);
+    line-height: var(--b-line-height-none);
     font-weight: var(--b-font-weight-regular);
     color: var(--b-text-main);
 

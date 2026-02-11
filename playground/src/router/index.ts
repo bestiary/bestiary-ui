@@ -43,6 +43,11 @@ const router = createRouter({
             path: "/input",
             name: "input",
             component: () => import("../views/InputView.vue")
+        },
+        {
+            path: "/message",
+            name: "message",
+            component: () => import("../views/MessageView.vue")
         }
     ]
 });

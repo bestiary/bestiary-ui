@@ -1,7 +1,7 @@
 import {definePropType} from "@bestiary-ui/utils";
 import {Component} from "vue";
 
-export type MessageSeverity = "primary" | "secondary" | "success" | "error" | "warning" | "info" | "contrast";
+export type MessageSeverity = "secondary" | "success" | "error" | "warn" | "info" | "contrast";
 export type MessageSize = "small" | "medium" | "large" | "xlarge";
 export type MessageVariant = "outline" | "solid" | "simple";
 

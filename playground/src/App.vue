@@ -11,6 +11,8 @@
                 <router-link to="/badges" class="nav-item">Badges</router-link>
                 <div class="nav-group">Data Entry</div>
                 <router-link to="/input" class="nav-item">Input</router-link>
+                <div class="nav-group">Feedback</div>
+                <router-link to="/message" class="nav-item">Message</router-link>
                 <div class="nav-group">Panel</div>
                 <router-link to="/cards" class="nav-item">Cards</router-link>
                 <router-link to="/divider" class="nav-item">Divider</router-link>

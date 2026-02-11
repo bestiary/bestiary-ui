@@ -8,7 +8,7 @@
                 <Button>Default</Button>
                 <Button type="secondary">Secondary</Button>
                 <Button type="success">Success</Button>
-                <Button type="warning">Warning</Button>
+                <Button type="warn">Warning</Button>
                 <Button type="danger">Danger</Button>
                 <Button type="info">Info</Button>
             </div>

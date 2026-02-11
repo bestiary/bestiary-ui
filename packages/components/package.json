@@ -38,6 +38,12 @@
             "require": "../bestiary-ui/components/data-entry/password/index.cjs"
         },
 
+        "./message": {
+            "types": "../bestiary-ui/components/feedback/message/index.d.ts",
+            "import": "../bestiary-ui/components/feedback/message/index.js",
+            "require": "../bestiary-ui/components/feedback/message/index.cjs"
+        },
+
         "./card": {
             "types": "../bestiary-ui/components/data-display/card/index.d.ts",
             "import": "../bestiary-ui/components/data-display/card/index.js",

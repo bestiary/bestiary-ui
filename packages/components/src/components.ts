@@ -7,6 +7,8 @@ export * from "./data-display/badge";
 export * from "./data-display/overlaybadge";
 export * from "./data-display/card";
 
+export * from "./feedback/message";
+
 export * from "./layout/divider";
 export * from "./layout/splitter";
 export * from "./layout/splitterpanel";

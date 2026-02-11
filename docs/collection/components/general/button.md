@@ -83,7 +83,7 @@ The `severity` property defines the variant of a button.
   <BButton severity="primary" label="Primary" />
   <BButton severity="secondary" label="Secondary" />
   <BButton severity="success" label="Success" />
-  <BButton severity="warning" label="Warning" />
+  <BButton severity="warn" label="Warning" />
   <BButton severity="danger" label="Danger" />
   <BButton severity="info" label="Info" />
 </div>
@@ -92,7 +92,7 @@ The `severity` property defines the variant of a button.
 <BButton severity="primary" label="Primary" />
 <BButton severity="secondary" label="Secondary" />
 <BButton severity="success" label="Success" />
-<BButton severity="warning" label="Warning" />
+<BButton severity="warn" label="Warning" />
 <BButton severity="danger" label="Danger" />
 <BButton severity="info" label="Info" />
 ```
