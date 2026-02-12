@@ -8,14 +8,17 @@
     --b-color-primary-muted: var(--b-ref-green-100);
     --b-text-on-primary: var(--b-ref-neutral-0);
 
-    --b-color-secondary: var(--b-ref-neutral-200);
-    --b-color-secondary-hover: var(--b-ref-neutral-300);
+    --b-color-secondary: var(--b-ref-neutral-100);
+    --b-color-secondary-hover: var(--b-ref-neutral-200);
     --b-color-secondary-active: var(--b-ref-neutral-300);
-    --b-text-on-secondary: var(--b-ref-neutral-500);
+    --b-text-on-secondary: var(--b-ref-neutral-600);
 
     --b-color-inverse: var(--b-ref-neutral-800);
     --b-color-inverse-hover: var(--b-ref-neutral-900);
     --b-text-on-inverse: var(--b-ref-neutral-200);
+
+    --b-color-disabled: var(--b-ref-neutral-200);
+    --b-text-on-disabled: var(--b-ref-neutral-500);
 
     /* ==========================================
        BACKGROUNDS
@@ -31,6 +34,7 @@
     --b-text-main: var(--b-ref-neutral-1000);
     --b-text-muted: var(--b-ref-neutral-500);
     --b-text-inverse: var(--b-ref-neutral-0);
+    --b-text-placeholder: var(--b-ref-neutral-400);
 
     /* ==========================================
        LINKS
@@ -42,7 +46,7 @@
     /* ==========================================
        BORDERS
        ========================================== */
-    --b-border-color: var(--b-ref-neutral-200);
+    --b-border-color: var(--b-ref-neutral-300); /* default --b-ref-neutral-200 */
     --b-border-color-focus: var(--b-color-primary);
     --b-focus-ring: var(--b-ref-green-200);
 
@@ -121,6 +125,9 @@
     --b-color-inverse: var(--b-ref-neutral-300);
     --b-color-inverse-hover: var(--b-ref-neutral-200);
     --b-text-on-inverse: var(--b-ref-neutral-800);
+
+    --b-color-disabled: var(--b-ref-neutral-700);
+    --b-text-on-disabled: var(--b-ref-neutral-400);
 
     /* ==========================================
        BACKGROUNDS

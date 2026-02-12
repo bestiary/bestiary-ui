@@ -2,6 +2,7 @@ export * from "./general/button";
 
 export * from "./data-entry/input-text";
 export * from "./data-entry/password";
+export * from "./data-entry/textarea";
 
 export * from "./data-display/badge";
 export * from "./data-display/overlaybadge";

@@ -4,10 +4,6 @@ export type InputTextSize = "small" | "medium" | "large";
 export type InputTextVariant = "outline" | "filled";
 
 export const inputTextProps = {
-    modelValue: {
-        type: definePropType<string| number>([String, Number]),
-        default: ""
-    },
     size: {
         type: definePropType<InputTextSize>(String),
         default: "medium"

@@ -45,6 +45,11 @@ const router = createRouter({
             component: () => import("../views/InputView.vue")
         },
         {
+            path: "/textarea",
+            name: "textarea",
+            component: () => import("../views/TextareaView.vue")
+        },
+        {
             path: "/message",
             name: "message",
             component: () => import("../views/MessageView.vue")
