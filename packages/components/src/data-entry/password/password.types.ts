@@ -1,4 +1,4 @@
-import {inputTextProps} from "@bestiary-ui/components";
+import {inputTextProps} from "../input-text";
 import {Component, ExtractPropTypes} from "vue";
 import {definePropType} from "@bestiary-ui/utils";
 
