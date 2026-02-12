@@ -32,6 +32,11 @@
             "import": "../bestiary-ui/components/data-entry/input-text/index.js",
             "require": "../bestiary-ui/components/data-entry/input-text/index.cjs"
         },
+        "./textarea": {
+            "types": "../bestiary-ui/components/data-entry/textarea/index.d.ts",
+            "import": "../bestiary-ui/components/data-entry/textarea/index.js",
+            "require": "../bestiary-ui/components/data-entry/textarea/index.cjs"
+        },
         "./password": {
             "types": "../bestiary-ui/components/data-entry/password/index.d.ts",
             "import": "../bestiary-ui/components/data-entry/password/index.js",
