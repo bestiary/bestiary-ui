@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import {createRouter, createWebHistory} from "vue-router";
 import HomeView from "../views/HomeView.vue";
 
 const router = createRouter({
@@ -20,9 +20,9 @@ const router = createRouter({
             component: () => import("../views/CardView.vue")
         },
         {
-          path: "/badges",
-          name: "badges",
-          component: () => import("../views/BadgeView.vue")
+            path: "/badges",
+            name: "badges",
+            component: () => import("../views/BadgeView.vue")
         },
         {
             path: "/icons",
@@ -53,6 +53,11 @@ const router = createRouter({
             path: "/message",
             name: "message",
             component: () => import("../views/MessageView.vue")
+        },
+        {
+            path: "/tokens",
+            name: "tokens",
+            component: () => import("../views/DesignTokensView.vue")
         }
     ]
 });

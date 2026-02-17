@@ -57,7 +57,7 @@
 /* ==========================================
    STYLE
    ========================================== */
-.b-border-inherit      { border-color: inherit !important; }
+.b-border-inherit     { border-color: inherit !important; }
 .b-border-color       { border-color: var(--b-border-color) !important; }
 .b-border-primary     { border-color: var(--b-color-primary) !important; }
 .b-border-success     { border-color: var(--b-color-success) !important; }

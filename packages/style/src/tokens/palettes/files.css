@@ -1,0 +1,147 @@
+:root {
+    /* --- DOCUMENTS --- */
+    /* PDF */
+    --b-ref-file-pdf-50: #fdecec;
+    --b-ref-file-pdf-100: #fcd9d9;
+    --b-ref-file-pdf-200: #f9b4b4;
+    --b-ref-file-pdf-300: #f58e8e;
+    --b-ref-file-pdf-400: #f26969;
+    --b-ref-file-pdf-500: #ef4444;
+    --b-ref-file-pdf-600: #e21313;
+    --b-ref-file-pdf-700: #a90e0e;
+    --b-ref-file-pdf-800: #710a0a;
+    --b-ref-file-pdf-900: #380505;
+    --b-ref-file-pdf-950: #1c0202;
+
+    /* Word */
+    --b-ref-office-word-50:  #f0f4fa;
+    --b-ref-office-word-100: #dae5f4;
+    --b-ref-office-word-200: #bcd0e9;
+    --b-ref-office-word-300: #91b1db;
+    --b-ref-office-word-400: #618cc7;
+    --b-ref-office-word-500: #2b579a; /* Base Word */
+    --b-ref-office-word-600: #244a83;
+    --b-ref-office-word-700: #1e3d6c;
+    --b-ref-office-word-800: #193359;
+    --b-ref-office-word-900: #162c4b;
+    --b-ref-office-word-950: #10213b;
+
+    /* Excel */
+    --b-ref-office-excel-50:  #f0f7f3;
+    --b-ref-office-excel-100: #dbecd0;
+    --b-ref-office-excel-200: #b9dbcc;
+    --b-ref-office-excel-300: #89c1a5;
+    --b-ref-office-excel-400: #55a37a;
+    --b-ref-office-excel-500: #217346; /* Base Excel */
+    --b-ref-office-excel-600: #1a5c38;
+    --b-ref-office-excel-700: #154a2e;
+    --b-ref-office-excel-800: #113d26;
+    --b-ref-office-excel-900: #0f3220;
+    --b-ref-office-excel-950: #0c2b1a;
+
+    /* PowerPoint */
+    --b-ref-office-ppt-50:  #faf1ef;
+    --b-ref-office-ppt-100: #f4ddd7;
+    --b-ref-office-ppt-200: #e9bcaf;
+    --b-ref-office-ppt-300: #d98f7c;
+    --b-ref-office-ppt-400: #c9634a;
+    --b-ref-office-ppt-500: #b7472a; /* Base PowerPoint */
+    --b-ref-office-ppt-600: #9a3b23;
+    --b-ref-office-ppt-700: #7f301d;
+    --b-ref-office-ppt-800: #6a2919;
+    --b-ref-office-ppt-900: #582316;
+    --b-ref-office-ppt-950: #3d170e;
+
+    /* OneNote */
+    --b-ref-office-onenote-50:  #f6f0f6;
+    --b-ref-office-onenote-100: #ebdaeb;
+    --b-ref-office-onenote-200: #dbb7db;
+    --b-ref-office-onenote-300: #c288c2;
+    --b-ref-office-onenote-400: #a75ba7;
+    --b-ref-office-onenote-500: #80397b; /* Base OneNote */
+    --b-ref-office-onenote-600: #6a2f66;
+    --b-ref-office-onenote-700: #572654;
+    --b-ref-office-onenote-800: #492046;
+    --b-ref-office-onenote-900: #3d1c3a;
+    --b-ref-office-onenote-950: #2d142b;
+
+    /* --- MEDIA --- */
+    /* Images */
+    --b-ref-file-image-50:  #fdedf5;
+    --b-ref-file-image-100: #fbdaea;
+    --b-ref-file-image-200: #f7b5d6;
+    --b-ref-file-image-300: #f390c1;
+    --b-ref-file-image-400: #f06bad;
+    --b-ref-file-image-500: #ec4899;
+    --b-ref-file-image-600: #de1779;
+    --b-ref-file-image-700: #a6115b;
+    --b-ref-file-image-800: #6f0c3d;
+    --b-ref-file-image-900: #37061e;
+    --b-ref-file-image-950: #1c030f;
+
+    /* Video */
+    --b-ref-file-video-50:  #f5f1fe;
+    --b-ref-file-video-100: #e7ddfd;
+    --b-ref-file-video-200: #d2c0fc;
+    --b-ref-file-video-300: #ba9efa;
+    --b-ref-file-video-400: #a27df8;
+    --b-ref-file-video-500: #8b5cf6;
+    --b-ref-file-video-600: #5d1cf2;
+    --b-ref-file-video-700: #420bc1;
+    --b-ref-file-video-800: #2d0782;
+    --b-ref-file-video-900: #16033f;
+    --b-ref-file-video-950: #0c0222;
+
+    /* Audio */
+    --b-ref-file-audio-50:  #e1fafe;
+    --b-ref-file-audio-100: #c8f6fd;
+    --b-ref-file-audio-200: #8decfc;
+    --b-ref-file-audio-300: #56e2fa;
+    --b-ref-file-audio-400: #1bd8f9;
+    --b-ref-file-audio-500: #06b6d4;
+    --b-ref-file-audio-600: #0591a9;
+    --b-ref-file-audio-700: #046f81;
+    --b-ref-file-audio-800: #024854;
+    --b-ref-file-audio-900: #01262d;
+    --b-ref-file-audio-950: #011114;
+
+    /* --- ARCHIVES & UTILS --- */
+    /* Archives: ZIP, RAR */
+    --b-ref-file-archive-50:  #fef5e7;
+    --b-ref-file-archive-100: #fdecce;
+    --b-ref-file-archive-200: #fbd89d;
+    --b-ref-file-archive-300: #f9c56c;
+    --b-ref-file-archive-400: #f7b13b;
+    --b-ref-file-archive-500: #f59e0b;
+    --b-ref-file-archive-600: #c47e08;
+    --b-ref-file-archive-700: #935f06;
+    --b-ref-file-archive-800: #623f04;
+    --b-ref-file-archive-900: #312002;
+    --b-ref-file-archive-950: #181001;
+
+    /* Code/Data: JSON, JS, HTML */
+    --b-ref-file-code-50:  #e3fcf9;
+    --b-ref-file-code-100: #c8f9f4;
+    --b-ref-file-code-200: #91f3e8;
+    --b-ref-file-code-300: #59eddd;
+    --b-ref-file-code-400: #22e7d1;
+    --b-ref-file-code-500: #14b8a6;
+    --b-ref-file-code-600: #109385;
+    --b-ref-file-code-700: #0c6e64;
+    --b-ref-file-code-800: #084a42;
+    --b-ref-file-code-900: #042521;
+    --b-ref-file-code-950: #021211;
+
+    /* Generic/Unknown */
+    --b-ref-file-generic-50:  #f1f2f3;
+    --b-ref-file-generic-100: #e0e2e5;
+    --b-ref-file-generic-200: #c2c5cc;
+    --b-ref-file-generic-300: #a6abb5;
+    --b-ref-file-generic-400: #888e9b;
+    --b-ref-file-generic-500: #6b7280;
+    --b-ref-file-generic-600: #565c67;
+    --b-ref-file-generic-700: #41454e;
+    --b-ref-file-generic-800: #2a2d32;
+    --b-ref-file-generic-900: #151619;
+    --b-ref-file-generic-950: #0c0c0e;
+}

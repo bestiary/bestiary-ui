@@ -1,0 +1,12 @@
+:root {
+    --b-ref-radius-none: 0;
+    --b-ref-radius-xs:   0.125rem;  /* 2px */
+    --b-ref-radius-sm:   0.25rem;   /* 4px */
+    --b-ref-radius-md:   0.375rem;  /* 6px */
+    --b-ref-radius-lg:   0.5rem;    /* 8px */
+    --b-ref-radius-xl:   0.75rem;   /* 12px */
+    --b-ref-radius-2xl:  1rem;      /* 16px */
+    --b-ref-radius-3xl:  1.5rem;    /* 24px */
+    --b-ref-radius-4xl:  2rem;      /* 32px */
+    --b-ref-radius-full: 9999px;    /* Circle */
+}

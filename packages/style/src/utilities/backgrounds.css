@@ -3,9 +3,9 @@
    ========================================== */
 
 /* Semantic Colors (Structure) */
-.b-bg-base        { background-color: var(--b-bg-base) !important; }
-.b-bg-surface     { background-color: var(--b-bg-surface) !important; }
-.b-bg-overlay     { background-color: var(--b-bg-overlay) !important; }
+.b-bg-base        { background-color: var(--b-background-base) !important; }
+.b-bg-surface     { background-color: var(--b-background-surface) !important; }
+.b-bg-overlay     { background-color: var(--b-background-overlay) !important; }
 .b-bg-transparent { background-color: transparent !important; }
 
 /* Brand Colors */

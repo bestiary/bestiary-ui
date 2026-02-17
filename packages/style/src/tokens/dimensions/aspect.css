@@ -1,0 +1,9 @@
+:root {
+    --b-ref-aspect-square:         1 / 1;
+    --b-ref-aspect-video:          16 / 9;
+    --b-ref-aspect-video-classic:   4 / 3;
+    --b-ref-aspect-video-vertical: 16 / 10;
+    --b-ref-aspect-cinema:         21 / 9;
+    --b-ref-aspect-stories-v:      4 / 5;
+    --b-ref-aspect-stories-h:      5 / 4;
+}

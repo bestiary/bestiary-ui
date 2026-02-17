@@ -1,0 +1,163 @@
+/**
+ * @bestiary-ui/style - emerald.css
+ * ESSENCE: EMERALD
+ */
+
+:root {
+    /* 1. Identity */
+    --b-essence-name: "Emerald";
+
+    /* 2. Local Brand Scale */
+    --b-essence-primary-50:  #f4f8f3;
+    --b-essence-primary-100: #e9efe7;
+    --b-essence-primary-200: #d2dfd0;
+    --b-essence-primary-300: #b5ccb1;
+    --b-essence-primary-400: #8bc386;
+    --b-essence-primary-500: #7dae78; /* BASE */
+    --b-essence-primary-600: #6b9a66;
+    --b-essence-primary-700: #50734c;
+    --b-essence-primary-800: #3f5a3c;
+    --b-essence-primary-900: #2e422c;
+    --b-essence-primary-950: #1b271a;
+
+    /* 2. Brand - Primary */
+    --b-color-primary:         var(--b-essence-primary-500);
+    --b-color-primary-hover:   var(--b-essence-primary-600);
+    --b-color-primary-active:  var(--b-essence-primary-700);
+    --b-color-primary-muted:   var(--b-essence-primary-100);
+    --b-text-on-primary:       var(--b-ref-neutral-50);
+
+    /* 3. Brand - Secondary */
+    --b-color-secondary:        var(--b-ref-neutral-200);
+    --b-color-secondary-hover:  var(--b-ref-neutral-300);
+    --b-color-secondary-active: var(--b-ref-neutral-400);
+    --b-color-secondary-muted:  var(--b-ref-neutral-100);
+    --b-text-on-secondary:      var(--b-ref-neutral-700);
+
+    /* 4. Contrast (Black/White inverted) */
+    --b-color-contrast:         var(--b-ref-neutral-900);
+    --b-color-contrast-hover:   var(--b-ref-neutral-800);
+    --b-color-contrast-active:  var(--b-ref-neutral-700);
+    --b-color-contrast-muted:   var(--b-ref-neutral-600);
+    --b-text-on-contrast:       var(--b-ref-neutral-50);
+
+    /* 5. Statuses */
+    --b-color-success:             var(--b-ref-green-600);
+    --b-background-success:        var(--b-ref-green-500);
+    --b-background-success-hover:  var(--b-ref-green-600);
+    --b-background-success-active: var(--b-ref-green-700);
+    --b-border-success:            var(--b-ref-green-500);
+    --b-text-on-success:           var(--b-ref-neutral-50);
+    --b-background-success-muted:  var(--b-ref-green-100);
+    --b-border-success-muted:      var(--b-ref-green-200);
+
+    --b-color-error:             var(--b-ref-red-600);
+    --b-background-error:        var(--b-ref-red-500);
+    --b-background-error-hover:  var(--b-ref-red-600);
+    --b-background-error-active: var(--b-ref-red-700);
+    --b-border-error:            var(--b-ref-red-500);
+    --b-text-on-error:           var(--b-ref-neutral-50);
+    --b-background-error-muted:  var(--b-ref-red-100);
+    --b-border-error-muted:      var(--b-ref-red-200);
+
+    --b-color-warning:             var(--b-ref-amber-600);
+    --b-background-warning:        var(--b-ref-amber-500);
+    --b-background-warning-hover:  var(--b-ref-amber-600);
+    --b-background-warning-active: var(--b-ref-amber-700);
+    --b-border-warning:            var(--b-ref-amber-500);
+    --b-text-on-warning:           var(--b-ref-neutral-50);
+    --b-background-warning-muted:  var(--b-ref-amber-100);
+    --b-border-warning-muted:      var(--b-ref-amber-200);
+
+    --b-color-info:             var(--b-ref-blue-600);
+    --b-background-info:        var(--b-ref-blue-500);
+    --b-background-info-hover:  var(--b-ref-blue-600);
+    --b-background-info-active: var(--b-ref-blue-700);
+    --b-border-info:            var(--b-ref-blue-500);
+    --b-text-on-info:           var(--b-ref-neutral-50);
+    --b-background-info-muted:  var(--b-ref-blue-100);
+    --b-border-info-muted:      var(--b-ref-blue-200);
+
+    /* 6. Surfaces & Backgrounds */
+    --b-background-base:    var(--b-ref-neutral-100);
+    --b-background-surface: var(--b-ref-neutral-50);
+    --b-background-overlay: rgba(0, 0, 0, 0.4);
+
+    /* 7. Typography & Links */
+    --b-text-main:        var(--b-ref-neutral-950);
+    --b-text-muted:       var(--b-ref-neutral-500);
+    --b-text-placeholder: var(--b-ref-neutral-400);
+    --b-text-disabled:    var(--b-ref-neutral-300);
+
+    --b-color-link:            var(--b-color-primary);
+    --b-color-link-hover:      var(--b-color-primary-hover);
+    --b-text-decoration-link:  none;
+
+    --b-border-color:          var(--b-ref-neutral-300);
+    --b-border-color-muted:    var(--b-ref-neutral-100);
+    --b-border-color-focus:    var(--b-color-primary);
+    --b-focus-ring-color:      var(--b-ref-green-300);
+    --b-focus-ring-offset:     var(--b-ref-line-md);
+
+    /* 8. Selection & State Backgrounds */
+    --b-state-hover:               rgba(0, 0, 0, 0.04);
+    --b-state-selected:            var(--b-color-primary-muted);
+    --b-state-active:              rgba(0, 0, 0, 0.08);
+    --b-text-selection-background: var(--b-ref-green-200);
+
+    /* 9. Office Palettes */
+    --b-color-word:                  var(--b-ref-office-word-500);
+    --b-background-word-muted:       var(--b-ref-office-word-50);
+    --b-color-excel:                 var(--b-ref-office-excel-500);
+    --b-background-excel-muted:      var(--b-ref-office-excel-50);
+    --b-color-powerpoint:            var(--b-ref-office-ppt-500);
+    --b-background-powerpoint-muted: var(--b-ref-office-ppt-50);
+
+    /* 10. Scrollbar Colors */
+    --b-scrollbar-thumb-background:       var(--b-ref-neutral-300);
+    --b-scrollbar-thumb-hover-background: var(--b-ref-neutral-400);
+    --b-scrollbar-track-background:       var(--b-ref-neutral-100);
+}
+
+/* ==========================================
+   DARK THEME OVERRIDES
+   ========================================== */
+[data-theme='dark'] {
+    /* Brand Dark */
+    --b-color-primary-hover:   var(--b-essence-primary-400);
+    --b-color-primary-active:  var(--b-essence-primary-300);
+    --b-color-primary-muted:   rgba(125, 174, 120, 0.15);
+    --b-text-on-primary:       var(--b-ref-neutral-950);
+
+    --b-color-secondary:       var(--b-ref-neutral-700);
+    --b-color-secondary-hover: var(--b-ref-neutral-600);
+    --b-text-on-secondary:     var(--b-ref-neutral-50);
+
+    --b-color-contrast:        var(--b-ref-neutral-100);
+    --b-color-contrast-hover:  var(--b-ref-neutral-300);
+    --b-text-on-contrast:      var(--b-ref-neutral-950);
+
+    /* Surfaces Dark */
+    --b-background-base:    var(--b-ref-neutral-900);
+    --b-background-surface: var(--b-ref-neutral-800);
+    --b-background-overlay: rgba(0, 0, 0, 0.7);
+
+    /* Text Dark */
+    --b-text-main:        var(--b-ref-neutral-50);
+    --b-text-muted:       var(--b-ref-neutral-400);
+    --b-text-placeholder: var(--b-ref-neutral-500);
+
+    /* Borders Dark */
+    --b-border-color:     var(--b-ref-neutral-700);
+    --b-focus-ring-color: var(--b-ref-green-900);
+
+    /* Statuses Muted Dark (using transparent versions for glow effect) */
+    --b-background-success-muted: rgba(74, 222, 128, 0.1);
+    --b-background-error-muted:   rgba(248, 113, 113, 0.1);
+    --b-background-warning-muted: rgba(251, 191, 36, 0.1);
+    --b-background-info-muted:    rgba(56, 189, 248, 0.1);
+
+    /* Scrollbar Dark */
+    --b-scrollbar-thumb-background: var(--b-ref-neutral-600);
+    --b-scrollbar-track-background: var(--b-ref-neutral-800);
+}

@@ -47,7 +47,7 @@
 .b-badge--severity-success   { --b-badge-background: var(--b-color-success); }
 .b-badge--severity-warn      { --b-badge-background: var(--b-color-warning); }
 .b-badge--severity-danger    { --b-badge-background: var(--b-color-error); }
-.b-badge--severity-contrast  { --b-badge-background: var(--b-background-inverse);  --b-badge-color: var(--b-text-inverse); }
+.b-badge--severity-contrast  { --b-badge-background: var(--b-color-contrast);  --b-badge-color: var(--b-text-on-contrast); }
 
 .b-badge--size-small  { --b-badge-height: var(--b-ref-space-4); --b-badge-font-size: var(--b-font-size-xxs); }
 .b-badge--size-medium { --b-badge-height: var(--b-ref-space-5); --b-badge-font-size: var(--b-font-size-xs); }

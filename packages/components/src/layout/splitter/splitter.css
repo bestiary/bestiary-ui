@@ -1,4 +1,12 @@
 .b-splitter {
+    --b-splitter-border-width:         var(--b-ref-line-sm);
+    --b-splitter-border-style:         solid;
+    --b-splitter-border-color:         var(--b-border-color);
+    --b-splitter-gutter-size:          var(--b-ref-space-1);
+    --b-splitter-gutter-bg:            var(--b-bg-base);
+    --b-splitter-gutter-handle-width:  var(--b-ref-space-1);
+    --b-splitter-gutter-handle-height: var(--b-ref-space-6);
+
     display: flex;
     position: relative;
     border: var(--b-splitter-border-width) var(--b-splitter-border-style) var(--b-border-color);

@@ -1,11 +1,14 @@
 /* TOKENS */
 @import "./tokens/primitives.css";
-@import "./tokens/semantic.css";
-@import "./tokens/components.css";
+@import "./tokens/contract.css";
 
 /* BASE */
 @import "./base/reset.css";
 @import "./base/typography.css";
+
+/* DEFAULT THEME & ESSENCE */
+@import "./essences/emerald.css";
+@import "./themes/forest.css";
 
 /* UTILITIES */
 @import "./utilities/sizing.css";

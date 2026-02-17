@@ -3,91 +3,64 @@
         <h2>Badges</h2>
 
         <div class="section">
-            <h4>shape</h4>
+            <h4>Basic</h4>
             <div class="b-flex b-gap-1">
-                <Badge>1</Badge>
-                <Badge shape="circle" value="2"></Badge>
-                <Badge>Test 1</Badge>
-                <Badge shape="circle" value="Test 2"></Badge>
+                <BBadge value="2" rounded/>
+                <BBadge>10</BBadge>
             </div>
         </div>
 
         <div class="section">
-            <h4>With Icon</h4>
+            <h4>Severity</h4>
             <div class="b-flex b-gap-1">
-                <Badge>
-                    <ArrowUpSolid/>
-                    Icon
-                </Badge>
-                <Badge shape="circle">
-                    <ArrowUpSolid/>
-                    Icon
-                </Badge>
+                <BBadge value="2"></BBadge>
+                <BBadge value="6" severity="secondary"></BBadge>
+                <BBadge value="8" severity="success"></BBadge>
+                <BBadge value="4" severity="info"></BBadge>
+                <BBadge value="9" severity="warn"></BBadge>
+                <BBadge value="3" severity="danger"></BBadge>
+                <BBadge value="5" severity="contrast"></BBadge>
             </div>
         </div>
 
         <div class="section">
             <h4>Size</h4>
             <div class="b-flex b-gap-1">
-                <Badge value="1" size="small"></Badge>
-                <Badge value="1"></Badge>
-                <Badge value="1" size="large"></Badge>
-                <Badge value="1" size="xlarge"></Badge>
-                <Badge value="1" size="small" shape="circle"></Badge>
-                <Badge value="1" shape="circle"></Badge>
-                <Badge value="1" size="large" shape="circle"></Badge>
-                <Badge value="1" size="xlarge" shape="circle"></Badge>
-            </div>
-        </div>
-
-        <div class="section">
-            <h4>Type</h4>
-            <div class="b-flex b-gap-1">
-                <Badge value="default"></Badge>
-                <Badge value="secondary" type="secondary"></Badge>
-                <Badge value="success" type="success"></Badge>
-                <Badge value="info" type="info"></Badge>
-                <Badge value="warn" type="warn"></Badge>
-                <Badge value="danger" type="danger"></Badge>
-                <Badge value="contrast" type="contrast"></Badge>
+                <BBadge value="8" size="xlarge" severity="success"></BBadge>
+                <BBadge value="6" size="large" severity="warn"></BBadge>
+                <BBadge value="4" severity="info"></BBadge>
+                <BBadge value="2" size="small"></BBadge>
             </div>
         </div>
 
         <div class="section">
             <h4>Overlay</h4>
             <div class="b-flex b-gap-4">
-                <OverlayBadge value="5" type="danger" shape="circle" size="small">
-                    <BellSolid size="24" color="#3498db"/>
-                </OverlayBadge>
-                <OverlayBadge type="danger">
-                    <EnvelopeSolid size="24" color="green"/>
-                </OverlayBadge>
+                <BOverlayBadge value="2">
+                    <BellSolid size="36" />
+                </BOverlayBadge>
+                <BOverlayBadge value="4" severity="danger">
+                    <EnvelopeSolid size="36" />
+                </BOverlayBadge>
+                <BOverlayBadge severity="danger">
+                    <UserSolid size="36" />
+                </BOverlayBadge>
+            </div>
+        </div>
 
-                <OverlayBadge value="5" type="danger" shape="circle">
-                    <BellSolid size="lg" />
-                </OverlayBadge>
-
-                <!-- Сценарій 2: Кошик з акцентом (Raven Green) -->
-                <OverlayBadge value="new" size="small">
-                    <Button type="secondary" shape="square">
-                        <ShoppingCartSolid />
-                    </Button>
-                </OverlayBadge>
-
-                <!-- Сценарій 3: Статус користувача (Просто кругла цятка) -->
-                <OverlayBadge type="success" shape="circle">
-                    <div class="b-w-10 b-h-10 b-bg-surface b-border b-rounded-full b-flex b-items-center b-justify-center">
-                        <UserSolid />
-                    </div>
-                </OverlayBadge>
+        <div class="section">
+            <h4>Button</h4>
+            <div class="b-flex b-gap-4">
+                <BButton label="Notifications" :icon="BellSolid" badge="2" badgeSeverity="warn"/>
+                <BButton label="Inbox" :icon="EnvelopeSolid" badge="2" badgeSeverity="contrast" variant="outlined" />
             </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import Badge from "@bestiary-ui/components/data-display/badge";
-import OverlayBadge from "@bestiary-ui/components/data-display/overlaybadge";
-import Button from "@bestiary-ui/components/general/button";
-import {ArrowUpSolid, BellSolid, EnvelopeSolid, UserSolid, ShoppingCartSolid} from "@bestiary-ui/icons";
+import { BBadge } from "@bestiary-ui/components";
+import { BOverlayBadge } from "@bestiary-ui/components";
+import { BButton } from "@bestiary-ui/components";
+import { BellSolid, EnvelopeSolid, UserSolid } from "@bestiary-ui/icons";
 </script>

@@ -1,0 +1,8 @@
+:root {
+    --b-ref-breakpoint-xs:  30rem;
+    --b-ref-breakpoint-sm:  40rem;
+    --b-ref-breakpoint-md:  48rem;
+    --b-ref-breakpoint-lg:  64rem;
+    --b-ref-breakpoint-xl:  80rem;
+    --b-ref-breakpoint-2xl: 96rem;
+}

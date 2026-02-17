@@ -1,0 +1,6 @@
+:root {
+    --b-ref-line-none: 0;
+    --b-ref-line-sm:   1px;
+    --b-ref-line-md:   2px;
+    --b-ref-line-lg:   4px;
+}

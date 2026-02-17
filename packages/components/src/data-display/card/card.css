@@ -1,4 +1,18 @@
 .b-card {
+    --b-card-radius:        var(--b-ref-radius-lg);
+    --b-card-title-weight:  var(--b-font-weight-bold);
+    --b-card-title-color:   var(--b-text-main);
+    --b-card-title-size:    var(--b-font-size-md);
+    --b-card-font-size:     var(--b-font-size-sm);
+    --b-card-pg-sm:         var(--b-ref-space-3); /* 12px */
+    --b-card-pg-md:         var(--b-ref-space-5); /* 20px */
+    --b-card-pg-lg:         var(--b-ref-space-8); /* 32px */
+    --b-card-padding-x:     var(--b-ref-space-5);
+    --b-card-padding-y:     var(--b-ref-space-5);
+    --b-card-bg:            var(--b-bg-surface);
+    --b-card-border-color:  var(--b-border-color);
+    --b-card-content-color: var(--b-text-main);
+
     display: flex;
     flex-direction: column;
     border-radius: var(--b-card-radius);

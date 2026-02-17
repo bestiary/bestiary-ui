@@ -1,227 +1,38 @@
-:root {
-    /* ==========================================
-       NEUTRALS
-       ========================================== */
-    --b-ref-neutral-0:    #ffffff; /* Light Surface / Dark Text Primary */
-    --b-ref-neutral-50:   #f9fafb;
-    --b-ref-neutral-100:  #f1f3f4; /* Light Background */
-    --b-ref-neutral-200:  #e5e7e9; /* Light Border */
-    --b-ref-neutral-300:  #d1d5db;
-    --b-ref-neutral-400:  #9ca3af; /* Dark Text Secondary */
-    --b-ref-neutral-500:  #656a69; /* Light Text Secondary */
-    --b-ref-neutral-600:  #3c3c3c;
-    --b-ref-neutral-700:  #2d2d30; /* Dark Border */
-    --b-ref-neutral-800:  #1e1e20; /* Dark Surface */
-    --b-ref-neutral-900:  #121214; /* Dark Background */
-    --b-ref-neutral-1000: #000000; /* Light Text Primary */
+/* Dimensions */
+@import "./dimensions/aspect.css";
+@import "./dimensions/breakpoints.css";
+@import "./dimensions/elevation.css";
+@import "./dimensions/fractions.css";
+@import "./dimensions/lines.css";
+@import "./dimensions/radius.css";
+@import "./dimensions/sizing.css";
+@import "./dimensions/spacing.css";
 
-    /* ==========================================
-       RAVEN GREEN
-       ========================================== */
-    --b-ref-green-50:  #f4f8f3;
-    --b-ref-green-100: #e9efe7;
-    --b-ref-green-200: #d2dfd0;
-    --b-ref-green-300: #b5ccb1;
-    --b-ref-green-400: #8bc386;
-    --b-ref-green-500: #7dae78; /* Base */
-    --b-ref-green-600: #6b9a66;
-    --b-ref-green-700: #50734c;
-    --b-ref-green-800: #3f5a3c;
-    --b-ref-green-900: #2e422c;
+/* Behavior */
+@import "./behavior/motion.css";
+@import "./behavior/opacity.css";
 
-    /* ==========================================
-       BLUE
-       ========================================== */
-    --b-ref-blue-50:  #eff6ff;
-    --b-ref-blue-100: #dbeafe;
-    --b-ref-blue-200: #bfdbfe;
-    --b-ref-blue-300: #93c5fd;
-    --b-ref-blue-400: #60a5fa;
-    --b-ref-blue-500: #3b82f6; /* Base */
-    --b-ref-blue-600: #2563eb;
-    --b-ref-blue-700: #1d4ed8;
-    --b-ref-blue-800: #1e40af;
-    --b-ref-blue-900: #1e3a8a;
-
-    /* ==========================================
-       AMBER
-       ========================================== */
-    --b-ref-amber-50:  #fffbeb;
-    --b-ref-amber-100: #fef3c7;
-    --b-ref-amber-200: #fde68a;
-    --b-ref-amber-300: #fcd34d;
-    --b-ref-amber-400: #fbbf24;
-    --b-ref-amber-500: #f59e0b; /* Base */
-    --b-ref-amber-600: #d97706;
-    --b-ref-amber-700: #b45309;
-    --b-ref-amber-800: #92400e;
-    --b-ref-amber-900: #78350f;
-
-    /* ==========================================
-       RED
-       ========================================== */
-    --b-ref-red-50:  #fef2f2;
-    --b-ref-red-100: #fee2e2;
-    --b-ref-red-200: #fecaca;
-    --b-ref-red-300: #fca5a5;
-    --b-ref-red-400: #f87171;
-    --b-ref-red-500: #ef4444; /* Base */
-    --b-ref-red-600: #dc2626;
-    --b-ref-red-700: #b91c1c;
-    --b-ref-red-800: #991b1b;
-    --b-ref-red-900: #7f1d1d;
-
-    /* ==========================================
-      OFFICE PALETTES
-      ========================================== */
-    --b-ref-office-word-50:  #f0f4fa;
-    --b-ref-office-word-500: #2b579a; /* Word Blue */
-    --b-ref-office-word-600: #244a83;
-
-    --b-ref-office-excel-50:  #f0f7f3;
-    --b-ref-office-excel-500: #217346; /* Excel Green */
-    --b-ref-office-excel-600: #1a5c38;
-
-    --b-ref-office-ppt-50:  #faf1ef;
-    --b-ref-office-ppt-500: #b7472a; /* PowerPoint */
-    --b-ref-office-ppt-600: #9a3b23;
-
-    --b-ref-office-onenote-50:  #f6f0f6;
-    --b-ref-office-onenote-500: #80397b; /* OneNote */
-    --b-ref-office-onenote-600: #6a2f66;
-
-    /* ==========================================
-       SIZING
-       ========================================== */
-    --b-ref-px:   1px;
-
-    --b-ref-line-none: 0;
-    --b-ref-line-sm:   1px;
-    --b-ref-line-md:   2px;
-    --b-ref-line-lg:   4px;
-
-    --b-ref-control-size-xs: 1.5rem;   /* 24px */
-    --b-ref-control-size-sm: 2rem;     /* 32px */
-    --b-ref-control-size-md: 2.5rem;   /* 40px */
-    --b-ref-control-size-lg: 3rem;     /* 48px */
-
-    --b-ref-size-3xs: 16rem;  /* 256px */
-    --b-ref-size-2xs: 18rem;  /* 288px */
-    --b-ref-size-xs:  20rem;  /* 320px */
-    --b-ref-size-sm:  24rem;  /* 384px */
-    --b-ref-size-md:  28rem;  /* 448px */
-    --b-ref-size-lg:  32rem;  /* 512px */
-    --b-ref-size-xl:  36rem;  /* 576px */
-    --b-ref-size-2xl: 42rem;  /* 672px */
-    --b-ref-size-3xl: 48rem;  /* 768px */
-    --b-ref-size-4xl: 56rem;  /* 896px */
-    --b-ref-size-5xl: 64rem;  /* 1024px */
-    --b-ref-size-6xl: 72rem;  /* 1152px */
-    --b-ref-size-7xl: 80rem;  /* 1280px */
-
-    --b-ref-space-0:  0;
-    --b-ref-space-1:  0.25rem;  /* 4px */
-    --b-ref-space-2:  0.5rem;   /* 8px */
-    --b-ref-space-3:  0.75rem;  /* 12px */
-    --b-ref-space-4:  1rem;     /* 16px */
-    --b-ref-space-5:  1.25rem;  /* 20px */
-    --b-ref-space-6:  1.5rem;   /* 24px */
-    --b-ref-space-7:  1.75rem;  /* 28px */
-    --b-ref-space-8:  2rem;     /* 32px */
-    --b-ref-space-9:  2.25rem;  /* 36px */
-    --b-ref-space-10: 2.5rem;   /* 40px */
-    --b-ref-space-11: 2.75rem;  /* 44px */
-    --b-ref-space-12: 3rem;     /* 48px */
-
-    /* ==========================================
-       INSET
-       ========================================== */
-    --b-ref-inset-px: 1px;
-    --b-ref-inset-full: 100%;
-
-    /* ==========================================
-       FRACTIONS
-       ========================================== */
-    --b-ref-aspect-square:         1 / 1;
-    --b-ref-aspect-video:          16 / 9;
-    --b-ref-aspect-video-clasic:   4 / 3;
-    --b-ref-aspect-video-vertical: 16 / 10;
-    --b-ref-aspect-cinema:         21 / 9;
-    --b-ref-aspect-stories-v:      4 / 5;
-    --b-ref-aspect-stories-h:      5 / 4;
-
-    /* ==========================================
-       FRACTIONS
-       ========================================== */
-    --b-ref-fraction-1-2: 50%;
-    --b-ref-fraction-1-3: 33.3333%;
-    --b-ref-fraction-1-4: 25%;
-    --b-ref-fraction-1-5: 20%;
-    --b-ref-fraction-2-3: 66.6666%;
-
-    /* ==========================================
-       RADIUS
-       ========================================== */
-    --b-ref-radius-none: 0;
-    --b-ref-radius-xs:   0.125rem;  /* 2px */
-    --b-ref-radius-sm:   0.25rem;   /* 4px */
-    --b-ref-radius-md:   0.375rem;  /* 6px */
-    --b-ref-radius-lg:   0.5rem;    /* 8px */
-    --b-ref-radius-xl:   0.75rem;   /* 12px */
-    --b-ref-radius-2xl:  1rem;      /* 16px */
-    --b-ref-radius-3xl:  1.5rem;      /* 24px */
-    --b-ref-radius-4xl:  2rem;      /* 32px */
-    --b-ref-radius-full: 9999px;    /* Circle */
-
-    /* ==========================================
-       SHADOW
-       ========================================== */
-    --b-ref-shadow-2xs:  0 1px rgb(0 0 0 / 0.05);
-    --b-ref-shadow-xs:   0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --b-ref-shadow-sm:   0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    --b-ref-shadow-md:   0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --b-ref-shadow-lg:   0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --b-ref-shadow-xl:   0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-    --b-ref-shadow-2xl:  0 25px 50px -12px rgb(0 0 0 / 0.25);
-    --b-ref-shadow-none: 0 0 #0000;
-
-    /* ==========================================
-       STACKING
-       ========================================== */
-    --b-ref-z-hide:     -1;
-    --b-ref-z-auto:     auto;
-    --b-ref-z-base:     0;
-    --b-ref-z-dropdown: 1000;
-    --b-ref-z-sticky:   1100;
-    --b-ref-z-modal:    1200;
-    --b-ref-z-popover:  1300;
-    --b-ref-z-toast:    1400;
-    --b-ref-z-tooltip:  1500;
-
-    /* ==========================================
-       MOTION
-       ========================================== */
-    --b-ref-duration-fast:   100ms;
-    --b-ref-duration-normal: 200ms;
-    --b-ref-duration-slow:   300ms;
-
-    --b-ref-ease-in:     cubic-bezier(0.4, 0, 1, 1);
-    --b-ref-ease-out:    cubic-bezier(0, 0, 0.2, 1);
-    --b-ref-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-
-    /* ==========================================
-       OPACITY
-       ========================================== */
-    --b-ref-opacity-muted: 0.5;
-    --b-ref-opacity-hover: 0.08;
-
-    /* ==========================================
-       BREAKPOINTS
-       ========================================== */
-    --b-ref-breakpoint-xs:  480px;
-    --b-ref-breakpoint-sm:  640px;
-    --b-ref-breakpoint-md:  768px;
-    --b-ref-breakpoint-lg:  1024px;
-    --b-ref-breakpoint-xl:  1280px;
-    --b-ref-breakpoint-2xl: 1536px;
-}
+/* Palettes */
+@import "./palettes/emerald.css";
+@import "./palettes/green.css";
+@import "./palettes/lime.css";
+@import "./palettes/teal.css";
+@import "./palettes/cyan.css";
+@import "./palettes/sky.css";
+@import "./palettes/blue.css";
+@import "./palettes/indigo.css";
+@import "./palettes/red.css";
+@import "./palettes/orange.css";
+@import "./palettes/amber.css";
+@import "./palettes/yellow.css";
+@import "./palettes/violet.css";
+@import "./palettes/purple.css";
+@import "./palettes/fuchsia.css";
+@import "./palettes/pink.css";
+@import "./palettes/rose.css";
+@import "./palettes/slate.css";
+@import "./palettes/gray.css";
+@import "./palettes/zinc.css";
+@import "./palettes/neutral.css";
+@import "./palettes/stone.css";
+@import "./palettes/files.css";

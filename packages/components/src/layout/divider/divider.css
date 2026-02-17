@@ -1,4 +1,17 @@
 .b-divider {
+    --b-divider-vertical-margin:            0 var(--b-ref-space-4);
+    --b-divider-vertical-padding:           var(--b-ref-space-2) 0;
+    --b-divider-vertical-content-padding:   var(--b-ref-space-2) 0;
+    --b-divider-horizontal-margin:          var(--b-ref-space-4) 0;
+    --b-divider-horizontal-padding:         0 var(--b-ref-space-4);
+    --b-divider-horizontal-content-padding: 0 var(--b-ref-space-2);
+    --b-divider-content-background:         var(--b-bg-surface);
+    --b-divider-content-color:              var(--b-text-muted);
+    --b-divider-border-color:               var(--b-border-color);
+    --b-divider-border-style:               solid;
+    --b-divider-justify-content:            flex-start;
+    --b-divider-align-items:                center;
+
     display: flex;
     position: relative;
     justify-content: var(--b-divider-justify-content);

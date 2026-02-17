@@ -1,0 +1,11 @@
+:root {
+    /* Duration */
+    --b-ref-duration-fast:   100ms;
+    --b-ref-duration-normal: 200ms;
+    --b-ref-duration-slow:   300ms;
+
+    /* Easing */
+    --b-ref-ease-in:     cubic-bezier(0.4, 0, 1, 1);
+    --b-ref-ease-out:    cubic-bezier(0, 0, 0.2, 1);
+    --b-ref-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}

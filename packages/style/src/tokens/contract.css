@@ -1,0 +1,178 @@
+/**
+ * A global list of all semantic tokens in the system.
+ * Values are redefined in Themes and Essences.
+ */
+
+:root {
+    /* ==========================================================================
+       BLOCK 1: THEME RESPONSIBILITY
+       These variables are defined in the files in the /themes/ folder.
+       ========================================================================== */
+
+    /* 1. Identity */
+    --b-theme-name: initial;
+
+    /* 2. Shapes & Radius */
+    --b-radius-xs:   initial;
+    --b-radius-sm:   initial;
+    --b-radius-md:   initial;
+    --b-radius-lg:   initial;
+    --b-radius-xl:   initial;
+    --b-radius-2xl:  initial;
+    --b-radius-full: initial;
+
+    --b-radius-interactive: initial; /* Buttons, Inputs, Selects */
+    --b-radius-container:   initial; /* Cards, Modals, Panels */
+
+    /* 3. Elevation & Shadows */
+    --b-shadow-sm: initial;
+    --b-shadow-md: initial;
+    --b-shadow-lg: initial;
+    --b-shadow-xl: initial;
+    --b-shadow-focus: initial;
+    --b-shadow-card: initial;
+
+    /* 4. Sizing Scale */
+    --b-size-xs: initial;
+    --b-size-sm: initial;
+    --b-size-md: initial;
+    --b-size-lg: initial;
+    --b-size-xl: initial;
+
+    /* 5. Layout Containers */
+    --b-container-xs:  initial;
+    --b-container-sm:  initial;
+    --b-container-md:  initial;
+    --b-container-lg:  initial;
+    --b-container-xl:  initial;
+    --b-container-2xl: initial;
+
+    /* 6. Stacking (Z-Index) */
+    --b-z-index-base:     initial;
+    --b-z-index-dropdown: initial;
+    --b-z-index-sticky:   initial;
+    --b-z-index-modal:    initial;
+    --b-z-index-popover:  initial;
+    --b-z-index-tooltip:  initial;
+
+    /* 7. Motion & Transitions */
+    --b-transition-main: initial;
+    --b-duration-fast:   initial;
+    --b-duration-normal: initial;
+    --b-duration-slow:   initial;
+    --b-ease-out:        initial;
+    --b-ease-in-out:     initial;
+
+    /* 8. Layout Details */
+    --b-border-width-main:  initial;
+    --b-border-width-focus: initial;
+    --b-scrollbar-size:     initial;
+    --b-aspect-square:      initial;
+    --b-aspect-video:       initial;
+
+    /* ==========================================================================
+       BLOCK 2: ESSENCE RESPONSIBILITY (COLOR AND LIGHT)
+       These variables are defined in the files in the /essences/ folder.
+       ========================================================================== */
+
+    /* 1. Identity */
+    --b-essence-name: initial;
+
+    /* 2. Brand: Primary */
+    --b-color-primary:        initial;
+    --b-color-primary-hover:  initial;
+    --b-color-primary-active: initial;
+    --b-color-primary-muted:  initial;
+    --b-text-on-primary:      initial;
+
+    /* 3. Brand: Secondary */
+    --b-color-secondary:        initial;
+    --b-color-secondary-hover:  initial;
+    --b-color-secondary-active: initial;
+    --b-color-secondary-muted:  initial;
+    --b-text-on-secondary:      initial;
+
+    /* 4. Brand: Contrast (Black/White inverted) */
+    --b-color-contrast:        initial;
+    --b-color-contrast-hover:  initial;
+    --b-color-contrast-active: initial;
+    --b-color-contrast-muted:  initial;
+    --b-text-on-contrast:      initial;
+
+    /* 5. Statuses */
+    --b-color-success:             initial;
+    --b-background-success:        initial;
+    --b-background-success-hover:  initial;
+    --b-background-success-active: initial;
+    --b-border-success:            initial;
+    --b-text-on-success:           initial;
+    --b-background-success-muted:  initial;
+    --b-border-success-muted:      initial;
+
+    --b-color-error:             initial;
+    --b-background-error:        initial;
+    --b-background-error-hover:  initial;
+    --b-background-error-active: initial;
+    --b-border-error:            initial;
+    --b-text-on-error:           initial;
+    --b-background-error-muted:  initial;
+    --b-border-error-muted:      initial;
+
+    --b-color-warning:             initial;
+    --b-background-warning:        initial;
+    --b-background-warning-hover:  initial;
+    --b-background-warning-active: initial;
+    --b-border-warning:            initial;
+    --b-text-on-warning:           initial;
+    --b-background-warning-muted:  initial;
+    --b-border-warning-muted:      initial;
+
+    --b-color-info:             initial;
+    --b-background-info:        initial;
+    --b-background-info-hover:  initial;
+    --b-background-info-active: initial;
+    --b-border-info:            initial;
+    --b-text-on-info:           initial;
+    --b-background-info-muted:  initial;
+    --b-border-info-muted:      initial;
+
+    /* 6. Surfaces & Backgrounds */
+    --b-background-base:    initial; /* Main */
+    --b-background-surface: initial; /* Cards */
+    --b-background-overlay: initial; /* Backdrop */
+
+    /* 7. Typography & Links */
+    --b-text-main:        initial;
+    --b-text-muted:       initial;
+    --b-text-placeholder: initial;
+    --b-text-disabled:    initial;
+
+    --b-color-link:           initial;
+    --b-color-link-hover:     initial;
+    --b-text-decoration-link: initial;
+
+    --b-border-color:            initial;
+    --b-border-color-muted:      initial;
+    --b-border-color-focus:      initial;
+    --b-focus-ring-color:        initial;
+    --b-focus-ring-offset:       initial;
+
+    /* 8. Selection & State Backgrounds */
+    --b-state-hover:               initial;
+    --b-state-selected:            initial;
+    --b-state-active:              initial;
+    --b-text-selection-background: initial;
+
+    /* 9. Office & Files Integrations */
+    --b-color-word: initial;
+    --b-background-word-muted: initial;
+    --b-color-excel: initial;
+    --b-background-excel-muted: initial;
+    --b-color-powerpoint: initial;
+    --b-background-powerpoint-muted: initial;
+
+    /* 10. Scrollbar Colors */
+    --b-scrollbar-thumb-background: initial;
+    --b-scrollbar-thumb-hover-background: initial;
+    --b-scrollbar-track-background: initial;
+}

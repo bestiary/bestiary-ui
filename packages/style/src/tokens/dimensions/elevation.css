@@ -1,0 +1,22 @@
+:root {
+    /* Shadow */
+    --b-ref-shadow-2xs:  0 1px rgb(0 0 0 / 0.05);
+    --b-ref-shadow-xs:   0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --b-ref-shadow-sm:   0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --b-ref-shadow-md:   0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --b-ref-shadow-lg:   0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --b-ref-shadow-xl:   0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --b-ref-shadow-2xl:  0 25px 50px -12px rgb(0 0 0 / 0.25);
+    --b-ref-shadow-none: 0 0 #0000;
+
+    /* Z-index */
+    --b-ref-z-hide:     -1;
+    --b-ref-z-auto:     auto;
+    --b-ref-z-base:     0;
+    --b-ref-z-dropdown: 1000;
+    --b-ref-z-sticky:   1100;
+    --b-ref-z-modal:    1200;
+    --b-ref-z-popover:  1300;
+    --b-ref-z-toast:    1400;
+    --b-ref-z-tooltip:  1500;
+}

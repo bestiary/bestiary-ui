@@ -1,7 +1,7 @@
 import {definePropType} from "@bestiary-ui/utils";
 import {Component} from "vue";
 
-export type ButtonSeverity = "primary" | "secondary" | "success" | "warn" | "danger" | "info";
+export type ButtonSeverity = "primary" | "secondary" | "success" | "warn" | "danger" | "info" | "contrast";
 export type ButtonSize = "small" | "medium" | "large" | "xlarge";
 export type ButtonIconPos = "top" | "left" | "bottom" | "right";
 export type ButtonBadgePos = "top" | "left" | "bottom" | "right";

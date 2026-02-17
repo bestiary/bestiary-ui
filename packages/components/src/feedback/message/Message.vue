@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed, defineEmits, h, onMounted, ref} from "vue";
+import {computed, h, onMounted, ref} from "vue";
 import {messageProps} from "./message.types.ts";
 import "./message.css";
 

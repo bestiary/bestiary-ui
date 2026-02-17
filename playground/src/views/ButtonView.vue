@@ -1,70 +1,79 @@
+<script setup>
+import { BButton } from "@bestiary-ui/components";
+import { HomeSolid, UserOutline, CheckSolid, MagnifyingGlassSolid, ArrowPathSolid } from "@bestiary-ui/icons";
+
+import { ref } from 'vue';
+
+const loading = ref(false);
+
+const load = () => {
+    loading.value = true;
+    setTimeout(() => {
+        loading.value = false;
+    }, 2000);
+};
+
+</script>
 <template>
-    <div class="view-content">
-        <h2>Buttons</h2>
-        
-        <div class="section">
-            <h3>Types</h3>
-            <div class="row">
-                <Button>Default</Button>
-                <Button type="secondary">Secondary</Button>
-                <Button type="success">Success</Button>
-                <Button type="warn">Warning</Button>
-                <Button type="danger">Danger</Button>
-                <Button type="info">Info</Button>
+    <div class="b-flex b-flex-col b-gap-8">
+        <section>
+            <h2 class="b-text-h3 b-mb-4">Basic</h2>
+            <div class="b-flex b-gap-2 b-flex-wrap">
+                <BButton label="Submit" />
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h3>Sizes</h3>
-            <div class="row">
-                <Button :icon="PlusSolid" size="small">Small</Button>
-                <Button :icon="PlusSolid" size="medium">Standard</Button>
-                <Button :icon="PlusSolid" size="large">Large</Button>
-                <Button :icon="PlusSolid" size="xlarge">Extra large</Button>
+        <section>
+            <h2 class="b-text-h3 b-mb-4">Icons</h2>
+            <div class="b-flex b-items-center b-gap-4">
+                <BButton :icon="HomeSolid" />
+                <BButton label="Profile" :icon="UserOutline" />
+                <BButton label="Save" :icon="CheckSolid" iconPos="right" />
+                <BButton label="Search" :icon="MagnifyingGlassSolid" iconPos="top" />
+                <BButton label="Update" :icon="ArrowPathSolid" iconPos="bottom" />
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h3>States</h3>
-            <div class="row">
-                <Button disabled>Disabled</Button>
-                <Button loading>Loading</Button>
+        <section>
+            <h2 class="b-text-h3 b-mb-4">Loading</h2>
+            <div class="b-flex b-gap-4">
+                <BButton label="Search" :icon="MagnifyingGlassSolid" :loading="loading" @click="load" />
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h3>With Icon</h3>
-            <div class="row">
-                <Button :icon="PlusSolid" iconPos="top">Top</Button>
-                <Button :icon="PlusSolid" iconPos="bottom">Bottom</Button>
-                <Button :icon="PlusSolid" iconPos="left">Left</Button>
-                <Button :icon="PlusSolid" iconPos="right">Right</Button>
-                <Button :icon="PlusSolid"></Button>
+        <section>
+            <h2 class="b-text-h3 b-mb-4">Severity</h2>
+            <div class="b-flex b-items-center b-gap-4">
+                <BButton label="Primary" />
+                <BButton label="Secondary" severity="secondary" />
+                <BButton label="Success" severity="success" />
+                <BButton label="Info" severity="info" />
+                <BButton label="Warn" severity="warn" />
+                <BButton label="Help" severity="help" />
+                <BButton label="Danger" severity="danger" />
+                <BButton label="Contrast" severity="contrast" />
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h3>With Badge</h3>
-            <div class="row">
-                <Button badge="1" badgeType="secondary" badgePos="top">Top</Button>
-                <Button badge="2" badgeType="secondary" badgePos="bottom">Bottom</Button>
-                <Button badge="3" badgeType="secondary" badgePos="left">Left</Button>
-                <Button badge="4" badgeType="secondary" badgePos="right">Right</Button>
-                <Button :icon="PlusSolid" badge="5" badgeType="secondary">Icon & Badge</Button>
+        <section>
+            <h2 class="b-text-h3 b-mb-4">Disabled</h2>
+            <div class="b-flex b-gap-4">
+                <BButton label="Submit" disabled />
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h3>Rounded</h3>
-            <div class="row">
-                <Button rounded>Rounded</Button>
-                <Button :icon="PlusSolid" rounded></Button>
+        <section>
+            <h2 class="b-text-h3 b-mb-4">Rounded</h2>
+            <div class="b-flex b-items-center b-gap-4">
+                <BButton label="Primary" rounded />
+                <BButton label="Secondary" severity="secondary" rounded />
+                <BButton label="Success" severity="success" rounded />
+                <BButton label="Info" severity="info" rounded />
+                <BButton label="Warn" severity="warn" rounded />
+                <BButton label="Help" severity="help" rounded />
+                <BButton label="Danger" severity="danger" rounded />
+                <BButton label="Contrast" severity="contrast" rounded />
             </div>
-        </div>
+        </section>
     </div>
 </template>
-
-<script setup lang="ts">
-import Button from '@bestiary-ui/components/general/button'
-import { PlusSolid } from "@bestiary-ui/icons";
-</script>

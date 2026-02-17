@@ -1,0 +1,7 @@
+:root {
+    --b-ref-opacity-none:     0;
+    --b-ref-opacity-hover:    0.08;
+    --b-ref-opacity-muted:    0.5;
+    --b-ref-opacity-disabled: 0.38;
+    --b-ref-opacity-full:     1;
+}
