@@ -9,170 +9,222 @@
        These variables are defined in the files in the /themes/ folder.
        ========================================================================== */
 
-    /* 1. Identity */
     --b-theme-name: initial;
 
-    /* 2. Shapes & Radius */
+    /* --- 1.1 Radius System --- */
     --b-radius-xs:   initial;
     --b-radius-sm:   initial;
     --b-radius-md:   initial;
     --b-radius-lg:   initial;
     --b-radius-xl:   initial;
-    --b-radius-2xl:  initial;
     --b-radius-full: initial;
 
+    /* Component-specific Aliases */
+    --b-radius-button:      initial;
+    --b-radius-input:       initial;
+    --b-radius-card:        initial;
+    --b-radius-modal:       initial;
+    --b-radius-popover:     initial;
     --b-radius-interactive: initial; /* Buttons, Inputs, Selects */
     --b-radius-container:   initial; /* Cards, Modals, Panels */
 
-    /* 3. Elevation & Shadows */
-    --b-shadow-sm: initial;
-    --b-shadow-md: initial;
-    --b-shadow-lg: initial;
-    --b-shadow-xl: initial;
-    --b-shadow-focus: initial;
-    --b-shadow-card: initial;
+    /* --- 1.2 Elevation & Shadows --- */
+    /* Static Elevation (Surfaces) */
+    --b-shadow-none: initial;
+    --b-shadow-sm:   initial;
+    --b-shadow-md:   initial;
+    --b-shadow-lg:   initial;
+    --b-shadow-xl:   initial;
+    /* Interaction Shadows */
+    --b-shadow-hover:  initial;
+    --b-shadow-active: initial;
+    --b-shadow-focus:  initial;
 
-    /* 4. Sizing Scale */
+    /* --- 1.3 Sizing & Spacing Scale --- */
     --b-size-xs: initial;
     --b-size-sm: initial;
     --b-size-md: initial;
     --b-size-lg: initial;
     --b-size-xl: initial;
 
-    /* 5. Layout Containers */
-    --b-container-xs:  initial;
-    --b-container-sm:  initial;
-    --b-container-md:  initial;
-    --b-container-lg:  initial;
-    --b-container-xl:  initial;
-    --b-container-2xl: initial;
+    /* --- 1.4 Stacking (Z-Index) --- */
+    --b-z-base:     initial;
+    --b-z-sticky:   initial;
+    --b-z-dropdown: initial;
+    --b-z-popover:  initial;
+    --b-z-modal:    initial;
+    --b-z-tooltip:  initial;
+    --b-z-toast:    initial;
 
-    /* 6. Stacking (Z-Index) */
-    --b-z-index-base:     initial;
-    --b-z-index-dropdown: initial;
-    --b-z-index-sticky:   initial;
-    --b-z-index-modal:    initial;
-    --b-z-index-popover:  initial;
-    --b-z-index-tooltip:  initial;
-
-    /* 7. Motion & Transitions */
-    --b-transition-main: initial;
+    /* --- 1.5 Motion --- */
     --b-duration-fast:   initial;
     --b-duration-normal: initial;
     --b-duration-slow:   initial;
     --b-ease-out:        initial;
     --b-ease-in-out:     initial;
 
-    /* 8. Layout Details */
-    --b-border-width-main:  initial;
-    --b-border-width-focus: initial;
-    --b-scrollbar-size:     initial;
-    --b-aspect-square:      initial;
-    --b-aspect-video:       initial;
+    /* --- 1.6 Layout Details --- */
+    --b-border-width:      initial;
+    --b-focus-ring-width:  initial;
+    --b-focus-ring-offset: initial;
+    --b-scrollbar-size:    initial;
 
     /* ==========================================================================
        BLOCK 2: ESSENCE RESPONSIBILITY (COLOR AND LIGHT)
        These variables are defined in the files in the /essences/ folder.
        ========================================================================== */
 
-    /* 1. Identity */
     --b-essence-name: initial;
 
-    /* 2. Brand: Primary */
-    --b-color-primary:        initial;
-    --b-color-primary-hover:  initial;
-    --b-color-primary-active: initial;
-    --b-color-primary-muted:  initial;
-    --b-text-on-primary:      initial;
+    /* 2.1 Palette */
+    --b-palette-primary-50:  initial;
+    --b-palette-primary-100: initial;
+    --b-palette-primary-200: initial;
+    --b-palette-primary-300: initial;
+    --b-palette-primary-400: initial;
+    --b-palette-primary-500: initial;
+    --b-palette-primary-600: initial;
+    --b-palette-primary-700: initial;
+    --b-palette-primary-800: initial;
+    --b-palette-primary-900: initial;
+    --b-palette-primary-950: initial;
 
-    /* 3. Brand: Secondary */
-    --b-color-secondary:        initial;
-    --b-color-secondary-hover:  initial;
-    --b-color-secondary-active: initial;
-    --b-color-secondary-muted:  initial;
-    --b-text-on-secondary:      initial;
+    /* --- 2.2 Global Interaction Overlays --- */
+    --b-overlay-hover:    initial;
+    --b-overlay-active:   initial;
+    --b-overlay-selected: initial;
 
-    /* 4. Brand: Contrast (Black/White inverted) */
-    --b-color-contrast:        initial;
-    --b-color-contrast-hover:  initial;
-    --b-color-contrast-active: initial;
-    --b-color-contrast-muted:  initial;
-    --b-text-on-contrast:      initial;
+    /* --- 2.3 Surfaces (Named Roles) --- */
+    --b-surface-app:      initial; /* Background */
+    --b-surface-card:     initial; /* Cards / Main */
+    --b-surface-variant:  initial; /* Secondary / Nested */
+    --b-surface-floating: initial; /* Menus / Tooltips */
+    --b-surface-overlay:  initial; /* Backdrops */
+    --b-surface-inverse:  initial; /* Inverted context */
 
-    /* 5. Statuses */
-    --b-color-success:             initial;
-    --b-background-success:        initial;
-    --b-background-success-hover:  initial;
-    --b-background-success-active: initial;
-    --b-border-success:            initial;
-    --b-text-on-success:           initial;
-    --b-background-success-muted:  initial;
-    --b-border-success-muted:      initial;
+    /* --- 2.4 Typography Semantics --- */
+    --b-text-primary:   initial;
+    --b-text-secondary: initial;
+    --b-text-muted:     initial;
+    --b-text-disabled:  initial;
+    --b-text-inverse:   initial;
+    --b-text-selection: initial;
 
-    --b-color-error:             initial;
-    --b-background-error:        initial;
-    --b-background-error-hover:  initial;
-    --b-background-error-active: initial;
-    --b-border-error:            initial;
-    --b-text-on-error:           initial;
-    --b-background-error-muted:  initial;
-    --b-border-error-muted:      initial;
+    /* --- 2.5 Form & Control Semantics --- */
+    --b-control-background:    initial;
+    --b-control-border:        initial;
+    --b-control-border-hover:  initial;
+    --b-control-border-active: initial;
+    --b-control-placeholder:   initial;
 
-    --b-color-warning:             initial;
-    --b-background-warning:        initial;
-    --b-background-warning-hover:  initial;
-    --b-background-warning-active: initial;
-    --b-border-warning:            initial;
-    --b-text-on-warning:           initial;
-    --b-background-warning-muted:  initial;
-    --b-border-warning-muted:      initial;
+    /* --- 2.6 Borders --- */
+    --b-border-default: initial;
+    --b-border-subtle:  initial;
+    --b-border-strong:  initial;
+    --b-focus-ring:     initial;
 
-    --b-color-info:             initial;
-    --b-background-info:        initial;
-    --b-background-info-hover:  initial;
-    --b-background-info-active: initial;
-    --b-border-info:            initial;
-    --b-text-on-info:           initial;
-    --b-background-info-muted:  initial;
-    --b-border-info-muted:      initial;
+    /* --------------------------------------------------------------------------
+       2.7 SEVERITY GROUPS (Primary, Secondary, Success, Error, Warning, Info, Contrast)
+       -------------------------------------------------------------------------- */
 
-    /* 6. Surfaces & Backgrounds */
-    --b-background-base:    initial; /* Main */
-    --b-background-surface: initial; /* Cards */
-    --b-background-overlay: initial; /* Backdrop */
+    /* Primary */
+    --b-primary-solid-background:  initial;
+    --b-primary-solid-hover:       initial;
+    --b-primary-solid-active:      initial;
+    --b-primary-solid-text:        initial;
+    --b-primary-subtle-background: initial;
+    --b-primary-subtle-border:     initial;
+    --b-primary-subtle-text:       initial;
+    --b-primary-outline-border:    initial;
+    --b-primary-outline-text:      initial;
+    --b-primary-overlay-hover:     initial;
+    --b-primary-overlay-active:    initial;
 
-    /* 7. Typography & Links */
-    --b-text-main:        initial;
-    --b-text-muted:       initial;
-    --b-text-placeholder: initial;
-    --b-text-disabled:    initial;
+    /* Secondary */
+    --b-secondary-solid-background:  initial;
+    --b-secondary-solid-hover:       initial;
+    --b-secondary-solid-active:      initial;
+    --b-secondary-solid-text:        initial;
+    --b-secondary-subtle-background: initial;
+    --b-secondary-subtle-border:     initial;
+    --b-secondary-subtle-text:       initial;
+    --b-secondary-outline-border:    initial;
+    --b-secondary-outline-text:      initial;
+    --b-secondary-overlay-hover:     initial;
+    --b-secondary-overlay-active:    initial;
 
+    /* Contrast */
+    --b-contrast-solid-background:  initial;
+    --b-contrast-solid-hover:       initial;
+    --b-contrast-solid-active:      initial;
+    --b-contrast-solid-text:        initial;
+    --b-contrast-subtle-background: initial;
+    --b-contrast-subtle-border:     initial;
+    --b-contrast-subtle-text:       initial;
+    --b-contrast-outline-border:    initial;
+    --b-contrast-outline-text:      initial;
+    --b-contrast-overlay-hover:     initial;
+    --b-contrast-overlay-active:    initial;
+
+    /* Success */
+    --b-success-solid-background:  initial;
+    --b-success-solid-hover:       initial;
+    --b-success-solid-active:      initial;
+    --b-success-solid-text:        initial;
+    --b-success-subtle-background: initial;
+    --b-success-subtle-border:     initial;
+    --b-success-subtle-text:       initial;
+    --b-success-outline-border:    initial;
+    --b-success-outline-text:      initial;
+    --b-success-overlay-hover:     initial;
+    --b-success-overlay-active:    initial;
+
+    /* Error */
+    --b-error-solid-background:  initial;
+    --b-error-solid-hover:       initial;
+    --b-error-solid-active:      initial;
+    --b-error-solid-text:        initial;
+    --b-error-subtle-background: initial;
+    --b-error-subtle-border:     initial;
+    --b-error-subtle-text:       initial;
+    --b-error-outline-border:    initial;
+    --b-error-outline-text:      initial;
+    --b-error-overlay-hover:     initial;
+    --b-error-overlay-active:    initial;
+
+    /* Warning */
+    --b-warning-solid-background:  initial;
+    --b-warning-solid-hover:       initial;
+    --b-warning-solid-active:      initial;
+    --b-warning-solid-text:        initial;
+    --b-warning-subtle-background: initial;
+    --b-warning-subtle-border:     initial;
+    --b-warning-subtle-text:       initial;
+    --b-warning-outline-border:    initial;
+    --b-warning-outline-text:      initial;
+    --b-warning-overlay-hover:     initial;
+    --b-warning-overlay-active:    initial;
+
+    /* Info */
+    --b-info-solid-background:  initial;
+    --b-info-solid-hover:       initial;
+    --b-info-solid-active:      initial;
+    --b-info-solid-text:        initial;
+    --b-info-subtle-background: initial;
+    --b-info-subtle-border:     initial;
+    --b-info-subtle-text:       initial;
+    --b-info-outline-border:    initial;
+    --b-info-outline-text:      initial;
+    --b-info-overlay-hover:     initial;
+    --b-info-overlay-active:    initial;
+
+    /* --- 2.8 Links --- */
     --b-color-link:           initial;
     --b-color-link-hover:     initial;
     --b-text-decoration-link: initial;
 
-    --b-border-color:            initial;
-    --b-border-color-muted:      initial;
-    --b-border-color-focus:      initial;
-    --b-focus-ring-color:        initial;
-    --b-focus-ring-offset:       initial;
-
-    /* 8. Selection & State Backgrounds */
-    --b-state-hover:               initial;
-    --b-state-selected:            initial;
-    --b-state-active:              initial;
-    --b-text-selection-background: initial;
-
-    /* 9. Office & Files Integrations */
-    --b-color-word: initial;
-    --b-background-word-muted: initial;
-    --b-color-excel: initial;
-    --b-background-excel-muted: initial;
-    --b-color-powerpoint: initial;
-    --b-background-powerpoint-muted: initial;
-
-    /* 10. Scrollbar Colors */
-    --b-scrollbar-thumb-background: initial;
-    --b-scrollbar-thumb-hover-background: initial;
-    --b-scrollbar-track-background: initial;
+    /* --- 2.9 Scrollbar --- */
+    --b-scrollbar-thumb:       initial;
+    --b-scrollbar-thumb-hover: initial;
+    --b-scrollbar-track:       initial;
 }

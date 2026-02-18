@@ -76,7 +76,6 @@
                 </BCard>
 
                 <BCard style="width: 320px;" shadow="hover">
-                    <!-- Картинка без паддінгів -->
                     <template #header>
                         <img src="https://picsum.photos/400/250" alt="Product Image" />
                     </template>
@@ -131,9 +130,9 @@
                         <div class="b-text-sm b-text-muted">Senior UI/UX Designer</div>
                     </div>
 
-                    <Button shape="circle" type="secondary">
+                    <BButton shape="circle" severity="secondary">
                         <CogSolid />
-                    </Button>
+                    </BButton>
                 </BCard>
 
                 <div class="b-grid b-grid-cols-3 b-gap-4">
