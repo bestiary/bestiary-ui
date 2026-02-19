@@ -58,6 +58,11 @@ const router = createRouter({
             path: "/tokens",
             name: "tokens",
             component: () => import("../views/DesignTokensView.vue")
+        },
+        {
+            path: "/overview",
+            name: "overview",
+            component: () => import("../views/OverviewView.vue")
         }
     ]
 });

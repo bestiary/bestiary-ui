@@ -31,6 +31,7 @@
     /* --- 1.2 Elevation & Shadows --- */
     /* Static Elevation (Surfaces) */
     --b-shadow-none: initial;
+    --b-shadow-xs:   initial;
     --b-shadow-sm:   initial;
     --b-shadow-md:   initial;
     --b-shadow-lg:   initial;

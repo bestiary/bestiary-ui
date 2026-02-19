@@ -61,7 +61,7 @@ body {
     font-size: var(--b-font-size-md);
     line-height: var(--b-line-height-none);
     font-weight: var(--b-font-weight-regular);
-    color: var(--b-text-main);
+    color: var(--b-text-primary);
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -71,7 +71,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--b-font-family);
     font-weight: var(--b-font-weight-bold);
     line-height: var(--b-line-height-tight);
-    color: var(--b-text-main);
+    color: var(--b-text-primary);
     margin-bottom: 0.5em;
 }
 

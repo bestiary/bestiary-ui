@@ -20,16 +20,17 @@
                 <router-link to="/cards" class="nav-link">Cards</router-link>
 
                 <div class="nav-group-title b-mt-4 b-px-2 b-text-xxs b-uppercase b-text-muted">Feedback</div>
+                <router-link to="/message" class="nav-link">Message</router-link>
 
                 <div class="nav-group-title b-mt-4 b-px-2 b-text-xxs b-uppercase b-text-muted">Layout</div>
                 <router-link to="/divider" class="nav-link">Divider</router-link>
                 <router-link to="/splitter" class="nav-link">Splitter</router-link>
 
                 <div class="nav-group-title b-mt-4 b-px-2 b-text-xxs b-uppercase b-text-muted">Navigation</div>
-                <router-link to="/message" class="nav-link">Message</router-link>
 
                 <div class="nav-group-title b-mt-4 b-px-2 b-text-xxs b-uppercase b-text-muted">Style</div>
                 <router-link to="/tokens" class="nav-link">Design Tokens</router-link>
+                <router-link to="/overview" class="nav-link">Overview</router-link>
             </nav>
         </aside>
 
@@ -95,12 +96,12 @@ onMounted(() => {
     padding: 8px 12px;
     border-radius: 6px;
     text-decoration: none;
-    color: var(--b-text-main);
+    color: var(--b-text-primary);
     font-size: 14px;
 }
-.nav-link:hover { background: var(--b-state-hover); }
+.nav-link:hover { background: var(--b-primary-subtle-background); }
 .router-link-active {
-    background: var(--b-color-primary-muted) !important;
+    background: var(--b-primary-overlay-active) !important;
     color: var(--b-color-primary) !important;
     font-weight: 600;
 }

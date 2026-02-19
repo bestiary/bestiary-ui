@@ -1,33 +1,39 @@
 .b-message {
-    --b-message-padding-x:           var(--b-ref-space-3);
-    --b-message-padding-y:           var(--b-ref-space-2);
-    --b-message-gap:                 var(--b-ref-space-2);
+    /* --- Local Component Tokens --- */
+    --b-message-height:           0;
+    --b-message-padding-x:        var(--b-ref-space-3);
+    --b-message-padding-y:        var(--b-ref-space-2);
+    --b-message-gap:              var(--b-ref-space-2);
 
-    --b-message-border-width:        1px;
-    --b-message-border-style:        solid;
-    --b-message-border-color:        var(--b-color-info);
-    --b-message-border-radius:       var(--b-ref-radius-md);
+    --b-message-border-width:     var(--b-border-width, 1px);
+    --b-message-border-style:     solid;
+    --b-message-border-radius:    var(--b-ref-radius-md);
 
-    --b-message-text-color:          var(--b-color-info);
-    --b-message-font-size:           var(--b-font-size-md);
-    --b-message-font-weight:         var(--b-font-weight-medium);
+    --b-message-background:       var(--b-info-subtle-background);
+    --b-message-border-color:     var(--b-info-subtle-border);
 
-    --b-message-background:          var(--b-color-info-muted);
-    --b-message-icon-size:           var(--b-ref-space-4);
+    --b-message-font-size:        var(--b-font-size-sm);
+    --b-message-text-color:       var(--b-info-subtle-text);
 
-    --b-message-close-button-width:  var(--b-message-font-size);
-    --b-message-close-button-height: var(--b-message-font-size);
-    --b-message-close-button-radius: var(--b-ref-radius-full);
-    --b-message-close-button-background: transparent;
+    --b-message-icon-size:        var(--b-message-font-size);
+    --b-message-transition:       var(--b-duration-normal);
 
-    --b-message-transition:          all var(--b-ref-duration-normal) var(--b-ref-ease-in-out);
+    /* Close Button Tokens */
+    --b-message-close-size:       24px;
+    --b-message-close-radius:     var(--b-ref-radius-full);
+    --b-message-close-hover-bg:   var(--b-info-overlay-hover);
 
     display: flex;
-    background: var(--b-message-background);
-    color: var(--b-message-text-color);
-    outline: var(--b-message-border-width) var(--b-message-border-style) var(--b-message-border-color);
-    border-radius: var(--b-message-border-radius);
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    transition: var(--b-message-transition);
 
+    background-color: var(--b-message-background);
+    color: var(--b-message-text-color);
+    border: var(--b-message-border-width) var(--b-message-border-style) var(--b-message-border-color);
+    border-radius: var(--b-message-border-radius);
+    min-height: var(--b-message-height);
 }
 
 .b-message__content {
@@ -39,79 +45,159 @@
 }
 
 .b-message__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
     width: var(--b-message-icon-size);
     height: var(--b-message-icon-size);
 }
 
+.b-message__icon svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+}
+
 .b-message__text {
+    flex: 1;
     font-size: var(--b-message-font-size);
-    font-weight: var(--b-message-font-weight);
+    font-weight: var(--b-font-weight-medium);
+    line-height: 1.2;
 }
 
 .b-message__close-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-inline-start: auto;
-    width: var(--b-message-close-button-width);
-    height: var(--b-message-close-button-height);
-    border-radius: var(--b-message-close-button-radius);
-    background: var(--b-message-close-button-background);
-    transition: var(--b-message-transition);
-    color: inherit;
+    flex-shrink: 0;
+
+    width: var(--b-message-close-size);
+    height: var(--b-message-close-size);
+    border-radius: var(--b-message-close-radius);
+    background: transparent;
     border: none;
+    color: inherit;
     cursor: pointer;
-    user-select: none;
-    transform: scale(1.2);
+    transition: background-color 0.2s;
+    margin-inline-start: var(--b-ref-space-2);
 }
 
 .b-message__close-button:hover {
-    --b-message-close-button-background: var(--b-color-info-secondary);
+    background-color: var(--b-message-close-hover-bg);
 }
 
-/* Severity */
-.b-message--severity-success   { --b-message-background: var(--b-color-success-muted); --b-message-text-color: var(--b-color-success);     --b-message-border-color: var(--b-color-success-secondary); }
-.b-message--severity-info      { --b-message-background: var(--b-color-info-muted);    --b-message-text-color: var(--b-color-info);        --b-message-border-color: var(--b-color-info-secondary); }
-.b-message--severity-warn      { --b-message-background: var(--b-color-warning-muted); --b-message-text-color: var(--b-color-warning);     --b-message-border-color: var(--b-color-warning-secondary); }
-.b-message--severity-error     { --b-message-background: var(--b-color-error-muted);   --b-message-text-color: var(--b-color-error);       --b-message-border-color: var(--b-color-error-secondary); }
-.b-message--severity-secondary { --b-message-background: var(--b-color-secondary);     --b-message-text-color: var(--b-text-on-secondary); --b-message-border-color: var(--b-color-secondary-hover); }
-.b-message--severity-contrast  { --b-message-background: var(--b-color-inverse);       --b-message-text-color: var(--b-text-on-inverse);   --b-message-border-color: var(--b-color-inverse); }
+/* ==========================================
+   SEVERITY
+   ========================================== */
 
-/* Variant */
-.b-message--variant-simple                                { --b-message-background: transparent; --b-message-border-color: transpatent; }
-.b-message--variant-simple.b-message--severity-contrast   { --b-message-background: transparent; --b-message-text-color: var(--b-color-inverse); }
+.b-message--severity-success {
+    --b-message-background:     var(--b-success-subtle-background);
+    --b-message-border-color:   var(--b-success-subtle-border);
+    --b-message-text-color:     var(--b-success-subtle-text);
+    --b-message-close-hover-bg: var(--b-success-overlay-hover);
+}
 
-.b-message--variant-outline                               { --b-message-background: transparent; }
-.b-message--variant-outline.b-message--severity-success   { --b-message-border-color: var(--b-color-success); }
-.b-message--variant-outline.b-message--severity-info      { --b-message-border-color: var(--b-color-info); }
-.b-message--variant-outline.b-message--severity-warn      { --b-message-border-color: var(--b-color-warning); }
-.b-message--variant-outline.b-message--severity-error     { --b-message-border-color: var(--b-color-error); }
-.b-message--variant-outline.b-message--severity-secondary { --b-message-border-color: var(--b-color-secondary); }
-.b-message--variant-outline.b-message--severity-contrast  { --b-message-border-color: var(--b-color-inverse); --b-message-text-color: var(--b-color-inverse) }
+.b-message--severity-info {
+    --b-message-background:     var(--b-info-subtle-background);
+    --b-message-border-color:   var(--b-info-subtle-border);
+    --b-message-text-color:     var(--b-info-subtle-text);
+    --b-message-close-hover-bg: var(--b-info-overlay-hover);
+}
 
-/* Size */
+.b-message--severity-warn {
+    --b-message-background:     var(--b-warning-subtle-background);
+    --b-message-border-color:   var(--b-warning-subtle-border);
+    --b-message-text-color:     var(--b-warning-subtle-text);
+    --b-message-close-hover-bg: var(--b-warning-overlay-hover);
+}
+
+.b-message--severity-error {
+    --b-message-background:     var(--b-error-subtle-background);
+    --b-message-border-color:   var(--b-error-subtle-border);
+    --b-message-text-color:     var(--b-error-subtle-text);
+    --b-message-close-hover-bg: var(--b-error-overlay-hover);
+}
+
+.b-message--severity-secondary {
+    --b-message-background:     var(--b-secondary-subtle-background);
+    --b-message-border-color:   var(--b-secondary-subtle-border);
+    --b-message-text-color:     var(--b-secondary-subtle-text);
+    --b-message-close-hover-bg: var(--b-secondary-overlay-hover);
+}
+
+.b-message--severity-contrast {
+    --b-message-background:     var(--b-contrast-solid-background);
+    --b-message-border-color:   var(--b-contrast-solid-background);
+    --b-message-text-color:     var(--b-contrast-solid-text);
+    --b-message-close-hover-bg: var(--b-contrast-overlay-hover);
+}
+
+/* ==========================================
+   VARIANTS
+   ========================================== */
+
+.b-message--variant-simple {
+    --b-message-background: transparent;
+    --b-message-border-color: transparent;
+    padding: 0;
+}
+
+.b-message--variant-simple.b-message--severity-contrast {
+    --b-message-text-color: var(--b-contrast-outline-text);
+}
+
+.b-message--variant-outline {
+    --b-message-background: transparent;
+}
+
+.b-message--variant-outline.b-message--severity-success {
+    --b-message-text-color: var(--b-success-outline-text);
+    --b-message-border-color: var(--b-success-outline-border);
+}
+
+.b-message--variant-outline.b-message--severity-info {
+    --b-message-text-color: var(--b-info-outline-text);
+    --b-message-border-color: var(--b-info-outline-border);
+}
+
+.b-message--variant-outline.b-message--severity-warn {
+    --b-message-text-color: var(--b-warning-outline-text);
+    --b-message-border-color: var(--b-warning-outline-border);
+}
+
+.b-message--variant-outline.b-message--severity-error {
+    --b-message-text-color: var(--b-error-outline-text);
+    --b-message-border-color: var(--b-error-outline-border);
+}
+
+.b-message--variant-outline.b-message--severity-secondary {
+    --b-message-text-color: var(--b-secondary-outline-text);
+    --b-message-border-color: var(--b-secondary-outline-border);
+}
+
+.b-message--variant-outline.b-message--severity-contrast {
+    --b-message-text-color: var(--b-contrast-outline-text);
+}
+
+/* ==========================================
+   SIZES
+   ========================================== */
 .b-message--size-small   { --b-message-padding-x: var(--b-ref-space-2); --b-message-padding-y: var(--b-ref-space-1); --b-message-font-size: var(--b-font-size-sm); }
 .b-message--size-medium  { --b-message-padding-x: var(--b-ref-space-3); --b-message-padding-y: var(--b-ref-space-2); --b-message-font-size: var(--b-font-size-md); }
 .b-message--size-large   { --b-message-padding-x: var(--b-ref-space-4); --b-message-padding-y: var(--b-ref-space-3); --b-message-font-size: var(--b-font-size-md); }
 .b-message--size-xlarge  { --b-message-padding-x: var(--b-ref-space-5); --b-message-padding-y: var(--b-ref-space-4); --b-message-font-size: var(--b-font-size-md); }
 
-/* Fade */
-.b-message--fade-enter-active {
-    transition: var(--b-message-transition);
-}
-
+/* ==========================================
+   ANIMATIONS (Vue Transition)
+   ========================================== */
+.b-message--fade-enter-active,
 .b-message--fade-leave-active {
-    transition: var(--b-message-transition);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .b-message--fade-enter-from,
 .b-message--fade-leave-to {
     opacity: 0;
     transform: translateY(-10px);
-}
-
-.b-message--fade-enter-to,
-.b-message--fade-leave-from {
-    opacity: 1;
-    transform: translateY(0);
 }

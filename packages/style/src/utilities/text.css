@@ -49,13 +49,13 @@
 .b-leading-loose   { line-height: var(--b-line-height-loose) !important; }
 
 /* Colors */
-.b-text-primary { color: var(--b-color-primary) !important; }
-.b-text-main    { color: var(--b-text-main) !important; }
+.b-text-primary { color: var(--b-text-primary) !important; }
+.b-text-main    { color: var(--b-text-secondary) !important; }
 .b-text-muted   { color: var(--b-text-muted) !important; }
 .b-text-inverse { color: var(--b-text-inverse) !important; } /* Для темних фонів */
 
 /* Colors status */
-.b-text-success { color: var(--b-color-success) !important; }
+.b-text-success { color: var(--b-primary-outline-text) !important; }
 .b-text-error   { color: var(--b-color-error) !important; }
 .b-text-warning { color: var(--b-color-warning) !important; }
 .b-text-info    { color: var(--b-color-info) !important; }

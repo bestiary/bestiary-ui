@@ -36,7 +36,7 @@
     --b-text-secondary: var(--b-ref-neutral-600);
     --b-text-muted:     var(--b-ref-neutral-500);
     --b-text-disabled:  var(--b-ref-neutral-400);
-    --b-text-inverse:   var(--b-ref-neutral-0);
+    --b-text-inverse:   var(--b-ref-slate-50);
     --b-text-selection: var(--b-palette-primary-200);
 
     /* --- 2.5 Form & Control Semantics --- */
@@ -74,24 +74,24 @@
     --b-secondary-solid-hover:       var(--b-ref-neutral-300);
     --b-secondary-solid-active:      var(--b-ref-neutral-400);
     --b-secondary-solid-text:        var(--b-text-primary);
-    --b-secondary-subtle-background: var(--b-ref-neutral-50);
-    --b-secondary-subtle-border:     var(--b-ref-neutral-200);
-    --b-secondary-subtle-text:       var(--b-ref-neutral-700);
+    --b-secondary-subtle-background: var(--b-ref-slate-100); /* Done */
+    --b-secondary-subtle-border:     var(--b-ref-slate-200); /* Done */
+    --b-secondary-subtle-text:       var(--b-ref-slate-600); /* Done */
     --b-secondary-outline-border:    var(--b-ref-neutral-300);
     --b-secondary-outline-text:      var(--b-ref-neutral-600);
     --b-secondary-overlay-hover:     var(--b-overlay-hover);
     --b-secondary-overlay-active:    var(--b-overlay-active);
 
     /* Contrast */
-    --b-contrast-solid-background:  var(--b-ref-neutral-900);
+    --b-contrast-solid-background:  var(--b-ref-slate-900);
     --b-contrast-solid-hover:       var(--b-ref-neutral-1000);
     --b-contrast-solid-active:      var(--b-ref-neutral-1000);
     --b-contrast-solid-text:        var(--b-text-inverse);
     --b-contrast-subtle-background: var(--b-ref-neutral-100);
-    --b-contrast-subtle-border:     var(--b-ref-neutral-300);
-    --b-contrast-subtle-text:       var(--b-ref-neutral-900);
+    --b-contrast-subtle-border:     var(--b-ref-neutral-200);
+    --b-contrast-subtle-text:       var(--b-ref-neutral-600);
     --b-contrast-outline-border:    var(--b-ref-neutral-900);
-    --b-contrast-outline-text:      var(--b-ref-neutral-900);
+    --b-contrast-outline-text:      var(--b-ref-slate-950); /* Done */
     --b-contrast-overlay-hover:     rgba(15, 23, 42, 0.04);
     --b-contrast-overlay-active:    rgba(15, 23, 42, 0.08);
 
@@ -100,10 +100,10 @@
     --b-success-solid-hover:       var(--b-ref-green-700);
     --b-success-solid-active:      var(--b-ref-green-800);
     --b-success-solid-text:        var(--b-text-inverse);
-    --b-success-subtle-background: var(--b-ref-green-50);
-    --b-success-subtle-border:     var(--b-ref-green-200);
-    --b-success-subtle-text:       var(--b-ref-green-800);
-    --b-success-outline-border:    var(--b-ref-green-500);
+    --b-success-subtle-background: color-mix(in srgb,var(--b-ref-green-50),transparent 5%); /* Done */
+    --b-success-subtle-border:     var(--b-ref-green-200); /* Done */
+    --b-success-subtle-text:       var(--b-ref-green-600); /* Done */
+    --b-success-outline-border:    var(--b-ref-green-600); /* Done */
     --b-success-outline-text:      var(--b-ref-green-600);
     --b-success-overlay-hover:     rgba(16, 185, 129, 0.08);
     --b-success-overlay-active:    rgba(16, 185, 129, 0.16);
@@ -113,10 +113,10 @@
     --b-error-solid-hover:       var(--b-ref-red-700);
     --b-error-solid-active:      var(--b-ref-red-800);
     --b-error-solid-text:        var(--b-text-inverse);
-    --b-error-subtle-background: var(--b-ref-red-50);
-    --b-error-subtle-border:     var(--b-ref-red-200);
-    --b-error-subtle-text:       var(--b-ref-red-800);
-    --b-error-outline-border:    var(--b-ref-red-500);
+    --b-error-subtle-background: color-mix(in srgb,var(--b-ref-red-50),transparent 5%); /* Done */
+    --b-error-subtle-border:     var(--b-ref-red-200); /* Done */
+    --b-error-subtle-text:       var(--b-ref-red-600); /* Done */
+    --b-error-outline-border:    var(--b-ref-red-600); /* Done */
     --b-error-outline-text:      var(--b-ref-red-600);
     --b-error-overlay-hover:     rgba(239, 68, 68, 0.08);
     --b-error-overlay-active:    rgba(239, 68, 68, 0.16);
@@ -126,10 +126,10 @@
     --b-warning-solid-hover:       var(--b-ref-amber-600);
     --b-warning-solid-active:      var(--b-ref-amber-700);
     --b-warning-solid-text:        var(--b-text-inverse);
-    --b-warning-subtle-background: var(--b-ref-amber-50);
-    --b-warning-subtle-border:     var(--b-ref-amber-200);
-    --b-warning-subtle-text:       var(--b-ref-amber-900);
-    --b-warning-outline-border:    var(--b-ref-amber-500);
+    --b-warning-subtle-background: color-mix(in srgb,var(--b-ref-yellow-50),transparent 5%); /* Done */
+    --b-warning-subtle-border:     var(--b-ref-yellow-200); /* Done */
+    --b-warning-subtle-text:       var(--b-ref-yellow-600); /* Done */
+    --b-warning-outline-border:    var(--b-ref-yellow-600); /* Done */
     --b-warning-outline-text:      var(--b-ref-amber-700);
     --b-warning-overlay-hover:     rgba(245, 158, 11, 0.08);
     --b-warning-overlay-active:    rgba(245, 158, 11, 0.16);
@@ -139,10 +139,10 @@
     --b-info-solid-hover:       var(--b-ref-blue-700);
     --b-info-solid-active:      var(--b-ref-blue-800);
     --b-info-solid-text:        var(--b-text-inverse);
-    --b-info-subtle-background: var(--b-ref-blue-50);
-    --b-info-subtle-border:     var(--b-ref-blue-200);
-    --b-info-subtle-text:       var(--b-ref-blue-800);
-    --b-info-outline-border:    var(--b-ref-blue-500);
+    --b-info-subtle-background: color-mix(in srgb,var(--b-ref-blue-50),transparent 5%); /* Done */
+    --b-info-subtle-border:     var(--b-ref-blue-200); /* Done */
+    --b-info-subtle-text:       var(--b-ref-blue-600); /* Done */
+    --b-info-outline-border:    var(--b-ref-blue-600); /* Done */
     --b-info-outline-text:      var(--b-ref-blue-600);
     --b-info-overlay-hover:     rgba(59, 130, 246, 0.08);
     --b-info-overlay-active:    rgba(59, 130, 246, 0.16);

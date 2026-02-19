@@ -3,64 +3,64 @@
  */
 
 :root {
-    /* 1. Identity */
     --b-theme-name: "Forest";
 
-    /* 2. Shapes & Radius */
-    --b-radius-xs:   var(--b-ref-radius-xs);   /* 2px */
-    --b-radius-sm:   var(--b-ref-radius-sm);   /* 4px */
-    --b-radius-md:   var(--b-ref-radius-md);   /* 6px */
-    --b-radius-lg:   var(--b-ref-radius-lg);   /* 8px */
-    --b-radius-xl:   var(--b-ref-radius-xl);   /* 12px */
-    --b-radius-2xl:  var(--b-ref-radius-2xl);  /* 16px */
-    --b-radius-full: var(--b-ref-radius-full); /* 9999px */
-    --b-radius-interactive: var(--b-radius-md);
-    --b-radius-container:   var(--b-radius-xl);
+    /* --- 1.1 Radius System --- */
+    --b-radius-xs:   var(--b-ref-radius-xs);
+    --b-radius-sm:   var(--b-ref-radius-sm);
+    --b-radius-md:   var(--b-ref-radius-md);
+    --b-radius-lg:   var(--b-ref-radius-lg);
+    --b-radius-xl:   var(--b-ref-radius-xl);
+    --b-radius-full: var(--b-ref-radius-full);
 
-    /* 3. Elevation & Shadows */
-    --b-shadow-sm:    var(--b-ref-shadow-sm);
-    --b-shadow-md:    var(--b-ref-shadow-md);
-    --b-shadow-lg:    var(--b-ref-shadow-lg);
-    --b-shadow-xl:    var(--b-ref-shadow-xl);
-    --b-shadow-focus: 0 0 0 3px var(--b-focus-ring);
-    --b-shadow-card:  var(--b-shadow-md);
+    /* Component-specific Aliases */
+    --b-radius-button:      var(--b-radius-md);
+    --b-radius-input:       var(--b-radius-md);
+    --b-radius-card:        var(--b-radius-xl);
+    --b-radius-modal:       var(--b-radius-xl);
+    --b-radius-popover:     var(--b-radius-lg);
+    --b-radius-interactive: var(--b-radius-md); /* Buttons, Inputs, Selects */
+    --b-radius-container:   var(--b-radius-xl); /* Cards, Modals, Panels */
 
-    /* 4. Sizing Scale */
-    --b-size-xs: var(--b-ref-control-size-xs); /* 24px */
-    --b-size-sm: var(--b-ref-control-size-sm); /* 32px */
-    --b-size-md: var(--b-ref-control-size-md); /* 40px */
-    --b-size-lg: var(--b-ref-control-size-lg); /* 48px */
-    --b-size-xl: var(--b-ref-size-xl);         /* 56px */
+    /* --- 1.2 Elevation & Shadows --- */
+    /* Static Elevation (Surfaces) */
+    --b-shadow-none: var(--b-ref-shadow-none);
+    --b-shadow-xs:   var(--b-ref-shadow-xs);
+    --b-shadow-sm:   var(--b-ref-shadow-sm);
+    --b-shadow-md:   var(--b-ref-shadow-md);
+    --b-shadow-lg:   var(--b-ref-shadow-lg);
+    --b-shadow-xl:   var(--b-ref-shadow-xl);
+    /* Interaction Shadows */
+    --b-shadow-hover:  var(--b-shadow-lg);
+    --b-shadow-active: var(--b-shadow-sm);
+    --b-shadow-focus:  0 0 0 3px var(--b-focus-ring);
 
-    /* 5. Layout Containers */
-    --b-container-xs:  var(--b-ref-size-xs);  /* 320px */
-    --b-container-sm:  var(--b-ref-size-sm);  /* 384px */
-    --b-container-md:  var(--b-ref-size-md);  /* 448px */
-    --b-container-lg:  var(--b-ref-size-lg);  /* 512px */
-    --b-container-xl:  var(--b-ref-size-xl);  /* 576px */
-    --b-container-2xl: var(--b-ref-size-2xl); /* 672px */
+    /* --- 1.3 Sizing & Spacing Scale --- */
+    --b-size-xs: var(--b-ref-control-size-xs);
+    --b-size-sm: var(--b-ref-control-size-sm);
+    --b-size-md: var(--b-ref-control-size-md);
+    --b-size-lg: var(--b-ref-control-size-lg);
+    --b-size-xl: initial;
 
-    /* 6. Stacking (Z-Index) */
-    --b-z-index-base:     var(--b-ref-z-base);     /* 0 */
-    --b-z-index-dropdown: var(--b-ref-z-dropdown); /* 1000 */
-    --b-z-index-sticky:   var(--b-ref-z-sticky);   /* 1100 */
-    --b-z-index-modal:    var(--b-ref-z-modal);    /* 1200 */
-    --b-z-index-popover:  var(--b-ref-z-popover);  /* 1300 */
-    --b-z-index-toast:    var(--b-ref-z-toast);    /* 1400 */
-    --b-z-index-tooltip:  var(--b-ref-z-tooltip);  /* 1500 */
+    /* --- 1.4 Stacking (Z-Index) --- */
+    --b-z-base:     var(--b-ref-z-base);
+    --b-z-sticky:   var(--b-ref-z-sticky);
+    --b-z-dropdown: var(--b-ref-z-dropdown);
+    --b-z-popover:  var(--b-ref-z-popover);
+    --b-z-modal:    var(--b-ref-z-modal);
+    --b-z-tooltip:  var(--b-ref-z-tooltip);
+    --b-z-toast:    var(--b-ref-z-toast);
 
-    /* 7. Motion & Transitions */
-    --b-transition-main: all var(--b-ref-duration-normal) var(--b-ref-ease-in-out);
-    --b-duration-fast:   var(--b-ref-duration-fast);   /* 100ms */
-    --b-duration-normal: var(--b-ref-duration-normal); /* 200ms */
-    --b-duration-slow:   var(--b-ref-duration-slow);   /* 300ms */
+    /* --- 1.5 Motion --- */
+    --b-duration-fast:   var(--b-ref-duration-fast);
+    --b-duration-normal: var(--b-ref-duration-normal);
+    --b-duration-slow:   var(--b-ref-duration-slow);
     --b-ease-out:        var(--b-ref-ease-out);
     --b-ease-in-out:     var(--b-ref-ease-in-out);
 
-    /* 8. Layout Details */
-    --b-border-width-main:  1px;
-    --b-border-width-focus: 2px;
-    --b-scrollbar-size:     8px;
-    --b-aspect-square:      var(--b-ref-aspect-square);
-    --b-aspect-video:       var(--b-ref-aspect-video);
+    /* --- 1.6 Layout Details --- */
+    --b-border-width:      var(--b-ref-line-sm);
+    --b-focus-ring-width:  var(--b-ref-line-md);
+    --b-focus-ring-offset: 2px;
+    --b-scrollbar-size:    8px;
 }
