@@ -52,8 +52,8 @@
 
     /* 1.3 Shapes & Radii (М'які, але не круглі) */
     --b-radius-interactive: var(--b-ref-radius-md); /* Кнопки, інпути */
-    --b-radius-container: 12px;   /* Картки, модалки */
-    --b-radius-full: 9999px;
+    --b-radius-container:   var(--b-ref-radius-lg); /* Картки, модалки */
+    --b-radius-full:        var(--b-ref-radius-full);
 
     /* 1.4 Elevation (М'які тіні з зеленим відтінком очікуються від Essence, тут лише інтенсивність) */
     --b-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);

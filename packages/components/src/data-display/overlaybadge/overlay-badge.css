@@ -2,19 +2,33 @@
     position: relative;
     display: inline-flex;
     vertical-align: middle;
+    line-height: 0;
 }
 
 .b-overlay-badge__badge {
+    /* --- Local Tokens --- */
+    --b-overlay-badge-offset-x: 0%;
+    --b-overlay-badge-offset-y: 0%;
+    --b-overlay-badge-ring-width: 2px;
+    --b-overlay-badge-ring-color: var(--b-surface-app);
+
     position: absolute !important;
-    top: 20%;
-    right: 10%;
+    top: var(--b-overlay-badge-offset-y);
+    right: var(--b-overlay-badge-offset-x);
     transform: translate(50%, -50%);
-    outline: 2px solid var(--b-bg-surface);
-    z-index: var(--b-ref-z-base, 1);
+    box-shadow: 0 0 0 var(--b-overlay-badge-ring-width) var(--b-overlay-badge-ring-color);
+    z-index: 1;
 }
 
 .b-overlay-badge__badge:empty {
-    min-width: 8px;
-    height: 8px;
+    --b-badge-height: var(--b-space-2);
+    --b-badge-min-width: var(--b-space-2);
     padding: 0;
+
+    --b-overlay-badge-offset-x: 10%;
+    --b-overlay-badge-offset-y: 10%;
+}
+
+.b-card .b-overlay-badge__badge {
+    --b-overlay-badge-ring-color: var(--b-surface-card);
 }

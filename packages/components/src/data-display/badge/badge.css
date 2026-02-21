@@ -1,18 +1,18 @@
 .b-badge {
-    --b-badge-height:        var(--b-ref-space-5);
+    --b-badge-height:        var(--b-space-5);
     --b-badge-min-width:     var(--b-badge-height);
-    --b-badge-padding-x:     var(--b-ref-space-1);
-    --b-badge-padding-y:     var(--b-ref-space-1);
-    --b-badge-gap:           var(--b-ref-space-1);
+    --b-badge-padding-x:     var(--b-space-1);
+    --b-badge-padding-y:     0;
+    --b-badge-gap:           var(--b-space-2);
 
     --b-badge-border-width:  1px;
     --b-badge-border-style:  solid;
     --b-badge-border-color:  transparent;
-    --b-badge-border-radius: var(--b-ref-radius-md);
+    --b-badge-border-radius: var(--b-radius-interactive);
 
-    --b-badge-background:    var(--b-color-primary);
+    --b-badge-background:    var(--b-primary-solid-background);
 
-    --b-badge-color:         var(--b-text-on-primary);
+    --b-badge-color:         var(--b-primary-solid-text);
     --b-badge-font-size:     var(--b-font-size-xs);
     --b-badge-font-weight:   var(--b-font-weight-bold);
 
@@ -33,23 +33,57 @@
 
     font-size: var(--b-badge-font-size);
     font-weight: var(--b-badge-font-weight);
+    line-height: var(--b-line-height-none);
     color: var(--b-badge-color);
 
-    transition: all var(--b-ref-duration-normal);
+    transition: all var(--b-duration-normal);
     box-sizing: border-box;
 }
 
-.b-badge--rounded { --b-badge-border-radius: var(--b-ref-radius-full); }
+.b-badge:empty {
+    padding: 0;
+}
 
-.b-badge--severity-primary   { --b-badge-background: var(--b-color-primary);       --b-badge-color: var(--b-text-on-primary); }
-.b-badge--severity-secondary { --b-badge-background: var(--b-color-primary-muted); --b-badge-color: var(--b-text-muted); }
-.b-badge--severity-info      { --b-badge-background: var(--b-color-info); }
-.b-badge--severity-success   { --b-badge-background: var(--b-color-success); }
-.b-badge--severity-warn      { --b-badge-background: var(--b-color-warning); }
-.b-badge--severity-danger    { --b-badge-background: var(--b-color-error); }
-.b-badge--severity-contrast  { --b-badge-background: var(--b-color-contrast);  --b-badge-color: var(--b-text-on-contrast); }
+.b-badge--rounded {
+    --b-badge-border-radius: var(--b-radius-full);
+}
 
-.b-badge--size-small  { --b-badge-height: var(--b-ref-space-4); --b-badge-font-size: var(--b-font-size-xxs); }
-.b-badge--size-medium { --b-badge-height: var(--b-ref-space-5); --b-badge-font-size: var(--b-font-size-xs); }
-.b-badge--size-large  { --b-badge-height: var(--b-ref-space-6); --b-badge-font-size: var(--b-font-size-sm); }
-.b-badge--size-xlarge { --b-badge-height: var(--b-ref-space-7); --b-badge-font-size: var(--b-font-size-md); --b-badge-padding: var(--b-ref-space-2); }
+.b-badge--severity-primary   {
+    --b-badge-background: var(--b-primary-solid-background);
+    --b-badge-color:      var(--b-primary-solid-text);
+}
+
+.b-badge--severity-secondary {
+    --b-badge-background: var(--b-secondary-solid-background);
+    --b-badge-color:      var(--b-secondary-solid-text);
+}
+
+.b-badge--severity-info      {
+    --b-badge-background: var(--b-info-solid-background);
+    --b-badge-color:      var(--b-info-solid-text);
+}
+
+.b-badge--severity-success   {
+    --b-badge-background: var(--b-success-solid-background);
+    --b-badge-color:      var(--b-success-solid-text);
+}
+
+.b-badge--severity-warn      {
+    --b-badge-background: var(--b-warning-solid-background);
+    --b-badge-color:      var(--b-warning-solid-text);
+}
+
+.b-badge--severity-danger    {
+    --b-badge-background: var(--b-error-solid-background);
+    --b-badge-color:      var(--b-error-solid-text);
+}
+
+.b-badge--severity-contrast  {
+    --b-badge-background: var(--b-contrast-solid-background);
+    --b-badge-color:      var(--b-contrast-solid-text);
+}
+
+.b-badge--size-small  { --b-badge-height: var(--b-space-4); --b-badge-font-size: var(--b-font-size-xxs); }
+.b-badge--size-medium { --b-badge-height: var(--b-space-5); --b-badge-font-size: var(--b-font-size-xs); }
+.b-badge--size-large  { --b-badge-height: var(--b-space-6); --b-badge-font-size: var(--b-font-size-sm); }
+.b-badge--size-xlarge { --b-badge-height: var(--b-space-7); --b-badge-font-size: var(--b-font-size-md); }
