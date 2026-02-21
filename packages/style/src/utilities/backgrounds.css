@@ -3,7 +3,7 @@
    ========================================== */
 
 /* Semantic Colors (Structure) */
-.b-bg-base        { background-color: var(--b-background-base) !important; }
+.b-bg-base        { background-color: var(--b-surface-app) !important; }
 .b-bg-surface     { background-color: var(--b-background-surface) !important; }
 .b-bg-overlay     { background-color: var(--b-background-overlay) !important; }
 .b-bg-transparent { background-color: transparent !important; }
@@ -23,14 +23,6 @@
 .b-bg-error-muted     { background-color: var(--b-color-error-muted) !important; }
 .b-bg-warning-muted   { background-color: var(--b-color-warning-muted) !important; }
 .b-bg-info-muted      { background-color: var(--b-color-info-muted) !important; }
-
-/* Integrations (Office) */
-.b-bg-word             { background-color: var(--b-color-word) !important; }
-.b-bg-word-muted       { background-color: var(--b-color-word-muted) !important; }
-.b-bg-excel            { background-color: var(--b-color-excel) !important; }
-.b-bg-excel-muted      { background-color: var(--b-color-excel-muted) !important; }
-.b-bg-powerpoint       { background-color: var(--b-color-powerpoint) !important; }
-.b-bg-powerpoint-muted { background-color: var(--b-color-powerpoint-muted) !important; }
 
 /* ==========================================
    BACKGROUND IMAGE

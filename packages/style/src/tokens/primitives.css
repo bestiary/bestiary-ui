@@ -7,6 +7,7 @@
 @import "./dimensions/radius.css";
 @import "./dimensions/sizing.css";
 @import "./dimensions/spacing.css";
+@import "./dimensions/typography.css";
 
 /* Behavior */
 @import "./behavior/motion.css";

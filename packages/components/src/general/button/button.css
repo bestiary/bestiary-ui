@@ -1,176 +1,270 @@
 .b-button {
-    --b-button-height:           var(--b-size-sm);
-    --b-button-width:            auto;
-    --b-button-padding-x:        var(--b-ref-space-3);
-    --b-button-padding-y:        var(--b-ref-space-1);
-    --b-button-gap:              var(--b-ref-space-1);
-    --b-button-background:       var(--b-color-primary);
-    --b-button-color:            var(--b-text-on-primary);
-    --b-button-hover-background: var(--b-color-primary-hover);
-    --b-button-hover-color:      var(--b-text-on-primary);
-    --b-button-border-radius:    var(--b-ref-radius-md);
-    --b-button-border-width:     1px;
+    /* --- Local Component Tokens --- */
+    --b-button-padding-x:        var(--b-space-3);
+    --b-button-padding-y:        var(--b-space-2);
+    --b-button-gap:              var(--b-space-2);
+
+    --b-button-border-radius:    var(--b-radius-interactive);
+    --b-button-border-width:     var(--b-border-width);
     --b-button-border-style:     solid;
-    --b-button-border-color:     transparent;
+
+    /* Дефолтні кольори (Primary Solid) */
+    --b-button-background:       var(--b-primary-solid-background);
+    --b-button-color:            var(--b-primary-solid-text);
+    --b-button-border-color:     var(--b-primary-solid-background);
+
+    /* Ховер стани */
+    --b-button-hover-background: var(--b-primary-solid-background-hover);
+    --b-button-hover-color:      var(--b-primary-solid-text);
+    --b-button-hover-border:     var(--b-primary-solid-background-hover);
+
     --b-button-font-size:        var(--b-font-size-md);
     --b-button-font-weight:      var(--b-font-weight-medium);
-    --b-button-icon-size:        1.25em;
-    --b-button-transition:       all var(--b-ref-duration-normal) var(--b-ref-ease-in-out);
+    --b-button-icon-size:        var(--b-button-font-size);
+    --b-button-transition:       all var(--b-duration-normal) var(--b-ease-in-out);
+    --b-button-shadow:           none;
 
-    height: var(--b-button-height);
-    width: var(--b-button-width);
-    min-width: var(--b-button-height);
+    /* Base Styles */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+
     padding: var(--b-button-padding-y) var(--b-button-padding-x);
+    gap: var(--b-button-gap);
 
     background-color: var(--b-button-background);
     color: var(--b-button-color);
-
     border: var(--b-button-border-width) var(--b-button-border-style) var(--b-button-border-color);
     border-radius: var(--b-button-border-radius);
+    box-shadow: var(--b-button-shadow);
 
     font-size: var(--b-button-font-size);
     font-weight: var(--b-button-font-weight);
+    font-family: var(--b-font-family-base);
+    line-height: 1;
+    text-decoration: none;
 
     transition: var(--b-button-transition);
     cursor: pointer;
     outline: none;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
 }
 
-.b-button__content {
+/* Стан наведення */
+.b-button:not(:disabled):hover {
+    background-color: var(--b-button-hover-background);
+    border-color: var(--b-button-hover-border);
+}
+
+/* Стан натискання */
+.b-button:not(:disabled):active {
+    transform: translateY(1px);
+    filter: brightness(0.95);
+}
+
+/* Стан Disabled */
+.b-button:disabled {
+    opacity: var(--b-state-disabled-opacity);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ==========================================
+   SEVERITY MAPPING
+   ========================================== */
+
+.b-button--severity-primary {
+    --b-button-background: var(--b-primary-solid-background);
+    --b-button-color: var(--b-primary-solid-text);
+    --b-button-border-color: var(--b-primary-solid-background);
+    --b-button-hover-background: var(--b-primary-solid-background-hover);
+    --b-button-hover-border: var(--b-primary-solid-background-hover);
+    --b-button-variant-text: var(--b-primary-outline-text);
+    --b-button-variant-border: var(--b-primary-subtle-border);
+    --b-button-variant-background: var(--b-primary-overlay);
+}
+
+.b-button--severity-secondary {
+    --b-button-background: var(--b-secondary-solid-background);
+    --b-button-color: var(--b-secondary-solid-text);
+    --b-button-border-color: var(--b-secondary-solid-background);
+    --b-button-hover-background: var(--b-secondary-solid-background-hover);
+    --b-button-hover-border: var(--b-secondary-solid-background-hover);
+    --b-button-variant-text: var(--b-secondary-subtle-text);
+    --b-button-variant-border: var(--b-border-default);
+    --b-button-variant-background: var(--b-secondary-overlay);
+}
+
+.b-button--severity-success {
+    --b-button-background: var(--b-success-solid-background);
+    --b-button-color: var(--b-success-solid-text);
+    --b-button-border-color: var(--b-success-solid-background);
+    --b-button-hover-background: var(--b-success-solid-background-hover);
+    --b-button-hover-border: var(--b-success-solid-background-hover);
+    --b-button-variant-text: var(--b-success-outline-text);
+    --b-button-variant-border: var(--b-success-subtle-border);
+    --b-button-variant-background: var(--b-success-overlay);
+}
+
+.b-button--severity-warn {
+    --b-button-background: var(--b-warning-solid-background);
+    --b-button-color: var(--b-warning-solid-text);
+    --b-button-border-color: var(--b-warning-solid-background);
+    --b-button-hover-background: var(--b-warning-solid-background-hover);
+    --b-button-hover-border: var(--b-warning-solid-background-hover);
+    --b-button-variant-text: var(--b-warning-outline-text);
+    --b-button-variant-border: var(--b-warning-subtle-border);
+    --b-button-variant-background: var(--b-warning-overlay);
+}
+
+.b-button--severity-danger { /* Mapping to Error */
+    --b-button-background: var(--b-error-solid-background);
+    --b-button-color: var(--b-error-solid-text);
+    --b-button-border-color: var(--b-error-solid-background);
+    --b-button-hover-background: var(--b-error-solid-background-hover);
+    --b-button-hover-border: var(--b-error-solid-background-hover);
+    --b-button-variant-text: var(--b-error-outline-text);
+    --b-button-variant-border: var(--b-error-subtle-border);
+    --b-button-variant-background: var(--b-error-overlay);
+}
+
+.b-button--severity-info {
+    --b-button-background: var(--b-info-solid-background);
+    --b-button-color: var(--b-info-solid-text);
+    --b-button-border-color: var(--b-info-solid-background);
+    --b-button-hover-background: var(--b-info-solid-background-hover);
+    --b-button-hover-border: var(--b-info-solid-background-hover);
+    --b-button-variant-text: var(--b-info-outline-text);
+    --b-button-variant-border: var(--b-info-subtle-border);
+    --b-button-variant-background: var(--b-info-overlay);
+}
+
+.b-button--severity-contrast {
+    --b-button-background: var(--b-contrast-solid-background);
+    --b-button-color: var(--b-contrast-solid-text);
+    --b-button-border-color: var(--b-contrast-solid-background);
+    --b-button-hover-background: var(--b-contrast-solid-background-hover);
+    --b-button-hover-border: var(--b-contrast-solid-background-hover);
+    --b-button-variant-text: var(--b-contrast-outline-text);
+    --b-button-variant-border: var(--b-contrast-outline-border);
+    --b-button-variant-background: var(--b-contrast-overlay);
+}
+
+/* ==========================================
+   VARIANTS
+   ========================================== */
+
+/* Outline */
+.b-button--variant-outline {
+    --b-button-background: transparent;
+    --b-button-color: var(--b-button-variant-text);
+    --b-button-hover-background: var(--b-button-variant-background);
+}
+
+/* Text (Simple) */
+.b-button--variant-text {
+    --b-button-background: transparent;
+    --b-button-border-color: transparent;
+    --b-button-color: var(--b-button-variant-text);
+    --b-button-hover-background: var(--b-button-variant-background);
+    --b-button-hover-border: transparent;
+}
+
+/* Link */
+.b-button--variant-link {
+    --b-button-background: transparent;
+    --b-button-border-color: transparent;
+    --b-button-color: var(--b-button-variant-text);
+    --b-button-hover-background: transparent;
+    --b-button-hover-color: var(--b-primary-outline-text);
+    --b-button-hover-border: transparent;
+}
+.b-button--variant-link:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================
+   SIZES
+   ========================================== */
+
+.b-button--size-small   {
+    --b-button-padding-x: var(--b-space-2);
+    --b-button-padding-y: var(--b-space-1);
+    --b-button-font-size: var(--b-font-size-sm);
+}
+.b-button--size-medium  {
+    --b-button-padding-x: var(--b-space-3);
+    --b-button-padding-y: var(--b-space-2);
+    --b-button-font-size: var(--b-font-size-md);
+}
+.b-button--size-large   {
+    --b-button-padding-x: var(--b-space-4);
+    --b-button-padding-y: var(--b-space-3);
+    --b-button-font-size: var(--b-font-size-md);
+}
+
+.b-button--size-xlarge  {
+    --b-button-padding-x: var(--b-space-5);
+    --b-button-padding-y: var(--b-space-4);
+    --b-button-font-size: var(--b-font-size-lg);
+}
+
+/* ==========================================
+   LAYOUT MODIFIERS (Icons & Badges)
+   ========================================== */
+
+/* Positions */
+.b-button--icon-top, .b-button--badge-top { flex-direction: column; height: auto; }
+.b-button--icon-bottom, .b-button--badge-bottom { flex-direction: column-reverse; height: auto; }
+.b-button--icon-right, .b-button--badge-right { flex-direction: row-reverse; }
+.b-button--icon-left, .b-button--badge-left { flex-direction: row; }
+
+/* Icon Only */
+.b-button--icon-only {
+    padding: var(--b-button-padding-y);
+}
+
+/* Elements Styles */
+.b-button__icon, .b-button__loading-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--b-button-gap);
+    width: var(--b-button-icon-size);
+    height: var(--b-button-icon-size);
+    flex-shrink: 0;
+}
+
+.b-button__icon svg {
     width: 100%;
     height: 100%;
 }
 
-.b-button__label {
-    color: inherit;
-    line-height: var(--b-button-font-size);
+/* ==========================================
+   PROPS: Raised, Rounded, Loading
+   ========================================== */
+
+.b-button--raised {
+    --b-button-shadow: var(--b-shadow-md);
 }
 
-.b-button__badge {
-
+.b-button--rounded {
+    --b-button-border-radius: var(--b-radius-full);
 }
 
-.b-button__icon {
-    flex-shrink: 0;
-    width: var(--b-button-icon-size);
-    height: var(--b-button-icon-size);
-    fill: currentColor;
+.b-button--loading {
+    pointer-events: none;
+    opacity: 0.8;
 }
 
 .b-button__loading-icon {
-    width: var(--b-button-icon-size);
-    height: var(--b-button-icon-size);
-    fill: currentColor;
-    animation: b-button-loader-spin 1s linear infinite;
+    animation: b-button-spin 1s linear infinite;
 }
 
-.b-button__loading-icon__circle {
-    opacity: 0;
-}
-
-.b-button__loading-icon__path {
-    opacity: 0.75;
-}
-
-.b-button:hover:not(:disabled) {
-    background-color: var(--b-button-hover-background);
-    color: var(--b-button-hover-color);
-}
-
-.b-button:active:not(:disabled) {
-    filter: brightness(0.9);
-    transform: translateY(1px);
-}
-
-.b-button:disabled {
-    opacity: var(--b-ref-opacity-muted);
-    cursor: not-allowed;
-}
-
-/* Severity */
-.b-button--severity-primary   { --b-button-background: var(--b-color-primary);      --b-button-hover-background: var(--b-color-primary-hover);  }
-.b-button--severity-secondary { --b-button-background: var(--b-color-secondary);    --b-button-hover-background: var(--b-color-secondary-hover); --b-button-color: var(--b-text-on-secondary); --b-button-hover-color: var(--b-text-on-secondary); }
-.b-button--severity-success   { --b-button-background: var(--b-background-success); --b-button-hover-background: var(--b-background-success-hover); }
-.b-button--severity-warn      { --b-button-background: var(--b-background-warning); --b-button-hover-background: var(--b-background-warning-hover); }
-.b-button--severity-danger    { --b-button-background: var(--b-background-error);   --b-button-hover-background: var(--b-background-error-hover); }
-.b-button--severity-info      { --b-button-background: var(--b-background-info);    --b-button-hover-background: var(--b-background-info-hover); }
-.b-button--severity-contrast  { --b-button-background: var(--b-color-contrast);     --b-button-hover-background: var(--b-color-contrast-hover); }
-
-/* Size */
-.b-button--size-small  { --b-button-height: var(--b-size-xs); --b-button-padding-x: var(--b-ref-space-2); --b-button-font-size: var(--b-font-size-xs); }
-.b-button--size-medium { --b-button-height: var(--b-size-sm); --b-button-padding-x: var(--b-ref-space-3); --b-button-font-weight: var(--b-font-weight-medium); }
-.b-button--size-large  { --b-button-height: var(--b-size-md); --b-button-padding-x: var(--b-ref-space-4); --b-button-font-weight: var(--b-font-weight-bold); }
-.b-button--size-xlarge { --b-button-height: var(--b-size-lg); --b-button-padding-x: var(--b-ref-space-5); --b-button-font-size:   var(--b-font-size-xl); }
-
-/* Icon/Badge position */
-.b-button--icon-right .b-button__content {
-    flex-direction: row-reverse;
-}
-
-.b-button--icon-top .b-button__content {
-    flex-direction: column;
-}
-
-.b-button--icon-bottom .b-button__content {
-    flex-direction: column-reverse;
-}
-
-.b-button--icon-top,
-.b-button--icon-bottom {
-    height: auto;
-}
-
-.b-button--icon-only {
-    padding: 0;
-}
-
-/* Badge position */
-.b-button--badge-top,
-.b-button--badge-bottom {
-    height: auto;
-}
-
-.b-button--badge-left .b-button__badge {
-    order: -1; /* Стане перед текстом */
-    margin-right: var(--b-button-gap);
-    margin-left: 0;
-}
-
-/* Бейдж справа (дефолт) */
-.b-button--badge-right .b-button__badge {
-    order: 1; /* Стане після тексту */
-    margin-left: var(--b-button-gap);
-}
-
-/* Бейдж зверху */
-.b-button--badge-top .b-button__content {
-    flex-direction: column; /* Якщо треба саме зверху всього контенту */
-}
-.b-button--badge-top .b-button__badge {
-    order: -2;
-    margin-bottom: var(--b-button-gap);
-}
-
-/* Бейдж знизу */
-.b-button--badge-bottom .b-button__content {
-    flex-direction: column;
-}
-.b-button--badge-bottom .b-button__badge {
-    order: 2;
-    margin-top: var(--b-button-gap);
-}
-
-/* Rounded */
-.b-button--rounded {
-    --b-button-border-radius: var(--b-ref-radius-full);
-}
-
-/* Loading animation */
-@keyframes b-button-loader-spin {
+@keyframes b-button-spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }

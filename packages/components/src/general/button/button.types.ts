@@ -2,6 +2,7 @@ import {definePropType} from "@bestiary-ui/utils";
 import {Component} from "vue";
 
 export type ButtonSeverity = "primary" | "secondary" | "success" | "warn" | "danger" | "info" | "contrast";
+export type ButtonVariant = "outline" | "default" | "text" | "link";
 export type ButtonSize = "small" | "medium" | "large" | "xlarge";
 export type ButtonIconPos = "top" | "left" | "bottom" | "right";
 export type ButtonBadgePos = "top" | "left" | "bottom" | "right";
@@ -13,9 +14,17 @@ export const buttonProps = {
         type: definePropType<ButtonSeverity>(String),
         default: "primary"
     },
+    variant: {
+        type: definePropType<ButtonVariant>(String),
+        default: "default"
+    },
     size: {
         type: definePropType<ButtonSize>(String),
         default: "medium"
+    },
+    raised: {
+        type: Boolean,
+        default: false
     },
     icon: {
         type: definePropType<Component>(Object),

@@ -6,8 +6,6 @@
         :aria-busy="loading"
         :aria-live="loading ? 'polite' : 'off'">
 
-        <span class="b-button__content">
-
             <!-- Loading logic -->
             <slot name="loadingicon" :class="'b-button__loading-icon'" v-if="loading">
                 <component
@@ -16,7 +14,7 @@
                     class="b-button__loading-icon"
                 />
                 <svg v-else class="b-button__loading-icon" viewBox="0 0 24 24" fill="none">
-                    <circle class="b-button__loading-icon__circle" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <circle class="b-button__loading-icon__circle" cx="12" cy="12" r="10" stroke="transparent" stroke-width="4"></circle>
                     <path class="b-button__loading-icon__path" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
             </slot>
@@ -44,7 +42,6 @@
                 {{ badge }}
             </BBadge>
 
-        </span>
     </button>
 </template>
 
@@ -68,12 +65,14 @@ const classes = computed(() => {
     return [
         "b-button",
         `b-button--severity-${props.severity}`,
+        `b-button--variant-${props.variant}`,
         `b-button--size-${props.size}`,
         {
             "b-button--rounded": props.rounded,
             "b-button--loading": props.loading,
+            "b-button--raised": props.raised,
+            "b-button--icon-only": (hasIcon || props.loading) && !hasContent && !props.badge,
             [`b-button--icon-${props.iconPos}`]: hasIcon && hasContent,
-            [`b-button--icon-only`]: (hasIcon || props.loading) && !hasContent && !props.badge,
             [`b-button--badge-${props.badgePos}`]: props.badge,
         }
     ];
