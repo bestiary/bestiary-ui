@@ -5,23 +5,45 @@
         <div class="section">
             <h4>Basic</h4>
             <div class="b-flex b-gap-2">
-                <BInputText v-model="name" placeholder="Search"/>
+                <BInputText type="text" v-model="value1" />
+            </div>
+        </div>
+
+        <div class="section">
+            <h4>Forms</h4>
+            <div class="b-flex b-flex-col b-gap-2 b-align-items-center">
+                <div class="flex flex-col gap-1">
+                    <BInputText name="username" type="text" placeholder="Username" fluid/>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <BInputText name="email" type="text" placeholder="Email" fluid/>
+                </div>
+                <BButton type="submit" severity="secondary" label="Submit" fluid/>
             </div>
         </div>
 
         <div class="section">
             <h4>Sizes</h4>
-            <div class="b-flex b-gap-2">
-                <BInputText v-model="value1" type="text" size="small" placeholder="Small"/>
-                <BInputText v-model="value2" type="text" placeholder="Normal"/>
-                <BInputText v-model="value3" type="text" size="large" placeholder="Large"/>
+            <div class="b-flex b-gap-2 b-align-items-start">
+                <BInputText v-model="value1" type="text" size="small" placeholder="Small" />
+                <BInputText v-model="value2" type="text" size="medium" placeholder="Normal" />
+                <BInputText v-model="value3" type="text" size="large" placeholder="Large" />
             </div>
         </div>
 
         <div class="section">
             <h4>Fluid</h4>
             <div class="b-flex b-gap-2">
-                <BInputText type="text" v-model="value1" fluid />
+                <BInputText type="text" fluid />
+            </div>
+        </div>
+
+        <div class="section">
+            <h4>Help Text</h4>
+            <div class="b-flex b-flex-col b-gap-2">
+                <label for="username">Username</label>
+                <BInputText id="username" v-model="value1" aria-describedby="username-help" />
+                <BMessage size="small" severity="secondary" variant="simple">Enter your username to reset your password.</BMessage>
             </div>
         </div>
 
@@ -42,46 +64,8 @@
         <div class="section">
             <h4>Invalid</h4>
             <div class="b-flex b-gap-2">
-                <BInputText type="text" v-model="name" placeholder="Name" invalid />
-            </div>
-        </div>
-
-        <div class="section">
-            <h4>Icon</h4>
-            <BInputText v-model="name" placeholder="Search..." rounded>
-                <template #prefix>
-                    <MagnifyingGlassSolid />
-                </template>
-            </BInputText>
-        </div>
-
-        <div class="section">
-            <h4>Label</h4>
-            <BInputText v-model="name" placeholder="Search..." label="Search by name" rounded>
-                <template #prefix>
-                    <MagnifyingGlassSolid />
-                </template>
-            </BInputText>
-        </div>
-
-        <div class="section">
-            <h4>Password</h4>
-            <div class="b-flex b-gap-2">
-                <BPassword v-model="value2" feedback/>
-
-                <BPassword v-model="value3" feedback>
-                    <template #header>
-                        <div class="font-semibold text-xm mb-4">Reset Password</div>
-                    </template>
-                    <template #footer>
-                        <ul class="pl-2 my-0 leading-normal text-sm">
-                            <li>At least one lowercase</li>
-                            <li>At least one uppercase</li>
-                            <li>At least one numeric</li>
-                            <li>Minimum 8 characters</li>
-                        </ul>
-                    </template>
-                </BPassword>
+                <BInputText v-model="value1" :invalid="!value1" placeholder="Name" />
+                <BInputText v-model="value2" :invalid="!value2" variant="filled" placeholder="Name" />
             </div>
         </div>
 
@@ -89,11 +73,9 @@
 </template>
 
 <script setup lang="ts">
-import {BInputText, BPassword, BDivider} from "@bestiary-ui/components";
-import {MagnifyingGlassSolid} from "@bestiary-ui/icons";
+import {BInputText, BMessage, BButton} from "@bestiary-ui/components";
 import {ref} from "vue";
 
-const name = ref("");
 const value1 = ref("");
 const value2 = ref("");
 const value3 = ref("");

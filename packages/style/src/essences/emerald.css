@@ -39,11 +39,11 @@
     --b-text-selection-background: var(--b-primary-200);
 
     /* 2.5 Form Controls */
-    --b-control-background: #ffffff;
-    --b-control-border: #cbd5e1; /* Slate 300 */
-    --b-control-border-hover: var(--b-primary-400);
-    --b-control-border-active: var(--b-primary-600);
-    --b-control-placeholder: #94a3b8;
+    --b-control-background:    #ffffff;
+    --b-control-border:        var(--b-ref-slate-300);
+    --b-control-border-hover:  var(--b-ref-slate-400);
+    --b-control-border-active: var(--b-primary-500);
+    --b-control-placeholder:   var(--b-ref-slate-500);
 
     /* 2.6 System Borders & Rings */
     --b-border-default: #e2e8f0; /* Slate 200 */
