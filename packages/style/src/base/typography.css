@@ -1,6 +1,6 @@
 body {
     font-family: var(--b-font-family-base);
-    font-size: var(--b-font-size-md);
+    font-size: var(--b-font-size-sm);
     line-height: var(--b-line-height-none);
     font-weight: var(--b-font-weight-regular);
     color: var(--b-text-primary);
@@ -12,7 +12,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--b-font-family-base);
     font-weight: var(--b-font-weight-bold);
     line-height: var(--b-line-height-tight);
-    color: var(--b-text-primary);
+    color: var(--b-text-contrast);
     margin-bottom: 0.5em;
 }
 
@@ -24,7 +24,9 @@ h5 { font-size: var(--b-font-size-lg); }
 h6 { font-size: var(--b-font-size-md); }
 
 p {
-    margin-bottom: 1rem;
+    line-height: 1.625;
+    margin-block: 0 1rem;
+    margin-inline: 0;
 }
 
 small {
@@ -48,7 +50,7 @@ pre {
     padding: 1rem;
     overflow: auto;
     line-height: var(--b-line-height-snug);
-    background-color: var(--b-surface-card);
+    background-color: var(--b-surface-section);
     border-radius: var(--b-ref-radius-md);
 }
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="playground-app b-bg-base b-text-main">
+    <div class="playground-app b-bg-base">
         <!-- Sidebar -->
         <aside class="sidebar b-bg-surface b-border-r b-border-color">
             <div class="sidebar-header b-p-4">
@@ -99,14 +99,18 @@ onMounted(() => {
     color: var(--b-text-primary);
     font-size: 14px;
 }
-.nav-link:hover { background: var(--b-primary-subtle-background); }
+
 .router-link-active {
-    background: var(--b-primary-overlay-active) !important;
-    color: var(--b-color-primary) !important;
-    font-weight: 600;
+    background: var(--b-primary-solid-background);
+    color: var(--b-primary-solid-text);
+    font-weight: var(--b-font-weight-medium);
 }
 
 .section {
     margin-top: 2rem;
+    background: var(--b-surface-section);
+    padding: 1rem;
+    border-radius: var(--b-radius-container);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03)
 }
 </style>

@@ -10,7 +10,7 @@
     --b-overlay-badge-offset-x: 0%;
     --b-overlay-badge-offset-y: 0%;
     --b-overlay-badge-ring-width: 2px;
-    --b-overlay-badge-ring-color: var(--b-surface-app);
+    --b-overlay-badge-ring-color: var(--b-surface-ground);
 
     position: absolute !important;
     top: var(--b-overlay-badge-offset-y);
@@ -30,5 +30,5 @@
 }
 
 .b-card .b-overlay-badge__badge {
-    --b-overlay-badge-ring-color: var(--b-surface-card);
+    --b-overlay-badge-ring-color: var(--b-surface-section);
 }

@@ -6,7 +6,7 @@
     --b-essence-name: "Emerald";
 
     /* 2.1 Palette Scale (Primary) */
-    --b-primary-50: #f4f8f3;
+    --b-primary-50:  #f4f8f3;
     --b-primary-100: #e9efe7;
     --b-primary-200: #d2dfd0;
     --b-primary-300: #b5ccb1;
@@ -24,31 +24,31 @@
     --b-state-disabled-opacity: 0.6;
 
     /* 2.3 Surfaces */
-    --b-surface-app: #ffffff;
-    --b-surface-card: #ffffff;
-    --b-surface-variant: var(--b-primary-50);
-    --b-surface-floating: #ffffff;
-    --b-surface-overlay: rgba(27, 39, 26, 0.4); /* На базі 950 кольору */
-    --b-surface-inverse: var(--b-primary-900);
+    --b-surface-ground:    var(--b-ref-slate-100);  /* Базовий фон сторінки */
+    --b-surface-section:   var(--b-ref-slate-50);   /* Панелі, картки, меню, топбар */
+    --b-surface-variant:   var(--b-primary-50);     /* Втоплені елементи (інпути, код) */
+    --b-surface-floating:  initial;                 /* Випадаючі списки, тултіпи */
+    --b-surface-overlay:   initial;                 /* Фон під модалкою (backdrop) */
+    --b-surface-contrast:   var(--b-ref-slate-900); /* Контрастна поверхня (напр. чорна у світлій темі) */
 
     /* 2.4 Typography & Selection */
-    --b-text-primary: var(--b-primary-950);
-    --b-text-secondary: #475569; /* Slate 600 */
-    --b-text-muted: #94a3b8;     /* Slate 400 */
-    --b-text-inverse: #ffffff;
+    --b-text-primary:              var(--b-ref-slate-700);
+    --b-text-secondary:            var(--b-ref-slate-600);
+    --b-text-muted:                var(--b-ref-slate-500);
+    --b-text-contrast:             var(--b-ref-slate-900);
     --b-text-selection-background: var(--b-primary-200);
 
     /* 2.5 Form Controls */
-    --b-control-background:    #ffffff;
+    --b-control-background:    var(--b-ref-slate-50);
     --b-control-border:        var(--b-ref-slate-300);
     --b-control-border-hover:  var(--b-ref-slate-400);
     --b-control-border-active: var(--b-primary-500);
     --b-control-placeholder:   var(--b-ref-slate-500);
 
     /* 2.6 System Borders & Rings */
-    --b-border-default: #e2e8f0; /* Slate 200 */
-    --b-border-subtle: #f1f5f9;  /* Slate 100 */
-    --b-focus-ring: var(--b-primary-500);
+    --b-border-default: var(--b-ref-slate-200);
+    --b-border-subtle:  var(--b-ref-slate-100); /* Slate 100 */
+    --b-focus-ring:     var(--b-primary-500);
 
     /* 2.7 THE SEMANTIC MATRIX */
 
@@ -64,8 +64,8 @@
     --b-primary-overlay:                var(--b-primary-50);
 
     /* SECONDARY */
-    --b-secondary-solid-background:       var(--b-ref-slate-100);
-    --b-secondary-solid-background-hover: var(--b-ref-slate-200);
+    --b-secondary-solid-background:       var(--b-ref-slate-200);
+    --b-secondary-solid-background-hover: var(--b-ref-slate-300);
     --b-secondary-solid-text:             var(--b-ref-slate-600);
     --b-secondary-subtle-background:      var(--b-ref-slate-100);
     --b-secondary-subtle-border:          var(--b-ref-slate-200);

@@ -1,167 +1,45 @@
 <template>
     <div class="view-content">
-        <h2>Cards</h2>
-
-        <div class="section">
-            <div class="row flex-wrap">
-                <BCard title="Simple Card">
-                    <p class="b-m-0">Lorem ipsum...</p>
-                </BCard>
-                <BCard
-                    title="Статистика проекту"
-                    subtitle="Оновлено 5 хвилин тому"
-                >
+        <div>
+            <h2>Basic</h2>
+            <BCard>
+                <template #title>Simple Card</template>
+                <template #content>
                     <p class="b-m-0">
-                        Всі системи працюють в штатному режимі. Помилок не виявлено.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
+                        quas!
                     </p>
-                </BCard>
-                <BCard type="info" size="sm" shadow="never">
-                    <div class="b-flex b-items-center b-gap-3">
-                        <InformationCircleSolid class="b-text-primary" />
-                        <span class="b-text-sm">Ваш підписка закінчується через 3 дні.</span>
-                    </div>
-                </BCard>
-
-                <BCard style="width: 300px;" shadow="always">
-                    <div class="b-flex b-justify-between b-items-start b-mb-4">
-
-                        <div class="b-flex b-items-center b-justify-center b-rounded-lg b-bg-primary b-text-white b-p-3" style="width: 56px; height: 56px;">
-                            <UsersSolid size="lg" />
-                        </div>
-
-                        <BBadge type="success" shape="circle" size="large">
-                            <ArrowTrendingUpSolid size="sm" />
-                            +12.5%
-                        </BBadge>
-                    </div>
-
-                    <div class="b-flex b-flex-col">
-                        <span class="b-text-muted b-font-medium b-mb-1">Total Students</span>
-                        <span class="b-text-3xl b-font-bold b-text-main">1,284</span>
-                    </div>
-                </BCard>
-            </div>
+                </template>
+            </BCard>
         </div>
 
-        <div class="section">
-            <div class="row">
-                <BCard type="info" size="sm" shadow="hover" style="width: 320px">
-                    <template #title>Board Meeting Agenda</template>
-                    <template #content>1. Budget review for Q1. 2. New teacher hiring process. 3. Campus renovation update.</template>
-                    <template #footer>Oct 24, 2023</template>
-                </BCard>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="row">
-                <BCard style="width: 25rem;">
-                    <template #header>
-                        <img alt="user header" src="https://primefaces.org/cdn/primevue/images/card-vue.jpg" />
-                    </template>
-
-                    <template #title>Advanced Card</template>
-                    <template #subtitle>Card subtitle</template>
-
-                    <template #content>
-                        <p class="b-m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
-                    </template>
-
-                    <template #footer>
-                        <div class="b-flex b-gap-4 b-mt-1">
-                            <Button type="secondary" size="small" class="b-w-full">Cancel</Button>
-                            <Button class="b-w-full" size="small">Save</Button>
-                        </div>
-                    </template>
-                </BCard>
-
-                <BCard style="width: 320px;" shadow="hover">
-                    <template #header>
-                        <img src="https://picsum.photos/400/250" alt="Product Image" />
-                    </template>
-
-                    <template #title>Raven Wireless Headphones</template>
-                    <template #subtitle>Категорія: Електроніка</template>
-
-                    <p class="b-text-sm b-text-muted">
-                        Професійні навушники з активним шумопоглинанням та автономністю до 40 годин.
+        <div class="b-mt-6">
+            <h2>Advanced</h2>
+            <BCard style="width: 25rem; overflow: hidden">
+                <template #header>
+                    <img alt="user header" src="https://primefaces.org/cdn/primevue/images/card-vue.jpg" />
+                </template>
+                <template #title>Advanced Card</template>
+                <template #subtitle>Card subtitle</template>
+                <template #content>
+                    <p class="b-m-0">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
+                        quas!
                     </p>
-
-                    <template #footer>
-                        <div class="b-flex b-justify-between b-items-center">
-                            <span class="b-font-bold b-text-lg">$199.00</span>
-                            <BButton size="small">Купити</BButton>
-                        </div>
-                    </template>
-                </BCard>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="row">
-                <BCard header="Редагувати профіль" shadow="always">
-                    <div class="b-flex b-flex-col b-gap-4">
-                        <div class="b-flex b-flex-col b-gap-1">
-                            <label class="b-text-xs b-font-bold b-uppercase b-text-muted">Email</label>
-                            <input class="b-p-2 b-border b-rounded-md" value="user@raven.com" />
-                        </div>
-
-                        <div class="b-flex b-flex-col b-gap-1">
-                            <label class="b-text-xs b-font-bold b-uppercase b-text-muted">Пароль</label>
-                            <input type="password" class="b-p-2 b-border b-rounded-md" />
-                        </div>
+                </template>
+                <template #footer>
+                    <div class="b-flex b-gap-4 b-mt-1">
+                        <BButton label="Cancel" severity="secondary" variant="outline" class="b-w-full" />
+                        <BButton label="Save" class="b-w-full" />
                     </div>
-
-                    <template #footer>
-                        <div class="b-flex b-justify-end b-gap-2">
-                            <Button type="secondary">Скасувати</Button>
-                            <Button>Зберегти зміни</Button>
-                        </div>
-                    </template>
-                </BCard>
-
-                <BCard :body-style="{ display: 'flex', gap: '20px', alignItems: 'center' }">
-                    <div class="b-w-16 b-h-16 b-bg-surface b-border b-rounded-full b-flex b-items-center b-justify-center">
-                        <UserSolid size="lg" />
-                    </div>
-
-                    <div class="b-flex-1">
-                        <div class="b-font-bold">Олександр Равенко</div>
-                        <div class="b-text-sm b-text-muted">Senior UI/UX Designer</div>
-                    </div>
-
-                    <BButton shape="circle" severity="secondary">
-                        <CogSolid />
-                    </BButton>
-                </BCard>
-
-                <div class="b-grid b-grid-cols-3 b-gap-4">
-                    <BCard title="Користувачі" subtitle="Активні">
-                        <div class="b-text-2xl b-font-bold">1,240</div>
-                    </BCard>
-
-                    <BCard title="Продажі" subtitle="За місяць">
-                        <div class="b-text-2xl b-font-bold text-success">$45,200</div>
-                    </BCard>
-
-                    <BCard title="Помилки" subtitle="За 24 години">
-                        <div class="b-text-2xl b-font-bold text-error">2</div>
-                    </BCard>
-                </div>
-            </div>
+                </template>
+            </BCard>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import { BCard } from "@bestiary-ui/components";
-import { BButton } from "@bestiary-ui/components";
+import { BButton, BBadge } from "@bestiary-ui/components";
 import {InformationCircleSolid, UserSolid, CogSolid, UsersSolid, ArrowTrendingUpSolid} from "@bestiary-ui/icons";
-import { BBadge } from "@bestiary-ui/components";
 </script>
-
-<style scoped>
-.flex-wrap {
-    flex-wrap: wrap;
-}
-</style>

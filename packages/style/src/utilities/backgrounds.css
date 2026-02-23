@@ -3,14 +3,14 @@
    ========================================== */
 
 /* Semantic Colors (Structure) */
-.b-bg-base        { background-color: var(--b-surface-app) !important; }
-.b-bg-surface     { background-color: var(--b-background-surface) !important; }
-.b-bg-overlay     { background-color: var(--b-background-overlay) !important; }
+.b-bg-base        { background-color: var(--b-surface-ground) !important; }
+.b-bg-surface     { background-color: var(--b-surface-section) !important; }
+.b-bg-overlay     { background-color: var(--b-surface-overlay) !important; }
 .b-bg-transparent { background-color: transparent !important; }
 
 /* Brand Colors */
-.b-bg-primary       { background-color: var(--b-color-primary) !important; }
-.b-bg-primary-muted { background-color: var(--b-color-primary-muted) !important; }
+.b-bg-primary       { background-color: var(--b-primary-solid-background) !important; }
+.b-bg-primary-muted { background-color: var(--b-primary-subtle-background) !important; }
 
 /* Status Colors (Solid) */
 .b-bg-success { background-color: var(--b-color-success) !important; }

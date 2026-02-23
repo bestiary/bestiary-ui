@@ -61,9 +61,13 @@
     --b-radius-full: initial; /* Pill/Circle */
 
     /* 1.4 Elevation (Shadows) */
-    --b-shadow-sm: initial;
-    --b-shadow-md: initial;
-    --b-shadow-lg: initial;
+    --b-shadow-2xs: initial;
+    --b-shadow-xs:  initial;
+    --b-shadow-sm:  initial;
+    --b-shadow-md:  initial;
+    --b-shadow-lg:  initial;
+    --b-shadow-xl:  initial;
+    --b-shadow-2xl: initial;
     --b-shadow-focus: initial;
 
     /* 1.5 Stacking Context (Z-Index) */
@@ -107,18 +111,18 @@
     --b-state-disabled-opacity: initial;
 
     /* 2.3 Surfaces (Ієрархія) */
-    --b-surface-app: initial; /* Фон сторінки */
-    --b-surface-card: initial; /* Картки */
-    --b-surface-variant: initial; /* Вкладені елементи */
-    --b-surface-floating: initial; /* Тултіпи/Меню */
-    --b-surface-overlay: initial; /* Backdrop */
-    --b-surface-inverse: initial; /* High contrast */
+    --b-surface-ground:    initial; /* Базовий фон сторінки */
+    --b-surface-section:   initial; /* Панелі, картки, меню, топбар */
+    --b-surface-variant:   initial; /* Втоплені елементи (інпути, код) */
+    --b-surface-floating:  initial; /* Випадаючі списки, тултіпи */
+    --b-surface-overlay:   initial; /* Фон під модалкою (backdrop) */
+    --b-surface-contrast:   initial; /* Контрастна поверхня (напр. чорна у світлій темі) */
 
     /* 2.4 Typography & Selection */
     --b-text-primary: initial;
     --b-text-secondary: initial;
     --b-text-muted: initial;
-    --b-text-inverse: initial;
+    --b-text-contrast: initial;
     --b-text-selection-background: initial;
 
     /* 2.5 Form Controls (Inputs) */

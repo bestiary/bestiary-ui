@@ -16,14 +16,14 @@ const load = () => {
 </script>
 <template>
     <div class="b-flex b-flex-col b-gap-8">
-        <section>
+        <div class="section">
             <h2 class="b-text-h3 b-mb-4">Basic</h2>
             <div class="b-flex b-gap-2 b-flex-wrap">
                 <BButton label="Submit" />
             </div>
-        </section>
+        </div>
 
-        <section>
+        <div class="section">
             <h2 class="b-text-h3 b-mb-4">Icons</h2>
             <div class="b-flex b-items-center b-gap-4">
                 <BButton :icon="HomeSolid" />
@@ -32,30 +32,30 @@ const load = () => {
                 <BButton label="Search" :icon="MagnifyingGlassSolid" iconPos="top" />
                 <BButton label="Update" :icon="ArrowPathSolid" iconPos="bottom" />
             </div>
-        </section>
+        </div>
 
-        <section>
+        <div class="section">
             <h2 class="b-text-h3 b-mb-4">Loading</h2>
             <div class="b-flex b-gap-4">
                 <BButton label="Search" :icon="MagnifyingGlassSolid" :loading="loading" @click="load" />
             </div>
-        </section>
+        </div>
 
-        <section>
+        <div class="section">
             <h2 class="b-text-h3 b-mb-4">Disabled</h2>
             <div class="b-flex b-gap-4">
                 <BButton label="Search" disabled />
             </div>
-        </section>
+        </div>
 
-        <section>
+        <div class="section">
             <h2 class="b-text-h3 b-mb-4">Link</h2>
             <div class="b-flex b-gap-4">
                 <BButton label="Link" variant="link" />
             </div>
-        </section>
+        </div>
 
-        <section>
+        <div class="section">
             <h2 class="b-text-h3 b-mb-4">Severity</h2>
             <div class="b-flex b-items-center b-gap-4">
                 <BButton label="Primary" />
@@ -66,16 +66,16 @@ const load = () => {
                 <BButton label="Danger" severity="danger" />
                 <BButton label="Contrast" severity="contrast" />
             </div>
-        </section>
+        </div>
 
-        <section>
+        <div class="section">
             <h2 class="b-text-h3 b-mb-4">Disabled</h2>
             <div class="b-flex b-gap-4">
                 <BButton label="Submit" disabled />
             </div>
-        </section>
+        </div>
 
-        <section>
+        <div class="section">
             <h2 class="b-text-h3 b-mb-4">Raised</h2>
             <div class="b-flex b-gap-4">
                 <BButton label="Primary" raised />
@@ -86,9 +86,9 @@ const load = () => {
                 <BButton label="Danger" severity="danger" raised />
                 <BButton label="Contrast" severity="contrast" raised />
             </div>
-        </section>
+        </div>
 
-        <section>
+        <div class="section">
             <h2 class="b-text-h3 b-mb-4">Rounded</h2>
             <div class="b-flex b-items-center b-gap-4">
                 <BButton label="Primary" rounded />
@@ -99,9 +99,9 @@ const load = () => {
                 <BButton label="Danger" severity="danger" rounded />
                 <BButton label="Contrast" severity="contrast" rounded />
             </div>
-        </section>
+        </div>
 
-        <section>
+        <div class="section">
             <h2 class="b-text-h3 b-mb-4">Text</h2>
             <div class="b-flex b-items-center b-gap-4">
                 <BButton label="Primary" variant="text" />
@@ -112,9 +112,9 @@ const load = () => {
                 <BButton label="Danger" severity="danger" variant="text" />
                 <BButton label="Contrast" severity="contrast" variant="text" />
             </div>
-        </section>
+        </div>
 
-        <section>
+        <div class="section">
             <h2 class="b-text-h3 b-mb-4">Raised Text</h2>
             <div class="b-flex b-items-center b-gap-4">
                 <BButton label="Primary" variant="text" raised />
@@ -125,9 +125,9 @@ const load = () => {
                 <BButton label="Danger" severity="danger" variant="text" raised />
                 <BButton label="Contrast" severity="contrast" variant="text" raised />
             </div>
-        </section>
+        </div>
 
-        <section>
+        <div class="section">
             <h2 class="b-text-h3 b-mb-4">Outlined</h2>
             <div class="b-flex b-items-center b-gap-4">
                 <BButton label="Primary" variant="outline" />
@@ -138,9 +138,9 @@ const load = () => {
                 <BButton label="Danger" severity="danger" variant="outline" />
                 <BButton label="Contrast" severity="contrast" variant="outline" />
             </div>
-        </section>
+        </div>
 
-        <section>
+        <div class="section">
             <h2 class="b-text-h3 b-mb-4">Icon only</h2>
             <div class="b-flex b-items-center b-gap-4">
                 <BButton :icon="CheckOutline" />
@@ -187,9 +187,9 @@ const load = () => {
                 <BButton :icon="XMarkOutline" severity="danger" rounded variant="text" />
                 <BButton :icon="StarOutline" severity="contrast" rounded variant="text" />
             </div>
-        </section>
+        </div>
 
-        <section>
+        <div class="section">
             <h2 class="b-text-h3 b-mb-4">Sizes</h2>
             <div class="b-flex b-items-center b-gap-4">
                 <BButton label="Small" :icon="CheckOutline" size="small" />
@@ -197,6 +197,6 @@ const load = () => {
                 <BButton label="Large" :icon="CheckOutline" size="large" />
                 <BButton label="XLarge" :icon="CheckOutline" size="xlarge" />
             </div>
-        </section>
+        </div>
     </div>
 </template>

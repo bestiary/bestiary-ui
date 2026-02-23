@@ -58,12 +58,12 @@
    STYLE
    ========================================== */
 .b-border-inherit     { border-color: inherit !important; }
-.b-border-color       { border-color: var(--b-border-color) !important; }
-.b-border-primary     { border-color: var(--b-color-primary) !important; }
-.b-border-success     { border-color: var(--b-color-success) !important; }
-.b-border-error       { border-color: var(--b-color-error) !important; }
-.b-border-warning     { border-color: var(--b-color-warning) !important; }
-.b-border-info        { border-color: var(--b-color-info) !important; }
+.b-border-color       { border-color: var(--b-border-default) !important; }
+.b-border-primary     { border-color: var(--b-primary-outline-border) !important; }
+.b-border-success     { border-color: var(--b-success-outline-border) !important; }
+.b-border-error       { border-color: var(--b-error-outline-border) !important; }
+.b-border-warning     { border-color: var(--b-warning-outline-border) !important; }
+.b-border-info        { border-color: var(--b-info-outline-border) !important; }
 .b-border-transparent { border-color: transparent !important; }
 
 /* ==========================================

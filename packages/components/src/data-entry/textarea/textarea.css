@@ -1,18 +1,18 @@
 .b-textarea {
     --b-textarea-width:             auto;
     --b-textarea-resize:            none;
-    --b-textarea-background:        var(--b-bg-base);
+    --b-textarea-background:        var(--b-control-background);
     --b-textarea-border-width:      1px;
     --b-textarea-border-style:      solid;
-    --b-textarea-border-color:      var(--b-border-color);
+    --b-textarea-border-color:      var(--b-control-border);
     --b-textarea-border-radius:     var(--b-ref-radius-md);
     --b-textarea-padding-y:         var(--b-ref-space-2);
     --b-textarea-padding-x:         var(--b-ref-space-3);
-    --b-textarea-color:             var(--b-text-muted);
+    --b-textarea-color:             var(--b-text-primary);
     --b-textarea-font-size:         var(--b-font-size-md);
     --b-textarea-font-weight:       var(--b-font-weight-regular);
     --b-textarea-line-height:       var(--b-line-height-tight);
-    --b-textarea-placeholder-color: var(--b-text-placeholder);
+    --b-textarea-placeholder-color: var(--b-control-placeholder);
     --b-textarea-transition:        all var(--b-ref-duration-normal);
 
     height: auto;
@@ -33,11 +33,11 @@
 .b-textarea::placeholder { color: var(--b-textarea-placeholder-color); }
 
 .b-textarea:not(:disabled):hover {
-    --b-textarea-border-color: var(--b-color-primary-hover);
+    --b-textarea-border-color: var(--b-control-border-hover);
 }
 
 .b-textarea:not(:disabled):focus {
-    --b-textarea-border-color: var(--b-color-primary-active);
+    --b-textarea-border-color: var(--b-control-border-active);
 }
 
 /* Autoresize */
@@ -52,9 +52,11 @@
 .b-textarea--fluid { --b-textarea-width: 100%; }
 
 /* Filled */
-.b-textarea--filled:not(:disabled) { --b-textarea-background: var(--b-color-secondary); --b-textarea-color: var(--b-text-on-secondary); }
+.b-textarea--filled:not(:disabled) {
+    --b-textarea-background: var(--b-secondary-subtle-background);
+}
 
 /* Disabled */
-.b-textarea--disabled { --b-textarea-background: var(--b-color-disabled); }
+.b-textarea--disabled { --b-textarea-background: var(--b-surface-variant); }
 
-.b-textarea--invalid { --b-textarea-border-color: var(--b-color-error); --b-textarea-placeholder-color: var(--b-color-error); }
+.b-textarea--invalid { --b-textarea-border-color: var(--b-error-outline-border); --b-textarea-placeholder-color: var(--b-error-outline-text); }
