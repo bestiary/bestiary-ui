@@ -40,6 +40,5 @@
 
 <script setup lang="ts">
 import { BCard } from "@bestiary-ui/components";
-import { BButton, BBadge } from "@bestiary-ui/components";
-import {InformationCircleSolid, UserSolid, CogSolid, UsersSolid, ArrowTrendingUpSolid} from "@bestiary-ui/icons";
+import { BButton } from "@bestiary-ui/components";
 </script>

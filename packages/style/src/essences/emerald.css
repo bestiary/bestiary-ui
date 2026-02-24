@@ -46,8 +46,8 @@
     --b-control-placeholder:   var(--b-ref-slate-500);
 
     /* 2.6 System Borders & Rings */
-    --b-border-default: var(--b-ref-slate-200);
-    --b-border-subtle:  var(--b-ref-slate-100); /* Slate 100 */
+    --b-border-default: var(--b-ref-slate-300);
+    --b-border-subtle:  var(--b-ref-slate-200); /* Slate 100 */
     --b-focus-ring:     var(--b-primary-500);
 
     /* 2.7 THE SEMANTIC MATRIX */
