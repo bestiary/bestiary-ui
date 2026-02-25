@@ -3,6 +3,10 @@ import { computed } from "vue";
 import { avatarProps } from "./avatar.types.ts";
 import "./avatar.css";
 
+defineOptions({
+    name: "BAvatar"
+});
+
 const props = defineProps(avatarProps);
 
 const classes = computed(() => [

@@ -1,0 +1,16 @@
+.b-avatar-group {
+    --b-avatar-group-border-width: 2px;
+    --b-avatar-group-border-color: var(--b-surface-section);
+    --b-avatar-group-offset: -0.75rem;
+
+    display: flex;
+    align-items: center;
+}
+
+.b-avatar-group .b-avatar {
+    border: var(--b-avatar-group-border-width) solid var(--b-avatar-group-border-color);
+}
+
+.b-avatar-group .b-avatar + .b-avatar {
+    margin-inline-start: var(--b-avatar-group-offset);
+}

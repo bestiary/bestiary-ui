@@ -31,18 +31,18 @@
     --b-line-height-loose:   var(--b-ref-line-height-loose);
 
     /* 1.2 Spacing & Sizes (4px base) */
-    --b-space-1:  var(--b-ref-space-1);
-    --b-space-2:  var(--b-ref-space-2);
-    --b-space-3:  var(--b-ref-space-3);
-    --b-space-4:  var(--b-ref-space-4);
-    --b-space-5:  var(--b-ref-space-5);
-    --b-space-6:  var(--b-ref-space-6);
-    --b-space-7:  var(--b-ref-space-7);
-    --b-space-8:  var(--b-ref-space-8);
-    --b-space-9:  var(--b-ref-space-9);
-    --b-space-10: var(--b-ref-space-10);
-    --b-space-11: var(--b-ref-space-11);
-    --b-space-12: var(--b-ref-space-12);
+    --b-space-1:  var(--b-ref-space-1);  /* 4px */
+    --b-space-2:  var(--b-ref-space-2);  /* 8px */
+    --b-space-3:  var(--b-ref-space-3);  /* 12px */
+    --b-space-4:  var(--b-ref-space-4);  /* 16px */
+    --b-space-5:  var(--b-ref-space-5);  /* 20px */
+    --b-space-6:  var(--b-ref-space-6);  /* 24px */
+    --b-space-7:  var(--b-ref-space-7);  /* 28px */
+    --b-space-8:  var(--b-ref-space-8);  /* 32px */
+    --b-space-9:  var(--b-ref-space-9);  /* 36px */
+    --b-space-10: var(--b-ref-space-10); /* 40px */
+    --b-space-11: var(--b-ref-space-11); /* 44px */
+    --b-space-12: var(--b-ref-space-12); /* 48px */
 
     /* Control Sizes */
     --b-size-xs: var(--b-ref-control-size-xs);  /* 24px */

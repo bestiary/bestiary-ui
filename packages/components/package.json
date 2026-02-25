@@ -51,6 +51,16 @@
             "import": "../bestiary-ui/components/data-display/card/index.js",
             "require": "../bestiary-ui/components/data-display/card/index.cjs"
         },
+        "./avatar": {
+            "types": "../bestiary-ui/components/data-display/avatar/index.d.ts",
+            "import": "../bestiary-ui/components/data-display/avatar/index.js",
+            "require": "../bestiary-ui/components/data-display/avatar/index.cjs"
+        },
+        "./avatargroup": {
+            "types": "../bestiary-ui/components/data-display/avatar-group/index.d.ts",
+            "import": "../bestiary-ui/components/data-display/avatar-group/index.js",
+            "require": "../bestiary-ui/components/data-display/avatar-group/index.cjs"
+        },
         "./divider": {
             "types": "../bestiary-ui/components/layout/divider/index.d.ts",
             "import": "../bestiary-ui/components/layout/divider/index.js",
@@ -66,6 +76,7 @@
             "import": "../bestiary-ui/components/layout/splitterpanel/index.js",
             "require": "../bestiary-ui/components/layout/splitterpanel/index.cjs"
         },
+
         "./*": "./*"
     },
     "sideEffects": [
