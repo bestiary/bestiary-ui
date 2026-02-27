@@ -41,6 +41,11 @@
             "import": "../bestiary-ui/components/data-entry/password/index.js",
             "require": "../bestiary-ui/components/data-entry/password/index.cjs"
         },
+        "./rating": {
+            "types": "../bestiary-ui/components/data-entry/rating/index.d.ts",
+            "import": "../bestiary-ui/components/data-entry/rating/index.js",
+            "require": "../bestiary-ui/components/data-entry/rating/index.cjs"
+        },
         "./message": {
             "types": "../bestiary-ui/components/feedback/message/index.d.ts",
             "import": "../bestiary-ui/components/feedback/message/index.js",

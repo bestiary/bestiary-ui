@@ -16,7 +16,7 @@ import "./input-text.css";
 
 defineOptions({
     name: "BInputText",
-    inheritAttrs: true // Тепер атрибути падають на корінь (input)
+    inheritAttrs: true
 });
 
 const props = defineProps(inputTextProps);

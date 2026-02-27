@@ -23,7 +23,3 @@ const classes = computed(() => [
     <img v-if="image" class="b-avatar__image" :src="image" alt="avatar" />
 </div>
 </template>
-
-<style scoped>
-
-</style>

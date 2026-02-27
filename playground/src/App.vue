@@ -14,10 +14,13 @@
                 <div class="nav-group-title b-mt-4 b-px-2 b-text-xxs b-uppercase b-text-muted">Data Entry</div>
                 <router-link to="/input" class="nav-link">Input</router-link>
                 <router-link to="/textarea" class="nav-link">Textarea</router-link>
+                <router-link to="/rating" class="nav-link">Rating</router-link>
 
                 <div class="nav-group-title b-mt-4 b-px-2 b-text-xxs b-uppercase b-text-muted">Data Display</div>
                 <router-link to="/badges" class="nav-link">Badge</router-link>
                 <router-link to="/cards" class="nav-link">Cards</router-link>
+                <router-link to="/avatar" class="nav-link">Avatar</router-link>
+                <router-link to="/table" class="nav-link">Table</router-link>
 
                 <div class="nav-group-title b-mt-4 b-px-2 b-text-xxs b-uppercase b-text-muted">Feedback</div>
                 <router-link to="/message" class="nav-link">Message</router-link>

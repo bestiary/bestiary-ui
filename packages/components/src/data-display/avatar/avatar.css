@@ -3,6 +3,7 @@
     --b-avatar-background:    var(--b-secondary-solid-background);
     --b-avatar-color:         var(--b-primary-subtle-text);
     --b-avatar-border-radius: var(--b-radius-interactive);
+    --b-avatar-transition:    var(--b-duration-normal) var(--b-ease-in-out);
 
     /* Small */
     --b-avatar-small-width:     var(--b-size-xs);
@@ -31,15 +32,18 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     width: var(--b-avatar-width);
     height: var(--b-avatar-height);
     background: var(--b-avatar-background);
     color: var(--b-avatar-color);
     border-radius: var(--b-avatar-border-radius);
+    transition: var(--b-avatar-transition);
 }
 
 .b-avatar__label {
     font-size: var(--b-avatar-font-size);
+    text-transform: uppercase;
 }
 
 .b-avatar__icon {
@@ -48,7 +52,9 @@
 }
 
 .b-avatar__image {
-
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* Size */

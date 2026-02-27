@@ -63,6 +63,21 @@ const router = createRouter({
             path: "/overview",
             name: "overview",
             component: () => import("../views/OverviewView.vue")
+        },
+        {
+            path: "/avatar",
+            name: "avatar",
+            component: () => import("../views/AvatarView.vue")
+        },
+        {
+            path: "/table",
+            name: "table",
+            component: () => import("../views/TableView.vue")
+        },
+        {
+            path: "/rating",
+            name: "rating",
+            component: () => import("../views/RatingView.vue")
         }
     ]
 });
