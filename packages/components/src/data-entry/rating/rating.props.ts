@@ -4,7 +4,7 @@ import {Component} from "vue";
 export const ratingProps = {
     defaultValue: {
         type: Number,
-        default: 5
+        default: null
     },
     name: {
         type: String,
@@ -24,7 +24,7 @@ export const ratingProps = {
     },
     stars: {
         type: Number,
-        default: null
+        default: 5
     },
     allowHalf: {
         type: Boolean,
