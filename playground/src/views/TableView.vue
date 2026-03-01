@@ -1,6 +1,6 @@
 <script setup>
 
-import { BTable, BColumn, BButton } from "@bestiary-ui/components";
+import { BTable, BColumn, BButton, BRating } from "@bestiary-ui/components";
 import { ref } from 'vue';
 
 const products = ref([
@@ -104,7 +104,7 @@ const getSeverity = (product) => {
 <!--                    <BColumn field="category" header="Category"></BColumn>-->
 <!--                    <BColumn field="rating" header="Reviews">-->
 <!--                        <template #body="slotProps">-->
-<!--                            <Rating :modelValue="slotProps.data.rating" readonly />-->
+<!--                            <BRating :modelValue="slotProps.data.rating" readonly />-->
 <!--                        </template>-->
 <!--                    </BColumn>-->
 <!--                    <BColumn header="Status">-->
