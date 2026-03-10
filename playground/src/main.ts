@@ -1,7 +1,7 @@
+import "@bestiary-ui/style";
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-import "@bestiary-ui/style";
 
 const app = createApp(App);
 app.use(router);

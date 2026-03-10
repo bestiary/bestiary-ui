@@ -1,65 +1,82 @@
-body {
+:where(body) {
     font-family: var(--b-font-family-base);
-    font-size: var(--b-font-size-sm);
-    line-height: var(--b-line-height-none);
+    font-size: var(--b-font-size-md);
+    line-height: var(--b-line-height-tight);
     font-weight: var(--b-font-weight-regular);
     color: var(--b-text-primary);
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--b-font-family-base);
+:where(h1, h2, h3, h4, h5, h6) {
+    font-family: inherit;
     font-weight: var(--b-font-weight-bold);
-    line-height: var(--b-line-height-tight);
+    line-height: var(--b-ref-line-height-relaxed);
     color: var(--b-text-contrast);
-    margin-bottom: 0.5em;
+    margin-block-end: 0.5em;
+    text-wrap: balance;
 }
 
-h1 { font-size: var(--b-font-size-4xl); }
-h2 { font-size: var(--b-font-size-3xl); }
-h3 { font-size: var(--b-font-size-2xl); }
-h4 { font-size: var(--b-font-size-xl); }
-h5 { font-size: var(--b-font-size-lg); }
-h6 { font-size: var(--b-font-size-md); }
+:where(h1) { font-size: var(--b-font-size-4xl); }
+:where(h2) { font-size: var(--b-font-size-3xl); }
+:where(h3) { font-size: var(--b-font-size-2xl); }
+:where(h4) { font-size: var(--b-font-size-xl); }
+:where(h5) { font-size: var(--b-font-size-lg); }
+:where(h6) { font-size: var(--b-font-size-md); }
 
-p {
-    line-height: 1.625;
-    margin-block: 0 1rem;
-    margin-inline: 0;
+:where(p) {
+    line-height: var(--b-ref-line-height-relaxed);
+    margin-block: 0 var(--b-space-4);
+    text-wrap: pretty;
 }
 
-small {
+:where(small) {
     font-size: var(--b-font-size-sm);
 }
 
-strong, b {
+:where(strong, b) {
     font-weight: var(--b-font-weight-bold);
 }
 
-em, i {
+:where(em, i) {
     font-style: italic;
 }
 
-code, kbd, pre, samp {
-    font-family: var(--b-font-family-mono);
-    font-size: 0.9em;
+:where(code, kbd, pre, samp) {
+    font-family: inherit;
+    font-size: var(--b-font-size-sm);
 }
 
-pre {
-    padding: 1rem;
+:where(pre) {
+    padding: var(--b-space-4);
     overflow: auto;
-    line-height: var(--b-line-height-snug);
-    background-color: var(--b-surface-section);
-    border-radius: var(--b-ref-radius-md);
+    line-height: var(--b-line-height-tight);
+    border-radius: var(--b-radius-container);
+    margin-block-end: var(--b-space-4);
 }
 
-a {
-    color: var(--b-primary-500);
+:where(a) {
+    color: var(--b-primary-outline-text);
     text-decoration: none;
-    transition: color var(--b-ref-duration-normal) ease;
+    transition: color var(--b-ref-duration-normal) var(--b-ease-in-out);
+    border-bottom: 1px solid transparent;
 }
 
-a:hover {
-    color: var(--b-primary-600);
+:where(a:hover) {
+    color: var(--b-primary-solid-background-hover);
+    border-bottom-color: currentColor;
+}
+
+:where(mark) {
+    background-color: var(--b-warning-subtle-background);
+    color: var(--b-warning-subtle-text);
+    padding-inline: 0.2em;
+    border-radius: 2px;
+}
+
+:where(::selection) {
+    background-color: var(--b-text-selection-background);
+    color: var(--b-text-contrast);
 }

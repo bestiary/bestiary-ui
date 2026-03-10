@@ -1,0 +1,7 @@
+:where(html) {
+    --b-ref-border-sm:  1px;
+    --b-ref-border-md:  2px;
+    --b-ref-border-lg:  3px;
+    --b-ref-border-xl:  5px;
+    --b-ref-border-xxl: 10px;
+}

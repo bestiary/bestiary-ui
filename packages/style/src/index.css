@@ -1,22 +1,39 @@
-/* TOKENS */
-@import "./tokens/primitives.css";
-@import "./tokens/contract.css";
+/**
+ * Bestiary UI — Global Style Manifest
+ */
 
-/* BASE */
-@import "./base/reset.css";
-@import "./base/typography.css";
+@layer b-reset, b-tokens, b-base, b-anatomy, b-components, b-utilities;
 
-/* DEFAULT THEME & ESSENCE */
-@import "./essences/emerald.css";
-@import "./themes/forest.css";
+/* ============================================================
+   1. RESET (b-reset)
+   ============================================================ */
+@import "./base/reset.css" layer(b-reset);
 
-/* UTILITIES */
-@import "./utilities/sizing.css";
-@import "./utilities/spacing.css";
-@import "./utilities/flex.css";
-@import "./utilities/grid.css";
-@import "./utilities/backgrounds.css";
-@import "./utilities/text.css";
-@import "./utilities/borders.css";
-@import "./utilities/layout.css";
-@import "./utilities/effects.css";
+/* ============================================================
+   2. TOKENS (b-tokens)
+   ============================================================ */
+@import "./tokens/primitives.css" layer(b-tokens);
+@import "./tokens/contract.css"   layer(b-tokens);
+
+/* Temes and Essences */
+@import "./essences/emerald.css" layer(b-tokens);
+@import "./themes/forest.css"    layer(b-tokens);
+
+
+/* ============================================================
+   3. BASE (b-base)
+   ============================================================ */
+@import "./base/typography.css" layer(b-base);
+
+/* ============================================================
+   4. UTILITIES (b-utilities)
+   ============================================================ */
+@import "./utilities/backgrounds.css" layer(b-utilities);
+@import "./utilities/borders.css"     layer(b-utilities);
+@import "./utilities/effects.css"     layer(b-utilities);
+@import "./utilities/flex.css"        layer(b-utilities);
+@import "./utilities/grid.css"        layer(b-utilities);
+@import "./utilities/layout.css"      layer(b-utilities);
+@import "./utilities/sizing.css"      layer(b-utilities);
+@import "./utilities/spacing.css"     layer(b-utilities);
+@import "./utilities/text.css"        layer(b-utilities);

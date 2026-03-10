@@ -1,0 +1,10 @@
+:where(html) {
+    --radius-conditional-xs:  clamp(0px, calc(100vw - 100%) * 1e5, var(--b-ref-radius-xs));
+    --radius-conditional-sm:  clamp(0px, calc(100vw - 100%) * 1e5, var(--b-ref-radius-sm));
+    --radius-conditional-md:  clamp(0px, calc(100vw - 100%) * 1e5, var(--b-ref-radius-md));
+    --radius-conditional-lg:  clamp(0px, calc(100vw - 100%) * 1e5, var(--b-ref-radius-lg));
+    --radius-conditional-xl:  clamp(0px, calc(100vw - 100%) * 1e5, var(--b-ref-radius-xl));
+    --radius-conditional-2xl: clamp(0px, calc(100vw - 100%) * 1e5, var(--b-ref-radius-2xl));
+    --radius-conditional-3xl: clamp(0px, calc(100vw - 100%) * 1e5, var(--b-ref-radius-3xl));
+    --radius-conditional-4xl: clamp(0px, calc(100vw - 100%) * 1e5, var(--b-ref-radius-4xl));
+}

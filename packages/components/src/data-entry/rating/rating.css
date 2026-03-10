@@ -2,8 +2,8 @@
     /* --- Local Tokens --- */
     --b-rating-gap:           var(--b-space-1);
     --b-rating-item-size:     var(--b-space-5); /* 20px */
-    --b-rating-off-color:     var(--b-text-muted);
-    --b-rating-on-color:      var(--b-palette-primary-500);
+    --b-rating-off-color:     var(--b-ref-yellow-500);
+    --b-rating-on-color:      var(--b-ref-yellow-500);
     --b-rating-invalid-color: var(--b-error-solid-background);
 
     display: inline-flex;

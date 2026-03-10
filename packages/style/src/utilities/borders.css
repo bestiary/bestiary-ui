@@ -72,9 +72,9 @@
 
 /* Divide Y */
 .b-divide-y > * + * {
-    border-top-width: 1px !important;
+    border-top-width: 1px   !important;
     border-top-style: solid !important;
-    border-top-color: var(--b-border-color) !important;
+    border-top-color: var(--b-border-default) !important;
 }
 
 /* Divide X */

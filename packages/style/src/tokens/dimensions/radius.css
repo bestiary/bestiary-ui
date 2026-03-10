@@ -1,4 +1,4 @@
-:root {
+:where(html) {
     --b-ref-radius-none: 0;
     --b-ref-radius-xs:   0.125rem;  /* 2px */
     --b-ref-radius-sm:   0.25rem;   /* 4px */
@@ -8,5 +8,5 @@
     --b-ref-radius-2xl:  1rem;      /* 16px */
     --b-ref-radius-3xl:  1.5rem;    /* 24px */
     --b-ref-radius-4xl:  2rem;      /* 32px */
-    --b-ref-radius-full: 9999px;    /* Circle */
+    --b-ref-radius-full: 1e5px;    /* Circle */
 }

@@ -1,9 +1,9 @@
 /**
- * ESSENCE: EMERALD
+ * ESSENCE: LEAF
  */
 
-:root {
-    --b-essence-name: "Emerald";
+[data-essence="leaf"] {
+    --b-essence-name: "Leaf";
 
     /* 2.1 Palette Scale (Primary) */
     --b-primary-50:  #f4f8f3;

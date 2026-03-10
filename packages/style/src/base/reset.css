@@ -1,8 +1,17 @@
-*, *::before, *::after {
+*, ::before, ::after {
     box-sizing: border-box;
+}
+
+:where(:not(dialog)) {
+    margin: 0;
+}
+
+:where(:not(fieldset, progress, meter)) {
     border-width: 0;
     border-style: solid;
-    border-color: transparent;
+    border-color: var(--b-border-default);
+    background-origin: border-box;
+    background-repeat: no-repeat;
 }
 
 * {

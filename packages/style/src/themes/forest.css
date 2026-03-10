@@ -3,7 +3,7 @@
  * THEME: Forest
  */
 
-:root {
+[data-theme="forest"] {
     --b-theme-name: "Forest";
 
     /* 1.1 Typography Hierarchy */
