@@ -1,4 +1,4 @@
-:root {
+:where(html) {
     /* --- DOCUMENTS --- */
     /* PDF */
     --b-ref-file-pdf-50: #fdecec;

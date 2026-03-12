@@ -1,0 +1,20 @@
+:where(html) {
+    /* RGB shadow color */
+    --b-ref-drop-shadow-rgb: 0 0 0;
+
+    /* Opacity levels */
+    --b-ref-drop-shadow-alpha-xs:  0.05;
+    --b-ref-drop-shadow-alpha-sm:  0.15;
+    --b-ref-drop-shadow-alpha-md:  0.12;
+    --b-ref-drop-shadow-alpha-lg:  0.15;
+    --b-ref-drop-shadow-alpha-xl:  0.1;
+    --b-ref-drop-shadow-alpha-2xl: 0.15;
+
+    /* Drop shadow */
+    --b-ref-drop-shadow-xs:  0 1px 1px rgb(var(--b-ref-drop-shadow-rgb) / var(--b-ref-drop-shadow-alpha-xs));
+    --b-ref-drop-shadow-sm:  0 1px 2px rgb(var(--b-ref-drop-shadow-rgb) / var(--b-ref-drop-shadow-alpha-sm));
+    --b-ref-drop-shadow-md:  0 3px 3px rgb(var(--b-ref-drop-shadow-rgb) / var(--b-ref-drop-shadow-alpha-md));
+    --b-ref-drop-shadow-lg:  0 4px 4px rgb(var(--b-ref-drop-shadow-rgb) / var(--b-ref-drop-shadow-alpha-lg));
+    --b-ref-drop-shadow-xl:  0 9px 7px rgb(var(--b-ref-drop-shadow-rgb) / var(--b-ref-drop-shadow-alpha-xl));
+    --b-ref-drop-shadow-2xl: 0 25px 25px rgb(var(--b-ref-drop-shadow-rgb) / var(--b-ref-drop-shadow-alpha-2xl));
+}

@@ -1,4 +1,4 @@
-:root {
+:where(html) {
     --b-ref-fuchsia-50:  #fdf4ff;
     --b-ref-fuchsia-100: #fae8ff;
     --b-ref-fuchsia-200: #f5d0fe;

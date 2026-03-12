@@ -1,0 +1,12 @@
+:where(html) {
+    --b-ref-time-50:   50ms;
+    --b-ref-time-75:   75ms;
+    --b-ref-time-100:  100ms;
+    --b-ref-time-150:  150ms;
+    --b-ref-time-200:  200ms;
+    --b-ref-time-300:  300ms;
+    --b-ref-time-400:  400ms;
+    --b-ref-time-500:  500ms;
+    --b-ref-time-700:  700ms;
+    --b-ref-time-1000: 1000ms;
+}

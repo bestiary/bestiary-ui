@@ -1,0 +1,27 @@
+:where(html) {
+    /* RGB shadow color */
+    --b-ref-text-shadow-rgb: 0 0 0;
+
+    /* Opacity levels */
+    --b-ref-text-shadow-alpha-2xs: 0.15;
+    --b-ref-text-shadow-alpha-xs:  0.2;
+    --b-ref-text-shadow-alpha-sm:  0.075;
+    --b-ref-text-shadow-alpha-md:  0.1;
+    --b-ref-text-shadow-alpha-lg:  0.1;
+
+    /* Text shadow */
+    --b-ref-text-shadow-2xs: 0px 1px 0px rgb(var(--b-ref-text-shadow-rgb) / var(--b-ref-text-shadow-alpha-2xs));
+    --b-ref-text-shadow-xs:  0px 1px 1px rgb(var(--b-ref-text-shadow-rgb) / var(--b-ref-text-shadow-alpha-xs));
+    --b-ref-text-shadow-sm:
+            0px 1px 0px rgb(var(--b-ref-text-shadow-rgb) / var(--b-ref-text-shadow-alpha-sm)),
+            0px 1px 1px rgb(var(--b-ref-text-shadow-rgb) / var(--b-ref-text-shadow-alpha-sm)),
+            0px 2px 2px rgb(var(--b-ref-text-shadow-rgb) / var(--b-ref-text-shadow-alpha-sm));
+    --b-ref-text-shadow-md:
+            0px 1px 1px rgb(var(--b-ref-text-shadow-rgb) / var(--b-ref-text-shadow-alpha-md)),
+            0px 1px 2px rgb(var(--b-ref-text-shadow-rgb) / var(--b-ref-text-shadow-alpha-md)),
+            0px 2px 4px rgb(var(--b-ref-text-shadow-rgb) / var(--b-ref-text-shadow-alpha-md));
+    --b-ref-text-shadow-lg:
+            0px 1px 2px rgb(var(--b-ref-text-shadow-rgb) / var(--b-ref-text-shadow-alpha-lg)),
+            0px 3px 2px rgb(var(--b-ref-text-shadow-rgb) / var(--b-ref-text-shadow-alpha-lg)),
+            0px 4px 8px rgb(var(--b-ref-text-shadow-rgb) / var(--b-ref-text-shadow-alpha-lg));
+}

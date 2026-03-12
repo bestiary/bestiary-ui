@@ -1,19 +1,20 @@
 /**
- * Bestiary UI — Global Semantic Contract v6.0 (Final)
+ * Bestiary UI — Global Semantic Contract
  * -------------------------------------------
- * BLOCK 1: HABITAT (Themes) — Форма, Простір, Рух, Шари.
- * BLOCK 2: ESSENCE (Colors) — Колір, Світло, Ролі, Стани.
+ * BLOCK 1: THEME
+ * BLOCK 2: ESSENCE
  */
 
 :where(:root) {
     /* ============================================================
-       BLOCK 1: HABITAT RESPONSIBILITY (Geometry & Interaction)
+       BLOCK 1: THEME
        ============================================================ */
     --b-theme-name: initial;
 
     /* 1.1 Typography Hierarchy */
-    --b-font-family-base: initial;
-    --b-font-family-mono: initial;
+    --b-font-family-base:    initial;
+    --b-font-family-mono:    initial;
+    --b-font-family-display: initial;
 
     --b-font-size-xxs: initial;
     --b-font-size-xs:  initial;
@@ -25,15 +26,16 @@
     --b-font-size-3xl: initial;
     --b-font-size-4xl: initial;
 
+    --b-font-weight-thin:    initial;
     --b-font-weight-regular: initial;
-    --b-font-weight-medium: initial;
-    --b-font-weight-bold: initial;
+    --b-font-weight-medium:  initial;
+    --b-font-weight-bold:    initial;
+    --b-font-weight-black:   initial;
 
     --b-line-height-none:    initial;
     --b-line-height-tight:   initial;
     --b-line-height-normal:  initial;
     --b-line-height-relaxed: initial;
-    --b-line-height-loose:   initial;
 
     /* 1.2 Spacing & Sizes */
     --b-space-1:  initial;
@@ -48,6 +50,12 @@
     --b-space-10: initial;
     --b-space-11: initial;
     --b-space-12: initial;
+    --b-space-14: initial;
+    --b-space-16: initial;
+    --b-space-20: initial;
+    --b-space-24: initial;
+    --b-space-28: initial;
+    --b-space-32: initial;
 
     --b-size-xs: initial;
     --b-size-sm: initial;
@@ -55,10 +63,17 @@
     --b-size-lg: initial;
     --b-size-xl: initial;
 
+    --b-control-height-xs: initial;
+    --b-control-height-sm: initial;
+    --b-control-height-md: initial;
+    --b-control-height-lg: initial;
+    --b-control-height-xl: initial;
+
     /* 1.3 Shapes & Radii */
-    --b-radius-interactive: initial; /* Buttons, Inputs */
-    --b-radius-container: initial; /* Cards, Modals */
-    --b-radius-full: initial; /* Pill/Circle */
+    --b-radius-interactive: initial; /* Кнопки, інпути */
+    --b-radius-container:   initial; /* Картки */
+    --b-radius-floating:    initial; /* Модалки, тултіпи */
+    --b-radius-full:        initial;
 
     /* 1.4 Elevation (Shadows) */
     --b-shadow-2xs: initial;
@@ -71,11 +86,16 @@
     --b-shadow-focus: initial;
 
     /* 1.5 Stacking Context (Z-Index) */
+    --b-z-hide:     initial;
+    --b-z-base:     initial;
+    --b-z-nav:      initial;
     --b-z-dropdown: initial;
-    --b-z-sticky: initial;
-    --b-z-popover: initial;
-    --b-z-modal: initial;
-    --b-z-tooltip: initial;
+    --b-z-sticky:   initial;
+    --b-z-overlay:  initial;
+    --b-z-modal:    initial;
+    --b-z-popover:  initial;
+    --b-z-toast:    initial;
+    --b-z-tooltip:  initial;
 
     /* 1.6 Motion & Layout Details */
     --b-duration-normal: initial;
@@ -88,7 +108,7 @@
 
 
     /* ============================================================
-       BLOCK 2: ESSENCE RESPONSIBILITY (Colors & Semantics)
+       BLOCK 2: ESSENCE
        ============================================================ */
     --b-essence-name: initial;
 

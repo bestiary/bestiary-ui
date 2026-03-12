@@ -1,8 +1,0 @@
-:where(html) {
-    --b-ref-ratio-square: 1;
-    --b-ref-ratio-landscape: 4/3;
-    --b-ref-ratio-portrait: 3/4;
-    --b-ref-ratio-widescreen: 16/9;
-    --b-ref-ratio-ultrawide: 18/5;
-    --b-ref-ratio-golden: 1.6180/1;
-}

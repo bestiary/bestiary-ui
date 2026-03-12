@@ -1,4 +1,4 @@
-:root {
+:where(html) {
     --b-ref-zinc-50:  #fafafa;
     --b-ref-zinc-100: #f4f4f5;
     --b-ref-zinc-200: #e4e4e7;

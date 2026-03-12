@@ -1,4 +1,4 @@
-:root {
+:where(html) {
     --b-ref-brand-facebook: #0866FF;
     --b-ref-brand-youtube: #FF0000;
     --b-ref-brand-twitter: #469CF0;

@@ -1,0 +1,11 @@
+:where(html) {
+    --b-ref-radius-xs:   0.125rem;
+    --b-ref-radius-sm:   0.25rem;
+    --b-ref-radius-md:   0.375rem;
+    --b-ref-radius-lg:   0.5rem;
+    --b-ref-radius-xl:   0.75rem;
+    --b-ref-radius-2xl:  1rem;
+    --b-ref-radius-3xl:  1.5rem;
+    --b-ref-radius-4xl:  2rem;
+    --b-ref-radius-full: 1e5px;
+}

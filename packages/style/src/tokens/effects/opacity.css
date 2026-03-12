@@ -1,0 +1,16 @@
+:where(html) {
+    --b-ref-opacity-0:   0;
+    --b-ref-opacity-5:   0.05;
+    --b-ref-opacity-8:   0.08;
+    --b-ref-opacity-10:  0.1;
+    --b-ref-opacity-20:  0.2;
+    --b-ref-opacity-30:  0.3;
+    --b-ref-opacity-38:  0.38;
+    --b-ref-opacity-40:  0.4;
+    --b-ref-opacity-50:  0.5;
+    --b-ref-opacity-60:  0.6;
+    --b-ref-opacity-70:  0.7;
+    --b-ref-opacity-80:  0.8;
+    --b-ref-opacity-90:  0.9;
+    --b-ref-opacity-100: 1;
+}

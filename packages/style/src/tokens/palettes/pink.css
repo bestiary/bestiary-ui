@@ -1,4 +1,4 @@
-:root {
+:where(html) {
     --b-ref-pink-50:  #fdf2f8;
     --b-ref-pink-100: #fce7f3;
     --b-ref-pink-200: #fbcfe8;

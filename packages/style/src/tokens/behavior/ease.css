@@ -1,11 +1,4 @@
-
 :where(html) {
-    /* Duration */
-    --b-ref-duration-fast: 100ms;
-    --b-ref-duration-normal: 200ms;
-    --b-ref-duration-slow: 300ms;
-
-    /* Easing */
     --b-ref-ease-1: cubic-bezier(.25, 0, .5, 1);
     --b-ref-ease-2: cubic-bezier(.25, 0, .4, 1);
     --b-ref-ease-3: cubic-bezier(.25, 0, .3, 1);

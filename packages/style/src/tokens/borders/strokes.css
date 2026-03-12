@@ -1,0 +1,8 @@
+:where(html) {
+    --b-ref-stroke-none: 0px;
+    --b-ref-stroke-sm:   1px;
+    --b-ref-stroke-md:   2px;
+    --b-ref-stroke-lg:   3px;
+    --b-ref-stroke-xl:   5px;
+    --b-ref-stroke-2xl:  10px;
+}

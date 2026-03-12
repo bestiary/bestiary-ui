@@ -1,4 +1,4 @@
-:root {
+:where(html) {
     --b-ref-cyan-50:  #ecfeff;
     --b-ref-cyan-100: #cffafe;
     --b-ref-cyan-200: #a5f3fc;

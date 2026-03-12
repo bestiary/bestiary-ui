@@ -2,12 +2,12 @@
  * Bestiary UI — Global Style Manifest
  */
 
-@layer b-reset, b-tokens, b-base, b-anatomy, b-components, b-utilities;
+@layer b-reset, b-tokens, b-base, b-utilities;
 
 /* ============================================================
    1. RESET (b-reset)
    ============================================================ */
-@import "./base/reset.css" layer(b-reset);
+@import "reset.css" layer(b-reset);
 
 /* ============================================================
    2. TOKENS (b-tokens)
@@ -16,12 +16,12 @@
 @import "./tokens/contract.css"   layer(b-tokens);
 
 /* Temes and Essences */
-@import "./essences/emerald.css" layer(b-tokens);
-@import "./themes/forest.css"    layer(b-tokens);
+@import "./essences/leaf.css" layer(b-tokens);
+@import "./themes/forest.css" layer(b-tokens);
 
 
 /* ============================================================
-   3. BASE (b-base)
+   3. BASE STYLE (b-base)
    ============================================================ */
 @import "./base/typography.css" layer(b-base);
 

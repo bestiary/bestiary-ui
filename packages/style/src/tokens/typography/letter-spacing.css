@@ -1,0 +1,8 @@
+:where(html) {
+    --b-ref-letter-spacing-tighter: -0.05em;
+    --b-ref-letter-spacing-tight:   -0.025em;
+    --b-ref-letter-spacing-normal:   0em;
+    --b-ref-letter-spacing-wide:     0.025em;
+    --b-ref-letter-spacing-wider:    0.05em;
+    --b-ref-letter-spacing-widest:   0.1em;
+}

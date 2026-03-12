@@ -1,4 +1,4 @@
-:root {
+:where(html) {
     --b-ref-red-50:  #fef2f2;
     --b-ref-red-100: #fee2e2;
     --b-ref-red-200: #fecaca;

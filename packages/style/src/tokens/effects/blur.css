@@ -1,0 +1,9 @@
+:where(html) {
+    --b-ref-blur-xs: 4px;
+    --b-ref-blur-sm: 8px;
+    --b-ref-blur-md: 12px;
+    --b-ref-blur-lg: 16px;
+    --b-ref-blur-xl: 24px;
+    --b-ref-blur-2xl: 40px;
+    --b-ref-blur-3xl: 64px;
+}

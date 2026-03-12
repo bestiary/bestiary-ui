@@ -1,4 +1,4 @@
-:root {
+:where(html) {
     --b-ref-green-50:  #f0fdf4;
     --b-ref-green-100: #dcfce7;
     --b-ref-green-200: #bbf7d0;

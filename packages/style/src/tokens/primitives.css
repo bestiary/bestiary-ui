@@ -1,46 +1,67 @@
-/* Dimensions */
-@import "./dimensions/aspect.css";
-@import "./dimensions/breakpoints.css";
-@import "./dimensions/elevation.css";
-@import "./dimensions/fractions.css";
-@import "./dimensions/borders.css";
-/*@import "./dimensions/lines.css";*/
-@import "./dimensions/radius.css";
-@import "./dimensions/radius-organic.css";
-@import "./dimensions/radius-blobs.css";
-@import "./dimensions/radius-conditional.css";
-@import "./dimensions/sizing.css";
-@import "./dimensions/spacing.css";
-@import "./dimensions/typography.css";
+/**
+ * Global Primitives Manifest
+ */
 
-/* Behavior */
-@import "./behavior/motion.css";
-@import "./behavior/opacity.css";
+/* 1. Layout & Dimensions */
+@import "./layout/aspects.css";
+@import "./layout/breakpoints.css";
+@import "./layout/containers.css";
+@import "./layout/controls.css";
+@import "./layout/fractions.css";
+@import "./layout/layers.css";
+@import "./layout/spacings.css";
 
-/* Palettes */
+/* 2. Borders & Shapes */
+@import "./borders/strokes.css";
+@import "./borders/radius.css";
+@import "./borders/radius-blobs.css";
+@import "./borders/radius-conditional.css";
+@import "./borders/radius-organic.css";
+
+/* 3. Behavior & Motion */
+@import "./behavior/ease.css";
+@import "./behavior/time.css";
+
+/* 4. Effects & Light */
+@import "./effects/blur.css";
+@import "./effects/drop-shadow.css";
+@import "./effects/opacity.css";
+@import "./effects/shadow.css";
+
+/* 5. Typography */
+@import "./typography/font-family.css";
+@import "./typography/font-size.css";
+@import "./typography/font-weight.css";
+@import "./typography/letter-spacing.css";
+@import "./typography/line-clamp.css";
+@import "./typography/line-height.css";
+@import "./typography/text-shadow.css";
+
+/* 6. Palettes */
 @import "./palettes/common.css";
-@import "./palettes/emerald.css";
-@import "./palettes/green.css";
+@import "./palettes/alphas.css";
+@import "./palettes/brands.css";
+@import "./palettes/files.css";
+
+@import "./palettes/slate.css";
+@import "./palettes/zinc.css";
+@import "./palettes/gray.css";
+@import "./palettes/neutral.css";
+@import "./palettes/stone.css";
+@import "./palettes/red.css";
+@import "./palettes/orange.css";
+@import "./palettes/amber.css";
+@import "./palettes/yellow.css";
 @import "./palettes/lime.css";
+@import "./palettes/green.css";
+@import "./palettes/emerald.css";
 @import "./palettes/teal.css";
 @import "./palettes/cyan.css";
 @import "./palettes/sky.css";
 @import "./palettes/blue.css";
 @import "./palettes/indigo.css";
-@import "./palettes/red.css";
-@import "./palettes/orange.css";
-@import "./palettes/amber.css";
-@import "./palettes/yellow.css";
 @import "./palettes/violet.css";
 @import "./palettes/purple.css";
 @import "./palettes/fuchsia.css";
 @import "./palettes/pink.css";
 @import "./palettes/rose.css";
-@import "./palettes/slate.css";
-@import "./palettes/gray.css";
-@import "./palettes/zinc.css";
-@import "./palettes/neutral.css";
-@import "./palettes/stone.css";
-@import "./palettes/alphas.css";
-@import "./palettes/files.css";
-@import "./palettes/brands.css";

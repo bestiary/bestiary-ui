@@ -1,4 +1,4 @@
-:root {
+:where(html) {
     --b-ref-slate-50:  #f8fafc;
     --b-ref-slate-100: #f1f5f9;
     --b-ref-slate-200: #e2e8f0;

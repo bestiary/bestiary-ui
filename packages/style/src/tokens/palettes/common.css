@@ -1,4 +1,4 @@
-:root {
+:where(html) {
     --b-ref-white: #ffffff;
     --b-ref-black: #000000;
     --b-ref-transparent: transparent;

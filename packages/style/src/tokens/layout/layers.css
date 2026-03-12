@@ -1,0 +1,12 @@
+:where(html) {
+    --b-ref-z-negative: -1;
+    --b-ref-z-0:        0;
+    --b-ref-z-10:       10;
+    --b-ref-z-20:       20;
+    --b-ref-z-30:       30;
+    --b-ref-z-40:       40;
+    --b-ref-z-50:       50;
+    --b-ref-z-100:      100;
+    --b-ref-z-1000:     1000;
+    --b-ref-z-max:      2147483647;
+}

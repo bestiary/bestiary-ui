@@ -1,4 +1,4 @@
-:root {
+:where(html) {
     --b-ref-emerald-50: #ecfdf5;
     --b-ref-emerald-100: #d1fae5;
     --b-ref-emerald-200: #a7f3d0;

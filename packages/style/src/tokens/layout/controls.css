@@ -1,0 +1,7 @@
+:where(html) {
+    --b-ref-control-size-xs: 1.5rem;   /* 24px */
+    --b-ref-control-size-sm: 2rem;     /* 32px */
+    --b-ref-control-size-md: 2.5rem;   /* 40px */
+    --b-ref-control-size-lg: 3rem;     /* 48px */
+    --b-ref-control-size-xl: 4rem;     /* 64px */
+}
