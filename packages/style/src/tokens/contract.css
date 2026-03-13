@@ -11,12 +11,12 @@
        ============================================================ */
     --b-theme-name: initial;
 
-    /* 1.1 Typography Hierarchy */
+    /* 1.1 Font Families */
     --b-font-family-base:    initial;
     --b-font-family-mono:    initial;
-    --b-font-family-display: initial;
 
-    --b-font-size-xxs: initial;
+    /* 1.2 Font Size */
+    --b-font-size-2xs: initial;
     --b-font-size-xs:  initial;
     --b-font-size-sm:  initial;
     --b-font-size-md:  initial;
@@ -26,18 +26,24 @@
     --b-font-size-3xl: initial;
     --b-font-size-4xl: initial;
 
-    --b-font-weight-thin:    initial;
+    /* 1.3 Font Weight */
+    --b-font-weight-light:   initial;
     --b-font-weight-regular: initial;
     --b-font-weight-medium:  initial;
     --b-font-weight-bold:    initial;
-    --b-font-weight-black:   initial;
 
-    --b-line-height-none:    initial;
-    --b-line-height-tight:   initial;
-    --b-line-height-normal:  initial;
-    --b-line-height-relaxed: initial;
+    /* 1.4 Line Height */
+    --b-line-height-none:    initial; /* Buttons, icons */
+    --b-line-height-tight:   initial; /* Head */
+    --b-line-height-normal:  initial; /* Main text */
+    --b-line-height-relaxed: initial; /* Small text or many text */
 
-    /* 1.2 Spacing & Sizes */
+    /* 1.5 Letter Spacing */
+    --b-letter-spacing-tight:   initial;
+    --b-letter-spacing-normal:  initial;
+    --b-letter-spacing-wide:    initial;
+
+    /* 1.6 Spacing */
     --b-space-1:  initial;
     --b-space-2:  initial;
     --b-space-3:  initial;
@@ -50,12 +56,6 @@
     --b-space-10: initial;
     --b-space-11: initial;
     --b-space-12: initial;
-    --b-space-14: initial;
-    --b-space-16: initial;
-    --b-space-20: initial;
-    --b-space-24: initial;
-    --b-space-28: initial;
-    --b-space-32: initial;
 
     --b-size-xs: initial;
     --b-size-sm: initial;
