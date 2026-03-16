@@ -1,51 +1,19 @@
-/* ==========================================
-   ASPECT_RATIO
-   ========================================== */
-.b-aspect-square { aspect-ratio: var(--b-aspect-square) !important; }
-.b-aspect-video  { aspect-ratio: var(--b-aspect-video) !important; }
-.b-aspect-auto   { aspect-ratio: auto !important; }
+
 
 /* ==========================================
    COLUMNS
    ========================================== */
-.b-columns-3xs { columns: var(--b-ref-size-3xs) !important; }
-.b-columns-2xs { columns: var(--b-ref-size-2xs) !important; }
-.b-columns-xs { columns: var(--b-ref-size-xs) !important; }
-.b-columns-sm { columns: var(--b-ref-size-sm) !important; }
-.b-columns-md { columns: var(--b-ref-size-md) !important; }
-.b-columns-lg { columns: var(--b-ref-size-lg) !important; }
-.b-columns-xl { columns: var(--b-ref-size-xl) !important; }
-.b-columns-2xl { columns: var(--b-ref-size-2xl) !important; }
-.b-columns-3xl { columns: var(--b-ref-size-3xl) !important; }
-.b-columns-4xl { columns: var(--b-ref-size-4xl) !important; }
-.b-columns-5xl { columns: var(--b-ref-size-5xl) !important; }
-.b-columns-6xl { columns: var(--b-ref-size-6xl) !important; }
-.b-columns-7xl { columns: var(--b-ref-size-7xl) !important; }
-.b-columns-auto { columns: auto !important; }
+
 
 /* ==========================================
    BREAK
    ========================================== */
 
 /* After */
-.b-break-after-auto       { break-after: auto !important; }
-.b-break-after-avoid      { break-after: avoid !important; }
-.b-break-after-all        { break-after: all !important; }
-.b-break-after-avoid-page { break-after: avoid-page !important; }
-.b-break-after-page       { break-after: page !important; }
-.b-break-after-left       { break-after: left !important; }
-.b-break-after-right      { break-after: right !important; }
-.b-break-after-column     { break-after: column !important; }
+
 
 /* Before */
-.b-break-before-auto       { break-before: auto !important; }
-.b-break-before-avoid      { break-before: avoid !important; }
-.b-break-before-all        { break-before: all !important; }
-.b-break-before-avoid-page { break-before: avoid-page !important; }
-.b-break-before-page       { break-before: page !important; }
-.b-break-before-left       { break-before: left !important; }
-.b-break-before-right      { break-before: right !important; }
-.b-break-before-column     { break-before: column !important; }
+
 
 /* Inside */
 .b-break-inside-auto         { break-inside: auto !important; }

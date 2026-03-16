@@ -1,0 +1,58 @@
+/* ============================================================
+   Bestiary UI — Break Before Utilities
+
+   These utilities control how page, column, or region breaks
+   behave before a generated box. They are essential for
+   fine-tuning print layouts and multi-column text flows.
+   ============================================================ */
+
+/* 1. General Break Utilities */
+
+/* Allows but does not force a break before the element (Default) */
+.b-break-before-auto {
+    break-before: auto;
+}
+
+/* Prevents any break (page, column, or region) before the element */
+.b-break-before-avoid {
+    break-before: avoid;
+}
+
+/* Forces a break in all contexts (used primarily in CSS Regions) */
+.b-break-before-all {
+    break-before: all;
+}
+
+/* 2. Page Break Utilities (Printing) */
+
+/* Forces a page break before the element */
+.b-break-before-page {
+    break-before: page;
+}
+
+/* Prevents a page break before the element */
+.b-break-before-avoid-page {
+    break-before: avoid-page;
+}
+
+/* Forces one or two page breaks so that the next page is a left page */
+.b-break-before-left {
+    break-before: left;
+}
+
+/* Forces one or two page breaks so that the next page is a right page */
+.b-break-before-right {
+    break-before: right;
+}
+
+/* 3. Column Break Utilities */
+
+/* Forces a column break in multi-column layouts */
+.b-break-before-column {
+    break-before: column;
+}
+
+/* Prevents a column break before the element */
+.b-break-before-avoid-column {
+    break-before: avoid-column;
+}

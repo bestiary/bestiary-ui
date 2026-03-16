@@ -1,0 +1,101 @@
+*,
+::after,
+::before,
+::backdrop,
+::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid var(--b-border-default);
+}
+
+:where(html) {
+    block-size: 100%;
+    -webkit-text-size-adjust: none;
+    tab-size: 4;
+    color-scheme: light dark;
+
+    background-color: var(--b-surface-ground);
+    color: var(--b-text-primary);
+    -webkit-tap-highlight-color: transparent;
+
+    @media (prefers-reduced-motion: no-preference) {
+        scroll-behavior: smooth;
+    }
+}
+
+:where(body) {
+    min-block-size: 100%;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+:where(ol, ul, menu) {
+    list-style: none;
+}
+
+:where(a) {
+    color: inherit;
+    text-decoration: none;
+}
+
+:where(img, svg, video, canvas, audio, iframe, embed, object) {
+    display: block;
+    vertical-align: middle;
+}
+
+:where(img, video) {
+    max-width: 100%;
+    height: auto;
+}
+
+:where(button, input, select, optgroup, textarea, ::file-selector-button) {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    background-color: transparent;
+    border-radius: 0;
+}
+
+:where(button, [role="button"]) {
+    cursor: pointer;
+}
+
+:where(textarea, select) {
+    field-sizing: content;
+}
+
+:where(textarea) {
+    resize: vertical;
+    min-block-size: 3lh;
+}
+
+::placeholder {
+    opacity: 0.5;
+    color: currentColor;
+}
+
+:where(table) {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+}
+
+:where(:focus-visible) {
+    outline: var(--b-stroke-focus) solid var(--b-focus-ring);
+    outline-offset: var(--b-focus-ring-offset);
+
+    @media (prefers-reduced-motion: no-preference) {
+        transition: outline-offset var(--b-duration-fast) var(--b-ease-out);
+    }
+}
+
+:where([hidden]) { display: none !important; }
+::-webkit-search-decoration { -webkit-appearance: none; }
+::-webkit-file-upload-button { font: inherit; -webkit-appearance: button; }
+summary { display: list-item; }

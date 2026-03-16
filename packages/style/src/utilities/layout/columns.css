@@ -1,0 +1,54 @@
+/* ============================================================
+   Bestiary UI — Column Utilities
+
+   This file provides utilities for managing multi-column layouts.
+   It supports both fixed column counts (numeric) and scalable
+   column widths based on the Container scale from the Contract.
+   ============================================================ */
+
+:where(html) {
+    --b-scale: var(--b-theme-scale, 1);
+}
+
+/* 1. Column Count Utilities
+   Sets the exact number of columns. These are absolute values
+   and are NOT affected by theme scaling. */
+
+.b-columns-1  { columns: 1; }
+.b-columns-2  { columns: 2; }
+.b-columns-3  { columns: 3; }
+.b-columns-4  { columns: 4; }
+.b-columns-5  { columns: 5; }
+.b-columns-6  { columns: 6; }
+.b-columns-7  { columns: 7; }
+.b-columns-8  { columns: 8; }
+.b-columns-9  { columns: 9; }
+.b-columns-10 { columns: 10; }
+.b-columns-11 { columns: 11; }
+.b-columns-12 { columns: 12; }
+
+/* 2. Scalable Column Width Utilities
+   Sets the ideal width for columns. The browser will automatically
+   determine the number of columns based on available space.
+   These values ARE affected by the global theme scale. */
+
+.b-columns-3xs { columns: calc(var(--b-container-3xs) * var(--b-scale)); }
+.b-columns-2xs { columns: calc(var(--b-container-2xs) * var(--b-scale)); }
+.b-columns-xs  { columns: calc(var(--b-container-xs)  * var(--b-scale)); }
+.b-columns-sm  { columns: calc(var(--b-container-sm)  * var(--b-scale)); }
+.b-columns-md  { columns: calc(var(--b-container-md)  * var(--b-scale)); }
+.b-columns-lg  { columns: calc(var(--b-container-lg)  * var(--b-scale)); }
+.b-columns-xl  { columns: calc(var(--b-container-xl)  * var(--b-scale)); }
+.b-columns-2xl { columns: calc(var(--b-container-2xl) * var(--b-scale)); }
+.b-columns-3xl { columns: calc(var(--b-container-3xl) * var(--b-scale)); }
+.b-columns-4xl { columns: calc(var(--b-container-4xl) * var(--b-scale)); }
+.b-columns-5xl { columns: calc(var(--b-container-5xl) * var(--b-scale)); }
+.b-columns-6xl { columns: calc(var(--b-container-6xl) * var(--b-scale)); }
+.b-columns-7xl { columns: calc(var(--b-container-7xl) * var(--b-scale)); }
+
+/* 3. Helper Utilities */
+
+/* Browser decides the optimal column layout */
+.b-columns-auto {
+    columns: auto;
+}
