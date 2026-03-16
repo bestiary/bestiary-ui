@@ -1,0 +1,46 @@
+/* ============================================================
+   Bestiary UI — Clear Utilities
+
+   These utilities specify whether an element can be next to
+   floating elements that precede it or must be moved down
+   (cleared) below them. Essential for controlling layout flow
+   around floated images or containers.
+   ============================================================ */
+
+/* 1. Logical Clears (Recommended)
+   Automatically adjusts based on the document direction (LTR/RTL). */
+
+/* Clears floats on the start side of the line (left in LTR, right in RTL) */
+.b-clear-start {
+    clear: inline-start;
+}
+
+/* Clears floats on the end side of the line (right in LTR, left in RTL) */
+.b-clear-end {
+    clear: inline-end;
+}
+
+/* 2. Physical Clears
+   Standard directions used for fixed layouts. */
+
+/* Forces the element below any left-floated elements */
+.b-clear-left {
+    clear: left;
+}
+
+/* Forces the element below any right-floated elements */
+.b-clear-right {
+    clear: right;
+}
+
+/* Forces the element below all floated elements (both sides) */
+.b-clear-both {
+    clear: both;
+}
+
+/* 3. Helper Utilities */
+
+/* Allows the element to be placed next to floating elements (Browser Default) */
+.b-clear-none {
+    clear: none;
+}

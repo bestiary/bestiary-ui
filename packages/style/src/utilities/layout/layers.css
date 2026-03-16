@@ -1,0 +1,102 @@
+/* ============================================================
+   Bestiary UI — Z-Index Utilities
+
+   Manages the vertical stacking order of elements.
+
+   Architecture:
+   1. Semantic Roles: Tied to the Global Contract. Use these
+      for standard UI components to ensure cross-theme compatibility.
+   2. Fixed Numeric Scale: Literal integer values for quick,
+      local overrides within specific layout contexts.
+   3. Max Helper: Absolute highest possible stacking value.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. SEMANTIC ROLES (Mapped to Contract)
+   Use these for major UI layers.
+   ------------------------------------------------------------ */
+
+/* Background / Below normal content flow */
+.b-z-hide {
+    z-index: var(--b-z-hide);
+}
+
+/* Default stacking context (0) */
+.b-z-base {
+    z-index: var(--b-z-base);
+}
+
+/* Navigation bars, headers, and primary menus */
+.b-z-nav {
+    z-index: var(--b-z-nav);
+}
+
+/* Dropdown menus, selects, and pickers */
+.b-z-dropdown {
+    z-index: var(--b-z-dropdown);
+}
+
+/* Sticky elements that stay visible during scroll */
+.b-z-sticky {
+    z-index: var(--b-z-sticky);
+}
+
+/* Modal backdrops / overlays */
+.b-z-overlay {
+    z-index: var(--b-z-overlay);
+}
+
+/* Centered modal windows and dialog boxes */
+.b-z-modal {
+    z-index: var(--b-z-modal);
+}
+
+/* Small contextual floating menus or popovers */
+.b-z-popover {
+    z-index: var(--b-z-popover);
+}
+
+/* Global system notifications and toasts */
+.b-z-toast {
+    z-index: var(--b-z-toast);
+}
+
+/* Contextual hints and tooltips (should always be on top) */
+.b-z-tooltip {
+    z-index: var(--b-z-tooltip);
+}
+
+/* ------------------------------------------------------------
+   2. FIXED NUMERIC SCALE (Atomic)
+   Literal values for manual stacking adjustments.
+   ------------------------------------------------------------ */
+
+.b-z-auto { z-index: auto; }
+
+.b-z-0    { z-index: 0; }
+.b-z-1    { z-index: 1; }
+.b-z-2    { z-index: 2; }
+.b-z-3    { z-index: 3; }
+.b-z-4    { z-index: 4; }
+.b-z-5    { z-index: 5; }
+.b-z-10   { z-index: 10; }
+.b-z-20   { z-index: 20; }
+.b-z-30   { z-index: 30; }
+.b-z-40   { z-index: 40; }
+.b-z-50   { z-index: 50; }
+.b-z-100  { z-index: 100; }
+.b-z-200  { z-index: 200; }
+.b-z-300  { z-index: 300; }
+.b-z-400  { z-index: 400; }
+.b-z-500  { z-index: 500; }
+.b-z-1000 { z-index: 1000; }
+
+
+/* ------------------------------------------------------------
+   3. HELPERS
+   ------------------------------------------------------------ */
+
+/* Maximum possible 32-bit integer - Forces element above everything */
+.b-z-max {
+    z-index: var(--b-ref-z-max);
+}
