@@ -1,0 +1,45 @@
+/* ============================================================
+   Bestiary UI — Text Decoration Thickness Utilities
+
+   These utilities control the thickness of the decoration line
+   (underline, overline, or line-through).
+   Note: Requires a text-decoration-line to be present.
+   ============================================================ */
+
+/* 1. Standard Behaviors */
+
+/* Browser chooses the appropriate thickness for the font (Default) */
+.b-decoration-auto {
+    text-decoration-thickness: auto;
+}
+
+/* Uses the thickness preferred by the font file itself (if available) */
+.b-decoration-from-font {
+    text-decoration-thickness: from-font;
+}
+
+/* 2. Numeric Pixel Scale (Fixed)
+   Provides precise control over the line width in pixels.
+   These remain constant to ensure line clarity on all displays. */
+
+.b-decoration-0 { text-decoration-thickness: 0px; }
+.b-decoration-1 { text-decoration-thickness: 1px; }
+.b-decoration-2 { text-decoration-thickness: 2px; }
+.b-decoration-4 { text-decoration-thickness: 4px; }
+.b-decoration-8 { text-decoration-thickness: 8px; }
+
+/* 3. Semantic Stroke Scale
+   Mapped to the system's border/stroke tokens for consistency
+   across the UI elements. */
+
+.b-decoration-sm {
+    text-decoration-thickness: var(--b-stroke-default); /* ~1px */
+}
+
+.b-decoration-md {
+    text-decoration-thickness: var(--b-stroke-strong);  /* ~2px */
+}
+
+.b-decoration-lg {
+    text-decoration-thickness: var(--b-stroke-focus);   /* ~3-4px */
+}

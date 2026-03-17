@@ -1,0 +1,63 @@
+/* ============================================================
+   Bestiary UI — Vertical Align Utilities
+
+   These utilities control the vertical alignment of an inline,
+   inline-block, or table-cell box. Essential for aligning icons
+   with text, mathematical scripts, and table content.
+   ============================================================ */
+
+/* 1. Standard Alignment */
+
+/* Aligns the baseline of the element with the baseline of the parent (Default) */
+.b-align-baseline {
+    vertical-align: baseline;
+}
+
+/* Aligns the top of the element with the top of the tallest element on the line */
+.b-align-top {
+    vertical-align: top;
+}
+
+/* Aligns the middle of the element with the baseline plus half the x-height of the parent */
+.b-align-middle {
+    vertical-align: middle;
+}
+
+/* Aligns the bottom of the element with the lowest element on the line */
+.b-align-bottom {
+    vertical-align: bottom;
+}
+
+/* 2. Text-Specific Alignment */
+
+/* Aligns the top of the element with the top of the parent element's font */
+.b-align-text-top {
+    vertical-align: text-top;
+}
+
+/* Aligns the bottom of the element with the bottom of the parent element's font */
+.b-align-text-bottom {
+    vertical-align: text-bottom;
+}
+
+/* 3. Script Alignment */
+
+/* Aligns the element as a subscript */
+.b-align-sub {
+    vertical-align: sub;
+}
+
+/* Aligns the element as a superscript */
+.b-align-super {
+    vertical-align: super;
+}
+
+/* 4. Custom Variable Hook
+   Allows passing arbitrary values like percentages or pixel offsets
+   via the --b-align variable.
+
+   Example: <span class="b-align-custom" style="--b-align: 4px">...</span>
+*/
+.b-align-custom {
+    vertical-align: var(--b-align);
+}

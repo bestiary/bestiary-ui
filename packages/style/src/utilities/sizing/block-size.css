@@ -1,0 +1,97 @@
+/* ============================================================
+   Bestiary UI — Block Size Utilities
+
+   Controls the vertical dimension of an element using Logical
+   Properties. This ensures that 'height' adjusts correctly
+   if the writing mode changes (e.g., vertical text).
+
+   Architecture:
+   1. Mapped to Contract: Uses --b-space and --b-container variables.
+   2. Theme Scalable: Numeric and Container scales adjust with --b-scale.
+   3. Modern Units: Full support for Dynamic (d), Small (s),
+      and Large (l) viewport units + line-height units (lh).
+   ============================================================ */
+
+:where(html) {
+    /* Fallback to 1 if theme scale is not defined */
+    --b-scale: var(--b-theme-scale, 1);
+}
+
+/* ------------------------------------------------------------
+   1. FIXED & KEYWORD SIZES (.b-block-*)
+   ------------------------------------------------------------ */
+
+.b-block-auto { block-size: auto; }
+.b-block-full { block-size: 100%; }
+.b-block-min  { block-size: min-content; }
+.b-block-max  { block-size: max-content; }
+.b-block-fit  { block-size: fit-content; }
+.b-block-px   { block-size: 1px; }
+.b-block-lh   { block-size: 1lh; } /* Block size equal to 1 line-height */
+
+/* 1.1 Viewport Block Sizes (Vertical Axis) */
+.b-block-screen { block-size: 100vh; }
+.b-block-dvh    { block-size: 100dvh; } /* Dynamic viewport height */
+.b-block-svh    { block-size: 100svh; } /* Small viewport height */
+.b-block-lvh    { block-size: 100lvh; } /* Large viewport height */
+
+/* Horizontal viewports mapped to block size
+   (useful for vertical writing modes) */
+.b-block-dvw    { block-size: 100dvw; }
+.b-block-svw    { block-size: 100svw; }
+.b-block-lvw    { block-size: 100lvw; }
+
+/* ------------------------------------------------------------
+   2. SCALABLE NUMERIC SCALE (0-12)
+   Linked to the spacing scale defined in the Contract.
+   ------------------------------------------------------------ */
+
+.b-block-0  { block-size: 0; }
+.b-block-1  { block-size: calc(var(--b-space-1)  * var(--b-scale)); }
+.b-block-2  { block-size: calc(var(--b-space-2)  * var(--b-scale)); }
+.b-block-3  { block-size: calc(var(--b-space-3)  * var(--b-scale)); }
+.b-block-4  { block-size: calc(var(--b-space-4)  * var(--b-scale)); }
+.b-block-5  { block-size: calc(var(--b-space-5)  * var(--b-scale)); }
+.b-block-6  { block-size: calc(var(--b-space-6)  * var(--b-scale)); }
+.b-block-7  { block-size: calc(var(--b-space-7)  * var(--b-scale)); }
+.b-block-8  { block-size: calc(var(--b-space-8)  * var(--b-scale)); }
+.b-block-9  { block-size: calc(var(--b-space-9)  * var(--b-scale)); }
+.b-block-10 { block-size: calc(var(--b-space-10) * var(--b-scale)); }
+.b-block-11 { block-size: calc(var(--b-space-11) * var(--b-scale)); }
+.b-block-12 { block-size: calc(var(--b-space-12) * var(--b-scale)); }
+
+/* ------------------------------------------------------------
+   3. SCALABLE CONTAINER SCALE (3xs to 7xl)
+   Maintains consistent macro-sizing for vertical blocks.
+   ------------------------------------------------------------ */
+
+.b-block-3xs { block-size: calc(var(--b-container-3xs) * var(--b-scale)); }
+.b-block-2xs { block-size: calc(var(--b-container-2xs) * var(--b-scale)); }
+.b-block-xs  { block-size: calc(var(--b-container-xs)  * var(--b-scale)); }
+.b-block-sm  { block-size: calc(var(--b-container-sm)  * var(--b-scale)); }
+.b-block-md  { block-size: calc(var(--b-container-md)  * var(--b-scale)); }
+.b-block-lg  { block-size: calc(var(--b-container-lg)  * var(--b-scale)); }
+.b-block-xl  { block-size: calc(var(--b-container-xl)  * var(--b-scale)); }
+.b-block-2xl { block-size: calc(var(--b-container-2xl) * var(--b-scale)); }
+.b-block-3xl { block-size: calc(var(--b-container-3xl) * var(--b-scale)); }
+.b-block-4xl { block-size: calc(var(--b-container-4xl) * var(--b-scale)); }
+.b-block-5xl { block-size: calc(var(--b-container-5xl) * var(--b-scale)); }
+.b-block-6xl { block-size: calc(var(--b-container-6xl) * var(--b-scale)); }
+.b-block-7xl { block-size: calc(var(--b-container-7xl) * var(--b-scale)); }
+
+/* ------------------------------------------------------------
+   4. FRACTIONAL SIZES
+   Absolute proportions for relative layout construction.
+   ------------------------------------------------------------ */
+
+.b-block-1-2  { block-size: var(--b-ref-fraction-1-2); }
+.b-block-1-3  { block-size: var(--b-ref-fraction-1-3); }
+.b-block-1-4  { block-size: var(--b-ref-fraction-1-4); }
+.b-block-1-5  { block-size: var(--b-ref-fraction-1-5); }
+.b-block-1-6  { block-size: var(--b-ref-fraction-1-6); }
+.b-block-2-3  { block-size: var(--b-ref-fraction-2-3); }
+.b-block-2-5  { block-size: var(--b-ref-fraction-2-5); }
+.b-block-3-4  { block-size: var(--b-ref-fraction-3-4); }
+.b-block-3-5  { block-size: var(--b-ref-fraction-3-5); }
+.b-block-4-5  { block-size: var(--b-ref-fraction-4-5); }
+.b-block-5-6  { block-size: var(--b-ref-fraction-5-6); }

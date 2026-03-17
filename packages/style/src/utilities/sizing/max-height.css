@@ -1,0 +1,92 @@
+/* ============================================================
+   Bestiary UI — Max-Height Utilities
+   
+   These utilities define the maximum vertical size of an element.
+   They prevent boxes from growing beyond a certain point, which 
+   is crucial for scrollable areas and responsive constraints.
+   
+   Architecture:
+   1. Mapped to Contract: Uses --b-space and --b-container variables.
+   2. Theme Scalable: Numeric and Container scales adjust with --b-scale.
+   3. Logical: Uses 'max-height' for modern CSS standards.
+   4. Viewport Aware: Full support for Dynamic (d), Small (s), 
+      and Large (l) viewport height units.
+   ============================================================ */
+
+:where(html) {
+    /* Fallback to 1 if theme scale is not defined */
+    --b-scale: var(--b-theme-scale, 1);
+}
+
+/* ------------------------------------------------------------
+   1. FIXED & KEYWORD LIMITS (.b-max-h-*)
+   ------------------------------------------------------------ */
+
+.b-max-h-none { max-height: none; }
+.b-max-h-full { max-height: 100%; }
+.b-max-h-min  { max-height: min-content; }
+.b-max-h-max  { max-height: max-content; }
+.b-max-h-fit  { max-height: fit-content; }
+.b-max-h-px   { max-height: 1px; }
+.b-max-h-lh   { max-height: 1lh; } /* Max height of current line-height */
+
+/* 1.1 Viewport Units */
+.b-max-h-screen { max-height: 100vh; }
+.b-max-h-dvh    { max-height: 100dvh; } /* Dynamic viewport height */
+.b-max-h-svh    { max-height: 100svh; } /* Small viewport height */
+.b-max-h-lvh    { max-height: 100lvh; } /* Large viewport height */
+
+/* ------------------------------------------------------------
+   2. SCALABLE NUMERIC SCALE (0-12)
+   Mapped to the global spacing scale from the Contract.
+   ------------------------------------------------------------ */
+
+.b-max-h-0  { max-height: 0; }
+.b-max-h-1  { max-height: calc(var(--b-space-1)  * var(--b-scale)); }
+.b-max-h-2  { max-height: calc(var(--b-space-2)  * var(--b-scale)); }
+.b-max-h-3  { max-height: calc(var(--b-space-3)  * var(--b-scale)); }
+.b-max-h-4  { max-height: calc(var(--b-space-4)  * var(--b-scale)); }
+.b-max-h-5  { max-height: calc(var(--b-space-5)  * var(--b-scale)); }
+.b-max-h-6  { max-height: calc(var(--b-space-6)  * var(--b-scale)); }
+.b-max-h-7  { max-height: calc(var(--b-space-7)  * var(--b-scale)); }
+.b-max-h-8  { max-height: calc(var(--b-space-8)  * var(--b-scale)); }
+.b-max-h-9  { max-height: calc(var(--b-space-9)  * var(--b-scale)); }
+.b-max-h-10 { max-height: calc(var(--b-space-10) * var(--b-scale)); }
+.b-max-h-11 { max-height: calc(var(--b-space-11) * var(--b-scale)); }
+.b-max-h-12 { max-height: calc(var(--b-space-12) * var(--b-scale)); }
+
+/* ------------------------------------------------------------
+   3. SCALABLE CONTAINER SCALE (3xs to 7xl)
+   Mapped to the macro-container widths defined in the Contract.
+   ------------------------------------------------------------ */
+
+.b-max-h-3xs { max-height: calc(var(--b-container-3xs) * var(--b-scale)); }
+.b-max-h-2xs { max-height: calc(var(--b-container-2xs) * var(--b-scale)); }
+.b-max-h-xs  { max-height: calc(var(--b-container-xs)  * var(--b-scale)); }
+.b-max-h-sm  { max-height: calc(var(--b-container-sm)  * var(--b-scale)); }
+.b-max-h-md  { max-height: calc(var(--b-container-md)  * var(--b-scale)); }
+.b-max-h-lg  { max-height: calc(var(--b-container-lg)  * var(--b-scale)); }
+.b-max-h-xl  { max-height: calc(var(--b-container-xl)  * var(--b-scale)); }
+.b-max-h-2xl { max-height: calc(var(--b-container-2xl) * var(--b-scale)); }
+.b-max-h-3xl { max-height: calc(var(--b-container-3xl) * var(--b-scale)); }
+.b-max-h-4xl { max-height: calc(var(--b-container-4xl) * var(--b-scale)); }
+.b-max-h-5xl { max-height: calc(var(--b-container-5xl) * var(--b-scale)); }
+.b-max-h-6xl { max-height: calc(var(--b-container-6xl) * var(--b-scale)); }
+.b-max-h-7xl { max-height: calc(var(--b-container-7xl) * var(--b-scale)); }
+
+/* ------------------------------------------------------------
+   4. FRACTIONAL HEIGHTS
+   Absolute percentage values used for layout proportions.
+   ------------------------------------------------------------ */
+
+.b-max-h-1-2  { max-height: var(--b-ref-fraction-1-2); }
+.b-max-h-1-3  { max-height: var(--b-ref-fraction-1-3); }
+.b-max-h-1-4  { max-height: var(--b-ref-fraction-1-4); }
+.b-max-h-1-5  { max-height: var(--b-ref-fraction-1-5); }
+.b-max-h-1-6  { max-height: var(--b-ref-fraction-1-6); }
+.b-max-h-2-3  { max-height: var(--b-ref-fraction-2-3); }
+.b-max-h-2-5  { max-height: var(--b-ref-fraction-2-5); }
+.b-max-h-3-4  { max-height: var(--b-ref-fraction-3-4); }
+.b-max-h-3-5  { max-height: var(--b-ref-fraction-3-5); }
+.b-max-h-4-5  { max-height: var(--b-ref-fraction-4-5); }
+.b-max-h-5-6  { max-height: var(--b-ref-fraction-5-6); }

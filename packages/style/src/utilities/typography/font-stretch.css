@@ -1,0 +1,60 @@
+/* ============================================================
+   Bestiary UI — Font Stretch Utilities
+
+   These utilities control the selection of a normal, condensed,
+   or expanded face from a font family. Note: These properties
+   only work if the font family contains multiple widths or
+   is a variable font.
+   ============================================================ */
+
+/* 1. Condensed Variants (Narrower) */
+
+.b-font-stretch-ultra-condensed {
+    font-stretch: ultra-condensed; /* 50% */
+}
+
+.b-font-stretch-extra-condensed {
+    font-stretch: extra-condensed; /* 62.5% */
+}
+
+.b-font-stretch-condensed {
+    font-stretch: condensed; /* 75% */
+}
+
+.b-font-stretch-semi-condensed {
+    font-stretch: semi-condensed; /* 87.5% */
+}
+
+/* 2. Normal Variant */
+
+.b-font-stretch-normal {
+    font-stretch: normal; /* 100% */
+}
+
+/* 3. Expanded Variants (Wider) */
+
+.b-font-stretch-semi-expanded {
+    font-stretch: semi-expanded; /* 112.5% */
+}
+
+.b-font-stretch-expanded {
+    font-stretch: expanded; /* 125% */
+}
+
+.b-font-stretch-extra-expanded {
+    font-stretch: extra-expanded; /* 150% */
+}
+
+.b-font-stretch-ultra-expanded {
+    font-stretch: ultra-expanded; /* 200% */
+}
+
+/* 4. Common Percentage Shortcuts
+   Direct percentage values supported by modern CSS and variable fonts. */
+
+.b-font-stretch-50  { font-stretch: 50%; }
+.b-font-stretch-75  { font-stretch: 75%; }
+.b-font-stretch-100 { font-stretch: 100%; }
+.b-font-stretch-125 { font-stretch: 125%; }
+.b-font-stretch-150 { font-stretch: 150%; }
+.b-font-stretch-200 { font-stretch: 200%; }

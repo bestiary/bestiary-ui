@@ -1,0 +1,63 @@
+/* ============================================================
+   Bestiary UI — SVG Fill Utilities
+
+   Controls the interior color of SVG shapes.
+   Mapped to the Semantic Matrix to ensure icons adapt
+   to Essence and Theme changes automatically.
+   ============================================================ */
+
+/* 1. Special Values */
+
+/* Removes the fill color (transparent interior) */
+.b-fill-none {
+    fill: none;
+}
+
+/* Inherits the fill color from the parent element */
+.b-fill-inherit {
+    fill: inherit;
+}
+
+/* Uses the current text color (Most common for interface icons) */
+.b-fill-current {
+    fill: currentColor;
+}
+
+/* Explicitly sets fill to transparent */
+.b-fill-transparent {
+    fill: transparent;
+}
+
+
+/* 2. Semantic Matrix Alignment (Functional Colors)
+   These classes ensure icons match the functional state of the UI. */
+
+.b-fill-primary   { fill: var(--b-primary-solid-background); }
+.b-fill-secondary { fill: var(--b-secondary-solid-background); }
+.b-fill-success   { fill: var(--b-success-solid-background); }
+.b-fill-error     { fill: var(--b-error-solid-background); }
+.b-fill-warning   { fill: var(--b-warning-solid-background); }
+.b-fill-info      { fill: var(--b-info-solid-background); }
+.b-fill-contrast  { fill: var(--b-contrast-solid-background); }
+
+
+/* 3. Essence Primary Scale (Scalable Branding)
+   Allows icons to use shades of the currently active essence. */
+
+.b-fill-50  { fill: var(--b-primary-50); }
+.b-fill-100 { fill: var(--b-primary-100); }
+.b-fill-200 { fill: var(--b-primary-200); }
+.b-fill-300 { fill: var(--b-primary-300); }
+.b-fill-400 { fill: var(--b-primary-400); }
+.b-fill-500 { fill: var(--b-primary-500); }
+.b-fill-600 { fill: var(--b-primary-600); }
+.b-fill-700 { fill: var(--b-primary-700); }
+.b-fill-800 { fill: var(--b-primary-800); }
+.b-fill-900 { fill: var(--b-primary-900); }
+.b-fill-950 { fill: var(--b-primary-950); }
+
+
+/* 4. Global Constants */
+
+.b-fill-white { fill: var(--b-ref-white); }
+.b-fill-black { fill: var(--b-ref-black); }

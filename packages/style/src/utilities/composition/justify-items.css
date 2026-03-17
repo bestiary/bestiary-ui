@@ -1,0 +1,47 @@
+/* ============================================================
+   Bestiary UI — Justify Items Utilities
+
+   These utilities control how grid items are aligned along the
+   inline (main) axis within their designated grid areas.
+   Note: This property primarily affects Grid containers.
+   ============================================================ */
+
+/* 1. Core Alignment */
+
+/* Aligns items to the start of their grid area (Default for most) */
+.b-justify-items-start {
+    justify-items: start;
+}
+
+/* Aligns items to the end of their grid area */
+.b-justify-items-end {
+    justify-items: end;
+}
+
+/* Aligns items to the center of their grid area */
+.b-justify-items-center {
+    justify-items: center;
+}
+
+/* Stretches items to fill the entire width of their grid area */
+.b-justify-items-stretch {
+    justify-items: stretch;
+}
+
+/* 2. Advanced & Safe Alignment */
+
+/* Resets to the default browser alignment behavior */
+.b-justify-items-normal {
+    justify-items: normal;
+}
+
+/* Centers items but falls back to 'start' if content overflows
+   to ensure accessibility. */
+.b-justify-items-center-safe {
+    justify-items: safe center;
+}
+
+/* Aligns to end but falls back to 'start' on overflow */
+.b-justify-items-end-safe {
+    justify-items: safe end;
+}

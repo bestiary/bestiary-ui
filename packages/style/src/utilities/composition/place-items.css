@@ -1,0 +1,49 @@
+/* ============================================================
+   Bestiary UI — Place Items Utilities
+
+   This is a shorthand property for 'align-items' and 'justify-items'.
+   It controls the alignment of items inside their grid areas
+   along both the block and inline axes.
+   ============================================================ */
+
+/* 1. Core Alignment */
+
+/* Aligns items to the center of their grid areas on both axes */
+.b-place-items-center {
+    place-items: center;
+}
+
+/* Aligns items to the start of their grid areas on both axes */
+.b-place-items-start {
+    place-items: start;
+}
+
+/* Aligns items to the end of their grid areas on both axes */
+.b-place-items-end {
+    place-items: end;
+}
+
+/* Items stretch to fill the entire grid area (Default) */
+.b-place-items-stretch {
+    place-items: stretch;
+}
+
+/* 2. Advanced Alignment */
+
+/* Aligns items along the baseline of the text for both axes */
+.b-place-items-baseline {
+    place-items: baseline;
+}
+
+/* 3. Safe Alignment (Enterprise UX)
+   Ensures the start of the content is always reachable if the item
+   exceeds the container size, preventing data being "pushed"
+   out of the scrollable area. */
+
+.b-place-items-center-safe {
+    place-items: safe center;
+}
+
+.b-place-items-end-safe {
+    place-items: safe end;
+}

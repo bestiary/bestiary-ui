@@ -1,0 +1,21 @@
+/* ============================================================
+   Bestiary UI — List Style Position Utilities
+
+   These utilities control whether the list item marker appears
+   inside or outside the content flow of the list item.
+   ============================================================ */
+
+/* 1. Position Variants */
+
+/* The marker is placed inside the list item's content box,
+   causing text to wrap underneath the marker. */
+.b-list-inside {
+    list-style-position: inside;
+}
+
+/* The marker is placed outside the list item's content box.
+   Text will be aligned to the start of the line, keeping
+   markers in their own vertical column. (Browser Default) */
+.b-list-outside {
+    list-style-position: outside;
+}

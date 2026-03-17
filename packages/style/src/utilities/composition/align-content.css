@@ -1,0 +1,72 @@
+/* ============================================================
+   Bestiary UI — Align Content Utilities
+
+   These utilities control how space is distributed between and
+   around content rows along the cross-axis (vertical in rows,
+   horizontal in columns).
+   Note: This property only has an effect when there are multiple
+   lines of content (e.g., flex-wrap is enabled or multiple
+   grid tracks exist).
+   ============================================================ */
+
+/* 1. Basic Alignment */
+
+/* Packs rows toward the start of the container */
+.b-content-start {
+    align-content: start;
+}
+
+/* Packs rows toward the end of the container */
+.b-content-end {
+    align-content: end;
+}
+
+/* Centers rows within the container */
+.b-content-center {
+    align-content: center;
+}
+
+/* Rows stretch to take up the remaining space (Default) */
+.b-content-stretch {
+    align-content: stretch;
+}
+
+/* 2. Space Distribution */
+
+/* Rows are evenly distributed; first row at the start, last row at the end */
+.b-content-between {
+    align-content: space-between;
+}
+
+/* Rows are evenly distributed with half-size spaces on either end */
+.b-content-around {
+    align-content: space-around;
+}
+
+/* Rows are evenly distributed with equal space around them */
+.b-content-evenly {
+    align-content: space-evenly;
+}
+
+/* 3. Advanced & Safe Alignment */
+
+/* Aligns rows along the common baseline */
+.b-content-baseline {
+    align-content: baseline;
+}
+
+/* Resets to default browser alignment behavior */
+.b-content-normal {
+    align-content: normal;
+}
+
+/* Centers rows but falls back to 'start' if content overflows
+   to ensure the top of the content remains accessible. */
+.b-content-center-safe {
+    align-content: safe center;
+}
+
+/* Aligns to end but falls back to 'start' on overflow */
+.b-content-end-safe {
+    align-content: safe end;
+}

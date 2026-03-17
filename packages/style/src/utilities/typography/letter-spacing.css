@@ -1,0 +1,40 @@
+/* ============================================================
+   Bestiary UI — Letter Spacing Utilities (Tracking)
+
+   These utilities control the optical spacing between characters.
+   Mapped to the Global Semantic Contract using 'em' units to
+   ensure spacing stays proportional to the font size.
+   ============================================================ */
+
+/* 1. Tight Variants (Negative spacing)
+   Used for large headings to prevent characters from
+   looking too detached. */
+
+.b-tracking-tighter {
+    letter-spacing: var(--b-letter-spacing-tighter);
+}
+
+.b-tracking-tight {
+    letter-spacing: var(--b-letter-spacing-tight);
+}
+
+/* 2. Normal Variant */
+
+.b-tracking-normal {
+    letter-spacing: var(--b-letter-spacing-normal); /* Usually 0 */
+}
+
+/* 3. Wide Variants (Positive spacing)
+   Ideal for ALL CAPS text, small captions, or branding. */
+
+.b-tracking-wide {
+    letter-spacing: var(--b-letter-spacing-wide);
+}
+
+.b-tracking-wider {
+    letter-spacing: var(--b-letter-spacing-wider);
+}
+
+.b-tracking-widest {
+    letter-spacing: var(--b-letter-spacing-widest);
+}

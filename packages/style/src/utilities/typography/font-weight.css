@@ -1,0 +1,56 @@
+/* ============================================================
+   Bestiary UI — Font Weight Utilities
+
+   These utilities control the thickness (weight) of the characters
+   in a font.
+
+   Architecture:
+   - Primary Weights: Mapped to the Semantic Contract for full
+     theming support (Light, Regular, Medium, Bold).
+   - Extended Weights: Provided for Tailwind compatibility using
+     standard numeric values.
+   ============================================================ */
+
+/* 1. Primary Semantic Weights (From Contract) */
+
+/* Light weight - Mapped to --b-font-weight-light (typically 300) */
+.b-font-light {
+    font-weight: var(--b-font-weight-light);
+}
+
+/* Normal / Regular weight - Mapped to --b-font-weight-regular (typically 400) */
+.b-font-normal {
+    font-weight: var(--b-font-weight-regular);
+}
+
+/* Medium weight - Mapped to --b-font-weight-medium (typically 500) */
+.b-font-medium {
+    font-weight: var(--b-font-weight-medium);
+}
+
+/* Bold weight - Mapped to --b-font-weight-bold (typically 700) */
+.b-font-bold {
+    font-weight: var(--b-font-weight-bold);
+}
+
+/* 2. Extended Numeric Weights */
+
+.b-font-thin {
+    font-weight: 100;
+}
+
+.b-font-extralight {
+    font-weight: 200;
+}
+
+.b-font-semibold {
+    font-weight: 600;
+}
+
+.b-font-extrabold {
+    font-weight: 800;
+}
+
+.b-font-black {
+    font-weight: 900;
+}

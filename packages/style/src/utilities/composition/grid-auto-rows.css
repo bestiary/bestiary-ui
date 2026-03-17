@@ -1,0 +1,35 @@
+/* ============================================================
+   Bestiary UI — Grid Auto Rows Utilities
+
+   These utilities control the size of implicitly-created grid
+   rows. Implicit rows are generated when items are placed
+   beyond the defined grid template or when the auto-placement
+   algorithm creates new rows.
+   ============================================================ */
+
+/* 1. Sizing Strategies */
+
+/* Sizes rows automatically based on their content and the
+   container's constraints. (Browser Default) */
+.b-auto-rows-auto {
+    grid-auto-rows: auto;
+}
+
+/* Sizes rows to be as small as possible, fitting the minimum
+   content height of the items. */
+.b-auto-rows-min {
+    grid-auto-rows: min-content;
+}
+
+/* Sizes rows to be as large as possible, fitting the maximum
+   content height of the items. */
+.b-auto-rows-max {
+    grid-auto-rows: max-content;
+}
+
+/* Sizes rows to fill the remaining space equally.
+   The minmax(0, 1fr) pattern is used to ensure rows can
+   shrink properly without overflowing the container. */
+.b-auto-rows-fr {
+    grid-auto-rows: minmax(0, 1fr);
+}

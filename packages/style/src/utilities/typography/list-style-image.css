@@ -1,0 +1,25 @@
+/* ============================================================
+   Bestiary UI — List Style Image Utilities
+
+   These utilities control the images used as markers for list items.
+   To provide maximum flexibility without a compiler, we use
+   a CSS variable hook for custom image URLs.
+   ============================================================ */
+
+/* 1. Standard Values */
+
+/* Removes any custom image marker and reverts to list-style-type */
+.b-list-image-none {
+    list-style-image: none;
+}
+
+/* 2. Custom Variable Hook (Enterprise Flexibility)
+   Allows the user to apply any arbitrary image URL by setting
+   the --b-list-image variable on the element.
+
+   Example:
+   <ul class="b-list-image-custom" style="--b-list-image: url('/icons/claw.svg')">
+*/
+.b-list-image-custom {
+    list-style-image: var(--b-list-image);
+}

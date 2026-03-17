@@ -1,0 +1,95 @@
+/* ============================================================
+   Bestiary UI — Inline Size Utilities
+
+   Controls the horizontal dimension of an element using
+   Logical Properties. This ensures consistent behavior
+   across different writing modes (LTR, RTL, Vertical).
+
+   Architecture:
+   1. Mapped to Contract: Uses --b-space and --b-container variables.
+   2. Theme Scalable: Numeric and Container scales adjust with --b-scale.
+   3. Mobile Optimized: Full support for Dynamic (d), Small (s),
+      and Large (l) viewport units.
+   ============================================================ */
+
+:where(html) {
+    /* Fallback to 1 if theme scale is not defined */
+    --b-scale: var(--b-theme-scale, 1);
+}
+
+/* ------------------------------------------------------------
+   1. FIXED & KEYWORD SIZES (.b-inline-*)
+   ------------------------------------------------------------ */
+
+.b-inline-auto { inline-size: auto; }
+.b-inline-full { inline-size: 100%; }
+.b-inline-min  { inline-size: min-content; }
+.b-inline-max  { inline-size: max-content; }
+.b-inline-fit  { inline-size: fit-content; }
+.b-inline-px   { inline-size: 1px; }
+
+/* 1.1 Viewport Inline Sizes */
+.b-inline-screen { inline-size: 100vw; }
+.b-inline-dvw    { inline-size: 100dvw; } /* Dynamic viewport width */
+.b-inline-svw    { inline-size: 100svw; } /* Small viewport width */
+.b-inline-lvw    { inline-size: 100lvw; } /* Large viewport width */
+
+/* Cross-axis Viewports (for vertical writing modes) */
+.b-inline-dvh    { inline-size: 100dvh; }
+.b-inline-svh    { inline-size: 100svh; }
+.b-inline-lvh    { inline-size: 100lvh; }
+
+/* ------------------------------------------------------------
+   2. SCALABLE NUMERIC SCALE (0-12)
+   Linked to the spacing scale defined in the Contract.
+   ------------------------------------------------------------ */
+
+.b-inline-0  { inline-size: 0; }
+.b-inline-1  { inline-size: calc(var(--b-space-1)  * var(--b-scale)); }
+.b-inline-2  { inline-size: calc(var(--b-space-2)  * var(--b-scale)); }
+.b-inline-3  { inline-size: calc(var(--b-space-3)  * var(--b-scale)); }
+.b-inline-4  { inline-size: calc(var(--b-space-4)  * var(--b-scale)); }
+.b-inline-5  { inline-size: calc(var(--b-space-5)  * var(--b-scale)); }
+.b-inline-6  { inline-size: calc(var(--b-space-6)  * var(--b-scale)); }
+.b-inline-7  { inline-size: calc(var(--b-space-7)  * var(--b-scale)); }
+.b-inline-8  { inline-size: calc(var(--b-space-8)  * var(--b-scale)); }
+.b-inline-9  { inline-size: calc(var(--b-space-9)  * var(--b-scale)); }
+.b-inline-10 { inline-size: calc(var(--b-space-10) * var(--b-scale)); }
+.b-inline-11 { inline-size: calc(var(--b-space-11) * var(--b-scale)); }
+.b-inline-12 { inline-size: calc(var(--b-space-12) * var(--b-scale)); }
+
+/* ------------------------------------------------------------
+   3. SCALABLE CONTAINER SCALE (3xs to 7xl)
+   Standard T-shirt widths for layout containers and sidebars.
+   ------------------------------------------------------------ */
+
+.b-inline-3xs { inline-size: calc(var(--b-container-3xs) * var(--b-scale)); }
+.b-inline-2xs { inline-size: calc(var(--b-container-2xs) * var(--b-scale)); }
+.b-inline-xs  { inline-size: calc(var(--b-container-xs)  * var(--b-scale)); }
+.b-inline-sm  { inline-size: calc(var(--b-container-sm)  * var(--b-scale)); }
+.b-inline-md  { inline-size: calc(var(--b-container-md)  * var(--b-scale)); }
+.b-inline-lg  { inline-size: calc(var(--b-container-lg)  * var(--b-scale)); }
+.b-inline-xl  { inline-size: calc(var(--b-container-xl)  * var(--b-scale)); }
+.b-inline-2xl { inline-size: calc(var(--b-container-2xl) * var(--b-scale)); }
+.b-inline-3xl { inline-size: calc(var(--b-container-3xl) * var(--b-scale)); }
+.b-inline-4xl { inline-size: calc(var(--b-container-4xl) * var(--b-scale)); }
+.b-inline-5xl { inline-size: calc(var(--b-container-5xl) * var(--b-scale)); }
+.b-inline-6xl { inline-size: calc(var(--b-container-6xl) * var(--b-scale)); }
+.b-inline-7xl { inline-size: calc(var(--b-container-7xl) * var(--b-scale)); }
+
+/* ------------------------------------------------------------
+   4. FRACTIONAL SIZES (Percentage-based)
+   Mathematical proportions mapped to Primitive Fraction tokens.
+   ------------------------------------------------------------ */
+
+.b-inline-1-2  { inline-size: var(--b-ref-fraction-1-2); } /* 50% */
+.b-inline-1-3  { inline-size: var(--b-ref-fraction-1-3); } /* 33.3333% */
+.b-inline-2-3  { inline-size: var(--b-ref-fraction-2-3); } /* 66.6666% */
+.b-inline-1-4  { inline-size: var(--b-ref-fraction-1-4); } /* 25% */
+.b-inline-3-4  { inline-size: var(--b-ref-fraction-3-4); } /* 75% */
+.b-inline-1-5  { inline-size: var(--b-ref-fraction-1-5); } /* 20% */
+.b-inline-2-5  { inline-size: var(--b-ref-fraction-2-5); } /* 40% */
+.b-inline-3-5  { inline-size: var(--b-ref-fraction-3-5); } /* 60% */
+.b-inline-4-5  { inline-size: var(--b-ref-fraction-4-5); } /* 80% */
+.b-inline-1-6  { inline-size: var(--b-ref-fraction-1-6); } /* 16.6666% */
+.b-inline-5-6  { inline-size: var(--b-ref-fraction-5-6); } /* 83.3333% */

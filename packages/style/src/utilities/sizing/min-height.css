@@ -1,0 +1,91 @@
+/* ============================================================
+   Bestiary UI — Min-Height Utilities
+   
+   These utilities define the minimum vertical size of an element.
+   They ensure that elements do not shrink below a specific 
+   height, maintaining layout stability.
+   
+   Architecture:
+   1. Mapped to Contract: Uses --b-space and --b-container variables.
+   2. Theme Scalable: Numeric and Container scales adjust with --b-scale.
+   3. Logical: Uses 'min-height' for modern CSS standards.
+   4. Viewport Aware: Support for Dynamic (d), Small (s), and Large (l) 
+      height units to handle mobile browser UI shifts.
+   ============================================================ */
+
+:where(html) {
+    /* Safe fallback if the theme doesn't provide a scale */
+    --b-scale: var(--b-theme-scale, 1);
+}
+
+/* ------------------------------------------------------------
+   1. FIXED & KEYWORD MIN-HEIGHTS (.b-min-h-*)
+   ------------------------------------------------------------ */
+
+.b-min-h-auto { min-height: auto; }
+.b-min-h-full { min-height: 100%; }
+.b-min-h-min  { min-height: min-content; }
+.b-min-h-max  { min-height: max-content; }
+.b-min-h-fit  { min-height: fit-content; }
+.b-min-h-px   { min-height: 1px; }
+.b-min-h-lh   { min-height: 1lh; } /* Minimum height of one line */
+
+/* 1.1 Viewport Units */
+.b-min-h-screen { min-height: 100vh; }
+.b-min-h-dvh    { min-height: 100dvh; } /* Dynamic: responds to browser UI */
+.b-min-h-svh    { min-height: 100svh; } /* Smallest possible viewport */
+.b-min-h-lvh    { height: 100lvh; }     /* Largest possible viewport */
+
+/* ------------------------------------------------------------
+   2. SCALABLE NUMERIC SCALE (0-12)
+   Mapped to the global spacing scale from the Contract.
+   ------------------------------------------------------------ */
+
+.b-min-h-0  { min-height: 0; }
+.b-min-h-1  { min-height: calc(var(--b-space-1)  * var(--b-scale)); }
+.b-min-h-2  { min-height: calc(var(--b-space-2)  * var(--b-scale)); }
+.b-min-h-3  { min-height: calc(var(--b-space-3)  * var(--b-scale)); }
+.b-min-h-4  { min-height: calc(var(--b-space-4)  * var(--b-scale)); }
+.b-min-h-5  { min-height: calc(var(--b-space-5)  * var(--b-scale)); }
+.b-min-h-6  { min-height: calc(var(--b-space-6)  * var(--b-scale)); }
+.b-min-h-7  { min-height: calc(var(--b-space-7)  * var(--b-scale)); }
+.b-min-h-8  { min-height: calc(var(--b-space-8)  * var(--b-scale)); }
+.b-min-h-9  { min-height: calc(var(--b-space-9)  * var(--b-scale)); }
+.b-min-h-10 { min-height: calc(var(--b-space-10) * var(--b-scale)); }
+.b-min-h-11 { min-height: calc(var(--b-space-11) * var(--b-scale)); }
+.b-min-h-12 { min-height: calc(var(--b-space-12) * var(--b-scale)); }
+
+/* ------------------------------------------------------------
+   3. SCALABLE CONTAINER SCALE (3xs to 7xl)
+   Mapped to the macro-container widths defined in the Contract.
+   ------------------------------------------------------------ */
+
+.b-min-h-3xs { min-height: calc(var(--b-container-3xs) * var(--b-scale)); }
+.b-min-h-2xs { min-height: calc(var(--b-container-2xs) * var(--b-scale)); }
+.b-min-h-xs  { min-height: calc(var(--b-container-xs)  * var(--b-scale)); }
+.b-min-h-sm  { min-height: calc(var(--b-container-sm)  * var(--b-scale)); }
+.b-min-h-md  { min-height: calc(var(--b-container-md)  * var(--b-scale)); }
+.b-min-h-lg  { min-height: calc(var(--b-container-lg)  * var(--b-scale)); }
+.b-min-h-xl  { min-height: calc(var(--b-container-xl)  * var(--b-scale)); }
+.b-min-h-2xl { min-height: calc(var(--b-container-2xl) * var(--b-scale)); }
+.b-min-h-3xl { min-height: calc(var(--b-container-3xl) * var(--b-scale)); }
+.b-min-h-4xl { min-height: calc(var(--b-container-4xl) * var(--b-scale)); }
+.b-min-h-5xl { min-height: calc(var(--b-container-5xl) * var(--b-scale)); }
+.b-min-h-6xl { min-height: calc(var(--b-container-6xl) * var(--b-scale)); }
+.b-min-h-7xl { min-height: calc(var(--b-container-7xl) * var(--b-scale)); }
+
+/* ------------------------------------------------------------
+   4. FRACTIONAL HEIGHTS
+   Absolute percentage values for proportion-based sizing.
+   ------------------------------------------------------------ */
+.b-min-h-1-2  { min-height: var(--b-ref-fraction-1-2); }
+.b-min-h-1-3  { min-height: var(--b-ref-fraction-1-3); }
+.b-min-h-1-4  { min-height: var(--b-ref-fraction-1-4); }
+.b-min-h-1-5  { min-height: var(--b-ref-fraction-1-5); }
+.b-min-h-1-6  { min-height: var(--b-ref-fraction-1-6); }
+.b-min-h-2-3  { min-height: var(--b-ref-fraction-2-3); }
+.b-min-h-2-5  { min-height: var(--b-ref-fraction-2-5); }
+.b-min-h-3-4  { min-height: var(--b-ref-fraction-3-4); }
+.b-min-h-3-5  { min-height: var(--b-ref-fraction-3-5); }
+.b-min-h-4-5  { min-height: var(--b-ref-fraction-4-5); }
+.b-min-h-5-6  { min-height: var(--b-ref-fraction-5-6); }

@@ -13,8 +13,11 @@
     --b-theme-scale: initial;
 
     /* 1.1 Font Families */
-    --b-font-family-base: initial;
-    --b-font-family-mono: initial;
+    --b-font-family-base:    initial;
+    --b-font-family-mono:    initial;
+    --b-font-family-serif:   initial;
+    --b-font-family-display: initial;
+    --b-font-features:       initial;
 
     /* 1.2 Font Size */
     --b-font-size-2xs: initial;
@@ -40,9 +43,12 @@
     --b-line-height-relaxed: initial; /* Small text or many text */
 
     /* 1.5 Letter Spacing */
+    --b-letter-spacing-tighter: initial;
     --b-letter-spacing-tight:   initial;
     --b-letter-spacing-normal:  initial;
     --b-letter-spacing-wide:    initial;
+    --b-letter-spacing-wider:   initial;
+    --b-letter-spacing-widest:  initial;
 
     /* ============================================================
        1.6 TYPOGRAPHY ROLES (The Mapping)

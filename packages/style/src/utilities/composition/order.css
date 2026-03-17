@@ -1,0 +1,56 @@
+/* ============================================================
+   Bestiary UI — Order Utilities
+
+   These utilities control the visual order of items in a flex
+   or grid container. They allow reordering content without
+   changing the underlying HTML structure.
+   ============================================================ */
+
+/* 1. Functional Order */
+
+/* Resets the order to the default browser behavior (0) */
+.b-order-none {
+    order: 0;
+}
+
+/* Forces the item to be the absolute first in the container */
+.b-order-first {
+    order: -9999;
+}
+
+/* Forces the item to be the absolute last in the container */
+.b-order-last {
+    order: 9999;
+}
+
+/* 2. Positive Scale (1-12)
+   Used for explicit sorting of elements. */
+
+.b-order-1  { order: 1; }
+.b-order-2  { order: 2; }
+.b-order-3  { order: 3; }
+.b-order-4  { order: 4; }
+.b-order-5  { order: 5; }
+.b-order-6  { order: 6; }
+.b-order-7  { order: 7; }
+.b-order-8  { order: 8; }
+.b-order-9  { order: 9; }
+.b-order-10 { order: 10; }
+.b-order-11 { order: 11; }
+.b-order-12 { order: 12; }
+
+/* 3. Negative Scale (-n1 to -n12)
+   Allows pulling items towards the start of the flow. */
+
+.b-order-n1  { order: -1; }
+.b-order-n2  { order: -2; }
+.b-order-n3  { order: -3; }
+.b-order-n4  { order: -4; }
+.b-order-n5  { order: -5; }
+.b-order-n6  { order: -6; }
+.b-order-n7  { order: -7; }
+.b-order-n8  { order: -8; }
+.b-order-n9  { order: -9; }
+.b-order-n10 { order: -10; }
+.b-order-n11 { order: -11; }
+.b-order-n12 { order: -12; }

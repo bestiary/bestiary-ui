@@ -1,0 +1,33 @@
+/* ============================================================
+   Bestiary UI — Overflow Wrap Utilities
+
+   These utilities specify whether the browser should insert line
+   breaks within an otherwise unbreakable string to prevent
+   text from overflowing its container.
+   ============================================================ */
+
+/* 1. Standard Wrapping */
+
+/* Lines are broken only at allowed break points. (Browser Default) */
+.b-text-wrap-normal {
+    overflow-wrap: normal;
+}
+
+/* 2. Break Word (Recommended for general UI) */
+
+/* To prevent overflow, an otherwise unbreakable string of
+   characters (like a long URL or word) may be broken at an
+   arbitrary point if there are no otherwise acceptable break
+   points in the line. */
+.b-text-wrap-break {
+    overflow-wrap: break-word;
+}
+
+/* 3. Aggressive Wrapping (Modern Standard) */
+
+/* Similar to 'break-word', but allows breaks at any point,
+   including between characters, and allows those break points
+   to be considered when calculating min-content intrinsic sizes. */
+.b-text-wrap-anywhere {
+    overflow-wrap: anywhere;
+}
