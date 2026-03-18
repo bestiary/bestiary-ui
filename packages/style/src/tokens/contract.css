@@ -159,6 +159,16 @@
     --b-focus-ring-offset: initial;
 
     /* 1.15 Shapes & Radii */
+    --b-radius-xs:   initial;
+    --b-radius-sm:   initial;
+    --b-radius-md:   initial;
+    --b-radius-lg:   initial;
+    --b-radius-xl:   initial;
+    --b-radius-2xl:  initial;
+    --b-radius-3xl:  initial;
+    --b-radius-4xl:  initial;
+    --b-radius-full: initial;
+
     --b-radius-interactive: initial; /* Button, Input */
     --b-radius-container:   initial; /* Cards */
     --b-radius-floating:    initial; /* Modal, Tooltip */

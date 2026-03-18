@@ -1,0 +1,43 @@
+/* ============================================================
+   Bestiary UI — Outline Style Utilities
+
+   Controls the style of the element's outline. Primarily used
+   for defining focus states and accessibility rings.
+   ============================================================ */
+
+/* 1. Standard Styles */
+
+/* Solid line style */
+.b-outline-solid {
+    outline-style: solid;
+}
+
+/* Dashed line style - often used for "drag & drop" areas */
+.b-outline-dashed {
+    outline-style: dashed;
+}
+
+/* Dotted line style - subtle focus indicator */
+.b-outline-dotted {
+    outline-style: dotted;
+}
+
+/* Double line style - for decorative focus rings */
+.b-outline-double {
+    outline-style: double;
+}
+
+/* 2. Reset & Hidden Utilities */
+
+/* Removes the outline entirely */
+.b-outline-none {
+    outline-style: none;
+}
+
+/* Visually hides the outline while maintaining the layout space.
+   Uses a transparent solid outline as a trick for specific
+   browser rendering scenarios where 'none' is too aggressive. */
+.b-outline-hidden {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}

@@ -1,0 +1,42 @@
+/* ============================================================
+   Bestiary UI — Background Size Utilities
+
+   These utilities control how background images scale relative
+   to their container. They are essential for ensuring images
+   fill, fit, or maintain their original proportions.
+   ============================================================ */
+
+/* 1. Core Sizing Strategies */
+
+/* The background image is displayed at its original size.
+   If it's larger than the container, it will be cropped. (Default) */
+.b-bg-auto {
+    background-size: auto;
+}
+
+/* Scales the image as large as possible to fill the container,
+   while maintaining its aspect ratio. The image will be cropped
+   if its proportions differ from the container.
+   Ideal for hero banners and full-card backgrounds. */
+.b-bg-cover {
+    background-size: cover;
+}
+
+/* Scales the image as large as possible without cropping or
+   stretching it. The entire image is visible, but empty space
+   may remain in the container.
+   Ideal for logos or icons inside a fixed box. */
+.b-bg-contain {
+    background-size: contain;
+}
+
+/* 2. Custom Variable Hook (Enterprise Flexibility)
+   Allows passing exact dimensions (e.g., 100% 50%, 40px 40px)
+   via the --b-bg-size variable for precise pattern creation.
+
+   Example:
+   <div class="b-bg-size-custom" style="--b-bg-size: 2rem 2rem;">...</div>
+*/
+.b-bg-size-custom {
+    background-size: var(--b-bg-size);
+}

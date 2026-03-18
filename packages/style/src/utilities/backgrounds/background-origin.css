@@ -1,0 +1,28 @@
+/* ============================================================
+   Bestiary UI — Background Origin Utilities
+
+   These utilities set the background positioning area. It
+   determines whether the background image starts from the
+   border, the padding, or the content box.
+   ============================================================ */
+
+/* 1. Box Origin Controls */
+
+/* The background image starts from the upper-left corner
+   of the border box. Used when you want the background to
+   sit perfectly under a semi-transparent border. */
+.b-bg-origin-border {
+    background-origin: border-box;
+}
+
+/* The background image starts from the upper-left corner
+   of the padding box. (Browser Default) */
+.b-bg-origin-padding {
+    background-origin: padding-box;
+}
+
+/* The background image starts from the upper-left corner
+   of the content box, leaving the padding area transparent. */
+.b-bg-origin-content {
+    background-origin: content-box;
+}
