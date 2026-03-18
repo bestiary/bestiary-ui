@@ -32,7 +32,6 @@
 /* 2. Semantic Matrix Alignment (Functional Colors)
    These classes ensure icons match the functional state of the UI. */
 
-.b-fill-primary   { fill: var(--b-primary-solid-background); }
 .b-fill-secondary { fill: var(--b-secondary-solid-background); }
 .b-fill-success   { fill: var(--b-success-solid-background); }
 .b-fill-error     { fill: var(--b-error-solid-background); }
@@ -44,18 +43,304 @@
 /* 3. Essence Primary Scale (Scalable Branding)
    Allows icons to use shades of the currently active essence. */
 
-.b-fill-50  { fill: var(--b-primary-50); }
-.b-fill-100 { fill: var(--b-primary-100); }
-.b-fill-200 { fill: var(--b-primary-200); }
-.b-fill-300 { fill: var(--b-primary-300); }
-.b-fill-400 { fill: var(--b-primary-400); }
-.b-fill-500 { fill: var(--b-primary-500); }
-.b-fill-600 { fill: var(--b-primary-600); }
-.b-fill-700 { fill: var(--b-primary-700); }
-.b-fill-800 { fill: var(--b-primary-800); }
-.b-fill-900 { fill: var(--b-primary-900); }
-.b-fill-950 { fill: var(--b-primary-950); }
+/* BRAND */
+.b-fill-brand-50  { fill: var(--b-primary-50); }
+.b-fill-brand-100 { fill: var(--b-primary-100); }
+.b-fill-brand-200 { fill: var(--b-primary-200); }
+.b-fill-brand-300 { fill: var(--b-primary-300); }
+.b-fill-brand-400 { fill: var(--b-primary-400); }
+.b-fill-brand-500 { fill: var(--b-primary-500); }
+.b-fill-brand-600 { fill: var(--b-primary-600); }
+.b-fill-brand-700 { fill: var(--b-primary-700); }
+.b-fill-brand-800 { fill: var(--b-primary-800); }
+.b-fill-brand-900 { fill: var(--b-primary-900); }
+.b-fill-brand-950 { fill: var(--b-primary-950); }
 
+/* SLATE */
+.b-fill-slate-50  { fill: var(--b-ref-slate-50); }
+.b-fill-slate-100 { fill: var(--b-ref-slate-100); }
+.b-fill-slate-200 { fill: var(--b-ref-slate-200); }
+.b-fill-slate-300 { fill: var(--b-ref-slate-300); }
+.b-fill-slate-400 { fill: var(--b-ref-slate-400); }
+.b-fill-slate-500 { fill: var(--b-ref-slate-500); }
+.b-fill-slate-600 { fill: var(--b-ref-slate-600); }
+.b-fill-slate-700 { fill: var(--b-ref-slate-700); }
+.b-fill-slate-800 { fill: var(--b-ref-slate-800); }
+.b-fill-slate-900 { fill: var(--b-ref-slate-900); }
+.b-fill-slate-950 { fill: var(--b-ref-slate-950); }
+
+/* GRAY */
+.b-fill-gray-50  { fill: var(--b-ref-gray-50); }
+.b-fill-gray-100 { fill: var(--b-ref-gray-100); }
+.b-fill-gray-200 { fill: var(--b-ref-gray-200); }
+.b-fill-gray-300 { fill: var(--b-ref-gray-300); }
+.b-fill-gray-400 { fill: var(--b-ref-gray-400); }
+.b-fill-gray-500 { fill: var(--b-ref-gray-500); }
+.b-fill-gray-600 { fill: var(--b-ref-gray-600); }
+.b-fill-gray-700 { fill: var(--b-ref-gray-700); }
+.b-fill-gray-800 { fill: var(--b-ref-gray-800); }
+.b-fill-gray-900 { fill: var(--b-ref-gray-900); }
+.b-fill-gray-950 { fill: var(--b-ref-gray-950); }
+
+/*ZINC*/
+.b-fill-zinc-50  { fill: var(--b-ref-zinc-50); }
+.b-fill-zinc-100 { fill: var(--b-ref-zinc-100); }
+.b-fill-zinc-200 { fill: var(--b-ref-zinc-200); }
+.b-fill-zinc-300 { fill: var(--b-ref-zinc-300); }
+.b-fill-zinc-400 { fill: var(--b-ref-zinc-400); }
+.b-fill-zinc-500 { fill: var(--b-ref-zinc-500); }
+.b-fill-zinc-600 { fill: var(--b-ref-zinc-600); }
+.b-fill-zinc-700 { fill: var(--b-ref-zinc-700); }
+.b-fill-zinc-800 { fill: var(--b-ref-zinc-800); }
+.b-fill-zinc-900 { fill: var(--b-ref-zinc-900); }
+.b-fill-zinc-950 { fill: var(--b-ref-zinc-950); }
+
+/*NEUTRAL*/
+.b-fill-neutral-50  { fill: var(--b-ref-neutral-50); }
+.b-fill-neutral-100 { fill: var(--b-ref-neutral-100); }
+.b-fill-neutral-200 { fill: var(--b-ref-neutral-200); }
+.b-fill-neutral-300 { fill: var(--b-ref-neutral-300); }
+.b-fill-neutral-400 { fill: var(--b-ref-neutral-400); }
+.b-fill-neutral-500 { fill: var(--b-ref-neutral-500); }
+.b-fill-neutral-600 { fill: var(--b-ref-neutral-600); }
+.b-fill-neutral-700 { fill: var(--b-ref-neutral-700); }
+.b-fill-neutral-800 { fill: var(--b-ref-neutral-800); }
+.b-fill-neutral-900 { fill: var(--b-ref-neutral-900); }
+.b-fill-neutral-950 { fill: var(--b-ref-neutral-950); }
+
+/*STONE*/
+.b-fill-stone-50  { fill: var(--b-ref-stone-50); }
+.b-fill-stone-100 { fill: var(--b-ref-stone-100); }
+.b-fill-stone-200 { fill: var(--b-ref-stone-200); }
+.b-fill-stone-300 { fill: var(--b-ref-stone-300); }
+.b-fill-stone-400 { fill: var(--b-ref-stone-400); }
+.b-fill-stone-500 { fill: var(--b-ref-stone-500); }
+.b-fill-stone-600 { fill: var(--b-ref-stone-600); }
+.b-fill-stone-700 { fill: var(--b-ref-stone-700); }
+.b-fill-stone-800 { fill: var(--b-ref-stone-800); }
+.b-fill-stone-900 { fill: var(--b-ref-stone-900); }
+.b-fill-stone-950 { fill: var(--b-ref-stone-950); }
+
+/*RED*/
+.b-fill-red-50  { fill: var(--b-ref-red-50); }
+.b-fill-red-100 { fill: var(--b-ref-red-100); }
+.b-fill-red-200 { fill: var(--b-ref-red-200); }
+.b-fill-red-300 { fill: var(--b-ref-red-300); }
+.b-fill-red-400 { fill: var(--b-ref-red-400); }
+.b-fill-red-500 { fill: var(--b-ref-red-500); }
+.b-fill-red-600 { fill: var(--b-ref-red-600); }
+.b-fill-red-700 { fill: var(--b-ref-red-700); }
+.b-fill-red-800 { fill: var(--b-ref-red-800); }
+.b-fill-red-900 { fill: var(--b-ref-red-900); }
+.b-fill-red-950 { fill: var(--b-ref-red-950); }
+
+/*ORANGE*/
+.b-fill-orange-50  { fill: var(--b-ref-orange-50); }
+.b-fill-orange-100 { fill: var(--b-ref-orange-100); }
+.b-fill-orange-200 { fill: var(--b-ref-orange-200); }
+.b-fill-orange-300 { fill: var(--b-ref-orange-300); }
+.b-fill-orange-400 { fill: var(--b-ref-orange-400); }
+.b-fill-orange-500 { fill: var(--b-ref-orange-500); }
+.b-fill-orange-600 { fill: var(--b-ref-orange-600); }
+.b-fill-orange-700 { fill: var(--b-ref-orange-700); }
+.b-fill-orange-800 { fill: var(--b-ref-orange-800); }
+.b-fill-orange-900 { fill: var(--b-ref-orange-900); }
+.b-fill-orange-950 { fill: var(--b-ref-orange-950); }
+
+/*AMBER*/
+.b-fill-amber-50  { fill: var(--b-ref-amber-50); }
+.b-fill-amber-100 { fill: var(--b-ref-amber-100); }
+.b-fill-amber-200 { fill: var(--b-ref-amber-200); }
+.b-fill-amber-300 { fill: var(--b-ref-amber-300); }
+.b-fill-amber-400 { fill: var(--b-ref-amber-400); }
+.b-fill-amber-500 { fill: var(--b-ref-amber-500); }
+.b-fill-amber-600 { fill: var(--b-ref-amber-600); }
+.b-fill-amber-700 { fill: var(--b-ref-amber-700); }
+.b-fill-amber-800 { fill: var(--b-ref-amber-800); }
+.b-fill-amber-900 { fill: var(--b-ref-amber-900); }
+.b-fill-amber-950 { fill: var(--b-ref-amber-950); }
+
+/*YELLOW*/
+.b-fill-yellow-50  { fill: var(--b-ref-yellow-50); }
+.b-fill-yellow-100 { fill: var(--b-ref-yellow-100); }
+.b-fill-yellow-200 { fill: var(--b-ref-yellow-200); }
+.b-fill-yellow-300 { fill: var(--b-ref-yellow-300); }
+.b-fill-yellow-400 { fill: var(--b-ref-yellow-400); }
+.b-fill-yellow-500 { fill: var(--b-ref-yellow-500); }
+.b-fill-yellow-600 { fill: var(--b-ref-yellow-600); }
+.b-fill-yellow-700 { fill: var(--b-ref-yellow-700); }
+.b-fill-yellow-800 { fill: var(--b-ref-yellow-800); }
+.b-fill-yellow-900 { fill: var(--b-ref-yellow-900); }
+.b-fill-yellow-950 { fill: var(--b-ref-yellow-950); }
+
+/*LIME*/
+.b-fill-lime-50  { fill: var(--b-ref-lime-50); }
+.b-fill-lime-100 { fill: var(--b-ref-lime-100); }
+.b-fill-lime-200 { fill: var(--b-ref-lime-200); }
+.b-fill-lime-300 { fill: var(--b-ref-lime-300); }
+.b-fill-lime-400 { fill: var(--b-ref-lime-400); }
+.b-fill-lime-500 { fill: var(--b-ref-lime-500); }
+.b-fill-lime-600 { fill: var(--b-ref-lime-600); }
+.b-fill-lime-700 { fill: var(--b-ref-lime-700); }
+.b-fill-lime-800 { fill: var(--b-ref-lime-800); }
+.b-fill-lime-900 { fill: var(--b-ref-lime-900); }
+.b-fill-lime-950 { fill: var(--b-ref-lime-950); }
+
+/*GREEN*/
+.b-fill-green-50  { fill: var(--b-ref-green-50); }
+.b-fill-green-100 { fill: var(--b-ref-green-100); }
+.b-fill-green-200 { fill: var(--b-ref-green-200); }
+.b-fill-green-300 { fill: var(--b-ref-green-300); }
+.b-fill-green-400 { fill: var(--b-ref-green-400); }
+.b-fill-green-500 { fill: var(--b-ref-green-500); }
+.b-fill-green-600 { fill: var(--b-ref-green-600); }
+.b-fill-green-700 { fill: var(--b-ref-green-700); }
+.b-fill-green-800 { fill: var(--b-ref-green-800); }
+.b-fill-green-900 { fill: var(--b-ref-green-900); }
+.b-fill-green-950 { fill: var(--b-ref-green-950); }
+
+/*EMERALD*/
+.b-fill-emerald-50  { fill: var(--b-ref-emerald-50); }
+.b-fill-emerald-100 { fill: var(--b-ref-emerald-100); }
+.b-fill-emerald-200 { fill: var(--b-ref-emerald-200); }
+.b-fill-emerald-300 { fill: var(--b-ref-emerald-300); }
+.b-fill-emerald-400 { fill: var(--b-ref-emerald-400); }
+.b-fill-emerald-500 { fill: var(--b-ref-emerald-500); }
+.b-fill-emerald-600 { fill: var(--b-ref-emerald-600); }
+.b-fill-emerald-700 { fill: var(--b-ref-emerald-700); }
+.b-fill-emerald-800 { fill: var(--b-ref-emerald-800); }
+.b-fill-emerald-900 { fill: var(--b-ref-emerald-900); }
+.b-fill-emerald-950 { fill: var(--b-ref-emerald-950); }
+
+/*TEAL*/
+.b-fill-teal-50  { fill: var(--b-ref-teal-50); }
+.b-fill-teal-100 { fill: var(--b-ref-teal-100); }
+.b-fill-teal-200 { fill: var(--b-ref-teal-200); }
+.b-fill-teal-300 { fill: var(--b-ref-teal-300); }
+.b-fill-teal-400 { fill: var(--b-ref-teal-400); }
+.b-fill-teal-500 { fill: var(--b-ref-teal-500); }
+.b-fill-teal-600 { fill: var(--b-ref-teal-600); }
+.b-fill-teal-700 { fill: var(--b-ref-teal-700); }
+.b-fill-teal-800 { fill: var(--b-ref-teal-800); }
+.b-fill-teal-900 { fill: var(--b-ref-teal-900); }
+.b-fill-teal-950 { fill: var(--b-ref-teal-950); }
+
+/*CYAN*/
+.b-fill-cyan-50  { fill: var(--b-ref-cyan-50); }
+.b-fill-cyan-100 { fill: var(--b-ref-cyan-100); }
+.b-fill-cyan-200 { fill: var(--b-ref-cyan-200); }
+.b-fill-cyan-300 { fill: var(--b-ref-cyan-300); }
+.b-fill-cyan-400 { fill: var(--b-ref-cyan-400); }
+.b-fill-cyan-500 { fill: var(--b-ref-cyan-500); }
+.b-fill-cyan-600 { fill: var(--b-ref-cyan-600); }
+.b-fill-cyan-700 { fill: var(--b-ref-cyan-700); }
+.b-fill-cyan-800 { fill: var(--b-ref-cyan-800); }
+.b-fill-cyan-900 { fill: var(--b-ref-cyan-900); }
+.b-fill-cyan-950 { fill: var(--b-ref-cyan-950); }
+
+/*SKY*/
+.b-fill-sky-50  { fill: var(--b-ref-sky-50); }
+.b-fill-sky-100 { fill: var(--b-ref-sky-100); }
+.b-fill-sky-200 { fill: var(--b-ref-sky-200); }
+.b-fill-sky-300 { fill: var(--b-ref-sky-300); }
+.b-fill-sky-400 { fill: var(--b-ref-sky-400); }
+.b-fill-sky-500 { fill: var(--b-ref-sky-500); }
+.b-fill-sky-600 { fill: var(--b-ref-sky-600); }
+.b-fill-sky-700 { fill: var(--b-ref-sky-700); }
+.b-fill-sky-800 { fill: var(--b-ref-sky-800); }
+.b-fill-sky-900 { fill: var(--b-ref-sky-900); }
+.b-fill-sky-950 { fill: var(--b-ref-sky-950); }
+
+/*BLUE*/
+.b-fill-blue-50  { fill: var(--b-ref-blue-50); }
+.b-fill-blue-100 { fill: var(--b-ref-blue-100); }
+.b-fill-blue-200 { fill: var(--b-ref-blue-200); }
+.b-fill-blue-300 { fill: var(--b-ref-blue-300); }
+.b-fill-blue-400 { fill: var(--b-ref-blue-400); }
+.b-fill-blue-500 { fill: var(--b-ref-blue-500); }
+.b-fill-blue-600 { fill: var(--b-ref-blue-600); }
+.b-fill-blue-700 { fill: var(--b-ref-blue-700); }
+.b-fill-blue-800 { fill: var(--b-ref-blue-800); }
+.b-fill-blue-900 { fill: var(--b-ref-blue-900); }
+.b-fill-blue-950 { fill: var(--b-ref-blue-950); }
+
+/*INDIGO*/
+.b-fill-indigo-50  { fill: var(--b-ref-indigo-50); }
+.b-fill-indigo-100 { fill: var(--b-ref-indigo-100); }
+.b-fill-indigo-200 { fill: var(--b-ref-indigo-200); }
+.b-fill-indigo-300 { fill: var(--b-ref-indigo-300); }
+.b-fill-indigo-400 { fill: var(--b-ref-indigo-400); }
+.b-fill-indigo-500 { fill: var(--b-ref-indigo-500); }
+.b-fill-indigo-600 { fill: var(--b-ref-indigo-600); }
+.b-fill-indigo-700 { fill: var(--b-ref-indigo-700); }
+.b-fill-indigo-800 { fill: var(--b-ref-indigo-800); }
+.b-fill-indigo-900 { fill: var(--b-ref-indigo-900); }
+.b-fill-indigo-950 { fill: var(--b-ref-indigo-950); }
+
+/*VIOLET*/
+.b-fill-violet-50  { fill: var(--b-ref-violet-50); }
+.b-fill-violet-100 { fill: var(--b-ref-violet-100); }
+.b-fill-violet-200 { fill: var(--b-ref-violet-200); }
+.b-fill-violet-300 { fill: var(--b-ref-violet-300); }
+.b-fill-violet-400 { fill: var(--b-ref-violet-400); }
+.b-fill-violet-500 { fill: var(--b-ref-violet-500); }
+.b-fill-violet-600 { fill: var(--b-ref-violet-600); }
+.b-fill-violet-700 { fill: var(--b-ref-violet-700); }
+.b-fill-violet-800 { fill: var(--b-ref-violet-800); }
+.b-fill-violet-900 { fill: var(--b-ref-violet-900); }
+.b-fill-violet-950 { fill: var(--b-ref-violet-950); }
+
+/*PURPLE*/
+.b-fill-purple-50  { fill: var(--b-ref-purple-50); }
+.b-fill-purple-100 { fill: var(--b-ref-purple-100); }
+.b-fill-purple-200 { fill: var(--b-ref-purple-200); }
+.b-fill-purple-300 { fill: var(--b-ref-purple-300); }
+.b-fill-purple-400 { fill: var(--b-ref-purple-400); }
+.b-fill-purple-500 { fill: var(--b-ref-purple-500); }
+.b-fill-purple-600 { fill: var(--b-ref-purple-600); }
+.b-fill-purple-700 { fill: var(--b-ref-purple-700); }
+.b-fill-purple-800 { fill: var(--b-ref-purple-800); }
+.b-fill-purple-900 { fill: var(--b-ref-purple-900); }
+.b-fill-purple-950 { fill: var(--b-ref-purple-950); }
+
+/*FUCHSIA*/
+.b-fill-fuchsia-50  { fill: var(--b-ref-fuchsia-50); }
+.b-fill-fuchsia-100 { fill: var(--b-ref-fuchsia-100); }
+.b-fill-fuchsia-200 { fill: var(--b-ref-fuchsia-200); }
+.b-fill-fuchsia-300 { fill: var(--b-ref-fuchsia-300); }
+.b-fill-fuchsia-400 { fill: var(--b-ref-fuchsia-400); }
+.b-fill-fuchsia-500 { fill: var(--b-ref-fuchsia-500); }
+.b-fill-fuchsia-600 { fill: var(--b-ref-fuchsia-600); }
+.b-fill-fuchsia-700 { fill: var(--b-ref-fuchsia-700); }
+.b-fill-fuchsia-800 { fill: var(--b-ref-fuchsia-800); }
+.b-fill-fuchsia-900 { fill: var(--b-ref-fuchsia-900); }
+.b-fill-fuchsia-950 { fill: var(--b-ref-fuchsia-950); }
+
+/*PINK*/
+.b-fill-pink-50  { fill: var(--b-ref-pink-50); }
+.b-fill-pink-100 { fill: var(--b-ref-pink-100); }
+.b-fill-pink-200 { fill: var(--b-ref-pink-200); }
+.b-fill-pink-300 { fill: var(--b-ref-pink-300); }
+.b-fill-pink-400 { fill: var(--b-ref-pink-400); }
+.b-fill-pink-500 { fill: var(--b-ref-pink-500); }
+.b-fill-pink-600 { fill: var(--b-ref-pink-600); }
+.b-fill-pink-700 { fill: var(--b-ref-pink-700); }
+.b-fill-pink-800 { fill: var(--b-ref-pink-800); }
+.b-fill-pink-900 { fill: var(--b-ref-pink-900); }
+.b-fill-pink-950 { fill: var(--b-ref-pink-950); }
+
+/*ROSE*/
+.b-fill-rose-50  { fill: var(--b-ref-rose-50); }
+.b-fill-rose-100 { fill: var(--b-ref-rose-100); }
+.b-fill-rose-200 { fill: var(--b-ref-rose-200); }
+.b-fill-rose-300 { fill: var(--b-ref-rose-300); }
+.b-fill-rose-400 { fill: var(--b-ref-rose-400); }
+.b-fill-rose-500 { fill: var(--b-ref-rose-500); }
+.b-fill-rose-600 { fill: var(--b-ref-rose-600); }
+.b-fill-rose-700 { fill: var(--b-ref-rose-700); }
+.b-fill-rose-800 { fill: var(--b-ref-rose-800); }
+.b-fill-rose-900 { fill: var(--b-ref-rose-900); }
+.b-fill-rose-950 { fill: var(--b-ref-rose-950); }
 
 /* 4. Global Constants */
 

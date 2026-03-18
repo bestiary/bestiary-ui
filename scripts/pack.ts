@@ -18,7 +18,7 @@ async function pack() {
     await fs.ensureDir(packedDir);
 
     // List of packages to pack (order matters if we had inter-dependencies but here it's fine)
-    const packages = ["utils", "style", "icons", "components"];
+    const packages = ["style"];
 
     for (const pkg of packages) {
         const pkgPath = resolve(distDir, pkg);
