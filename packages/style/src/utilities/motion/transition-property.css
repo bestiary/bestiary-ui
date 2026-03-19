@@ -1,0 +1,73 @@
+/* ============================================================
+   Bestiary UI — Transition Property Utilities
+
+   Controls which CSS properties transition when their values change.
+   Automatically applies default duration and easing from the
+   Semantic Contract (Layer 2) for immediate out-of-the-box motion.
+   ============================================================ */
+
+/* 1. DEFAULT TRANSITION (The "Smart" Base)
+   Animates almost all visual properties, including modern 2024+
+   discrete properties like 'display' and 'overlay' (for dialogs). */
+.b-transition {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --b-from, --b-via, --b-to, opacity, box-shadow, transform, translate, scale, rotate, filter, backdrop-filter, -webkit-backdrop-filter, display, overlay;
+    transition-timing-function: var(--b-ease-base);
+    transition-duration: var(--b-duration-normal);
+
+    /* Дозволяє анімувати display: none -> block (Сучасний стандарт) */
+    transition-behavior: allow-discrete;
+}
+
+/* 2. TRANSITION ALL
+   Animates literally everything (use carefully due to performance). */
+.b-transition-all {
+    transition-property: all;
+    transition-timing-function: var(--b-ease-base);
+    transition-duration: var(--b-duration-normal);
+    transition-behavior: allow-discrete;
+}
+
+/* 3. SPECIFIC PROPERTY GROUPS (Performance optimized) */
+
+/* Animates only color-related properties (Great for buttons/links) */
+.b-transition-colors {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --b-from, --b-via, --b-to;
+    transition-timing-function: var(--b-ease-base);
+    transition-duration: var(--b-duration-normal);
+}
+
+/* Animates only opacity (Great for fade-in/fade-out effects) */
+.b-transition-opacity {
+    transition-property: opacity;
+    transition-timing-function: var(--b-ease-base);
+    transition-duration: var(--b-duration-normal);
+}
+
+/* Animates only shadows (Great for hover elevation) */
+.b-transition-shadow {
+    transition-property: box-shadow;
+    transition-timing-function: var(--b-ease-base);
+    transition-duration: var(--b-duration-normal);
+}
+
+/* Animates only spatial transformations (High performance 60fps) */
+.b-transition-transform {
+    transition-property: transform, translate, scale, rotate;
+    transition-timing-function: var(--b-ease-base);
+    transition-duration: var(--b-duration-normal);
+}
+
+/* 4. DISABLE TRANSITIONS */
+.b-transition-none {
+    transition-property: none;
+}
+
+/* 5. CUSTOM PROPERTY HOOK
+   Allows animating specific, arbitrary properties.
+   Usage: <div class="b-transition-custom" style="--b-transition-prop: max-height, margin">
+*/
+.b-transition-custom {
+    transition-property: var(--b-transition-prop);
+    transition-timing-function: var(--b-ease-base);
+    transition-duration: var(--b-duration-normal);
+}

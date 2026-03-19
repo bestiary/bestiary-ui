@@ -1,0 +1,66 @@
+/* ============================================================
+   Bestiary UI — Transition Timing Function Utilities
+
+   These utilities control the easing curve of CSS transitions.
+   They dictate the acceleration and deceleration of an animation,
+   giving the interface its unique "feel" (e.g., snappy, smooth,
+   or bouncy).
+   ============================================================ */
+
+/* 1. SEMANTIC ROLES (Mapped to Contract)
+   Use these for consistent motion feel across the UI. */
+
+/* Universal smoothness for most interactions */
+.b-ease-base {
+    transition-timing-function: var(--b-ease-base);
+}
+
+/* Acceleration: Starts slowly, ends quickly (Great for elements leaving the screen) */
+.b-ease-in {
+    transition-timing-function: var(--b-ease-in);
+}
+
+/* Deceleration: Starts quickly, ends slowly (Great for elements entering the screen/hover) */
+.b-ease-out {
+    transition-timing-function: var(--b-ease-out);
+}
+
+/* Animated movements: Spring/Bounce (For alerts, badges, modals) */
+.b-ease-accent {
+    transition-timing-function: var(--b-ease-accent);
+}
+
+/* 2. PRIMITIVE SCALE (Direct access to specific curves)
+   Use these for precise orchestration of complex animations. */
+
+/* Flat linear speed */
+.b-ease-linear {
+    transition-timing-function: linear;
+}
+
+/* Standard CSS curves */
+.b-ease-in-out   { transition-timing-function: var(--b-ref-ease-in-out-3); }
+.b-ease-elastic  { transition-timing-function: var(--b-ref-ease-elastic-3); }
+.b-ease-squish   { transition-timing-function: var(--b-ref-ease-squish-3); }
+.b-ease-spring   { transition-timing-function: var(--b-ref-ease-spring-3); }
+.b-ease-bounce   { transition-timing-function: var(--b-ref-ease-bounce-3); }
+
+/* Additional specific curves (Examples from your Primitives) */
+.b-ease-out-4    { transition-timing-function: var(--b-ref-ease-out-4); }
+.b-ease-in-out-2 { transition-timing-function: var(--b-ref-ease-in-out-2); }
+.b-ease-spring-1 { transition-timing-function: var(--b-ref-ease-spring-1); }
+
+/* 3. BROWSER BEHAVIORS & HOOKS */
+
+/* Resets to browser default (usually 'ease') */
+.b-ease-initial {
+    transition-timing-function: initial;
+}
+
+/* Custom Property Hook
+   Allows passing arbitrary easing functions via CSS variable.
+   Usage: <div class="b-ease-custom" style="--b-ease: cubic-bezier(0.4, 0, 0.2, 1)">...
+*/
+.b-ease-custom {
+    transition-timing-function: var(--b-ease);
+}

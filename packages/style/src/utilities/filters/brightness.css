@@ -1,0 +1,82 @@
+/* ============================================================
+   Bestiary UI — Brightness Utilities
+
+   Controls the brightness filter of an element.
+   Uses a central --b-brightness variable for maximum flexibility.
+   ============================================================ */
+
+:where(*) {
+    /* Default value (100% brightness)
+       Allows setting any arbitrary brightness value.
+       Usage: <div class="b-brightness" style="--b-brightness: 1.2">...</div> */
+    --b-brightness: 1;
+}
+
+/* 1. CORE BRIGHTNESS UTILITY
+   Applies the brightness filter based on the CSS variable.
+*/
+.b-brightness {
+    filter: brightness(var(--b-brightness));
+}
+
+/* 2. SCALE UTILITIES (Predefined steps)
+   These set the variable, which the .b-brightness class then applies.
+
+   Usage: <div class="b-brightness b-brightness-50">...</div>
+*/
+
+.b-brightness-0    { --b-brightness: 0; }
+.b-brightness-50   { --b-brightness: 0.5; }
+.b-brightness-75   { --b-brightness: 0.75; }
+.b-brightness-90   { --b-brightness: 0.9; }
+.b-brightness-95   { --b-brightness: 0.95; }
+.b-brightness-100  { --b-brightness: 1; }
+.b-brightness-105  { --b-brightness: 1.05; }
+.b-brightness-110  { --b-brightness: 1.1; }
+.b-brightness-125  { --b-brightness: 1.25; }
+.b-brightness-150  { --b-brightness: 1.5; }
+.b-brightness-200  { --b-brightness: 2; }
+
+
+/* ============================================================
+   Bestiary UI — Backdrop Brightness Utilities
+
+   Controls the brightness filter of the area behind an element.
+   Great for advanced visual overlays, "glass" effects, and
+   focusing attention on specific content areas.
+   ============================================================ */
+
+:where(*) {
+    /* Default brightness (100% = no change) */
+    --b-backdrop-brightness: 1;
+}
+
+/* 1. APPLY THE FILTER */
+/* Apply this class to initialize the backdrop filter */
+.b-backdrop-brightness {
+    backdrop-filter: brightness(var(--b-backdrop-brightness));
+}
+
+/* 2. PRESET SCALE
+   Allows setting the brightness intensity.
+   0 = black, 1 = original, >1 = brighter.
+*/
+
+.b-backdrop-brightness-0    { --b-backdrop-brightness: 0; }
+.b-backdrop-brightness-50   { --b-backdrop-brightness: 0.5; }
+.b-backdrop-brightness-75   { --b-backdrop-brightness: 0.75; }
+.b-backdrop-brightness-90   { --b-backdrop-brightness: 0.9; }
+.b-backdrop-brightness-95   { --b-backdrop-brightness: 0.95; }
+.b-backdrop-brightness-100  { --b-backdrop-brightness: 1; }
+.b-backdrop-brightness-105  { --b-backdrop-brightness: 1.05; }
+.b-backdrop-brightness-110  { --b-backdrop-brightness: 1.1; }
+.b-backdrop-brightness-125  { --b-backdrop-brightness: 1.25; }
+.b-backdrop-brightness-150  { --b-backdrop-brightness: 1.5; }
+.b-backdrop-brightness-200  { --b-backdrop-brightness: 2; }
+
+/* 3. CUSTOM PROPERTY HOOK
+   Usage: <div class="b-backdrop-brightness" style="--b-backdrop-brightness: 1.3">...
+*/
+.b-backdrop-brightness-custom {
+    backdrop-filter: brightness(var(--b-backdrop-brightness));
+}

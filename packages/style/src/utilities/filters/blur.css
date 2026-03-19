@@ -1,0 +1,58 @@
+/* ============================================================
+   Bestiary UI — Blur Utilities
+
+   Controls the blur filter applied to an element.
+   Mapped to the global blur scale defined in the Contract.
+   ============================================================ */
+
+/* 1. BLUR UTILITIES (filter) */
+
+/* Removes all blur filters */
+.b-blur-none {
+    filter: none;
+}
+
+/* Scalable Blur Scale */
+.b-blur-xs  { filter: blur(var(--b-ref-blur-xs)); }
+.b-blur-sm  { filter: blur(var(--b-ref-blur-sm)); }
+.b-blur-md  { filter: blur(var(--b-ref-blur-md)); }
+.b-blur-lg  { filter: blur(var(--b-ref-blur-lg)); }
+.b-blur-xl  { filter: blur(var(--b-ref-blur-xl)); }
+.b-blur-2xl { filter: blur(var(--b-ref-blur-2xl)); }
+.b-blur-3xl { filter: blur(var(--b-ref-blur-3xl)); }
+
+/* 2. CUSTOM PROPERTY HOOK
+   Allows passing arbitrary blur values.
+   Usage: <div class="b-blur" style="--b-blur: 10px">
+*/
+.b-blur {
+    filter: blur(var(--b-blur));
+}
+
+/* ============================================================
+   Bestiary UI — Backdrop Blur Utilities
+
+   Controls the blur effect applied to the area behind an element.
+   Requires the element to have a semi-transparent background
+   (e.g., using color-mix) to be visible.
+   ============================================================ */
+
+/* 1. BLUR SCALE */
+
+.b-backdrop-blur-none { backdrop-filter: none; }
+
+.b-backdrop-blur-xs  { backdrop-filter: blur(var(--b-ref-blur-xs)); }
+.b-backdrop-blur-sm  { backdrop-filter: blur(var(--b-ref-blur-sm)); }
+.b-backdrop-blur-md  { backdrop-filter: blur(var(--b-ref-blur-md)); }
+.b-backdrop-blur-lg  { backdrop-filter: blur(var(--b-ref-blur-lg)); }
+.b-backdrop-blur-xl  { backdrop-filter: blur(var(--b-ref-blur-xl)); }
+.b-backdrop-blur-2xl { backdrop-filter: blur(var(--b-ref-blur-2xl)); }
+.b-backdrop-blur-3xl { backdrop-filter: blur(var(--b-ref-blur-3xl)); }
+
+/* 2. CUSTOM PROPERTY HOOK
+   Allows arbitrary blur values via CSS variable.
+   Usage: <div class="b-backdrop-blur-custom" style="--b-blur: 10px">
+*/
+.b-backdrop-blur-custom {
+    backdrop-filter: blur(var(--b-blur));
+}

@@ -1,0 +1,86 @@
+/* ============================================================
+   Bestiary UI — Hue Rotate Utilities
+
+   Controls the hue-rotation of an element's colors.
+   Useful for dynamically shifting colors of icons or
+   thematic graphics.
+   ============================================================ */
+
+:where(*) {
+    /* Default: No rotation */
+    --b-hue-rotate: 0deg;
+}
+
+/* 1. APPLY THE FILTER */
+.b-hue-rotate {
+    /*
+        Allows any custom angle.
+        Usage: <div class="b-hue-rotate" style="--b-hue: 45deg">...
+    */
+    filter: hue-rotate(var(--b-hue-rotate));
+}
+
+/* 2. SCALE (Standard steps in degrees) */
+
+.b-hue-rotate-0    { --b-hue-rotate: 0deg; }
+.b-hue-rotate-15   { --b-hue-rotate: 15deg; }
+.b-hue-rotate-30   { --b-hue-rotate: 30deg; }
+.b-hue-rotate-60   { --b-hue-rotate: 60deg; }
+.b-hue-rotate-90   { --b-hue-rotate: 90deg; }
+.b-hue-rotate-180  { --b-hue-rotate: 180deg; }
+
+/* 3. NEGATIVE SCALE (Inverse rotation) */
+
+.b-hue-rotate-n15  { --b-hue-rotate: -15deg; }
+.b-hue-rotate-n30  { --b-hue-rotate: -30deg; }
+.b-hue-rotate-n60  { --b-hue-rotate: -60deg; }
+.b-hue-rotate-n90  { --b-hue-rotate: -90deg; }
+.b-hue-rotate-n180 { --b-hue-rotate: -180deg; }
+
+/* ============================================================
+   Bestiary UI — Backdrop Hue Rotate Utilities
+
+   Applies a hue-rotation filter to the area behind an element.
+   Shifts the colors of the underlying content around the color wheel.
+   ============================================================ */
+
+:where(*) {
+    /* Default: No rotation */
+    --b-backdrop-hue-rotate: 0deg;
+}
+
+/* 1. APPLY THE FILTER */
+/* Apply this class to initialize the filter */
+.b-backdrop-hue-rotate {
+    backdrop-filter: hue-rotate(var(--b-backdrop-hue-rotate));
+}
+
+/* 2. SCALE VARIANTS (Standard degrees)
+   Positive rotation values.
+*/
+
+.b-backdrop-hue-rotate-0   { --b-backdrop-hue-rotate: 0deg; }
+.b-backdrop-hue-rotate-15  { --b-backdrop-hue-rotate: 15deg; }
+.b-backdrop-hue-rotate-30  { --b-backdrop-hue-rotate: 30deg; }
+.b-backdrop-hue-rotate-60  { --b-backdrop-hue-rotate: 60deg; }
+.b-backdrop-hue-rotate-90  { --b-backdrop-hue-rotate: 90deg; }
+.b-backdrop-hue-rotate-180 { --b-backdrop-hue-rotate: 180deg; }
+
+/* 3. NEGATIVE SCALE (Inverse rotation)
+   Negative rotation values for opposite hue shifts.
+*/
+
+.b-backdrop-hue-rotate-n15  { --b-backdrop-hue-rotate: -15deg; }
+.b-backdrop-hue-rotate-n30  { --b-backdrop-hue-rotate: -30deg; }
+.b-backdrop-hue-rotate-n60  { --b-backdrop-hue-rotate: -60deg; }
+.b-backdrop-hue-rotate-n90  { --b-backdrop-hue-rotate: -90deg; }
+.b-backdrop-hue-rotate-n180 { --b-backdrop-hue-rotate: -180deg; }
+
+
+/* 4. CUSTOM PROPERTY HOOK
+   Allows setting any arbitrary angle via CSS variable.
+   Usage: <div class="b-backdrop-hue-rotate-custom" style="--b-backdrop-hue: 45deg">...
+*/
+.b-backdrop-hue-rotate-custom {
+    backdrop-filter: hue-rotate(var(--b-backdrop-hue));
+}

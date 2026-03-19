@@ -1,0 +1,22 @@
+/* ============================================================
+   Bestiary UI — Scroll Snap Stop Utilities
+
+   Controls the "momentum" of scrolling. It determines whether
+   the scroll container allows skipping past possible snap
+   positions or forces a stop on each one.
+   ============================================================ */
+
+/* 1. Snap Stop Controls */
+
+/* Allows the user to skip past multiple snap positions
+   during a fast flick or scroll. (Browser Default) */
+.b-snap-normal {
+    scroll-snap-stop: normal;
+}
+
+/* Forces the scroll container to stop at the very next
+   snap position, even during a high-velocity scroll.
+   Essential for "one-by-one" card sliders or full-page navigations. */
+.b-snap-always {
+    scroll-snap-stop: always;
+}

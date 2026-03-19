@@ -1,0 +1,23 @@
+/* ============================================================
+   Bestiary UI — Transform Style Utilities
+
+   Controls how nested child elements are rendered in 3D space.
+   Essential for complex 3D scenes where children need to maintain
+   their own depth relative to a transformed parent.
+   ============================================================ */
+
+/* 1. 3D Preservation */
+
+/* Enables a 3D context where children maintain their 3D positions.
+   Mandatory for "parallax" cards or elements with depth layers. */
+.b-transform-3d {
+    transform-style: preserve-3d;
+}
+
+/* 2. Flattening (Default) */
+
+/* Children are rendered flat in the plane of the element itself.
+   This is the standard browser behavior. */
+.b-transform-flat {
+    transform-style: flat;
+}

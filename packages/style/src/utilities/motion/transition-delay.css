@@ -1,0 +1,45 @@
+/* ============================================================
+   Bestiary UI — Transition Delay Utilities
+
+   Controls the amount of time to wait before starting a transition.
+   Essential for creating staggered entry animations and
+   orchestrating complex UI motion sequences.
+   ============================================================ */
+
+/* 1. SEMANTIC ROLES (Mapped to Contract)
+   Use these for standardized interaction patterns. */
+
+/* Smallest delay for quick sequential animations (staggered lists) */
+.b-delay-stagger {
+    transition-delay: var(--b-delay-stagger);
+}
+
+/* Longer delay for entrance animations after page load */
+.b-delay-appearance {
+    transition-delay: var(--b-delay-appearance);
+}
+
+
+/* 2. PRIMITIVE TIME SCALE (0ms - 1000ms)
+   Direct access to the time scale for custom timing. */
+
+.b-delay-0    { transition-delay: 0s; }
+.b-delay-50   { transition-delay: var(--b-ref-time-50); }
+.b-delay-75   { transition-delay: var(--b-ref-time-75); }
+.b-delay-100  { transition-delay: var(--b-ref-time-100); }
+.b-delay-150  { transition-delay: var(--b-ref-time-150); }
+.b-delay-200  { transition-delay: var(--b-ref-time-200); }
+.b-delay-300  { transition-delay: var(--b-ref-time-300); }
+.b-delay-400  { transition-delay: var(--b-ref-time-400); }
+.b-delay-500  { transition-delay: var(--b-ref-time-500); }
+.b-delay-700  { transition-delay: var(--b-ref-time-700); }
+.b-delay-1000 { transition-delay: var(--b-ref-time-1000); }
+
+
+/* 3. CUSTOM PROPERTY HOOK
+   Allows setting arbitrary delay values via CSS variable.
+   Usage: <div class="b-delay-custom" style="--b-delay: 1.5s">...
+*/
+.b-delay-custom {
+    transition-delay: var(--b-delay);
+}

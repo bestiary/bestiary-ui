@@ -1,0 +1,43 @@
+/* ============================================================
+   Bestiary UI — Scroll Snap Align Utilities
+
+   Controls the alignment of an individual element within a
+   scroll snap container. These classes define which part of
+   the element "snaps" to the viewport.
+   ============================================================ */
+
+/* 1. Snap Alignment Controls */
+
+/* Snaps the start of the element (left/top) to the container.
+   Common for standard horizontal galleries. */
+.b-snap-start {
+    scroll-snap-align: start;
+}
+
+/* Snaps the center of the element to the container.
+   Ideal for focused viewing of large images or hero cards. */
+.b-snap-center {
+    scroll-snap-align: center;
+}
+
+/* Snaps the end of the element (right/bottom) to the container. */
+.b-snap-end {
+    scroll-snap-align: end;
+}
+
+/* 2. Reset Utility */
+
+/* Disables snapping for this specific element. (Default) */
+.b-snap-align-none {
+    scroll-snap-align: none;
+}
+
+/* 3. Custom Property Hook
+   Allows passing specific axis alignments (e.g., 'start none' or 'none center')
+   via the --b-snap-align variable.
+
+   Usage: <div class="b-snap-align-custom" style="--b-snap-align: start center">...
+*/
+.b-snap-align-custom {
+    scroll-snap-align: var(--b-snap-align);
+}

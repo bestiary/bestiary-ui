@@ -1,0 +1,330 @@
+/* ============================================================
+   Bestiary UI — Caret Color Utilities
+   
+   Controls the color of the text insertion cursor (caret) 
+   in form fields and editable elements.
+   
+   Architecture:
+   1. Global Semantic Roles: Standard behavior (inherit, current).
+   2. Literal Palette: Direct access to primitive shades (50-950).
+   3. Custom Hook: Support for arbitrary colors via --b-caret-c.
+   ============================================================ */
+
+/* 1. GLOBAL SEMANTIC ROLES */
+
+.b-caret-inherit     { caret-color: inherit; }
+.b-caret-current     { caret-color: currentColor; }
+.b-caret-transparent { caret-color: transparent; }
+
+/* 2. LITERAL PALETTE (Reference Primitives) */
+
+/* Basic Neutrals */
+.b-caret-white { caret-color: var(--b-ref-white); }
+.b-caret-black { caret-color: var(--b-ref-black); }
+
+/* BRAND */
+.b-caret-brand-50  { caret-color: var(--b-primary-50); }
+.b-caret-brand-100 { caret-color: var(--b-primary-100); }
+.b-caret-brand-200 { caret-color: var(--b-primary-200); }
+.b-caret-brand-300 { caret-color: var(--b-primary-300); }
+.b-caret-brand-400 { caret-color: var(--b-primary-400); }
+.b-caret-brand-500 { caret-color: var(--b-primary-500); }
+.b-caret-brand-600 { caret-color: var(--b-primary-600); }
+.b-caret-brand-700 { caret-color: var(--b-primary-700); }
+.b-caret-brand-800 { caret-color: var(--b-primary-800); }
+.b-caret-brand-900 { caret-color: var(--b-primary-900); }
+.b-caret-brand-950 { caret-color: var(--b-primary-950); }
+
+/* SLATE */
+.b-caret-slate-50  { caret-color: var(--b-ref-slate-50); }
+.b-caret-slate-100 { caret-color: var(--b-ref-slate-100); }
+.b-caret-slate-200 { caret-color: var(--b-ref-slate-200); }
+.b-caret-slate-300 { caret-color: var(--b-ref-slate-300); }
+.b-caret-slate-400 { caret-color: var(--b-ref-slate-400); }
+.b-caret-slate-500 { caret-color: var(--b-ref-slate-500); }
+.b-caret-slate-600 { caret-color: var(--b-ref-slate-600); }
+.b-caret-slate-700 { caret-color: var(--b-ref-slate-700); }
+.b-caret-slate-800 { caret-color: var(--b-ref-slate-800); }
+.b-caret-slate-900 { caret-color: var(--b-ref-slate-900); }
+.b-caret-slate-950 { caret-color: var(--b-ref-slate-950); }
+
+/* GRAY */
+.b-caret-gray-50  { caret-color: var(--b-ref-gray-50); }
+.b-caret-gray-100 { caret-color: var(--b-ref-gray-100); }
+.b-caret-gray-200 { caret-color: var(--b-ref-gray-200); }
+.b-caret-gray-300 { caret-color: var(--b-ref-gray-300); }
+.b-caret-gray-400 { caret-color: var(--b-ref-gray-400); }
+.b-caret-gray-500 { caret-color: var(--b-ref-gray-500); }
+.b-caret-gray-600 { caret-color: var(--b-ref-gray-600); }
+.b-caret-gray-700 { caret-color: var(--b-ref-gray-700); }
+.b-caret-gray-800 { caret-color: var(--b-ref-gray-800); }
+.b-caret-gray-900 { caret-color: var(--b-ref-gray-900); }
+.b-caret-gray-950 { caret-color: var(--b-ref-gray-950); }
+
+/*ZINC*/
+.b-caret-zinc-50  { caret-color: var(--b-ref-zinc-50); }
+.b-caret-zinc-100 { caret-color: var(--b-ref-zinc-100); }
+.b-caret-zinc-200 { caret-color: var(--b-ref-zinc-200); }
+.b-caret-zinc-300 { caret-color: var(--b-ref-zinc-300); }
+.b-caret-zinc-400 { caret-color: var(--b-ref-zinc-400); }
+.b-caret-zinc-500 { caret-color: var(--b-ref-zinc-500); }
+.b-caret-zinc-600 { caret-color: var(--b-ref-zinc-600); }
+.b-caret-zinc-700 { caret-color: var(--b-ref-zinc-700); }
+.b-caret-zinc-800 { caret-color: var(--b-ref-zinc-800); }
+.b-caret-zinc-900 { caret-color: var(--b-ref-zinc-900); }
+.b-caret-zinc-950 { caret-color: var(--b-ref-zinc-950); }
+
+/*NEUTRAL*/
+.b-caret-neutral-50  { caret-color: var(--b-ref-neutral-50); }
+.b-caret-neutral-100 { caret-color: var(--b-ref-neutral-100); }
+.b-caret-neutral-200 { caret-color: var(--b-ref-neutral-200); }
+.b-caret-neutral-300 { caret-color: var(--b-ref-neutral-300); }
+.b-caret-neutral-400 { caret-color: var(--b-ref-neutral-400); }
+.b-caret-neutral-500 { caret-color: var(--b-ref-neutral-500); }
+.b-caret-neutral-600 { caret-color: var(--b-ref-neutral-600); }
+.b-caret-neutral-700 { caret-color: var(--b-ref-neutral-700); }
+.b-caret-neutral-800 { caret-color: var(--b-ref-neutral-800); }
+.b-caret-neutral-900 { caret-color: var(--b-ref-neutral-900); }
+.b-caret-neutral-950 { caret-color: var(--b-ref-neutral-950); }
+
+/*STONE*/
+.b-caret-stone-50  { caret-color: var(--b-ref-stone-50); }
+.b-caret-stone-100 { caret-color: var(--b-ref-stone-100); }
+.b-caret-stone-200 { caret-color: var(--b-ref-stone-200); }
+.b-caret-stone-300 { caret-color: var(--b-ref-stone-300); }
+.b-caret-stone-400 { caret-color: var(--b-ref-stone-400); }
+.b-caret-stone-500 { caret-color: var(--b-ref-stone-500); }
+.b-caret-stone-600 { caret-color: var(--b-ref-stone-600); }
+.b-caret-stone-700 { caret-color: var(--b-ref-stone-700); }
+.b-caret-stone-800 { caret-color: var(--b-ref-stone-800); }
+.b-caret-stone-900 { caret-color: var(--b-ref-stone-900); }
+.b-caret-stone-950 { caret-color: var(--b-ref-stone-950); }
+
+/*RED*/
+.b-caret-red-50  { caret-color: var(--b-ref-red-50); }
+.b-caret-red-100 { caret-color: var(--b-ref-red-100); }
+.b-caret-red-200 { caret-color: var(--b-ref-red-200); }
+.b-caret-red-300 { caret-color: var(--b-ref-red-300); }
+.b-caret-red-400 { caret-color: var(--b-ref-red-400); }
+.b-caret-red-500 { caret-color: var(--b-ref-red-500); }
+.b-caret-red-600 { caret-color: var(--b-ref-red-600); }
+.b-caret-red-700 { caret-color: var(--b-ref-red-700); }
+.b-caret-red-800 { caret-color: var(--b-ref-red-800); }
+.b-caret-red-900 { caret-color: var(--b-ref-red-900); }
+.b-caret-red-950 { caret-color: var(--b-ref-red-950); }
+
+/*ORANGE*/
+.b-caret-orange-50  { caret-color: var(--b-ref-orange-50); }
+.b-caret-orange-100 { caret-color: var(--b-ref-orange-100); }
+.b-caret-orange-200 { caret-color: var(--b-ref-orange-200); }
+.b-caret-orange-300 { caret-color: var(--b-ref-orange-300); }
+.b-caret-orange-400 { caret-color: var(--b-ref-orange-400); }
+.b-caret-orange-500 { caret-color: var(--b-ref-orange-500); }
+.b-caret-orange-600 { caret-color: var(--b-ref-orange-600); }
+.b-caret-orange-700 { caret-color: var(--b-ref-orange-700); }
+.b-caret-orange-800 { caret-color: var(--b-ref-orange-800); }
+.b-caret-orange-900 { caret-color: var(--b-ref-orange-900); }
+.b-caret-orange-950 { caret-color: var(--b-ref-orange-950); }
+
+/*AMBER*/
+.b-caret-amber-50  { caret-color: var(--b-ref-amber-50); }
+.b-caret-amber-100 { caret-color: var(--b-ref-amber-100); }
+.b-caret-amber-200 { caret-color: var(--b-ref-amber-200); }
+.b-caret-amber-300 { caret-color: var(--b-ref-amber-300); }
+.b-caret-amber-400 { caret-color: var(--b-ref-amber-400); }
+.b-caret-amber-500 { caret-color: var(--b-ref-amber-500); }
+.b-caret-amber-600 { caret-color: var(--b-ref-amber-600); }
+.b-caret-amber-700 { caret-color: var(--b-ref-amber-700); }
+.b-caret-amber-800 { caret-color: var(--b-ref-amber-800); }
+.b-caret-amber-900 { caret-color: var(--b-ref-amber-900); }
+.b-caret-amber-950 { caret-color: var(--b-ref-amber-950); }
+
+/*YELLOW*/
+.b-caret-yellow-50  { caret-color: var(--b-ref-yellow-50); }
+.b-caret-yellow-100 { caret-color: var(--b-ref-yellow-100); }
+.b-caret-yellow-200 { caret-color: var(--b-ref-yellow-200); }
+.b-caret-yellow-300 { caret-color: var(--b-ref-yellow-300); }
+.b-caret-yellow-400 { caret-color: var(--b-ref-yellow-400); }
+.b-caret-yellow-500 { caret-color: var(--b-ref-yellow-500); }
+.b-caret-yellow-600 { caret-color: var(--b-ref-yellow-600); }
+.b-caret-yellow-700 { caret-color: var(--b-ref-yellow-700); }
+.b-caret-yellow-800 { caret-color: var(--b-ref-yellow-800); }
+.b-caret-yellow-900 { caret-color: var(--b-ref-yellow-900); }
+.b-caret-yellow-950 { caret-color: var(--b-ref-yellow-950); }
+
+/*LIME*/
+.b-caret-lime-50  { caret-color: var(--b-ref-lime-50); }
+.b-caret-lime-100 { caret-color: var(--b-ref-lime-100); }
+.b-caret-lime-200 { caret-color: var(--b-ref-lime-200); }
+.b-caret-lime-300 { caret-color: var(--b-ref-lime-300); }
+.b-caret-lime-400 { caret-color: var(--b-ref-lime-400); }
+.b-caret-lime-500 { caret-color: var(--b-ref-lime-500); }
+.b-caret-lime-600 { caret-color: var(--b-ref-lime-600); }
+.b-caret-lime-700 { caret-color: var(--b-ref-lime-700); }
+.b-caret-lime-800 { caret-color: var(--b-ref-lime-800); }
+.b-caret-lime-900 { caret-color: var(--b-ref-lime-900); }
+.b-caret-lime-950 { caret-color: var(--b-ref-lime-950); }
+
+/*GREEN*/
+.b-caret-green-50  { caret-color: var(--b-ref-green-50); }
+.b-caret-green-100 { caret-color: var(--b-ref-green-100); }
+.b-caret-green-200 { caret-color: var(--b-ref-green-200); }
+.b-caret-green-300 { caret-color: var(--b-ref-green-300); }
+.b-caret-green-400 { caret-color: var(--b-ref-green-400); }
+.b-caret-green-500 { caret-color: var(--b-ref-green-500); }
+.b-caret-green-600 { caret-color: var(--b-ref-green-600); }
+.b-caret-green-700 { caret-color: var(--b-ref-green-700); }
+.b-caret-green-800 { caret-color: var(--b-ref-green-800); }
+.b-caret-green-900 { caret-color: var(--b-ref-green-900); }
+.b-caret-green-950 { caret-color: var(--b-ref-green-950); }
+
+/*EMERALD*/
+.b-caret-emerald-50  { caret-color: var(--b-ref-emerald-50); }
+.b-caret-emerald-100 { caret-color: var(--b-ref-emerald-100); }
+.b-caret-emerald-200 { caret-color: var(--b-ref-emerald-200); }
+.b-caret-emerald-300 { caret-color: var(--b-ref-emerald-300); }
+.b-caret-emerald-400 { caret-color: var(--b-ref-emerald-400); }
+.b-caret-emerald-500 { caret-color: var(--b-ref-emerald-500); }
+.b-caret-emerald-600 { caret-color: var(--b-ref-emerald-600); }
+.b-caret-emerald-700 { caret-color: var(--b-ref-emerald-700); }
+.b-caret-emerald-800 { caret-color: var(--b-ref-emerald-800); }
+.b-caret-emerald-900 { caret-color: var(--b-ref-emerald-900); }
+.b-caret-emerald-950 { caret-color: var(--b-ref-emerald-950); }
+
+/*TEAL*/
+.b-caret-teal-50  { caret-color: var(--b-ref-teal-50); }
+.b-caret-teal-100 { caret-color: var(--b-ref-teal-100); }
+.b-caret-teal-200 { caret-color: var(--b-ref-teal-200); }
+.b-caret-teal-300 { caret-color: var(--b-ref-teal-300); }
+.b-caret-teal-400 { caret-color: var(--b-ref-teal-400); }
+.b-caret-teal-500 { caret-color: var(--b-ref-teal-500); }
+.b-caret-teal-600 { caret-color: var(--b-ref-teal-600); }
+.b-caret-teal-700 { caret-color: var(--b-ref-teal-700); }
+.b-caret-teal-800 { caret-color: var(--b-ref-teal-800); }
+.b-caret-teal-900 { caret-color: var(--b-ref-teal-900); }
+.b-caret-teal-950 { caret-color: var(--b-ref-teal-950); }
+
+/*CYAN*/
+.b-caret-cyan-50  { caret-color: var(--b-ref-cyan-50); }
+.b-caret-cyan-100 { caret-color: var(--b-ref-cyan-100); }
+.b-caret-cyan-200 { caret-color: var(--b-ref-cyan-200); }
+.b-caret-cyan-300 { caret-color: var(--b-ref-cyan-300); }
+.b-caret-cyan-400 { caret-color: var(--b-ref-cyan-400); }
+.b-caret-cyan-500 { caret-color: var(--b-ref-cyan-500); }
+.b-caret-cyan-600 { caret-color: var(--b-ref-cyan-600); }
+.b-caret-cyan-700 { caret-color: var(--b-ref-cyan-700); }
+.b-caret-cyan-800 { caret-color: var(--b-ref-cyan-800); }
+.b-caret-cyan-900 { caret-color: var(--b-ref-cyan-900); }
+.b-caret-cyan-950 { caret-color: var(--b-ref-cyan-950); }
+
+/*SKY*/
+.b-caret-sky-50  { caret-color: var(--b-ref-sky-50); }
+.b-caret-sky-100 { caret-color: var(--b-ref-sky-100); }
+.b-caret-sky-200 { caret-color: var(--b-ref-sky-200); }
+.b-caret-sky-300 { caret-color: var(--b-ref-sky-300); }
+.b-caret-sky-400 { caret-color: var(--b-ref-sky-400); }
+.b-caret-sky-500 { caret-color: var(--b-ref-sky-500); }
+.b-caret-sky-600 { caret-color: var(--b-ref-sky-600); }
+.b-caret-sky-700 { caret-color: var(--b-ref-sky-700); }
+.b-caret-sky-800 { caret-color: var(--b-ref-sky-800); }
+.b-caret-sky-900 { caret-color: var(--b-ref-sky-900); }
+.b-caret-sky-950 { caret-color: var(--b-ref-sky-950); }
+
+/*BLUE*/
+.b-caret-blue-50  { caret-color: var(--b-ref-blue-50); }
+.b-caret-blue-100 { caret-color: var(--b-ref-blue-100); }
+.b-caret-blue-200 { caret-color: var(--b-ref-blue-200); }
+.b-caret-blue-300 { caret-color: var(--b-ref-blue-300); }
+.b-caret-blue-400 { caret-color: var(--b-ref-blue-400); }
+.b-caret-blue-500 { caret-color: var(--b-ref-blue-500); }
+.b-caret-blue-600 { caret-color: var(--b-ref-blue-600); }
+.b-caret-blue-700 { caret-color: var(--b-ref-blue-700); }
+.b-caret-blue-800 { caret-color: var(--b-ref-blue-800); }
+.b-caret-blue-900 { caret-color: var(--b-ref-blue-900); }
+.b-caret-blue-950 { caret-color: var(--b-ref-blue-950); }
+
+/*INDIGO*/
+.b-caret-indigo-50  { caret-color: var(--b-ref-indigo-50); }
+.b-caret-indigo-100 { caret-color: var(--b-ref-indigo-100); }
+.b-caret-indigo-200 { caret-color: var(--b-ref-indigo-200); }
+.b-caret-indigo-300 { caret-color: var(--b-ref-indigo-300); }
+.b-caret-indigo-400 { caret-color: var(--b-ref-indigo-400); }
+.b-caret-indigo-500 { caret-color: var(--b-ref-indigo-500); }
+.b-caret-indigo-600 { caret-color: var(--b-ref-indigo-600); }
+.b-caret-indigo-700 { caret-color: var(--b-ref-indigo-700); }
+.b-caret-indigo-800 { caret-color: var(--b-ref-indigo-800); }
+.b-caret-indigo-900 { caret-color: var(--b-ref-indigo-900); }
+.b-caret-indigo-950 { caret-color: var(--b-ref-indigo-950); }
+
+/*VIOLET*/
+.b-caret-violet-50  { caret-color: var(--b-ref-violet-50); }
+.b-caret-violet-100 { caret-color: var(--b-ref-violet-100); }
+.b-caret-violet-200 { caret-color: var(--b-ref-violet-200); }
+.b-caret-violet-300 { caret-color: var(--b-ref-violet-300); }
+.b-caret-violet-400 { caret-color: var(--b-ref-violet-400); }
+.b-caret-violet-500 { caret-color: var(--b-ref-violet-500); }
+.b-caret-violet-600 { caret-color: var(--b-ref-violet-600); }
+.b-caret-violet-700 { caret-color: var(--b-ref-violet-700); }
+.b-caret-violet-800 { caret-color: var(--b-ref-violet-800); }
+.b-caret-violet-900 { caret-color: var(--b-ref-violet-900); }
+.b-caret-violet-950 { caret-color: var(--b-ref-violet-950); }
+
+/*PURPLE*/
+.b-caret-purple-50  { caret-color: var(--b-ref-purple-50); }
+.b-caret-purple-100 { caret-color: var(--b-ref-purple-100); }
+.b-caret-purple-200 { caret-color: var(--b-ref-purple-200); }
+.b-caret-purple-300 { caret-color: var(--b-ref-purple-300); }
+.b-caret-purple-400 { caret-color: var(--b-ref-purple-400); }
+.b-caret-purple-500 { caret-color: var(--b-ref-purple-500); }
+.b-caret-purple-600 { caret-color: var(--b-ref-purple-600); }
+.b-caret-purple-700 { caret-color: var(--b-ref-purple-700); }
+.b-caret-purple-800 { caret-color: var(--b-ref-purple-800); }
+.b-caret-purple-900 { caret-color: var(--b-ref-purple-900); }
+.b-caret-purple-950 { caret-color: var(--b-ref-purple-950); }
+
+/*FUCHSIA*/
+.b-caret-fuchsia-50  { caret-color: var(--b-ref-fuchsia-50); }
+.b-caret-fuchsia-100 { caret-color: var(--b-ref-fuchsia-100); }
+.b-caret-fuchsia-200 { caret-color: var(--b-ref-fuchsia-200); }
+.b-caret-fuchsia-300 { caret-color: var(--b-ref-fuchsia-300); }
+.b-caret-fuchsia-400 { caret-color: var(--b-ref-fuchsia-400); }
+.b-caret-fuchsia-500 { caret-color: var(--b-ref-fuchsia-500); }
+.b-caret-fuchsia-600 { caret-color: var(--b-ref-fuchsia-600); }
+.b-caret-fuchsia-700 { caret-color: var(--b-ref-fuchsia-700); }
+.b-caret-fuchsia-800 { caret-color: var(--b-ref-fuchsia-800); }
+.b-caret-fuchsia-900 { caret-color: var(--b-ref-fuchsia-900); }
+.b-caret-fuchsia-950 { caret-color: var(--b-ref-fuchsia-950); }
+
+/*PINK*/
+.b-caret-pink-50  { caret-color: var(--b-ref-pink-50); }
+.b-caret-pink-100 { caret-color: var(--b-ref-pink-100); }
+.b-caret-pink-200 { caret-color: var(--b-ref-pink-200); }
+.b-caret-pink-300 { caret-color: var(--b-ref-pink-300); }
+.b-caret-pink-400 { caret-color: var(--b-ref-pink-400); }
+.b-caret-pink-500 { caret-color: var(--b-ref-pink-500); }
+.b-caret-pink-600 { caret-color: var(--b-ref-pink-600); }
+.b-caret-pink-700 { caret-color: var(--b-ref-pink-700); }
+.b-caret-pink-800 { caret-color: var(--b-ref-pink-800); }
+.b-caret-pink-900 { caret-color: var(--b-ref-pink-900); }
+.b-caret-pink-950 { caret-color: var(--b-ref-pink-950); }
+
+/*ROSE*/
+.b-caret-rose-50  { caret-color: var(--b-ref-rose-50); }
+.b-caret-rose-100 { caret-color: var(--b-ref-rose-100); }
+.b-caret-rose-200 { caret-color: var(--b-ref-rose-200); }
+.b-caret-rose-300 { caret-color: var(--b-ref-rose-300); }
+.b-caret-rose-400 { caret-color: var(--b-ref-rose-400); }
+.b-caret-rose-500 { caret-color: var(--b-ref-rose-500); }
+.b-caret-rose-600 { caret-color: var(--b-ref-rose-600); }
+.b-caret-rose-700 { caret-color: var(--b-ref-rose-700); }
+.b-caret-rose-800 { caret-color: var(--b-ref-rose-800); }
+.b-caret-rose-900 { caret-color: var(--b-ref-rose-900); }
+.b-caret-rose-950 { caret-color: var(--b-ref-rose-950); }
+
+
+/* 4. CUSTOM & ARBITRARY VALUES (Hook)
+   Usage: <input class="b-caret-custom" style="--b-caret-c: #00ff00">
+*/
+.b-caret-custom {
+    caret-color: var(--b-caret-c);
+}

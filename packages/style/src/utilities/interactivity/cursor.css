@@ -1,0 +1,68 @@
+/* ============================================================
+   Bestiary UI — Cursor Utilities
+
+   Controls the mouse cursor appearance when hovering over an element.
+   Essential for providing visual feedback during interactions
+   (e.g., loading states, draggables, or disabled actions).
+   ============================================================ */
+
+/* 1. GENERAL CURSORS */
+
+.b-cursor-auto         { cursor: auto; }
+.b-cursor-default      { cursor: default; }
+.b-cursor-pointer      { cursor: pointer; } /* Standard for buttons and links */
+.b-cursor-wait         { cursor: wait; }
+.b-cursor-progress     { cursor: progress; }
+.b-cursor-context-menu { cursor: context-menu; }
+.b-cursor-help         { cursor: help; }
+.b-cursor-none         { cursor: none; }
+
+/* 2. SELECTION & EDITING */
+
+.b-cursor-text          { cursor: text; }
+.b-cursor-vertical-text { cursor: vertical-text; }
+.b-cursor-cell          { cursor: cell; }
+.b-cursor-crosshair      { cursor: crosshair; }
+
+/* 3. ACTION & DRAG/DROP */
+
+.b-cursor-move     { cursor: move; }
+.b-cursor-copy     { cursor: copy; }
+.b-cursor-alias    { cursor: alias; }
+.b-cursor-no-drop  { cursor: no-drop; }
+.b-cursor-not-allowed { cursor: not-allowed; } /* Standard for disabled state */
+.b-cursor-grab     { cursor: grab; }
+.b-cursor-grabbing { cursor: grabbing; }
+
+/* 4. SIZING & SCROLLING */
+
+.b-cursor-all-scroll { cursor: all-scroll; }
+.b-cursor-col-resize { cursor: col-resize; }
+.b-cursor-row-resize { cursor: row-resize; }
+
+/* Compass Directions */
+.b-cursor-n-resize  { cursor: n-resize; }
+.b-cursor-e-resize  { cursor: e-resize; }
+.b-cursor-s-resize  { cursor: s-resize; }
+.b-cursor-w-resize  { cursor: w-resize; }
+.b-cursor-ne-resize { cursor: ne-resize; }
+.b-cursor-nw-resize { cursor: nw-resize; }
+.b-cursor-se-resize { cursor: se-resize; }
+.b-cursor-sw-resize { cursor: sw-resize; }
+.b-cursor-ew-resize { cursor: ew-resize; }
+.b-cursor-ns-resize { cursor: ns-resize; }
+.b-cursor-nesw-resize { cursor: nesw-resize; }
+.b-cursor-nwse-resize { cursor: nwse-resize; }
+
+/* 5. ZOOMING */
+
+.b-cursor-zoom-in  { cursor: zoom-in; }
+.b-cursor-zoom-out { cursor: zoom-out; }
+
+/* 6. CUSTOM PROPERTY HOOK
+   Allows using custom SVG cursors or arbitrary values.
+   Usage: <div class="b-cursor-custom" style="--b-cursor: url('custom.cur'), auto;">...
+*/
+.b-cursor-custom {
+    cursor: var(--b-cursor);
+}

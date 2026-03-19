@@ -1,0 +1,57 @@
+/* ============================================================
+   Bestiary UI — Touch Action Utilities
+
+   Controls how an element can be manipulated via touchscreens.
+   Essential for preventing accidental scrolling while using
+   custom sliders or ensuring fast click responses on mobile.
+   ============================================================ */
+
+/* 1. Global Controls */
+
+/* Browser decides the touch behavior (Default) */
+.b-touch-auto {
+    touch-action: auto;
+}
+
+/* Disables all touch interactions (pan and zoom).
+   Use for elements with custom JS-driven drag/zoom logic. */
+.b-touch-none {
+    touch-action: none;
+}
+
+/* Enables panning and pinch-zoom, but disables double-tap to zoom.
+   Removes the 300ms click delay in mobile browsers. (Modern Standard) */
+.b-touch-manipulation {
+    touch-action: manipulation;
+}
+
+/* 2. Panning (Scrolling) Controls */
+
+/* Allows horizontal scrolling only */
+.b-touch-pan-x {
+    touch-action: pan-x;
+}
+
+/* Allows vertical scrolling only */
+.b-touch-pan-y {
+    touch-action: pan-y;
+}
+
+/* Direction-specific panning */
+.b-touch-pan-left  { touch-action: pan-left; }
+.b-touch-pan-right { touch-action: pan-right; }
+.b-touch-pan-up    { touch-action: pan-up; }
+.b-touch-pan-down  { touch-action: pan-down; }
+
+/* 3. Zooming Controls */
+
+/* Allows multi-finger pinch-zooming but disables single-finger panning */
+.b-touch-pinch-zoom {
+    touch-action: pinch-zoom;
+}
+
+/* 4. Composite Controls
+   Common combinations for specific components. */
+
+.b-touch-pan-x-pinch-zoom { touch-action: pan-x pinch-zoom; }
+.b-touch-pan-y-pinch-zoom { touch-action: pan-y pinch-zoom; }

@@ -28,12 +28,4 @@
 /* ============================================================
    4. UTILITIES (b-utilities)
    ============================================================ */
-@import "./utilities/backgrounds.css" layer(b-utilities);
-@import "./utilities/borders.css"     layer(b-utilities);
-@import "./utilities/effects.css"     layer(b-utilities);
-@import "./utilities/flex.css"        layer(b-utilities);
-@import "./utilities/grid.css"        layer(b-utilities);
-@import "./utilities/layout.css"      layer(b-utilities);
-@import "./utilities/sizing.css"      layer(b-utilities);
-@import "./utilities/spacing.css"     layer(b-utilities);
-@import "./utilities/text.css"        layer(b-utilities);
+@import "./utilities/index.css" layer(b-utilities);

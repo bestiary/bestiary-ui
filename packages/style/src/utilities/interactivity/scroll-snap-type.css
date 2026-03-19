@@ -1,0 +1,52 @@
+/* ============================================================
+   Bestiary UI — Scroll Snap Type Utilities
+
+   Controls how strictly snap points are enforced in a scroll
+   container. This property is applied to the parent container.
+
+   Architecture:
+   - Axis classes (.b-snap-x, .b-snap-y) initialize the engine.
+   - Strictness classes (.b-snap-mandatory, .b-snap-proximity)
+     modify the behavior via a CSS variable.
+   ============================================================ */
+
+:where(*) {
+    /* Default strictness: proximity (snaps only when close to a point) */
+    --b-scroll-snap-strictness: proximity;
+}
+
+/* 1. Axis Controls (The Renderers) */
+
+/* Disables scroll snapping (Default) */
+.b-snap-none {
+    scroll-snap-type: none;
+}
+
+/* Enables horizontal snapping */
+.b-snap-x {
+    scroll-snap-type: x var(--b-scroll-snap-strictness);
+}
+
+/* Enables vertical snapping */
+.b-snap-y {
+    scroll-snap-type: y var(--b-scroll-snap-strictness);
+}
+
+/* Enables snapping on both axes simultaneously */
+.b-snap-both {
+    scroll-snap-type: both var(--b-scroll-snap-strictness);
+}
+
+/* 2. Strictness Modifiers */
+
+/* The scroll container MUST snap to a snap point when
+   the user finishes a scroll gesture. */
+.b-snap-mandatory {
+    --b-scroll-snap-strictness: mandatory;
+}
+
+/* The scroll container MAY snap to a point if the scroll
+   stops near it. (Browser Default if snapping is enabled) */
+.b-snap-proximity {
+    --b-scroll-snap-strictness: proximity;
+}

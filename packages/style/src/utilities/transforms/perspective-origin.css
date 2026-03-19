@@ -1,0 +1,62 @@
+/* ============================================================
+   Bestiary UI — Perspective Origin Utilities
+
+   Controls the vanishing point of a 3D scene. By default, the
+   origin is at the center. Adjusting this changes the angle
+   from which the user views 3D-transformed children.
+   ============================================================ */
+
+/* 1. Core Origins */
+
+/* The vanishing point is exactly in the center (Default) */
+.b-perspective-origin-center {
+    perspective-origin: center;
+}
+
+/* Vanishing point at the top edge */
+.b-perspective-origin-top {
+    perspective-origin: top;
+}
+
+/* Vanishing point at the bottom edge */
+.b-perspective-origin-bottom {
+    perspective-origin: bottom;
+}
+
+/* 2. Physical Side Origins */
+
+.b-perspective-origin-left {
+    perspective-origin: left;
+}
+
+.b-perspective-origin-right {
+    perspective-origin: right;
+}
+
+/* 3. Logical Side Origins (RTL Ready)
+   Adapts the vanishing point based on the text direction. */
+
+/* Aligns to the start of the line (Left in LTR, Right in RTL) */
+.b-perspective-origin-start {
+    perspective-origin: inline-start;
+}
+
+/* Aligns to the end of the line (Right in LTR, Left in RTL) */
+.b-perspective-origin-end {
+    perspective-origin: inline-end;
+}
+
+/* 4. Corner Origins */
+
+.b-perspective-origin-top-left     { perspective-origin: top left; }
+.b-perspective-origin-top-right    { perspective-origin: top right; }
+.b-perspective-origin-bottom-left  { perspective-origin: bottom left; }
+.b-perspective-origin-bottom-right { perspective-origin: bottom right; }
+
+/* 5. Custom Property Hook
+   Allows setting precise coordinates (pixels or percentages).
+   Usage: <div class="b-perspective-origin-custom" style="--b-perspective-origin: 25% 75%">...
+*/
+.b-perspective-origin-custom {
+    perspective-origin: var(--b-perspective-origin);
+}
