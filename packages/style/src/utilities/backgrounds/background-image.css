@@ -20,7 +20,6 @@
 
     /* Composition variable used by renderers */
     --b-gradient-stops: var(--b-from) var(--b-from-pos),
-                        var(--b-via) var(--b-via-pos),
                         var(--b-to) var(--b-to-pos);
 }
 

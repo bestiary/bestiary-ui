@@ -1,0 +1,27 @@
+/* ============================================================
+   Bestiary UI — Mask Composite Utilities
+
+   Controls how multiple mask images are combined.
+   This allows you to create complex shapes by adding,
+   subtracting, or intersecting multiple mask layers.
+   ============================================================ */
+
+/* 1. Add (Merges masks together) */
+.b-mask-add {
+    mask-composite: add;
+}
+
+/* 2. Subtract (Subtracts the second mask from the first) */
+.b-mask-subtract {
+    mask-composite: subtract;
+}
+
+/* 3. Intersect (Only shows areas where masks overlap) */
+.b-mask-intersect {
+    mask-composite: intersect;
+}
+
+/* 4. Exclude (Shows areas where masks do NOT overlap) */
+.b-mask-exclude {
+    mask-composite: exclude;
+}

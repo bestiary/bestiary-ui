@@ -1,27 +1,32 @@
 :where(html) {
-    /* RGB shadow color */
-    --b-ref-text-shadow-rgb: 0 0 0;
+    --b-ref-text-shadow-color: #000000;
 
     /* Opacity levels */
-    --b-ref-text-shadow-alpha-2xs: 0.15;
-    --b-ref-text-shadow-alpha-xs:  0.2;
-    --b-ref-text-shadow-alpha-sm:  0.075;
-    --b-ref-text-shadow-alpha-md:  0.1;
-    --b-ref-text-shadow-alpha-lg:  0.1;
+    --b-ref-text-shadow-alpha-2xs: 15%;
+    --b-ref-text-shadow-alpha-xs:  20%;
+    --b-ref-text-shadow-alpha-sm:  7.5%;
+    --b-ref-text-shadow-alpha-md:  10%;
+    --b-ref-text-shadow-alpha-lg:  10%;
 
-    /* Text shadow */
-    --b-ref-text-shadow-2xs: 0px 1px 0px rgb(var(--b-ref-text-shadow-rgb) / var(--b-ref-text-shadow-alpha-2xs));
-    --b-ref-text-shadow-xs:  0px 1px 1px rgb(var(--b-ref-text-shadow-rgb) / var(--b-ref-text-shadow-alpha-xs));
+    /* Shadow Engine (using color-mix) */
+    --b-ref-text-shadow-none: none;
+
+    --b-ref-text-shadow-2xs: 0px 1px 0px color-mix(in srgb, var(--b-ref-text-shadow-color), transparent calc(100% - var(--b-ref-text-shadow-alpha-2xs)));
+
+    --b-ref-text-shadow-xs: 0px 1px 1px color-mix(in srgb, var(--b-ref-text-shadow-color), transparent calc(100% - var(--b-ref-text-shadow-alpha-xs)));
+
     --b-ref-text-shadow-sm:
-            0px 1px 0px rgb(var(--b-ref-text-shadow-rgb) / var(--b-ref-text-shadow-alpha-sm)),
-            0px 1px 1px rgb(var(--b-ref-text-shadow-rgb) / var(--b-ref-text-shadow-alpha-sm)),
-            0px 2px 2px rgb(var(--b-ref-text-shadow-rgb) / var(--b-ref-text-shadow-alpha-sm));
+            0px 1px 0px color-mix(in srgb, var(--b-ref-text-shadow-color), transparent calc(100% - var(--b-ref-text-shadow-alpha-sm))),
+            0px 1px 1px color-mix(in srgb, var(--b-ref-shadow-color), transparent calc(100% - var(--b-ref-shadow-alpha-sm))),
+            0px 2px 2px color-mix(in srgb, var(--b-ref-shadow-color), transparent calc(100% - var(--b-ref-shadow-alpha-sm)));
+
     --b-ref-text-shadow-md:
-            0px 1px 1px rgb(var(--b-ref-text-shadow-rgb) / var(--b-ref-text-shadow-alpha-md)),
-            0px 1px 2px rgb(var(--b-ref-text-shadow-rgb) / var(--b-ref-text-shadow-alpha-md)),
-            0px 2px 4px rgb(var(--b-ref-text-shadow-rgb) / var(--b-ref-text-shadow-alpha-md));
+            0px 1px 1px color-mix(in srgb, var(--b-ref-shadow-color), transparent calc(100% - var(--b-ref-text-shadow-alpha-md))),
+            0px 1px 2px color-mix(in srgb, var(--b-ref-shadow-color), transparent calc(100% - var(--b-ref-shadow-alpha-md))),
+            0px 2px 4px color-mix(in srgb, var(--b-ref-shadow-color), transparent calc(100% - var(--b-ref-shadow-alpha-md)));
+
     --b-ref-text-shadow-lg:
-            0px 1px 2px rgb(var(--b-ref-text-shadow-rgb) / var(--b-ref-text-shadow-alpha-lg)),
-            0px 3px 2px rgb(var(--b-ref-text-shadow-rgb) / var(--b-ref-text-shadow-alpha-lg)),
-            0px 4px 8px rgb(var(--b-ref-text-shadow-rgb) / var(--b-ref-text-shadow-alpha-lg));
+            0px 1px 2px color-mix(in srgb, var(--b-ref-shadow-color), transparent calc(100% - var(--b-ref-shadow-alpha-lg))),
+            0px 3px 2px color-mix(in srgb, var(--b-ref-shadow-color), transparent calc(100% - var(--b-ref-shadow-alpha-lg))),
+            0px 4px 8px color-mix(in srgb, var(--b-ref-shadow-color), transparent calc(100% - var(--b-ref-shadow-alpha-lg)));
 }

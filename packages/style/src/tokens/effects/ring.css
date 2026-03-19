@@ -1,0 +1,5 @@
+:where(html) {
+    --b-ref-ring-color: #000000;
+    --b-ref-ring-width: 1px;
+    --b-ref-ring: 0 0 0 var(--b-ref-ring-width) var(--b-ref-ring-color);
+}

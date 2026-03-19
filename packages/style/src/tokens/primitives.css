@@ -27,6 +27,9 @@
 @import "./effects/drop-shadow.css";
 @import "./effects/opacity.css";
 @import "./effects/shadow.css";
+@import "./effects/inset-shadow.css";
+@import "./effects/ring.css";
+@import "./effects/inset-ring.css";
 
 /* 5. Typography */
 @import "./typography/font-family.css";
