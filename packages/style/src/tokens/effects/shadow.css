@@ -1,48 +1,42 @@
-/* ============================================================
-   Bestiary UI — Shadow Primitives (HEX-based)
-
-   Architecture: Uses color-mix() to apply alpha transparency
-   to any HEX color without needing RGB channels.
-   ============================================================ */
+@property --b-shadow-color-channels {
+    syntax: "<number>+";
+    inherits: true;
+    initial-value: 0% 0 0;
+}
 
 :where(html) {
-    --b-ref-shadow-color: #000000;
+    --b-shadow-alpha-2xs: 5%;
+    --b-shadow-alpha-xs:  5%;
+    --b-shadow-alpha-sm:  10%;
+    --b-shadow-alpha-md:  10%;
+    --b-shadow-alpha-lg:  10%;
+    --b-shadow-alpha-xl:  10%;
+    --b-shadow-alpha-2xl: 25%;
 
-    /* Opacity levels */
-    --b-ref-shadow-alpha-2xs: 5%;
-    --b-ref-shadow-alpha-xs:  5%;
-    --b-ref-shadow-alpha-sm:  10%;
-    --b-ref-shadow-alpha-md:  10%;
-    --b-ref-shadow-alpha-lg:  10%;
-    --b-ref-shadow-alpha-xl:  10%;
-    --b-ref-shadow-alpha-2xl: 25%;
+    --b-shadow-none: 0 0 #0000;
 
-    /* Shadow Engine */
+    --b-shadow-2xs:
+            0 1px 0px 0 oklch(var(--b-shadow-color-channels) / var(--b-shadow-alpha-2xs));
 
-    --b-ref-shadow-none: 0 0 #0000;
+    --b-shadow-xs:
+            0 1px 2px 0 oklch(var(--b-shadow-color-channels) / var(--b-shadow-alpha-xs));
 
-    --b-ref-shadow-2xs:
-            0 1px 0px 0 color-mix(in srgb, var(--b-ref-shadow-color), transparent calc(100% - var(--b-ref-shadow-alpha-2xs)));
+    --b-shadow-sm:
+            0 1px 3px 0 oklch(var(--b-shadow-color-channels) / var(--b-shadow-alpha-sm)),
+            0 1px 2px -1px oklch(var(--b-shadow-color-channels) / var(--b-shadow-alpha-sm));
 
-    --b-ref-shadow-xs:
-            0 1px 2px 0 color-mix(in srgb, var(--b-ref-shadow-color), transparent calc(100% - var(--b-ref-shadow-alpha-xs)));
+    --b-shadow-md:
+            0 4px 6px -1px oklch(var(--b-shadow-color-channels) / var(--b-shadow-alpha-md)),
+            0 2px 4px -2px oklch(var(--b-shadow-color-channels) / var(--b-shadow-alpha-md));
 
-    --b-ref-shadow-sm:
-            0 1px 3px 0 color-mix(in srgb, var(--b-ref-shadow-color), transparent calc(100% - var(--b-ref-shadow-alpha-sm))),
-            0 1px 2px -1px color-mix(in srgb, var(--b-ref-shadow-color), transparent calc(100% - var(--b-ref-shadow-alpha-sm)));
+    --b-shadow-lg:
+            0 10px 15px -3px oklch(var(--b-shadow-color-channels) / var(--b-shadow-alpha-lg)),
+            0 4px 6px -4px oklch(var(--b-shadow-color-channels) / var(--b-shadow-alpha-lg));
 
-    --b-ref-shadow-md:
-            0 4px 6px -1px color-mix(in srgb, var(--b-ref-shadow-color), transparent calc(100% - var(--b-ref-shadow-alpha-md))),
-            0 2px 4px -2px color-mix(in srgb, var(--b-ref-shadow-color), transparent calc(100% - var(--b-ref-shadow-alpha-md)));
+    --b-shadow-xl:
+            0 20px 25px -5px oklch(var(--b-shadow-color-channels) / var(--b-shadow-alpha-xl)),
+            0 8px 10px -6px oklch(var(--b-shadow-color-channels) / var(--b-shadow-alpha-xl));
 
-    --b-ref-shadow-lg:
-            0 10px 15px -3px color-mix(in srgb, var(--b-ref-shadow-color), transparent calc(100% - var(--b-ref-shadow-alpha-lg))),
-            0 4px 6px -4px color-mix(in srgb, var(--b-ref-shadow-color), transparent calc(100% - var(--b-ref-shadow-alpha-lg)));
-
-    --b-ref-shadow-xl:
-            0 20px 25px -5px color-mix(in srgb, var(--b-ref-shadow-color), transparent calc(100% - var(--b-ref-shadow-alpha-xl))),
-            0 8px 10px -6px color-mix(in srgb, var(--b-ref-shadow-color), transparent calc(100% - var(--b-ref-shadow-alpha-xl)));
-
-    --b-ref-shadow-2xl:
-            0 25px 50px -12px color-mix(in srgb, var(--b-ref-shadow-color), transparent calc(100% - var(--b-ref-shadow-alpha-2xl)));
+    --b-shadow-2xl:
+            0 25px 50px -12px oklch(var(--b-shadow-color-channels) / var(--b-shadow-alpha-2xl));
 }

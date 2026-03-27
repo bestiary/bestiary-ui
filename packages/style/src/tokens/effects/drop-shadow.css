@@ -1,34 +1,32 @@
+@property --b-drop-shadow-color-channels {
+    syntax: "<number>+";
+    inherits: true;
+    initial-value: 0% 0 0;
+}
+
 :where(html) {
-    /* Shadow color */
-    --b-ref-drop-shadow-color: #000000;
 
     /* Opacity levels */
-    --b-ref-drop-shadow-alpha-xs:  5%;
-    --b-ref-drop-shadow-alpha-sm:  15%;
-    --b-ref-drop-shadow-alpha-md:  12%;
-    --b-ref-drop-shadow-alpha-lg:  15%;
-    --b-ref-drop-shadow-alpha-xl:  10%;
-    --b-ref-drop-shadow-alpha-2xl: 15%;
+    --b-drop-shadow-alpha-xs:  5%;
+    --b-drop-shadow-alpha-sm:  15%;
+    --b-drop-shadow-alpha-md:  12%;
+    --b-drop-shadow-alpha-lg:  15%;
+    --b-drop-shadow-alpha-xl:  10%;
+    --b-drop-shadow-alpha-2xl: 15%;
 
     /* Drop shadow */
-    --b-ref-drop-shadow-none: 0 0 #0000;
+    --b-drop-shadow-none: 0 0 #0000;
 
-    --b-ref-drop-shadow-xs:
-            0 1px 1px color-mix(in srgb, var(--b-ref-drop-shadow-color), transparent calc(100% - var(--b-ref-drop-shadow-alpha-xs)));
+    --b-drop-shadow-xs: 0 1px 1px oklch(var(--b-drop-shadow-color-channels) / var(--b-drop-shadow-alpha-xs));
 
-    --b-ref-drop-shadow-sm:
-            0 1px 2px color-mix(in srgb, var(--b-ref-drop-shadow-color), transparent calc(100% - var(--b-ref-drop-shadow-alpha-sm)));
+    --b-drop-shadow-sm: 0 1px 2px oklch(var(--b-drop-shadow-color-channels) / var(--b-drop-shadow-alpha-sm));
 
-    --b-ref-drop-shadow-md:
-            0 4px 4px color-mix(in srgb, var(--b-ref-drop-shadow-color), transparent calc(100% - var(--b-ref-drop-shadow-alpha-md)));
+    --b-drop-shadow-md: 0 4px 4px oklch(var(--b-drop-shadow-color-channels) / var(--b-drop-shadow-alpha-md));
 
-    --b-ref-drop-shadow-lg:
-            0 4px 4px color-mix(in srgb, var(--b-ref-drop-shadow-color), transparent calc(100% - var(--b-ref-drop-shadow-alpha-lg)));
+    --b-drop-shadow-lg: 0 4px 4px oklch(var(--b-drop-shadow-color-channels) / var(--b-drop-shadow-alpha-lg));
 
-    --b-ref-drop-shadow-xl:
-            0 9px 7px color-mix(in srgb, var(--b-ref-drop-shadow-color), transparent calc(100% - var(--b-ref-drop-shadow-alpha-xl)));
+    --b-drop-shadow-xl: 0 9px 7px oklch(var(--b-drop-shadow-color-channels) / var(--b-drop-shadow-alpha-xl));
 
-    --b-ref-drop-shadow-2xl:
-            0 25px 25px color-mix(in srgb, var(--b-ref-drop-shadow-color), transparent calc(100% - var(--b-ref-drop-shadow-alpha-2xl)));
+    --b-drop-shadow-2xl: 0 25px 25px oklch(var(--b-drop-shadow-color-channels) / var(--b-drop-shadow-alpha-2xl));
 
 }

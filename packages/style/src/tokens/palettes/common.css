@@ -1,7 +1,14 @@
 :where(html) {
-    --b-ref-white: #ffffff;
-    --b-ref-black: #000000;
-    --b-ref-transparent: transparent;
-    --b-ref-current: currentColor;
-    --b-ref-inherit: inherit;
+    /* White */
+    --b-white-channels: 100% 0 0;
+    --b-white:          oklch(var(--b-white-channels));
+
+    /* Black */
+    --b-black-channels: 0% 0 0;
+    --b-black:          oklch(var(--b-black-channels));
+
+    /* System keywords */
+    --b-transparent:    transparent;
+    --b-current:        currentColor;
+    --b-inherit:        inherit;
 }

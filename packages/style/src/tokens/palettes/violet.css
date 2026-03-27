@@ -1,13 +1,25 @@
 :where(html) {
-    --b-ref-violet-50:  #f5f3ff;
-    --b-ref-violet-100: #ede9fe;
-    --b-ref-violet-200: #ddd6fe;
-    --b-ref-violet-300: #c4b5fd;
-    --b-ref-violet-400: #a78bfa;
-    --b-ref-violet-500: #8b5cf6;
-    --b-ref-violet-600: #7c3aed;
-    --b-ref-violet-700: #6d28d9;
-    --b-ref-violet-800: #5b21b6;
-    --b-ref-violet-900: #4c1d95;
-    --b-ref-violet-950: #2e1065;
+    --b-violet-50-channels:  96.9% 0.016 293.756;
+    --b-violet-100-channels: 94.3% 0.029 294.588;
+    --b-violet-200-channels: 89.4% 0.057 293.283;
+    --b-violet-300-channels: 81.1% 0.111 293.571;
+    --b-violet-400-channels: 70.2% 0.183 293.541;
+    --b-violet-500-channels: 60.6% 0.25 292.717;
+    --b-violet-600-channels: 54.1% 0.281 293.009;
+    --b-violet-700-channels: 49.1% 0.27 292.581;
+    --b-violet-800-channels: 43.2% 0.232 292.759;
+    --b-violet-900-channels: 38% 0.189 293.745;
+    --b-violet-950-channels: 28.3% 0.141 291.089;
+
+    --b-violet-50:  oklch(var(--b-violet-50-channels));
+    --b-violet-100: oklch(var(--b-violet-100-channels));
+    --b-violet-200: oklch(var(--b-violet-200-channels));
+    --b-violet-300: oklch(var(--b-violet-300-channels));
+    --b-violet-400: oklch(var(--b-violet-400-channels));
+    --b-violet-500: oklch(var(--b-violet-500-channels));
+    --b-violet-600: oklch(var(--b-violet-600-channels));
+    --b-violet-700: oklch(var(--b-violet-700-channels));
+    --b-violet-800: oklch(var(--b-violet-800-channels));
+    --b-violet-900: oklch(var(--b-violet-900-channels));
+    --b-violet-950: oklch(var(--b-violet-950-channels));
 }

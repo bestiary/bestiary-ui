@@ -1,9 +1,9 @@
 :where(html) {
-    --b-ref-breakpoint-2xs: 20rem; /* 320px */
-    --b-ref-breakpoint-xs:  30rem; /* 480px */
-    --b-ref-breakpoint-sm:  40rem; /* 640px */
-    --b-ref-breakpoint-md:  48rem; /* 768px */
-    --b-ref-breakpoint-lg:  64rem; /* 1024px */
-    --b-ref-breakpoint-xl:  80rem; /* 1280px */
-    --b-ref-breakpoint-2xl: 96rem; /* 1536px */
+    --b-breakpoint-2xs: 20rem; /* 320px */
+    --b-breakpoint-xs:  30rem; /* 480px */
+    --b-breakpoint-sm:  40rem; /* 640px */
+    --b-breakpoint-md:  48rem; /* 768px */
+    --b-breakpoint-lg:  64rem; /* 1024px */
+    --b-breakpoint-xl:  80rem; /* 1280px */
+    --b-breakpoint-2xl: 96rem; /* 1536px */
 }

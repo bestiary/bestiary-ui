@@ -1,7 +1,15 @@
+@property --b-control-size {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 2.5rem;
+}
+
 :where(html) {
-    --b-ref-control-size-xs: 1.5rem;   /* 24px */
-    --b-ref-control-size-sm: 2rem;     /* 32px */
-    --b-ref-control-size-md: 2.5rem;   /* 40px */
-    --b-ref-control-size-lg: 3rem;     /* 48px */
-    --b-ref-control-size-xl: 4rem;     /* 64px */
+    --b-control-size-xs: 1rem;   /* 20px */
+    --b-control-size-sm: 1.5rem; /* 24px */
+    --b-control-size-md: 2rem;   /* 32px */
+    --b-control-size-lg: 2.5rem; /* 40px */
+    --b-control-size-xl: 3rem;   /* 64px */
+
+    --b-control-size: var(--b-control-size-md);
 }

@@ -1,13 +1,25 @@
 :where(html) {
-    --b-ref-zinc-50:  #fafafa;
-    --b-ref-zinc-100: #f4f4f5;
-    --b-ref-zinc-200: #e4e4e7;
-    --b-ref-zinc-300: #d4d4d8;
-    --b-ref-zinc-400: #a1a1aa;
-    --b-ref-zinc-500: #71717a;
-    --b-ref-zinc-600: #52525b;
-    --b-ref-zinc-700: #3f3f46;
-    --b-ref-zinc-800: #27272a;
-    --b-ref-zinc-900: #18181b;
-    --b-ref-zinc-950: #09090b;
+    --b-zinc-50-channels:  98.5% 0 0;
+    --b-zinc-100-channels: 96.7% 0.001 286.375;
+    --b-zinc-200-channels: 92% 0.004 286.32;
+    --b-zinc-300-channels: 87.1% 0.006 286.286;
+    --b-zinc-400-channels: 70.5% 0.015 286.067;
+    --b-zinc-500-channels: 55.2% 0.016 285.938;
+    --b-zinc-600-channels: 44.2% 0.017 285.786;
+    --b-zinc-700-channels: 37% 0.013 285.805;
+    --b-zinc-800-channels: 27.4% 0.006 286.033;
+    --b-zinc-900-channels: 21% 0.006 285.885;
+    --b-zinc-950-channels: 14.1% 0.005 285.823;
+
+    --b-zinc-50:  oklch(var(--b-zinc-50-channels));
+    --b-zinc-100: oklch(var(--b-zinc-100-channels));
+    --b-zinc-200: oklch(var(--b-zinc-200-channels));
+    --b-zinc-300: oklch(var(--b-zinc-300-channels));
+    --b-zinc-400: oklch(var(--b-zinc-400-channels));
+    --b-zinc-500: oklch(var(--b-zinc-500-channels));
+    --b-zinc-600: oklch(var(--b-zinc-600-channels));
+    --b-zinc-700: oklch(var(--b-zinc-700-channels));
+    --b-zinc-800: oklch(var(--b-zinc-800-channels));
+    --b-zinc-900: oklch(var(--b-zinc-900-channels));
+    --b-zinc-950: oklch(var(--b-zinc-950-channels));
 }

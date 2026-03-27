@@ -1,11 +1,18 @@
-:where(html) {
-    --b-ref-inset-shadow-color: #000000;
-    --b-ref-inset-shadow-alpha-2xs: 5%;
-    --b-ref-inset-shadow-alpha-xs:  5%;
-    --b-ref-inset-shadow-alpha-sm:  5%;
+@property --b-inset-shadow-color-channels {
+    syntax: "<number>+";
+    inherits: true;
+    initial-value: 0% 0 0;
+}
 
-    --b-ref-inset-shadow-none: inset 0 0 #0000;
-    --b-ref-inset-shadow-2xs: inset 0 1px 0px 0 color-mix(in srgb, var(--b-ref-inset-shadow-color), transparent calc(100% - var(--b-ref-inset-shadow-alpha-2xs)));
-    --b-ref-inset-shadow-xs:  inset 0 1px 1px 0 color-mix(in srgb, var(--b-ref-inset-shadow-color), transparent calc(100% - var(--b-ref-inset-shadow-alpha-xs)));
-    --b-ref-inset-shadow-sm:  inset 0 2px 4px 0 color-mix(in srgb, var(--b-ref-inset-shadow-color), transparent calc(100% - var(--b-ref-inset-shadow-alpha-sm)));
+@property --b-inset-shadow-alpha {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0.05;
+}
+
+:where(html) {
+    --b-inset-shadow-none: inset 0 0 #0000;
+    --b-inset-shadow-2xs: inset 0 1px 0px 0 oklch(var(--b-inset-shadow-color-channels) / var(--b-inset-shadow-alpha));
+    --b-inset-shadow-xs:  inset 0 1px 1px 0 oklch(var(--b-inset-shadow-color-channels) / var(--b-inset-shadow-alpha));
+    --b-inset-shadow-sm:  inset 0 2px 4px 0 oklch(var(--b-inset-shadow-color-channels) / var(--b-inset-shadow-alpha));
 }

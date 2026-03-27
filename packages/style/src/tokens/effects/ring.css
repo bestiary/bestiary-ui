@@ -1,5 +1,35 @@
+@property --b-ring-width {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 2px;
+}
+
+@property --b-ring-offset-width {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 0px;
+}
+
+@property --b-ring-offset-color {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: transparent;
+}
+
+@property --b-ring-color-channels {
+    syntax: "<number>+";
+    inherits: true;
+    initial-value: 0% 0 0;
+}
+
+@property --b-ring-alpha {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 1;
+}
+
 :where(html) {
-    --b-ref-ring-color: #000000;
-    --b-ref-ring-width: 1px;
-    --b-ref-ring: 0 0 0 var(--b-ref-ring-width) var(--b-ref-ring-color);
+    --b-ring:
+            0 0 0 var(--b-ring-offset-width) var(--b-ring-offset-color, var(--b-surface-section, var(--b-surface-ground))),
+            0 0 0 calc(var(--b-ring-offset-width) + var(--b-ring-width)) oklch(var(--b-ring-color-channels) / var(--b-ring-alpha));
 }

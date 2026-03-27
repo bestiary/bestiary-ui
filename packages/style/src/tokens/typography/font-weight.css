@@ -1,11 +1,11 @@
 :where(html) {
-    --b-ref-font-thin:       100;
-    --b-ref-font-extralight: 200;
-    --b-ref-font-light:      300;
-    --b-ref-font-normal:     400;
-    --b-ref-font-medium:     500;
-    --b-ref-font-semibold:   600;
-    --b-ref-font-bold:       700;
-    --b-ref-font-extrabold:  800;
-    --b-ref-font-black:      900;
+    --b-font-weight-thin:       100;
+    --b-font-weight-extralight: 200;
+    --b-font-weight-light:      300;
+    --b-font-weight-normal:     400;
+    --b-font-weight-medium:     500;
+    --b-font-weight-semibold:   600;
+    --b-font-weight-bold:       700;
+    --b-font-weight-extrabold:  800;
+    --b-font-weight-black:      900;
 }

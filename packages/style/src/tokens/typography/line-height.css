@@ -1,16 +1,28 @@
+@property --b-line-height {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 1;
+}
+
 :where(html) {
-    --b-ref-text-2xs--line-height:  calc(1 / 0.625);
-    --b-ref-text-xs--line-height:   calc(1 / 0.75);
-    --b-ref-text-sm--line-height:   calc(1.25 / 0.875);
-    --b-ref-text-base--line-height: calc(1.5 / 1);
-    --b-ref-text-lg--line-height:   calc(1.75 / 1.125);
-    --b-ref-text-xl--line-height:   calc(1.75 / 1.25);
-    --b-ref-text-2xl--line-height:  calc(2 / 1.5);
-    --b-ref-text-3xl--line-height:  calc(2.25 / 1.875);
-    --b-ref-text-4xl--line-height:  calc(2.5 / 2.25);
-    --b-ref-text-5xl--line-height:  1;
-    --b-ref-text-6xl--line-height:  1;
-    --b-ref-text-7xl--line-height:  1;
-    --b-ref-text-8xl--line-height:  1;
-    --b-ref-text-9xl--line-height:  1;
+    --b-text-2xs--line-height:  calc(1 / 0.625);
+    --b-text-xs--line-height:   calc(1 / 0.75);
+    --b-text-sm--line-height:   calc(1.25 / 0.875);
+    --b-text-md--line-height: calc(1.5 / 1);
+    --b-text-lg--line-height:   calc(1.75 / 1.125);
+    --b-text-xl--line-height:   calc(1.75 / 1.25);
+    --b-text-2xl--line-height:  calc(2 / 1.5);
+    --b-text-3xl--line-height:  calc(2.25 / 1.875);
+    --b-text-4xl--line-height:  calc(2.5 / 2.25);
+    --b-text-5xl--line-height:  1;
+    --b-text-6xl--line-height:  1;
+    --b-text-7xl--line-height:  1;
+    --b-text-8xl--line-height:  1;
+    --b-text-9xl--line-height:  1;
+
+    --b-line-height-none:      1;
+    --b-line-height-tight:     1.25;
+    --b-line-height-normal:    1.5;
+    --b-line-height-relaxed:   1.625;
+    --b-line-height-loose:     2;
 }

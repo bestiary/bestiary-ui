@@ -1,13 +1,25 @@
 :where(html) {
-    --b-ref-cyan-50:  #ecfeff;
-    --b-ref-cyan-100: #cffafe;
-    --b-ref-cyan-200: #a5f3fc;
-    --b-ref-cyan-300: #67e8f9;
-    --b-ref-cyan-400: #22d3ee;
-    --b-ref-cyan-500: #06b6d4;
-    --b-ref-cyan-600: #0891b2;
-    --b-ref-cyan-700: #0e7490;
-    --b-ref-cyan-800: #155e75;
-    --b-ref-cyan-900: #164e63;
-    --b-ref-cyan-950: #083344;
+    --b-cyan-50-channels:  98.4% 0.019 200.873;
+    --b-cyan-100-channels: 95.6% 0.045 203.388;
+    --b-cyan-200-channels: 91.7% 0.08 205.041;
+    --b-cyan-300-channels: 86.5% 0.127 207.078;
+    --b-cyan-400-channels: 78.9% 0.154 211.53;
+    --b-cyan-500-channels: 71.5% 0.143 215.221;
+    --b-cyan-600-channels: 60.9% 0.126 221.723;
+    --b-cyan-700-channels: 52% 0.105 223.128;
+    --b-cyan-800-channels: 45% 0.085 224.283;
+    --b-cyan-900-channels: 39.8% 0.07 227.392;
+    --b-cyan-950-channels: 30.2% 0.056 229.695;
+
+    --b-cyan-50:  oklch(var(--b-cyan-50-channels));
+    --b-cyan-100: oklch(var(--b-cyan-100-channels));
+    --b-cyan-200: oklch(var(--b-cyan-200-channels));
+    --b-cyan-300: oklch(var(--b-cyan-300-channels));
+    --b-cyan-400: oklch(var(--b-cyan-400-channels));
+    --b-cyan-500: oklch(var(--b-cyan-500-channels));
+    --b-cyan-600: oklch(var(--b-cyan-600-channels));
+    --b-cyan-700: oklch(var(--b-cyan-700-channels));
+    --b-cyan-800: oklch(var(--b-cyan-800-channels));
+    --b-cyan-900: oklch(var(--b-cyan-900-channels));
+    --b-cyan-950: oklch(var(--b-cyan-950-channels));
 }

@@ -1,8 +1,8 @@
 :where(html) {
-    --b-ref-radius-drawn-1: 255px 15px 225px 15px / 15px 225px 15px 255px;
-    --b-ref-radius-drawn-2: 125px 10px 20px 185px / 25px 205px 205px 25px;
-    --b-ref-radius-drawn-3: 15px 255px 15px 225px / 225px 15px 255px 15px;
-    --b-ref-radius-drawn-4: 15px 25px 155px 25px / 225px 150px 25px 115px;
-    --b-ref-radius-drawn-5: 250px 25px 15px 20px / 15px 80px 105px 115px;
-    --b-ref-radius-drawn-6: 28px 100px 20px 15px / 150px 30px 205px 225px;
+    --b-radius-drawn-1: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    --b-radius-drawn-2: 125px 10px 20px 185px / 25px 205px 205px 25px;
+    --b-radius-drawn-3: 15px 255px 15px 225px / 225px 15px 255px 15px;
+    --b-radius-drawn-4: 15px 25px 155px 25px / 225px 150px 25px 115px;
+    --b-radius-drawn-5: 250px 25px 15px 20px / 15px 80px 105px 115px;
+    --b-radius-drawn-6: 28px 100px 20px 15px / 150px 30px 205px 225px;
 }

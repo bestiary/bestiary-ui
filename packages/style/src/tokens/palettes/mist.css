@@ -1,0 +1,25 @@
+:where(html) {
+    --b-mist-50-channels:  98.7% 0.002 197.1;
+    --b-mist-100-channels: 96.3% 0.002 197.1;
+    --b-mist-200-channels: 92.5% 0.005 214.3;
+    --b-mist-300-channels: 87.2% 0.007 219.6;
+    --b-mist-400-channels: 72.3% 0.014 214.4;
+    --b-mist-500-channels: 56% 0.021 213.5;
+    --b-mist-600-channels: 45% 0.017 213.2;
+    --b-mist-700-channels: 37.8% 0.015 216;
+    --b-mist-800-channels: 27.5% 0.011 216.9;
+    --b-mist-900-channels: 21.8% 0.008 223.9;
+    --b-mist-950-channels: 14.8% 0.004 228.8;
+
+    --b-mist-50:  oklch(var(--b-mist-50-channels));
+    --b-mist-100: oklch(var(--b-mist-100-channels));
+    --b-mist-200: oklch(var(--b-mist-200-channels));
+    --b-mist-300: oklch(var(--b-mist-300-channels));
+    --b-mist-400: oklch(var(--b-mist-400-channels));
+    --b-mist-500: oklch(var(--b-mist-500-channels));
+    --b-mist-600: oklch(var(--b-mist-600-channels));
+    --b-mist-700: oklch(var(--b-mist-700-channels));
+    --b-mist-800: oklch(var(--b-mist-800-channels));
+    --b-mist-900: oklch(var(--b-mist-900-channels));
+    --b-mist-950: oklch(var(--b-mist-950-channels));
+}
