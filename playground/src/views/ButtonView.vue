@@ -20,8 +20,6 @@ const load = () => {
             <h2 class="b-text-h3 b-mb-4">Basic</h2>
             <div class="b-flex b-gap-2 b-flex-wrap">
                 <BButton label="Submit" />
-                <button>CSS Button</button>
-                <input type="text" placeholder="Введіть текст...">
             </div>
         </div>
 

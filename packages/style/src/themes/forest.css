@@ -14,33 +14,97 @@
 
     /* Typography Roles (Mapping) */
     /* H1-H6 Sizes, Weights, Leading */
-    --b-h1-size: var(--b-text-5xl);
-    --b-h1-weight: var(--b-font-weight-bold);
-    --b-h1-leading: var(--b-text-5xl--line-height);
+    --b-h1-size:    var(--b-text-4xl);
+    --b-h1-weight:  var(--b-font-weight-bold);
+    --b-h1-leading: var(--b-text-4xl--line-height);
 
-    --b-h2-size: var(--b-text-4xl);
-    --b-h2-weight: var(--b-font-weight-bold);
-    --b-h2-leading: var(--b-text-4xl--line-height);
+    --b-h2-size:    var(--b-text-3xl);
+    --b-h2-weight:  var(--b-font-weight-bold);
+    --b-h2-leading: var(--b-text-3xl--line-height);
 
-    --b-h3-size: var(--b-text-3xl);
-    --b-h3-weight: var(--b-font-weight-semibold);
-    --b-h3-leading: var(--b-text-3xl--line-height);
+    --b-h3-size:    var(--b-text-2xl);
+    --b-h3-weight:  var(--b-font-weight-bold);
+    --b-h3-leading: var(--b-text-2xl--line-height);
 
-    --b-h4-size: var(--b-text-2xl);
-    --b-h4-weight: var(--b-font-weight-semibold);
-    --b-h4-leading: var(--b-text-2xl--line-height);
+    --b-h4-size:    var(--b-text-xl);
+    --b-h4-weight:  var(--b-font-weight-bold);
+    --b-h4-leading: var(--b-text-xl--line-height);
 
-    --b-h5-size: var(--b-text-xl);
-    --b-h5-weight: var(--b-font-weight-medium);
-    --b-h5-leading: var(--b-text-xl--line-height);
+    --b-h5-size:    var(--b-text-lg);
+    --b-h5-weight:  var(--b-font-weight-bold);
+    --b-h5-leading: var(--b-text-lg--line-height);
 
-    --b-h6-size: var(--b-text-lg);
-    --b-h6-weight: var(--b-font-weight-medium);
-    --b-h6-leading: var(--b-text-lg--line-height);
+    --b-h6-size:    var(--b-text-md);
+    --b-h6-weight:  var(--b-font-weight-bold);
+    --b-h6-leading: var(--b-text-md--line-height);
 
-    --b-body-size: var(--b-font-size-md);
-    --b-body-weight: var(--b-font-weight-regular);
+    --b-body-size:    var(--b-text-md);
+    --b-body-weight:  var(--b-font-weight-normal);
     --b-body-leading: var(--b-text-md--line-height);
 
+    --b-label-size:    var(--b-text-sm);
+    --b-label-weight:  var(--b-font-weight-medium);
+    --b-label-leading: var(--b-text-sm--line-height);
 
+    --b-caption-size:    var(--b-text-sm);
+    --b-caption-weight:  var(--b-font-weight-normal);
+    --b-caption-leading: var(--b-text-sm--line-height);
+
+    --b-code-size:    var(--b-text-sm);
+    --b-code-weight:  var(--b-font-weight-normal);
+    --b-code-leading: var(--b-text-sm--line-height);
+
+    --b-text-small-size:    var(--b-text-xs);
+    --b-text-small-weight:  var(--b-font-weight-normal);
+    --b-text-small-leading: var(--b-text-xs--line-height);
+
+    --b-paragraph-spacing: 1.5rem;
+
+    /* 1.3 Control size */
+    --b-control-size-xs: 1rem;
+    --b-control-size-sm: 1.5rem;
+    --b-control-size-md: 2rem;
+    --b-control-size-lg: 2.5rem;
+    --b-control-size-xl: 3rem;
+
+    /* 1.4 Icon size */
+    --b-icon-size-xs: 0.5rem;
+    --b-icon-size-sm: 0.75rem;
+    --b-icon-size-md: 1rem;
+    --b-icon-size-lg: 1.25rem;
+    --b-icon-size-xl: 1.5rem;
+
+    /* 1.5 Stacking Context (Z-Index) */
+    --b-z-hide:     var(--b-z-negative);
+    --b-z-base:     var(--b-z-0);
+    --b-z-nav:      var(--b-z-20);
+    --b-z-dropdown: var(--b-z-30);
+    --b-z-sticky:   var(--b-z-10);
+    --b-z-overlay:  var(--b-z-100);
+    --b-z-modal:    var(--b-z-100) + 100;
+    --b-z-popover:  var(--b-z-100) + 200;
+    --b-z-toast:    var(--b-z-100) + 300;
+    --b-z-tooltip:  var(--b-z-100) + 400;
+
+    /* 1.6 Strokes */
+    --b-stroke-default: var(--b-stroke-sm);
+    --b-stroke-strong:  var(--b-stroke-md);
+    --b-stroke-focus:   var(--b-stroke-md);
+    --b-focus-ring-offset: 2px;
+
+    /* 1.7 Radius */
+    --b-radius-interactive: var(--b-radius-lg);
+    --b-radius-container:   var(--b-radius-xl);
+    --b-radius-floating:    var(--b-radius-2xl);
+
+    /* 1.8 Duration */
+    --b-duration-fast:   var(--b-time-100);
+    --b-duration-normal: var(--b-time-200);
+    --b-duration-slow:   var(--b-time-300);
+
+    /* 1.9 Motion */
+    --b-ease-base:   var(--b-ease-in-out-3);
+    --b-ease-in:     var(--b-ease-in-1);
+    --b-ease-out:    var(--b-ease-out-1);
+    --b-ease-accent: var(--b-ease-spring-3);
 }

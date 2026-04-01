@@ -1,20 +1,22 @@
 @property --b-shadow-color-channels {
     syntax: "<number>+";
     inherits: true;
-    initial-value: 0% 0 0;
+    initial-value: 0 0 0;
 }
 
 :where(html) {
-    --b-shadow-alpha-2xs: 5%;
-    --b-shadow-alpha-xs:  5%;
-    --b-shadow-alpha-sm:  10%;
-    --b-shadow-alpha-md:  10%;
-    --b-shadow-alpha-lg:  10%;
-    --b-shadow-alpha-xl:  10%;
-    --b-shadow-alpha-2xl: 25%;
+    --b-shadow-alpha-2xs: 0.05;
+    --b-shadow-alpha-xs:  0.05;
+    --b-shadow-alpha-sm:  0.10;
+    --b-shadow-alpha-md:  0.10;
+    --b-shadow-alpha-lg:  0.10;
+    --b-shadow-alpha-xl:  0.10;
+    --b-shadow-alpha-2xl: 0.25;
 
     --b-shadow-none: 0 0 #0000;
+}
 
+:where(*) {
     --b-shadow-2xs:
             0 1px 0px 0 oklch(var(--b-shadow-color-channels) / var(--b-shadow-alpha-2xs));
 

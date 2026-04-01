@@ -60,14 +60,21 @@
 
 @property --b-paragraph-spacing { syntax: "<length-percentage>"; inherits: true; initial-value: 1.5rem; }
 
-/* 1.3 Icon size */
+/* 1.3 Control size */
+@property --b-control-size-xs { syntax: "<length-percentage>"; inherits: true; initial-value: 12px; }
+@property --b-control-size-sm { syntax: "<length-percentage>"; inherits: true; initial-value: 16px; }
+@property --b-control-size-md { syntax: "<length-percentage>"; inherits: true; initial-value: 24px; }
+@property --b-control-size-lg { syntax: "<length-percentage>"; inherits: true; initial-value: 32px; }
+@property --b-control-size-xl { syntax: "<length-percentage>"; inherits: true; initial-value: 48px; }
+
+/* 1.4 Icon size */
 @property --b-icon-size-xs { syntax: "<length-percentage>"; inherits: true; initial-value: 12px; }
 @property --b-icon-size-sm { syntax: "<length-percentage>"; inherits: true; initial-value: 16px; }
 @property --b-icon-size-md { syntax: "<length-percentage>"; inherits: true; initial-value: 24px; }
 @property --b-icon-size-lg { syntax: "<length-percentage>"; inherits: true; initial-value: 32px; }
 @property --b-icon-size-xl { syntax: "<length-percentage>"; inherits: true; initial-value: 48px; }
 
-/* 1.4 Stacking Context (Z-Index) */
+/* 1.5 Stacking Context (Z-Index) */
 @property --b-z-hide     { syntax: "<integer>"; inherits: true; initial-value: -1; }
 @property --b-z-base     { syntax: "<integer>"; inherits: true; initial-value: 0; }
 @property --b-z-nav      { syntax: "<integer>"; inherits: true; initial-value: 100; }
@@ -79,23 +86,23 @@
 @property --b-z-toast    { syntax: "<integer>"; inherits: true; initial-value: 1100; }
 @property --b-z-tooltip  { syntax: "<integer>"; inherits: true; initial-value: 1100; }
 
-/* 1.5 Strokes */
+/* 1.6 Strokes */
 @property --b-stroke-default    { syntax: "<length>"; inherits: true; initial-value: 1px; }
 @property --b-stroke-strong     { syntax: "<length>"; inherits: true; initial-value: 2px; }
 @property --b-stroke-focus      { syntax: "<length>"; inherits: true; initial-value: 2px; }
 @property --b-focus-ring-offset { syntax: "<length>"; inherits: true; initial-value: 2px; }
 
-/* 1.6 Radius */
+/* 1.7 Radius */
 @property --b-radius-interactive { syntax: "<length-percentage>"; inherits: true; initial-value: 0.5rem; }
 @property --b-radius-container   { syntax: "<length-percentage>"; inherits: true; initial-value: 0.75rem; }
 @property --b-radius-floating    { syntax: "<length-percentage>"; inherits: true; initial-value: 1rem; }
 
-/* 1.7 Duration */
+/* 1.8 Duration */
 @property --b-duration-fast   { syntax: "<time>"; inherits: true; initial-value: 100ms; }
 @property --b-duration-normal { syntax: "<time>"; inherits: true; initial-value: 200ms; }
 @property --b-duration-slow   { syntax: "<time>"; inherits: true; initial-value: 300ms; }
 
-/* 1.8 Motion */
+/* 1.9 Motion */
 @property --b-ease-base   { syntax: "*"; inherits: true; initial-value: ease; }
 @property --b-ease-in     { syntax: "*"; inherits: true; initial-value: ease-in; }
 @property --b-ease-out    { syntax: "*"; inherits: true; initial-value: ease-out; }
@@ -165,18 +172,17 @@
 @property --b-focus-ring     {syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 
 /* 2.7 Shadow and Blur Engine */
-@property --b-shadow-color-channels { syntax: "<number>+"; inherits: true; initial-value: 0 0 0; }
-@property --b-shadow-alpha-base     { syntax: "<number>"; inherits: true; initial-value: 0.1; }
 
 /* 2.8 Scrollbar */
 @property --b-scrollbar-thumb { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 @property --b-scrollbar-track { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 
 /* ------------------------------------------------------------
-   2.8 THE SEMANTIC MATRIX (Functional Color Groups)
+   2.9 THE SEMANTIC MATRIX (Functional Color Groups)
    ------------------------------------------------------------ */
 
 /* PRIMARY (Brand) */
+@property --b-primary-channels               { syntax: "<number>+"; inherits: true; initial-value: 0 0 0; }
 @property --b-primary-solid-background       { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 @property --b-primary-solid-background-hover { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 @property --b-primary-solid-text             { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
@@ -191,6 +197,7 @@
 @property --b-primary-overlay                { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 
 /* SECONDARY (Neutral Actions) */
+@property --b-secondary-channels               { syntax: "<number>+"; inherits: true; initial-value: 0 0 0; }
 @property --b-secondary-solid-background       { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 @property --b-secondary-solid-background-hover { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 @property --b-secondary-solid-text             { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
@@ -205,6 +212,7 @@
 @property --b-secondary-overlay                { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 
 /* SUCCESS */
+@property --b-success-channels               { syntax: "<number>+"; inherits: true; initial-value: 0 0 0; }
 @property --b-success-solid-background       { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 @property --b-success-solid-background-hover { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 @property --b-success-solid-text             { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
@@ -219,6 +227,7 @@
 @property --b-success-overlay                { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 
 /* ERROR */
+@property --b-error-channels               { syntax: "<number>+"; inherits: true; initial-value: 0 0 0; }
 @property --b-error-solid-background       { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 @property --b-error-solid-background-hover { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 @property --b-error-solid-text             { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
@@ -233,6 +242,7 @@
 @property --b-error-overlay                { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 
 /* WARNING */
+@property --b-warning-channels               { syntax: "<number>+"; inherits: true; initial-value: 0 0 0; }
 @property --b-warning-solid-background       { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 @property --b-warning-solid-background-hover { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 @property --b-warning-solid-text             { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
@@ -247,6 +257,7 @@
 @property --b-warning-overlay                { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 
 /* INFO */
+@property --b-info-channels               { syntax: "<number>+"; inherits: true; initial-value: 0 0 0; }
 @property --b-info-solid-background       { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 @property --b-info-solid-background-hover { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 @property --b-info-solid-text             { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
@@ -261,6 +272,7 @@
 @property --b-info-overlay                { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 
 /* CONTRAST (Inverse) */
+@property --b-contrast-channels               { syntax: "<number>+"; inherits: true; initial-value: 0 0 0; }
 @property --b-contrast-solid-background       { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 @property --b-contrast-solid-background-hover { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 @property --b-contrast-solid-text             { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }

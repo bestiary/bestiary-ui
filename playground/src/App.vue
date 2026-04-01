@@ -63,13 +63,16 @@ const isDark = ref(false);
 
 const toggleTheme = () => {
     isDark.value = !isDark.value;
-    document.documentElement.setAttribute("data-theme", isDark.value ? "dark" : "light");
+    document.documentElement.setAttribute("data-color-mode", isDark.value ? "dark" : "light");
 };
 
 onMounted(() => {
+    document.documentElement.setAttribute("data-theme","forest");
+    document.documentElement.setAttribute("data-essence","leaf");
+
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
         isDark.value = true;
-        document.documentElement.setAttribute("data-theme", "dark");
+        document.documentElement.setAttribute("data-color-mode", "dark");
     }
 });
 </script>

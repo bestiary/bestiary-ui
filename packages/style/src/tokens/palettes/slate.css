@@ -1,15 +1,15 @@
 :where(html) {
-    --b-slate-50-channels:  98.4% 0.003 247.858;
-    --b-slate-100-channels: 96.8% 0.007 247.896;
-    --b-slate-200-channels: 92.9% 0.013 255.508;
-    --b-slate-300-channels: 86.9% 0.022 252.894;
-    --b-slate-400-channels: 70.4% 0.04 256.788;
-    --b-slate-500-channels: 55.4% 0.046 257.417;
-    --b-slate-600-channels: 44.6% 0.043 257.281;
-    --b-slate-700-channels: 37.2% 0.044 257.287;
-    --b-slate-800-channels: 27.9% 0.041 260.031;
-    --b-slate-900-channels: 20.8% 0.042 265.755;
-    --b-slate-950-channels: 12.9% 0.042 264.695;
+    --b-slate-50-channels:  0.984 0.003 247.858;
+    --b-slate-100-channels: 0.968 0.007 247.896;
+    --b-slate-200-channels: 0.929 0.013 255.508;
+    --b-slate-300-channels: 0.869 0.022 252.894;
+    --b-slate-400-channels: 0.704 0.04 256.788;
+    --b-slate-500-channels: 0.554 0.046 257.417;
+    --b-slate-600-channels: 0.446 0.043 257.281;
+    --b-slate-700-channels: 0.372 0.044 257.287;
+    --b-slate-800-channels: 0.279 0.041 260.031;
+    --b-slate-900-channels: 0.208 0.042 265.755;
+    --b-slate-950-channels: 0.129 0.042 264.695;
 
     --b-slate-50:  oklch(var(--b-slate-50-channels));
     --b-slate-100: oklch(var(--b-slate-100-channels));

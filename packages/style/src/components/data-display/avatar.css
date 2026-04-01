@@ -1,0 +1,100 @@
+/**
+ * Bestiary UI — Avatar Component
+ */
+
+:where(.b-avatar) {
+    /* --- 1. LOCAL COMPONENT TOKENS (Internal API) --- */
+
+    --b-avatar-size:          var(--b-control-size-md);
+    --b-avatar-border-radius: var(--b-radius-interactive);
+
+    --b-avatar-background:    var(--b-secondary-solid-background);
+    --b-avatar-color:         var(--b-primary-subtle-text);
+
+    --b-avatar-font-family:   var(--b-font-family-display);
+    --b-avatar-font-size:     var(--b-text-md);
+    --b-avatar-font-weight:   var(--b-font-weight-medium);
+    --b-avatar-icon-size:     var(--b-icon-size-md);
+
+    --b-avatar-transition:    var(--b-duration-normal) var(--b-ease-base);
+
+    /* --- 2. BASE STYLES --- */
+
+    /* --- Base Layout --- */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+    user-select: none;
+
+    /* --- Sizing & Shapes --- */
+    width: var(--b-avatar-size);
+    height: var(--b-avatar-size);
+    border-radius: var(--b-avatar-border-radius);
+
+    /* --- Visuals --- */
+    background: var(--b-avatar-background);
+    color: var(--b-avatar-color);
+    transition: var(--b-avatar-transition);
+}
+
+/* Initials / Text Label */
+:where(.b-avatar__label) {
+    font-family: var(--b-avatar-font-family);
+    font-size: var(--b-avatar-font-size);
+    font-weight: var(--b-avatar-font-weight);
+    line-height: var(--b-line-height-none);
+    text-transform: uppercase;
+}
+
+/* Integrated Icon */
+:where(.b-avatar__icon) {
+    width: var(--b-avatar-icon-size);
+    height: var(--b-avatar-icon-size);
+}
+
+/* User Image Overlay */
+:where(.b-avatar__image) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ============================================================
+   3. SIZE MODIFIERS
+   ============================================================ */
+:where(.b-avatar--size-small) {
+    --b-avatar-size:      var(--b-control-size-sm);
+    --b-avatar-font-size: var(--b-text-sm);
+    --b-avatar-icon-size: var(--b-icon-size-sm);
+}
+:where(.b-avatar--size-medium) {
+    --b-avatar-size:      var(--b-control-size-md);
+    --b-avatar-font-size: var(--b-text-md);
+    --b-avatar-icon-size: var(--b-icon-size-md);
+}
+:where(.b-avatar--size-large) {
+    --b-avatar-size:      var(--b-control-size-lg);
+    --b-avatar-font-size: var(--b-text-lg);
+    --b-avatar-icon-size: var(--b-icon-size-lg);
+}
+:where(.b-avatar--size-xlarge) {
+    --b-avatar-size:      var(--b-control-size-xl);
+    --b-avatar-font-size: var(--b-text-xl);
+    --b-avatar-icon-size: var(--b-icon-size-xl);
+}
+
+/* ============================================================
+   4. SHAPE MODIFIERS
+   ============================================================ */
+
+/* Default squareish shape with theme radius */
+:where(.b-avatar--shape-square) {
+    --b-avatar-border-radius: var(--b-radius-interactive);
+}
+/* Perfect circle shape */
+:where(.b-avatar--shape-circle) {
+    --b-avatar-border-radius: var(--b-radius-full);
+}

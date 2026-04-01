@@ -1,15 +1,15 @@
 :where(html) {
-    --b-red-50-channels:  97.1% 0.013 17.38;
-    --b-red-100-channels: 93.6% 0.032 17.717;
-    --b-red-200-channels: 88.5% 0.062 18.334;
-    --b-red-300-channels: 80.8% 0.114 19.571;
-    --b-red-400-channels: 70.4% 0.191 22.216;
-    --b-red-500-channels: 63.7% 0.237 25.331;
-    --b-red-600-channels: 57.7% 0.245 27.325;
-    --b-red-700-channels: 50.5% 0.213 27.518;
-    --b-red-800-channels: 44.4% 0.177 26.899;
-    --b-red-900-channels: 39.6% 0.141 25.723;
-    --b-red-950-channels: 25.8% 0.092 26.042;
+    --b-red-50-channels:  0.971 0.013 17.38;
+    --b-red-100-channels: 0.936 0.032 17.717;
+    --b-red-200-channels: 0.885 0.062 18.334;
+    --b-red-300-channels: 0.808 0.114 19.571;
+    --b-red-400-channels: 0.704 0.191 22.216;
+    --b-red-500-channels: 0.637 0.237 25.331;
+    --b-red-600-channels: 0.577 0.245 27.325;
+    --b-red-700-channels: 0.505 0.213 27.518;
+    --b-red-800-channels: 0.444 0.177 26.899;
+    --b-red-900-channels: 0.396 0.141 25.723;
+    --b-red-950-channels: 0.258 0.092 26.042;
 
     --b-red-50:  oklch(var(--b-red-50-channels));
     --b-red-100: oklch(var(--b-red-100-channels));

@@ -10,7 +10,11 @@
         "./contract.css": "../bestiary-ui/style/tokens/contract.css",
 
         "./essences/emerald.css": "../bestiary-ui/style/essences/emerald.css",
+        "./essences/leaf.css": "../bestiary-ui/style/essences/leaf.css",
+
         "./themes/forest.css": "../bestiary-ui/style/themes/forest.css",
+        "./themes/light.css": "../bestiary-ui/style/themes/light.css",
+        "./themes/dark.css": "../bestiary-ui/style/themes/dark.css",
 
         "./reset.css": "../bestiary-ui/style/base/reset.css",
         "./typography.css": "../bestiary-ui/style/base/typography.css",
@@ -28,7 +32,7 @@
         "./effects.css": "../bestiary-ui/style/utilities/effects.css",
         "./sizing.css": "../bestiary-ui/style/utilities/sizing.css"
     },
-    "files": [
+    "files":[
         "dist",
         "src"
     ],

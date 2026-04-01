@@ -1,15 +1,15 @@
 :where(html) {
-    --b-blue-50-channels:  97% 0.014 254.604;
-    --b-blue-100-channels: 93.2% 0.032 255.585;
-    --b-blue-200-channels: 88.2% 0.059 254.128;
-    --b-blue-300-channels: 80.9% 0.105 251.813;
-    --b-blue-400-channels: 70.7% 0.165 254.624;
-    --b-blue-500-channels: 62.3% 0.214 259.815;
-    --b-blue-600-channels: 54.6% 0.245 262.881;
-    --b-blue-700-channels: 48.8% 0.243 264.376;
-    --b-blue-800-channels: 42.4% 0.199 265.638;
-    --b-blue-900-channels: 37.9% 0.146 265.522;
-    --b-blue-950-channels: 28.2% 0.091 267.935;
+    --b-blue-50-channels:  0.97 0.014 254.604;
+    --b-blue-100-channels: 0.932 0.032 255.585;
+    --b-blue-200-channels: 0.882 0.059 254.128;
+    --b-blue-300-channels: 0.809 0.105 251.813;
+    --b-blue-400-channels: 0.707 0.165 254.624;
+    --b-blue-500-channels: 0.623 0.214 259.815;
+    --b-blue-600-channels: 0.546 0.245 262.881;
+    --b-blue-700-channels: 0.488 0.243 264.376;
+    --b-blue-800-channels: 0.424 0.199 265.638;
+    --b-blue-900-channels: 0.379 0.146 265.522;
+    --b-blue-950-channels: 0.282 0.091 267.935;
 
     --b-blue-50:  oklch(var(--b-blue-50-channels));
     --b-blue-100: oklch(var(--b-blue-100-channels));

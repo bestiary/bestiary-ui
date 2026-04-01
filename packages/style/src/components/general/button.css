@@ -1,0 +1,324 @@
+/**
+ * Bestiary UI — Button Component
+ */
+
+:where(.b-button) {
+    /* --- 1. LOCAL COMPONENT TOKENS (Internal API) --- */
+
+    /* Layout & Spacing */
+    --b-button-height:           var(--b-control-size-md);
+    --b-button-padding-x:        var(--b-space-3);
+    --b-button-padding-y:        var(--b-space-1);
+    --b-button-gap:              var(--b-space-2);
+
+    /* Borders & Shapes */
+    --b-button-border-radius:    var(--b-radius-interactive);
+    --b-button-border-width:     var(--b-stroke-default);
+    --b-button-border-style:     solid;
+
+    /* Default Colors (Fallback to Primary Solid) */
+    --b-button-background:       var(--b-primary-solid-background);
+    --b-button-color:            var(--b-primary-solid-text);
+    --b-button-border-color:     var(--b-primary-solid-background);
+
+    /* Interactive State Colors */
+    --b-button-hover-background: var(--b-primary-solid-background-hover);
+    --b-button-hover-color:      var(--b-primary-solid-text);
+    --b-button-hover-border:     var(--b-primary-solid-background-hover);
+
+    /* Typography */
+    --b-button-font-family:      var(--b-font-family-base);
+    --b-button-font-size:        var(--b-body-size);
+    --b-button-font-weight:      var(--b-body-weight);
+
+    /* Visual Effects */
+    --b-button-icon-size:        var(--b-button-font-size);
+    --b-button-transition:       all var(--b-duration-normal) var(--b-ease-base);
+    --b-button-shadow:           none;
+
+    /* --- 2. BASE STYLES --- */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+
+    height: var(--b-button-height);
+    padding: var(--b-button-padding-y) var(--b-button-padding-x);
+    gap: var(--b-button-gap);
+
+    background-color: var(--b-button-background);
+    color: var(--b-button-color);
+    border: var(--b-button-border-width) var(--b-button-border-style) var(--b-button-border-color);
+    border-radius: var(--b-button-border-radius);
+    box-shadow: var(--b-button-shadow);
+
+    font-size: var(--b-button-font-size);
+    font-weight: var(--b-button-font-weight);
+    font-family: var(--b-button-font-family);
+    line-height: var(--b-line-height-none);
+    text-decoration: none;
+
+    transition: var(--b-button-transition);
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    /* Interaction: Hover */
+    :where(&:not(:disabled):hover) {
+        background-color: var(--b-button-hover-background);
+        border-color: var(--b-button-hover-border);
+        color: var(--b-button-hover-color);
+    }
+
+    /* Interaction: Active / Click */
+    :where(&:not(:disabled):active) {
+        transform: translateY(1px);
+        filter: brightness(0.95);
+    }
+
+    /* Interaction: Disabled */
+    :where(&:disabled) {
+        opacity: var(--b-state-disabled-opacity);
+        cursor: not-allowed;
+        pointer-events: none;
+        box-shadow: none;
+    }
+}
+
+/* ============================================================
+   3. SEVERITY MAPPING
+   Maps functional color groups (Success, Danger, etc.) to the
+   button's internal variables.
+   ============================================================ */
+
+:where(.b-button--severity-primary) {
+    --b-shadow-color-channels:     var(--b-primary-channels);
+
+    --b-button-background:         var(--b-primary-solid-background);
+    --b-button-color:              var(--b-primary-solid-text);
+    --b-button-border-color:       var(--b-primary-solid-background);
+
+    --b-button-hover-background:   var(--b-primary-solid-background-hover);
+    --b-button-hover-border:       var(--b-primary-solid-background-hover);
+    /* Context for Variants */
+    --b-button-variant-background: var(--b-primary-overlay);
+    --b-button-variant-color:      var(--b-primary-outline-text);
+    --b-button-variant-border:     var(--b-primary-subtle-border);
+}
+
+:where(.b-button--severity-secondary) {
+    --b-shadow-color-channels:     var(--b-secondary-channels);
+
+    --b-button-background:         var(--b-secondary-solid-background);
+    --b-button-color:              var(--b-secondary-solid-text);
+    --b-button-border-color:       var(--b-secondary-solid-background);
+
+    --b-button-hover-background:   var(--b-secondary-solid-background-hover);
+    --b-button-hover-border:       var(--b-secondary-solid-background-hover);
+    /* Context for Variants */
+    --b-button-variant-background: var(--b-secondary-overlay);
+    --b-button-variant-color:      var(--b-secondary-subtle-text);
+    --b-button-variant-border:     var(--b-border-default);
+}
+
+:where(.b-button--severity-success) {
+    --b-shadow-color-channels:     var(--b-success-channels);
+
+    --b-button-background:         var(--b-success-solid-background);
+    --b-button-color:              var(--b-success-solid-text);
+    --b-button-border-color:       var(--b-success-solid-background);
+
+    --b-button-hover-background:   var(--b-success-solid-background-hover);
+    --b-button-hover-border:       var(--b-success-solid-background-hover);
+    /* Context for Variants */
+    --b-button-variant-background: var(--b-success-overlay);
+    --b-button-variant-color:      var(--b-success-outline-text);
+    --b-button-variant-border:     var(--b-success-subtle-border);
+}
+
+:where(.b-button--severity-warn) {
+    --b-shadow-color-channels:     var(--b-warning-channels);
+
+    --b-button-background:         var(--b-warning-solid-background);
+    --b-button-color:              var(--b-warning-solid-text);
+    --b-button-border-color:       var(--b-warning-solid-background);
+
+    --b-button-hover-background:   var(--b-warning-solid-background-hover);
+    --b-button-hover-border:       var(--b-warning-solid-background-hover);
+    /* Context for Variants */
+    --b-button-variant-background: var(--b-warning-overlay);
+    --b-button-variant-color:      var(--b-warning-outline-text);
+    --b-button-variant-border:     var(--b-warning-subtle-border);
+}
+
+:where(.b-button--severity-danger) {
+    --b-shadow-color-channels:     var(--b-error-channels);
+
+    --b-button-background:         var(--b-error-solid-background);
+    --b-button-color:              var(--b-error-solid-text);
+    --b-button-border-color:       var(--b-error-solid-background);
+
+    --b-button-hover-background:   var(--b-error-solid-background-hover);
+    --b-button-hover-border:       var(--b-error-solid-background-hover);
+    /* Context for Variants */
+    --b-button-variant-background: var(--b-error-overlay);
+    --b-button-variant-color:      var(--b-error-outline-text);
+    --b-button-variant-border:     var(--b-error-subtle-border);
+}
+
+:where(.b-button--severity-info) {
+    --b-shadow-color-channels:     var(--b-info-channels);
+
+    --b-button-background:         var(--b-info-solid-background);
+    --b-button-color:              var(--b-info-solid-text);
+    --b-button-border-color:       var(--b-info-solid-background);
+
+    --b-button-hover-background:   var(--b-info-solid-background-hover);
+    --b-button-hover-border:       var(--b-info-solid-background-hover);
+    /* Context for Variants */
+    --b-button-variant-background: var(--b-info-overlay);
+    --b-button-variant-color:      var(--b-info-outline-text);
+    --b-button-variant-border:     var(--b-info-subtle-border);
+}
+
+:where(.b-button--severity-contrast) {
+    --b-shadow-color-channels:     var(--b-contrast-channels);
+
+    --b-button-background:         var(--b-contrast-solid-background);
+    --b-button-color:              var(--b-contrast-solid-text);
+    --b-button-border-color:       var(--b-contrast-solid-background);
+
+    --b-button-hover-background:   var(--b-contrast-solid-background-hover);
+    --b-button-hover-border:       var(--b-contrast-solid-background-hover);
+    /* Context for Variants */
+    --b-button-variant-background: var(--b-contrast-overlay);
+    --b-button-variant-color:      var(--b-contrast-outline-text);
+    --b-button-variant-border:     var(--b-contrast-outline-border);
+}
+
+/* ============================================================
+   4. STYLE VARIANTS
+   Overrides the solid style to create Outline, Text, or Links.
+   ============================================================ */
+
+/* Outline: Transparent background with a colored border */
+:where(.b-button--variant-outline) {
+    --b-button-background:       transparent;
+    --b-button-color:            var(--b-button-variant-color);
+    --b-button-border-color:     var(--b-button-variant-border);
+
+    --b-button-hover-background: var(--b-button-variant-background);
+    --b-button-hover-color:      var(--b-button-variant-color);
+    --b-button-hover-border:     var(--b-button-variant-border);
+}
+
+/* Text: Transparent background with colored text and subtle hover */
+:where(.b-button--variant-text) {
+    --b-button-background:       transparent;
+    --b-button-color:            var(--b-button-variant-color);
+    --b-button-border-color:     transparent;
+
+    --b-button-hover-background: var(--b-button-variant-background);
+    --b-button-hover-color:      var(--b-button-variant-color);
+    --b-button-hover-border:     transparent;
+}
+
+/* Link: Pure text button with underline on hover */
+:where(.b-button--variant-link) {
+    --b-button-background:       transparent;
+    --b-button-color:            var(--b-button-variant-color);
+    --b-button-border-color:     transparent;
+
+    --b-button-hover-background: transparent;
+    --b-button-hover-color:      var(--b-primary-outline-text);
+    --b-button-hover-border:     transparent;
+
+    :where(&:hover) {
+        text-decoration: underline;
+    }
+}
+
+/* ============================================================
+   5. SIZE MODIFIERS
+   ============================================================ */
+
+:where(.b-button--size-small)   {
+    --b-button-height:    var(--b-control-size-sm);
+    --b-button-padding-x: var(--b-space-2);
+    --b-button-font-size: var(--b-text-sm);
+}
+:where(.b-button--size-medium)  {
+    --b-button-height:    var(--b-control-size-md);
+    --b-button-padding-x: var(--b-space-3);
+    --b-button-font-size: var(--b-text-md);
+}
+:where(.b-button--size-large)   {
+    --b-button-height:    var(--b-control-size-lg);
+    --b-button-padding-x: var(--b-space-4);
+    --b-button-font-size: var(--b-text-md);
+}
+:where(.b-button--size-xlarge)  {
+    --b-button-height:    var(--b-control-size-xl);
+    --b-button-padding-x: var(--b-space-5);
+    --b-button-font-size: var(--b-text-lg);
+}
+
+/* ============================================================
+   6. LAYOUT & ELEMENT POSITIONING
+   ============================================================ */
+
+/* Directional modifiers for icons and badges */
+:where(.b-button--icon-top), :where(.b-button--badge-top)       { flex-direction: column; height: auto; }
+:where(.b-button--icon-bottom), :where(.b-button--badge-bottom) { flex-direction: column-reverse; height: auto; }
+:where(.b-button--icon-right), :where(.b-button--badge-right)   { flex-direction: row-reverse; }
+:where(.b-button--icon-left), :where(.b-button--badge-left)     { flex-direction: row; }
+
+/* Circular/Square button for icon-only use cases */
+:where(.b-button--icon-only) {
+    width:   var(--b-button-height);
+    height:  var(--b-button-height);
+    padding: 0;
+}
+
+/* Internal elements alignment */
+:where(.b-button__icon), :where(.b-button__loading-icon) {
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    width:           var(--b-button-icon-size);
+    height:          var(--b-button-icon-size);
+    flex-shrink:     0;
+}
+
+/* ============================================================
+   7. SPECIAL PROPERTIES (Raised, Rounded, Loading)
+   ============================================================ */
+
+/* Adds a colored shadow using the dynamic Shadow Engine */
+:where(.b-button--raised) {
+    --b-button-shadow: var(--b-shadow-md);
+}
+
+/* Pill-shaped button */
+:where(.b-button--rounded) {
+    --b-button-border-radius: var(--b-radius-full);
+}
+
+/* Loading State: Hides original content to show centered spinner */
+:where(.b-button--loading) {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+/* Loading Spinner Animation */
+:where(.b-button__loading-icon) {
+    animation: b-button-spin 1s linear infinite;
+}
+
+@keyframes b-button-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

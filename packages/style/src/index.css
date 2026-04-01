@@ -16,11 +16,11 @@
    First, we provide the browser with all variables and @property rules
    ============================================================ */
 @import "./tokens/primitives.css" layer(b-tokens);
-@import "./tokens/contract.css"   layer(b-tokens);
+@import "./tokens/contract.css" layer(b-tokens);
 
 /* Themes and Essences */
-@import "./essences/leaf.css"     layer(b-tokens);
-@import "./themes/forest.css"     layer(b-tokens);
+@import "./essences/leaf.css" layer(b-tokens);
+@import "./themes/forest.css" layer(b-tokens);
 
 
 /* ============================================================

@@ -1,15 +1,15 @@
 :where(html) {
-    --b-yellow-50-channels:  98.7% 0.026 102.212;
-    --b-yellow-100-channels: 97.3% 0.071 103.193;
-    --b-yellow-200-channels: 94.5% 0.129 101.54;
-    --b-yellow-300-channels: 90.5% 0.182 98.111;
-    --b-yellow-400-channels: 85.2% 0.199 91.936;
-    --b-yellow-500-channels: 79.5% 0.184 86.047;
-    --b-yellow-600-channels: 68.1% 0.162 75.834;
-    --b-yellow-700-channels: 55.4% 0.135 66.442;
-    --b-yellow-800-channels: 47.6% 0.114 61.907;
-    --b-yellow-900-channels: 42.1% 0.095 57.708;
-    --b-yellow-950-channels: 28.6% 0.066 53.813;
+    --b-yellow-50-channels:  0.987 0.026 102.212;
+    --b-yellow-100-channels: 0.973 0.071 103.193;
+    --b-yellow-200-channels: 0.945 0.129 101.54;
+    --b-yellow-300-channels: 0.905 0.182 98.111;
+    --b-yellow-400-channels: 0.852 0.199 91.936;
+    --b-yellow-500-channels: 0.795 0.184 86.047;
+    --b-yellow-600-channels: 0.681 0.162 75.834;
+    --b-yellow-700-channels: 0.554 0.135 66.442;
+    --b-yellow-800-channels: 0.476 0.114 61.907;
+    --b-yellow-900-channels: 0.421 0.095 57.708;
+    --b-yellow-950-channels: 0.286 0.066 53.813;
 
     --b-yellow-50:  oklch(var(--b-yellow-50-channels));
     --b-yellow-100: oklch(var(--b-yellow-100-channels));
