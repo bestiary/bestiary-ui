@@ -1,82 +1,104 @@
+/**
+ * Bestiary UI — Badge Component
+ */
 :where(.b-badge) {
+    /* --- 1. LOCAL COMPONENT TOKENS --- */
+
+    /* Layout & Sizing */
     --b-badge-size:          var(--b-size-5);
+    --b-badge-empty-size:    var(--b-space-2);
     --b-badge-padding-x:     var(--b-space-1);
     --b-badge-gap:           var(--b-space-2);
     --b-badge-border-radius: var(--b-radius-interactive);
 
+    /* Colors & Visuals */
     --b-badge-background:    var(--b-primary-solid-background);
     --b-badge-color:         var(--b-primary-solid-text);
 
+    /* Typography */
+    --b-badge-font-family:   var(--b-font-family-base);
     --b-badge-font-size:     var(--b-text-xs);
     --b-badge-font-weight:   var(--b-font-weight-normal);
+    --b-badge-transition:    var(--b-duration-normal) var(--b-ease-base);
 
+    /* Effects hook for Shadow Engine */
+    --b-shadow-color-channels: var(--b-primary-channels);
+
+    /* --- 2. BASE STYLES --- */
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    box-sizing: border-box;
     white-space: nowrap;
     vertical-align: middle;
 
     height: var(--b-badge-size);
-    min-width: var(--b-badge-size);
+    width: var(--b-badge-size);
     padding-inline: var(--b-badge-padding-x);
     gap: var(--b-badge-gap);
+
+    background-color: var(--b-badge-background);
+    color: var(--b-badge-color);
     border-radius: var(--b-badge-border-radius);
 
-    background: var(--b-badge-background);
-
+    font-family: var(--b-badge-font-family);
     font-size: var(--b-badge-font-size);
     font-weight: var(--b-badge-font-weight);
     line-height: var(--b-line-height-none);
-    color: var(--b-badge-color);
 
-    transition: all var(--b-duration-normal);
-    box-sizing: border-box;
+    transition: var(--b-badge-transition);
 }
 
-:where(.b-badge:empty) {
-    padding: 0;
-}
-
-:where(.b-badge--rounded) {
-    --b-badge-border-radius: var(--b-radius-full);
-}
+/* ============================================================
+   3. SEVERITY MODIFIERS
+   ============================================================ */
 
 :where(.b-badge--severity-primary)   {
     --b-badge-background: var(--b-primary-solid-background);
     --b-badge-color:      var(--b-primary-solid-text);
 }
-
 :where(.b-badge--severity-secondary) {
     --b-badge-background: var(--b-secondary-solid-background);
     --b-badge-color:      var(--b-secondary-solid-text);
 }
-
 :where(.b-badge--severity-info) {
     --b-badge-background: var(--b-info-solid-background);
     --b-badge-color:      var(--b-info-solid-text);
 }
-
 :where(.b-badge--severity-success)   {
     --b-badge-background: var(--b-success-solid-background);
     --b-badge-color:      var(--b-success-solid-text);
 }
-
 :where(.b-badge--severity-warn) {
     --b-badge-background: var(--b-warning-solid-background);
     --b-badge-color:      var(--b-warning-solid-text);
 }
-
 :where(.b-badge--severity-danger) {
     --b-badge-background: var(--b-error-solid-background);
     --b-badge-color:      var(--b-error-solid-text);
 }
-
 :where(.b-badge--severity-contrast) {
     --b-badge-background: var(--b-contrast-solid-background);
     --b-badge-color:      var(--b-contrast-solid-text);
 }
 
-:where(.b-badge--size-small)  { --b-badge-height: var(--b-space-4); --b-badge-font-size: var(--b-font-size-xxs); }
-:where(.b-badge--size-medium) { --b-badge-height: var(--b-space-5); --b-badge-font-size: var(--b-font-size-xs); }
-:where(.b-badge--size-large)  { --b-badge-height: var(--b-space-6); --b-badge-font-size: var(--b-font-size-sm); }
-:where(.b-badge--size-xlarge) { --b-badge-height: var(--b-space-7); --b-badge-font-size: var(--b-font-size-md); }
+/* ============================================================
+   4. SIZE MODIFIERS
+   ============================================================ */
+:where(.b-badge--size-small)  { --b-badge-size: var(--b-size-4); --b-badge-font-size: var(--b-text-2xs); }
+:where(.b-badge--size-medium) { --b-badge-size: var(--b-size-5); --b-badge-font-size: var(--b-text-xs); }
+:where(.b-badge--size-large)  { --b-badge-size: var(--b-size-6); --b-badge-font-size: var(--b-text-md); }
+:where(.b-badge--size-xlarge) { --b-badge-size: var(--b-size-7); --b-badge-font-size: var(--b-text-lg); }
+
+/* ============================================================
+   5. SHAPE
+   ============================================================ */
+:where(.b-badge--rounded) {
+    --b-badge-border-radius: var(--b-radius-full);
+}
+
+/* Dot mode: Badge without content */
+:where(.b-badge:empty) {
+    --b-badge-size: var(--b-badge-empty-size);
+}

@@ -1,0 +1,124 @@
+/**
+ * Bestiary UI — InputText Component
+ */
+
+:where(.b-input-text) {
+    /* --- 1. LOCAL COMPONENT TOKENS --- */
+
+    /* Layout & Sizing */
+    --b-input-text-height:            var(--b-control-size-md);
+    --b-input-text-width:             var(--b-container-xs);
+    --b-input-text-padding-x:         var(--b-space-3);
+
+    /* Colors & Visuals */
+    --b-input-text-background:        var(--b-surface-section);
+    --b-input-text-color:             var(--b-text-primary);
+    --b-input-text-placeholder-color: var(--b-text-muted);
+
+    /* Borders & Shapes */
+    --b-input-text-border-width:      var(--b-stroke-default);
+    --b-input-text-border-style:      solid;
+    --b-input-text-border-color:      var(--b-border-default);
+    --b-input-text-border-radius:     var(--b-radius-interactive);
+
+    /* Typography */
+    --b-input-text-font-family:       var(--b-font-family-base);
+    --b-input-text-font-size:         var(--b-text-md);
+    --b-input-text-font-weight:       var(--b-font-weight-normal);
+
+    /* Effects & Motion */
+    --b-input-text-transition:         var(--b-duration-normal) var(--b-ease-base);
+    --b-shadow-color-channels:         var(--b-primary-channels);
+
+    /* --- 2. BASE STYLES --- */
+    display: inline-flex;
+    box-sizing: border-box;
+    appearance: none;
+    outline: none;
+    margin: 0;
+
+    width: var(--b-input-text-width);
+    height: var(--b-input-text-height);
+
+    /* Dynamic padding logic for icon fields */
+    padding-inline-start: var(--b-input-text-padding-x-left, var(--b-input-text-padding-x));
+    padding-inline-end: var(--b-input-text-padding-x-right, var(--b-input-text-padding-x));
+
+    background-color: var(--b-input-text-background);
+    color: var(--b-input-text-color);
+    border: var(--b-input-text-border-width) var(--b-input-text-border-style) var(--b-input-text-border-color);
+    border-radius: var(--b-input-text-border-radius);
+
+    font-family: var(--b-input-text-font-family);
+    font-size: var(--b-input-text-font-size);
+    font-weight: var(--b-input-text-font-weight);
+    line-height: normal;
+
+    transition: var(--b-input-text-transition);
+}
+
+:where(.b-input-text::placeholder) {
+    color: var(--b-input-text-placeholder-color);
+}
+
+/* ============================================================
+   3. INTERACTIVE STATES
+   ============================================================ */
+
+:where(.b-input-text:hover:not(:disabled)) {
+    border-color: var(--b-form-control-border-hover);
+}
+
+:where(.b-input-text:focus:not(:disabled)) {
+    border-color: var(--b-form-control-border-active);
+    box-shadow: var(--b-focus-ring);
+    --b-ring-color-channels: var(--b-primary-channels);
+}
+
+/* Invalid State */
+:where(.b-input-text--invalid) {
+    --b-input-text-border-color:      var(--b-error-solid-background);
+    --b-input-text-placeholder-color: var(--b-error-outline-text);
+    --b-shadow-color-channels:        var(--b-error-channels);
+}
+
+/* Disabled State */
+:where(.b-input-text:disabled) {
+    opacity: var(--b-state-disabled-opacity);
+    background-color: var(--b-surface-variant);
+    cursor: not-allowed;
+}
+
+/* ============================================================
+   4. VARIANTS & MODIFIERS
+   ============================================================ */
+
+/* Filled Variant */
+:where(.b-input-text--variant-filled) {
+    --b-input-text-background: var(--b-secondary-subtle-background);
+}
+
+/* Full Width */
+:where(.b-input-text--fluid) { --b-input-text-width: 100%; }
+
+/* ============================================================
+   5. SIZE MODIFIERS
+   ============================================================ */
+
+:where(.b-input-text--size-small) {
+    --b-input-text-height:    var(--b-control-size-sm);
+    --b-input-text-font-size: var(--b-text-sm);
+    --b-input-text-padding-x: var(--b-space-2);
+}
+
+:where(.b-input-text--size-medium) {
+    --b-input-text-height:    var(--b-control-size-md);
+    --b-input-text-font-size: var(--b-text-md);
+    --b-input-text-padding-x: var(--b-space-3);
+}
+
+:where(.b-input-text--size-large) {
+    --b-input-text-height:    var(--b-control-size-lg);
+    --b-input-text-font-size: var(--b-text-lg);
+    --b-input-text-padding-x: var(--b-space-4);
+}

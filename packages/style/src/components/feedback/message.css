@@ -1,48 +1,67 @@
-.b-message {
-    /* --- Local Component Tokens --- */
+/**
+ * Bestiary UI — Message Component
+ */
+
+:where(.b-message) {
+    /* --- 1. LOCAL COMPONENT TOKENS --- */
+
+    /* Layout & Spacing */
     --b-message-height:           0;
-    /* Використовуємо чисті семантичні токени з Habitat */
     --b-message-padding-x:        var(--b-space-3);
     --b-message-padding-y:        var(--b-space-2);
     --b-message-gap:              var(--b-space-2);
 
-    --b-message-border-width:     var(--b-border-width, 1px);
+    /* Borders & Shapes */
+    --b-message-border-width:     var(--b-stroke-default);
     --b-message-border-style:     solid;
     --b-message-border-radius:    var(--b-radius-interactive);
 
-    /* Дефолтні значення (Info за замовчуванням) */
+    /* Default Colors (Fallback to Info Subtle) */
     --b-message-background:       var(--b-info-subtle-background);
+    --b-message-color:            var(--b-info-subtle-text);
     --b-message-border-color:     var(--b-info-subtle-border);
-    --b-message-text-color:       var(--b-info-subtle-text);
     --b-message-accent-color:     var(--b-info-outline-text);
 
-    --b-message-font-size:        var(--b-font-size-sm);
-    --b-message-transition:       var(--b-duration-normal);
+    /* Typography */
+    --b-message-font-family:      var(--b-font-family-base);
+    --b-message-font-size:        var(--b-text-md);
+    --b-message-font-weight:      var(--b-font-weight-normal);
     --b-message-icon-size:        var(--b-message-font-size);
 
-    /* Close Button Tokens */
-    --b-message-close-size:       24px;
+    /* Close Button */
+    --b-message-close-size:       var(--b-icon-size-lg);
     --b-message-close-radius:     var(--b-radius-full);
-    --b-message-close-hover-bg:   var(--b-overlay-hover); /* Універсальний ховер з контракту */
+    --b-message-close-hover:      var(--b-info-overlay);
 
+    /* Motion */
     --b-message-transition-duration: var(--b-duration-normal);
-    --b-message-transition-easing:   var(--b-ease-in-out);
-    --b-message-transition-offset:   var(--b-motion-offset-y);
+    --b-message-transition-easing:   var(--b-ease-base);
+    --b-message-transition-offset:   var(--b-space-3);
 
+    /* --- 2. BASE STYLES --- */
     display: flex;
     align-items: center;
     position: relative;
     box-sizing: border-box;
-    transition: var(--b-message-transition);
+
+    height: fit-content;
+    min-height: var(--b-message-height);
 
     background-color: var(--b-message-background);
     color: var(--b-message-text-color);
     border: var(--b-message-border-width) var(--b-message-border-style) var(--b-message-border-color);
     border-radius: var(--b-message-border-radius);
-    min-height: var(--b-message-height);
+
+    font-family: var(--b-font-family-base);
+    line-height: var(--b-body-leading);
+
+    transition: all var(--b-message-transition-duration) var(--b-message-transition-easing);
 }
 
-.b-message__content {
+/* --- 3. INTERNAL ELEMENTS --- */
+
+/* Content Wrapper */
+:where(.b-message__content) {
     flex: 1;
     display: flex;
     align-items: center;
@@ -50,7 +69,8 @@
     padding: var(--b-message-padding-y) var(--b-message-padding-x);
 }
 
-.b-message__icon {
+/* Message Icon */
+:where(.b-message__icon) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,13 +79,15 @@
     height: var(--b-message-icon-size);
 }
 
-.b-message__text {
+/* Message Text Body */
+:where(.b-message__text) {
     flex: 1;
     font-size: var(--b-message-font-size);
     font-weight: var(--b-font-weight-medium);
 }
 
-.b-message__close-button {
+/* Close Button */
+:where(.b-message__close-button) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,117 +96,127 @@
     width: var(--b-message-close-size);
     height: var(--b-message-close-size);
     border-radius: var(--b-message-close-radius);
+
     background: transparent;
     border: none;
     color: inherit;
     cursor: pointer;
-    transition: background-color 0.2s;
+
+    transition: background-color var(--b-duration-fast);
     margin-inline-start: var(--b-space-2);
 }
 
-.b-message__close-button:hover {
-    background-color: var(--b-message-close-hover-bg);
+:where(.b-message__close-button:hover) {
+    background-color: var(--b-message-close-hover);
 }
 
-/* ==========================================
-   SEVERITY (Синхронізовано з contract.css)
-   ========================================== */
+/* ============================================================
+   4. SEVERITY MAPPING
+   ============================================================ */
 
-.b-message--severity-success {
+:where(.b-message--severity-success) {
     --b-message-background:     var(--b-success-subtle-background);
     --b-message-border-color:   var(--b-success-subtle-border);
     --b-message-text-color:     var(--b-success-subtle-text);
     --b-message-accent-color:   var(--b-success-outline-text);
+    --b-message-close-hover:    var(--b-success-overlay);
 }
 
-.b-message--severity-info {
+:where(.b-message--severity-info) {
     --b-message-background:     var(--b-info-subtle-background);
     --b-message-border-color:   var(--b-info-subtle-border);
     --b-message-text-color:     var(--b-info-subtle-text);
     --b-message-accent-color:   var(--b-info-outline-text);
+    --b-message-close-hover:    var(--b-info-overlay);
 }
 
-.b-message--severity-warn {
+:where(.b-message--severity-warn) {
     --b-message-background:     var(--b-warning-subtle-background);
     --b-message-border-color:   var(--b-warning-subtle-border);
     --b-message-text-color:     var(--b-warning-subtle-text);
     --b-message-accent-color:   var(--b-warning-outline-text);
+    --b-message-close-hover:    var(--b-warning-overlay);
 }
 
-.b-message--severity-error {
+:where(.b-message--severity-error) {
     --b-message-background:     var(--b-error-subtle-background);
     --b-message-border-color:   var(--b-error-subtle-border);
     --b-message-text-color:     var(--b-error-subtle-text);
     --b-message-accent-color:   var(--b-error-outline-text);
+    --b-message-close-hover:    var(--b-error-overlay);
 }
 
-.b-message--severity-secondary {
+:where(.b-message--severity-secondary) {
     --b-message-background:     var(--b-secondary-subtle-background);
     --b-message-border-color:   var(--b-secondary-subtle-border);
     --b-message-text-color:     var(--b-secondary-subtle-text);
     --b-message-accent-color:   var(--b-secondary-outline-text);
+    --b-message-close-hover:    var(--b-secondary-overlay);
 }
 
-.b-message--severity-contrast {
+:where(.b-message--severity-contrast) {
     --b-message-background:     var(--b-contrast-solid-background);
-    --b-message-border-color:   var(--b-contrast-outline-border);
+    --b-message-border-color:   var(--b-contrast-solid-background);
     --b-message-text-color:     var(--b-contrast-solid-text);
     --b-message-accent-color:   var(--b-contrast-outline-text);
+    --b-message-close-hover:    var(--b-contrast-overlay);
 }
 
-/* ==========================================
-   VARIANTS
-   ========================================== */
+/* ============================================================
+   5. STYLE VARIANTS
+   ============================================================ */
 
-.b-message--variant-outline {
+/* Outline: No background, only borders and text */
+:where(.b-message--variant-outline) {
     --b-message-background: transparent;
     --b-message-text-color: var(--b-message-accent-color);
     --b-message-border-color: var(--b-message-accent-color);
 }
 
-.b-message--variant-simple {
+/* Simple: No background and no borders */
+:where(.b-message--variant-simple) {
     --b-message-background: transparent;
-    --b-message-border-width: 0;
     --b-message-text-color: var(--b-message-accent-color);
+    --b-message-border-width: 0;
 }
 
-/* ==========================================
-   SIZES (Використовуємо семантичні space-x)
-   ========================================== */
-.b-message--size-small   {
+/* ============================================================
+   6. SIZE MODIFIERS
+   ============================================================ */
+:where(.b-message--size-small)   {
     --b-message-padding-x: var(--b-space-2);
     --b-message-padding-y: var(--b-space-1);
-    --b-message-font-size: var(--b-font-size-sm);
+    --b-message-font-size: var(--b-text-sm);
 }
-.b-message--size-medium  {
+:where(.b-message--size-medium)  {
     --b-message-padding-x: var(--b-space-3);
     --b-message-padding-y: var(--b-space-2);
-    --b-message-font-size: var(--b-font-size-md);
+    --b-message-font-size: var(--b-text-md);
 }
-.b-message--size-large   {
+:where(.b-message--size-large)   {
     --b-message-padding-x: var(--b-space-4);
     --b-message-padding-y: var(--b-space-3);
-    --b-message-font-size: var(--b-font-size-md);
+    --b-message-font-size: var(--b-text-lg);
 }
 
-.b-message--size-xlarge  {
+:where(.b-message--size-xlarge)  {
     --b-message-padding-x: var(--b-space-5);
     --b-message-padding-y: var(--b-space-4);
-    --b-message-font-size: var(--b-font-size-lg);
+    --b-message-font-size: var(--b-text-xl);
 }
 
-/* ==========================================
-   ANIMATIONS (Vue Transition)
-   ========================================== */
-.b-message--fade-enter-active,
-.b-message--fade-leave-active {
+/* ============================================================
+   7. ANIMATIONS (Vue Transitions Compatibility)
+   ============================================================ */
+:where(.b-message--fade-enter-active),
+:where(.b-message--fade-leave-active) {
     transition:
             opacity var(--b-message-transition-duration) var(--b-message-transition-easing),
             transform var(--b-message-transition-duration) var(--b-message-transition-easing);
 }
 
-.b-message--fade-enter-from,
-.b-message--fade-leave-to {
+:where(.b-message--fade-enter-from),
+:where(.b-message--fade-leave-to) {
     opacity: 0;
     transform: translateY(var(--b-message-transition-offset));
 }

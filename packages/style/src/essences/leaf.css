@@ -88,7 +88,7 @@
     --b-primary-subtle-text:            var(--b-primary-600);
     --b-primary-outline-border:         var(--b-primary-500);
     --b-primary-outline-text:           var(--b-primary-500);
-    --b-primary-overlay:                var(--b-primary-50);
+    --b-primary-overlay:                var(--b-primary-100);
 
     /* SECONDARY */
     --b-secondary-channels:               var(--b-slate-600-channels);
@@ -100,7 +100,7 @@
     --b-secondary-subtle-text:            var(--b-slate-600);
     --b-secondary-outline-border:         var(--b-slate-500);
     --b-secondary-outline-text:           var(--b-slate-500);
-    --b-secondary-overlay:                var(--b-slate-50);
+    --b-secondary-overlay:                var(--b-slate-200);
 
     /* SUCCESS */
     --b-success-channels:               var(--b-lime-600-channels);
@@ -112,7 +112,7 @@
     --b-success-subtle-text:            var(--b-lime-600);
     --b-success-outline-border:         var(--b-lime-600);
     --b-success-outline-text:           var(--b-lime-600);
-    --b-success-overlay:                var(--b-lime-50);
+    --b-success-overlay:                var(--b-lime-100);
 
     /* ERROR */
     --b-error-channels:               var(--b-red-600-channels);
@@ -124,7 +124,7 @@
     --b-error-subtle-text:            var(--b-red-600);
     --b-error-outline-border:         var(--b-red-600);
     --b-error-outline-text:           var(--b-red-600);
-    --b-error-overlay:                var(--b-red-50);
+    --b-error-overlay:                var(--b-red-100);
 
     /* WARNING */
     --b-warning-channels:               var(--b-yellow-600-channels);
@@ -136,7 +136,7 @@
     --b-warning-subtle-text:            var(--b-yellow-600);
     --b-warning-outline-border:         var(--b-yellow-600);
     --b-warning-outline-text:           var(--b-yellow-600);
-    --b-warning-overlay:                var(--b-yellow-50);
+    --b-warning-overlay:                var(--b-yellow-100);
 
     /* INFO */
     --b-info-channels:               var(--b-blue-600-channels);
@@ -148,7 +148,7 @@
     --b-info-subtle-text:            var(--b-blue-600);
     --b-info-outline-border:         var(--b-blue-600);
     --b-info-outline-text:           var(--b-blue-600);
-    --b-info-overlay:                var(--b-blue-50);
+    --b-info-overlay:                var(--b-blue-100);
 
     /* CONTRAST (Inverse) */
     --b-contrast-channels:               var(--b-slate-600-channels);

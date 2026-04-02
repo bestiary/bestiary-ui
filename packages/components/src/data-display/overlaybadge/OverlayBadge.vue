@@ -16,7 +16,6 @@
 <script setup lang="ts">
 import { BBadge } from "../badge";
 import { overlayBadgeProps } from './overlayBadge.types.ts';
-import './overlay-badge.css';
 
 defineOptions({ name: 'BOverlayBadge' });
 defineProps(overlayBadgeProps);

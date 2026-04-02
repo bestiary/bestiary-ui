@@ -1,0 +1,74 @@
+/**
+ * Bestiary UI — Card Component
+ */
+
+:where(.b-card) {
+    /* --- 1. LOCAL COMPONENT TOKENS --- */
+
+    /* Layout & Spacing */
+    --b-card-padding:              var(--b-space-5);
+    --b-card-gap:                  var(--b-space-2);
+    --b-card-border-radius:        var(--b-radius-container);
+
+    /* Colors & Visuals */
+    --b-card-background:           var(--b-surface-section);
+    --b-card-color:                var(--b-text-primary);
+    --b-card-shadow:               var(--b-shadow-md);
+    --b-shadow-color-channels:     var(--b-black-channels);
+
+    /* Typography Roles */
+    --b-card-title-font-size:      var(--b-h5-size);
+    --b-card-title-font-weight:    var(--b-h5-size);
+    --b-card-title-color:          var(--b-text-primary);
+
+    --b-card-subtitle-font-size:   var(--b-caption-size);
+    --b-card-subtitle-font-weight: var(--b-caption-weight);
+    --b-card-subtitle-color:       var(--b-text-muted);
+
+    --b-card-content-font-size:    var(--b-body-size);
+    --b-card-content-font-weight:  var(--b-body-weight);
+    --b-card-content-color:        var(--b-text-primary);
+
+    /* --- 2. BASE STYLES --- */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+
+    background-color: var(--b-card-background);
+    color: var(--b-card-color);
+    border-radius: var(--b-card-border-radius);
+    box-shadow: var(--b-card-shadow);
+
+    transition: transform var(--b-duration-normal) var(--b-ease-out),
+                box-shadow var(--b-duration-normal) var(--b-ease-out);
+}
+
+/* --- 3. INTERNAL ELEMENTS --- */
+
+/* Body Wrapper: Contains title, content, and footer */
+:where(.b-card__body) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--b-card-gap);
+    padding: var(--b-card-padding);
+}
+
+/* Title & Subtitle Group */
+:where(.b-card__title-group) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--b-card-gap);
+}
+
+:where(.b-card__title) {
+    font-size: var(--b-card-title-font-size);
+    font-weight: var(--b-card-title-font-weight);
+    color: var(--b-card-title-color);
+}
+
+:where(.b-card__subtitle) {
+    font-size: var(--b-card-subtitle-font-size);
+    font-weight: var(--b-card-subtitle-font-weight);
+    color: var(--b-card-subtitle-color);
+}

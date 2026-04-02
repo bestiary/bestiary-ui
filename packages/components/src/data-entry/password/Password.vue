@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {passwordProps} from "./password.types.ts";
 import {computed, h, ref} from "vue";
-import "./password.css";
 
 defineOptions({
     name: "BPassword",

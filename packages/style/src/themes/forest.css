@@ -46,7 +46,7 @@
     --b-label-weight:  var(--b-font-weight-medium);
     --b-label-leading: var(--b-text-sm--line-height);
 
-    --b-caption-size:    var(--b-text-sm);
+    --b-caption-size:    var(--b-text-md);
     --b-caption-weight:  var(--b-font-weight-normal);
     --b-caption-leading: var(--b-text-sm--line-height);
 
