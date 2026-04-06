@@ -41,21 +41,21 @@
     /* 2.3 Surfaces */
     --b-surface-ground:   oklch(0.9819 0.0029 264.54);
     --b-surface-section:  var(--b-white);
-    --b-surface-variant:  oklch(0.959 0.004 286.32);
+    --b-surface-variant:  var(--b-slate-100);
     --b-surface-floating: var(--b-white);
     --b-surface-overlay:  oklch(var(--b-black-channels) / 50%);
     --b-surface-contrast: oklch(0.1408 0.0044 285.82);
 
     /* 2.4 Typography & Selection */
-    --b-text-primary:   oklch(0.1408 0.0044 285.82);
-    --b-text-secondary: oklch(0.4419 0.0146 285.79);
-    --b-text-muted:     oklch(0.5517 0.0138 285.94);
+    --b-text-primary:   var(--b-slate-800);
+    --b-text-secondary: var(--b-slate-700);
+    --b-text-muted:     var(--b-slate-600);
     --b-text-contrast:  var(--b-white);
 
     --b-text-selection-background: oklch(var(--b-primary-500-channels) / 30%);
 
     /* 2.5 Form Controls (Inputs) */
-    --b-form-control-background:    oklch(0.959 0.004 286.32);
+    --b-form-control-background:    var(--b-surface-section);
     --b-form-control-border:        oklch(0.9197 0.004 286.32);
     --b-form-control-border-hover:  oklch(0.8711 0.0055 286.29);
     --b-form-control-border-active: var(--b-primary-400);

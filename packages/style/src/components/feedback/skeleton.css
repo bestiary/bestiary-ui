@@ -1,0 +1,38 @@
+:where(.b-skeleton) {
+
+    --b-skeleton-background: var(--b-surface-variant);
+    --b-skeleton-animation-background: rgba(255,255,255,0.4);
+    --b-skeleton-border-radius: var(--b-radius-interactive);
+
+    display: block;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--b-skeleton-background);
+    border-radius: var(--b-skeleton-border-radius);
+}
+
+:where(.b-skeleton)::after {
+    content: "";
+    animation: b-skeleton-animation 1.2s infinite;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
+    transform: translateX(-100%);
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), var(--b-skeleton-animation-background), rgba(255, 255, 255, 0));
+}
+
+:where(.b-skeleton-circle) {
+    --b-skeleton-border-radius: var(--b-radius-full);
+}
+
+@keyframes b-skeleton-animation {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}

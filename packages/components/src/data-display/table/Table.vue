@@ -58,7 +58,6 @@
 <script setup lang="ts">
 import { computed, useSlots, VNode } from 'vue';
 import { tableProps } from './table.props.ts';
-import "./table.css";
 
 defineOptions({ name: "BTable" });
 const props = defineProps(tableProps);

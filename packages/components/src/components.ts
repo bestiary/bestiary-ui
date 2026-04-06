@@ -13,6 +13,7 @@ export * from "./data-display/card";
 export * from "./data-display/table";
 
 export * from "./feedback/message";
+export * from "./feedback/skeleton";
 
 export * from "./layout/divider";
 export * from "./layout/splitter";

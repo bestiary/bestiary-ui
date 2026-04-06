@@ -8,11 +8,13 @@
 
             <nav class="b-p-2 b-flex b-flex-col b-gap-1">
                 <router-link to="/" class="nav-link">Home</router-link>
+
                 <div class="nav-group-title b-mt-4 b-px-2 b-text-xxs b-uppercase b-text-muted">General</div>
                 <router-link to="/buttons" class="nav-link">Button</router-link>
 
                 <div class="nav-group-title b-mt-4 b-px-2 b-text-xxs b-uppercase b-text-muted">Data Entry</div>
                 <router-link to="/input" class="nav-link">Input</router-link>
+                <router-link to="/password" class="nav-link">Password</router-link>
                 <router-link to="/textarea" class="nav-link">Textarea</router-link>
                 <router-link to="/rating" class="nav-link">Rating</router-link>
 
@@ -24,6 +26,7 @@
 
                 <div class="nav-group-title b-mt-4 b-px-2 b-text-xxs b-uppercase b-text-muted">Feedback</div>
                 <router-link to="/message" class="nav-link">Message</router-link>
+                <router-link to="/skeleton" class="nav-link">Skeleton</router-link>
 
                 <div class="nav-group-title b-mt-4 b-px-2 b-text-xxs b-uppercase b-text-muted">Layout</div>
                 <router-link to="/divider" class="nav-link">Divider</router-link>

@@ -3,11 +3,15 @@
 @import "./data-display/badge.css";
 @import "./data-display/overlay-badge.css";
 @import "./data-display/card.css";
+@import "./data-display/table.css";
 
 @import "./data-entry/icon-field.css";
 @import "./data-entry/input-text.css";
 @import "./data-entry/password.css";
+@import "./data-entry/textarea.css";
+@import "./data-entry/rating.css";
 
 @import "./feedback/message.css";
+@import "./feedback/skeleton.css";
 
 @import "./general/button.css";

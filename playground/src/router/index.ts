@@ -25,6 +25,11 @@ const router = createRouter({
             component: () => import("../views/BadgeView.vue")
         },
         {
+            path: "/skeleton",
+            name: "skeleton",
+            component: () => import("../views/SkeletonView.vue")
+        },
+        {
             path: "/icons",
             name: "icons",
             component: () => import("../views/IconView.vue")
@@ -43,6 +48,11 @@ const router = createRouter({
             path: "/input",
             name: "input",
             component: () => import("../views/InputView.vue")
+        },
+        {
+            path: "/password",
+            name: "password",
+            component: () => import("../views/PasswordView.vue")
         },
         {
             path: "/textarea",

@@ -1,0 +1,109 @@
+/**
+ * Bestiary UI — Rating Component
+ */
+
+:where(.b-rating) {
+    /* --- 1. LOCAL COMPONENT TOKENS --- */
+
+    --b-rating-gap:           var(--b-space-1);
+    --b-rating-item-size:     var(--b-size-5);
+
+    /* Colors */
+    --b-rating-color-off:     var(--b-text-muted);
+    --b-rating-color-on:      var(--b-warning-solid-background);
+    --b-rating-color-invalid: var(--b-error-solid-background);
+
+    /* Animation */
+    --b-rating-transition:    var(--b-duration-normal) var(--b-ease-base);
+
+    /* --- 2. BASE STYLES --- */
+    display: inline-flex;
+    align-items: center;
+    gap: var(--b-rating-gap);
+    line-height: 1;
+    vertical-align: middle;
+}
+
+/* Container for each star/item */
+:where(.b-rating__option) {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--b-rating-item-size);
+    height: var(--b-rating-item-size);
+    cursor: pointer;
+    transition: transform var(--b-duration-fast) var(--b-ease-out);
+}
+
+/* Wrapper for SVG icons to ensure consistent sizing */
+:where(.b-rating__icon-wrap) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+:where(.b-rating__icon-wrap svg) {
+    height: var(--b-rating-item-size);
+    width: var(--b-rating-item-size);
+    fill: currentColor;
+    display: block;
+    flex-shrink: 0;
+}
+
+/* Background layer (Inactive state) */
+:where(.b-rating__icon-wrap--off) {
+    color: var(--b-rating-color-off);
+    z-index: 0;
+}
+
+/* Foreground layer (Active fill state) */
+:where(.b-rating__icon-wrap--on) {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    z-index: 1;
+
+    color: var(--b-rating-color-on);
+    overflow: hidden;
+    width: 0;
+    height: 100%;
+    white-space: nowrap;
+    transition: width 0.15s var(--b-ease-out);
+}
+
+/* Ensures the active SVG remains fixed while its container is clipped */
+:where(.b-rating__icon-wrap--on svg, .b-rating__icon-wrap--on img) {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    min-width: var(--b-rating-item-size);
+}
+
+/* ============================================================
+   3. INTERACTIVE STATES
+   ============================================================ */
+
+/* Simple scale effect on hover for non-static states */
+:where(.b-rating:not(.b-rating--readonly):not(.b-rating--disabled) .b-rating__option:hover) {
+    transform: scale(1.15);
+}
+
+/* Invalid state: changes active color to error theme */
+:where(.b-rating--invalid) {
+    --b-rating-color-on: var(--b-rating-color-invalid);
+}
+
+/* Disabled state: reduced opacity and no pointer events */
+:where(.b-rating--disabled) {
+    opacity: var(--b-state-disabled-opacity);
+    pointer-events: none;
+}
+
+/* Readonly state: removes pointer cursor */
+:where(.b-rating--readonly .b-rating__option) {
+    cursor: default;
+}

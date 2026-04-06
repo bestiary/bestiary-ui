@@ -9,7 +9,7 @@ export const passwordProps = {
     ...inputTextProps,
     toggleMask: {
         type: Boolean,
-        default: true
+        default: false
     },
     visibleIcon: {
         type: definePropType<Component>(Object),
