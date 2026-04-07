@@ -1,0 +1,30 @@
+/* ============================================================
+   Bestiary UI — Resize Utilities
+
+   Controls whether an element is resizable by the user, and
+   if so, in which directions. Note: For 'resize' to work on
+   most elements, 'overflow' must be set to something other
+   than 'visible'.
+   ============================================================ */
+
+/* 1. Resize Controls */
+
+/* Prevents the element from being resizable (Default for most) */
+.b-resize-none {
+    resize: none;
+}
+
+/* Allows resizing in both horizontal and vertical directions */
+.b-resize {
+    resize: both;
+}
+
+/* Allows resizing only vertically (Common for textareas) */
+.b-resize-y {
+    resize: vertical;
+}
+
+/* Allows resizing only horizontally */
+.b-resize-x {
+    resize: horizontal;
+}

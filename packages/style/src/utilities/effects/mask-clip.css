@@ -1,0 +1,33 @@
+/* ============================================================
+   Bestiary UI — Mask Clip Utilities
+
+   Controls the bounding box of an element's mask.
+   Determines whether the mask is clipped to the border,
+   padding, content, or SVG shapes.
+   ============================================================ */
+
+/* 1. Standard Box Clipping */
+
+/* Mask extends to the outside edge of the border */
+.b-mask-clip-border  { mask-clip: border-box; }
+
+/* Mask extends to the outside edge of the padding box */
+.b-mask-clip-padding { mask-clip: padding-box; }
+
+/* Mask extends to the inside edge of the content box */
+.b-mask-clip-content { mask-clip: content-box; }
+
+/* 2. SVG/Geometry Clipping
+   Specific for SVG elements (Fill Box is the geometry of the object) */
+
+/* Mask is clipped to the fill box */
+.b-mask-clip-fill    { mask-clip: fill-box; }
+
+/* Mask is clipped to the stroke box (includes border) */
+.b-mask-clip-stroke  { mask-clip: stroke-box; }
+
+/* Mask is clipped to the nearest SVG viewport */
+.b-mask-clip-view    { mask-clip: view-box; }
+
+/* 3. Reset */
+.b-mask-no-clip      { mask-clip: no-clip; }

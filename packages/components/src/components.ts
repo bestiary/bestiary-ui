@@ -4,6 +4,7 @@ export * from "./data-entry/input-text";
 export * from "./data-entry/password";
 export * from "./data-entry/textarea";
 export * from "./data-entry/rating";
+export * from "./data-entry/checkbox";
 
 export * from "./data-display/avatar";
 export * from "./data-display/avatar-group";
@@ -13,6 +14,7 @@ export * from "./data-display/card";
 export * from "./data-display/table";
 
 export * from "./feedback/message";
+export * from "./feedback/skeleton";
 
 export * from "./layout/divider";
 export * from "./layout/splitter";

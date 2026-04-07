@@ -1,0 +1,46 @@
+/* ============================================================
+   Bestiary UI — Background Repeat Utilities
+
+   These utilities control how background images are tiled
+   after they have been sized and positioned.
+   Essential for creating seamless patterns or preventing
+   unwanted image tiling.
+   ============================================================ */
+
+/* 1. Basic Repetition */
+
+/* Repeats the background image both vertically and horizontally.
+   The image is clipped if it doesn't fit exactly. (Browser Default) */
+.b-bg-repeat {
+    background-repeat: repeat;
+}
+
+/* Repeats the background image only horizontally */
+.b-bg-repeat-x {
+    background-repeat: repeat-x;
+}
+
+/* Repeats the background image only vertically */
+.b-bg-repeat-y {
+    background-repeat: repeat-y;
+}
+
+/* Prevents the background image from repeating */
+.b-bg-no-repeat {
+    background-repeat: no-repeat;
+}
+
+/* 2. Advanced Repetition (Modern Layouts) */
+
+/* Tiles the image as much as possible without clipping.
+   The first and last images touch the edges, and whitespace
+   is distributed evenly between the images. */
+.b-bg-repeat-space {
+    background-repeat: space;
+}
+
+/* Tiles the image without clipping and squishes/stretches
+   the images to fill the container perfectly without leaving gaps. */
+.b-bg-repeat-round {
+    background-repeat: round;
+}

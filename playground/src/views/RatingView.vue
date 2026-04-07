@@ -30,7 +30,7 @@ const value = ref(0);
         </div>
 
         <div class="section">
-            <h2>Readonly</h2>
+            <h2>Disabled</h2>
             <BRating v-model="value" disabled />
         </div>
     </div>

@@ -1,0 +1,89 @@
+/**
+ * Bestiary UI — Skeleton Component
+ */
+
+:where(.b-skeleton) {
+    /* --- 1. LOCAL COMPONENT TOKENS --- */
+
+    /* Background and Shape */
+    --b-skeleton-background: var(--b-surface-variant);
+    --b-skeleton-border-radius: var(--b-radius-interactive);
+
+    /* Shimmer Wave Settings */
+    /* We use white channels with alpha for a subtle highlight effect */
+    --b-skeleton-shimmer-channels:  var(--b-white-channels);
+    --b-skeleton-shimmer-alpha:     0.4;
+
+    /* Animation details */
+    --b-skeleton-animation-name:    b-skeleton-wave;
+    --b-skeleton-duration:          1.5s;
+    --b-skeleton-timing:            linear;
+
+    /* --- 2. BASE STYLES --- */
+    display: block;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    background-color: var(--b-skeleton-background);
+    border-radius: var(--b-skeleton-border-radius);
+}
+
+:where(.b-skeleton)::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: var(--b-z-base);
+
+    /* Create a gradient that fades in and out */
+    background: linear-gradient(
+            90deg,
+            transparent,
+            oklch(var(--b-skeleton-shimmer-channels) / var(--b-skeleton-shimmer-alpha)),
+            transparent
+    );
+
+    /* Initial position for the animation */
+    transform: translateX(-100%);
+
+    /* Animation binding */
+    animation: var(--b-skeleton-animation-name) var(--b-skeleton-duration) var(--b-skeleton-timing) infinite;
+}
+
+/* ============================================================
+   3. SHAPE MODIFIERS
+   ============================================================ */
+
+/* Standard rectangle shape (default) */
+:where(.b-skeleton--shape-rectangle) {
+    --b-skeleton-border-radius: var(--b-radius-interactive);
+}
+
+/* Perfect circle shape */
+:where(.b-skeleton--shape-circle) {
+    --b-skeleton-border-radius: var(--b-radius-full);
+}
+
+/* ============================================================
+   4. ANIMATION MODIFIERS
+   ============================================================ */
+
+/* Disables the shimmer wave */
+:where(.b-skeleton--animation-none)::after {
+    display: none;
+}
+
+/* Standard wave animation */
+:where(.b-skeleton--animation-wave) {
+    --b-skeleton-animation-name: b-skeleton-wave;
+}
+
+/* --- Keyframes --- */
+@keyframes b-skeleton-wave {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}

@@ -1,0 +1,42 @@
+/* ============================================================
+   Bestiary UI — Outline Width Utilities
+
+   Controls the thickness of an element's outline.
+   Primary use-case is managing the visual focus ring for
+   accessibility (A11y) and custom decorative states.
+   ============================================================ */
+
+/* 1. SEMANTIC ROLES (Mapped to Contract) */
+
+/* Standard outline width */
+.b-outline        { outline-width: var(--b-stroke-default); }
+
+/* Strong outline for high-visibility states */
+.b-outline-strong { outline-width: var(--b-stroke-strong); }
+
+/* Focus ring width (Optimized for accessibility) */
+.b-outline-focus  { outline-width: var(--b-stroke-focus); }
+
+/* 2. ATOMIC SCALE (Fixed pixel values) */
+
+.b-outline-0   { outline-width: 0px; }
+.b-outline-1   { outline-width: 1px; }
+.b-outline-2   { outline-width: 2px; }
+.b-outline-3   { outline-width: 3px; }
+.b-outline-4   { outline-width: 4px; }
+.b-outline-5   { outline-width: 5px; }
+.b-outline-6   { outline-width: 6px; }
+.b-outline-7   { outline-width: 7px; }
+.b-outline-8   { outline-width: 8px; }
+.b-outline-9   { outline-width: 9px; }
+.b-outline-10 { outline-width: 10px; }
+.b-outline-11 { outline-width: 11px; }
+.b-outline-12 { outline-width: 12px; }
+
+/* 3. CUSTOM PROPERTY HOOK (Enterprise Flexibility)
+   Allows setting any arbitrary width via CSS variable.
+   Usage: <button style="--b-outline-width: 5px" class="b-outline-custom">...
+*/
+.b-outline-custom {
+    outline-width: var(--b-outline-width);
+}

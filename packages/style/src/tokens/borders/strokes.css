@@ -1,0 +1,22 @@
+@property --b-stroke-factor {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 1;
+}
+
+@property --b-stroke {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 0px;
+}
+
+:where(html) {
+    --b-stroke-factor: 1;
+
+    --b-stroke-none: 0px;
+    --b-stroke-sm:   calc(1px * var(--b-stroke-factor));
+    --b-stroke-md:   calc(2px * var(--b-stroke-factor));
+    --b-stroke-lg:   calc(3px * var(--b-stroke-factor));
+    --b-stroke-xl:   calc(5px * var(--b-stroke-factor));
+    --b-stroke-2xl:  calc(10px * var(--b-stroke-factor));
+}

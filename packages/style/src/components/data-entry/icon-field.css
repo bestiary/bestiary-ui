@@ -1,0 +1,38 @@
+/**
+ * Bestiary UI — IconField Component
+ */
+
+:where(.b-icon-field) {
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+}
+
+/* Generic styles for icons inside the field */
+:where(.b-icon-field > :not(.b-input-text)) {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: var(--b-z-base);
+    pointer-events: none;
+    color: var(--b-text-muted);
+}
+
+/* --- LOGIC: ICON START (Left) --- */
+:where(.b-icon-field > :first-child:not(.b-input-text)) {
+    inset-inline-start: var(--b-space-3);
+}
+/* Apply padding to input if preceded by an icon */
+:where(.b-icon-field > :not(.b-input-text) + .b-input-text) {
+    --b-input-text-padding-x-left: calc(var(--b-icon-size-md) + var(--b-space-4));
+}
+
+/* --- LOGIC: ICON END (Right) --- */
+:where(.b-icon-field > :last-child:not(.b-input-text)) {
+    inset-inline-end: var(--b-space-3);
+}
+
+/* Apply padding to input if followed by an icon */
+:where(.b-icon-field > .b-input-text:not(:last-child)) {
+    --b-input-text-padding-x-right: calc(var(--b-icon-size-md) + var(--b-space-4));
+}

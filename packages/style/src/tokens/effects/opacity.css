@@ -1,0 +1,15 @@
+:where(html) {
+    --b-alpha-0:   0;
+    --b-alpha-5:   0.05;
+    --b-alpha-10:  0.1;
+    --b-alpha-20:  0.2;
+    --b-alpha-30:  0.3;
+    --b-alpha-40:  0.4;
+    --b-alpha-50:  0.5;
+    --b-alpha-60:  0.6;
+    --b-alpha-70:  0.7;
+    --b-alpha-80:  0.8;
+    --b-alpha-90:  0.9;
+    --b-alpha-95:  0.95;
+    --b-alpha-100: 1;
+}

@@ -8,13 +8,16 @@
 
             <nav class="b-p-2 b-flex b-flex-col b-gap-1">
                 <router-link to="/" class="nav-link">Home</router-link>
+
                 <div class="nav-group-title b-mt-4 b-px-2 b-text-xxs b-uppercase b-text-muted">General</div>
                 <router-link to="/buttons" class="nav-link">Button</router-link>
 
                 <div class="nav-group-title b-mt-4 b-px-2 b-text-xxs b-uppercase b-text-muted">Data Entry</div>
                 <router-link to="/input" class="nav-link">Input</router-link>
+                <router-link to="/password" class="nav-link">Password</router-link>
                 <router-link to="/textarea" class="nav-link">Textarea</router-link>
                 <router-link to="/rating" class="nav-link">Rating</router-link>
+                <router-link to="/checkbox" class="nav-link">Checkbox</router-link>
 
                 <div class="nav-group-title b-mt-4 b-px-2 b-text-xxs b-uppercase b-text-muted">Data Display</div>
                 <router-link to="/badges" class="nav-link">Badge</router-link>
@@ -24,6 +27,7 @@
 
                 <div class="nav-group-title b-mt-4 b-px-2 b-text-xxs b-uppercase b-text-muted">Feedback</div>
                 <router-link to="/message" class="nav-link">Message</router-link>
+                <router-link to="/skeleton" class="nav-link">Skeleton</router-link>
 
                 <div class="nav-group-title b-mt-4 b-px-2 b-text-xxs b-uppercase b-text-muted">Layout</div>
                 <router-link to="/divider" class="nav-link">Divider</router-link>
@@ -63,13 +67,16 @@ const isDark = ref(false);
 
 const toggleTheme = () => {
     isDark.value = !isDark.value;
-    document.documentElement.setAttribute("data-theme", isDark.value ? "dark" : "light");
+    document.documentElement.setAttribute("data-color-mode", isDark.value ? "dark" : "light");
 };
 
 onMounted(() => {
+    document.documentElement.setAttribute("data-theme","forest");
+    document.documentElement.setAttribute("data-essence","leaf");
+
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
         isDark.value = true;
-        document.documentElement.setAttribute("data-theme", "dark");
+        document.documentElement.setAttribute("data-color-mode", "dark");
     }
 });
 </script>

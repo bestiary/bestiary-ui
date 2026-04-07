@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {textareaProps} from "./textarea.types.ts";
 import {computed, nextTick, onMounted, ref, watch} from "vue";
-import "./textarea.css";
 
 defineOptions({
     name: "BTextarea",

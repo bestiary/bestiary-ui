@@ -1,0 +1,40 @@
+/* ============================================================
+   Bestiary UI — Mask Origin Utilities
+
+   Controls the origin of the mask. Determines whether the mask
+   starts from the border, padding, or content edge.
+   ============================================================ */
+
+/* 1. Standard Box Origins */
+
+/* Mask starts from the outside edge of the border */
+.b-mask-origin-border {
+    mask-origin: border-box;
+}
+
+/* Mask starts from the outside edge of the padding box */
+.b-mask-origin-padding {
+    mask-origin: padding-box;
+}
+
+/* Mask starts from the inside edge of the content box */
+.b-mask-origin-content {
+    mask-origin: content-box;
+}
+
+/* 2. SVG-specific Origins */
+
+/* Mask starts from the object's fill box */
+.b-mask-origin-fill {
+    mask-origin: fill-box;
+}
+
+/* Mask starts from the object's stroke box */
+.b-mask-origin-stroke {
+    mask-origin: stroke-box;
+}
+
+/* Mask starts from the nearest SVG viewport */
+.b-mask-origin-view {
+    mask-origin: view-box;
+}

@@ -1,0 +1,46 @@
+/* ============================================================
+   Bestiary UI — Backdrop Opacity Utilities
+
+   Controls the opacity filter applied to the area behind an element.
+   This affects the visibility of content underneath the element's
+   bounding box, without affecting the element's own content.
+   ============================================================ */
+
+:where(*) {
+    /* Default value (100% = fully opaque background) */
+    --b-backdrop-opacity: 100%;
+}
+
+/* 1. APPLY THE FILTER */
+/* Apply this class to initialize the backdrop filter */
+.b-backdrop-opacity {
+    backdrop-filter: opacity(var(--b-backdrop-opacity));
+}
+
+/* 2. PRESET SCALE
+   Allows setting the backdrop opacity level.
+   0 = completely transparent background, 100 = original background.
+*/
+
+.b-backdrop-opacity-0   { --b-backdrop-opacity: 0%; }
+.b-backdrop-opacity-5   { --b-backdrop-opacity: 5%; }
+.b-backdrop-opacity-10  { --b-backdrop-opacity: 10%; }
+.b-backdrop-opacity-20  { --b-backdrop-opacity: 20%; }
+.b-backdrop-opacity-25  { --b-backdrop-opacity: 25%; }
+.b-backdrop-opacity-30  { --b-backdrop-opacity: 30%; }
+.b-backdrop-opacity-40  { --b-backdrop-opacity: 40%; }
+.b-backdrop-opacity-50  { --b-backdrop-opacity: 50%; }
+.b-backdrop-opacity-60  { --b-backdrop-opacity: 60%; }
+.b-backdrop-opacity-70  { --b-backdrop-opacity: 70%; }
+.b-backdrop-opacity-75  { --b-backdrop-opacity: 75%; }
+.b-backdrop-opacity-80  { --b-backdrop-opacity: 80%; }
+.b-backdrop-opacity-90  { --b-backdrop-opacity: 90%; }
+.b-backdrop-opacity-95  { --b-backdrop-opacity: 95%; }
+.b-backdrop-opacity-100 { --b-backdrop-opacity: 100%; }
+
+/* 3. CUSTOM PROPERTY HOOK
+   Usage: <div class="b-backdrop-opacity" style="--b-backdrop-opacity: 12%">...
+*/
+.b-backdrop-opacity-custom {
+    backdrop-filter: opacity(var(--b-backdrop-opacity));
+}

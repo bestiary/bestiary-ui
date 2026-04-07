@@ -1,0 +1,96 @@
+/* ============================================================
+   Bestiary UI — Animation Utilities
+
+   Provides ready-to-use CSS animations for loaders, status
+   indicators, and interactive highlights.
+
+   Note: High-performance animations (transform & opacity) are
+   preferred to ensure smooth rendering at 60fps.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. KEYFRAMES DEFINITIONS
+   Prefixing keyframes with 'b-' to prevent global namespace pollution.
+   ------------------------------------------------------------ */
+
+/* Infinite rotation for spinners */
+@keyframes b-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* Radar-like pulse effect for notifications */
+@keyframes b-ping {
+    75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* Gentle breathing effect for skeleton loaders or highlights */
+@keyframes b-pulse {
+    50% { opacity: 0.5; }
+}
+
+/* Bouncing motion for "jump to bottom" or attention grabbing */
+@keyframes b-bounce {
+    0%, 100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+        transform: none;
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+/* ------------------------------------------------------------
+   2. ANIMATION CLASSES
+   ------------------------------------------------------------ */
+
+/* Standard spin: 1s duration, linear, infinite */
+.b-animate-spin {
+    animation: b-spin 1s linear infinite;
+}
+
+/* Standard ping: 1s duration, ease-out, infinite */
+.b-animate-ping {
+    animation: b-ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Standard pulse: 2s duration, ease-in-out, infinite */
+.b-animate-pulse {
+    animation: b-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Standard bounce: 1s duration, infinite */
+.b-animate-bounce {
+    animation: b-bounce 1s infinite;
+}
+
+/* ------------------------------------------------------------
+   3. HELPERS & CUSTOM HOOKS
+   ------------------------------------------------------------ */
+
+/* Stops all animations on the element */
+.b-animate-none {
+    animation: none;
+}
+
+/* Custom Property Hook
+   Allows passing any arbitrary animation string.
+   Usage: <div class="b-animate-custom" style="--b-animation: b-spin 5s ease-in">...
+*/
+.b-animate-custom {
+    animation: var(--b-animation);
+}
+
+/* Respect user's system preferences for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    [class*="b-animate-"] {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

@@ -1,0 +1,30 @@
+/* ============================================================
+   Bestiary UI — Stroke Width Utilities
+
+   Controls the thickness of SVG strokes. These are used to
+   adjust the visual weight of icon lines or decorative paths.
+   ============================================================ */
+
+/* 1. Atomic Stroke Widths (Fixed scale)
+   Provides a clear scale for icon design. */
+
+.b-stroke-0 { stroke-width: 0; }
+.b-stroke-1 { stroke-width: 1; }
+.b-stroke-2 { stroke-width: 2; }
+.b-stroke-3 { stroke-width: 3; }
+.b-stroke-4 { stroke-width: 4; }
+
+/* 2. Semantic Mapping (Optional)
+   Links to the strokes defined in your Border settings
+   to ensure consistent line weight across the whole UI. */
+
+.b-stroke-default { stroke-width: var(--b-stroke-default); }
+.b-stroke-strong  { stroke-width: var(--b-stroke-strong); }
+.b-stroke-focus   { stroke-width: var(--b-stroke-focus); }
+
+/* 3. CUSTOM PROPERTY HOOK (Enterprise Flexibility)
+   Usage: <svg style="--b-stroke-width: 5px" class="b-stroke-custom">
+*/
+.b-stroke-custom {
+    stroke-width: var(--b-stroke-width);
+}

@@ -1,0 +1,53 @@
+/* ============================================================
+   Bestiary UI — Break After Utilities
+
+   These utilities control how page, column, or region breaks
+   behave after a generated box. Primarily used in multi-column
+   layouts or print stylesheets.
+   ============================================================ */
+
+/* 1. General Break Utilities */
+
+/* Allows but does not force a break after the element (Default) */
+.b-break-after-auto {
+    break-after: auto;
+}
+
+/* Prevents any break (page, column, or region) after the element */
+.b-break-after-avoid {
+    break-after: avoid;
+}
+
+/* Forces a break in all contexts (used mostly in CSS Regions) */
+.b-break-after-all {
+    break-after: all;
+}
+
+/* 2. Page Break Utilities (Printing) */
+
+/* Forces a page break after the element */
+.b-break-after-page {
+    break-after: page;
+}
+
+/* Prevents a page break after the element */
+.b-break-after-avoid-page {
+    break-after: avoid-page;
+}
+
+/* Forces one or two page breaks so that the next page is a left page */
+.b-break-after-left {
+    break-after: left;
+}
+
+/* Forces one or two page breaks so that the next page is a right page */
+.b-break-after-right {
+    break-after: right;
+}
+
+/* 3. Column Break Utilities */
+
+/* Forces a column break in multi-column layouts */
+.b-break-after-column {
+    break-after: column;
+}

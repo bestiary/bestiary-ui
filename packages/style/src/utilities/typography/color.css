@@ -1,0 +1,392 @@
+/* ============================================================
+   Bestiary UI — Text Color Utilities
+
+   Controls the foreground color of text elements.
+
+   Architecture:
+   1. Global Semantic Roles: High-level intent (Primary, Muted).
+   2. Functional Matrix: Role-based colors for UI states (Success, Error).
+   3. Literal Palette: Direct access to the full reference color scale.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. GLOBAL SEMANTIC ROLES
+   These colors adapt automatically when the Essence changes.
+   ------------------------------------------------------------ */
+
+/* Main readable text (Highest contrast) */
+.b-text-primary {
+    color: var(--b-text-primary);
+}
+
+/* Secondary text (Medium contrast, for sub-labels) */
+.b-text-secondary {
+    color: var(--b-text-secondary);
+}
+
+/* Muted text (Low contrast, for placeholders or disabled hints) */
+.b-text-muted {
+    color: var(--b-text-muted);
+}
+
+/* Inverted text for dark backgrounds or high-contrast sections */
+.b-text-contrast {
+    color: var(--b-text-contrast);
+}
+
+
+/* ------------------------------------------------------------
+   2. FUNCTIONAL SEMANTIC MATRIX
+   Mapped to functional groups for state-based decorations.
+   ------------------------------------------------------------ */
+
+.b-text-f-secondary { color: var(--b-secondary-outline-text); }
+.b-text-f-success   { color: var(--b-success-outline-text); }
+.b-text-f-error     { color: var(--b-error-outline-text); }
+.b-text-f-warning   { color: var(--b-warning-outline-text); }
+.b-text-f-info      { color: var(--b-info-outline-text); }
+.b-text-f-contrast  { color: var(--b-contrast-outline-text); }
+
+
+/* ------------------------------------------------------------
+   3. LITERAL PALETTE (Reference Primities)
+   Fixed shades for manual color control.
+   ------------------------------------------------------------ */
+
+/* WHITE & BLACK */
+.b-text-white { color: var(--b-ref-white); }
+.b-text-black { color: var(--b-ref-black); }
+
+/* BRAND */
+.b-text-brand-50  { color: var(--b-primary-50); }
+.b-text-brand-100 { color: var(--b-primary-100); }
+.b-text-brand-200 { color: var(--b-primary-200); }
+.b-text-brand-300 { color: var(--b-primary-300); }
+.b-text-brand-400 { color: var(--b-primary-400); }
+.b-text-brand-500 { color: var(--b-primary-500); }
+.b-text-brand-600 { color: var(--b-primary-600); }
+.b-text-brand-700 { color: var(--b-primary-700); }
+.b-text-brand-800 { color: var(--b-primary-800); }
+.b-text-brand-900 { color: var(--b-primary-900); }
+.b-text-brand-950 { color: var(--b-primary-950); }
+
+/* SLATE */
+.b-text-slate-50  { color: var(--b-ref-slate-50); }
+.b-text-slate-100 { color: var(--b-ref-slate-100); }
+.b-text-slate-200 { color: var(--b-ref-slate-200); }
+.b-text-slate-300 { color: var(--b-ref-slate-300); }
+.b-text-slate-400 { color: var(--b-ref-slate-400); }
+.b-text-slate-500 { color: var(--b-ref-slate-500); }
+.b-text-slate-600 { color: var(--b-ref-slate-600); }
+.b-text-slate-700 { color: var(--b-ref-slate-700); }
+.b-text-slate-800 { color: var(--b-ref-slate-800); }
+.b-text-slate-900 { color: var(--b-ref-slate-900); }
+.b-text-slate-950 { color: var(--b-ref-slate-950); }
+
+/* GRAY */
+.b-text-gray-50  { color: var(--b-ref-gray-50); }
+.b-text-gray-100 { color: var(--b-ref-gray-100); }
+.b-text-gray-200 { color: var(--b-ref-gray-200); }
+.b-text-gray-300 { color: var(--b-ref-gray-300); }
+.b-text-gray-400 { color: var(--b-ref-gray-400); }
+.b-text-gray-500 { color: var(--b-ref-gray-500); }
+.b-text-gray-600 { color: var(--b-ref-gray-600); }
+.b-text-gray-700 { color: var(--b-ref-gray-700); }
+.b-text-gray-800 { color: var(--b-ref-gray-800); }
+.b-text-gray-900 { color: var(--b-ref-gray-900); }
+.b-text-gray-950 { color: var(--b-ref-gray-950); }
+
+/*ZINC*/
+.b-text-zinc-50  { color: var(--b-ref-zinc-50); }
+.b-text-zinc-100 { color: var(--b-ref-zinc-100); }
+.b-text-zinc-200 { color: var(--b-ref-zinc-200); }
+.b-text-zinc-300 { color: var(--b-ref-zinc-300); }
+.b-text-zinc-400 { color: var(--b-ref-zinc-400); }
+.b-text-zinc-500 { color: var(--b-ref-zinc-500); }
+.b-text-zinc-600 { color: var(--b-ref-zinc-600); }
+.b-text-zinc-700 { color: var(--b-ref-zinc-700); }
+.b-text-zinc-800 { color: var(--b-ref-zinc-800); }
+.b-text-zinc-900 { color: var(--b-ref-zinc-900); }
+.b-text-zinc-950 { color: var(--b-ref-zinc-950); }
+
+/*NEUTRAL*/
+.b-text-neutral-50  { color: var(--b-ref-neutral-50); }
+.b-text-neutral-100 { color: var(--b-ref-neutral-100); }
+.b-text-neutral-200 { color: var(--b-ref-neutral-200); }
+.b-text-neutral-300 { color: var(--b-ref-neutral-300); }
+.b-text-neutral-400 { color: var(--b-ref-neutral-400); }
+.b-text-neutral-500 { color: var(--b-ref-neutral-500); }
+.b-text-neutral-600 { color: var(--b-ref-neutral-600); }
+.b-text-neutral-700 { color: var(--b-ref-neutral-700); }
+.b-text-neutral-800 { color: var(--b-ref-neutral-800); }
+.b-text-neutral-900 { color: var(--b-ref-neutral-900); }
+.b-text-neutral-950 { color: var(--b-ref-neutral-950); }
+
+/*STONE*/
+.b-text-stone-50  { color: var(--b-ref-stone-50); }
+.b-text-stone-100 { color: var(--b-ref-stone-100); }
+.b-text-stone-200 { color: var(--b-ref-stone-200); }
+.b-text-stone-300 { color: var(--b-ref-stone-300); }
+.b-text-stone-400 { color: var(--b-ref-stone-400); }
+.b-text-stone-500 { color: var(--b-ref-stone-500); }
+.b-text-stone-600 { color: var(--b-ref-stone-600); }
+.b-text-stone-700 { color: var(--b-ref-stone-700); }
+.b-text-stone-800 { color: var(--b-ref-stone-800); }
+.b-text-stone-900 { color: var(--b-ref-stone-900); }
+.b-text-stone-950 { color: var(--b-ref-stone-950); }
+
+/*RED*/
+.b-text-red-50  { color: var(--b-ref-red-50); }
+.b-text-red-100 { color: var(--b-ref-red-100); }
+.b-text-red-200 { color: var(--b-ref-red-200); }
+.b-text-red-300 { color: var(--b-ref-red-300); }
+.b-text-red-400 { color: var(--b-ref-red-400); }
+.b-text-red-500 { color: var(--b-ref-red-500); }
+.b-text-red-600 { color: var(--b-ref-red-600); }
+.b-text-red-700 { color: var(--b-ref-red-700); }
+.b-text-red-800 { color: var(--b-ref-red-800); }
+.b-text-red-900 { color: var(--b-ref-red-900); }
+.b-text-red-950 { color: var(--b-ref-red-950); }
+
+/*ORANGE*/
+.b-text-orange-50  { color: var(--b-ref-orange-50); }
+.b-text-orange-100 { color: var(--b-ref-orange-100); }
+.b-text-orange-200 { color: var(--b-ref-orange-200); }
+.b-text-orange-300 { color: var(--b-ref-orange-300); }
+.b-text-orange-400 { color: var(--b-ref-orange-400); }
+.b-text-orange-500 { color: var(--b-ref-orange-500); }
+.b-text-orange-600 { color: var(--b-ref-orange-600); }
+.b-text-orange-700 { color: var(--b-ref-orange-700); }
+.b-text-orange-800 { color: var(--b-ref-orange-800); }
+.b-text-orange-900 { color: var(--b-ref-orange-900); }
+.b-text-orange-950 { color: var(--b-ref-orange-950); }
+
+/*AMBER*/
+.b-text-amber-50  { color: var(--b-ref-amber-50); }
+.b-text-amber-100 { color: var(--b-ref-amber-100); }
+.b-text-amber-200 { color: var(--b-ref-amber-200); }
+.b-text-amber-300 { color: var(--b-ref-amber-300); }
+.b-text-amber-400 { color: var(--b-ref-amber-400); }
+.b-text-amber-500 { color: var(--b-ref-amber-500); }
+.b-text-amber-600 { color: var(--b-ref-amber-600); }
+.b-text-amber-700 { color: var(--b-ref-amber-700); }
+.b-text-amber-800 { color: var(--b-ref-amber-800); }
+.b-text-amber-900 { color: var(--b-ref-amber-900); }
+.b-text-amber-950 { color: var(--b-ref-amber-950); }
+
+/*YELLOW*/
+.b-text-yellow-50  { color: var(--b-ref-yellow-50); }
+.b-text-yellow-100 { color: var(--b-ref-yellow-100); }
+.b-text-yellow-200 { color: var(--b-ref-yellow-200); }
+.b-text-yellow-300 { color: var(--b-ref-yellow-300); }
+.b-text-yellow-400 { color: var(--b-ref-yellow-400); }
+.b-text-yellow-500 { color: var(--b-ref-yellow-500); }
+.b-text-yellow-600 { color: var(--b-ref-yellow-600); }
+.b-text-yellow-700 { color: var(--b-ref-yellow-700); }
+.b-text-yellow-800 { color: var(--b-ref-yellow-800); }
+.b-text-yellow-900 { color: var(--b-ref-yellow-900); }
+.b-text-yellow-950 { color: var(--b-ref-yellow-950); }
+
+/*LIME*/
+.b-text-lime-50  { color: var(--b-ref-lime-50); }
+.b-text-lime-100 { color: var(--b-ref-lime-100); }
+.b-text-lime-200 { color: var(--b-ref-lime-200); }
+.b-text-lime-300 { color: var(--b-ref-lime-300); }
+.b-text-lime-400 { color: var(--b-ref-lime-400); }
+.b-text-lime-500 { color: var(--b-ref-lime-500); }
+.b-text-lime-600 { color: var(--b-ref-lime-600); }
+.b-text-lime-700 { color: var(--b-ref-lime-700); }
+.b-text-lime-800 { color: var(--b-ref-lime-800); }
+.b-text-lime-900 { color: var(--b-ref-lime-900); }
+.b-text-lime-950 { color: var(--b-ref-lime-950); }
+
+/*GREEN*/
+.b-text-green-50  { color: var(--b-ref-green-50); }
+.b-text-green-100 { color: var(--b-ref-green-100); }
+.b-text-green-200 { color: var(--b-ref-green-200); }
+.b-text-green-300 { color: var(--b-ref-green-300); }
+.b-text-green-400 { color: var(--b-ref-green-400); }
+.b-text-green-500 { color: var(--b-ref-green-500); }
+.b-text-green-600 { color: var(--b-ref-green-600); }
+.b-text-green-700 { color: var(--b-ref-green-700); }
+.b-text-green-800 { color: var(--b-ref-green-800); }
+.b-text-green-900 { color: var(--b-ref-green-900); }
+.b-text-green-950 { color: var(--b-ref-green-950); }
+
+/*EMERALD*/
+.b-text-emerald-50  { color: var(--b-ref-emerald-50); }
+.b-text-emerald-100 { color: var(--b-ref-emerald-100); }
+.b-text-emerald-200 { color: var(--b-ref-emerald-200); }
+.b-text-emerald-300 { color: var(--b-ref-emerald-300); }
+.b-text-emerald-400 { color: var(--b-ref-emerald-400); }
+.b-text-emerald-500 { color: var(--b-ref-emerald-500); }
+.b-text-emerald-600 { color: var(--b-ref-emerald-600); }
+.b-text-emerald-700 { color: var(--b-ref-emerald-700); }
+.b-text-emerald-800 { color: var(--b-ref-emerald-800); }
+.b-text-emerald-900 { color: var(--b-ref-emerald-900); }
+.b-text-emerald-950 { color: var(--b-ref-emerald-950); }
+
+/*TEAL*/
+.b-text-teal-50  { color: var(--b-ref-teal-50); }
+.b-text-teal-100 { color: var(--b-ref-teal-100); }
+.b-text-teal-200 { color: var(--b-ref-teal-200); }
+.b-text-teal-300 { color: var(--b-ref-teal-300); }
+.b-text-teal-400 { color: var(--b-ref-teal-400); }
+.b-text-teal-500 { color: var(--b-ref-teal-500); }
+.b-text-teal-600 { color: var(--b-ref-teal-600); }
+.b-text-teal-700 { color: var(--b-ref-teal-700); }
+.b-text-teal-800 { color: var(--b-ref-teal-800); }
+.b-text-teal-900 { color: var(--b-ref-teal-900); }
+.b-text-teal-950 { color: var(--b-ref-teal-950); }
+
+/*CYAN*/
+.b-text-cyan-50  { color: var(--b-ref-cyan-50); }
+.b-text-cyan-100 { color: var(--b-ref-cyan-100); }
+.b-text-cyan-200 { color: var(--b-ref-cyan-200); }
+.b-text-cyan-300 { color: var(--b-ref-cyan-300); }
+.b-text-cyan-400 { color: var(--b-ref-cyan-400); }
+.b-text-cyan-500 { color: var(--b-ref-cyan-500); }
+.b-text-cyan-600 { color: var(--b-ref-cyan-600); }
+.b-text-cyan-700 { color: var(--b-ref-cyan-700); }
+.b-text-cyan-800 { color: var(--b-ref-cyan-800); }
+.b-text-cyan-900 { color: var(--b-ref-cyan-900); }
+.b-text-cyan-950 { color: var(--b-ref-cyan-950); }
+
+/*SKY*/
+.b-text-sky-50  { color: var(--b-ref-sky-50); }
+.b-text-sky-100 { color: var(--b-ref-sky-100); }
+.b-text-sky-200 { color: var(--b-ref-sky-200); }
+.b-text-sky-300 { color: var(--b-ref-sky-300); }
+.b-text-sky-400 { color: var(--b-ref-sky-400); }
+.b-text-sky-500 { color: var(--b-ref-sky-500); }
+.b-text-sky-600 { color: var(--b-ref-sky-600); }
+.b-text-sky-700 { color: var(--b-ref-sky-700); }
+.b-text-sky-800 { color: var(--b-ref-sky-800); }
+.b-text-sky-900 { color: var(--b-ref-sky-900); }
+.b-text-sky-950 { color: var(--b-ref-sky-950); }
+
+/*BLUE*/
+.b-text-blue-50  { color: var(--b-ref-blue-50); }
+.b-text-blue-100 { color: var(--b-ref-blue-100); }
+.b-text-blue-200 { color: var(--b-ref-blue-200); }
+.b-text-blue-300 { color: var(--b-ref-blue-300); }
+.b-text-blue-400 { color: var(--b-ref-blue-400); }
+.b-text-blue-500 { color: var(--b-ref-blue-500); }
+.b-text-blue-600 { color: var(--b-ref-blue-600); }
+.b-text-blue-700 { color: var(--b-ref-blue-700); }
+.b-text-blue-800 { color: var(--b-ref-blue-800); }
+.b-text-blue-900 { color: var(--b-ref-blue-900); }
+.b-text-blue-950 { color: var(--b-ref-blue-950); }
+
+/*INDIGO*/
+.b-text-indigo-50  { color: var(--b-ref-indigo-50); }
+.b-text-indigo-100 { color: var(--b-ref-indigo-100); }
+.b-text-indigo-200 { color: var(--b-ref-indigo-200); }
+.b-text-indigo-300 { color: var(--b-ref-indigo-300); }
+.b-text-indigo-400 { color: var(--b-ref-indigo-400); }
+.b-text-indigo-500 { color: var(--b-ref-indigo-500); }
+.b-text-indigo-600 { color: var(--b-ref-indigo-600); }
+.b-text-indigo-700 { color: var(--b-ref-indigo-700); }
+.b-text-indigo-800 { color: var(--b-ref-indigo-800); }
+.b-text-indigo-900 { color: var(--b-ref-indigo-900); }
+.b-text-indigo-950 { color: var(--b-ref-indigo-950); }
+
+/*VIOLET*/
+.b-text-violet-50  { color: var(--b-ref-violet-50); }
+.b-text-violet-100 { color: var(--b-ref-violet-100); }
+.b-text-violet-200 { color: var(--b-ref-violet-200); }
+.b-text-violet-300 { color: var(--b-ref-violet-300); }
+.b-text-violet-400 { color: var(--b-ref-violet-400); }
+.b-text-violet-500 { color: var(--b-ref-violet-500); }
+.b-text-violet-600 { color: var(--b-ref-violet-600); }
+.b-text-violet-700 { color: var(--b-ref-violet-700); }
+.b-text-violet-800 { color: var(--b-ref-violet-800); }
+.b-text-violet-900 { color: var(--b-ref-violet-900); }
+.b-text-violet-950 { color: var(--b-ref-violet-950); }
+
+/*PURPLE*/
+.b-text-purple-50  { color: var(--b-ref-purple-50); }
+.b-text-purple-100 { color: var(--b-ref-purple-100); }
+.b-text-purple-200 { color: var(--b-ref-purple-200); }
+.b-text-purple-300 { color: var(--b-ref-purple-300); }
+.b-text-purple-400 { color: var(--b-ref-purple-400); }
+.b-text-purple-500 { color: var(--b-ref-purple-500); }
+.b-text-purple-600 { color: var(--b-ref-purple-600); }
+.b-text-purple-700 { color: var(--b-ref-purple-700); }
+.b-text-purple-800 { color: var(--b-ref-purple-800); }
+.b-text-purple-900 { color: var(--b-ref-purple-900); }
+.b-text-purple-950 { color: var(--b-ref-purple-950); }
+
+/*FUCHSIA*/
+.b-text-fuchsia-50  { color: var(--b-ref-fuchsia-50); }
+.b-text-fuchsia-100 { color: var(--b-ref-fuchsia-100); }
+.b-text-fuchsia-200 { color: var(--b-ref-fuchsia-200); }
+.b-text-fuchsia-300 { color: var(--b-ref-fuchsia-300); }
+.b-text-fuchsia-400 { color: var(--b-ref-fuchsia-400); }
+.b-text-fuchsia-500 { color: var(--b-ref-fuchsia-500); }
+.b-text-fuchsia-600 { color: var(--b-ref-fuchsia-600); }
+.b-text-fuchsia-700 { color: var(--b-ref-fuchsia-700); }
+.b-text-fuchsia-800 { color: var(--b-ref-fuchsia-800); }
+.b-text-fuchsia-900 { color: var(--b-ref-fuchsia-900); }
+.b-text-fuchsia-950 { color: var(--b-ref-fuchsia-950); }
+
+/*PINK*/
+.b-text-pink-50  { color: var(--b-ref-pink-50); }
+.b-text-pink-100 { color: var(--b-ref-pink-100); }
+.b-text-pink-200 { color: var(--b-ref-pink-200); }
+.b-text-pink-300 { color: var(--b-ref-pink-300); }
+.b-text-pink-400 { color: var(--b-ref-pink-400); }
+.b-text-pink-500 { color: var(--b-ref-pink-500); }
+.b-text-pink-600 { color: var(--b-ref-pink-600); }
+.b-text-pink-700 { color: var(--b-ref-pink-700); }
+.b-text-pink-800 { color: var(--b-ref-pink-800); }
+.b-text-pink-900 { color: var(--b-ref-pink-900); }
+.b-text-pink-950 { color: var(--b-ref-pink-950); }
+
+/*ROSE*/
+.b-text-rose-50  { color: var(--b-ref-rose-50); }
+.b-text-rose-100 { color: var(--b-ref-rose-100); }
+.b-text-rose-200 { color: var(--b-ref-rose-200); }
+.b-text-rose-300 { color: var(--b-ref-rose-300); }
+.b-text-rose-400 { color: var(--b-ref-rose-400); }
+.b-text-rose-500 { color: var(--b-ref-rose-500); }
+.b-text-rose-600 { color: var(--b-ref-rose-600); }
+.b-text-rose-700 { color: var(--b-ref-rose-700); }
+.b-text-rose-800 { color: var(--b-ref-rose-800); }
+.b-text-rose-900 { color: var(--b-ref-rose-900); }
+.b-text-rose-950 { color: var(--b-ref-rose-950); }
+
+/* ------------------------------------------------------------
+   4. SYSTEM HELPERS
+   ------------------------------------------------------------ */
+
+/* Inherits color from the parent element */
+.b-text-inherit {
+    color: inherit;
+}
+
+/* Uses the current font color (useful for resetting specific tags) */
+.b-text-current {
+    color: currentColor;
+}
+
+/* ------------------------------------------------------------
+   5. CUSTOM & ARBITRARY VALUES
+   Provides Tailwind-like flexibility for colors not defined
+   in the system. Use the --b-text-c variable in the style
+   attribute to pass any value.
+   ------------------------------------------------------------ */
+
+/*
+   Acts as a hook for arbitrary values (HEX, RGB, HSL) or
+   external custom properties.
+
+   Usage (Arbitrary):
+   <p class="b-text-custom" style="--b-text-c: #bd93f9">...</p>
+
+   Usage (Custom Property):
+   <p class="b-text-custom" style="--b-text-c: var(--my-var)">...</p>
+*/
+.b-text-custom {
+    color: var(--b-text-color);
+}

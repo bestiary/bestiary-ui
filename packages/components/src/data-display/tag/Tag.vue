@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {computed} from "vue";
 import {tagProps} from "./tag.props.ts";
-import "./tag.css";
 
 defineOptions({
     name: "BTag"

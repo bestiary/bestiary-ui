@@ -1,0 +1,18 @@
+/* ============================================================
+   Bestiary UI — Border Collapse Utilities
+
+   Controls whether the table's border borders should collapse
+   into a single border or be separated.
+   ============================================================ */
+
+/* Collapses table borders into a single line. Standard for
+   most data-heavy tables. */
+.b-border-collapse {
+    border-collapse: collapse;
+}
+
+/* Borders are separated by the distance specified by
+   'border-spacing' (which you can control via standard spacing utils). */
+.b-border-separate {
+    border-collapse: separate;
+}

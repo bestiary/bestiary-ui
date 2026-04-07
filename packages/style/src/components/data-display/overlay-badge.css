@@ -1,0 +1,34 @@
+/**
+ * Bestiary UI — OverlayBadge Component
+ */
+:where(.b-overlay-badge) {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    line-height: 0;
+}
+
+/* The badge element inside the overlay container */
+:where(.b-overlay-badge__badge) {
+    /* --- 1. LOCAL COMPONENT TOKENS --- */
+
+    /* Offsets from the corner */
+    --b-overlay-badge-offset-x: 0%;
+    --b-overlay-badge-offset-y: 0%;
+
+    /* The cutout effect ring */
+    --b-overlay-badge-ring-width: var(--b-stroke-strong);
+    --b-overlay-badge-ring-color: var(--b-surface-section);
+
+    /* --- 2. POSITIONING & STYLES --- */
+    position: absolute;
+    inset-block-start: var(--b-overlay-badge-offset-y);
+    inset-inline-end: var(--b-overlay-badge-offset-x);
+
+    /* Shift the badge center to the corner */
+    transform: translate(50%, -50%);
+    z-index: var(--b-z-base);
+
+    /* Ring effect using box-shadow to create a "cutout" from the background */
+    box-shadow: 0 0 0 var(--b-overlay-badge-ring-width) var(--b-overlay-badge-ring-color);
+}

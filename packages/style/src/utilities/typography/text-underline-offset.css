@@ -1,0 +1,53 @@
+/* ============================================================
+   Bestiary UI — Text Underline Offset Utilities
+
+   Controls the distance between the text decoration (underline)
+   and the text baseline. Increasing this gap prevents the line
+   from clashing with descenders (g, y, p, q), enhancing legibility.
+
+   Architecture:
+   1. Scalable Offsets: Uses the spacing scale (1-4) multiplied
+      by the global --b-scale.
+   2. Fixed Offsets: Pixel-based values for absolute precision.
+   ============================================================ */
+
+:where(html) {
+    --b-scale: var(--b-theme-scale, 1);
+}
+
+/* 1. Standard Behavior */
+
+/* Browser automatically determines the offset based on the font (Default) */
+.b-underline-offset-auto {
+    text-underline-offset: auto;
+}
+
+/* 2. Scalable Offsets (Based on Contract)
+   These will adjust proportionally with your theme's scaling. */
+
+.b-underline-offset-0 {
+    text-underline-offset: 0;
+}
+
+.b-underline-offset-1 {
+    text-underline-offset: calc(var(--b-space-1) * var(--b-scale));
+}
+
+.b-underline-offset-2 {
+    text-underline-offset: calc(var(--b-space-2) * var(--b-scale));
+}
+
+.b-underline-offset-4 {
+    text-underline-offset: calc(var(--b-space-4) * var(--b-scale));
+}
+
+/* 3. Fixed Pixel Offsets
+   Use these when you need exactly 1px or 2px gap regardless of the theme. */
+
+.b-underline-offset-px {
+    text-underline-offset: 1px;
+}
+
+.b-underline-offset-2px {
+    text-underline-offset: 2px;
+}

@@ -1,0 +1,27 @@
+/* ============================================================
+   Bestiary UI — Forced Color Adjust Utilities
+
+   Controls whether an element is allowed to adjust its colors
+   automatically when the browser's Forced Colors mode is active.
+
+   Architecture:
+   - auto: Allows the browser to adjust colors for readability.
+   - none: Forces the element to use your defined theme colors
+     even in Forced Colors mode.
+   ============================================================ */
+
+/* 1. AUTO (Default)
+   The browser will adjust the element's colors to maintain
+   contrast in Forced Colors mode (e.g., High Contrast mode in Windows). */
+.b-forced-color-adjust-auto {
+    forced-color-adjust: auto;
+}
+
+/* 2. NONE (Opt-out)
+   The element will ignore Forced Colors mode and stick to your
+   defined colors. Use this if your component already has high
+   contrast or custom accessibility styling and you don't
+   want the browser to "break" your design. */
+.b-forced-color-adjust-none {
+    forced-color-adjust: none;
+}

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import "./avatar-group.css";
 defineOptions({
     name: "BAvatarGroup"
 });

@@ -1,0 +1,32 @@
+/* ============================================================
+   Bestiary UI — Break Inside Utilities
+
+   These utilities control how page, column, or region breaks
+   behave within a generated box. Essential for keeping content
+   blocks (like cards or figures) intact in multi-column layouts.
+   ============================================================ */
+
+/* 1. General Break Inside Utilities */
+
+/* Default behavior: allows breaks within the element */
+.b-break-inside-auto {
+    break-inside: auto;
+}
+
+/* Prevents any break (page or column) from occurring inside the element.
+   Highly recommended for cards in a masonry or multi-column grid. */
+.b-break-inside-avoid {
+    break-inside: avoid;
+}
+
+/* 2. Specific Context Breaks */
+
+/* Prevents page breaks within the element during printing */
+.b-break-inside-avoid-page {
+    break-inside: avoid-page;
+}
+
+/* Prevents column breaks within the element in multi-column layouts */
+.b-break-inside-avoid-column {
+    break-inside: avoid-column;
+}

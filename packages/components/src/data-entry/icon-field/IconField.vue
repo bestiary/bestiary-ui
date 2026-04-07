@@ -9,5 +9,3 @@ defineOptions({
         <slot />
     </div>
 </template>
-
-<style src="./icon-field.css" />

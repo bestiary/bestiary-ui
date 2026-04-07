@@ -1,22 +1,44 @@
-/* TOKENS */
-@import "./tokens/primitives.css";
-@import "./tokens/contract.css";
+/**
+ * Bestiary UI — Global Style Manifest
+ *
+ * Layer order (from lowest to highest specificity):
+ * 1. b-tokens: CSS variables (primitives, contracts, theme bases). DATA ONLY.
+ * 2. b-reset: Browser style resets. Uses data from b-tokens.
+ * 3. b-components: Complex UI elements (buttons, cards).
+ * 4. b-utilities: Helper classes (mt-4, hidden) that override everything.
+ */
 
-/* BASE */
-@import "./base/reset.css";
-@import "./base/typography.css";
+@layer b-tokens, b-reset, b-components, b-utilities;
 
-/* DEFAULT THEME & ESSENCE */
-@import "./essences/emerald.css";
-@import "./themes/forest.css";
 
-/* UTILITIES */
-@import "./utilities/sizing.css";
-@import "./utilities/spacing.css";
-@import "./utilities/flex.css";
-@import "./utilities/grid.css";
-@import "./utilities/backgrounds.css";
-@import "./utilities/text.css";
-@import "./utilities/borders.css";
-@import "./utilities/layout.css";
-@import "./utilities/effects.css";
+/* ============================================================
+   1. TOKENS & THEMES (The System Core)
+   First, we provide the browser with all variables and @property rules
+   ============================================================ */
+@import "./tokens/primitives.css" layer(b-tokens);
+@import "./tokens/contract.css" layer(b-tokens);
+
+/* Themes and Essences */
+@import "./essences/leaf.css" layer(b-tokens);
+@import "./themes/forest.css" layer(b-tokens);
+
+
+/* ============================================================
+   2. RESET
+   Now that all tokens are known, we apply base styles to HTML tags
+   ============================================================ */
+@import "./base/reset.css" layer(b-reset);
+
+
+/* ============================================================
+   3. COMPONENTS
+   UI elements built on top of the tokens
+   ============================================================ */
+@import "./components/index.css" layer(b-components);
+
+
+/* ============================================================
+   4. UTILITIES
+   Helper classes with the highest priority
+   ============================================================ */
+@import "./utilities/index.css" layer(b-utilities);

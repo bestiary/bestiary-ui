@@ -1,0 +1,68 @@
+/* ============================================================
+   Bestiary UI — Height Utilities
+
+   Controls the standard vertical dimension of an element.
+   Linked to the Spacing and Container scales from the Contract.
+   ============================================================ */
+
+:where(html) {
+    --b-scale: var(--b-theme-scale, 1);
+}
+
+/* 1. Fixed & Keyword Heights */
+.b-h-auto { height: auto; }
+.b-h-full { height: 100%; }
+.b-h-min  { height: min-content; }
+.b-h-max  { height: max-content; }
+.b-h-fit  { height: fit-content; }
+.b-h-px   { height: 1px; }
+.b-h-lh   { height: 1lh; }
+
+/* Viewport Heights */
+.b-h-screen { height: 100vh; }
+.b-h-dvh    { height: 100dvh; }
+.b-h-svh    { height: 100svh; }
+.b-h-lvh    { height: 100lvh; }
+
+/* 2. Scalable Numeric Scale (0-12) */
+.b-h-0  { height: 0; }
+.b-h-1  { height: calc(var(--b-space-1)  * var(--b-scale)); }
+.b-h-2  { height: calc(var(--b-space-2)  * var(--b-scale)); }
+.b-h-3  { height: calc(var(--b-space-3)  * var(--b-scale)); }
+.b-h-4  { height: calc(var(--b-space-4)  * var(--b-scale)); }
+.b-h-5  { height: calc(var(--b-space-5)  * var(--b-scale)); }
+.b-h-6  { height: calc(var(--b-space-6)  * var(--b-scale)); }
+.b-h-7  { height: calc(var(--b-space-7)  * var(--b-scale)); }
+.b-h-8  { height: calc(var(--b-space-8)  * var(--b-scale)); }
+.b-h-9  { height: calc(var(--b-space-9)  * var(--b-scale)); }
+.b-h-10 { height: calc(var(--b-space-10) * var(--b-scale)); }
+.b-h-11 { height: calc(var(--b-space-11) * var(--b-scale)); }
+.b-h-12 { height: calc(var(--b-space-12) * var(--b-scale)); }
+
+/* 3. Scalable Container Scale (3xs to 7xl) */
+.b-h-3xs { height: calc(var(--b-container-3xs) * var(--b-scale)); }
+.b-h-2xs { height: calc(var(--b-container-2xs) * var(--b-scale)); }
+.b-h-xs  { height: calc(var(--b-container-xs)  * var(--b-scale)); }
+.b-h-sm  { height: calc(var(--b-container-sm)  * var(--b-scale)); }
+.b-h-md  { height: calc(var(--b-container-md)  * var(--b-scale)); }
+.b-h-lg  { height: calc(var(--b-container-lg)  * var(--b-scale)); }
+.b-h-xl  { height: calc(var(--b-container-xl)  * var(--b-scale)); }
+.b-h-2xl { height: calc(var(--b-container-2xl) * var(--b-scale)); }
+.b-h-3xl { height: calc(var(--b-container-3xl) * var(--b-scale)); }
+.b-h-4xl { height: calc(var(--b-container-4xl) * var(--b-scale)); }
+.b-h-5xl { height: calc(var(--b-container-5xl) * var(--b-scale)); }
+.b-h-6xl { height: calc(var(--b-container-6xl) * var(--b-scale)); }
+.b-h-7xl { height: calc(var(--b-container-7xl) * var(--b-scale)); }
+
+/* 4. Fractions (Using Primitives) */
+.b-h-1-2  { height: var(--b-ref-fraction-1-2); }
+.b-h-1-3  { height: var(--b-ref-fraction-1-3); }
+.b-h-1-4  { height: var(--b-ref-fraction-1-4); }
+.b-h-1-5  { height: var(--b-ref-fraction-1-5); }
+.b-h-1-6  { height: var(--b-ref-fraction-1-6); }
+.b-h-2-3  { height: var(--b-ref-fraction-2-3); }
+.b-h-2-5  { height: var(--b-ref-fraction-2-5); }
+.b-h-3-4  { height: var(--b-ref-fraction-3-4); }
+.b-h-3-5  { height: var(--b-ref-fraction-3-5); }
+.b-h-4-5  { height: var(--b-ref-fraction-4-5); }
+.b-h-5-6  { height: var(--b-ref-fraction-5-6); }

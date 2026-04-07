@@ -1,0 +1,18 @@
+@property --b-inset-shadow-color-channels {
+    syntax: "<number>+";
+    inherits: true;
+    initial-value: 0% 0 0;
+}
+
+@property --b-inset-shadow-alpha {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0.05;
+}
+
+:where(html) {
+    --b-inset-shadow-none: inset 0 0 #0000;
+    --b-inset-shadow-2xs: inset 0 1px 0px 0 oklch(var(--b-inset-shadow-color-channels) / var(--b-inset-shadow-alpha));
+    --b-inset-shadow-xs:  inset 0 1px 1px 0 oklch(var(--b-inset-shadow-color-channels) / var(--b-inset-shadow-alpha));
+    --b-inset-shadow-sm:  inset 0 2px 4px 0 oklch(var(--b-inset-shadow-color-channels) / var(--b-inset-shadow-alpha));
+}

@@ -1,0 +1,93 @@
+/* ============================================================
+   Bestiary UI — Min-Inline-Size Utilities
+
+   Sets the minimum horizontal dimension (logical width) of an element.
+   Ensures that elements do not shrink below a specific threshold,
+   adapting automatically to LTR/RTL writing modes.
+
+   Architecture:
+   1. Mapped to Contract: Uses --b-space and --b-container variables.
+   2. Theme Scalable: Numeric and Container scales adjust with --b-scale.
+   3. Mathematical Constants: Fractions use fixed primitive tokens.
+   ============================================================ */
+
+:where(html) {
+    --b-scale: var(--b-theme-scale, 1);
+}
+
+/* ------------------------------------------------------------
+   1. FIXED & KEYWORD SIZES (.b-min-inline-*)
+   ------------------------------------------------------------ */
+
+.b-min-inline-auto { min-inline-size: auto; }
+.b-min-inline-full { min-inline-size: 100%; }
+.b-min-inline-min  { min-inline-size: min-content; }
+.b-min-inline-max  { min-inline-size: max-content; }
+.b-min-inline-fit  { min-inline-size: fit-content; }
+.b-min-inline-px   { min-inline-size: 1px; }
+
+/* 1.1 Viewport Units */
+.b-min-inline-screen { min-inline-size: 100vw; }
+.b-min-inline-dvw    { min-inline-size: 100dvw; }
+.b-min-inline-svw    { min-inline-size: 100svw; }
+.b-min-inline-lvw    { min-inline-size: 100lvw; }
+
+/* Vertical viewports mapped to inline size (for vertical modes) */
+.b-min-inline-dvh    { min-inline-size: 100dvh; }
+.b-min-inline-svh    { min-inline-size: 100svh; }
+.b-min-inline-lvh    { min-inline-size: 100lvh; }
+
+/* ------------------------------------------------------------
+   2. SCALABLE NUMERIC SCALE (0-12)
+   Mapped to the spacing scale in the Contract.
+   ------------------------------------------------------------ */
+
+.b-min-inline-0  { min-inline-size: 0; }
+.b-min-inline-1  { min-inline-size: calc(var(--b-space-1)  * var(--b-scale)); }
+.b-min-inline-2  { min-inline-size: calc(var(--b-space-2)  * var(--b-scale)); }
+.b-min-inline-3  { min-inline-size: calc(var(--b-space-3)  * var(--b-scale)); }
+.b-min-inline-4  { min-inline-size: calc(var(--b-space-4)  * var(--b-scale)); }
+.b-min-inline-5  { min-inline-size: calc(var(--b-space-5)  * var(--b-scale)); }
+.b-min-inline-6  { min-inline-size: calc(var(--b-space-6)  * var(--b-scale)); }
+.b-min-inline-7  { min-inline-size: calc(var(--b-space-7)  * var(--b-scale)); }
+.b-min-inline-8  { min-inline-size: calc(var(--b-space-8)  * var(--b-scale)); }
+.b-min-inline-9  { min-inline-size: calc(var(--b-space-9)  * var(--b-scale)); }
+.b-min-inline-10 { min-inline-size: calc(var(--b-space-10) * var(--b-scale)); }
+.b-min-inline-11 { min-inline-size: calc(var(--b-space-11) * var(--b-scale)); }
+.b-min-inline-12 { min-inline-size: calc(var(--b-space-12) * var(--b-scale)); }
+
+/* ------------------------------------------------------------
+   3. SCALABLE CONTAINER SCALE (3xs to 7xl)
+   Used for constraining sidebars and macro content blocks.
+   ------------------------------------------------------------ */
+
+.b-min-inline-3xs { min-inline-size: calc(var(--b-container-3xs) * var(--b-scale)); }
+.b-min-inline-2xs { min-inline-size: calc(var(--b-container-2xs) * var(--b-scale)); }
+.b-min-inline-xs  { min-inline-size: calc(var(--b-container-xs)  * var(--b-scale)); }
+.b-min-inline-sm  { min-inline-size: calc(var(--b-container-sm)  * var(--b-scale)); }
+.b-min-inline-md  { min-inline-size: calc(var(--b-container-md)  * var(--b-scale)); }
+.b-min-inline-lg  { min-inline-size: calc(var(--b-container-lg)  * var(--b-scale)); }
+.b-min-inline-xl  { min-inline-size: calc(var(--b-container-xl)  * var(--b-scale)); }
+.b-min-inline-2xl { min-inline-size: calc(var(--b-container-2xl) * var(--b-scale)); }
+.b-min-inline-3xl { min-inline-size: calc(var(--b-container-3xl) * var(--b-scale)); }
+.b-min-inline-4xl { min-inline-size: calc(var(--b-container-4xl) * var(--b-scale)); }
+.b-min-inline-5xl { min-inline-size: calc(var(--b-container-5xl) * var(--b-scale)); }
+.b-min-inline-6xl { min-inline-size: calc(var(--b-container-6xl) * var(--b-scale)); }
+.b-min-inline-7xl { min-inline-size: calc(var(--b-container-7xl) * var(--b-scale)); }
+
+/* ------------------------------------------------------------
+   4. FRACTIONAL SIZES
+   Absolute proportions that remain consistent across themes.
+   ------------------------------------------------------------ */
+
+.b-min-inline-1-2  { min-inline-size: var(--b-ref-fraction-1-2); }
+.b-min-inline-1-3  { min-inline-size: var(--b-ref-fraction-1-3); }
+.b-min-inline-1-4  { min-inline-size: var(--b-ref-fraction-1-4); }
+.b-min-inline-1-5  { min-inline-size: var(--b-ref-fraction-1-5); }
+.b-min-inline-1-6  { min-inline-size: var(--b-ref-fraction-1-6); }
+.b-min-inline-2-3  { min-inline-size: var(--b-ref-fraction-2-3); }
+.b-min-inline-2-5  { min-inline-size: var(--b-ref-fraction-2-5); }
+.b-min-inline-3-4  { min-inline-size: var(--b-ref-fraction-3-4); }
+.b-min-inline-3-5  { min-inline-size: var(--b-ref-fraction-3-5); }
+.b-min-inline-4-5  { min-inline-size: var(--b-ref-fraction-4-5); }
+.b-min-inline-5-6  { min-inline-size: var(--b-ref-fraction-5-6); }

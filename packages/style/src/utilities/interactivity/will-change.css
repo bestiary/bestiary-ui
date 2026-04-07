@@ -1,0 +1,40 @@
+/* ============================================================
+   Bestiary UI — Will Change Utilities
+
+   Provides hints to the browser about upcoming changes to an
+   element, allowing for performance optimizations before
+   animations or interactions start.
+
+   Note: Use sparingly to avoid excessive memory consumption.
+   ============================================================ */
+
+/* 1. Standard Optimization Hints */
+
+/* Browser default optimization (Default) */
+.b-will-change-auto {
+    will-change: auto;
+}
+
+/* Optimizes for upcoming position or transform animations.
+   Triggers hardware acceleration (GPU). */
+.b-will-change-transform {
+    will-change: transform;
+}
+
+/* Optimizes for upcoming scroll position changes. */
+.b-will-change-scroll {
+    will-change: scroll-position;
+}
+
+/* Optimizes for frequent content changes within the element. */
+.b-will-change-contents {
+    will-change: contents;
+}
+
+/* 2. Custom Variable Hook (Enterprise Flexibility)
+   Allows the user to specify any other property for optimization.
+   Usage: <div class="b-will-change-custom" style="--b-will-change: opacity">...
+*/
+.b-will-change-custom {
+    will-change: var(--b-will-change);
+}

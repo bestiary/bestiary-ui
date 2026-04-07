@@ -1,0 +1,30 @@
+/* ============================================================
+   Bestiary UI — Border Style Utilities
+
+   Controls the style of the border line (solid, dashed, etc.).
+
+   Architecture:
+   1. BORDER UTILITIES: Apply style to a single element.
+   2. DIVIDE UTILITIES: Apply style to separators between children
+      in a layout group.
+   ============================================================ */
+
+/* 1. BORDER STYLE UTILITIES */
+
+.b-border-solid  { border-style: solid; }
+.b-border-dashed { border-style: dashed; }
+.b-border-dotted { border-style: dotted; }
+.b-border-double { border-style: double; }
+.b-border-hidden { border-style: hidden; }
+.b-border-none   { border-style: none; }
+
+/* 2. DIVIDE STYLE UTILITIES (Separators)
+   These apply to children in a container to customize the
+   separators created by .b-divide-x or .b-divide-y. */
+
+.b-divide-solid  > :not(:last-child) { border-style: solid; }
+.b-divide-dashed > :not(:last-child) { border-style: dashed; }
+.b-divide-dotted > :not(:last-child) { border-style: dotted; }
+.b-divide-double > :not(:last-child) { border-style: double; }
+.b-divide-hidden > :not(:last-child) { border-style: hidden; }
+.b-divide-none   > :not(:last-child) { border-style: none; }

@@ -1,0 +1,23 @@
+/* ============================================================
+   Bestiary UI — Font Smoothing Utilities
+
+   These utilities control how fonts are anti-aliased and rendered
+   on the screen. Primarily effective on macOS and high-resolution
+   displays.
+   ============================================================ */
+
+/* 1. Rendering Modes */
+
+/* Smooths the font at the pixel level.
+   Makes text appear thinner and cleaner on high-DPI screens. */
+.b-antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reverts to default browser subpixel rendering.
+   Text may appear slightly thicker or "bolder" compared to antialiased. */
+.b-subpixel-antialiased {
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+}

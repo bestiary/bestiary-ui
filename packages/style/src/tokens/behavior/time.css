@@ -1,0 +1,12 @@
+:where(html) {
+    --b-time-50:   50ms;
+    --b-time-75:   75ms;
+    --b-time-100:  100ms;
+    --b-time-150:  150ms;
+    --b-time-200:  200ms;
+    --b-time-300:  300ms;
+    --b-time-400:  400ms;
+    --b-time-500:  500ms;
+    --b-time-700:  700ms;
+    --b-time-1000: 1000ms;
+}

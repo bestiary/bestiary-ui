@@ -1,0 +1,62 @@
+/* ============================================================
+   Bestiary UI — Outline Offset Utilities
+
+   Controls the space between an outline and the edge or border
+   of an element. This is critical for accessibility (Focus Rings).
+
+   Architecture:
+   1. Scalable: Numeric offsets are multiplied by --b-scale.
+   2. Negative Scale: Supports "inward" offsets (e.g., -2px)
+      for custom button focus effects.
+   ============================================================ */
+
+:where(html) {
+    --b-scale: var(--b-theme-scale, 1);
+}
+
+/* 1. Standard Offsets */
+
+/* Resets outline offset to default */
+.b-outline-offset-0 {
+    outline-offset: 0;
+}
+
+/* 2. Scalable Numeric Scale
+   These values automatically scale with the theme's density. */
+
+.b-outline-offset-1  { outline-offset: calc(1px * var(--b-scale)); }
+.b-outline-offset-2  { outline-offset: calc(2px * var(--b-scale)); }
+.b-outline-offset-3  { outline-offset: calc(3px * var(--b-scale)); }
+.b-outline-offset-4  { outline-offset: calc(4px * var(--b-scale)); }
+.b-outline-offset-5  { outline-offset: calc(5px * var(--b-scale)); }
+.b-outline-offset-6  { outline-offset: calc(6px * var(--b-scale)); }
+.b-outline-offset-7  { outline-offset: calc(7px * var(--b-scale)); }
+.b-outline-offset-8  { outline-offset: calc(8px * var(--b-scale)); }
+.b-outline-offset-9  { outline-offset: calc(9px * var(--b-scale)); }
+.b-outline-offset-10 { outline-offset: calc(10px * var(--b-scale)); }
+.b-outline-offset-11 { outline-offset: calc(11px * var(--b-scale)); }
+.b-outline-offset-12 { outline-offset: calc(12px * var(--b-scale)); }
+
+/* 3. Negative Offsets
+   Use these to pull the focus ring *inside* the element,
+   common for "inward" focus effects. */
+
+.b-outline-offset-n1  { outline-offset: calc(1px * var(--b-scale) * -1); }
+.b-outline-offset-n2  { outline-offset: calc(2px * var(--b-scale) * -1); }
+.b-outline-offset-n3  { outline-offset: calc(3px * var(--b-scale) * -1); }
+.b-outline-offset-n4  { outline-offset: calc(4px * var(--b-scale) * -1); }
+.b-outline-offset-n5  { outline-offset: calc(5px * var(--b-scale) * -1); }
+.b-outline-offset-n6  { outline-offset: calc(6px * var(--b-scale) * -1); }
+.b-outline-offset-n7  { outline-offset: calc(7px * var(--b-scale) * -1); }
+.b-outline-offset-n8  { outline-offset: calc(8px * var(--b-scale) * -1); }
+.b-outline-offset-n9  { outline-offset: calc(9px * var(--b-scale) * -1); }
+.b-outline-offset-n10 { outline-offset: calc(10px * var(--b-scale) * -1); }
+.b-outline-offset-n11 { outline-offset: calc(11px * var(--b-scale) * -1); }
+.b-outline-offset-n12 { outline-offset: calc(12px * var(--b-scale) * -1); }
+
+/* 4. Custom Property Hook (Enterprise Flexibility)
+   Usage: <button style="--b-outline-offset: 6px" class="b-outline-offset-custom">
+*/
+.b-outline-offset-custom {
+    outline-offset: var(--b-outline-offset);
+}

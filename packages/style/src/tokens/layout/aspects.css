@@ -1,0 +1,9 @@
+:where(html) {
+    --b-aspect-square:      1 / 1;
+    --b-aspect-landscape:   4 / 3;
+    --b-aspect-portrait:    3 / 4;
+    --b-aspect-photography: 3 / 2;
+    --b-aspect-widescreen:  16 / 9;
+    --b-aspect-ultrawide:   18 / 5;
+    --b-aspect-golden:      1.618 / 1;
+}

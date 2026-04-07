@@ -1,0 +1,55 @@
+/* ============================================================
+   Bestiary UI — Aspect Ratio Utilities
+
+   These utilities control the aspect-ratio of elements,
+   ensuring consistent proportions for images, videos,
+   and cards across different layouts.
+   ============================================================ */
+
+/* 1. Standard Ratios */
+
+/* 1:1 ratio - Perfect for avatars or square buttons */
+.b-aspect-square {
+    aspect-ratio: var(--b-ref-ratio-square);
+}
+
+/* 4:3 ratio - Classic TV / Monitor format */
+.b-aspect-landscape {
+    aspect-ratio: var(--b-ref-ratio-landscape);
+}
+
+/* 3:4 ratio - Portrait orientation for cards/photos */
+.b-aspect-portrait {
+    aspect-ratio: var(--b-ref-ratio-portrait);
+}
+
+/* 2. Media Ratios */
+
+/* 3:2 ratio - Standard digital photography format */
+.b-aspect-photography {
+    aspect-ratio: var(--b-ref-ratio-photography);
+}
+
+/* 16:9 ratio - Modern widescreen video standard */
+.b-aspect-video {
+    aspect-ratio: var(--b-ref-ratio-widescreen);
+}
+
+/* 18:5 (or 21:9) ratio - Cinematic ultrawide format */
+.b-aspect-ultrawide {
+    aspect-ratio: var(--b-ref-ratio-ultrawide);
+}
+
+/* 3. Natural Ratios */
+
+/* 1.618:1 ratio - Golden ratio for aesthetic harmony */
+.b-aspect-golden {
+    aspect-ratio: var(--b-ref-ratio-golden);
+}
+
+/* 4. Helper Ratios */
+
+/* Resets aspect ratio to default browser behavior */
+.b-aspect-auto {
+    aspect-ratio: auto;
+}

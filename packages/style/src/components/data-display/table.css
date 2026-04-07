@@ -1,0 +1,75 @@
+.b-data-table {
+    /* --- Local Tokens --- */
+    --b-table-background:           var(--b-surface-section);
+    --b-table-header-background:    var(--b-surface-variant);
+    --b-table-border-color:         var(--b-border-subtle);
+    --b-table-row-hover-background: var(--b-overlay-hover);
+    --b-table-text-color:           var(--b-text-primary);
+
+    --b-table-padding-x:            var(--b-space-4);
+    --b-table-padding-y:            var(--b-space-2);
+    --b-table-font-size:            var(--b-text-sm);
+
+    background: var(--b-table-background);
+    border: 1px solid var(--b-table-border-color);
+    border-radius: var(--b-radius-container);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--b-shadow-sm);
+}
+
+.b-data-table__wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--b-table-text-color);
+    font-size: var(--b-table-font-size);
+}
+
+th {
+    background: var(--b-table-header-background);
+    padding: var(--b-table-padding-y) var(--b-table-padding-x);
+    text-align: left;
+    font-weight: var(--b-font-weight-bold);
+    white-space: nowrap;
+}
+
+td {
+    padding: var(--b-table-padding-y) var(--b-table-padding-x);
+    border-bottom: 1px solid var(--b-table-border-color);
+}
+
+/* Striped Rows */
+.b-data-table--striped tr:nth-child(even) td {
+    background-color: var(--b-surface-ground);
+}
+
+/* Row Hover */
+.b-data-table--hover tr:hover td {
+    background-color: var(--b-table-row-hover-background);
+    cursor: default;
+}
+
+/* Gridlines */
+.b-data-table--gridlines td,
+.b-data-table--gridlines th {
+    border: 1px solid var(--b-table-border-color);
+}
+
+/* Sizes Mappings */
+.b-data-table--size-small {
+    --b-table-padding-y: var(--b-space-1);
+    --b-table-font-size: var(--b-text-xs);
+}
+.b-data-table--size-small {
+    --b-table-padding-y: var(--b-space-1);
+    --b-table-font-size: var(--b-text-xs);
+}
+.b-data-table--size-large {
+    --b-table-padding-y: var(--b-space-4);
+    --b-table-font-size: var(--b-text-md);
+}

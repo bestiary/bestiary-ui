@@ -1,0 +1,71 @@
+/* ============================================================
+   Bestiary UI — Grid Column Utilities
+
+   These utilities control how individual grid items are placed
+   within a grid container, specifically how many columns they
+   span and which grid lines they start or end on.
+   ============================================================ */
+
+/* 1. Column Spanning
+   Defines how many columns an element should occupy. */
+
+.b-col-span-1  { grid-column: span 1 / span 1; }
+.b-col-span-2  { grid-column: span 2 / span 2; }
+.b-col-span-3  { grid-column: span 3 / span 3; }
+.b-col-span-4  { grid-column: span 4 / span 4; }
+.b-col-span-5  { grid-column: span 5 / span 5; }
+.b-col-span-6  { grid-column: span 6 / span 6; }
+.b-col-span-7  { grid-column: span 7 / span 7; }
+.b-col-span-8  { grid-column: span 8 / span 8; }
+.b-col-span-9  { grid-column: span 9 / span 9; }
+.b-col-span-10 { grid-column: span 10 / span 10; }
+.b-col-span-11 { grid-column: span 11 / span 11; }
+.b-col-span-12 { grid-column: span 12 / span 12; }
+
+/* Forces the element to span the entire width of the grid */
+.b-col-span-full {
+    grid-column: 1 / -1;
+}
+
+/* 2. Column Start Lines
+   Defines the vertical grid line where the element begins. */
+
+.b-col-start-1    { grid-column-start: 1; }
+.b-col-start-2    { grid-column-start: 2; }
+.b-col-start-3    { grid-column-start: 3; }
+.b-col-start-4    { grid-column-start: 4; }
+.b-col-start-5    { grid-column-start: 5; }
+.b-col-start-6    { grid-column-start: 6; }
+.b-col-start-7    { grid-column-start: 7; }
+.b-col-start-8    { grid-column-start: 8; }
+.b-col-start-9    { grid-column-start: 9; }
+.b-col-start-10   { grid-column-start: 10; }
+.b-col-start-11   { grid-column-start: 11; }
+.b-col-start-12   { grid-column-start: 12; }
+.b-col-start-13   { grid-column-start: 13; }
+.b-col-start-auto { grid-column-start: auto; }
+
+/* 3. Column End Lines
+   Defines the vertical grid line where the element ends. */
+
+.b-col-end-1    { grid-column-end: 1; }
+.b-col-end-2    { grid-column-end: 2; }
+.b-col-end-3    { grid-column-end: 3; }
+.b-col-end-4    { grid-column-end: 4; }
+.b-col-end-5    { grid-column-end: 5; }
+.b-col-end-6    { grid-column-end: 6; }
+.b-col-end-7    { grid-column-end: 7; }
+.b-col-end-8    { grid-column-end: 8; }
+.b-col-end-9    { grid-column-end: 9; }
+.b-col-end-10   { grid-column-end: 10; }
+.b-col-end-11   { grid-column-end: 11; }
+.b-col-end-12   { grid-column-end: 12; }
+.b-col-end-13   { grid-column-end: 13; }
+.b-col-end-auto { grid-column-end: auto; }
+
+/* 4. Helper Utilities */
+
+/* Resets column placement to default browser behavior */
+.b-col-auto {
+    grid-column: auto;
+}

@@ -1,0 +1,44 @@
+/* ============================================================
+   Bestiary UI — Mask Repeat Utilities
+
+   Controls whether a mask image is tiled, and if so, how.
+   Essential for creating repeating patterns from masks.
+   ============================================================ */
+
+/* 1. Basic Repetition */
+
+/* Tiles the mask image both vertically and horizontally. (Browser Default) */
+.b-mask-repeat {
+    mask-repeat: repeat;
+}
+
+/* Prevents the mask image from repeating. */
+.b-mask-no-repeat {
+    mask-repeat: no-repeat;
+}
+
+/* 2. Axis-Specific Repetition */
+
+/* Repeats the mask image only horizontally */
+.b-mask-repeat-x {
+    mask-repeat: repeat-x;
+}
+
+/* Repeats the mask image only vertically */
+.b-mask-repeat-y {
+    mask-repeat: repeat-y;
+}
+
+/* 3. Advanced Tiling */
+
+/* The mask image is repeated as much as possible without clipping.
+   The first and last images are pinned to the edges. */
+.b-mask-repeat-space {
+    mask-repeat: space;
+}
+
+/* The mask image is repeated and stretched/squashed to fill
+   the container perfectly without gaps or clipping. */
+.b-mask-repeat-round {
+    mask-repeat: round;
+}

@@ -1,0 +1,25 @@
+:where(html) {
+    --b-taupe-50-channels:  98.6% 0.002 67.8;
+    --b-taupe-100-channels: 96% 0.002 17.2;
+    --b-taupe-200-channels: 92.2% 0.005 34.3;
+    --b-taupe-300-channels: 86.8% 0.007 39.5;
+    --b-taupe-400-channels: 71.4% 0.014 41.2;
+    --b-taupe-500-channels: 54.7% 0.021 43.1;
+    --b-taupe-600-channels: 43.8% 0.017 39.3;
+    --b-taupe-700-channels: 36.7% 0.016 35.7;
+    --b-taupe-800-channels: 26.8% 0.011 36.5;
+    --b-taupe-900-channels: 21.4% 0.009 43.1;
+    --b-taupe-950-channels: 14.7% 0.004 49.3;
+
+    --b-taupe-50:  oklch(var(--b-taupe-50-channels));
+    --b-taupe-100: oklch(var(--b-taupe-100-channels));
+    --b-taupe-200: oklch(var(--b-taupe-200-channels));
+    --b-taupe-300: oklch(var(--b-taupe-300-channels));
+    --b-taupe-400: oklch(var(--b-taupe-400-channels));
+    --b-taupe-500: oklch(var(--b-taupe-500-channels));
+    --b-taupe-600: oklch(var(--b-taupe-600-channels));
+    --b-taupe-700: oklch(var(--b-taupe-700-channels));
+    --b-taupe-800: oklch(var(--b-taupe-800-channels));
+    --b-taupe-900: oklch(var(--b-taupe-900-channels));
+    --b-taupe-950: oklch(var(--b-taupe-950-channels));
+}

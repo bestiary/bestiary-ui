@@ -1,0 +1,96 @@
+/* ============================================================
+   Bestiary UI — Min-Block-Size Utilities
+
+   Sets the minimum vertical dimension (logical height) of an element.
+   This property automatically adapts to the writing mode,
+   ensuring the layout remains consistent across different languages.
+
+   Architecture:
+   1. Mapped to Contract: Uses --b-space and --b-container variables.
+   2. Theme Scalable: Numeric and Container scales adjust with --b-scale.
+   3. Modern Viewports: Includes Dynamic (d), Small (s), and Large (l)
+      viewport units + line-height (lh) units.
+   ============================================================ */
+
+:where(html) {
+    /* Fallback to 1 if theme scale is not defined */
+    --b-scale: var(--b-theme-scale, 1);
+}
+
+/* ------------------------------------------------------------
+   1. FIXED & KEYWORD SIZES (.b-min-block-*)
+   ------------------------------------------------------------ */
+
+.b-min-block-auto { min-block-size: auto; }
+.b-min-block-full { min-block-size: 100%; }
+.b-min-block-min  { min-block-size: min-content; }
+.b-min-block-max  { min-block-size: max-content; }
+.b-min-block-fit  { min-block-size: fit-content; }
+.b-min-block-px   { min-block-size: 1px; }
+.b-min-block-lh   { min-block-size: 1lh; } /* Minimum height of one line of text */
+
+/* 1.1 Viewport Units (Vertical Focus) */
+.b-min-block-screen { min-block-size: 100vh; }
+.b-min-block-dvh    { min-block-size: 100dvh; } /* Dynamic viewport height */
+.b-min-block-svh    { min-block-size: 100svh; } /* Small viewport height */
+.b-min-block-lvh    { min-block-size: 100lvh; } /* Large viewport height */
+
+/* Cross-axis viewports (Useful for vertical writing modes) */
+.b-min-block-dvw    { min-block-size: 100dvw; }
+.b-min-block-svw    { min-block-size: 100svw; }
+.b-min-block-lvw    { min-block-size: 100lvw; }
+
+/* ------------------------------------------------------------
+   2. SCALABLE NUMERIC SCALE (0-12)
+   Linked to the core spacing scale defined in the Contract.
+   ------------------------------------------------------------ */
+
+.b-min-block-0  { min-block-size: 0; }
+.b-min-block-1  { min-block-size: calc(var(--b-space-1)  * var(--b-scale)); }
+.b-min-block-2  { min-block-size: calc(var(--b-space-2)  * var(--b-scale)); }
+.b-min-block-3  { min-block-size: calc(var(--b-space-3)  * var(--b-scale)); }
+.b-min-block-4  { min-block-size: calc(var(--b-space-4)  * var(--b-scale)); }
+.b-min-block-5  { min-block-size: calc(var(--b-space-5)  * var(--b-scale)); }
+.b-min-block-6  { min-block-size: calc(var(--b-space-6)  * var(--b-scale)); }
+.b-min-block-7  { min-block-size: calc(var(--b-space-7)  * var(--b-scale)); }
+.b-min-block-8  { min-block-size: calc(var(--b-space-8)  * var(--b-scale)); }
+.b-min-block-9  { min-block-size: calc(var(--b-space-9)  * var(--b-scale)); }
+.b-min-block-10 { min-block-size: calc(var(--b-space-10) * var(--b-scale)); }
+.b-min-block-11 { min-block-size: calc(var(--b-space-11) * var(--b-scale)); }
+.b-min-block-12 { min-block-size: calc(var(--b-space-12) * var(--b-scale)); }
+
+/* ------------------------------------------------------------
+   3. SCALABLE CONTAINER SCALE (3xs to 7xl)
+   Macro-heights for large layouts, hero sections, and sidebars.
+   ------------------------------------------------------------ */
+
+.b-min-block-3xs { min-block-size: calc(var(--b-container-3xs) * var(--b-scale)); }
+.b-min-block-2xs { min-block-size: calc(var(--b-container-2xs) * var(--b-scale)); }
+.b-min-block-xs  { min-block-size: calc(var(--b-container-xs)  * var(--b-scale)); }
+.b-min-block-sm  { min-block-size: calc(var(--b-container-sm)  * var(--b-scale)); }
+.b-min-block-md  { min-block-size: calc(var(--b-container-md)  * var(--b-scale)); }
+.b-min-block-lg  { min-block-size: calc(var(--b-container-lg)  * var(--b-scale)); }
+.b-min-block-xl  { min-block-size: calc(var(--b-container-xl)  * var(--b-scale)); }
+.b-min-block-2xl { min-block-size: calc(var(--b-container-2xl) * var(--b-scale)); }
+.b-min-block-3xl { min-block-size: calc(var(--b-container-3xl) * var(--b-scale)); }
+.b-min-block-4xl { min-block-size: calc(var(--b-container-4xl) * var(--b-scale)); }
+.b-min-block-5xl { min-block-size: calc(var(--b-container-5xl) * var(--b-scale)); }
+.b-min-block-6xl { min-block-size: calc(var(--b-container-6xl) * var(--b-scale)); }
+.b-min-block-7xl { min-block-size: calc(var(--b-container-7xl) * var(--b-scale)); }
+
+/* ------------------------------------------------------------
+   4. FRACTIONAL SIZES
+   Absolute percentage values used for vertical alignment logic.
+   ------------------------------------------------------------ */
+
+.b-min-block-1-2  { min-block-size: var(--b-ref-fraction-1-2); }
+.b-min-block-1-3  { min-block-size: var(--b-ref-fraction-1-3); }
+.b-min-block-1-4  { min-block-size: var(--b-ref-fraction-1-4); }
+.b-min-block-1-5  { min-block-size: var(--b-ref-fraction-1-5); }
+.b-min-block-1-6  { min-block-size: var(--b-ref-fraction-1-6); }
+.b-min-block-2-3  { min-block-size: var(--b-ref-fraction-2-3); }
+.b-min-block-2-5  { min-block-size: var(--b-ref-fraction-2-5); }
+.b-min-block-3-4  { min-block-size: var(--b-ref-fraction-3-4); }
+.b-min-block-3-5  { min-block-size: var(--b-ref-fraction-3-5); }
+.b-min-block-4-5  { min-block-size: var(--b-ref-fraction-4-5); }
+.b-min-block-5-6  { min-block-size: var(--b-ref-fraction-5-6); }

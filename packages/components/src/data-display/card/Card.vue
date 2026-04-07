@@ -28,7 +28,6 @@
 </template>
 
 <script setup lang="ts">
-import "./card.css";
 import {computed} from "vue";
 
 defineOptions({name: "BCard"})

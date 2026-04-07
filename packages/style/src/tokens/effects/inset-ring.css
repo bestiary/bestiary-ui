@@ -1,0 +1,21 @@
+@property --b-inset-ring-width {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 1px;
+}
+
+@property --b-inset-ring-color-channels {
+    syntax: "<number>+";
+    inherits: true;
+    initial-value: 0% 0 0;
+}
+
+@property --b-inset-ring-alpha {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0.1;
+}
+
+:where(html) {
+    --b-inset-ring: inset 0 0 0 var(--b-inset-ring-width) oklch(var(--b-inset-ring-color-channels) / var(--b-inset-ring-alpha));
+}

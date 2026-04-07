@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted } from "vue";
 import { ratingProps } from "./rating.props";
-import "./rating.css";
 
 defineOptions({ name: "BRating" });
 

@@ -1,0 +1,35 @@
+/* ============================================================
+   Bestiary UI — Text Transform Utilities
+
+   These utilities control the capitalization and case of text.
+   They allow you to change how text appears without modifying
+   the actual source content in HTML.
+   ============================================================ */
+
+/* 1. Case Transformations */
+
+/* Transforms all characters to uppercase.
+   Commonly used for small labels, buttons, or section headers. */
+.b-uppercase {
+    text-transform: uppercase;
+}
+
+/* Transforms all characters to lowercase.
+   Useful for technical identifiers or stylistic usernames. */
+.b-lowercase {
+    text-transform: lowercase;
+}
+
+/* Capitalizes the first letter of each word.
+   Ideal for titles or name formatting. */
+.b-capitalize {
+    text-transform: capitalize;
+}
+
+/* 2. Reset Utility */
+
+/* Prevents any transformation and renders the text exactly
+   as written in the source document. (Browser Default) */
+.b-normal-case {
+    text-transform: none;
+}

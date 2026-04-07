@@ -1,0 +1,63 @@
+/* ============================================================
+   Bestiary UI — Skew Utilities
+
+   Architecture:
+   1. Skew Engine: Uses --b-skew-x and --b-skew-y as independent
+      slots within the transform property.
+   2. Composition: Apply the .b-skew class to enable the engine,
+      then use axis modifiers to set the angles.
+   ============================================================ */
+
+:where(*) {
+    /* Initialize skew slots to 0 degrees by default */
+    --b-skew-x: 0deg;
+    --b-skew-y: 0deg;
+}
+
+/* 1. THE RENDERER
+   Apply this class to activate the skew transform on an element. */
+.b-skew {
+    transform: skewX(var(--b-skew-x)) skewY(var(--b-skew-y));
+}
+
+/* 2. X-AXIS SKEW (.b-skew-x-*) */
+
+.b-skew-x-0  { --b-skew-x: 0deg; }
+.b-skew-x-1  { --b-skew-x: 1deg; }
+.b-skew-x-2  { --b-skew-x: 2deg; }
+.b-skew-x-3  { --b-skew-x: 3deg; }
+.b-skew-x-6  { --b-skew-x: 6deg; }
+.b-skew-x-12 { --b-skew-x: 12deg; }
+
+/* Negative X-Axis */
+.b-skew-x-n1  { --b-skew-x: -1deg; }
+.b-skew-x-n2  { --b-skew-x: -2deg; }
+.b-skew-x-n3  { --b-skew-x: -3deg; }
+.b-skew-x-n6  { --b-skew-x: -6deg; }
+.b-skew-x-n12 { --b-skew-x: -12deg; }
+
+/* 3. Y-AXIS SKEW (.b-skew-y-*) */
+
+.b-skew-y-0  { --b-skew-y: 0deg; }
+.b-skew-y-1  { --b-skew-y: 1deg; }
+.b-skew-y-2  { --b-skew-y: 2deg; }
+.b-skew-y-3  { --b-skew-y: 3deg; }
+.b-skew-y-6  { --b-skew-y: 6deg; }
+.b-skew-y-12 { --b-skew-y: 12deg; }
+
+/* Negative Y-Axis */
+.b-skew-y-n1  { --b-skew-y: -1deg; }
+.b-skew-y-n2  { --b-skew-y: -2deg; }
+.b-skew-y-n3  { --b-skew-y: -3deg; }
+.b-skew-y-n6  { --b-skew-y: -6deg; }
+.b-skew-y-n12 { --b-skew-y: -12deg; }
+
+/* 4. HELPERS & HOOKS */
+
+/* Resets all transforms on the element */
+.b-skew-none {
+    transform: none;
+}
+
+/* Custom Property Hook
+   Usage: <div class="b-skew" style="--b-skew-x: 5deg; --b-skew-y: -5deg;"> */

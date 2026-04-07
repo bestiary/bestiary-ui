@@ -1,0 +1,46 @@
+/* ============================================================
+   Bestiary UI — List Style Type Utilities
+
+   These utilities control the design of the list item marker
+   (bullets, numbers, etc.).
+   ============================================================ */
+
+/* 1. Basic Markers */
+
+/* Removes all markers (common for navigation or custom menus) */
+.b-list-none {
+    list-style-type: none;
+}
+
+/* Standard filled circle (Default for unordered lists) */
+.b-list-disc {
+    list-style-type: disc;
+}
+
+/* Standard decimal numbers (1, 2, 3...) */
+.b-list-decimal {
+    list-style-type: decimal;
+}
+
+/* 2. Extended Shapes */
+
+/* Hollow circle marker */
+.b-list-circle {
+    list-style-type: circle;
+}
+
+/* Square marker */
+.b-list-square {
+    list-style-type: square;
+}
+
+/* 3. Custom Variable Hook (Enterprise Flexibility)
+   Allows applying any standard or custom counter style
+   via the --b-list-type variable.
+
+   Example:
+   <ul class="b-list-type-custom" style="--b-list-type: upper-roman">
+*/
+.b-list-type-custom {
+    list-style-type: var(--b-list-type);
+}

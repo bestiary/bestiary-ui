@@ -1,0 +1,122 @@
+/**
+ * Bestiary UI — Textarea Component
+ */
+
+:where(.b-textarea) {
+    /* --- 1. LOCAL COMPONENT TOKENS --- */
+
+    /* Layout & Sizing */
+    --b-textarea-width:             auto;
+    --b-textarea-resize:            none;
+    --b-textarea-padding-y:         var(--b-space-2);
+    --b-textarea-padding-x:         var(--b-space-3);
+
+    /* Colors & Visuals */
+    --b-textarea-background:        var(--b-form-control-background);
+    --b-textarea-color:             var(--b-text-primary);
+    --b-textarea-placeholder-color: var(--b-form-control-placeholder);
+
+    /* Borders & Shapes */
+    --b-textarea-border-width:      var(--b-stroke-default);
+    --b-textarea-border-style:      solid;
+    --b-textarea-border-color:      var(--b-form-control-border);
+    --b-textarea-border-radius:     var(--b-radius-interactive);
+
+    /* Typography */
+    --b-textarea-font-family:       var(--b-font-family-base);
+    --b-textarea-font-size:         var(--b-body-size);
+    --b-textarea-font-weight:       var(--b-font-weight-normal);
+    --b-textarea-line-height:       var(--b-body-leading);
+
+    --b-textarea-transition:        all var(--b-duration-normal) var(--b-ease-base);
+
+    /* --- 2. BASE STYLES --- */
+    display: inline-flex;
+    box-sizing: border-box;
+    appearance: none;
+    outline: none;
+    margin: 0;
+
+    height: auto;
+    width: var(--b-textarea-width);
+    resize: var(--b-textarea-resize);
+
+    background: var(--b-textarea-background);
+    color: var(--b-textarea-color);
+    border: var(--b-textarea-border-width) var(--b-textarea-border-style) var(--b-textarea-border-color);
+    border-radius: var(--b-textarea-border-radius);
+
+    padding-block: var(--b-textarea-padding-y);
+    padding-inline: var(--b-textarea-padding-x);
+
+    font-family: var(--b-textarea-font-family);
+    font-size: var(--b-textarea-font-size);
+    font-weight: var(--b-textarea-font-weight);
+    line-height: var(--b-textarea-line-height);
+
+    transition: var(--b-textarea-transition);
+}
+
+:where(.b-textarea::placeholder) { color: var(--b-textarea-placeholder-color); }
+
+/* ============================================================
+   3. INTERACTIVE STATES
+   ============================================================ */
+
+:where(.b-textarea:not(:disabled):hover) {
+    --b-textarea-border-color: var(--b-form-control-border-hover);
+}
+
+:where(.b-textarea:not(:disabled):focus) {
+    --b-textarea-border-color: var(--b-form-control-border-active);
+}
+
+/* Invalid State */
+:where(.b-textarea--invalid) {
+    --b-textarea-border-color: var(--b-error-outline-border);
+    --b-textarea-placeholder-color: var(--b-error-outline-text);
+}
+
+/* Disabled State */
+:where(.b-textarea--disabled) {
+    --b-textarea-background: var(--b-surface-variant);
+}
+
+/* ============================================================
+   4. VARIANTS & MODIFIERS
+   ============================================================ */
+
+/* Auto-resize logic (usually handled by JS, but CSS helps with overflow) */
+:where(.b-textarea--autoresize) {
+    overflow: hidden;
+}
+
+/* Full Width */
+:where(.b-textarea--fluid) {
+    --b-textarea-width: 100%;
+}
+
+/* Filled Variant */
+:where(.b-textarea--filled:not(:disabled)) {
+    --b-textarea-background: var(--b-surface-variant);
+}
+
+/* ============================================================
+   5. SIZE MODIFIERS
+   ============================================================ */
+
+:where(.b-textarea--size-small) {
+    --b-textarea-font-size: var(--b-text-sm);
+    --b-textarea-padding-y: var(--b-space-1);
+    --b-textarea-padding-x: var(--b-space-2);
+}
+:where(.b-textarea--size-medium) {
+    --b-textarea-font-size: var(--b-text-md);
+    --b-textarea-padding-y: var(--b-space-2);
+    --b-textarea-padding-x: var(--b-space-3);
+}
+:where(.b-textarea--size-large) {
+    --b-textarea-font-size: var(--b-text-lg);
+    --b-textarea-padding-y: var(--b-space-3);
+    --b-textarea-padding-x: var(--b-space-4);
+}

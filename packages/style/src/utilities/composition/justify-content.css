@@ -1,0 +1,68 @@
+/* ============================================================
+   Bestiary UI — Justify Content Utilities
+
+   These utilities control how space is distributed between and
+   around content items along the main axis of a flex or grid
+   container.
+   ============================================================ */
+
+/* 1. Basic Alignment */
+
+/* Packs items toward the start of the axis (Default) */
+.b-justify-start {
+    justify-content: start;
+}
+
+/* Packs items toward the end of the axis */
+.b-justify-end {
+    justify-content: end;
+}
+
+/* Centers items along the axis */
+.b-justify-center {
+    justify-content: center;
+}
+
+/* Items are distributed evenly; first item is at the start, last item at the end */
+.b-justify-between {
+    justify-content: space-between;
+}
+
+/* Items are distributed evenly with half-size spaces on either end */
+.b-justify-around {
+    justify-content: space-around;
+}
+
+/* Items are distributed evenly with equal space around them */
+.b-justify-evenly {
+    justify-content: space-evenly;
+}
+
+/* 2. Advanced Alignment */
+
+/* Items stretch to fill the container (Standard for Grid) */
+.b-justify-stretch {
+    justify-content: stretch;
+}
+
+/* Aligns items along the common baseline */
+.b-justify-baseline {
+    justify-content: baseline;
+}
+
+/* Resets to default browser alignment */
+.b-justify-normal {
+    justify-content: normal;
+}
+
+/* 3. Safe Alignment (Enterprise UX)
+   Prevents content from being inaccessible when it overflows
+   the container by falling back to 'start'. */
+
+.b-justify-center-safe {
+    justify-content: safe center;
+}
+
+.b-justify-end-safe {
+    justify-content: safe end;
+}

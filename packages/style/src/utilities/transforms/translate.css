@@ -1,0 +1,168 @@
+/* ============================================================
+   Bestiary UI — Translate Utilities
+
+   Architecture:
+   1. Translate Engine: Uses independent slots for X, Y, and Z
+      axes to allow combining offsets without overrides.
+   2. Theme Scalable: Numeric values (1-12) are multiplied
+      by the global --b-scale.
+   3. Direction Agnostic: Supports Logical Properties (Start/End)
+      for automatic RTL adjustment.
+   4. Absolute Precision: Includes fractional (percentage) values.
+   ============================================================ */
+
+:where(*) {
+    /* Initialize axis slots to 0 by default */
+    --b-translate-x: 0px;
+    --b-translate-y: 0px;
+    --b-translate-z: 0px;
+
+    /* Internal scale factor from Habitat */
+    --b-scale: var(--b-theme-scale, 1);
+}
+
+/* 1. THE RENDERER
+   Apply this class to enable the translation engine on an element. */
+.b-translate {
+    translate: var(--b-translate-x) var(--b-translate-y) var(--b-translate-z);
+}
+
+/* ------------------------------------------------------------
+   2. HORIZONTAL / INLINE AXIS (.b-translate-x-*)
+   In LTR: X is left-to-right. In RTL: X is right-to-left.
+   ------------------------------------------------------------ */
+
+.b-translate-x-0    { --b-translate-x: 0px; }
+.b-translate-x-px   { --b-translate-x: 1px; }
+.b-translate-x-full { --b-translate-x: 100%; }
+
+/* Scalable numeric scale 1-12 */
+.b-translate-x-1  { --b-translate-x: calc(var(--b-space-1)  * var(--b-scale)); }
+.b-translate-x-2  { --b-translate-x: calc(var(--b-space-2)  * var(--b-scale)); }
+.b-translate-x-3  { --b-translate-x: calc(var(--b-space-3)  * var(--b-scale)); }
+.b-translate-x-4  { --b-translate-x: calc(var(--b-space-4)  * var(--b-scale)); }
+.b-translate-x-5  { --b-translate-x: calc(var(--b-space-5)  * var(--b-scale)); }
+.b-translate-x-6  { --b-translate-x: calc(var(--b-space-6)  * var(--b-scale)); }
+.b-translate-x-7  { --b-translate-x: calc(var(--b-space-7)  * var(--b-scale)); }
+.b-translate-x-8  { --b-translate-x: calc(var(--b-space-8)  * var(--b-scale)); }
+.b-translate-x-9  { --b-translate-x: calc(var(--b-space-9)  * var(--b-scale)); }
+.b-translate-x-10 { --b-translate-x: calc(var(--b-space-10) * var(--b-scale)); }
+.b-translate-x-11 { --b-translate-x: calc(var(--b-space-11) * var(--b-scale)); }
+.b-translate-x-12 { --b-translate-x: calc(var(--b-space-12) * var(--b-scale)); }
+
+/* Negative numeric scale */
+.b-translate-x-n1  { --b-translate-x: calc(var(--b-space-1)  * var(--b-scale) * -1); }
+.b-translate-x-n2  { --b-translate-x: calc(var(--b-space-2)  * var(--b-scale) * -1); }
+.b-translate-x-n3  { --b-translate-x: calc(var(--b-space-3)  * var(--b-scale) * -1); }
+.b-translate-x-n4  { --b-translate-x: calc(var(--b-space-4)  * var(--b-scale) * -1); }
+.b-translate-x-n5  { --b-translate-x: calc(var(--b-space-5)  * var(--b-scale) * -1); }
+.b-translate-x-n6  { --b-translate-x: calc(var(--b-space-6)  * var(--b-scale) * -1); }
+.b-translate-x-n7  { --b-translate-x: calc(var(--b-space-7)  * var(--b-scale) * -1); }
+.b-translate-x-n8  { --b-translate-x: calc(var(--b-space-8)  * var(--b-scale) * -1); }
+.b-translate-x-n9  { --b-translate-x: calc(var(--b-space-9)  * var(--b-scale) * -1); }
+.b-translate-x-n10 { --b-translate-x: calc(var(--b-space-10) * var(--b-scale) * -1); }
+.b-translate-x-n11 { --b-translate-x: calc(var(--b-space-11) * var(--b-scale) * -1); }
+.b-translate-x-n12 { --b-translate-x: calc(var(--b-space-12) * var(--b-scale) * -1); }
+
+/* Fractions (Percentage-based constants) */
+.b-translate-x-1-2 { --b-translate-x: 50%; }
+.b-translate-x-1-3 { --b-translate-x: 33.3333%; }
+.b-translate-x-2-3 { --b-translate-x: 66.6666%; }
+.b-translate-x-n1-2 { --b-translate-x: -50%; }
+
+/* ------------------------------------------------------------
+   3. VERTICAL / BLOCK AXIS (.b-translate-y-*)
+   ------------------------------------------------------------ */
+
+.b-translate-y-0    { --b-translate-y: 0px; }
+.b-translate-y-px   { --b-translate-y: 1px; }
+.b-translate-y-full { --b-translate-y: 100%; }
+
+/* Scalable numeric scale 1-12 */
+.b-translate-y-1  { --b-translate-y: calc(var(--b-space-1)  * var(--b-scale)); }
+.b-translate-y-2  { --b-translate-y: calc(var(--b-space-2)  * var(--b-scale)); }
+.b-translate-y-3  { --b-translate-y: calc(var(--b-space-3)  * var(--b-scale)); }
+.b-translate-y-4  { --b-translate-y: calc(var(--b-space-4)  * var(--b-scale)); }
+.b-translate-y-5  { --b-translate-y: calc(var(--b-space-5)  * var(--b-scale)); }
+.b-translate-y-6  { --b-translate-y: calc(var(--b-space-6)  * var(--b-scale)); }
+.b-translate-y-7  { --b-translate-y: calc(var(--b-space-7)  * var(--b-scale)); }
+.b-translate-y-8  { --b-translate-y: calc(var(--b-space-8)  * var(--b-scale)); }
+.b-translate-y-9  { --b-translate-y: calc(var(--b-space-9)  * var(--b-scale)); }
+.b-translate-y-10 { --b-translate-y: calc(var(--b-space-10) * var(--b-scale)); }
+.b-translate-y-11 { --b-translate-y: calc(var(--b-space-11) * var(--b-scale)); }
+.b-translate-y-12 { --b-translate-y: calc(var(--b-space-12) * var(--b-scale)); }
+
+/* Negative numeric scale */
+.b-translate-y-n1  { --b-translate-y: calc(var(--b-space-1)  * var(--b-scale) * -1); }
+.b-translate-y-n2  { --b-translate-y: calc(var(--b-space-2)  * var(--b-scale) * -1); }
+.b-translate-y-n3  { --b-translate-y: calc(var(--b-space-3)  * var(--b-scale) * -1); }
+.b-translate-y-n4  { --b-translate-y: calc(var(--b-space-4)  * var(--b-scale) * -1); }
+.b-translate-y-n5  { --b-translate-y: calc(var(--b-space-5)  * var(--b-scale) * -1); }
+.b-translate-y-n6  { --b-translate-y: calc(var(--b-space-6)  * var(--b-scale) * -1); }
+.b-translate-y-n7  { --b-translate-y: calc(var(--b-space-7)  * var(--b-scale) * -1); }
+.b-translate-y-n8  { --b-translate-y: calc(var(--b-space-8)  * var(--b-scale) * -1); }
+.b-translate-y-n9  { --b-translate-y: calc(var(--b-space-9)  * var(--b-scale) * -1); }
+.b-translate-y-n10 { --b-translate-y: calc(var(--b-space-10) * var(--b-scale) * -1); }
+.b-translate-y-n11 { --b-translate-y: calc(var(--b-space-11) * var(--b-scale) * -1); }
+.b-translate-y-n12 { --b-translate-y: calc(var(--b-space-12) * var(--b-scale) * -1); }
+
+.b-translate-y-1-2  { --b-translate-y: 50%; }
+.b-translate-y-n1-2 { --b-translate-y: -50%; }
+
+/* ------------------------------------------------------------
+   4. DEPTH / Z-AXIS (.b-translate-z-*)
+   Used for 3D effects. Requires a perspective on the parent.
+   ------------------------------------------------------------ */
+
+/* Scalable numeric scale 1-12 */
+.b-translate-z-1  { --b-translate-z: calc(var(--b-space-1)  * var(--b-scale)); }
+.b-translate-z-2  { --b-translate-z: calc(var(--b-space-2)  * var(--b-scale)); }
+.b-translate-z-3  { --b-translate-z: calc(var(--b-space-3)  * var(--b-scale)); }
+.b-translate-z-4  { --b-translate-z: calc(var(--b-space-4)  * var(--b-scale)); }
+.b-translate-z-5  { --b-translate-z: calc(var(--b-space-5)  * var(--b-scale)); }
+.b-translate-z-6  { --b-translate-z: calc(var(--b-space-6)  * var(--b-scale)); }
+.b-translate-z-7  { --b-translate-z: calc(var(--b-space-7)  * var(--b-scale)); }
+.b-translate-z-8  { --b-translate-z: calc(var(--b-space-8)  * var(--b-scale)); }
+.b-translate-z-9  { --b-translate-z: calc(var(--b-space-9)  * var(--b-scale)); }
+.b-translate-z-10 { --b-translate-z: calc(var(--b-space-10) * var(--b-scale)); }
+.b-translate-z-11 { --b-translate-z: calc(var(--b-space-11) * var(--b-scale)); }
+.b-translate-z-12 { --b-translate-z: calc(var(--b-space-12) * var(--b-scale)); }
+
+/* Negative numeric scale */
+.b-translate-z-n1  { --b-translate-z: calc(var(--b-space-1)  * var(--b-scale) * -1); }
+.b-translate-z-n2  { --b-translate-z: calc(var(--b-space-2)  * var(--b-scale) * -1); }
+.b-translate-z-n3  { --b-translate-z: calc(var(--b-space-3)  * var(--b-scale) * -1); }
+.b-translate-z-n4  { --b-translate-z: calc(var(--b-space-4)  * var(--b-scale) * -1); }
+.b-translate-z-n5  { --b-translate-z: calc(var(--b-space-5)  * var(--b-scale) * -1); }
+.b-translate-z-n6  { --b-translate-z: calc(var(--b-space-6)  * var(--b-scale) * -1); }
+.b-translate-z-n7  { --b-translate-z: calc(var(--b-space-7)  * var(--b-scale) * -1); }
+.b-translate-z-n8  { --b-translate-z: calc(var(--b-space-8)  * var(--b-scale) * -1); }
+.b-translate-z-n9  { --b-translate-z: calc(var(--b-space-9)  * var(--b-scale) * -1); }
+.b-translate-z-n10 { --b-translate-z: calc(var(--b-space-10) * var(--b-scale) * -1); }
+.b-translate-z-n11 { --b-translate-z: calc(var(--b-space-11) * var(--b-scale) * -1); }
+.b-translate-z-n12 { --b-translate-z: calc(var(--b-space-12) * var(--b-scale) * -1); }
+
+/* ------------------------------------------------------------
+   5. LOGICAL POSITIONING (Start/End)
+   Strictly for RTL support.
+   ------------------------------------------------------------ */
+
+/* Shifts element towards the start of the line */
+.b-translate-s-4 { inset-inline-start: calc(var(--b-space-4) * var(--b-scale)); }
+
+/* Shifts element towards the end of the line */
+.b-translate-e-4 { inset-inline-end: calc(var(--b-space-4) * var(--b-scale)); }
+
+/* ------------------------------------------------------------
+   6. HELPERS
+   ------------------------------------------------------------ */
+
+/* Resets all translation */
+.b-translate-none {
+    translate: none;
+}
+
+/* Custom Property Hook for arbitrary translation values */
+.b-translate-custom {
+    translate: var(--b-translate);
+}

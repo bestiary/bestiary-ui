@@ -1,7 +1,7 @@
 import {definePropType} from "@bestiary-ui/utils";
 import {Component} from "vue";
 
-export type TagSeverity = "primary" | "secondary" | "info" | "success" | "warn" | "danger" | "contrast";
+export type TagSeverity = "primary" | "secondary" | "success" | "warn" | "danger" | "info" | "contrast";
 
 export const tagProps = {
     value: {

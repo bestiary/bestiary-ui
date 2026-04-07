@@ -1,0 +1,60 @@
+/* ============================================================
+   Bestiary UI — Line Height Utilities (Leading)
+
+   Controls the vertical space between lines of text.
+
+   Architecture:
+   1. Semantic Multipliers: Unitless values (none, tight, etc.)
+      that scale proportionally with the font size.
+   2. Numeric Fixed Scale: Absolute heights mapped to the
+      spacing scale (1-12), integrated with --b-scale.
+   ============================================================ */
+
+:where(html) {
+    --b-scale: var(--b-theme-scale, 1);
+}
+
+/* ------------------------------------------------------------
+   1. SEMANTIC MULTIPLIERS (Recommended for Body Text)
+   Unitless values that ensure perfect proportions regardless
+   of the font size.
+   ------------------------------------------------------------ */
+
+/* line-height: 1 (Ideal for icons and single-line headers) */
+.b-leading-none {
+    line-height: var(--b-line-height-none);
+}
+
+/* line-height: ~1.25 (Ideal for multi-line headings) */
+.b-leading-tight {
+    line-height: var(--b-line-height-tight);
+}
+
+/* line-height: ~1.5 (Standard for readable body text) */
+.b-leading-normal {
+    line-height: var(--b-line-height-normal);
+}
+
+/* line-height: ~1.625 (Ideal for long-form reading or small text) */
+.b-leading-relaxed {
+    line-height: var(--b-line-height-relaxed);
+}
+
+/* ------------------------------------------------------------
+   2. NUMERIC FIXED SCALE (1-12)
+   Uses absolute spacing units. These ARE affected by theme scale.
+   Useful for aligning text height to specific UI grids.
+   ------------------------------------------------------------ */
+
+.b-leading-1  { line-height: calc(var(--b-space-1)  * var(--b-scale)); }
+.b-leading-2  { line-height: calc(var(--b-space-2)  * var(--b-scale)); }
+.b-leading-3  { line-height: calc(var(--b-space-3)  * var(--b-scale)); }
+.b-leading-4  { line-height: calc(var(--b-space-4)  * var(--b-scale)); }
+.b-leading-5  { line-height: calc(var(--b-space-5)  * var(--b-scale)); }
+.b-leading-6  { line-height: calc(var(--b-space-6)  * var(--b-scale)); }
+.b-leading-7  { line-height: calc(var(--b-space-7)  * var(--b-scale)); }
+.b-leading-8  { line-height: calc(var(--b-space-8)  * var(--b-scale)); }
+.b-leading-9  { line-height: calc(var(--b-space-9)  * var(--b-scale)); }
+.b-leading-10 { line-height: calc(var(--b-space-10) * var(--b-scale)); }
+.b-leading-11 { line-height: calc(var(--b-space-11) * var(--b-scale)); }
+.b-leading-12 { line-height: calc(var(--b-space-12) * var(--b-scale)); }

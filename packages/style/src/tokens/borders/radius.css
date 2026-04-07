@@ -1,0 +1,28 @@
+@property --b-radius-factor {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 1;
+}
+
+@property --b-radius {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 0px;
+}
+
+:where(html) {
+    --b-radius-factor: 1;
+
+    --b-radius-xs:   calc(0.125rem * var(--b-radius-factor));
+    --b-radius-sm:   calc(0.25rem  * var(--b-radius-factor));
+    --b-radius-md:   calc(0.375rem * var(--b-radius-factor));
+    --b-radius-lg:   calc(0.5rem   * var(--b-radius-factor));
+    --b-radius-xl:   calc(0.75rem  * var(--b-radius-factor));
+    --b-radius-2xl:  calc(1rem     * var(--b-radius-factor));
+    --b-radius-3xl:  calc(1.5rem   * var(--b-radius-factor));
+    --b-radius-4xl:  calc(2rem     * var(--b-radius-factor));
+
+    --b-radius-none:    0px;
+    --b-radius-full:    1e5px;
+    --b-radius-inherit: inherit;
+}

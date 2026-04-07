@@ -1,0 +1,27 @@
+/* ============================================================
+   Bestiary UI — Visibility Utilities
+
+   These utilities control the visibility of an element without
+   affecting its display property or layout position.
+   ============================================================ */
+
+/* 1. Visibility States */
+
+/* Makes the element visible (Default browser behavior) */
+.b-visible {
+    visibility: visible;
+}
+
+/* Hides the element visually, but it still occupies its original
+   space in the document flow. Useful for maintaining layout stability
+   while toggling content. */
+.b-invisible {
+    visibility: hidden;
+}
+
+/* Specific to table rows, columns, and flex items.
+   It removes the element and collapses the space it would
+   otherwise occupy (similar to display: none but optimized for tables). */
+.b-collapse {
+    visibility: collapse;
+}

@@ -1,0 +1,79 @@
+/* ============================================================
+   Bestiary UI — Invert Utilities
+
+   Controls the inversion filter of an element.
+   Usage: .b-invert (100%), .b-invert-50 (50%), or .b-invert-custom
+   ============================================================ */
+
+:where(*) {
+    /* Default value (0% invert = original state) */
+    --b-invert: 0%;
+}
+
+/* 1. APPLY THE FILTER */
+.b-invert {
+    /*
+        Allows setting arbitrary inversion values.
+        Usage: <div class="b-invert-custom" style="--b-invert: 40%">...
+    */
+    filter: invert(var(--b-invert));
+}
+
+/* 2. PRESET SCALE */
+
+/* Full inversion (100%) */
+.b-invert-full { --b-invert: 100%; }
+
+/* Partial inversion steps */
+.b-invert-25 { --b-invert: 25%; }
+.b-invert-50 { --b-invert: 50%; }
+.b-invert-75 { --b-invert: 75%; }
+
+/* Disable inversion */
+.b-invert-0 { --b-invert: 0%; }
+
+/* ============================================================
+   Bestiary UI — Backdrop Invert Utilities
+
+   Applies an inversion filter to the area behind an element.
+   Perfect for high-contrast "x-ray" effects or custom cursors
+   that need to remain visible regardless of the background color.
+   ============================================================ */
+
+:where(*) {
+    /* Default value (0% = original colors) */
+    --b-backdrop-invert: 0%;
+}
+
+/* 1. APPLY THE FILTER */
+
+/* Default class applies full inversion (100%) but uses the
+   variable so it can be modified by scale classes. */
+.b-backdrop-invert {
+    --b-backdrop-invert: 100%;
+    backdrop-filter: invert(var(--b-backdrop-invert));
+}
+
+/* 2. SCALE VARIANTS
+   Modifiers that update the inversion intensity.
+   Must be used in combination with .b-backdrop-invert.
+*/
+
+/* Full inversion */
+.b-backdrop-invert-100 { --b-backdrop-invert: 100%; }
+
+/* Partial inversion steps (creates a flat, low-contrast look) */
+.b-backdrop-invert-75  { --b-backdrop-invert: 75%; }
+.b-backdrop-invert-50  { --b-backdrop-invert: 50%; }
+.b-backdrop-invert-25  { --b-backdrop-invert: 25%; }
+
+/* Disable inversion */
+.b-backdrop-invert-0   { --b-backdrop-invert: 0%; }
+
+/* 3. CUSTOM PROPERTY HOOK
+   Allows setting arbitrary inversion values via CSS variable.
+   Usage: <div class="b-backdrop-invert-custom" style="--b-backdrop-invert: 40%">...
+*/
+.b-backdrop-invert-custom {
+    backdrop-filter: invert(var(--b-backdrop-invert));
+}

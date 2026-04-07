@@ -9,7 +9,6 @@
 <script setup lang="ts">
 import {computed} from "vue";
 import {badgeProps} from "./badge.types.ts";
-import "./badge.css"
 
 defineOptions({name: 'BBadge'});
 const props = defineProps(badgeProps);

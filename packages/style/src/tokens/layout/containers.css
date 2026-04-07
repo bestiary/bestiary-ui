@@ -1,0 +1,23 @@
+@property --b-container-width {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 100%;
+}
+
+:where(html) {
+    --b-container-3xs: 16rem;  /* 256px */
+    --b-container-2xs: 18rem;  /* 288px */
+    --b-container-xs:  20rem;  /* 320px */
+    --b-container-sm:  24rem;  /* 384px */
+    --b-container-md:  28rem;  /* 448px */
+    --b-container-lg:  32rem;  /* 512px */
+    --b-container-xl:  36rem;  /* 576px */
+    --b-container-2xl: 42rem;  /* 672px */
+    --b-container-3xl: 48rem;  /* 768px */
+    --b-container-4xl: 56rem;  /* 896px */
+    --b-container-5xl: 64rem;  /* 1024px */
+    --b-container-6xl: 72rem;  /* 1152px */
+    --b-container-7xl: 80rem;  /* 1280px */
+
+    --b-container-full: 100%;
+}

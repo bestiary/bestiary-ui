@@ -1,0 +1,65 @@
+/* ============================================================
+   Bestiary UI — Place Content Utilities
+
+   This is a shorthand property for 'align-content' and 'justify-content'.
+   It controls how content is aligned and distributed along both
+   the block and inline axes at once. Primarily used in Grid
+   and multi-line Flexbox containers.
+   ============================================================ */
+
+/* 1. Core Distribution */
+
+/* Centers content along both axes */
+.b-place-content-center {
+    place-content: center;
+}
+
+/* Packs content toward the start of both axes */
+.b-place-content-start {
+    place-content: start;
+}
+
+/* Packs content toward the end of both axes */
+.b-place-content-end {
+    place-content: end;
+}
+
+/* Items stretch to fill the container along both axes */
+.b-place-content-stretch {
+    place-content: stretch;
+}
+
+/* 2. Space Distribution */
+
+/* Evenly distributes items; first and last items are at the edges */
+.b-place-content-between {
+    place-content: space-between;
+}
+
+/* Evenly distributes items with half-size spaces on all edges */
+.b-place-content-around {
+    place-content: space-around;
+}
+
+/* Evenly distributes items with equal space around every item */
+.b-place-content-evenly {
+    place-content: space-evenly;
+}
+
+/* 3. Advanced & Safe Alignment */
+
+/* Aligns items along their common baseline across both axes */
+.b-place-content-baseline {
+    place-content: baseline;
+}
+
+/* Centers items but ensures they remain accessible if they
+   overflow the container by falling back to 'start'. */
+.b-place-content-center-safe {
+    place-content: safe center;
+}
+
+/* Aligns to end but falls back to 'start' on overflow */
+.b-place-content-end-safe {
+    place-content: safe end;
+}

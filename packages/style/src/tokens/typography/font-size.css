@@ -1,0 +1,16 @@
+:where(html) {
+    --b-text-2xs:  0.625rem; /* 10px */
+    --b-text-xs:   0.75rem;  /* 12px */
+    --b-text-sm:   0.875rem; /* 14px */
+    --b-text-md:   1rem;     /* 16px - Base */
+    --b-text-lg:   1.125rem; /* 18px */
+    --b-text-xl:   1.25rem;  /* 20px */
+    --b-text-2xl:  1.5rem;   /* 24px */
+    --b-text-3xl:  1.875rem; /* 30px */
+    --b-text-4xl:  2.25rem;  /* 36px */
+    --b-text-5xl:  3rem;     /* 48px */
+    --b-text-6xl:  3.75rem;  /* 60px */
+    --b-text-7xl:  4.5rem;   /* 72px */
+    --b-text-8xl:  6rem;     /* 96px */
+    --b-text-9xl:  8rem;     /* 128px */
+}

@@ -1,0 +1,32 @@
+@property --b-drop-shadow-color-channels {
+    syntax: "<number>+";
+    inherits: true;
+    initial-value: 0% 0 0;
+}
+
+:where(html) {
+
+    /* Opacity levels */
+    --b-drop-shadow-alpha-xs:  5%;
+    --b-drop-shadow-alpha-sm:  15%;
+    --b-drop-shadow-alpha-md:  12%;
+    --b-drop-shadow-alpha-lg:  15%;
+    --b-drop-shadow-alpha-xl:  10%;
+    --b-drop-shadow-alpha-2xl: 15%;
+
+    /* Drop shadow */
+    --b-drop-shadow-none: 0 0 #0000;
+
+    --b-drop-shadow-xs: 0 1px 1px oklch(var(--b-drop-shadow-color-channels) / var(--b-drop-shadow-alpha-xs));
+
+    --b-drop-shadow-sm: 0 1px 2px oklch(var(--b-drop-shadow-color-channels) / var(--b-drop-shadow-alpha-sm));
+
+    --b-drop-shadow-md: 0 4px 4px oklch(var(--b-drop-shadow-color-channels) / var(--b-drop-shadow-alpha-md));
+
+    --b-drop-shadow-lg: 0 4px 4px oklch(var(--b-drop-shadow-color-channels) / var(--b-drop-shadow-alpha-lg));
+
+    --b-drop-shadow-xl: 0 9px 7px oklch(var(--b-drop-shadow-color-channels) / var(--b-drop-shadow-alpha-xl));
+
+    --b-drop-shadow-2xl: 0 25px 25px oklch(var(--b-drop-shadow-color-channels) / var(--b-drop-shadow-alpha-2xl));
+
+}

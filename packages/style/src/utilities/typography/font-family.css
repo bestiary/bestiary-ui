@@ -1,0 +1,33 @@
+/* ============================================================
+   Bestiary UI — Font Family Utilities
+
+   These utilities control the typeface applied to an element.
+   Mapped to the Global Semantic Contract to allow easy
+   swapping of font stacks across different themes.
+   ============================================================ */
+
+/* 1. Primary Interface Stacks */
+
+/* The main font for the UI (typically a clean Sans-Serif stack) */
+.b-font-sans {
+    font-family: var(--b-font-family-base);
+}
+
+/* A traditional Serif stack for formal or long-form reading */
+.b-font-serif {
+    font-family: var(--b-font-family-serif);
+}
+
+/* 2. Technical & Monospaced Stacks */
+
+/* Fixed-width font for code blocks, data tables, and technical info */
+.b-font-mono {
+    font-family: var(--b-font-family-mono);
+}
+
+/* 3. Branding & Display Stacks (Optional) */
+
+/* Large headings or decorative text elements */
+.b-font-display {
+    font-family: var(--b-font-family-display);
+}

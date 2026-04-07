@@ -1,13 +1,25 @@
-:root {
-    --b-ref-stone-50:  #fafaf9;
-    --b-ref-stone-100: #f5f5f4;
-    --b-ref-stone-200: #e7e5e4;
-    --b-ref-stone-300: #d6d3d1;
-    --b-ref-stone-400: #a8a29e;
-    --b-ref-stone-500: #78716c;
-    --b-ref-stone-600: #57534e;
-    --b-ref-stone-700: #44403c;
-    --b-ref-stone-800: #292524;
-    --b-ref-stone-900: #1c1917;
-    --b-ref-stone-950: #0c0a09;
+:where(html) {
+    --b-stone-50-channels:  98.5% 0.001 106.423;
+    --b-stone-100-channels: 97% 0.001 106.424;
+    --b-stone-200-channels: 92.3% 0.003 48.717;
+    --b-stone-300-channels: 86.9% 0.005 56.366;
+    --b-stone-400-channels: 70.9% 0.01 56.259;
+    --b-stone-500-channels: 55.3% 0.013 58.071;
+    --b-stone-600-channels: 44.4% 0.011 73.639;
+    --b-stone-700-channels: 37.4% 0.01 67.558;
+    --b-stone-800-channels: 26.8% 0.007 34.298;
+    --b-stone-900-channels: 21.6% 0.006 56.043;
+    --b-stone-950-channels: 14.7% 0.004 49.25;
+
+    --b-stone-50:  oklch(var(--b-stone-50-channels));
+    --b-stone-100: oklch(var(--b-stone-100-channels));
+    --b-stone-200: oklch(var(--b-stone-200-channels));
+    --b-stone-300: oklch(var(--b-stone-300-channels));
+    --b-stone-400: oklch(var(--b-stone-400-channels));
+    --b-stone-500: oklch(var(--b-stone-500-channels));
+    --b-stone-600: oklch(var(--b-stone-600-channels));
+    --b-stone-700: oklch(var(--b-stone-700-channels));
+    --b-stone-800: oklch(var(--b-stone-800-channels));
+    --b-stone-900: oklch(var(--b-stone-900-channels));
+    --b-stone-950: oklch(var(--b-stone-950-channels));
 }

@@ -1,0 +1,85 @@
+:where(html) {
+    /* Facebook */
+    --b-brand-facebook-channels: 52.7% 0.231 260.6;
+    --b-brand-facebook:          oklch(var(--b-brand-facebook-channels));
+
+    /* YouTube */
+    --b-brand-youtube-channels:  62.8% 0.258 29.2;
+    --b-brand-youtube:           oklch(var(--b-brand-youtube-channels));
+
+    /* Twitter (X) */
+    --b-brand-twitter-channels:  67.4% 0.155 240.5;
+    --b-brand-twitter:           oklch(var(--b-brand-twitter-channels));
+
+    /* WhatsApp */
+    --b-brand-whatsapp-channels: 76.5% 0.203 148.4;
+    --b-brand-whatsapp:          oklch(var(--b-brand-whatsapp-channels));
+
+    /* Instagram Palette */
+    --b-brand-instagram-yellow-channels:  86.5% 0.171 85.3;
+    --b-brand-instagram-yellow:           oklch(var(--b-brand-instagram-yellow-channels));
+    --b-brand-instagram-red-channels:     62.1% 0.218 15.2;
+    --b-brand-instagram-red:              oklch(var(--b-brand-instagram-red-channels));
+    --b-brand-instagram-magenta-channels: 54.2% 0.245 328.7;
+    --b-brand-instagram-magenta:          oklch(var(--b-brand-instagram-magenta-channels));
+    --b-brand-instagram-blue-channels:    44.6% 0.301 281.1;
+    --b-brand-instagram-blue:             oklch(var(--b-brand-instagram-blue-channels));
+
+    /* Snapchat */
+    --b-brand-snapchat-channels: 97.4% 0.212 106.5;
+    --b-brand-snapchat:          oklch(var(--b-brand-snapchat-channels));
+
+    /* Google Palette */
+    --b-brand-google-blue-channels:   61.5% 0.181 250.3;
+    --b-brand-google-blue:            oklch(var(--b-brand-google-blue-channels));
+    --b-brand-google-red-channels:    59.6% 0.215 27.4;
+    --b-brand-google-red:             oklch(var(--b-brand-google-red-channels));
+    --b-brand-google-yellow-channels: 79.1% 0.198 83.2;
+    --b-brand-google-yellow:          oklch(var(--b-brand-google-yellow-channels));
+    --b-brand-google-green-channels:  60.5% 0.171 154.2;
+    --b-brand-google-green:           oklch(var(--b-brand-google-green-channels));
+
+    /* TikTok */
+    --b-brand-tiktok-razzmatazz-channels: 60.1% 0.252 14.5;
+    --b-brand-tiktok-razzmatazz:          oklch(var(--b-brand-tiktok-razzmatazz-channels));
+    --b-brand-tiktok-splash-channels:     87.1% 0.141 194.2;
+    --b-brand-tiktok-splash:              oklch(var(--b-brand-tiktok-splash-channels));
+
+    /* Microsoft Palette */
+    --b-brand-microsoft-red-channels:    60.5% 0.221 34.2;
+    --b-brand-microsoft-red:             oklch(var(--b-brand-microsoft-red-channels));
+    --b-brand-microsoft-green-channels:  71.2% 0.185 141.5;
+    --b-brand-microsoft-green:           oklch(var(--b-brand-microsoft-green-channels));
+    --b-brand-microsoft-blue-channels:   63.1% 0.175 231.2;
+    --b-brand-microsoft-blue:            oklch(var(--b-brand-microsoft-blue-channels));
+    --b-brand-microsoft-yellow-channels: 80.5% 0.195 78.4;
+    --b-brand-microsoft-yellow:          oklch(var(--b-brand-microsoft-yellow-channels));
+
+    /* Pinterest */
+    --b-brand-pinterest-channels: 54.1% 0.228 23.4;
+    --b-brand-pinterest:          oklch(var(--b-brand-pinterest-channels));
+
+    /* Spotify */
+    --b-brand-spotify-channels:   77.1% 0.201 145.2;
+    --b-brand-spotify:            oklch(var(--b-brand-spotify-channels));
+
+    /* Discord */
+    --b-brand-discord-channels:   53.9% 0.198 266.3;
+    --b-brand-discord:            oklch(var(--b-brand-discord-channels));
+
+    /* Telegram */
+    --b-brand-telegram-channels:  71.2% 0.145 228.1;
+    --b-brand-telegram:           oklch(var(--b-brand-telegram-channels));
+
+    /* Reddit */
+    --b-brand-reddit-channels:    63.1% 0.251 38.1;
+    --b-brand-reddit:             oklch(var(--b-brand-reddit-channels));
+
+    /* Amazon */
+    --b-brand-amazon-channels:    26.5% 0.038 252.4;
+    --b-brand-amazon:             oklch(var(--b-brand-amazon-channels));
+
+    /* Twitch */
+    --b-brand-twitch-channels:    57.3% 0.252 284.1;
+    --b-brand-twitch:             oklch(var(--b-brand-twitch-channels));
+}

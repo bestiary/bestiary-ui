@@ -1,0 +1,43 @@
+/* ============================================================
+   Bestiary UI — Content Utilities
+
+   These utilities control the 'content' property, primarily used
+   with ::before and ::after pseudo-elements.
+
+   Architecture:
+   - content-none: Completely removes the pseudo-element.
+   - content-empty: Initializes the pseudo-element for styling
+     (e.g., for background shapes or decorative icons).
+   - content-custom: A flexible hook for dynamic text or data.
+   ============================================================ */
+
+/* 1. Standard Content Controls */
+
+/* Removes the generated content from the pseudo-element */
+.b-content-none::before,
+.b-content-none::after {
+    content: none;
+}
+
+/* Sets an empty string as content.
+   Essential when using pseudo-elements as purely decorative
+   boxes (e.g., custom underlines, background blobs). */
+.b-content-empty::before,
+.b-content-empty::after {
+    content: "";
+}
+
+/* 2. Custom Variable Hook (Enterprise Flexibility)
+   Allows the user to inject arbitrary strings or data attributes
+   via the --b-content variable.
+
+   Example usage:
+   <div class="b-content-custom" style="--b-content: '★'">...</div>
+
+   Example for data-attributes:
+   <div class="b-content-custom" style="--b-content: attr(data-label)">...</div>
+*/
+.b-content-custom::before,
+.b-content-custom::after {
+    content: var(--b-content);
+}

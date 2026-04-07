@@ -1,0 +1,45 @@
+/* ============================================================
+   Bestiary UI — Transition Duration Utilities
+
+   These utilities control how long a CSS transition should take
+   to complete. They map directly to the Global Semantic Contract
+   for functional roles, and to the Primitive Time Scale for
+   absolute precision.
+   ============================================================ */
+
+/* 1. SEMANTIC ROLES (Mapped to Contract)
+   Use these for consistent motion timing across the UI. */
+
+.b-duration-fast   { transition-duration: var(--b-duration-fast); }
+.b-duration-normal { transition-duration: var(--b-duration-normal); }
+.b-duration-slow   { transition-duration: var(--b-duration-slow); }
+
+/* 2. PRIMITIVE TIME SCALE (0, 50, 75... 1000ms)
+   Fixed timings for custom orchestrations. */
+
+.b-duration-0    { transition-duration: 0s; }
+.b-duration-50   { transition-duration: var(--b-ref-time-50); }
+.b-duration-75   { transition-duration: var(--b-ref-time-75); }
+.b-duration-100  { transition-duration: var(--b-ref-time-100); }
+.b-duration-150  { transition-duration: var(--b-ref-time-150); }
+.b-duration-200  { transition-duration: var(--b-ref-time-200); }
+.b-duration-300  { transition-duration: var(--b-ref-time-300); }
+.b-duration-400  { transition-duration: var(--b-ref-time-400); }
+.b-duration-500  { transition-duration: var(--b-ref-time-500); }
+.b-duration-700  { transition-duration: var(--b-ref-time-700); }
+.b-duration-1000 { transition-duration: var(--b-ref-time-1000); }
+
+/* 3. BROWSER BEHAVIORS & HOOKS */
+
+/* Resets to browser default (usually 0s) */
+.b-duration-initial {
+    transition-duration: initial;
+}
+
+/* Custom Property Hook
+   Allows passing arbitrary durations via CSS variable.
+   Usage: <div class="b-duration-custom" style="--b-duration: 250ms">...
+*/
+.b-duration-custom {
+    transition-duration: var(--b-duration);
+}

@@ -1,147 +1,279 @@
-:root {
+:where(html) {
     /* --- DOCUMENTS --- */
     /* PDF */
-    --b-ref-file-pdf-50: #fdecec;
-    --b-ref-file-pdf-100: #fcd9d9;
-    --b-ref-file-pdf-200: #f9b4b4;
-    --b-ref-file-pdf-300: #f58e8e;
-    --b-ref-file-pdf-400: #f26969;
-    --b-ref-file-pdf-500: #ef4444;
-    --b-ref-file-pdf-600: #e21313;
-    --b-ref-file-pdf-700: #a90e0e;
-    --b-ref-file-pdf-800: #710a0a;
-    --b-ref-file-pdf-900: #380505;
-    --b-ref-file-pdf-950: #1c0202;
+    --b-file-pdf-50-channels:  94.8% 0.021 18.2;
+    --b-file-pdf-100-channels: 90.1% 0.042 18.5;
+    --b-file-pdf-200-channels: 81.2% 0.083 19.1;
+    --b-file-pdf-300-channels: 72.4% 0.125 20.3;
+    --b-file-pdf-400-channels: 65.8% 0.171 23.4;
+    --b-file-pdf-500-channels: 62.8% 0.225 25.9;
+    --b-file-pdf-600-channels: 55.2% 0.218 26.5;
+    --b-file-pdf-700-channels: 45.1% 0.182 26.8;
+    --b-file-pdf-800-channels: 34.5% 0.141 26.2;
+    --b-file-pdf-900-channels: 22.8% 0.091 25.8;
+    --b-file-pdf-950-channels: 11.2% 0.052 26.1;
+
+    --b-file-pdf-50:  oklch(var(--b-file-pdf-50-channels));
+    --b-file-pdf-100: oklch(var(--b-file-pdf-100-channels));
+    --b-file-pdf-200: oklch(var(--b-file-pdf-200-channels));
+    --b-file-pdf-300: oklch(var(--b-file-pdf-300-channels));
+    --b-file-pdf-400: oklch(var(--b-file-pdf-400-channels));
+    --b-file-pdf-500: oklch(var(--b-file-pdf-500-channels));
+    --b-file-pdf-600: oklch(var(--b-file-pdf-600-channels));
+    --b-file-pdf-700: oklch(var(--b-file-pdf-700-channels));
+    --b-file-pdf-800: oklch(var(--b-file-pdf-800-channels));
+    --b-file-pdf-900: oklch(var(--b-file-pdf-900-channels));
+    --b-file-pdf-950: oklch(var(--b-file-pdf-950-channels));
 
     /* Word */
-    --b-ref-office-word-50:  #f0f4fa;
-    --b-ref-office-word-100: #dae5f4;
-    --b-ref-office-word-200: #bcd0e9;
-    --b-ref-office-word-300: #91b1db;
-    --b-ref-office-word-400: #618cc7;
-    --b-ref-office-word-500: #2b579a; /* Base Word */
-    --b-ref-office-word-600: #244a83;
-    --b-ref-office-word-700: #1e3d6c;
-    --b-ref-office-word-800: #193359;
-    --b-ref-office-word-900: #162c4b;
-    --b-ref-office-word-950: #10213b;
+    --b-office-word-50-channels:  96.5% 0.012 255.4;
+    --b-office-word-100-channels: 91.0% 0.025 255.8;
+    --b-office-word-200-channels: 83.5% 0.045 256.2;
+    --b-office-word-300-channels: 72.0% 0.075 257.4;
+    --b-office-word-400-channels: 58.0% 0.105 259.1;
+    --b-office-word-500-channels: 43.6% 0.125 260.2;
+    --b-office-word-600-channels: 38.0% 0.115 261.2;
+    --b-office-word-700-channels: 32.5% 0.100 262.4;
+    --b-office-word-800-channels: 26.0% 0.085 263.8;
+    --b-office-word-900-channels: 20.5% 0.070 265.1;
+    --b-office-word-950-channels: 14.8% 0.055 266.7;
+
+    --b-office-word-50:  oklch(var(--b-office-word-50-channels));
+    --b-office-word-100: oklch(var(--b-office-word-100-channels));
+    --b-office-word-200: oklch(var(--b-office-word-200-channels));
+    --b-office-word-300: oklch(var(--b-office-word-300-channels));
+    --b-office-word-400: oklch(var(--b-office-word-400-channels));
+    --b-office-word-500: oklch(var(--b-office-word-500-channels));
+    --b-office-word-600: oklch(var(--b-office-word-600-channels));
+    --b-office-word-700: oklch(var(--b-office-word-700-channels));
+    --b-office-word-800: oklch(var(--b-office-word-800-channels));
+    --b-office-word-900: oklch(var(--b-office-word-900-channels));
+    --b-office-word-950: oklch(var(--b-office-word-950-channels));
 
     /* Excel */
-    --b-ref-office-excel-50:  #f0f7f3;
-    --b-ref-office-excel-100: #dbecd0;
-    --b-ref-office-excel-200: #b9dbcc;
-    --b-ref-office-excel-300: #89c1a5;
-    --b-ref-office-excel-400: #55a37a;
-    --b-ref-office-excel-500: #217346; /* Base Excel */
-    --b-ref-office-excel-600: #1a5c38;
-    --b-ref-office-excel-700: #154a2e;
-    --b-ref-office-excel-800: #113d26;
-    --b-ref-office-excel-900: #0f3220;
-    --b-ref-office-excel-950: #0c2b1a;
+    --b-office-excel-50-channels:  96.9% 0.009 154.3;
+    --b-office-excel-100-channels: 91.5% 0.035 153.8;
+    --b-office-excel-200-channels: 85.3% 0.058 153.2;
+    --b-office-excel-300-channels: 75.2% 0.088 152.9;
+    --b-office-excel-400-channels: 63.8% 0.115 152.7;
+    --b-office-excel-500-channels: 45.4% 0.116 153.4;
+    --b-office-excel-600-channels: 37.5% 0.105 153.6;
+    --b-office-excel-700-channels: 31.1% 0.085 153.8;
+    --b-office-excel-800-channels: 24.8% 0.068 154.2;
+    --b-office-excel-900-channels: 19.3% 0.052 155.2;
+    --b-office-excel-950-channels: 14.5% 0.041 156.4;
+
+    --b-office-excel-50:  oklch(var(--b-office-excel-50-channels));
+    --b-office-excel-100: oklch(var(--b-office-excel-100-channels));
+    --b-office-excel-200: oklch(var(--b-office-excel-200-channels));
+    --b-office-excel-300: oklch(var(--b-office-excel-300-channels));
+    --b-office-excel-400: oklch(var(--b-office-excel-400-channels));
+    --b-office-excel-500: oklch(var(--b-office-excel-500-channels));
+    --b-office-excel-600: oklch(var(--b-office-excel-600-channels));
+    --b-office-excel-700: oklch(var(--b-office-excel-700-channels));
+    --b-office-excel-800: oklch(var(--b-office-excel-800-channels));
+    --b-office-excel-900: oklch(var(--b-office-excel-900-channels));
+    --b-office-excel-950: oklch(var(--b-office-excel-950-channels));
 
     /* PowerPoint */
-    --b-ref-office-ppt-50:  #faf1ef;
-    --b-ref-office-ppt-100: #f4ddd7;
-    --b-ref-office-ppt-200: #e9bcaf;
-    --b-ref-office-ppt-300: #d98f7c;
-    --b-ref-office-ppt-400: #c9634a;
-    --b-ref-office-ppt-500: #b7472a; /* Base PowerPoint */
-    --b-ref-office-ppt-600: #9a3b23;
-    --b-ref-office-ppt-700: #7f301d;
-    --b-ref-office-ppt-800: #6a2919;
-    --b-ref-office-ppt-900: #582316;
-    --b-ref-office-ppt-950: #3d170e;
+    --b-office-ppt-50-channels:  96.1% 0.009 32.2;
+    --b-office-ppt-100-channels: 89.9% 0.024 33.1;
+    --b-office-ppt-200-channels: 79.8% 0.052 34.5;
+    --b-office-ppt-300-channels: 67.8% 0.091 35.4;
+    --b-office-ppt-400-channels: 56.2% 0.125 36.2;
+    --b-office-ppt-500-channels: 49.1% 0.148 36.8;
+    --b-office-ppt-600-channels: 42.5% 0.128 37.1;
+    --b-office-ppt-700-channels: 36.2% 0.108 37.5;
+    --b-office-ppt-800-channels: 30.4% 0.088 36.8;
+    --b-office-ppt-900-channels: 24.1% 0.071 36.2;
+    --b-office-ppt-950-channels: 16.8% 0.048 35.8;
+
+    --b-office-ppt-50:  oklch(var(--b-office-ppt-50-channels));
+    --b-office-ppt-100: oklch(var(--b-office-ppt-100-channels));
+    --b-office-ppt-200: oklch(var(--b-office-ppt-200-channels));
+    --b-office-ppt-300: oklch(var(--b-office-ppt-300-channels));
+    --b-office-ppt-400: oklch(var(--b-office-ppt-400-channels));
+    --b-office-ppt-500: oklch(var(--b-office-ppt-500-channels));
+    --b-office-ppt-600: oklch(var(--b-office-ppt-600-channels));
+    --b-office-ppt-700: oklch(var(--b-office-ppt-700-channels));
+    --b-office-ppt-800: oklch(var(--b-office-ppt-800-channels));
+    --b-office-ppt-900: oklch(var(--b-office-ppt-900-channels));
+    --b-office-ppt-950: oklch(var(--b-office-ppt-950-channels));
 
     /* OneNote */
-    --b-ref-office-onenote-50:  #f6f0f6;
-    --b-ref-office-onenote-100: #ebdaeb;
-    --b-ref-office-onenote-200: #dbb7db;
-    --b-ref-office-onenote-300: #c288c2;
-    --b-ref-office-onenote-400: #a75ba7;
-    --b-ref-office-onenote-500: #80397b; /* Base OneNote */
-    --b-ref-office-onenote-600: #6a2f66;
-    --b-ref-office-onenote-700: #572654;
-    --b-ref-office-onenote-800: #492046;
-    --b-ref-office-onenote-900: #3d1c3a;
-    --b-ref-office-onenote-950: #2d142b;
+    --b-office-onenote-50-channels:  96.2% 0.011 322.4;
+    --b-office-onenote-100-channels: 89.2% 0.026 322.8;
+    --b-office-onenote-200-channels: 80.1% 0.058 323.2;
+    --b-office-onenote-300-channels: 68.4% 0.089 323.5;
+    --b-office-onenote-400-channels: 55.2% 0.112 324.1;
+    --b-office-onenote-500-channels: 42.1% 0.131 324.4;
+    --b-office-onenote-600-channels: 35.4% 0.112 325.2;
+    --b-office-onenote-700-channels: 30.2% 0.094 326.1;
+    --b-office-onenote-800-channels: 25.1% 0.078 327.4;
+    --b-office-onenote-900-channels: 22.4% 0.065 328.1;
+    --b-office-onenote-950-channels: 14.2% 0.042 329.5;
+
+    --b-office-onenote-50:  oklch(var(--b-office-onenote-50-channels));
+    --b-office-onenote-100: oklch(var(--b-office-onenote-100-channels));
+    --b-office-onenote-200: oklch(var(--b-office-onenote-200-channels));
+    --b-office-onenote-300: oklch(var(--b-office-onenote-300-channels));
+    --b-office-onenote-400: oklch(var(--b-office-onenote-400-channels));
+    --b-office-onenote-500: oklch(var(--b-office-onenote-500-channels));
+    --b-office-onenote-600: oklch(var(--b-office-onenote-600-channels));
+    --b-office-onenote-700: oklch(var(--b-office-onenote-700-channels));
+    --b-office-onenote-800: oklch(var(--b-office-onenote-800-channels));
+    --b-office-onenote-900: oklch(var(--b-office-onenote-900-channels));
+    --b-office-onenote-950: oklch(var(--b-office-onenote-950-channels));
 
     /* --- MEDIA --- */
     /* Images */
-    --b-ref-file-image-50:  #fdedf5;
-    --b-ref-file-image-100: #fbdaea;
-    --b-ref-file-image-200: #f7b5d6;
-    --b-ref-file-image-300: #f390c1;
-    --b-ref-file-image-400: #f06bad;
-    --b-ref-file-image-500: #ec4899;
-    --b-ref-file-image-600: #de1779;
-    --b-ref-file-image-700: #a6115b;
-    --b-ref-file-image-800: #6f0c3d;
-    --b-ref-file-image-900: #37061e;
-    --b-ref-file-image-950: #1c030f;
+    --b-file-image-50-channels:  97.1% 0.014 343.2;
+    --b-file-image-100-channels: 94.8% 0.028 342.3;
+    --b-file-image-200-channels: 89.9% 0.061 343.2;
+    --b-file-image-300-channels: 82.3% 0.120 346.0;
+    --b-file-image-400-channels: 71.8% 0.202 349.8;
+    --b-file-image-500-channels: 65.6% 0.241 354.3;
+    --b-file-image-600-channels: 59.2% 0.249 0.6;
+    --b-file-image-700-channels: 52.5% 0.223 4.0;
+    --b-file-image-800-channels: 45.9% 0.187 3.8;
+    --b-file-image-900-channels: 40.8% 0.153 2.4;
+    --b-file-image-950-channels: 28.4% 0.109 3.9;
+
+    --b-file-image-50:  oklch(var(--b-file-image-50-channels));
+    --b-file-image-100: oklch(var(--b-file-image-100-channels));
+    --b-file-image-200: oklch(var(--b-file-image-200-channels));
+    --b-file-image-300: oklch(var(--b-file-image-300-channels));
+    --b-file-image-400: oklch(var(--b-file-image-400-channels));
+    --b-file-image-500: oklch(var(--b-file-image-500-channels));
+    --b-file-image-600: oklch(var(--b-file-image-600-channels));
+    --b-file-image-700: oklch(var(--b-file-image-700-channels));
+    --b-file-image-800: oklch(var(--b-file-image-800-channels));
+    --b-file-image-900: oklch(var(--b-file-image-900-channels));
+    --b-file-image-950: oklch(var(--b-file-image-950-channels));
 
     /* Video */
-    --b-ref-file-video-50:  #f5f1fe;
-    --b-ref-file-video-100: #e7ddfd;
-    --b-ref-file-video-200: #d2c0fc;
-    --b-ref-file-video-300: #ba9efa;
-    --b-ref-file-video-400: #a27df8;
-    --b-ref-file-video-500: #8b5cf6;
-    --b-ref-file-video-600: #5d1cf2;
-    --b-ref-file-video-700: #420bc1;
-    --b-ref-file-video-800: #2d0782;
-    --b-ref-file-video-900: #16033f;
-    --b-ref-file-video-950: #0c0222;
+    --b-file-video-50-channels:  96.2% 0.012 292.1;
+    --b-file-video-100-channels: 90.4% 0.035 292.3;
+    --b-file-video-200-channels: 82.5% 0.078 292.5;
+    --b-file-video-300-channels: 74.1% 0.125 292.5;
+    --b-file-video-400-channels: 66.8% 0.184 292.6;
+    --b-file-video-500-channels: 60.3% 0.231 292.6;
+    --b-file-video-600-channels: 52.4% 0.228 292.8;
+    --b-file-video-700-channels: 43.2% 0.191 293.1;
+    --b-file-video-800-channels: 34.5% 0.155 292.4;
+    --b-file-video-900-channels: 28.3% 0.141 291.1;
+    --b-file-video-950-channels: 18.4% 0.082 290.5;
+
+    --b-file-video-50:  oklch(var(--b-file-video-50-channels));
+    --b-file-video-100: oklch(var(--b-file-video-100-channels));
+    --b-file-video-200: oklch(var(--b-file-video-200-channels));
+    --b-file-video-300: oklch(var(--b-file-video-300-channels));
+    --b-file-video-400: oklch(var(--b-file-video-400-channels));
+    --b-file-video-500: oklch(var(--b-file-video-500-channels));
+    --b-file-video-600: oklch(var(--b-file-video-600-channels));
+    --b-file-video-700: oklch(var(--b-file-video-700-channels));
+    --b-file-video-800: oklch(var(--b-file-video-800-channels));
+    --b-file-video-900: oklch(var(--b-file-video-900-channels));
+    --b-file-video-950: oklch(var(--b-file-video-950-channels));
 
     /* Audio */
-    --b-ref-file-audio-50:  #e1fafe;
-    --b-ref-file-audio-100: #c8f6fd;
-    --b-ref-file-audio-200: #8decfc;
-    --b-ref-file-audio-300: #56e2fa;
-    --b-ref-file-audio-400: #1bd8f9;
-    --b-ref-file-audio-500: #06b6d4;
-    --b-ref-file-audio-600: #0591a9;
-    --b-ref-file-audio-700: #046f81;
-    --b-ref-file-audio-800: #024854;
-    --b-ref-file-audio-900: #01262d;
-    --b-ref-file-audio-950: #011114;
+    --b-file-audio-50-channels:  97.4% 0.012 215.4;
+    --b-file-audio-100-channels: 92.1% 0.031 215.2;
+    --b-file-audio-200-channels: 85.4% 0.065 215.1;
+    --b-file-audio-300-channels: 78.2% 0.098 215.1;
+    --b-file-audio-400-channels: 74.6% 0.115 215.1;
+    --b-file-audio-500-channels: 71.5% 0.143 215.2;
+    --b-file-audio-600-channels: 62.5% 0.118 215.4;
+    --b-file-audio-700-channels: 53.4% 0.095 216.2;
+    --b-file-audio-800-channels: 42.1% 0.075 220.4;
+    --b-file-audio-900-channels: 30.2% 0.056 229.7;
+    --b-file-audio-950-channels: 19.5% 0.038 234.1;
+
+    --b-file-audio-50:  oklch(var(--b-file-audio-50-channels));
+    --b-file-audio-100: oklch(var(--b-file-audio-100-channels));
+    --b-file-audio-200: oklch(var(--b-file-audio-200-channels));
+    --b-file-audio-300: oklch(var(--b-file-audio-300-channels));
+    --b-file-audio-400: oklch(var(--b-file-audio-400-channels));
+    --b-file-audio-500: oklch(var(--b-file-audio-500-channels));
+    --b-file-audio-600: oklch(var(--b-file-audio-600-channels));
+    --b-file-audio-700: oklch(var(--b-file-audio-700-channels));
+    --b-file-audio-800: oklch(var(--b-file-audio-800-channels));
+    --b-file-audio-900: oklch(var(--b-file-audio-900-channels));
+    --b-file-audio-950: oklch(var(--b-file-audio-950-channels));
 
     /* --- ARCHIVES & UTILS --- */
     /* Archives: ZIP, RAR */
-    --b-ref-file-archive-50:  #fef5e7;
-    --b-ref-file-archive-100: #fdecce;
-    --b-ref-file-archive-200: #fbd89d;
-    --b-ref-file-archive-300: #f9c56c;
-    --b-ref-file-archive-400: #f7b13b;
-    --b-ref-file-archive-500: #f59e0b;
-    --b-ref-file-archive-600: #c47e08;
-    --b-ref-file-archive-700: #935f06;
-    --b-ref-file-archive-800: #623f04;
-    --b-ref-file-archive-900: #312002;
-    --b-ref-file-archive-950: #181001;
+    --b-file-archive-50-channels:  97.8% 0.015 70.1;
+    --b-file-archive-100-channels: 93.4% 0.042 70.1;
+    --b-file-archive-200-channels: 88.5% 0.085 70.1;
+    --b-file-archive-300-channels: 82.4% 0.132 70.1;
+    --b-file-archive-400-channels: 79.5% 0.165 70.1;
+    --b-file-archive-500-channels: 74.5% 0.202 69.4;
+    --b-file-archive-600-channels: 65.2% 0.162 65.4;
+    --b-file-archive-700-channels: 54.1% 0.135 58.2;
+    --b-file-archive-800-channels: 42.4% 0.101 52.1;
+    --b-file-archive-900-channels: 27.9% 0.077 45.6;
+    --b-file-archive-950-channels: 16.4% 0.042 42.1;
+
+    --b-file-archive-50:  oklch(var(--b-file-archive-50-channels));
+    --b-file-archive-100: oklch(var(--b-file-archive-100-channels));
+    --b-file-archive-200: oklch(var(--b-file-archive-200-channels));
+    --b-file-archive-300: oklch(var(--b-file-archive-300-channels));
+    --b-file-archive-400: oklch(var(--b-file-archive-400-channels));
+    --b-file-archive-500: oklch(var(--b-file-archive-500-channels));
+    --b-file-archive-600: oklch(var(--b-file-archive-600-channels));
+    --b-file-archive-700: oklch(var(--b-file-archive-700-channels));
+    --b-file-archive-800: oklch(var(--b-file-archive-800-channels));
+    --b-file-archive-900: oklch(var(--b-file-archive-900-channels));
+    --b-file-archive-950: oklch(var(--b-file-archive-950-channels));
 
     /* Code/Data: JSON, JS, HTML */
-    --b-ref-file-code-50:  #e3fcf9;
-    --b-ref-file-code-100: #c8f9f4;
-    --b-ref-file-code-200: #91f3e8;
-    --b-ref-file-code-300: #59eddd;
-    --b-ref-file-code-400: #22e7d1;
-    --b-ref-file-code-500: #14b8a6;
-    --b-ref-file-code-600: #109385;
-    --b-ref-file-code-700: #0c6e64;
-    --b-ref-file-code-800: #084a42;
-    --b-ref-file-code-900: #042521;
-    --b-ref-file-code-950: #021211;
+    --b-file-code-50-channels:  97.5% 0.015 173.2;
+    --b-file-code-100-channels: 94.8% 0.032 173.5;
+    --b-file-code-200-channels: 89.6% 0.071 173.8;
+    --b-file-code-300-channels: 83.2% 0.115 174.2;
+    --b-file-code-400-channels: 76.8% 0.142 173.5;
+    --b-file-code-500-channels: 69.1% 0.149 173.2;
+    --b-file-code-600-channels: 58.4% 0.125 173.1;
+    --b-file-code-700-channels: 46.2% 0.098 174.5;
+    --b-file-code-800-channels: 33.5% 0.072 175.8;
+    --b-file-code-900-channels: 20.4% 0.045 175.2;
+    --b-file-code-950-channels: 11.8% 0.028 176.5;
+
+    --b-file-code-50:  oklch(var(--b-file-code-50-channels));
+    --b-file-code-100: oklch(var(--b-file-code-100-channels));
+    --b-file-code-200: oklch(var(--b-file-code-200-channels));
+    --b-file-code-300: oklch(var(--b-file-code-300-channels));
+    --b-file-code-400: oklch(var(--b-file-code-400-channels));
+    --b-file-code-500: oklch(var(--b-file-code-500-channels));
+    --b-file-code-600: oklch(var(--b-file-code-600-channels));
+    --b-file-code-700: oklch(var(--b-file-code-700-channels));
+    --b-file-code-800: oklch(var(--b-file-code-800-channels));
+    --b-file-code-900: oklch(var(--b-file-code-900-channels));
+    --b-file-code-950: oklch(var(--b-file-code-950-channels));
 
     /* Generic/Unknown */
-    --b-ref-file-generic-50:  #f1f2f3;
-    --b-ref-file-generic-100: #e0e2e5;
-    --b-ref-file-generic-200: #c2c5cc;
-    --b-ref-file-generic-300: #a6abb5;
-    --b-ref-file-generic-400: #888e9b;
-    --b-ref-file-generic-500: #6b7280;
-    --b-ref-file-generic-600: #565c67;
-    --b-ref-file-generic-700: #41454e;
-    --b-ref-file-generic-800: #2a2d32;
-    --b-ref-file-generic-900: #151619;
-    --b-ref-file-generic-950: #0c0c0e;
+    --b-file-generic-50-channels:  95.8% 0.002 247.8;
+    --b-file-generic-100-channels: 90.1% 0.005 247.8;
+    --b-file-generic-200-channels: 80.3% 0.012 250.0;
+    --b-file-generic-300-channels: 71.1% 0.015 252.0;
+    --b-file-generic-400-channels: 62.5% 0.021 255.0;
+    --b-file-generic-500-channels: 54.8% 0.026 264.4;
+    --b-file-generic-600-channels: 45.4% 0.022 264.4;
+    --b-file-generic-700-channels: 36.1% 0.018 264.4;
+    --b-file-generic-800-channels: 26.5% 0.013 264.4;
+    --b-file-generic-900-channels: 13.0% 0.028 261.7;
+    --b-file-generic-950-channels: 8.2% 0.012 260.4;
+
+    --b-file-generic-50:  oklch(var(--b-file-generic-50-channels));
+    --b-file-generic-100: oklch(var(--b-file-generic-100-channels));
+    --b-file-generic-200: oklch(var(--b-file-generic-200-channels));
+    --b-file-generic-300: oklch(var(--b-file-generic-300-channels));
+    --b-file-generic-400: oklch(var(--b-file-generic-400-channels));
+    --b-file-generic-500: oklch(var(--b-file-generic-500-channels));
+    --b-file-generic-600: oklch(var(--b-file-generic-600-channels));
+    --b-file-generic-700: oklch(var(--b-file-generic-700-channels));
+    --b-file-generic-800: oklch(var(--b-file-generic-800-channels));
+    --b-file-generic-900: oklch(var(--b-file-generic-900-channels));
+    --b-file-generic-950: oklch(var(--b-file-generic-950-channels));
 }

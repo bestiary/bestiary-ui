@@ -1,0 +1,109 @@
+/**
+ * Bestiary UI — Checkbox Component
+ */
+
+@layer b-components {
+    :where(.b-checkbox) {
+        /* --- 1. LOCAL COMPONENT TOKENS --- */
+        --b-checkbox-width:              1.25rem;
+        --b-checkbox-height:             1.25rem;
+
+        --b-checkbox-background:         var(--b-surface-section);
+        --b-checkbox-border-width:       var(--b-stroke-default);
+        --b-checkbox-border-color:       var(--b-form-control-border);
+        --b-checkbox-border-radius:      var(--b-radius-interactive);
+
+        --b-checkbox-checked-background: var(--b-primary-solid-background);
+        --b-checkbox-checked-border:     var(--b-primary-solid-background);
+        --b-checkbox-icon-color:         var(--b-primary-solid-text);
+
+        --b-checkbox-transition:         all var(--b-duration-fast) var(--b-ease-base);
+
+        /* --- 2. BASE STYLES --- */
+        display: inline-flex;
+        position: relative;
+        vertical-align: middle;
+        user-select: none;
+
+        width: var(--b-checkbox-width);
+        height: var(--b-checkbox-height);
+    }
+
+    /* Native Hidden Input (for accessibility and state handling) */
+    :where(.b-checkbox__input) {
+        cursor: pointer;
+        position: absolute;
+        inset: 0;
+        margin: 0;
+        padding: 0;
+        opacity: 0; /* Keeps it clickable but invisible */
+        z-index: 2; /* Sits above the visual box */
+    }
+
+    /* The Visual Box (Where the border and background live) */
+    :where(.b-checkbox__box) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+
+        background-color: var(--b-checkbox-background);
+        border: var(--b-checkbox-border-width) solid var(--b-checkbox-border-color);
+        border-radius: var(--b-checkbox-border-radius);
+
+        transition: var(--b-checkbox-transition);
+    }
+
+    /* Checkmark Icon Container */
+    :where(.b-checkbox__icon) {
+        width: 0.75rem;
+        height: 0.75rem;
+        fill: none;
+        stroke: var(--b-checkbox-icon-color);
+        stroke-width: 3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+
+        /* Hidden by default, scaled up when checked */
+        transform: scale(0);
+        transition: transform var(--b-duration-fast) var(--b-ease-accent);
+    }
+
+    /* ============================================================
+       3. STATES (Using Sibling Selector)
+       ============================================================ */
+
+    /* Hover State */
+    :where(.b-checkbox:hover:not(.is-disabled) .b-checkbox__box) {
+        border-color: var(--b-form-control-border-hover);
+    }
+
+    /* Checked State */
+    :where(.b-checkbox__input:checked + .b-checkbox__box) {
+        background-color: var(--b-checkbox-checked-background);
+        border-color: var(--b-checkbox-checked-border);
+    }
+
+    :where(.b-checkbox__input:checked + .b-checkbox__box .b-checkbox__icon) {
+        transform: scale(1);
+    }
+
+    /* Focus State (Ring Engine) */
+    :where(.b-checkbox__input:focus-visible + .b-checkbox__box) {
+        box-shadow: var(--b-focus-ring);
+        --b-ring-color-channels: var(--b-primary-channels);
+    }
+
+    /* Invalid State */
+    :where(.b-checkbox--invalid .b-checkbox__box) {
+        --b-checkbox-border-color: var(--b-error-solid-background);
+    }
+
+    /* Disabled State */
+    :where(.b-checkbox--disabled) {
+        opacity: var(--b-state-disabled-opacity);
+        pointer-events: none;
+    }
+}

@@ -1,0 +1,33 @@
+/* ============================================================
+   Bestiary UI — Opacity Utilities
+
+   Controls the opacity of an element. This property affects
+   the entire element, including its content, children,
+   and borders.
+   ============================================================ */
+
+/* 1. Standard Opacity Scale
+   We use percentage values for maximum compatibility
+   and readability in CSS. */
+
+.b-opacity-0   { opacity: 0; }
+.b-opacity-5   { opacity: 0.05; }
+.b-opacity-10  { opacity: 0.1; }
+.b-opacity-20  { opacity: 0.2; }
+.b-opacity-25  { opacity: 0.25; }
+.b-opacity-30  { opacity: 0.3; }
+.b-opacity-40  { opacity: 0.4; }
+.b-opacity-50  { opacity: 0.5; }
+.b-opacity-60  { opacity: 0.6; }
+.b-opacity-70  { opacity: 0.7; }
+.b-opacity-80  { opacity: 0.8; }
+.b-opacity-90  { opacity: 0.9; }
+.b-opacity-100 { opacity: 1; }
+
+/* 2. Custom Property Hook
+   Allows passing arbitrary opacity via a CSS variable.
+   Usage: <div class="b-opacity-custom" style="--b-opacity: 0.7">...
+*/
+.b-opacity {
+    opacity: var(--b-opacity);
+}

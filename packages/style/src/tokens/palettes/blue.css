@@ -1,13 +1,25 @@
-:root {
-    --b-ref-blue-50:  #eff6ff;
-    --b-ref-blue-100: #dbeafe;
-    --b-ref-blue-200: #bfdbfe;
-    --b-ref-blue-300: #93c5fd;
-    --b-ref-blue-400: #60a5fa;
-    --b-ref-blue-500: #3b82f6;
-    --b-ref-blue-600: #2563eb;
-    --b-ref-blue-700: #1d4ed8;
-    --b-ref-blue-800: #1e40af;
-    --b-ref-blue-900: #1e3a8a;
-    --b-ref-blue-950: #172554;
+:where(html) {
+    --b-blue-50-channels:  0.97 0.014 254.604;
+    --b-blue-100-channels: 0.932 0.032 255.585;
+    --b-blue-200-channels: 0.882 0.059 254.128;
+    --b-blue-300-channels: 0.809 0.105 251.813;
+    --b-blue-400-channels: 0.707 0.165 254.624;
+    --b-blue-500-channels: 0.623 0.214 259.815;
+    --b-blue-600-channels: 0.546 0.245 262.881;
+    --b-blue-700-channels: 0.488 0.243 264.376;
+    --b-blue-800-channels: 0.424 0.199 265.638;
+    --b-blue-900-channels: 0.379 0.146 265.522;
+    --b-blue-950-channels: 0.282 0.091 267.935;
+
+    --b-blue-50:  oklch(var(--b-blue-50-channels));
+    --b-blue-100: oklch(var(--b-blue-100-channels));
+    --b-blue-200: oklch(var(--b-blue-200-channels));
+    --b-blue-300: oklch(var(--b-blue-300-channels));
+    --b-blue-400: oklch(var(--b-blue-400-channels));
+    --b-blue-500: oklch(var(--b-blue-500-channels));
+    --b-blue-600: oklch(var(--b-blue-600-channels));
+    --b-blue-700: oklch(var(--b-blue-700-channels));
+    --b-blue-800: oklch(var(--b-blue-800-channels));
+    --b-blue-900: oklch(var(--b-blue-900-channels));
+    --b-blue-950: oklch(var(--b-blue-950-channels));
 }

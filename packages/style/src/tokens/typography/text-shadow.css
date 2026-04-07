@@ -1,0 +1,36 @@
+@property --b-text-shadow-color-channels {
+    syntax: "<number>+";
+    inherits: true;
+    initial-value: 0% 0 0;
+}
+
+:where(html) {
+    /* Opacity levels */
+    --b-text-shadow-alpha-2xs: 15%;
+    --b-text-shadow-alpha-xs:  20%;
+    --b-text-shadow-alpha-sm:  7.5%;
+    --b-text-shadow-alpha-md:  10%;
+    --b-text-shadow-alpha-lg:  10%;
+
+    /* Shadow Engine */
+    --b-text-shadow-none: none;
+
+    --b-text-shadow-2xs: 0px 1px 0px oklch(var(--b-text-shadow-color-channels) / var(--b-text-shadow-alpha-2xs));
+
+    --b-text-shadow-xs: 0px 1px 1px oklch(var(--b-text-shadow-color-channels) / var(--b-text-shadow-alpha-xs));
+
+    --b-text-shadow-sm:
+            0px 1px 0px oklch(var(--b-text-shadow-color-channels) / var(--b-text-shadow-alpha-sm)),
+            0px 1px 1px oklch(var(--b-text-shadow-color-channels) / var(--b-text-shadow-alpha-sm)),
+            0px 2px 2px oklch(var(--b-text-shadow-color-channels) / var(--b-text-shadow-alpha-sm));
+
+    --b-text-shadow-md:
+            0px 1px 1px oklch(var(--b-text-shadow-color-channels) / var(--b-text-shadow-alpha-md)),
+            0px 1px 2px oklch(var(--b-text-shadow-color-channels) / var(--b-text-shadow-alpha-md)),
+            0px 2px 4px oklch(var(--b-text-shadow-color-channels) / var(--b-text-shadow-alpha-md));
+
+    --b-text-shadow-lg:
+            0px 1px 2px oklch(var(--b-text-shadow-color-channels) / var(--b-text-shadow-alpha-lg)),
+            0px 3px 2px oklch(var(--b-text-shadow-color-channels) / var(--b-text-shadow-alpha-lg)),
+            0px 4px 8px oklch(var(--b-text-shadow-color-channels) / var(--b-text-shadow-alpha-lg));
+}

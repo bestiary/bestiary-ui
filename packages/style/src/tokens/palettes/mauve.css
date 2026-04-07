@@ -1,0 +1,25 @@
+:where(html) {
+    --b-mauve-50-channels:  98.5% 0 0;
+    --b-mauve-100-channels: 96% 0.003 325.6;
+    --b-mauve-200-channels: 92.2% 0.005 325.62;
+    --b-mauve-300-channels: 86.5% 0.012 325.68;
+    --b-mauve-400-channels: 71.1% 0.019 323.02;
+    --b-mauve-500-channels: 54.2% 0.034 322.5;
+    --b-mauve-600-channels: 43.5% 0.029 321.78;
+    --b-mauve-700-channels: 36.4% 0.029 323.89;
+    --b-mauve-800-channels: 26.3% 0.024 320.12;
+    --b-mauve-900-channels: 21.2% 0.019 322.12;
+    --b-mauve-950-channels: 14.5% 0.008 326;
+
+    --b-mauve-50:  oklch(var(--b-mauve-50-channels));
+    --b-mauve-100: oklch(var(--b-mauve-100-channels));
+    --b-mauve-200: oklch(var(--b-mauve-200-channels));
+    --b-mauve-300: oklch(var(--b-mauve-300-channels));
+    --b-mauve-400: oklch(var(--b-mauve-400-channels));
+    --b-mauve-500: oklch(var(--b-mauve-500-channels));
+    --b-mauve-600: oklch(var(--b-mauve-600-channels));
+    --b-mauve-700: oklch(var(--b-mauve-700-channels));
+    --b-mauve-800: oklch(var(--b-mauve-800-channels));
+    --b-mauve-900: oklch(var(--b-mauve-900-channels));
+    --b-mauve-950: oklch(var(--b-mauve-950-channels));
+}

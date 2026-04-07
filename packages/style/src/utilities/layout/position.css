@@ -1,0 +1,39 @@
+/* ============================================================
+   Bestiary UI — Position Utilities
+
+   These utilities control how an element is positioned in the
+   document. They set the stage for using inset properties (top,
+   right, bottom, left) and z-index.
+   ============================================================ */
+
+/* 1. Core Positioning */
+
+/* Element is positioned according to the normal flow of the document (Default) */
+.b-static {
+    position: static;
+}
+
+/* Element is positioned relative to its normal position.
+   Acts as a container for absolute-positioned children. */
+.b-relative {
+    position: relative;
+}
+
+/* Element is removed from the normal flow and positioned relative
+   to its closest positioned ancestor. */
+.b-absolute {
+    position: absolute;
+}
+
+/* Element is removed from the normal flow and positioned relative
+   to the viewport. It stays in the same place even when scrolled. */
+.b-fixed {
+    position: fixed;
+}
+
+/* Element is positioned according to the normal flow, but then
+   "sticks" to a specific position within its scroll container
+   based on inset values. */
+.b-sticky {
+    position: sticky;
+}

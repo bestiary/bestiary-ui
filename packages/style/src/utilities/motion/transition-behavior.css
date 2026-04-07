@@ -1,0 +1,24 @@
+/* ============================================================
+   Bestiary UI — Transition Behavior Utilities
+
+   Controls how discrete properties (like 'display', 'overlay',
+   or 'content-visibility') behave during a CSS transition.
+
+   Essential for animating elements entering or leaving the DOM
+   (e.g., Modals, Dialogs, Popovers) without JavaScript hacks.
+   ============================================================ */
+
+/* 1. Transition Behaviors */
+
+/* Standard behavior. Discrete properties flip immediately at 0%
+   or 100% of the transition duration. (Browser Default) */
+.b-transition-normal {
+    transition-behavior: normal;
+}
+
+/* Allows discrete properties to flip exactly at 50% of the
+   transition, or delays the flip until the end if transitioning
+   out of the DOM (e.g., display: block -> none). */
+.b-transition-discrete {
+    transition-behavior: allow-discrete;
+}

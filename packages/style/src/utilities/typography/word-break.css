@@ -1,0 +1,41 @@
+/* ============================================================
+   Bestiary UI — Word Break Utilities
+
+   These utilities control how words are broken when they reach
+   the edge of their container. Crucial for handling long URLs,
+   technical strings, and multi-language content.
+   ============================================================ */
+
+/* 1. Standard Breaking */
+
+/* Use the default line break rules. (Default) */
+.b-break-normal {
+    word-break: normal;
+    overflow-wrap: normal;
+}
+
+/* 2. Responsive Breaking (Recommended) */
+
+/* Breaks lines at arbitrary points only if there are no
+   otherwise acceptable break points in the line.
+   Safest option for general UI to prevent container overflow. */
+.b-break-words {
+    overflow-wrap: break-word;
+}
+
+/* 3. Aggressive Breaking */
+
+/* To prevent overflow, word breaks should be inserted between
+   any two characters (excluding Chinese/Japanese/Korean text).
+   Ideal for very long strings like cryptographic hashes or URLs. */
+.b-break-all {
+    word-break: break-all;
+}
+
+/* 4. Language-Specific Breaking */
+
+/* Word breaks are not used for Chinese, Japanese, or Korean (CJK) text.
+   Non-CJK text behavior is the same as 'normal'. */
+.b-break-keep {
+    word-break: keep-all;
+}

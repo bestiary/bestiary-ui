@@ -1,0 +1,21 @@
+/* ============================================================
+   Bestiary UI — Mask Type Utilities
+
+   Controls how an SVG mask is interpreted by the browser.
+   Primarily used on SVG <maskUnits> or elements acting as masks.
+   ============================================================ */
+
+/* 1. Alpha Masking
+   Uses the alpha channel of the mask image/SVG as the source
+   for the mask. This is the standard behavior for most icons. */
+.b-mask-type-alpha {
+    mask-type: alpha;
+}
+
+/* 2. Luminance Masking
+   Uses the luminance (brightness) of the mask image.
+   Darker pixels are more transparent, lighter are more opaque.
+   Essential for photo-based or grayscale masks. */
+.b-mask-type-luminance {
+    mask-type: luminance;
+}

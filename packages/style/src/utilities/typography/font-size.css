@@ -1,0 +1,77 @@
+/* ============================================================
+   Bestiary UI — Font Size Utilities
+
+   These utilities control the text size and its corresponding
+   line height (leading).
+
+   Architecture:
+   1. Typography Pairs: Each size is bundled with an optimal
+      line-height to maintain vertical rhythm.
+   2. Theme Scalable: font-size is multiplied by the global
+      --b-scale. line-height remains a unitless multiplier
+      for consistent proportions.
+   3. Mapped to Contract: Uses semantic variables from Layer 2.
+   ============================================================ */
+
+:where(html) {
+    --b-scale: var(--b-theme-scale, 1);
+}
+
+/* ------------------------------------------------------------
+   1. TEXT SIZE SCALE
+   Includes automatic line-height assignment for each step.
+   ------------------------------------------------------------ */
+
+/* Micro text - 10px equivalent */
+.b-text-2xs {
+    font-size: calc(var(--b-font-size-2xs) * var(--b-scale));
+    line-height: var(--b-line-height-relaxed);
+}
+
+/* Extra small - 12px equivalent */
+.b-text-xs {
+    font-size: calc(var(--b-font-size-xs) * var(--b-scale));
+    line-height: var(--b-line-height-relaxed);
+}
+
+/* Small - 14px equivalent */
+.b-text-sm {
+    font-size: calc(var(--b-font-size-sm) * var(--b-scale));
+    line-height: var(--b-line-height-normal);
+}
+
+/* Base - 16px equivalent (Default Body) */
+.b-text-base {
+    font-size: calc(var(--b-font-size-md) * var(--b-scale));
+    line-height: var(--b-line-height-normal);
+}
+
+/* Large - 18px equivalent */
+.b-text-lg {
+    font-size: calc(var(--b-font-size-lg) * var(--b-scale));
+    line-height: var(--b-line-height-normal);
+}
+
+/* Extra Large - 20px equivalent */
+.b-text-xl {
+    font-size: calc(var(--b-font-size-xl) * var(--b-scale));
+    line-height: var(--b-line-height-normal);
+}
+
+/* 2x Large - 24px equivalent */
+.b-text-2xl {
+    font-size: calc(var(--b-font-size-2xl) * var(--b-scale));
+    line-height: var(--b-line-height-tight);
+}
+
+/* 3x Large - 30px equivalent */
+.b-text-3xl {
+    font-size: calc(var(--b-font-size-3xl) * var(--b-scale));
+    line-height: var(--b-line-height-tight);
+}
+
+/* 4x Large - 36px equivalent */
+.b-text-4xl {
+    font-size: calc(var(--b-font-size-4xl) * var(--b-scale));
+    line-height: var(--b-line-height-tight);
+}

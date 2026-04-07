@@ -1,0 +1,71 @@
+/* ============================================================
+   Bestiary UI — Grid Row Utilities
+
+   These utilities control how individual grid items are placed
+   within a grid container, specifically how many rows they
+   span and which horizontal grid lines they start or end on.
+   ============================================================ */
+
+/* 1. Row Spanning
+   Defines how many rows an element should occupy. */
+
+.b-row-span-1  { grid-row: span 1 / span 1; }
+.b-row-span-2  { grid-row: span 2 / span 2; }
+.b-row-span-3  { grid-row: span 3 / span 3; }
+.b-row-span-4  { grid-row: span 4 / span 4; }
+.b-row-span-5  { grid-row: span 5 / span 5; }
+.b-row-span-6  { grid-row: span 6 / span 6; }
+.b-row-span-7  { grid-row: span 7 / span 7; }
+.b-row-span-8  { grid-row: span 8 / span 8; }
+.b-row-span-9  { grid-row: span 9 / span 9; }
+.b-row-span-10 { grid-row: span 10 / span 10; }
+.b-row-span-11 { grid-row: span 11 / span 11; }
+.b-row-span-12 { grid-row: span 12 / span 12; }
+
+/* Forces the element to span the entire height of the current grid tracks */
+.b-row-span-full {
+    grid-row: 1 / -1;
+}
+
+/* 2. Row Start Lines
+   Defines the horizontal grid line where the element begins. */
+
+.b-row-start-1    { grid-row-start: 1; }
+.b-row-start-2    { grid-row-start: 2; }
+.b-row-start-3    { grid-row-start: 3; }
+.b-row-start-4    { grid-row-start: 4; }
+.b-row-start-5    { grid-row-start: 5; }
+.b-row-start-6    { grid-row-start: 6; }
+.b-row-start-7    { grid-row-start: 7; }
+.b-row-start-8    { grid-row-start: 8; }
+.b-row-start-9    { grid-row-start: 9; }
+.b-row-start-10   { grid-row-start: 10; }
+.b-row-start-11   { grid-row-start: 11; }
+.b-row-start-12   { grid-row-start: 12; }
+.b-row-start-13   { grid-row-start: 13; }
+.b-row-start-auto { grid-row-start: auto; }
+
+/* 3. Row End Lines
+   Defines the horizontal grid line where the element ends. */
+
+.b-row-end-1    { grid-row-end: 1; }
+.b-row-end-2    { grid-row-end: 2; }
+.b-row-end-3    { grid-row-end: 3; }
+.b-row-end-4    { grid-row-end: 4; }
+.b-row-end-5    { grid-row-end: 5; }
+.b-row-end-6    { grid-row-end: 6; }
+.b-row-end-7    { grid-row-end: 7; }
+.b-row-end-8    { grid-row-end: 8; }
+.b-row-end-9    { grid-row-end: 9; }
+.b-row-end-10   { grid-row-end: 10; }
+.b-row-end-11   { grid-row-end: 11; }
+.b-row-end-12   { grid-row-end: 12; }
+.b-row-end-13   { grid-row-end: 13; }
+.b-row-end-auto { grid-row-end: auto; }
+
+/* 4. Helper Utilities */
+
+/* Resets row placement to default browser behavior */
+.b-row-auto {
+    grid-row: auto;
+}

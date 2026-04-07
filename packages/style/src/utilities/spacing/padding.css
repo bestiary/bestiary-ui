@@ -1,0 +1,134 @@
+/* ============================================================
+   Bestiary UI — Padding Utilities
+
+   These utilities control the inner whitespace of an element.
+
+   Architecture:
+   1. Logical: Uses block/inline properties for RTL support.
+   2. Scalable: All values are multiplied by the global --b-scale.
+   3. Semantic: Mapped to the Contract Layer (not Primitives).
+   ============================================================ */
+
+:where(html) {
+    --b-scale: var(--b-theme-scale, 1);
+}
+
+/* ------------------------------------------------------------
+   1. ALL SIDES (.b-p-*)
+   ------------------------------------------------------------ */
+
+.b-p-0  { padding: 0; }
+.b-p-1  { padding: calc(var(--b-space-1)  * var(--b-scale)); }
+.b-p-2  { padding: calc(var(--b-space-2)  * var(--b-scale)); }
+.b-p-3  { padding: calc(var(--b-space-3)  * var(--b-scale)); }
+.b-p-4  { padding: calc(var(--b-space-4)  * var(--b-scale)); }
+.b-p-5  { padding: calc(var(--b-space-5)  * var(--b-scale)); }
+.b-p-6  { padding: calc(var(--b-space-6)  * var(--b-scale)); }
+.b-p-7  { padding: calc(var(--b-space-7)  * var(--b-scale)); }
+.b-p-8  { padding: calc(var(--b-space-8)  * var(--b-scale)); }
+.b-p-9  { padding: calc(var(--b-space-9)  * var(--b-scale)); }
+.b-p-10 { padding: calc(var(--b-space-10) * var(--b-scale)); }
+.b-p-11 { padding: calc(var(--b-space-11) * var(--b-scale)); }
+.b-p-12 { padding: calc(var(--b-space-12) * var(--b-scale)); }
+
+/* ------------------------------------------------------------
+   2. VERTICAL (BLOCK) AXIS (.b-py-*)
+   ------------------------------------------------------------ */
+
+.b-py-0  { padding-block: 0; }
+.b-py-1  { padding-block: calc(var(--b-space-1)  * var(--b-scale)); }
+.b-py-2  { padding-block: calc(var(--b-space-2)  * var(--b-scale)); }
+.b-py-3  { padding-block: calc(var(--b-space-3)  * var(--b-scale)); }
+.b-py-4  { padding-block: calc(var(--b-space-4)  * var(--b-scale)); }
+.b-py-5  { padding-block: calc(var(--b-space-5)  * var(--b-scale)); }
+.b-py-6  { padding-block: calc(var(--b-space-6)  * var(--b-scale)); }
+.b-py-7  { padding-block: calc(var(--b-space-7)  * var(--b-scale)); }
+.b-py-8  { padding-block: calc(var(--b-space-8)  * var(--b-scale)); }
+.b-py-9  { padding-block: calc(var(--b-space-9)  * var(--b-scale)); }
+.b-py-10 { padding-block: calc(var(--b-space-10) * var(--b-scale)); }
+.b-py-11 { padding-block: calc(var(--b-space-11) * var(--b-scale)); }
+.b-py-12 { padding-block: calc(var(--b-space-12) * var(--b-scale)); }
+
+/* ------------------------------------------------------------
+   3. HORIZONTAL (INLINE) AXIS (.b-px-*)
+   ------------------------------------------------------------ */
+
+.b-px-0  { padding-inline: 0; }
+.b-px-1  { padding-inline: calc(var(--b-space-1)  * var(--b-scale)); }
+.b-px-2  { padding-inline: calc(var(--b-space-2)  * var(--b-scale)); }
+.b-px-3  { padding-inline: calc(var(--b-space-3)  * var(--b-scale)); }
+.b-px-4  { padding-inline: calc(var(--b-space-4)  * var(--b-scale)); }
+.b-px-5  { padding-inline: calc(var(--b-space-5)  * var(--b-scale)); }
+.b-px-6  { padding-inline: calc(var(--b-space-6)  * var(--b-scale)); }
+.b-px-7  { padding-inline: calc(var(--b-space-7)  * var(--b-scale)); }
+.b-px-8  { padding-inline: calc(var(--b-space-8)  * var(--b-scale)); }
+.b-px-9  { padding-inline: calc(var(--b-space-9)  * var(--b-scale)); }
+.b-px-10 { padding-inline: calc(var(--b-space-10) * var(--b-scale)); }
+.b-px-11 { padding-inline: calc(var(--b-space-11) * var(--b-scale)); }
+.b-px-12 { padding-inline: calc(var(--b-space-12) * var(--b-scale)); }
+
+/* ------------------------------------------------------------
+   4. INDIVIDUAL SIDES (Logical Start/End)
+   ------------------------------------------------------------ */
+
+/* TOP (Block Start) */
+.b-pt-0  { padding-block-start: 0; }
+.b-pt-1  { padding-block-start: calc(var(--b-space-1)  * var(--b-scale)); }
+.b-pt-2  { padding-block-start: calc(var(--b-space-2)  * var(--b-scale)); }
+.b-pt-3  { padding-block-start: calc(var(--b-space-3)  * var(--b-scale)); }
+.b-pt-4  { padding-block-start: calc(var(--b-space-4)  * var(--b-scale)); }
+.b-pt-5  { padding-block-start: calc(var(--b-space-5)  * var(--b-scale)); }
+.b-pt-6  { padding-block-start: calc(var(--b-space-6)  * var(--b-scale)); }
+.b-pt-7  { padding-block-start: calc(var(--b-space-7)  * var(--b-scale)); }
+.b-pt-8  { padding-block-start: calc(var(--b-space-8)  * var(--b-scale)); }
+.b-pt-9  { padding-block-start: calc(var(--b-space-9)  * var(--b-scale)); }
+.b-pt-10 { padding-block-start: calc(var(--b-space-10) * var(--b-scale)); }
+.b-pt-11 { padding-block-start: calc(var(--b-space-11) * var(--b-scale)); }
+.b-pt-12 { padding-block-start: calc(var(--b-space-12) * var(--b-scale)); }
+
+/* BOTTOM (Block End) */
+.b-pb-0  { padding-block-end: 0; }
+.b-pb-1  { padding-block-end: calc(var(--b-space-1)  * var(--b-scale)); }
+.b-pb-2  { padding-block-end: calc(var(--b-space-2)  * var(--b-scale)); }
+.b-pb-3  { padding-block-end: calc(var(--b-space-3)  * var(--b-scale)); }
+.b-pb-4  { padding-block-end: calc(var(--b-space-4)  * var(--b-scale)); }
+.b-pb-5  { padding-block-end: calc(var(--b-space-5)  * var(--b-scale)); }
+.b-pb-6  { padding-block-end: calc(var(--b-space-6)  * var(--b-scale)); }
+.b-pb-7  { padding-block-end: calc(var(--b-space-7)  * var(--b-scale)); }
+.b-pb-8  { padding-block-end: calc(var(--b-space-8)  * var(--b-scale)); }
+.b-pb-9  { padding-block-end: calc(var(--b-space-9)  * var(--b-scale)); }
+.b-pb-10 { padding-block-end: calc(var(--b-space-10) * var(--b-scale)); }
+.b-pb-11 { padding-block-end: calc(var(--b-space-11) * var(--b-scale)); }
+.b-pb-12 { padding-block-end: calc(var(--b-space-12) * var(--b-scale)); }
+
+/* LEFT (Inline Start)
+   Automatically becomes padding-right in RTL. */
+.b-pl-0  { padding-inline-start: 0; }
+.b-pl-1  { padding-inline-start: calc(var(--b-space-1)  * var(--b-scale)); }
+.b-pl-2  { padding-inline-start: calc(var(--b-space-2)  * var(--b-scale)); }
+.b-pl-3  { padding-inline-start: calc(var(--b-space-3)  * var(--b-scale)); }
+.b-pl-4  { padding-inline-start: calc(var(--b-space-4)  * var(--b-scale)); }
+.b-pl-5  { padding-inline-start: calc(var(--b-space-5)  * var(--b-scale)); }
+.b-pl-6  { padding-inline-start: calc(var(--b-space-6)  * var(--b-scale)); }
+.b-pl-7  { padding-inline-start: calc(var(--b-space-7)  * var(--b-scale)); }
+.b-pl-8  { padding-inline-start: calc(var(--b-space-8)  * var(--b-scale)); }
+.b-pl-9  { padding-inline-start: calc(var(--b-space-9)  * var(--b-scale)); }
+.b-pl-10 { padding-inline-start: calc(var(--b-space-10) * var(--b-scale)); }
+.b-pl-11 { padding-inline-start: calc(var(--b-space-11) * var(--b-scale)); }
+.b-pl-12 { padding-inline-start: calc(var(--b-space-12) * var(--b-scale)); }
+
+/* RIGHT (Inline End)
+   Automatically becomes padding-left in RTL. */
+.b-pr-0  { padding-inline-end: 0; }
+.b-pr-1  { padding-inline-end: calc(var(--b-space-1)  * var(--b-scale)); }
+.b-pr-2  { padding-inline-end: calc(var(--b-space-2)  * var(--b-scale)); }
+.b-pr-3  { padding-inline-end: calc(var(--b-space-3)  * var(--b-scale)); }
+.b-pr-4  { padding-inline-end: calc(var(--b-space-4)  * var(--b-scale)); }
+.b-pr-5  { padding-inline-end: calc(var(--b-space-5)  * var(--b-scale)); }
+.b-pr-6  { padding-inline-end: calc(var(--b-space-6)  * var(--b-scale)); }
+.b-pr-7  { padding-inline-end: calc(var(--b-space-7)  * var(--b-scale)); }
+.b-pr-8  { padding-inline-end: calc(var(--b-space-8)  * var(--b-scale)); }
+.b-pr-9  { padding-inline-end: calc(var(--b-space-9)  * var(--b-scale)); }
+.b-pr-10 { padding-inline-end: calc(var(--b-space-10) * var(--b-scale)); }
+.b-pr-11 { padding-inline-end: calc(var(--b-space-11) * var(--b-scale)); }
+.b-pr-12 { padding-inline-end: calc(var(--b-space-12) * var(--b-scale)); }
