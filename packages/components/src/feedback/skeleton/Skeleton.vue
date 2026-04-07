@@ -10,19 +10,20 @@ defineOptions({
 const props = defineProps(skeletonProps);
 
 const classes = computed(() => [
-    "b-skeleton"
+    "b-skeleton",
+    `b-skeleton--shape-${props.shape}`,
+    `b-skeleton--animation-${props.animation}`,
 ]);
 
-const style = computed(() => [
-    `width: ${props.width}`,
-    `height: ${props.height}`,
-]);
+const style = computed(() => {
+    return {
+        width: props.size ? props.size : props.width,
+        height: props.size ? props.size : props.height,
+        borderRadius: props.borderRadius || undefined
+    };
+});
 </script>
 
 <template>
 <div :class="classes" :style="style"></div>
 </template>
-
-<style scoped>
-
-</style>

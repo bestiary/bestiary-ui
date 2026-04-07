@@ -17,6 +17,7 @@
                 <router-link to="/password" class="nav-link">Password</router-link>
                 <router-link to="/textarea" class="nav-link">Textarea</router-link>
                 <router-link to="/rating" class="nav-link">Rating</router-link>
+                <router-link to="/checkbox" class="nav-link">Checkbox</router-link>
 
                 <div class="nav-group-title b-mt-4 b-px-2 b-text-xxs b-uppercase b-text-muted">Data Display</div>
                 <router-link to="/badges" class="nav-link">Badge</router-link>

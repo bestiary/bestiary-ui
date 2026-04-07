@@ -41,7 +41,7 @@
     /* 2.3 Surfaces */
     --b-surface-ground:   oklch(0.9819 0.0029 264.54);
     --b-surface-section:  var(--b-white);
-    --b-surface-variant:  var(--b-slate-100);
+    --b-surface-variant:  var(--b-slate-200);
     --b-surface-floating: var(--b-white);
     --b-surface-overlay:  oklch(var(--b-black-channels) / 50%);
     --b-surface-contrast: oklch(0.1408 0.0044 285.82);

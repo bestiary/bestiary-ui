@@ -10,6 +10,7 @@
 @import "./data-entry/password.css";
 @import "./data-entry/textarea.css";
 @import "./data-entry/rating.css";
+@import "./data-entry/checkbox.css";
 
 @import "./feedback/message.css";
 @import "./feedback/skeleton.css";
