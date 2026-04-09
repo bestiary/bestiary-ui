@@ -1,0 +1,16 @@
+.border-t { border-top-width: var(--b-stroke-default) !important; }
+.border-b { border-bottom-width: var(--b-stroke-default) !important; }
+.border-l { border-left-width: var(--b-stroke-default) !important; }
+.border-r { border-right-width: var(--b-stroke-default) !important; }
+
+.divide-x > :not(:last-child)         { border-inline-start-width: 0; border-inline-end-width: var(--b-stroke-default) !important; }
+.divide-x-reverse > :not(:last-child) { border-inline-end-width: 0; border-inline-start-width: var(--b-stroke-default) !important; }
+.divide-y > :not(:last-child)         { border-block-start-width: 0; border-block-end-width: var(--b-stroke-default) !important; }
+.divide-y-reverse > :not(:last-child) { border-block-end-width: 0; border-block-start-width: var(--b-stroke-default) !important; }
+
+/* Critical shapes */
+.rounded-full { border-radius: var(--b-radius-full) !important; }
+.rounded-none { border-radius: 0 !important; }
+
+/* Border removal */
+.border-none { border-width: 0 !important; }

@@ -1,87 +1,19 @@
-/* ============================================================
-   Bestiary UI — Overflow Utilities
+/**
+ * Bestiary UI — Overflow Utilities
+ * ------------------------------------------------------------
+ */
 
-   These utilities control how content is handled when it exceeds
-   the dimensions of its container. Includes support for horizontal,
-   vertical, and modern logical axis control.
-   ============================================================ */
+/* 1. Global Overflow */
+.overflow-auto    { overflow: auto !important; }
+.overflow-hidden  { overflow: hidden !important; }
+.overflow-visible { overflow: visible !important; }
+.overflow-scroll  { overflow: scroll !important; }
+.overflow-clip    { overflow: clip !important; } /* Stricter than hidden, prevents all scrolling */
 
-/* 1. Global Overflow
-   Controls both axes simultaneously. */
+/* 2. Inline Overflow (X-axis) - Critical for horizontal sliders or tables */
+.overflow-x-auto   { overflow-inline: auto !important; }
+.overflow-x-hidden { overflow-inline: hidden !important; }
 
-.b-overflow-auto {
-    overflow: auto;
-}
-
-.b-overflow-hidden {
-    overflow: hidden;
-}
-
-/* Modern clipping: stricter than hidden, prevents all scrolling */
-.b-overflow-clip {
-    overflow: clip;
-}
-
-.b-overflow-visible {
-    overflow: visible;
-}
-
-.b-overflow-scroll {
-    overflow: scroll;
-}
-
-/* 2. Horizontal / Inline Overflow
-   Controls behavior on the X-axis (or inline axis in logical terms). */
-
-.b-overflow-x-auto,
-.b-overflow-inline-auto {
-    overflow-x: auto;
-}
-
-.b-overflow-x-hidden,
-.b-overflow-inline-hidden {
-    overflow-x: hidden;
-}
-
-.b-overflow-x-clip,
-.b-overflow-inline-clip {
-    overflow-x: clip;
-}
-
-.b-overflow-x-visible,
-.b-overflow-inline-visible {
-    overflow-x: visible;
-}
-
-.b-overflow-x-scroll,
-.b-overflow-inline-scroll {
-    overflow-x: scroll;
-}
-
-/* 3. Vertical / Block Overflow
-   Controls behavior on the Y-axis (or block axis in logical terms). */
-
-.b-overflow-y-auto,
-.b-overflow-block-auto {
-    overflow-y: auto;
-}
-
-.b-overflow-y-hidden,
-.b-overflow-block-hidden {
-    overflow-y: hidden;
-}
-
-.b-overflow-y-clip,
-.b-overflow-block-clip {
-    overflow-y: clip;
-}
-
-.b-overflow-y-visible,
-.b-overflow-block-visible {
-    overflow-y: visible;
-}
-
-.b-overflow-y-scroll,
-.b-overflow-block-scroll {
-    overflow-y: scroll;
-}
+/* 3. Block Overflow (Y-axis) - Critical for fixed-height scroll areas */
+.overflow-y-auto   { overflow-block: auto !important; }
+.overflow-y-hidden { overflow-block: hidden !important; }

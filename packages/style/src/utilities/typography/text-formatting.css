@@ -1,0 +1,32 @@
+/**
+ * Bestiary UI — Text Formatting Utilities
+ * ------------------------------------------------------------
+ */
+
+/* --- 1. TEXT TRANSFORM --- */
+.uppercase    { text-transform: uppercase !important; }
+.lowercase    { text-transform: lowercase !important; }
+.capitalize   { text-transform: capitalize !important; }
+.normal-case  { text-transform: none !important; }
+
+/* --- 2. TEXT WRAPPING (Modern CSS) --- */
+/* Standard wrap */
+.text-wrap    { text-wrap: wrap !important; }
+.text-nowrap  { text-wrap: nowrap !important; }
+
+/* Balanced lines for headings (prevents single words on last line) */
+.text-balance { text-wrap: balance !important; }
+
+/* Best for long paragraphs (prevents orphans) */
+.text-pretty  { text-wrap: pretty !important; }
+
+/* --- 3. TEXT OVERFLOW --- */
+/* Single-line truncation with ellipsis (...) */
+.truncate {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+.text-ellipsis { text-overflow: ellipsis !important; }
+.text-clip     { text-overflow: clip !important; }

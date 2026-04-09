@@ -1,0 +1,43 @@
+/**
+ * Bestiary UI — Scroll & Snap Utilities
+ * ------------------------------------------------------------
+ * Controls scroll behavior, snapping, and offsets for anchors.
+ */
+
+/* --- 1. SCROLL BEHAVIOR --- */
+.scroll-auto   { scroll-behavior: auto !important; }
+.scroll-smooth { scroll-behavior: smooth !important; }
+
+/* Accessibility: respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-smooth { scroll-behavior: auto !important; }
+}
+
+/* --- 2. SCROLL SNAP (Container) --- */
+.snap-none { scroll-snap-type: none !important; }
+.snap-x    { scroll-snap-type: x var(--b-scroll-snap-strictness, proximity) !important; }
+.snap-y    { scroll-snap-type: y var(--b-scroll-snap-strictness, proximity) !important; }
+.snap-both { scroll-snap-type: both var(--b-scroll-snap-strictness, proximity) !important; }
+
+/* Strictness Modifiers */
+.snap-mandatory { --b-scroll-snap-strictness: mandatory; }
+.snap-proximity { --b-scroll-snap-strictness: proximity; }
+
+/* --- 3. SCROLL SNAP (Children) --- */
+.snap-start      { scroll-snap-align: start !important; }
+.snap-center     { scroll-snap-align: center !important; }
+.snap-end        { scroll-snap-align: end !important; }
+.snap-align-none { scroll-snap-align: none !important; }
+
+.snap-always { scroll-snap-stop: always !important; }
+.snap-normal { scroll-snap-stop: normal !important; }
+
+/* --- 4. SCROLL OFFSETS (Pruned Scale) --- */
+/* Used mainly to offset scroll position for sticky headers */
+.scroll-m-0  { scroll-margin: 0 !important; }
+.scroll-mt-0 { scroll-margin-top: 0 !important; }
+.scroll-mt-4 { scroll-margin-top: var(--b-space-4) !important; }
+.scroll-mt-8 { scroll-margin-top: var(--b-space-8) !important; }
+
+.scroll-p-0  { scroll-padding: 0 !important; }
+.scroll-pt-4 { scroll-padding-top: var(--b-space-4) !important; }

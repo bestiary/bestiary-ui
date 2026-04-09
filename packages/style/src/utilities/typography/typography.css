@@ -1,0 +1,69 @@
+/**
+ * Bestiary UI — Consolidated Typography Utilities
+ */
+
+/* --- 1. FAMILIES & FEATURES --- */
+.font-sans    { font-family: var(--b-font-family-base) !important; }
+.font-mono    { font-family: var(--b-font-family-mono) !important; }
+.font-display { font-family: var(--b-font-family-display) !important; }
+
+.font-features-normal { font-feature-settings: normal !important; }
+.font-features-case   { font-feature-settings: "case" !important; }
+
+/* --- 2. WEIGHTS & STYLES --- */
+.font-light     { font-weight: var(--b-font-weight-light) !important; }
+.font-normal    { font-weight: var(--b-font-weight-normal) !important; }
+.font-medium    { font-weight: var(--b-font-weight-medium) !important; }
+.font-semibold  { font-weight: var(--b-font-weight-semibold) !important; }
+.font-bold      { font-weight: var(--b-font-weight-bold) !important; }
+.font-black     { font-weight: var(--b-font-weight-black) !important; }
+
+.italic         { font-style: italic !important; }
+.not-italic     { font-style: normal !important; }
+
+/* --- 3. SPACING & LEADING --- */
+.tracking-tighter { letter-spacing: var(--b-letter-spacing-tighter) !important; }
+.tracking-tight   { letter-spacing: var(--b-letter-spacing-tight) !important; }
+.tracking-normal  { letter-spacing: var(--b-letter-spacing-normal) !important; }
+.tracking-wide    { letter-spacing: var(--b-letter-spacing-wide) !important; }
+.tracking-wider   { letter-spacing: var(--b-letter-spacing-wider) !important; }
+.tracking-widest  { letter-spacing: var(--b-letter-spacing-widest) !important; }
+
+.leading-none    { line-height: var(--b-line-height-none) !important; }
+.leading-tight   { line-height: var(--b-line-height-tight) !important; }
+.leading-normal  { line-height: var(--b-line-height-normal) !important; }
+.leading-relaxed { line-height: var(--b-line-height-relaxed) !important; }
+.leading-loose   { line-height: var(--b-line-height-loose) !important; }
+
+/* --- 4. LINE CLAMP (Optimized) --- */
+:where(.line-clamp, [class*="line-clamp-"]) {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+.line-clamp-1 { -webkit-line-clamp: 1 !important; line-clamp: 1 !important; }
+.line-clamp-2 { -webkit-line-clamp: 2 !important; line-clamp: 2 !important; }
+.line-clamp-3 { -webkit-line-clamp: 3 !important; line-clamp: 3 !important; }
+.line-clamp-4 { -webkit-line-clamp: 4 !important; line-clamp: 4 !important; }
+.line-clamp-5 { -webkit-line-clamp: 5 !important; line-clamp: 5 !important; }
+.line-clamp-6 { -webkit-line-clamp: 6 !important; line-clamp: 6 !important; }
+
+/* Activator for custom style="--b-line-clamp: 7" */
+.line-clamp {
+    -webkit-line-clamp: var(--b-line-clamp) !important;
+    line-clamp: var(--b-line-clamp) !important;
+}
+
+.line-clamp-none {
+    display: block !important;
+    -webkit-line-clamp: unset !important;
+    line-clamp: unset !important;
+}
+
+/* --- 5. NUMERICS & CONTENT --- */
+.tabular-nums   { font-variant-numeric: tabular-nums !important; }
+.normal-nums    { font-variant-numeric: normal !important; }
+
+.content-none   { content: none !important; }
+.content-empty  { content: "" !important; }

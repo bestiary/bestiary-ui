@@ -1,208 +1,73 @@
-/* ============================================================
-   Bestiary UI — Utilities Manifest
-   
-   This file aggregates all atomic utility classes. 
-   Import this file into your main manifest within the 
-   'b-utilities' layer to ensure proper cascade priority.
-   ============================================================ */
+/* --- 1. SPACING --- */
+@import "./spacing/margin.css";
+@import "./spacing/padding.css";
 
-/* --- 1. ACCESSIBILITY --- */
-@import "./accessibility/forced-color-adjust.css";
+/* --- 2. SIZING --- */
+@import "./sizing/block-size.css";
+@import "./sizing/inline-size.css";
+@import "./sizing/max-block-size.css";
+@import "./sizing/max-inline-size.css";
+@import "./sizing/min-block-size.css";
+@import "./sizing/min-inline-size.css";
+@import "./sizing/size.css";
 
-/* --- 2. LAYOUT & POSITIONING --- */
+/* --- 3. LAYOUT --- */
 @import "./layout/aspect-ratio.css";
-@import "./layout/box-decoration-break.css";
-@import "./layout/box-sizing.css";
-@import "./layout/break-after.css";
-@import "./layout/break-before.css";
-@import "./layout/break-inside.css";
-@import "./layout/clear.css";
 @import "./layout/columns.css";
 @import "./layout/display.css";
-@import "./layout/float.css";
 @import "./layout/inset.css";
-@import "./layout/isolation.css";
-@import "./layout/layers.css";
 @import "./layout/object-fit.css";
 @import "./layout/object-position.css";
 @import "./layout/overflow.css";
 @import "./layout/overscroll.css";
 @import "./layout/position.css";
+@import "./layout/tables.css";
 @import "./layout/visibility.css";
+@import "./layout/z-index.css";
 
-/* --- 3. SIZING --- */
-@import "./sizing/width.css";
-@import "./sizing/min-width.css";
-@import "./sizing/max-width.css";
-@import "./sizing/height.css";
-@import "./sizing/min-height.css";
-@import "./sizing/max-height.css";
-@import "./sizing/inline-size.css";
-@import "./sizing/min-inline-size.css";
-@import "./sizing/max-inline-size.css";
-@import "./sizing/block-size.css";
-@import "./sizing/min-block-size.css";
-@import "./sizing/max-block-size.css";
-@import "./sizing/size.css";
-
-/* --- 4. SPACING --- */
-@import "./spacing/margin.css";
-@import "./spacing/padding.css";
-
-/* --- 5. COMPOSITION (Flex & Grid) --- */
-@import "./composition/flex-direction.css";
-@import "./composition/flex-wrap.css";
-@import "./composition/flex.css";
-@import "./composition/flex-basis.css";
-@import "./composition/flex-grow.css";
-@import "./composition/flex-shrink.css";
-@import "./composition/grid-template-columns.css";
-@import "./composition/grid-template-rows.css";
-@import "./composition/grid-column.css";
-@import "./composition/grid-row.css";
-@import "./composition/grid-auto-flow.css";
-@import "./composition/grid-auto-columns.css";
-@import "./composition/grid-auto-rows.css";
-@import "./composition/gap.css";
-@import "./composition/justify-content.css";
-@import "./composition/justify-items.css";
-@import "./composition/justify-self.css";
+/* --- 4. COMPOSITION --- */
 @import "./composition/align-content.css";
 @import "./composition/align-items.css";
 @import "./composition/align-self.css";
+@import "./composition/flex.css";
+@import "./composition/gap.css";
+@import "./composition/grid-auto.css";
+@import "./composition/grid-auto-flow.css";
+@import "./composition/grid-column.css";
+@import "./composition/grid-row.css";
+@import "./composition/grid-template-columns.css";
+@import "./composition/grid-template-rows.css";
+@import "./composition/justify-content.css";
+@import "./composition/justify-items.css";
+@import "./composition/justify-self.css";
+@import "./composition/order.css";
 @import "./composition/place-content.css";
 @import "./composition/place-items.css";
 @import "./composition/place-self.css";
-@import "./composition/order.css";
 
-/* --- 6. TYPOGRAPHY --- */
-@import "./typography/font-family.css";
+/* --- 5. TYPOGRAPHY --- */
 @import "./typography/font-size.css";
-@import "./typography/font-weight.css";
-@import "./typography/font-stretch.css";
-@import "./typography/font-style.css";
 @import "./typography/font-smoothing.css";
-@import "./typography/font-variant-numeric.css";
-@import "./typography/font-feature-settings.css";
-@import "./typography/line-height.css";
-@import "./typography/letter-spacing.css";
+@import "./typography/lists.css";
 @import "./typography/text-align.css";
-@import "./typography/color.css";
-@import "./typography/text-decoration-line.css";
-@import "./typography/text-decoration-color.css";
-@import "./typography/text-decoration-style.css";
-@import "./typography/text-decoration-thickness.css";
-@import "./typography/text-underline-offset.css";
-@import "./typography/text-transform.css";
-@import "./typography/text-overflow.css";
-@import "./typography/text-wrap.css";
-@import "./typography/text-indent.css";
-@import "./typography/vertical-align.css";
-@import "./typography/white-space.css";
-@import "./typography/word-break.css";
-@import "./typography/overflow-wrap.css";
-@import "./typography/hyphens.css";
-@import "./typography/line-clamp.css";
-@import "./typography/list-style-type.css";
-@import "./typography/list-style-position.css";
-@import "./typography/list-style-image.css";
-@import "./typography/content.css";
+@import "./typography/text-control.css";
+@import "./typography/text-decoration.css";
+@import "./typography/text-formatting.css";
+@import "./typography/text-shadow.css";
+@import "./typography/typography.css";
 
-/* --- 7. BORDERS --- */
-@import "./borders/border-width.css";
-@import "./borders/border-style.css";
-@import "./borders/border-color.css";
-@import "./borders/border-radius.css";
-@import "./borders/outline-width.css";
-@import "./borders/outline-style.css";
-@import "./borders/outline-color.css";
-@import "./borders/outline-offset.css";
+/* --- 6. INTERACTIVITY --- */
+@import "./interactivity/cursor.css";
+@import "./interactivity/interactivity.css";
+@import "./interactivity/motion.css";
+@import "./interactivity/scroll.css";
+@import "./interactivity/transforms.css";
+@import "./interactivity/translate.css";
 
-/* --- 8. BACKGROUNDS --- */
-@import "./backgrounds/background-color.css";
-@import "./backgrounds/background-image.css";
-@import "./backgrounds/background-attachment.css";
-@import "./backgrounds/background-clip.css";
-@import "./backgrounds/background-origin.css";
-@import "./backgrounds/background-position.css";
-@import "./backgrounds/background-repeat.css";
-@import "./backgrounds/background-size.css";
-
-/* --- 9. EFFECTS --- */
+/* --- 7. EFFECTS --- */
+@import "./effects/blur.css";
 @import "./effects/box-shadow.css";
 @import "./effects/opacity.css";
-@import "./effects/mix-blend-mode.css";
-@import "./effects/background-blend-mode.css";
-@import "./effects/text-shadow.css";
-@import "./effects/mask-image.css";
-@import "./effects/mask-size.css";
-@import "./effects/mask-position.css";
-@import "./effects/mask-repeat.css";
-@import "./effects/mask-origin.css";
-@import "./effects/mask-clip.css";
-@import "./effects/mask-composite.css";
-@import "./effects/mask-mode.css";
-@import "./effects/mask-type.css";
 
-/* --- 10. FILTERS --- */
-@import "./filters/blur.css";
-@import "./filters/brightness.css";
-@import "./filters/contrast.css";
-@import "./filters/drop-shadow.css";
-@import "./filters/grayscale.css";
-@import "./filters/hue-rotate.css";
-@import "./filters/invert.css";
-@import "./filters/opacity.css";
-@import "./filters/saturate.css";
-@import "./filters/sepia.css";
-
-/* --- 11. TRANSFORMS --- */
-@import "./transforms/transform.css";
-@import "./transforms/transform-origin.css";
-@import "./transforms/transform-style.css";
-@import "./transforms/backface-visibility.css";
-@import "./transforms/rotate.css";
-@import "./transforms/scale.css";
-@import "./transforms/skew.css";
-@import "./transforms/translate.css";
-@import "./transforms/perspective.css";
-@import "./transforms/perspective-origin.css";
-
-/* --- 12. MOTION --- */
-@import "./motion/transition-property.css";
-@import "./motion/transition-duration.css";
-@import "./motion/transition-timing-function.css";
-@import "./motion/transition-delay.css";
-@import "./motion/transition-behavior.css";
-@import "./motion/animation.css";
-@import "./interactivity/will-change.css";
-
-/* --- 13. INTERACTIVITY & FORMS --- */
-@import "./interactivity/accent-color.css";
-@import "./interactivity/appearance.css";
-@import "./interactivity/caret-color.css";
-@import "./interactivity/color-scheme.css";
-@import "./interactivity/cursor.css";
-@import "./interactivity/field-sizing.css";
-@import "./interactivity/pointer-events.css";
-@import "./interactivity/resize.css";
-@import "./interactivity/scroll-behavior.css";
-@import "./interactivity/scroll-margin.css";
-@import "./interactivity/scroll-padding.css";
-@import "./interactivity/scroll-snap-align.css";
-@import "./interactivity/scroll-snap-stop.css";
-@import "./interactivity/scroll-snap-type.css";
-@import "./interactivity/touch-action.css";
-@import "./interactivity/user-select.css";
-@import "./interactivity/will-change.css";
-
-/* --- 14. TABLES --- */
-@import "./tables/table-layout.css";
-@import "./tables/border-collapse.css";
-@import "./tables/border-spacing.css";
-@import "./tables/caption-side.css";
-
-/* --- 15. SVG --- */
-@import "./svg/fill.css";
-@import "./svg/stroke.css";
-@import "./svg/stroke-width.css";
+/* --- 8. BORDERS --- */
+@import "./borders/borders.css";

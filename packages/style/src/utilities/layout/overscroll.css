@@ -1,54 +1,14 @@
-/* ============================================================
-   Bestiary UI — Overscroll Behavior Utilities
+/**
+ * Bestiary UI — Overscroll Behavior Utilities
+ * ------------------------------------------------------------
+ * Prevents scroll chaining to parent containers.
+ */
 
-   These utilities control what the browser does when reaching
-   the boundary of a scrolling area. Essential for preventing
-   unwanted "scroll chaining" where the parent container scrolls
-   after the child has reached the end.
-   ============================================================ */
+/* Default behavior */
+.overscroll-auto { overscroll-behavior: auto !important; }
 
-/* 1. Global Overscroll Behavior
-   Sets behavior for both X and Y axes simultaneously. */
+/* Prevents scroll chaining but keeps bounce effects */
+.overscroll-contain { overscroll-behavior: contain !important; }
 
-/* Default browser behavior: allows scroll chaining (Default) */
-.b-overscroll-auto {
-    overscroll-behavior: auto;
-}
-
-/* Prevents scroll chaining but maintains "bounce" effects on mobile */
-.b-overscroll-contain {
-    overscroll-behavior: contain;
-}
-
-/* Prevents both scroll chaining and all overscroll effects (bounce/glow) */
-.b-overscroll-none {
-    overscroll-behavior: none;
-}
-
-/* 2. Horizontal Overscroll (X-axis) */
-
-.b-overscroll-x-auto {
-    overscroll-behavior-x: auto;
-}
-
-.b-overscroll-x-contain {
-    overscroll-behavior-x: contain;
-}
-
-.b-overscroll-x-none {
-    overscroll-behavior-x: none;
-}
-
-/* 3. Vertical Overscroll (Y-axis) */
-
-.b-overscroll-y-auto {
-    overscroll-behavior-y: auto;
-}
-
-.b-overscroll-y-contain {
-    overscroll-behavior-y: contain;
-}
-
-.b-overscroll-y-none {
-    overscroll-behavior-y: none;
-}
+/* Disables all overscroll effects */
+.overscroll-none { overscroll-behavior: none !important; }

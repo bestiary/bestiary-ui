@@ -1,60 +1,11 @@
-/* ============================================================
-   Bestiary UI — Align Self Utilities
+/**
+ * Bestiary UI — Align Self Utilities
+ * ------------------------------------------------------------
+ */
 
-   These utilities control how an individual flex or grid item
-   is aligned along the cross-axis, overriding the container's
-   align-items property for that specific element.
-   ============================================================ */
-
-/* 1. Core Alignment */
-
-/* Aligns the item according to the container's align-items value (Default) */
-.b-self-auto {
-    align-self: auto;
-}
-
-/* Aligns the item to the start of the cross-axis */
-.b-self-start {
-    align-self: flex-start;
-}
-
-/* Aligns the item to the end of the cross-axis */
-.b-self-end {
-    align-self: flex-end;
-}
-
-/* Centers the item along the cross-axis */
-.b-self-center {
-    align-self: center;
-}
-
-/* Stretches the item to fill the cross-axis of the container */
-.b-self-stretch {
-    align-self: stretch;
-}
-
-/* 2. Typographical Alignment */
-
-/* Aligns the item along its first text baseline */
-.b-self-baseline {
-    align-self: baseline;
-}
-
-/* Aligns the item along its last text baseline */
-.b-self-baseline-last {
-    align-self: last baseline;
-}
-
-/* 3. Safe Alignment (Enterprise UX)
-   Ensures the element's start remains accessible if it overflows
-   the container, preventing data loss in tight layouts. */
-
-/* Centers the item, but falls back to 'start' on overflow */
-.b-self-center-safe {
-    align-self: safe center;
-}
-
-/* Aligns to end, but falls back to 'start' on overflow */
-.b-self-end-safe {
-    align-self: safe flex-end;
-}
+.self-auto     { align-self: auto !important; }
+.self-start    { align-self: flex-start !important; }
+.self-end      { align-self: flex-end !important; }
+.self-center   { align-self: center !important; }
+.self-stretch  { align-self: stretch !important; }
+.self-baseline { align-self: baseline !important; }

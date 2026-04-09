@@ -1,0 +1,20 @@
+/**
+ * Bestiary UI — Table Utilities
+ * ------------------------------------------------------------
+ * Core utilities to control table rendering behavior.
+ */
+
+/* 1. Table Layout (Performance & Sizing) */
+/* Table width is determined by content (Default) */
+.table-auto { table-layout: auto !important; }
+
+/* Table width is fixed, cells don't expand with content.
+   Critical for data dashboards. */
+.table-fixed { table-layout: fixed !important; }
+
+/* 2. Border Behavior */
+/* Merges adjacent borders into one (Standard for modern UI) */
+.border-collapse { border-collapse: collapse !important; }
+
+/* Keeps borders separate (Browser default) */
+.border-separate { border-collapse: separate !important; }

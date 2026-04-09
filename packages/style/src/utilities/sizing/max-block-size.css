@@ -1,97 +1,35 @@
-/* ============================================================
-   Bestiary UI — Max-Block-Size Utilities
+/**
+ * Bestiary UI — Max Block Size (Max-Height) Utilities
+ * ------------------------------------------------------------
+ * Controls the maximum vertical dimension.
+ */
 
-   Defines the maximum vertical dimension (logical height) of an
-   element. Prevents elements from growing larger than a
-   specified value, which is essential for scroll containers.
+/* 1. Core Keywords */
+.max-block-none { max-block-size: none !important; }
+.max-block-full { max-block-size: 100% !important; }
+.max-block-min  { max-block-size: min-content !important; }
+.max-block-max  { max-block-size: max-content !important; }
+.max-block-fit  { max-block-size: fit-content !important; }
 
-   Architecture:
-   1. Mapped to Contract: Uses --b-space and --b-container variables.
-   2. Theme Scalable: Numeric and Container scales adjust with --b-scale.
-   3. Logical: Uses 'max-block-size' for modern CSS standards.
-   4. Viewport Aware: Support for Dynamic (d), Small (s), and Large (l)
-      viewport units + line-height (lh) units.
-   ============================================================ */
+/* 2. Viewport Limits (Essential for Modals/Sidebars) */
+.max-block-screen { max-block-size: 100dvh !important; }
 
-:where(html) {
-    /* Safe fallback to 1 if theme scale is not defined */
-    --b-scale: var(--b-theme-scale, 1);
-}
+/* 3. Logical Specials */
+/* Limits height to exactly one line of text */
+.max-block-lh { max-block-size: 1lh !important; }
 
-/* ------------------------------------------------------------
-   1. FIXED & KEYWORD LIMITS (.b-max-block-*)
-   ------------------------------------------------------------ */
-
-.b-max-block-none { max-block-size: none; }
-.b-max-block-full { max-block-size: 100%; }
-.b-max-block-min  { max-block-size: min-content; }
-.b-max-block-max  { max-block-size: max-content; }
-.b-max-block-fit  { max-block-size: fit-content; }
-.b-max-block-px   { max-block-size: 1px; }
-.b-max-block-lh   { max-block-size: 1lh; } /* Max height of exactly one line of text */
-
-/* 1.1 Viewport Units (Vertical Focus) */
-.b-max-block-screen { max-block-size: 100vh; }
-.b-max-block-dvh    { max-block-size: 100dvh; } /* Responsive to mobile browser UI */
-.b-max-block-svh    { max-block-size: 100svh; } /* Small viewport */
-.b-max-block-lvh    { max-block-size: 100lvh; } /* Large viewport */
-
-/* Cross-axis viewports (Useful for specific layouts in vertical modes) */
-.b-max-block-dvw    { max-block-size: 100dvw; }
-.b-max-block-svw    { max-block-size: 100svw; }
-.b-max-block-lvw    { max-block-size: 100lvw; }
-
-/* ------------------------------------------------------------
-   2. SCALABLE NUMERIC SCALE (0-12)
-   Linked to the primary spacing scale defined in the Contract.
-   ------------------------------------------------------------ */
-
-.b-max-block-0  { max-block-size: 0; }
-.b-max-block-1  { max-block-size: calc(var(--b-space-1)  * var(--b-scale)); }
-.b-max-block-2  { max-block-size: calc(var(--b-space-2)  * var(--b-scale)); }
-.b-max-block-3  { max-block-size: calc(var(--b-space-3)  * var(--b-scale)); }
-.b-max-block-4  { max-block-size: calc(var(--b-space-4)  * var(--b-scale)); }
-.b-max-block-5  { max-block-size: calc(var(--b-space-5)  * var(--b-scale)); }
-.b-max-block-6  { max-block-size: calc(var(--b-space-6)  * var(--b-scale)); }
-.b-max-block-7  { max-block-size: calc(var(--b-space-7)  * var(--b-scale)); }
-.b-max-block-8  { max-block-size: calc(var(--b-space-8)  * var(--b-scale)); }
-.b-max-block-9  { max-block-size: calc(var(--b-space-9)  * var(--b-scale)); }
-.b-max-block-10 { max-block-size: calc(var(--b-space-10) * var(--b-scale)); }
-.b-max-block-11 { max-block-size: calc(var(--b-space-11) * var(--b-scale)); }
-.b-max-block-12 { max-block-size: calc(var(--b-space-12) * var(--b-scale)); }
-
-/* ------------------------------------------------------------
-   3. SCALABLE CONTAINER SCALE (3xs to 7xl)
-   Macro-height limits for modals, sidebars, and larger components.
-   ------------------------------------------------------------ */
-
-.b-max-block-3xs { max-block-size: calc(var(--b-container-3xs) * var(--b-scale)); }
-.b-max-block-2xs { max-block-size: calc(var(--b-container-2xs) * var(--b-scale)); }
-.b-max-block-xs  { max-block-size: calc(var(--b-container-xs)  * var(--b-scale)); }
-.b-max-block-sm  { max-block-size: calc(var(--b-container-sm)  * var(--b-scale)); }
-.b-max-block-md  { max-block-size: calc(var(--b-container-md)  * var(--b-scale)); }
-.b-max-block-lg  { max-block-size: calc(var(--b-container-lg)  * var(--b-scale)); }
-.b-max-block-xl  { max-block-size: calc(var(--b-container-xl)  * var(--b-scale)); }
-.b-max-block-2xl { max-block-size: calc(var(--b-container-2xl) * var(--b-scale)); }
-.b-max-block-3xl { max-block-size: calc(var(--b-container-3xl) * var(--b-scale)); }
-.b-max-block-4xl { max-block-size: calc(var(--b-container-4xl) * var(--b-scale)); }
-.b-max-block-5xl { max-block-size: calc(var(--b-container-5xl) * var(--b-scale)); }
-.b-max-block-6xl { max-block-size: calc(var(--b-container-6xl) * var(--b-scale)); }
-.b-max-block-7xl { max-block-size: calc(var(--b-container-7xl) * var(--b-scale)); }
-
-/* ------------------------------------------------------------
-   4. FRACTIONAL LIMITS
-   Absolute proportions for relative layout constraints.
-   ------------------------------------------------------------ */
-
-.b-max-block-1-2  { max-block-size: var(--b-ref-fraction-1-2); }
-.b-max-block-1-3  { max-block-size: var(--b-ref-fraction-1-3); }
-.b-max-block-1-4  { max-block-size: var(--b-ref-fraction-1-4); }
-.b-max-block-1-5  { max-block-size: var(--b-ref-fraction-1-5); }
-.b-max-block-1-6  { max-block-size: var(--b-ref-fraction-1-6); }
-.b-max-block-2-3  { max-block-size: var(--b-ref-fraction-2-3); }
-.b-max-block-2-5  { max-block-size: var(--b-ref-fraction-2-5); }
-.b-max-block-3-4  { max-block-size: var(--b-ref-fraction-3-4); }
-.b-max-block-3-5  { max-block-size: var(--b-ref-fraction-3-5); }
-.b-max-block-4-5  { max-block-size: var(--b-ref-fraction-4-5); }
-.b-max-block-5-6  { max-block-size: var(--b-ref-fraction-5-6); }
+/* 4. Container-based Limits (T-Shirt scale) */
+/* Useful for limiting height of scrollable areas like dropdowns or cards */
+.max-block-3xs { max-block-size: var(--b-container-3xs) !important; }
+.max-block-2xs { max-block-size: var(--b-container-2xs) !important; }
+.max-block-xs  { max-block-size: var(--b-container-xs)  !important; }
+.max-block-sm  { max-block-size: var(--b-container-sm)  !important; }
+.max-block-md  { max-block-size: var(--b-container-md)  !important; }
+.max-block-lg  { max-block-size: var(--b-container-lg)  !important; }
+.max-block-xl  { max-block-size: var(--b-container-xl)  !important; }
+.max-block-2xl { max-block-size: var(--b-container-2xl) !important; }
+.max-block-3xl { max-block-size: var(--b-container-3xl) !important; }
+.max-block-4xl { max-block-size: var(--b-container-4xl) !important; }
+.max-block-5xl { max-block-size: var(--b-container-5xl) !important; }
+.max-block-6xl { max-block-size: var(--b-container-6xl) !important; }
+.max-block-7xl { max-block-size: var(--b-container-7xl) !important; }

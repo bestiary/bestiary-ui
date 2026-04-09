@@ -1,0 +1,34 @@
+/**
+ * Bestiary UI — Transform Utilities
+ * ------------------------------------------------------------
+ * Core 2D transforms and origin points.
+ */
+
+/* --- 1. ORIGIN (Pivot Points) --- */
+.origin-center { transform-origin: center !important; }
+.origin-top    { transform-origin: top !important; }
+.origin-bottom { transform-origin: bottom !important; }
+.origin-left   { transform-origin: left !important; }
+.origin-right  { transform-origin: right !important; }
+
+/* 2. Rotation (Minimal set for icons/arrows) */
+.rotate-0   { rotate: 0deg !important; }
+.rotate-90  { rotate: 90deg !important; }
+.rotate-180 { rotate: 180deg !important; }
+.rotate-270 { rotate: 270deg !important; }
+.rotate-n90 { rotate: -90deg !important; }
+
+/* 3. Scale (Mirroring helpers) */
+.flip-x { scale: -1 1 !important; }
+.flip-y { scale: 1 -1 !important; }
+
+/* Visibility scale */
+.scale-0   { scale: 0 !important; }
+.scale-100 { scale: 1 !important; }
+
+/* --- 4. PERFORMANCE HINT --- */
+/* Triggers GPU acceleration for smoother animations */
+.transform-gpu { transform: translateZ(0) !important; }
+
+/* --- 5. RESET --- */
+.transform-none { transform: none !important; rotate: none !important; scale: none !important; translate: none !important; }

@@ -1,0 +1,30 @@
+/**
+ * Bestiary UI — Translate Utilities
+ * ------------------------------------------------------------
+ * Controls the 2D position offset of an element.
+ * Primarily used for absolute centering and simple state shifts.
+ */
+
+/* 1. Reset */
+.translate-0 { translate: 0 0 !important; }
+
+/* 2. Centering & Fractions (The most useful part) */
+/* Used in combination with top-1-2 / left-1-2 for absolute centering */
+.translate-x-1-2  { translate: 50% 0 !important; }
+.translate-x-n1-2 { translate: -50% 0 !important; }
+.translate-y-1-2  { translate: 0 50% !important; }
+.translate-y-n1-2 { translate: 0 -50% !important; }
+
+.translate-center { translate: -50% -50% !important; }
+
+/* 3. Full Shifts (Useful for off-canvas menus and sliders) */
+.translate-x-full  { translate: 100% 0 !important; }
+.translate-x-nfull { translate: -100% 0 !important; }
+.translate-y-full  { translate: 0 100% !important; }
+.translate-y-nfull { translate: 0 -100% !important; }
+
+/* 4. Small Nudges (Optional: for subtle interactivity) */
+.translate-x-px  { translate: 1px 0 !important; }
+.translate-x-npx { translate: -1px 0 !important; }
+.translate-y-px  { translate: 0 1px !important; }
+.translate-y-npx { translate: 0 -1px !important; }

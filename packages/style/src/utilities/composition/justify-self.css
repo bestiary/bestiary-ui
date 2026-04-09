@@ -1,48 +1,10 @@
-/* ============================================================
-   Bestiary UI — Justify Self Utilities
+/**
+ * Bestiary UI — Justify Self Utilities
+ * ------------------------------------------------------------
+ */
 
-   These utilities control the alignment of an individual grid
-   item along the inline (main) axis inside its grid area.
-   Note: This property primarily affects items inside a Grid container.
-   ============================================================ */
-
-/* 1. Core Alignment */
-
-/* Aligns the element to the start of its grid area */
-.b-justify-self-start {
-    justify-self: start;
-}
-
-/* Aligns the element to the end of its grid area */
-.b-justify-self-end {
-    justify-self: end;
-}
-
-/* Centers the element within its grid area */
-.b-justify-self-center {
-    justify-self: center;
-}
-
-/* Stretches the element to fill the entire width of its grid area */
-.b-justify-self-stretch {
-    justify-self: stretch;
-}
-
-/* 2. Safe Alignment (Enterprise UX)
-   Prevents content from being cut off at the top or left when
-   the item overflows its container. Falls back to 'start'. */
-
-.b-justify-self-center-safe {
-    justify-self: safe center;
-}
-
-.b-justify-self-end-safe {
-    justify-self: safe end;
-}
-
-/* 3. Helper Utilities */
-
-/* Resets justification to the value inherited from 'justify-items' (Default) */
-.b-justify-self-auto {
-    justify-self: auto;
-}
+.justify-self-auto    { justify-self: auto !important; }
+.justify-self-start   { justify-self: start !important; }
+.justify-self-end     { justify-self: end !important; }
+.justify-self-center  { justify-self: center !important; }
+.justify-self-stretch { justify-self: stretch !important; }

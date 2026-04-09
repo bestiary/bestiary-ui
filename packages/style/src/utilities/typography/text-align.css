@@ -1,48 +1,8 @@
-/* ============================================================
-   Bestiary UI — Text Align Utilities
-
-   These utilities control the horizontal alignment of inline
-   content within a block container.
-
-   Architecture:
-   - Logical Alignment: 'start' and 'end' are recommended as they
-     automatically flip for RTL (Right-to-Left) languages.
-   - Physical Alignment: 'left' and 'right' provide fixed
-     positioning regardless of document direction.
-   ============================================================ */
-
-/* 1. Logical Alignment (Recommended)
-   Adapts to the text direction of the container or document. */
-
-/* Aligns text to the start of the line (left in LTR, right in RTL) */
-.b-text-start {
-    text-align: start;
-}
-
-/* Aligns text to the end of the line (right in LTR, left in RTL) */
-.b-text-end {
-    text-align: end;
-}
-
-/* 2. Basic Alignment */
-
-/* Centers the text within the container */
-.b-text-center {
-    text-align: center;
-}
-
-/* Stretches the lines so that each line has equal width (except the last) */
-.b-text-justify {
-    text-align: justify;
-}
-
-/* 3. Physical Alignment
-   Fixed directions that do not respond to RTL changes. */
-
-.b-text-left {
-    text-align: left;
-}
-
-.b-text-right {
-    text-align: right;
-}
+/**
+ * Bestiary UI — Text Align Utilities
+ * ------------------------------------------------------------
+ */
+.text-start   { text-align: start !important; }   /* RTL-friendly */
+.text-end     { text-align: end !important; }     /* RTL-friendly */
+.text-center  { text-align: center !important; }
+.text-justify { text-align: justify !important; }

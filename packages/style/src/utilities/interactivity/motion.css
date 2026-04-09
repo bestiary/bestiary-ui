@@ -1,0 +1,53 @@
+/**
+ * Bestiary UI — Motion Utilities
+ * ------------------------------------------------------------
+ */
+
+/* --- 1. TRANSITION PRESETS --- */
+/* The "Smart" default transition for custom elements */
+.transition {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, translate, scale, rotate, filter, backdrop-filter;
+    transition-timing-function: var(--b-ease-base);
+    transition-duration: var(--b-duration-normal);
+    transition-behavior: allow-discrete; /* For animating display: none -> block */
+}
+
+.transition-all { transition-property: all !important; }
+.transition-none { transition-property: none !important; }
+
+/* --- 2. DURATION ROLES --- */
+.duration-fast   { transition-duration: var(--b-duration-fast) !important; }
+.duration-normal { transition-duration: var(--b-duration-normal) !important; }
+.duration-slow   { transition-duration: var(--b-duration-slow) !important; }
+
+/* --- 3. EASING ROLES --- */
+.ease-base   { transition-timing-function: var(--b-ease-base) !important; }
+.ease-in     { transition-timing-function: var(--b-ease-in) !important; }
+.ease-out    { transition-timing-function: var(--b-ease-out) !important; }
+.ease-accent { transition-timing-function: var(--b-ease-accent) !important; }
+
+/* --- 4. KEYFRAME ANIMATIONS (The Essentials) --- */
+.animate-spin   { animation: b-spin 1s linear infinite !important; }
+.animate-pulse  { animation: b-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important; }
+.animate-ping   { animation: b-ping 1s cubic-bezier(0, 0, 0.2, 1) infinite !important; }
+.animate-bounce { animation: b-bounce 1s infinite !important; }
+.animate-none   { animation: none !important; }
+
+/* --- 5. REDUCED MOTION --- */
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Keyframes definitions remain in this file */
+@keyframes b-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes b-pulse { 50% { opacity: 0.5; } }
+@keyframes b-ping { 75%, 100% { transform: scale(2); opacity: 0; } }
+@keyframes b-bounce {
+    0%, 100% { transform: translateY(-25%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
+    50% { transform: none; animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+}

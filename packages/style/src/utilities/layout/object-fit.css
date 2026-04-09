@@ -1,39 +1,20 @@
-/* ============================================================
-   Bestiary UI — Object Fit Utilities
+/**
+ * Bestiary UI — Object Fit Utilities
+ * ------------------------------------------------------------
+ * Controls how replaced content (img, video) fits its container.
+ */
 
-   These utilities control how the content of a replaced element
-   (like <img> or <video>) should be resized to fit its container.
-   Essential for responsive galleries and consistent card images.
-   ============================================================ */
+/* Content fills the box, potentially stretching */
+.object-fill { object-fit: fill !important; }
 
-/* 1. Fit Strategies */
+/* Content covers the box, maintaining aspect ratio (clipping occurs) */
+.object-cover { object-fit: cover !important; }
 
-/* The content is resized to maintain its aspect ratio while
-   fitting within the element’s content box. Entire image is visible. */
-.b-object-contain {
-    object-fit: contain;
-}
+/* Content fits within the box, maintaining aspect ratio (no clipping) */
+.object-contain { object-fit: contain !important; }
 
-/* The content is resized to maintain its aspect ratio while
-   filling the entire content box. Often results in clipping.
-   Ideal for background-like images and card covers. */
-.b-object-cover {
-    object-fit: cover;
-}
+/* Content maintains original size */
+.object-none { object-fit: none !important; }
 
-/* The content is stretched to fill the element’s content box.
-   Aspect ratio is NOT preserved. */
-.b-object-fill {
-    object-fit: fill;
-}
-
-/* The content is not resized at all. Original dimensions are kept. */
-.b-object-none {
-    object-fit: none;
-}
-
-/* The content is sized as if 'none' or 'contain' were specified,
-   whichever would result in a smaller concrete object size. */
-.b-object-scale-down {
-    object-fit: scale-down;
-}
+/* Sized as if none or contain, whichever is smaller */
+.object-scale-down { object-fit: scale-down !important; }

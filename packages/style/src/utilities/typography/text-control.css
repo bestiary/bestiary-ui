@@ -1,0 +1,25 @@
+/**
+ * Bestiary UI — Text Control Utilities
+ * ------------------------------------------------------------
+ */
+
+/* --- 1. WHITE SPACE --- */
+/* Prevent text from wrapping (essential for buttons/labels) */
+.whitespace-nowrap { white-space: nowrap !important; }
+/* Standard wrapping (reset) */
+.whitespace-normal { white-space: normal !important; }
+/* Preserve newlines and spaces (useful for comments/previews) */
+.whitespace-pre-wrap { white-space: pre-wrap !important; }
+
+/* --- 2. WORD BREAKING --- */
+/* The safest way to break long URLs or words without breaking layout */
+.break-words { overflow-wrap: break-word !important; }
+
+/* Aggressive breaking (breaks everywhere, use for hashes/IDs) */
+.break-all   { word-break: break-all !important; }
+
+/* Reset to browser defaults */
+.break-normal {
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+}

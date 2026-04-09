@@ -1,0 +1,18 @@
+/**
+ * Bestiary UI — Interactivity Utilities
+ * ------------------------------------------------------------
+ */
+
+/* 1. Pointer Events (Essential for overlays and click-through icons) */
+.pointer-events-none { pointer-events: none !important; }
+.pointer-events-auto { pointer-events: auto !important; }
+
+/* 2. User Select (Crucial for UI labels and copy-paste blocks) */
+.select-none { user-select: none !important; -webkit-user-select: none; }
+.select-all  { user-select: all !important;  -webkit-user-select: all; }
+.select-text { user-select: text !important; -webkit-user-select: text; }
+
+/* 3. Touch Action (Mobile UX optimization) */
+.touch-auto         { touch-action: auto !important; }
+.touch-none         { touch-action: none !important; } /* Useful for custom drag/drop */
+.touch-manipulation { touch-action: manipulation !important; } /* Prevents 300ms delay */

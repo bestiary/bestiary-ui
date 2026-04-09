@@ -1,59 +1,38 @@
-/* ============================================================
-   Bestiary UI — Flex Shorthand Utilities
-   
-   These utilities set flex-grow, flex-shrink, and flex-basis 
-   in one declaration. They define how items resize to fill 
-   available space.
-   ============================================================ */
+/**
+ * Bestiary UI — Flexbox Utilities
+ * ------------------------------------------------------------
+ */
 
-/* 1. Functional Behaviors */
+/* 1. Direction */
+.flex-row            { flex-direction: row !important; }
+.flex-row-reverse    { flex-direction: row-reverse !important; }
+.flex-col            { flex-direction: column !important; }
+.flex-col-reverse    { flex-direction: column-reverse !important; }
 
-/* Allows item to grow and shrink, ignoring initial size (equal columns) */
-.b-flex-1 {
-    flex: 1 1 0%;
-}
+/* 2. Wrapping */
+.flex-wrap           { flex-wrap: wrap !important; }
+.flex-wrap-reverse   { flex-wrap: wrap-reverse !important; }
+.flex-nowrap         { flex-wrap: nowrap !important; }
 
-/* Allows item to grow and shrink based on its intrinsic size */
-.b-flex-auto {
-    flex: 1 1 auto;
-}
+/* 3. Flex Sizing Shorthands */
+.flex-1       { flex: 1 1 0% !important; }
+.flex-auto    { flex: 1 1 auto !important; }
+.flex-initial { flex: 0 1 auto !important; }
+.flex-none    { flex: none !important; }
 
-/* Prevents item from growing, but allows shrinking (Browser Default) */
-.b-flex-initial {
-    flex: 0 1 auto;
-}
+/* 4. Grow & Shrink */
+.grow         { flex-grow: 1 !important; }
+.grow-0       { flex-grow: 0 !important; }
+.shrink       { flex-shrink: 1 !important; }
+.shrink-0     { flex-shrink: 0 !important; }
 
-/* Prevents item from growing or shrinking; fixed size */
-.b-flex-none {
-    flex: none;
-}
+/* 5. Basis (Only the most useful ones) */
+.basis-auto   { flex-basis: auto !important; }
+.basis-full   { flex-basis: 100% !important; }
 
-/* 2. Numeric Ratios
-   Used for weighted distribution (e.g., one item twice as wide as others). */
-
-.b-flex-2  { flex: 2 2 0%; }
-.b-flex-3  { flex: 3 3 0%; }
-.b-flex-4  { flex: 4 4 0%; }
-.b-flex-5  { flex: 5 5 0%; }
-.b-flex-6  { flex: 6 6 0%; }
-.b-flex-7  { flex: 7 7 0%; }
-.b-flex-8  { flex: 8 8 0%; }
-.b-flex-9  { flex: 9 9 0%; }
-.b-flex-10 { flex: 10 10 0%; }
-.b-flex-11 { flex: 11 11 0%; }
-.b-flex-12 { flex: 12 12 0%; }
-
-/* 3. Fractional Ratios
-   Mapped to the percentage primitives for grid-like flexibility. */
-
-.b-flex-1-2 { flex: var(--b-ref-fraction-1-2); } /* 50% */
-.b-flex-1-3 { flex: var(--b-ref-fraction-1-3); } /* 33.33% */
-.b-flex-1-4 { flex: var(--b-ref-fraction-1-4); } /* 25% */
-.b-flex-1-5 { flex: var(--b-ref-fraction-1-5); } /* 20% */
-.b-flex-1-6 { flex: var(--b-ref-fraction-1-6); } /* 16.66% */
-.b-flex-2-3 { flex: var(--b-ref-fraction-2-3); } /* 66.66% */
-.b-flex-2-5 { flex: var(--b-ref-fraction-2-5); } /* 40% */
-.b-flex-3-4 { flex: var(--b-ref-fraction-3-4); } /* 75% */
-.b-flex-3-5 { flex: var(--b-ref-fraction-3-5); } /* 60% */
-.b-flex-4-5 { flex: var(--b-ref-fraction-4-5); } /* 80% */
-.b-flex-5-6 { flex: var(--b-ref-fraction-5-6); } /* 83.33% */
+/* Basis Fractions (For grid-like behavior inside flex) */
+.basis-1-2    { flex-basis: 50% !important; }
+.basis-1-3    { flex-basis: 33.3333% !important; }
+.basis-2-3    { flex-basis: 66.6666% !important; }
+.basis-1-4    { flex-basis: 25% !important; }
+.basis-3-4    { flex-basis: 75% !important; }

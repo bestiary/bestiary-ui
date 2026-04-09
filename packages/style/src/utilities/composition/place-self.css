@@ -1,48 +1,11 @@
-/* ============================================================
-   Bestiary UI — Place Self Utilities
+/**
+ * Bestiary UI — Place Self Utilities
+ * ------------------------------------------------------------
+ * Shorthand for align-self and justify-self.
+ */
 
-   This is a shorthand property for 'align-self' and 'justify-self'.
-   It allows an individual grid or flex item to control its own
-   alignment along both the block and inline axes simultaneously.
-   ============================================================ */
-
-/* 1. Individual Alignment Control */
-
-/* Aligns the item to the center of its area on both axes */
-.b-place-self-center {
-    place-self: center;
-}
-
-/* Aligns the item to the start of its area on both axes */
-.b-place-self-start {
-    place-self: start;
-}
-
-/* Aligns the item to the end of its area on both axes */
-.b-place-self-end {
-    place-self: end;
-}
-
-/* Item stretches to fill its area on both axes */
-.b-place-self-stretch {
-    place-self: stretch;
-}
-
-/* 2. Safe Alignment (Enterprise UX)
-   Fallbacks to 'start' if the item's content overflows the
-   available space, ensuring accessibility on small screens. */
-
-.b-place-self-center-safe {
-    place-self: safe center;
-}
-
-.b-place-self-end-safe {
-    place-self: safe end;
-}
-
-/* 3. Helper Utilities */
-
-/* Resets the alignment to the value inherited from the parent (Default) */
-.b-place-self-auto {
-    place-self: auto;
-}
+.place-self-auto    { place-self: auto !important; }
+.place-self-start   { place-self: start !important; }
+.place-self-end     { place-self: end !important; }
+.place-self-center  { place-self: center !important; }
+.place-self-stretch { place-self: stretch !important; }

@@ -1,53 +1,10 @@
-/* ============================================================
-   Bestiary UI — Align Items Utilities
+/**
+ * Bestiary UI — Align Items Utilities
+ * ------------------------------------------------------------
+ */
 
-   These utilities control how flex or grid items are aligned
-   along the cross-axis of the container.
-   ============================================================ */
-
-/* 1. Core Alignment */
-
-/* Aligns items to the start of the cross-axis */
-.b-items-start {
-    align-items: flex-start;
-}
-
-/* Aligns items to the end of the cross-axis */
-.b-items-end {
-    align-items: flex-end;
-}
-
-/* Aligns items to the center of the cross-axis */
-.b-items-center {
-    align-items: center;
-}
-
-/* Items are stretched to fill the container (Default) */
-.b-items-stretch {
-    align-items: stretch;
-}
-
-/* 2. Typographical Alignment */
-
-/* Aligns items along their first text baseline */
-.b-items-baseline {
-    align-items: baseline;
-}
-
-/* Aligns items along their last text baseline */
-.b-items-baseline-last {
-    align-items: last baseline;
-}
-
-/* 3. Safe Alignment (Accessibility)
-   Ensures content remains reachable if it overflows the container. */
-
-/* Centers items, but falls back to 'start' on overflow */
-.b-items-center-safe {
-    align-items: safe center;
-}
-
-/* Aligns to end, but falls back to 'start' on overflow */
-.b-items-end-safe {
-    align-items: safe flex-end;
-}
+.items-start    { align-items: flex-start !important; }
+.items-end      { align-items: flex-end !important; }
+.items-center   { align-items: center !important; }
+.items-baseline { align-items: baseline !important; }
+.items-stretch  { align-items: stretch !important; }

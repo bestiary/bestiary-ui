@@ -1,58 +1,17 @@
-/* ============================================================
-   Bestiary UI — Object Position Utilities
+/**
+ * Bestiary UI — Object Position Utilities
+ * ------------------------------------------------------------
+ * Controls the alignment of replaced content (img, video) within its box.
+ */
 
-   These utilities control the alignment of a replaced element's
-   content (like <img> or <video>) within its content box.
-   Works in conjunction with object-fit classes.
-   ============================================================ */
+.object-top    { object-position: top !important; }
+.object-bottom { object-position: bottom !important; }
+.object-left   { object-position: left !important; }
+.object-right  { object-position: right !important; }
+.object-center { object-position: center !important; }
 
-/* 1. Top Alignment */
-
-/* Aligns the content to the top-left corner */
-.b-object-top-left {
-    object-position: top left;
-}
-
-/* Aligns the content to the top edge, centered horizontally */
-.b-object-top {
-    object-position: top;
-}
-
-/* Aligns the content to the top-right corner */
-.b-object-top-right {
-    object-position: top right;
-}
-
-/* 2. Middle Alignment */
-
-/* Aligns the content to the left edge, centered vertically */
-.b-object-left {
-    object-position: left;
-}
-
-/* Centers the content both horizontally and vertically (Default) */
-.b-object-center {
-    object-position: center;
-}
-
-/* Aligns the content to the right edge, centered vertically */
-.b-object-right {
-    object-position: right;
-}
-
-/* 3. Bottom Alignment */
-
-/* Aligns the content to the bottom-left corner */
-.b-object-bottom-left {
-    object-position: bottom left;
-}
-
-/* Aligns the content to the bottom edge, centered horizontally */
-.b-object-bottom {
-    object-position: bottom;
-}
-
-/* Aligns the content to the bottom-right corner */
-.b-object-bottom-right {
-    object-position: bottom right;
-}
+/* Common Corners */
+.object-top-left     { object-position: top left !important; }
+.object-top-right    { object-position: top right !important; }
+.object-bottom-left  { object-position: bottom left !important; }
+.object-bottom-right { object-position: bottom right !important; }

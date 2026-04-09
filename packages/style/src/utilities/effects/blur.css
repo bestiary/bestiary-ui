@@ -1,0 +1,27 @@
+/**
+ * Bestiary UI — Blur & Backdrop Blur Utilities
+ * ------------------------------------------------------------
+ * Controls visual softening of elements and their backgrounds.
+ * Mapped to the global blur tokens in effects/blur.css.
+ */
+
+/* --- 1. FILTER: BLUR --- */
+.blur-none { filter: blur(0) !important; }
+.blur-xs   { filter: blur(var(--b-blur-xs)) !important; }
+.blur-sm   { filter: blur(var(--b-blur-sm)) !important; }
+.blur-md   { filter: blur(var(--b-blur-md)) !important; }
+.blur-lg   { filter: blur(var(--b-blur-lg)) !important; }
+.blur-xl   { filter: blur(var(--b-blur-xl)) !important; }
+.blur-2xl  { filter: blur(var(--b-blur-2xl)) !important; }
+.blur-3xl  { filter: blur(var(--b-blur-3xl)) !important; }
+
+/* --- 2. BACKDROP FILTER: BLUR --- */
+/* Essential for modern "Glassmorphism" effects */
+.backdrop-blur-none { backdrop-filter: blur(0) !important; }
+.backdrop-blur-xs   { backdrop-filter: blur(var(--b-blur-xs)) !important; }
+.backdrop-blur-sm   { backdrop-filter: blur(var(--b-blur-sm)) !important; }
+.backdrop-blur-md   { backdrop-filter: blur(var(--b-blur-md)) !important; }
+.backdrop-blur-lg   { backdrop-filter: blur(var(--b-blur-lg)) !important; }
+.backdrop-blur-xl   { backdrop-filter: blur(var(--b-blur-xl)) !important; }
+.backdrop-blur-2xl  { backdrop-filter: blur(var(--b-blur-2xl)) !important; }
+.backdrop-blur-3xl  { backdrop-filter: blur(var(--b-blur-3xl)) !important; }

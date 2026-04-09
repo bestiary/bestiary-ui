@@ -1,135 +1,46 @@
-/* ============================================================
-   Bestiary UI — Display Utilities
+/**
+ * Bestiary UI — Display Utilities
+ * ------------------------------------------------------------
+ */
 
-   These utilities control the box type of an element and its
-   participation in layout flow (Flexbox, Grid, Tables).
-   Includes essential accessibility helpers for screen readers.
-   ============================================================ */
+/* 1. Standard Flow */
+.block        { display: block !important; }
+.inline-block { display: inline-block !important; }
+.inline       { display: inline !important; }
+.hidden       { display: none !important; }
 
-/* 1. Basic Display */
+/* 2. Flex & Grid Engines */
+.flex        { display: flex !important; }
+.inline-flex { display: inline-flex !important; }
+.grid        { display: grid !important; }
+.inline-grid { display: inline-grid !important; }
 
-/* Element generates a block-level box (starts on a new line) */
-.b-block {
-    display: block;
+/* 3. Special Helpers */
+.contents    { display: contents !important; }
+.flow-root   { display: flow-root !important; }
+
+/* 4. Accessibility (Screen Readers Only) */
+/* Visually hidden but available for screen readers */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border-width: 0 !important;
 }
 
-/* Element flows within text */
-.b-inline {
-    display: inline;
-}
-
-/* Inline element that can have height, width, and margins */
-.b-inline-block {
-    display: inline-block;
-}
-
-/* Removes the element from the flow; its space is not reserved */
-.b-hidden {
-    display: none;
-}
-
-/* 2. Flow & Box Helpers */
-
-/* Creates a new block formatting context (useful for clearing floats) */
-.b-flow-root {
-    display: flow-root;
-}
-
-/* The element itself does not produce a box, but its children do */
-.b-contents {
-    display: contents;
-}
-
-/* Generates a block-level box with a list-item marker */
-.b-list-item {
-    display: list-item;
-}
-
-/* 3. Modern Layout Engines */
-
-.b-flex {
-    display: flex;
-}
-
-.b-inline-flex {
-    display: inline-flex;
-}
-
-.b-grid {
-    display: grid;
-}
-
-.b-inline-grid {
-    display: inline-grid;
-}
-
-/* 4. CSS Table Model
-   Useful for building complex data structures with standard HTML tags. */
-
-.b-table {
-    display: table;
-}
-
-.b-inline-table {
-    display: inline-table;
-}
-
-.b-table-caption {
-    display: table-caption;
-}
-
-.b-table-cell {
-    display: table-cell;
-}
-
-.b-table-column {
-    display: table-column;
-}
-
-.b-table-column-group {
-    display: table-column-group;
-}
-
-.b-table-footer-group {
-    display: table-footer-group;
-}
-
-.b-table-header-group {
-    display: table-header-group;
-}
-
-.b-table-row-group {
-    display: table-row-group;
-}
-
-.b-table-row {
-    display: table-row;
-}
-
-/* 5. Accessibility (Screen Readers)
-   Used to hide content visually while keeping it available for
-   assistive technologies (SEO and A11y best practices). */
-
-.b-sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-    border-width: 0;
-}
-
-/* Reverts sr-only styles, making the element visible and static again */
-.b-not-sr-only {
-    position: static;
-    width: auto;
-    height: auto;
-    padding: 0;
-    margin: 0;
-    overflow: visible;
-    clip-path: none;
-    white-space: normal;
+/* Revert sr-only */
+.not-sr-only {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+    white-space: normal !important;
 }

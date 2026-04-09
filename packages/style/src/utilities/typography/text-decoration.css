@@ -1,0 +1,39 @@
+/**
+ * Bestiary UI — Text Decoration Utilities
+ * ------------------------------------------------------------
+ */
+
+/* --- 1. LINES --- */
+.underline      { text-decoration-line: underline !important; }
+.overline       { text-decoration-line: overline !important; }
+.line-through   { text-decoration-line: line-through !important; }
+.no-underline   { text-decoration-line: none !important; }
+
+/* --- 2. STYLES --- */
+.decoration-solid  { text-decoration-style: solid !important; }
+.decoration-double { text-decoration-style: double !important; }
+.decoration-dotted { text-decoration-style: dotted !important; }
+.decoration-dashed { text-decoration-style: dashed !important; }
+.decoration-wavy   { text-decoration-style: wavy !important; }
+
+/* --- 3. THICKNESS (Mapped to strokes) --- */
+.decoration-auto { text-decoration-thickness: auto !important; }
+.decoration-1    { text-decoration-thickness: 1px !important; }
+.decoration-2    { text-decoration-thickness: 2px !important; }
+.decoration-sm   { text-decoration-thickness: var(--b-stroke-default) !important; }
+
+/* --- 4. COLORS (Semantic Only) --- */
+.decoration-primary   { text-decoration-color: var(--b-primary-solid-background) !important; }
+.decoration-secondary { text-decoration-color: var(--b-secondary-solid-background) !important; }
+.decoration-success   { text-decoration-color: var(--b-success-solid-background) !important; }
+.decoration-error     { text-decoration-color: var(--b-error-solid-background) !important; }
+.decoration-warning   { text-decoration-color: var(--b-warning-solid-background) !important; }
+.decoration-info      { text-decoration-color: var(--b-info-solid-background) !important; }
+.decoration-contrast  { text-decoration-color: var(--b-contrast-solid-background) !important; }
+
+/* --- 5. UNDERLINE OFFSET --- */
+/* Improves legibility by moving the line away from descenders (g, y, p) */
+.underline-offset-auto { text-underline-offset: auto !important; }
+.underline-offset-1    { text-underline-offset: 1px !important; }
+.underline-offset-2    { text-underline-offset: 2px !important; }
+.underline-offset-4    { text-underline-offset: 4px !important; }

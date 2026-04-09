@@ -1,37 +1,15 @@
-/* ============================================================
-   Bestiary UI — Grid Template Rows Utilities
+/**
+ * Bestiary UI — Grid Template Rows Utilities
+ * ------------------------------------------------------------
+ */
 
-   These utilities define the row structure of a grid container.
-   The repeat(n, minmax(0, 1fr)) pattern ensures that rows take
-   up equal space while allowing content to shrink correctly
-   without breaking the container's height.
-   ============================================================ */
+/* Rare use cases, kept only for basic vertical alignment */
+.grid-rows-1  { grid-template-rows: repeat(1, minmax(0, 1fr)) !important; }
+.grid-rows-2  { grid-template-rows: repeat(2, minmax(0, 1fr)) !important; }
+.grid-rows-3  { grid-template-rows: repeat(3, minmax(0, 1fr)) !important; }
+.grid-rows-4  { grid-template-rows: repeat(4, minmax(0, 1fr)) !important; }
+.grid-rows-5  { grid-template-rows: repeat(5, minmax(0, 1fr)) !important; }
+.grid-rows-6  { grid-template-rows: repeat(6, minmax(0, 1fr)) !important; }
 
-/* 1. Standard Grid Rows (1-12)
-   Splits the grid into a specific number of equal-height rows. */
-
-.b-grid-rows-1  { grid-template-rows: repeat(1, minmax(0, 1fr)); }
-.b-grid-rows-2  { grid-template-rows: repeat(2, minmax(0, 1fr)); }
-.b-grid-rows-3  { grid-template-rows: repeat(3, minmax(0, 1fr)); }
-.b-grid-rows-4  { grid-template-rows: repeat(4, minmax(0, 1fr)); }
-.b-grid-rows-5  { grid-template-rows: repeat(5, minmax(0, 1fr)); }
-.b-grid-rows-6  { grid-template-rows: repeat(6, minmax(0, 1fr)); }
-.b-grid-rows-7  { grid-template-rows: repeat(7, minmax(0, 1fr)); }
-.b-grid-rows-8  { grid-template-rows: repeat(8, minmax(0, 1fr)); }
-.b-grid-rows-9  { grid-template-rows: repeat(9, minmax(0, 1fr)); }
-.b-grid-rows-10 { grid-template-rows: repeat(10, minmax(0, 1fr)); }
-.b-grid-rows-11 { grid-template-rows: repeat(11, minmax(0, 1fr)); }
-.b-grid-rows-12 { grid-template-rows: repeat(12, minmax(0, 1fr)); }
-
-/* 2. Advanced Grid Values */
-
-/* Inherits the grid row tracks from the parent container.
-   Allows nested grids to align perfectly with the parent grid lines. */
-.b-grid-rows-subgrid {
-    grid-template-rows: subgrid;
-}
-
-/* Removes any defined row grid template */
-.b-grid-rows-none {
-    grid-template-rows: none;
-}
+.grid-rows-none    { grid-template-rows: none !important; }
+.grid-rows-subgrid { grid-template-rows: subgrid !important; }

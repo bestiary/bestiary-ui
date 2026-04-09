@@ -1,0 +1,17 @@
+/**
+ * Bestiary UI — Grid Auto Utilities
+ * ------------------------------------------------------------
+ * Controls the size of implicitly-created grid columns and rows.
+ */
+
+/* Auto Columns */
+.auto-cols-auto { grid-auto-columns: auto !important; }
+.auto-cols-min  { grid-auto-columns: min-content !important; }
+.auto-cols-max  { grid-auto-columns: max-content !important; }
+.auto-cols-fr   { grid-auto-columns: minmax(0, 1fr) !important; }
+
+/* Auto Rows */
+.auto-rows-auto { grid-auto-rows: auto !important; }
+.auto-rows-min  { grid-auto-rows: min-content !important; }
+.auto-rows-max  { grid-auto-rows: max-content !important; }
+.auto-rows-fr   { grid-auto-rows: minmax(0, 1fr) !important; }

@@ -1,37 +1,10 @@
-/* ============================================================
-   Bestiary UI — Grid Auto Flow Utilities
+/**
+ * Bestiary UI — Grid Auto Flow Utilities
+ * ------------------------------------------------------------
+ */
 
-   These utilities control how the auto-placement algorithm works,
-   specifying exactly how auto-placed items get flowed into the grid.
-   ============================================================ */
-
-/* 1. Axis Flow
-   Determines whether items fill up rows or columns first. */
-
-/* Items are placed by filling each row in turn (Browser Default) */
-.b-grid-flow-row {
-    grid-auto-flow: row;
-}
-
-/* Items are placed by filling each column in turn */
-.b-grid-flow-col {
-    grid-auto-flow: column;
-}
-
-/* 2. Packing Algorithms
-   Controls how the algorithm handles "holes" in the grid. */
-
-/* Attempts to fill in holes earlier in the grid if smaller items come later */
-.b-grid-flow-dense {
-    grid-auto-flow: dense;
-}
-
-/* Fills rows and attempts to fill in holes (row + dense) */
-.b-grid-flow-row-dense {
-    grid-auto-flow: row dense;
-}
-
-/* Fills columns and attempts to fill in holes (column + dense) */
-.b-grid-flow-col-dense {
-    grid-auto-flow: column dense;
-}
+.grid-flow-row         { grid-auto-flow: row !important; }
+.grid-flow-col         { grid-auto-flow: column !important; }
+.grid-flow-dense       { grid-auto-flow: dense !important; }
+.grid-flow-row-dense   { grid-auto-flow: row dense !important; }
+.grid-flow-col-dense   { grid-auto-flow: column dense !important; }

@@ -1,0 +1,28 @@
+/**
+ * Bestiary UI — Text Shadow Utilities
+ * ------------------------------------------------------------
+ * Controls text elevation. Uses the dynamic Shadow Engine.
+ */
+
+/* --- 1. SHADOW GEOMETRY (Sizes) --- */
+/* These use the formulas defined in your tokens/typography/text-shadow.css */
+.text-shadow-none { text-shadow: none !important; }
+.text-shadow-2xs  { text-shadow: var(--b-text-shadow-2xs) !important; }
+.text-shadow-xs   { text-shadow: var(--b-text-shadow-xs) !important; }
+.text-shadow-sm   { text-shadow: var(--b-text-shadow-sm) !important; }
+.text-shadow-md   { text-shadow: var(--b-text-shadow-md) !important; }
+.text-shadow-lg   { text-shadow: var(--b-text-shadow-lg) !important; }
+
+/* --- 2. SHADOW COLOR HOOKS (Semantic) --- */
+/* Instead of 200 classes, we use semantic hooks to switch the color context */
+.text-shadow-primary   { --b-text-shadow-color-channels: var(--b-primary-channels) !important; }
+.text-shadow-secondary { --b-text-shadow-color-channels: var(--b-secondary-channels) !important; }
+.text-shadow-success   { --b-text-shadow-color-channels: var(--b-success-channels) !important; }
+.text-shadow-danger    { --b-text-shadow-color-channels: var(--b-error-channels) !important; }
+.text-shadow-warning   { --b-text-shadow-color-channels: var(--b-warning-channels) !important; }
+.text-shadow-info      { --b-text-shadow-color-channels: var(--b-info-channels) !important; }
+.text-shadow-contrast  { --b-text-shadow-color-channels: var(--b-contrast-channels) !important; }
+
+/* Literal colors */
+.text-shadow-white   { --b-text-shadow-color-channels: var(--b-white-channels) !important; }
+.text-shadow-black   { --b-text-shadow-color-channels: var(--b-black-channels) !important; }
