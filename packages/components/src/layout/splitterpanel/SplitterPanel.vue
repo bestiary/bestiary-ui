@@ -14,7 +14,7 @@ const props = defineProps(splitterPanelProps);
 const slots = useSlots();
 
 const isNested = computed(() => {
-    const children = slots.default?.() || [];
+    const children = (slots as any).default ? (slots as any).default() : [];
     return children.some((vnode: VNode) => {
         const type = vnode.type as any;
         return type.name === "BSplitter";

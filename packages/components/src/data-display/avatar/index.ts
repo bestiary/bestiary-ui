@@ -3,4 +3,4 @@ import {withInstall} from "../../utils/with-install.ts";
 
 export const BAvatar = withInstall(Avatar);
 export default BAvatar;
-export * from "./avatar.types.ts";
+export * from "./avatar.props.ts";

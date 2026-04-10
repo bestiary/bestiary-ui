@@ -9,9 +9,9 @@
     "pack:libs": "pnpm exec tsx scripts/pack.ts",
 
     "build": "tsx scripts/build.ts",
-    "build:components": "tsx scripts/build.ts --components",
+    "build:components": "tsx scripts/build-components.ts",
     "build:utils": "tsx scripts/build.ts --utils",
-    "build:style": "tsx scripts/build.ts --style",
+    "build:style": "tsx scripts/build-style.ts",
     "build:icons": "tsx scripts/build.ts --icons",
 
     "change": "changeset",

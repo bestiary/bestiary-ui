@@ -11,6 +11,7 @@ coverage/
 
 # Project specific build artifacts
 packages/bestiary-ui/
+build/
 packages/icons/generated/
 packages/*/dist/
 playground/dist/

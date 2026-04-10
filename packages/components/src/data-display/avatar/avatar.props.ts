@@ -1,4 +1,4 @@
-import {definePropType} from "@bestiary-ui/utils";
+import { definePropType } from "../../utils/types";
 import {Component} from "vue";
 
 export type AvatarSize = "small" | "medium" | "large" | "xlarge";

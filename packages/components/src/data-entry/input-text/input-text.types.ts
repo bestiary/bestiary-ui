@@ -1,4 +1,4 @@
-import {definePropType} from "@bestiary-ui/utils";
+import { definePropType } from "../../utils/types";
 
 export type InputTextSize = "small" | "medium" | "large";
 export type InputTextVariant = "outline" | "filled";

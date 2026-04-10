@@ -2,8 +2,6 @@ import { execSync } from "child_process";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 import fs from "fs-extra";
-import glob from "fast-glob";
-import { transform } from "esbuild";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -82,35 +80,6 @@ async function buildUtils() {
     await fixPackageJson(resolve(pkgDir, "utils/package.json"), resolve(dest, "package.json"));
 }
 
-async function buildStyle() {
-    console.log("🎨 Building Style...");
-    const dest = resolve(distDir, "style");
-    await clean(dest);
-    const styleSrc = resolve(pkgDir, "style/src");
-    await fs.ensureDir(dest);
-    await fs.copy(styleSrc, dest);
-
-    const files = await glob("**/*.css", { cwd: dest, absolute: true });
-    for (const file of files) {
-        const content = await fs.readFile(file, "utf-8");
-        const { code } = await transform(content, { loader: "css", minify: true, legalComments: "none" });
-        await fs.writeFile(file, code);
-    }
-
-    await fixPackageJson(resolve(pkgDir, "style/package.json"), resolve(dest, "package.json"));
-}
-
-async function buildComponents() {
-    console.log("🧱 Building Components...");
-    const dest = resolve(distDir, "components");
-    await clean(dest);
-
-    execSync("vite build", { stdio: "inherit", cwd: resolve(pkgDir, "components") });
-
-    console.log("📦 Finalizing Components...");
-    await fixPackageJson(resolve(pkgDir, "components/package.json"), resolve(dest, "package.json"));
-}
-
 async function buildIcons() {
     console.log("✨ Building Icons...");
     const iconsRoot = resolve(pkgDir, "icons");
@@ -144,16 +113,8 @@ async function build() {
         await buildUtils();
     }
 
-    if (buildAll || args.includes("--style")) {
-        await buildStyle();
-    }
-
     if (buildAll || args.includes("--icons")) {
         await buildIcons();
-    }
-
-    if (buildAll || args.includes("--components")) {
-        await buildComponents();
     }
 
     console.log("✅ Build complete!");

@@ -1,76 +1,82 @@
 import {defineConfig, UserConfig} from "vite";
 import vue from "@vitejs/plugin-vue";
 import dts from "vite-plugin-dts";
-import { resolve, dirname } from "path";
+import { resolve, dirname, relative } from "path";
 import { fileURLToPath } from "url";
 import glob from "fast-glob";
-import { libInjectCss } from "vite-plugin-lib-inject-css";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default defineConfig(async () => {
-    // Find all entry points: index.ts, plugin.ts, and all components' index.ts
+    const srcDir = resolve(__dirname, "src");
     const entries = await glob(["src/index.ts", "src/plugin.ts", "src/**/index.ts"], {
         cwd: __dirname,
         absolute: true,
     });
 
-    // Map entries to entry names (e.g. "button/index" or "index")
     const input = entries.reduce((acc, file) => {
-        const name = file.split("/src/")[1].replace(".ts", "");
+        const name = relative(srcDir, file).replace(/\.ts$/, "");
         acc[name] = file;
         return acc;
     }, {} as Record<string, string>);
 
+    const outDir = resolve(__dirname, "dist");
+
     const config: UserConfig = {
         plugins: [
             vue(),
-            libInjectCss(),
             dts({
-                outDir: resolve(__dirname, "../../packages/bestiary-ui/components"),
+                outDir,
+                entryRoot: "src",
                 cleanVueFileName: true,
+                insertTypesEntry: true,
                 tsconfigPath: resolve(__dirname, "tsconfig.json"),
-                entryRoot: resolve(__dirname, "src")
-            })
+            }),
+            {
+                name: 'strip-css-imports',
+                transform(code) {
+                    return {
+                        code: code.replace(/import\s+['"].*\.(css|scss|less|sass)['"];?/g, ''),
+                        map: null
+                    };
+                }
+            }
         ],
         build: {
-            outDir: resolve(__dirname, "../../packages/bestiary-ui/components"),
+            outDir,
             emptyOutDir: true,
             lib: {
                 entry: input,
-                formats: ["es", "cjs"] as ("es" | "cjs")[]
+                formats: ["es", "cjs"]
             },
             rollupOptions: {
-                external: ["vue", "@bestiary-ui/utils", "@bestiary-ui/style"],
+                external: [
+                    "vue",
+                    /^@bestiary-ui\/utils/,
+                    /^@bestiary-ui\/style/,
+                    /^@bestiary-ui\/icons/
+                ],
                 output: [
                     {
                         format: "es",
-                        exports: "named",
+                        dir: resolve(outDir),
                         preserveModules: true,
                         preserveModulesRoot: "src",
-                        entryFileNames: (chunkInfo) => {
-                            if (chunkInfo.name.includes("node_modules")) {
-                                return "vendors/[name].js";
-                            }
-                            return "[name].js";
-                        }
+                        entryFileNames: "[name].js",
+                        exports: "named"
                     },
                     {
                         format: "cjs",
-                        exports: "named",
+                        dir: resolve(outDir),
                         preserveModules: true,
                         preserveModulesRoot: "src",
-                        entryFileNames: (chunkInfo) => {
-                            if (chunkInfo.name.includes("node_modules")) {
-                                return "vendors/[name].cjs";
-                            }
-                            return "[name].cjs";
-                        }
+                        entryFileNames: "[name].cjs",
+                        exports: "named"
                     }
                 ]
             }
         }
-    }
+    };
     return config;
 });

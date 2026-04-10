@@ -1,43 +1,8 @@
 {
     "name": "@bestiary-ui/style",
     "version": "0.0.1",
-    "type": "module",
-    "main": "../bestiary-ui/style/index.css",
-    "exports": {
-        ".": "../bestiary-ui/style/index.css",
-        "./primitives.css": "../bestiary-ui/style/tokens/primitives.css",
-        "./contract.css": "../bestiary-ui/style/tokens/contract.css",
-
-        "./reset.css": "../bestiary-ui/style/base/reset.css",
-
-        "./themes/forest.css": "../bestiary-ui/style/themes/forest.css",
-        "./essences/leaf.css": "../bestiary-ui/style/essences/leaf.css",
-
-        "./button.css": "../bestiary-ui/style/components/general/button.css",
-
-        "./components.css": "../bestiary-ui/style/components/index.css",
-        "./avatar.css": "../bestiary-ui/style/components/data-display/avatar.css",
-        "./avatar-group.css": "../bestiary-ui/style/components/data-display/avatar-group.css",
-        "./badge.css": "../bestiary-ui/style/components/data-display/badge.css",
-        "./overlay-badge.css": "../bestiary-ui/style/components/data-display/overlay-badge.css",
-        "./card.css": "../bestiary-ui/style/components/data-display/card.css",
-        "./table.css": "../bestiary-ui/style/components/data-display/table.css",
-        "./icon-field.css": "../bestiary-ui/style/components/data-entry/icon-field.css",
-        "./input-text.css": "../bestiary-ui/style/components/data-entry/input-text.css",
-        "./password.css": "../bestiary-ui/style/components/data-entry/password.css",
-        "./textarea.css": "../bestiary-ui/style/components/data-entry/textarea.css",
-        "./rating.css": "../bestiary-ui/style/components/data-entry/rating.css",
-        "./checkbox.css": "../bestiary-ui/style/components/data-entry/checkbox.css",
-        "./message.css": "../bestiary-ui/style/components/feedback/message.css",
-        "./skeleton.css": "../bestiary-ui/style/components/feedback/skeleton.css",
-        "./button.css": "../bestiary-ui/style/components/general/button.css",
-
-        "./utilities.css": "../bestiary-ui/style/utilities/index.css"
-    },
-    "files":[
-        "dist",
-        "src"
-    ],
+    "description": "Core styles and tokens for Bestiary UI",
+    "license": "MIT",
     "publishConfig": {
         "access": "public"
     }

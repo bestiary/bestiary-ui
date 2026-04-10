@@ -47,7 +47,7 @@
 
 <script setup lang="ts">
 import {computed} from "vue";
-import {buttonProps} from "./button.types.ts";
+import {buttonProps} from "./button.props.ts";
 import {BBadge} from "../../data-display/badge";
 
 defineOptions({

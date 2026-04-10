@@ -1,4 +1,4 @@
-import {definePropType} from "@bestiary-ui/utils";
+import { definePropType } from "../../utils/types";
 
 export type BadgeSeverity = "primary" | "secondary" | "info" | "success" | "warn" | "danger" | "contrast";
 export type BadgeSize = "small" | "medium" | "large" | "xlarge";

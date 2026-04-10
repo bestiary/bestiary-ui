@@ -1,6 +1,6 @@
 import {inputTextProps} from "../input-text";
 import {Component, ExtractPropTypes} from "vue";
-import {definePropType} from "@bestiary-ui/utils";
+import { definePropType } from "../../utils/types";
 
 export type PasswordStrength = "weak" | "medium" | "strong" | "";
 export type PasswordStrengthFn = (password: string) => PasswordStrength;

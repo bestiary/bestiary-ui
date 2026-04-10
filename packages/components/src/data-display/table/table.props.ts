@@ -1,4 +1,4 @@
-import {definePropType} from "@bestiary-ui/utils";
+import { definePropType } from "../../utils/types";
 
 export type TableSize = "small" | "medium" | "large";
 
@@ -32,11 +32,11 @@ export const tableProps = {
         default: "medium"
     },
     tableStyle: {
-        type: definePropType<object | string>([Object, String]),
+        type: definePropType<string>(String),
         default: null
     },
     tableClass: {
-        type: definePropType<object | string>([Object, String]),
+        type: definePropType<string>(String),
         default: null
     }
 } as const;

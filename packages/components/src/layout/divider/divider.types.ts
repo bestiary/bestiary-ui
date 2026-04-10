@@ -1,4 +1,4 @@
-import {definePropType} from "@bestiary-ui/utils";
+import { definePropType } from "../../utils/types";
 
 export type DividerAlign = "left" | "center" | "right" | "top" | "bottom";
 export type DividerLayout = "horizontal" | "vertical";

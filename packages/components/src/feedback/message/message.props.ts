@@ -1,4 +1,4 @@
-import {definePropType} from "@bestiary-ui/utils";
+import { definePropType } from "../../utils/types";
 import {Component} from "vue";
 
 export type MessageSeverity = "secondary" | "success" | "error" | "warn" | "info" | "contrast";

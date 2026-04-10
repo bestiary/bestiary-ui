@@ -4,10 +4,10 @@ import { BSkeleton } from "@bestiary-ui/components";
 
 <template>
     <div class="view-content">
-        <div class="section b-flex b-flex-wrap">
-            <div class="b-w-full b-p-4">
+        <div class="section flex flex-wrap">
+            <div class="w-full p-4">
                 <h5>Rectangle</h5>
-                <BSkeleton class="b-mb-2"></BSkeleton>
+                <BSkeleton class="mb-2"></BSkeleton>
                 <BSkeleton width="10rem" class="b-mb-2"></BSkeleton>
                 <BSkeleton width="5rem" class="b-mb-2"></BSkeleton>
                 <BSkeleton height="2rem" class="b-mb-2"></BSkeleton>

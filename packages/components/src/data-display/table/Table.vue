@@ -64,7 +64,7 @@ const props = defineProps(tableProps);
 const slots = useSlots();
 
 const columns = computed(() => {
-    const children = slots.default?.() || [];
+    const children = (slots as any).default ? (slots as any).default() : [];
     const flatColumns: any[] = [];
 
     const findColumns = (nodes: VNode[]) => {

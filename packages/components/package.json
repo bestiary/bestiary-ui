@@ -2,116 +2,38 @@
     "name": "@bestiary-ui/components",
     "version": "0.0.3",
     "type": "module",
-    "main": "../bestiary-ui/components/index.js",
-    "module": "../bestiary-ui/components/index.js",
-    "types": "../bestiary-ui/components/index.d.ts",
+    "main": "./index.сjs",
+    "module": "./index.js",
+    "types": "./index.d.ts",
     "exports": {
         ".": {
-            "types": "../bestiary-ui/components/index.d.ts",
-            "import": "../bestiary-ui/components/index.js",
-            "require": "../bestiary-ui/components/index.cjs"
-        },
-        "./button": {
-            "types": "../bestiary-ui/components/general/button/index.d.ts",
-            "import": "../bestiary-ui/components/general/button/index.js",
-            "require": "../bestiary-ui/components/general/button/index.cjs"
-        },
-        "./badge": {
-            "types": "../bestiary-ui/components/data-display/badge/index.d.ts",
-            "import": "../bestiary-ui/components/data-display/badge/index.js",
-            "require": "../bestiary-ui/components/data-display/badge/index.cjs"
-        },
-        "./overlaybadge": {
-            "types": "../bestiary-ui/components/data-display/overlaybadge/index.d.ts",
-            "import": "../bestiary-ui/components/data-display/overlaybadge/index.js",
-            "require": "../bestiary-ui/components/data-display/overlaybadge/index.cjs"
-        },
-        "./inputtext": {
-            "types": "../bestiary-ui/components/data-entry/input-text/index.d.ts",
-            "import": "../bestiary-ui/components/data-entry/input-text/index.js",
-            "require": "../bestiary-ui/components/data-entry/input-text/index.cjs"
-        },
-        "./textarea": {
-            "types": "../bestiary-ui/components/data-entry/textarea/index.d.ts",
-            "import": "../bestiary-ui/components/data-entry/textarea/index.js",
-            "require": "../bestiary-ui/components/data-entry/textarea/index.cjs"
-        },
-        "./password": {
-            "types": "../bestiary-ui/components/data-entry/password/index.d.ts",
-            "import": "../bestiary-ui/components/data-entry/password/index.js",
-            "require": "../bestiary-ui/components/data-entry/password/index.cjs"
-        },
-        "./rating": {
-            "types": "../bestiary-ui/components/data-entry/rating/index.d.ts",
-            "import": "../bestiary-ui/components/data-entry/rating/index.js",
-            "require": "../bestiary-ui/components/data-entry/rating/index.cjs"
-        },
-        "./checkbox": {
-            "types": "../bestiary-ui/components/data-entry/checkbox/index.d.ts",
-            "import": "../bestiary-ui/components/data-entry/checkbox/index.js",
-            "require": "../bestiary-ui/components/data-entry/checkbox/index.cjs"
-        },
-        "./message": {
-            "types": "../bestiary-ui/components/feedback/message/index.d.ts",
-            "import": "../bestiary-ui/components/feedback/message/index.js",
-            "require": "../bestiary-ui/components/feedback/message/index.cjs"
-        },
-        "./card": {
-            "types": "../bestiary-ui/components/data-display/card/index.d.ts",
-            "import": "../bestiary-ui/components/data-display/card/index.js",
-            "require": "../bestiary-ui/components/data-display/card/index.cjs"
-        },
-        "./avatar": {
-            "types": "../bestiary-ui/components/data-display/avatar/index.d.ts",
-            "import": "../bestiary-ui/components/data-display/avatar/index.js",
-            "require": "../bestiary-ui/components/data-display/avatar/index.cjs"
-        },
-        "./avatargroup": {
-            "types": "../bestiary-ui/components/data-display/avatar-group/index.d.ts",
-            "import": "../bestiary-ui/components/data-display/avatar-group/index.js",
-            "require": "../bestiary-ui/components/data-display/avatar-group/index.cjs"
-        },
-        "./divider": {
-            "types": "../bestiary-ui/components/layout/divider/index.d.ts",
-            "import": "../bestiary-ui/components/layout/divider/index.js",
-            "require": "../bestiary-ui/components/layout/divider/index.cjs"
-        },
-        "./splitter": {
-            "types": "../bestiary-ui/components/layout/splitter/index.d.ts",
-            "import": "../bestiary-ui/components/layout/splitter/index.js",
-            "require": "../bestiary-ui/components/layout/splitter/index.cjs"
-        },
-        "./splitterpanel": {
-            "types": "../bestiary-ui/components/layout/splitterpanel/index.d.ts",
-            "import": "../bestiary-ui/components/layout/splitterpanel/index.js",
-            "require": "../bestiary-ui/components/layout/splitterpanel/index.cjs"
-        },
-
-        "./*": "./*"
+            "types": "./index.d.ts",
+            "import": "./index.js",
+            "require": "./index.cjs"
+        }
     },
-    "sideEffects": [
-        "**/*.css"
-    ],
+    "sideEffects": false,
     "files": [
-        "dist"
+        "*"
     ],
     "publishConfig": {
         "access": "public"
     },
     "peerDependencies": {
         "vue": "^3.4.0",
+        "@bestiary-ui/style": "workspace:*",
+        "@bestiary-ui/utils": "workspace:*",
         "@bestiary-ui/icons": "workspace:*"
     },
     "peerDependenciesMeta": {
+        "@bestiary-ui/style": {
+            "optional": true
+        },
+        "@bestiary-ui/utils": {
+            "optional": true
+        },
         "@bestiary-ui/icons": {
             "optional": true
         }
-    },
-    "dependencies": {
-        "@bestiary-ui/utils": "workspace:*",
-        "@bestiary-ui/style": "workspace:*"
-    },
-    "devDependencies": {
-        "vite-plugin-lib-inject-css": "^2.2.2"
     }
 }

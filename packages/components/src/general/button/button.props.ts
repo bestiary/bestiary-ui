@@ -1,4 +1,4 @@
-import {definePropType} from "@bestiary-ui/utils";
+import { definePropType } from "../../utils/types";
 import {Component} from "vue";
 
 export type ButtonSeverity = "primary" | "secondary" | "success" | "warn" | "danger" | "info" | "contrast";
@@ -27,7 +27,7 @@ export const buttonProps = {
         default: false
     },
     icon: {
-        type: definePropType<Component>(Object),
+        type: definePropType<string | Component>([String, Object, Function]),
         default: null
     },
     iconPos: {
@@ -47,7 +47,7 @@ export const buttonProps = {
         default: "primary"
     },
     loadingIcon: {
-        type: definePropType<Component>(Object),
+        type: definePropType<string | Component>([String, Object, Function]),
         default: null
     },
     label: {

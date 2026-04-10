@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { avatarProps } from "./avatar.types.ts";
+import { avatarProps } from "./avatar.props.ts";
 
 defineOptions({
     name: "BAvatar"
