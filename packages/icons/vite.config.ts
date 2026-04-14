@@ -3,22 +3,20 @@ import dts from "vite-plugin-dts";
 import { resolve } from "path";
 
 export default defineConfig({
-    plugins: [
+    plugins:[
         dts({
             tsconfigPath: resolve(__dirname, "tsconfig.json"),
+            outDir: resolve(__dirname, "../../build/icons"),
+            entryRoot: resolve(__dirname, "generated"),
             insertTypesEntry: true,
-            include: ["generated/**/*.ts"],
-            outDir: resolve(__dirname, "../../packages/bestiary-ui/icons"),
-            entryRoot: resolve(__dirname, "generated")
         })
     ],
     build: {
-        outDir: resolve(__dirname, "../../packages/bestiary-ui/icons"),
+        outDir: resolve(__dirname, "../../build/icons"),
+        emptyOutDir: false,
         lib: {
             entry: resolve(__dirname, "generated/index.ts"),
-            name: "BestiaryIcons",
             formats: ["es"],
-            fileName: "index"
         },
         rollupOptions: {
             external: ["vue"],
@@ -27,7 +25,6 @@ export default defineConfig({
                 preserveModulesRoot: resolve(__dirname, "generated"),
                 entryFileNames: "[name].js",
             }
-        },
-        emptyOutDir: false
+        }
     }
 });
