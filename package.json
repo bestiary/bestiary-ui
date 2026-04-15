@@ -12,7 +12,7 @@
     "build:components": "tsx scripts/build-components.ts",
     "build:utils": "tsx scripts/build.ts --utils",
     "build:style": "tsx scripts/build-style.ts",
-    "build:icons": "tsx scripts/build.ts --icons",
+    "build:icons": "tsx scripts/build-icons.ts",
 
     "change": "changeset",
     "version-pack": "changeset version",
