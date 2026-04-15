@@ -1,3 +1,8 @@
+@import "./general/button.css";
+
+@import "./layout/divider.css";
+@import "./layout/splitter.css";
+
 @import "./data-display/avatar.css";
 @import "./data-display/avatar-group.css";
 @import "./data-display/badge.css";
@@ -14,5 +19,3 @@
 
 @import "./feedback/message.css";
 @import "./feedback/skeleton.css";
-
-@import "./general/button.css";

@@ -1,6 +1,6 @@
-.b-splitter {
+:where(.b-splitter) {
     /* --- Local Component Tokens --- */
-    --b-splitter-border-width: var(--b-border-width, 1px);
+    --b-splitter-border-width: 1px;
     --b-splitter-border-style: solid;
     --b-splitter-border-color: var(--b-border-default);
 
@@ -22,38 +22,38 @@
     overflow: hidden;
 }
 
-.b-splitter--horizontal { flex-direction: row; }
-.b-splitter--vertical   { flex-direction: column; }
+:where(.b-splitter--horizontal) { flex-direction: row; }
+:where(.b-splitter--vertical)   { flex-direction: column; }
 
 /* Стан при перетягуванні */
-.b-splitter--dragging {
+:where(.b-splitter--dragging) {
     user-select: none;
 }
 
 /* Глобальний курсор при перетягуванні (ставиться на контейнер) */
-.b-splitter--dragging.b-splitter--horizontal { cursor: col-resize; }
-.b-splitter--dragging.b-splitter--vertical   { cursor: row-resize; }
+:where(.b-splitter--dragging.b-splitter--horizontal) { cursor: col-resize; }
+:where(.b-splitter--dragging.b-splitter--vertical)   { cursor: row-resize; }
 
-.b-splitter-panel {
+:where(.b-splitter-panel) {
     flex-grow: 0;
     flex-shrink: 0;
     overflow: hidden;
     position: relative;
 }
 
-.b-splitter-panel--nested {
+:where(.b-splitter-panel--nested) {
     display: flex;
 }
 
 /* Вимикаємо бордери для вкладених спліттерів */
-.b-splitter-panel--nested > .b-splitter {
+:where(.b-splitter-panel--nested > .b-splitter) {
     flex: 1;
     border: none;
     border-radius: 0;
 }
 
 /* --- GUTTER --- */
-.b-splitter__gutter {
+:where(.b-splitter__gutter) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,46 +61,46 @@
     flex-shrink: 0;
     z-index: 1;
     pointer-events: auto;
-    transition: background-color var(--b-duration-normal) var(--b-ease-in-out);
+    transition: background-color var(--b-duration-normal) var(--b-ease-base);
     position: relative;
 }
 
-.b-splitter--horizontal > .b-splitter__gutter {
+:where(.b-splitter--horizontal > .b-splitter__gutter) {
     cursor: col-resize;
     width: var(--b-splitter-gutter-size);
 }
 
-.b-splitter--vertical > .b-splitter__gutter {
+:where(.b-splitter--vertical > .b-splitter__gutter) {
     cursor: row-resize;
     height: var(--b-splitter-gutter-size);
 }
 
-.b-splitter__gutter:hover,
+:where(.b-splitter__gutter:hover),
 .b-splitter--dragging .b-splitter__gutter {
     background-color: var(--b-splitter-gutter-hover-background);
 }
 
 /* --- HANDLE --- */
-.b-splitter__gutter-handle {
+:where(.b-splitter__gutter-handle) {
     background-color: var(--b-splitter-handle-background);
     border-radius: var(--b-radius-full);
     transition: background-color var(--b-duration-normal), transform var(--b-duration-normal);
 }
 
 /* Горизонтальний спліттер - вертикальна ручка */
-.b-splitter--horizontal > .b-splitter__gutter .b-splitter__gutter-handle {
+:where(.b-splitter--horizontal > .b-splitter__gutter .b-splitter__gutter-handle) {
     width: 2px;
     height: var(--b-splitter-handle-size);
 }
 
 /* Вертикальний спліттер - горизонтальна ручка */
-.b-splitter--vertical > .b-splitter__gutter .b-splitter__gutter-handle {
+:where(.b-splitter--vertical > .b-splitter__gutter .b-splitter__gutter-handle) {
     width: var(--b-splitter-handle-size);
     height: 2px;
 }
 
 /* Підсвітка ручки при активності */
-.b-splitter__gutter:hover .b-splitter__gutter-handle,
-.b-splitter--dragging .b-splitter__gutter-handle {
+:where(.b-splitter__gutter:hover .b-splitter__gutter-handle),
+:where(.b-splitter--dragging .b-splitter__gutter-handle) {
     background-color: var(--b-splitter-handle-active-background);
 }

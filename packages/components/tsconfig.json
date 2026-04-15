@@ -2,6 +2,8 @@
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
         "composite": true,
+        "removeComments": false,
+        "declaration": true,
         "outDir": "../../packages/bestiary-ui/components"
     },
     "include": [

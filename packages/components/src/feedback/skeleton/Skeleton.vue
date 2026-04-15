@@ -1,13 +1,25 @@
 <script setup lang="ts">
-
-import { skeletonProps } from "./skeleton.props.ts";
-import {computed} from "vue";
+import { computed } from "vue";
+import { SkeletonProps } from "./skeleton.props";
 
 defineOptions({
     name: "BSkeleton",
 });
 
-const props = defineProps(skeletonProps);
+/**
+ * Component slots documentation
+ */
+defineSlots<{
+    /** Skeleton is a placeholder component and typically does not contain slots */
+    default?: (props: {}) => any;
+}>();
+
+const props = withDefaults(defineProps<SkeletonProps>(), {
+    shape: "rectangle",
+    width: "100%",
+    height: "1rem",
+    animation: "wave"
+});
 
 const classes = computed(() => [
     "b-skeleton",
@@ -25,5 +37,9 @@ const style = computed(() => {
 </script>
 
 <template>
-<div :class="classes" :style="style"></div>
+    <div
+        :class="classes"
+        :style="style"
+        aria-hidden="true"
+    ></div>
 </template>

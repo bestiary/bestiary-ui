@@ -1,8 +1,6 @@
 <script setup>
-import { BButton } from "@bestiary-ui/components";
+import { ref } from "vue";
 import { HomeSolid, UserOutline, CheckSolid, MagnifyingGlassSolid, ArrowPathSolid, CheckOutline, BookmarkOutline, MagnifyingGlassOutline, BellOutline, HeartOutline, XMarkOutline, StarOutline } from "@bestiary-ui/icons";
-
-import { ref } from 'vue';
 
 const loading = ref(false);
 
@@ -15,49 +13,49 @@ const load = () => {
 
 </script>
 <template>
-    <div class="b-flex b-flex-col b-gap-8">
-        <div class="section">
-            <h2 class="b-text-h3 b-mb-4">Basic</h2>
-            <div class="b-flex b-gap-2 b-flex-wrap">
+    <div class="view-content">
+        <section>
+            <h4 class="mb-4">Basic</h4>
+            <div class="section flex justify-center">
                 <BButton label="Submit" />
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2 class="b-text-h3 b-mb-4">Icons</h2>
-            <div class="b-flex b-items-center b-gap-4">
+        <section class="mt-8">
+            <h4 class="mb-4">Icons</h4>
+            <div class="section flex justify-center items-center gap-3">
                 <BButton :icon="HomeSolid" />
                 <BButton label="Profile" :icon="UserOutline" />
                 <BButton label="Save" :icon="CheckSolid" iconPos="right" />
                 <BButton label="Search" :icon="MagnifyingGlassSolid" iconPos="top" />
                 <BButton label="Update" :icon="ArrowPathSolid" iconPos="bottom" />
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2 class="b-text-h3 b-mb-4">Loading</h2>
-            <div class="b-flex b-gap-4">
+        <section>
+            <h4 class="mb-4">Loading</h4>
+            <div class="section flex justify-center">
                 <BButton label="Search" :icon="MagnifyingGlassSolid" :loading="loading" @click="load" />
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2 class="b-text-h3 b-mb-4">Disabled</h2>
-            <div class="b-flex b-gap-4">
+        <section>
+            <h4 class="mb-4">Disabled</h4>
+            <div class="section flex justify-center">
                 <BButton label="Search" disabled />
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2 class="b-text-h3 b-mb-4">Link</h2>
-            <div class="b-flex b-gap-4">
+        <section>
+            <h4 class="mb-4">Link</h4>
+            <div class="section flex justify-center">
                 <BButton label="Link" variant="link" />
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2 class="b-text-h3 b-mb-4">Severity</h2>
-            <div class="b-flex b-items-center b-gap-4">
+        <section>
+            <h4 class="mb-4">Severity</h4>
+            <div class="section flex justify-center gap-3">
                 <BButton label="Primary" />
                 <BButton label="Secondary" severity="secondary" />
                 <BButton label="Success" severity="success" />
@@ -66,18 +64,11 @@ const load = () => {
                 <BButton label="Danger" severity="danger" />
                 <BButton label="Contrast" severity="contrast" />
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2 class="b-text-h3 b-mb-4">Disabled</h2>
-            <div class="b-flex b-gap-4">
-                <BButton label="Submit" disabled />
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="b-text-h3 b-mb-4">Raised</h2>
-            <div class="b-flex b-gap-4">
+        <section>
+            <h4 class="mb-4">Raised</h4>
+            <div class="section flex justify-center gap-3">
                 <BButton label="Primary" raised />
                 <BButton label="Secondary" severity="secondary" raised />
                 <BButton label="Success" severity="success" raised />
@@ -86,11 +77,11 @@ const load = () => {
                 <BButton label="Danger" severity="danger" raised />
                 <BButton label="Contrast" severity="contrast" raised />
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2 class="b-text-h3 b-mb-4">Rounded</h2>
-            <div class="b-flex b-items-center b-gap-4">
+        <section>
+            <h4 class="mb-4">Rounded</h4>
+            <div class="section flex justify-center gap-3">
                 <BButton label="Primary" rounded />
                 <BButton label="Secondary" severity="secondary" rounded />
                 <BButton label="Success" severity="success" rounded />
@@ -99,11 +90,11 @@ const load = () => {
                 <BButton label="Danger" severity="danger" rounded />
                 <BButton label="Contrast" severity="contrast" rounded />
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2 class="b-text-h3 b-mb-4">Text</h2>
-            <div class="b-flex b-items-center b-gap-4">
+        <section>
+            <h4 class="mb-4">Text</h4>
+            <div class="section flex justify-center gap-3">
                 <BButton label="Primary" variant="text" />
                 <BButton label="Secondary" severity="secondary" variant="text" />
                 <BButton label="Success" severity="success" variant="text" />
@@ -112,11 +103,11 @@ const load = () => {
                 <BButton label="Danger" severity="danger" variant="text" />
                 <BButton label="Contrast" severity="contrast" variant="text" />
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2 class="b-text-h3 b-mb-4">Raised Text</h2>
-            <div class="b-flex b-items-center b-gap-4">
+        <section>
+            <h4 class="mb-4">Raised Text</h4>
+            <div class="section flex justify-center gap-3">
                 <BButton label="Primary" variant="text" raised />
                 <BButton label="Secondary" severity="secondary" variant="text" raised />
                 <BButton label="Success" severity="success" variant="text" raised />
@@ -125,11 +116,11 @@ const load = () => {
                 <BButton label="Danger" severity="danger" variant="text" raised />
                 <BButton label="Contrast" severity="contrast" variant="text" raised />
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2 class="b-text-h3 b-mb-4">Outlined</h2>
-            <div class="b-flex b-items-center b-gap-4">
+        <section>
+            <h4 class="mb-4">Outlined</h4>
+            <div class="section flex justify-center gap-3">
                 <BButton label="Primary" variant="outline" />
                 <BButton label="Secondary" severity="secondary" variant="outline" />
                 <BButton label="Success" severity="success" variant="outline" />
@@ -138,65 +129,67 @@ const load = () => {
                 <BButton label="Danger" severity="danger" variant="outline" />
                 <BButton label="Contrast" severity="contrast" variant="outline" />
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2 class="b-text-h3 b-mb-4">Icon only</h2>
-            <div class="b-flex b-items-center b-gap-4">
-                <BButton :icon="CheckOutline" />
-                <BButton :icon="BookmarkOutline" severity="secondary" />
-                <BButton :icon="MagnifyingGlassOutline" severity="success" />
-                <BButton :icon="UserOutline" severity="info" />
-                <BButton :icon="BellOutline" severity="warn" />
-                <BButton :icon="XMarkOutline" severity="danger" />
-                <BButton :icon="StarOutline" severity="contrast" />
+        <section>
+            <h4 class="mb-4">Icon Only</h4>
+            <div class="section flex flex-col items-center gap-2">
+                <div class="flex gap-2">
+                    <BButton :icon="CheckOutline" />
+                    <BButton :icon="BookmarkOutline" severity="secondary" />
+                    <BButton :icon="MagnifyingGlassOutline" severity="success" />
+                    <BButton :icon="UserOutline" severity="info" />
+                    <BButton :icon="BellOutline" severity="warn" />
+                    <BButton :icon="XMarkOutline" severity="danger" />
+                    <BButton :icon="StarOutline" severity="contrast" />
+                </div>
+                <div class="flex gap-2">
+                    <BButton :icon="CheckOutline" rounded />
+                    <BButton :icon="BookmarkOutline" severity="secondary" rounded />
+                    <BButton :icon="MagnifyingGlassOutline" severity="success" rounded />
+                    <BButton :icon="UserOutline" severity="info" rounded />
+                    <BButton :icon="BellOutline" severity="warn" rounded />
+                    <BButton :icon="XMarkOutline" severity="danger" rounded />
+                    <BButton :icon="StarOutline" severity="contrast" rounded />
+                </div>
+                <div class="flex gap-2">
+                    <BButton :icon="CheckOutline" rounded variant="outline" />
+                    <BButton :icon="BookmarkOutline" severity="secondary" rounded variant="outline" />
+                    <BButton :icon="MagnifyingGlassOutline" severity="success" rounded variant="outline" />
+                    <BButton :icon="UserOutline" severity="info" rounded variant="outline" />
+                    <BButton :icon="BellOutline" severity="warn" rounded variant="outline" />
+                    <BButton :icon="XMarkOutline" severity="danger" rounded variant="outline" />
+                    <BButton :icon="StarOutline" severity="contrast" rounded variant="outline" />
+                </div>
+                <div class="flex gap-2">
+                    <BButton :icon="CheckOutline" rounded raised variant="text" />
+                    <BButton :icon="BookmarkOutline" severity="secondary" rounded raised variant="text" />
+                    <BButton :icon="MagnifyingGlassOutline" severity="success" rounded raised variant="text" />
+                    <BButton :icon="UserOutline" severity="info" rounded raised variant="text" />
+                    <BButton :icon="BellOutline" severity="warn" rounded raised variant="text" />
+                    <BButton :icon="XMarkOutline" severity="danger" rounded raised variant="text" />
+                    <BButton :icon="StarOutline" severity="contrast" rounded raised variant="text" />
+                </div>
+                <div class="flex gap-2">
+                    <BButton :icon="CheckOutline" rounded variant="text" />
+                    <BButton :icon="BookmarkOutline" severity="secondary" rounded variant="text" />
+                    <BButton :icon="MagnifyingGlassOutline" severity="success" rounded variant="text" />
+                    <BButton :icon="UserOutline" severity="info" rounded variant="text" />
+                    <BButton :icon="BellOutline" severity="warn" rounded variant="text" />
+                    <BButton :icon="XMarkOutline" severity="danger" rounded variant="text" />
+                    <BButton :icon="StarOutline" severity="contrast" rounded variant="text" />
+                </div>
             </div>
-            <div class="b-flex b-items-center b-gap-4 b-mt-2">
-                <BButton :icon="CheckOutline" rounded />
-                <BButton :icon="BookmarkOutline" severity="secondary" rounded />
-                <BButton :icon="MagnifyingGlassOutline" severity="success" rounded />
-                <BButton :icon="UserOutline" severity="info" rounded />
-                <BButton :icon="BellOutline" severity="warn" rounded />
-                <BButton :icon="XMarkOutline" severity="danger" rounded />
-                <BButton :icon="StarOutline" severity="contrast" rounded />
-            </div>
-            <div class="b-flex b-items-center b-gap-4 b-mt-2">
-                <BButton :icon="CheckOutline" rounded variant="outline" />
-                <BButton :icon="BookmarkOutline" severity="secondary" rounded variant="outline" />
-                <BButton :icon="MagnifyingGlassOutline" severity="success" rounded variant="outline" />
-                <BButton :icon="UserOutline" severity="info" rounded variant="outline" />
-                <BButton :icon="BellOutline" severity="warn" rounded variant="outline" />
-                <BButton :icon="XMarkOutline" severity="danger" rounded variant="outline" />
-                <BButton :icon="StarOutline" severity="contrast" rounded variant="outline" />
-            </div>
-            <div class="b-flex b-items-center b-gap-4 b-mt-2">
-                <BButton :icon="CheckOutline" rounded raised variant="text" />
-                <BButton :icon="BookmarkOutline" severity="secondary" rounded raised variant="text" />
-                <BButton :icon="MagnifyingGlassOutline" severity="success" rounded raised variant="text" />
-                <BButton :icon="UserOutline" severity="info" rounded raised variant="text" />
-                <BButton :icon="BellOutline" severity="warn" rounded raised variant="text" />
-                <BButton :icon="XMarkOutline" severity="danger" rounded raised variant="text" />
-                <BButton :icon="StarOutline" severity="contrast" rounded raised variant="text" />
-            </div>
-            <div class="b-flex b-items-center b-gap-4 b-mt-2">
-                <BButton :icon="CheckOutline" rounded variant="text" />
-                <BButton :icon="BookmarkOutline" severity="secondary" rounded variant="text" />
-                <BButton :icon="MagnifyingGlassOutline" severity="success" rounded variant="text" />
-                <BButton :icon="UserOutline" severity="info" rounded variant="text" />
-                <BButton :icon="BellOutline" severity="warn" rounded variant="text" />
-                <BButton :icon="XMarkOutline" severity="danger" rounded variant="text" />
-                <BButton :icon="StarOutline" severity="contrast" rounded variant="text" />
-            </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2 class="b-text-h3 b-mb-4">Sizes</h2>
-            <div class="b-flex b-items-center b-gap-4">
+        <section>
+            <h4 class="mb-3">Sizes</h4>
+            <div class="section flex justify-center items-center gap-3">
                 <BButton label="Small" :icon="CheckOutline" size="small" />
                 <BButton label="Normal" :icon="CheckOutline" size="medium" />
                 <BButton label="Large" :icon="CheckOutline" size="large" />
                 <BButton label="XLarge" :icon="CheckOutline" size="xlarge" />
             </div>
-        </div>
+        </section>
     </div>
 </template>

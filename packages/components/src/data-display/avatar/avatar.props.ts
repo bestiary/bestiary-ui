@@ -1,28 +1,33 @@
-import { definePropType } from "../../utils/types";
-import {Component} from "vue";
+import { Component } from "vue";
 
 export type AvatarSize = "small" | "medium" | "large" | "xlarge";
 export type AvatarShape = "square" | "circle";
 
-export const avatarProps = {
-    size: {
-        type: definePropType<AvatarSize>(String),
-        default: "medium"
-    },
-    shape: {
-        type: definePropType<AvatarShape>(String),
-        default: "square"
-    },
-    label: {
-        type: String,
-        default: null
-    },
-    icon: {
-        type: definePropType<Component>(Object),
-        default: null
-    },
-    image: {
-        type: String,
-        default: null
-    }
-} as const;
+export interface AvatarProps {
+    /**
+     * Size of the avatar.
+     * @default "medium"
+     */
+    size?: AvatarSize;
+
+    /**
+     * Shape of the avatar.
+     * @default "square"
+     */
+    shape?: AvatarShape;
+
+    /**
+     * Text label to be displayed inside the avatar.
+     */
+    label?: string;
+
+    /**
+     * Icon to be displayed inside the avatar. Can be a component or a string.
+     */
+    icon?: string | Component;
+
+    /**
+     * URL of the image to be displayed as the avatar.
+     */
+    image?: string;
+}

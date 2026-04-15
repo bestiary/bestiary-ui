@@ -33,9 +33,9 @@ import Card from "@bestiary-ui/components/data-display/card";
 
 .stat-card {
     padding: 2rem;
-    border: 1px solid var(--b-border-color);
+    border: 1px solid var(--b-border-default);
     border-radius: 8px;
     width: 250px;
-    background: var(--b-bg-surface);
+    background: var(--b-surface-section);
 }
 </style>

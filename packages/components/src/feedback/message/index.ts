@@ -4,4 +4,4 @@ import {withInstall} from "../../utils/with-install.ts";
 export const BMessage = withInstall(Message);
 export default BMessage;
 
-export * from "./message.props.ts";
+export * from "./message.props";

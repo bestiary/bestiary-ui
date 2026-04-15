@@ -1,3 +1,56 @@
+<script setup lang="ts">
+import { computed } from "vue";
+import { ButtonProps } from "./button.props";
+import { BBadge } from "../../data-display/badge";
+
+defineOptions({
+    name: "BButton"
+});
+
+const slots = defineSlots<{
+    /** Primary content of the button (text label) */
+    default?: (props: {}) => any;
+    /** Custom loading indicator content */
+    loadingicon?: (props: {}) => any;
+    /** Content for the icon slot */
+    icon?: (props: {}) => any;
+}>();
+
+const props = withDefaults(defineProps<ButtonProps>(), {
+    severity: "primary",
+    variant: "default",
+    size: "medium",
+    raised: false,
+    iconPos: "left",
+    badgePos: "right",
+    badgeSeverity: "primary",
+    rounded: false,
+    type: "button",
+    disabled: false,
+    loading: false
+});
+
+const classes = computed(() => {
+    const hasIcon = !!props.icon || !!slots.icon;
+    const hasContent = !!slots.default || !!props.label;
+
+    return [
+        "b-button",
+        `b-button--severity-${props.severity}`,
+        `b-button--variant-${props.variant}`,
+        `b-button--size-${props.size}`,
+        {
+            "b-button--rounded": props.rounded,
+            "b-button--loading": props.loading,
+            "b-button--raised": props.raised,
+            "b-button--icon-only": (hasIcon || props.loading) && !hasContent && !props.badge,
+            [`b-button--icon-${props.iconPos}`]: hasIcon && hasContent,
+            [`b-button--badge-${props.badgePos}`]: props.badge,
+        }
+    ];
+});
+</script>
+
 <template>
     <button
         :type="type"
@@ -44,36 +97,3 @@
 
     </button>
 </template>
-
-<script setup lang="ts">
-import {computed} from "vue";
-import {buttonProps} from "./button.props.ts";
-import {BBadge} from "../../data-display/badge";
-
-defineOptions({
-    name: "BButton"
-});
-
-const slots = defineSlots();
-const props = defineProps(buttonProps);
-
-const classes = computed(() => {
-    const hasIcon = !!props.icon || !!slots.icon;
-    const hasContent = !!slots.default || !!props.label;
-
-    return [
-        "b-button",
-        `b-button--severity-${props.severity}`,
-        `b-button--variant-${props.variant}`,
-        `b-button--size-${props.size}`,
-        {
-            "b-button--rounded": props.rounded,
-            "b-button--loading": props.loading,
-            "b-button--raised": props.raised,
-            "b-button--icon-only": (hasIcon || props.loading) && !hasContent && !props.badge,
-            [`b-button--icon-${props.iconPos}`]: hasIcon && hasContent,
-            [`b-button--badge-${props.badgePos}`]: props.badge,
-        }
-    ];
-});
-</script>

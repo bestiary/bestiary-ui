@@ -1,17 +1,21 @@
-<template>
-<div :class="classes">
-    <div v-if="$slots.default" class="b-divider__content">
-        <slot />
-    </div>
-</div>
-</template>
-
 <script setup lang="ts">
-import {dividerProps} from "./divider.types.ts";
 import {computed} from "vue";
-import "./divider.css";
+import {DividerProps} from "./divider.props";
 
-const props = defineProps(dividerProps);
+defineOptions({
+    name: "BDivider"
+});
+
+const slots = defineSlots<{
+    /** Primary content of the divider (text label) */
+    default?: (props: {}) => any;
+}>();
+
+const props = withDefaults(defineProps<DividerProps>(), {
+    align: "left",
+    layout: "horizontal",
+    type: "solid"
+});
 
 const classes = computed(() => {
     return [
@@ -22,7 +26,13 @@ const classes = computed(() => {
             [`b-divider--type-${props.type}`]: props.type,
         }
     ]
-
 });
-
 </script>
+
+<template>
+    <div :class="classes">
+        <div v-if="$slots.default" class="b-divider__content">
+            <slot/>
+        </div>
+    </div>
+</template>

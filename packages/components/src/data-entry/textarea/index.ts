@@ -4,4 +4,4 @@ import { withInstall } from "../../utils/with-install.ts";
 export const BTextarea = withInstall(Textarea);
 export default BTextarea;
 
-export * from "./textarea.types";
+export * from "./textarea.props";

@@ -1,34 +1,23 @@
-<template>
-    <div
-        ref="containerRef"
-        :class="classes"
-        :style="style"
-    >
-        <template v-for="(panel, index) in panels" :key="index">
-            <component :is="panel" :style="getPanelStyle(index)" />
-
-            <div
-                v-if="index !== panels.length - 1"
-                class="b-splitter__gutter"
-                @pointerdown="onGutterPointerDown($event, index)"
-            >
-                <div class="b-splitter__gutter-handle"></div>
-            </div>
-        </template>
-    </div>
-</template>
-
 <script setup lang="ts">
-import { ref, computed, onMounted, useSlots, VNode } from "vue";
-import { splitterProps } from "./splitter.types.ts";
-import "./splitter.css";
+import { ref, computed, onMounted, Fragment, type VNode } from "vue";
+import { SplitterProps } from "./splitter.props";
 
 defineOptions({ name: "BSplitter" });
-const props = defineProps(splitterProps);
+
+/**
+ * Component slots documentation
+ */
+const slots = defineSlots<{
+    /** Default slot expected to contain BSplitterPanel components */
+    default?: (props: {}) => any;
+}>();
+
+const props = withDefaults(defineProps<SplitterProps>(), {
+    layout: "horizontal",
+    gutter: 4,
+});
 
 const containerRef = ref<HTMLElement | null>(null);
-const slots = useSlots();
-
 const panels = ref<VNode[]>([]);
 const panelSizes = ref<number[]>([]);
 const dragging = ref(false);
@@ -47,17 +36,33 @@ const classes = computed(() => [
     { "b-splitter--dragging": dragging.value }
 ]);
 
-const getPanels = () => {
-    const children = (slots as any).default?.() || [];
-    return children.filter((child: any) => (child.type as any).name === "BSplitterPanel");
+/**
+ * Extracts and flattens BSplitterPanel components from the default slot.
+ * Handles potential Fragments and provides strict type checking.
+ */
+const getPanels = (): VNode[] => {
+    const children = (slots.default ? slots.default({}) : []) as VNode[];
+
+    return children
+        .flatMap((child: VNode): VNode | VNode[] => {
+            return child.type === Fragment ? (child.children as VNode[]) : child;
+        })
+        .filter((child: VNode): child is VNode => {
+            const node = child as any;
+            return node?.type?.name === "BSplitterPanel";
+        });
 };
 
 onMounted(() => {
     panels.value = getPanels();
     const count = panels.value.length;
+    // Calculate initial sizes based on props or equal distribution
     panelSizes.value = panels.value.map(p => (p.props?.size as number) || (100 / count));
 });
 
+/**
+ * Calculates the flex-basis style for a panel, accounting for gutter offsets
+ */
 const getPanelStyle = (index: number) => {
     const size = panelSizes.value[index];
     const gutterCount = panels.value.length - 1;
@@ -68,6 +73,9 @@ const getPanelStyle = (index: number) => {
     };
 };
 
+/**
+ * Initializes the dragging process on pointer down
+ */
 const onGutterPointerDown = (event: PointerEvent, index: number) => {
     const gutterElement = event.currentTarget as HTMLElement;
     gutterElement.setPointerCapture(event.pointerId);
@@ -82,6 +90,9 @@ const onGutterPointerDown = (event: PointerEvent, index: number) => {
     gutterElement.addEventListener("pointercancel", onPointerUp, { once: true });
 };
 
+/**
+ * Handles pointer movement to update panel sizes dynamically
+ */
 const onPointerMove = (event: PointerEvent) => {
     if (!dragging.value || !containerRef.value) return;
 
@@ -103,12 +114,16 @@ const onPointerMove = (event: PointerEvent) => {
     const minSizePrev = (panels.value[idx].props?.minSize as number) || 0;
     const minSizeNext = (panels.value[idx + 1].props?.minSize as number) || 0;
 
+    // Boundary check for minimum sizes
     if (newSizePrev >= minSizePrev && newSizeNext >= minSizeNext) {
         panelSizes.value[idx] = newSizePrev;
         panelSizes.value[idx + 1] = newSizeNext;
     }
 };
 
+/**
+ * Cleans up listeners and state after dragging ends
+ */
 const onPointerUp = (event: PointerEvent) => {
     const gutterElement = event.currentTarget as HTMLElement;
 
@@ -120,3 +135,25 @@ const onPointerUp = (event: PointerEvent) => {
     gutterElement.removeEventListener("pointermove", onPointerMove);
 };
 </script>
+
+<template>
+    <div
+        ref="containerRef"
+        :class="classes"
+        :style="style"
+    >
+        <template v-for="(panel, index) in panels" :key="index">
+            <!-- Render the Panel component with calculated styles -->
+            <component :is="panel" :style="getPanelStyle(index)" />
+
+            <!-- Render the Gutter between panels -->
+            <div
+                v-if="index !== panels.length - 1"
+                class="b-splitter__gutter"
+                @pointerdown="onGutterPointerDown($event, index)"
+            >
+                <div class="b-splitter__gutter-handle"></div>
+            </div>
+        </template>
+    </div>
+</template>

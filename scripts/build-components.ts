@@ -1,10 +1,9 @@
-import { resolve, dirname, relative } from "path";
+import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 import fs from "fs-extra";
 import glob from "fast-glob";
 import { build, normalizePath } from "vite";
-import vue from "@vitejs/plugin-vue";
-import dts from "vite-plugin-dts";
+import { getCommonConfig } from "../packages/components/vite.config.common";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -21,76 +20,14 @@ async function buildComponents() {
     await fs.remove(distDir);
     await fs.ensureDir(distDir);
 
-    const entries = await glob(["**/*.ts", "!**/*.d.ts", "!**/__tests__/**"], {
-        cwd: compSrc,
-        absolute: true,
-    });
-
-    const input = entries.reduce((acc, file) => {
-        const name = normalizePath(relative(compSrc, file)).replace(/\.ts$/, "");
-        acc[name] = normalizePath(file);
-        return acc;
-    }, {} as Record<string, string>);
+    const viteConfig = await getCommonConfig(compDir, distDir);
 
     await build({
         configFile: false,
         root: compDir,
-        plugins: [
-            vue(),
-            dts({
-                outDir: distDir,
-                entryRoot: compSrc,
-                cleanVueFileName: true,
-                insertTypesEntry: true,
-                tsconfigPath: resolve(compDir, "tsconfig.json"),
-            }),
-            {
-                name: 'strip-css-imports',
-                transform(code) {
-                    return {
-                        code: code.replace(/import\s+['"].*\.(css|scss|less|sass)['"];?/g, ''),
-                        map: null
-                    };
-                }
-            }
-        ],
-        build: {
-            outDir: distDir,
-            emptyOutDir: false,
-            lib: {
-                entry: input,
-                formats: ["es", "cjs"]
-            },
-            rollupOptions: {
-                external: [
-                    "vue",
-                    /^@bestiary-ui\/utils/,
-                    /^@bestiary-ui\/style/,
-                    /^@bestiary-ui\/icons/
-                ],
-                output: [
-                    {
-                        format: "es",
-                        dir: distDir,
-                        preserveModules: true,
-                        preserveModulesRoot: compSrc,
-                        entryFileNames: "[name].js",
-                        exports: "named",
-                    },
-                    {
-                        format: "cjs",
-                        dir: distDir,
-                        preserveModules: true,
-                        preserveModulesRoot: compSrc,
-                        entryFileNames: "[name].cjs",
-                        exports: "named",
-                    }
-                ]
-            }
-        }
+        ...viteConfig,
     });
 
-    // Викликаємо генерацію package.json та типів
     await generatePackageConfig();
 }
 
@@ -115,7 +52,6 @@ export {}
 
     await fs.writeFile(resolve(distDir, "global.d.ts"), content);
 
-    // Додаємо reference у головний index.d.ts
     const indexPath = resolve(distDir, "index.d.ts");
     if (await fs.pathExists(indexPath)) {
         const indexContent = await fs.readFile(indexPath, "utf-8");
@@ -166,7 +102,6 @@ async function generatePackageConfig() {
         const normalized = normalizePath(file);
         if (normalized === "index.ts") continue;
 
-        // Збір імен компонентів для global.d.ts
         const fileContent = await fs.readFile(resolve(compSrc, normalized), "utf-8");
         const match = fileContent.match(/export const (\w+) =/);
         if (match && match[1]) {
@@ -204,7 +139,6 @@ async function generatePackageConfig() {
 
     await fs.writeJSON(resolve(distDir, "package.json"), distPkg, { spaces: 4 });
 
-    // Генеруємо типи на основі зібраних імен
     await generateGlobalTypes(componentNames);
 
     console.log("✅ Build complete! All configs and types generated.");

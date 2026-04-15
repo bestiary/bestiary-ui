@@ -1,35 +1,46 @@
-import { definePropType } from "../../utils/types";
-
 export type CheckboxSize = "small" | "medium" | "large";
 export type CheckboxVariant = "outline" | "filled";
 
-export const checkboxProps = {
-    value: {
-        type: null,
-        default: null
-    },
-    size: {
-        type: definePropType<CheckboxSize>(String),
-        default: "medium"
-    },
-    variant: {
-        type: definePropType<CheckboxVariant>(String),
-        default: "outline"
-    },
-    invalid: {
-        type: Boolean,
-        default: false
-    },
-    disabled: {
-        type: Boolean,
-        default: false
-    },
-    readonly: {
-        type: Boolean,
-        default: false
-    },
-    indeterminate: {
-        type: Boolean,
-        default: false
-    }
-} as const;
+export interface CheckboxProps {
+    /**
+     * Value associated with the checkbox when used in a group or array.
+     * @default null
+     */
+    value?: any;
+
+    /**
+     * Size of the checkbox component.
+     * @default "medium"
+     */
+    size?: CheckboxSize;
+
+    /**
+     * Visual style variant of the checkbox.
+     * @default "outline"
+     */
+    variant?: CheckboxVariant;
+
+    /**
+     * Indicates if the checkbox is in an invalid state.
+     * @default false
+     */
+    invalid?: boolean;
+
+    /**
+     * Whether the checkbox is disabled.
+     * @default false
+     */
+    disabled?: boolean;
+
+    /**
+     * Whether the checkbox is read-only.
+     * @default false
+     */
+    readonly?: boolean;
+
+    /**
+     * Whether the checkbox is in an indeterminate state (neither checked nor unchecked).
+     * @default false
+     */
+    indeterminate?: boolean;
+}

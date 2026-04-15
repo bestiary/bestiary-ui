@@ -9,91 +9,103 @@ const router = createRouter({
             name: "home",
             component: HomeView
         },
+
+        // General
         {
             path: "/buttons",
             name: "buttons",
-            component: () => import("../views/ButtonView.vue")
+            component: () => import("../views/ButtonView.vue"),
+            meta: { category: "General", title: "Button" }
         },
-        {
-            path: "/cards",
-            name: "cards",
-            component: () => import("../views/CardView.vue")
-        },
-        {
-            path: "/badges",
-            name: "badges",
-            component: () => import("../views/BadgeView.vue")
-        },
-        {
-            path: "/skeleton",
-            name: "skeleton",
-            component: () => import("../views/SkeletonView.vue")
-        },
-        {
-            path: "/icons",
-            name: "icons",
-            component: () => import("../views/IconView.vue")
-        },
+
+        // Layout
         {
             path: "/divider",
             name: "divider",
-            component: () => import("../views/DividerView.vue")
+            component: () => import("../views/DividerView.vue"),
+            meta: { category: "Layout", title: "Divider" }
         },
         {
             path: "/splitter",
             name: "splitter",
-            component: () => import("../views/SplitterView.vue")
+            component: () => import("../views/SplitterView.vue"),
+            meta: { category: "Layout", title: "Splitter" }
         },
+
+        // Navigation
+
+
+        // Data Entry
         {
             path: "/input",
             name: "input",
-            component: () => import("../views/InputView.vue")
+            component: () => import("../views/InputView.vue"),
+            meta: { category: "Data Entry", title: "InputText" }
         },
         {
             path: "/password",
             name: "password",
-            component: () => import("../views/PasswordView.vue")
+            component: () => import("../views/PasswordView.vue"),
+            meta: { category: "Data Entry", title: "Password" }
         },
         {
             path: "/textarea",
             name: "textarea",
-            component: () => import("../views/TextareaView.vue")
+            component: () => import("../views/TextareaView.vue"),
+            meta: { category: "Data Entry", title: "Textarea" }
         },
         {
             path: "/checkbox",
             name: "checkbox",
-            component: () => import("../views/CheckboxView.vue")
-        },
-        {
-            path: "/message",
-            name: "message",
-            component: () => import("../views/MessageView.vue")
-        },
-        {
-            path: "/tokens",
-            name: "tokens",
-            component: () => import("../views/DesignTokensView.vue")
-        },
-        {
-            path: "/overview",
-            name: "overview",
-            component: () => import("../views/OverviewView.vue")
-        },
-        {
-            path: "/avatar",
-            name: "avatar",
-            component: () => import("../views/AvatarView.vue")
-        },
-        {
-            path: "/table",
-            name: "table",
-            component: () => import("../views/TableView.vue")
+            component: () => import("../views/CheckboxView.vue"),
+            meta: { category: "Data Entry", title: "Checkbox" }
         },
         {
             path: "/rating",
             name: "rating",
-            component: () => import("../views/RatingView.vue")
-        }
+            component: () => import("../views/RatingView.vue"),
+            meta: { category: "Data Entry", title: "Rating" }
+        },
+
+        // Data Display
+        {
+            path: "/avatar",
+            name: "avatar",
+            component: () => import("../views/AvatarView.vue"),
+            meta: { category: "Data Display", title: "Avatar" }
+        },
+        {
+            path: "/badge",
+            name: "badge",
+            component: () => import("../views/BadgeView.vue"),
+            meta: { category: "Data Display", title: "Badge" }
+        },
+        {
+            path: "/card",
+            name: "card",
+            component: () => import("../views/CardView.vue"),
+            meta: { category: "Data Display", title: "Card" }
+        },
+        {
+            path: "/table",
+            name: "table",
+            component: () => import("../views/TableView.vue"),
+            meta: { category: "Data Display", title: "Table" }
+        },
+
+        // Feedback
+        {
+            path: "/message",
+            name: "message",
+            component: () => import("../views/MessageView.vue"),
+            meta: { category: "Feedback", title: "Message" }
+        },
+        {
+            path: "/skeleton",
+            name: "skeleton",
+            component: () => import("../views/SkeletonView.vue"),
+            meta: { category: "Feedback", title: "Skeleton" }
+        },
     ]
 });
 

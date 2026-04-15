@@ -59,8 +59,5 @@
 </template>
 
 <script setup lang="ts">
-import { BBadge } from "@bestiary-ui/components";
-import { BOverlayBadge } from "@bestiary-ui/components";
-import { BButton } from "@bestiary-ui/components";
 import { BellSolid, EnvelopeSolid, UserSolid } from "@bestiary-ui/icons";
 </script>

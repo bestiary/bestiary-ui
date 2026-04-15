@@ -4,4 +4,4 @@ import { withInstall } from "../../utils/with-install.ts";
 export const BInputText = withInstall(InputText);
 export default BInputText;
 
-export * from "./input-text.types";
+export * from "./input-text.props";
