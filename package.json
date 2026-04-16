@@ -10,7 +10,7 @@
 
     "build": "tsx scripts/build.ts",
     "build:components": "tsx scripts/build-components.ts",
-    "build:utils": "tsx scripts/build.ts --utils",
+    "build:utils": "tsx scripts/build-utils.ts",
     "build:style": "tsx scripts/build-style.ts",
     "build:icons": "tsx scripts/build-icons.ts",
 

@@ -1,15 +1,15 @@
 <script setup lang="ts">
 
-import { BCheckbox } from "@bestiary-ui/components";
+import {BCheckbox} from "@bestiary-ui/components";
 </script>
 
 <template>
     <div class="view-content">
-        <div>
+        <section>
             <h2>Checkbox</h2>
-            <div class="section b-flex">
-                <BCheckbox />
+            <div class="section flex justify-center">
+                <BCheckbox/>
             </div>
-        </div>
+        </section>
     </div>
 </template>

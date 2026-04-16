@@ -14,7 +14,7 @@ const slots = defineSlots<{
 
 const props = withDefaults(defineProps<SplitterProps>(), {
     layout: "horizontal",
-    gutter: 4,
+    gutterSize: 4,
 });
 
 const containerRef = ref<HTMLElement | null>(null);

@@ -1,39 +1,52 @@
+/**
+ * Bestiary UI — Splitter Component
+ */
 :where(.b-splitter) {
-    /* --- Local Component Tokens --- */
-    --b-splitter-border-width: 1px;
-    --b-splitter-border-style: solid;
-    --b-splitter-border-color: var(--b-border-default);
+    /* --- 1. LOCAL COMPONENT TOKENS --- */
 
-    --b-splitter-gutter-size:             var(--b-space-1);
+    /* Border & Container */
+    --b-splitter-border-width:  1px;
+    --b-splitter-border-style:  solid;
+    --b-splitter-border-color:  var(--b-border-default);
+    --b-splitter-border-radius: var(--b-radius-interactive);
+    --b-splitter-background:    var(--b-surface-section);
+
+    /* Gutter (Resizer) */
+    --b-splitter-gutter-size:             var(--b-space-1); /* Overridden by JS prop */
     --b-splitter-gutter-background:       var(--b-border-subtle);
     --b-splitter-gutter-hover-background: var(--b-border-default);
+    --b-splitter-gutter-transition:       background-color var(--b-duration-normal) var(--b-ease-base);
 
+    /* Handle (Visual Indicator) */
     --b-splitter-handle-background:        var(--b-border-default);
     --b-splitter-handle-active-background: var(--b-primary-solid-background);
     --b-splitter-handle-size:              var(--b-space-6);
+    --b-splitter-handle-thickness:         2px;
+    --b-splitter-handle-transition:        background-color var(--b-duration-normal), transform var(--b-duration-normal);
 
+    /* --- 2. BASE STYLES --- */
     display: flex;
     position: relative;
     box-sizing: border-box;
-
-    border: var(--b-splitter-border-width) var(--b-splitter-border-style) var(--b-splitter-border-color);
-    border-radius: var(--b-radius-interactive);
-    background: var(--b-surface-section);
     overflow: hidden;
+
+    background: var(--b-splitter-background);
+    border: var(--b-splitter-border-width) var(--b-splitter-border-style) var(--b-splitter-border-color);
+    border-radius: var(--b-splitter-border-radius);
 }
 
+/* --- 3. LAYOUT MODIFIERS --- */
 :where(.b-splitter--horizontal) { flex-direction: row; }
 :where(.b-splitter--vertical)   { flex-direction: column; }
 
-/* Стан при перетягуванні */
+/* Dragging state for the entire container */
 :where(.b-splitter--dragging) {
     user-select: none;
 }
-
-/* Глобальний курсор при перетягуванні (ставиться на контейнер) */
 :where(.b-splitter--dragging.b-splitter--horizontal) { cursor: col-resize; }
 :where(.b-splitter--dragging.b-splitter--vertical)   { cursor: row-resize; }
 
+/* --- 4. PANEL STYLES --- */
 :where(.b-splitter-panel) {
     flex-grow: 0;
     flex-shrink: 0;
@@ -45,24 +58,25 @@
     display: flex;
 }
 
-/* Вимикаємо бордери для вкладених спліттерів */
+/* Reset borders for nested splitters */
 :where(.b-splitter-panel--nested > .b-splitter) {
     flex: 1;
     border: none;
     border-radius: 0;
 }
 
-/* --- GUTTER --- */
+/* --- 5. GUTTER (Resizer Bar) --- */
 :where(.b-splitter__gutter) {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--b-splitter-gutter-background);
     flex-shrink: 0;
     z-index: 1;
-    pointer-events: auto;
-    transition: background-color var(--b-duration-normal) var(--b-ease-base);
     position: relative;
+    pointer-events: auto;
+
+    background-color: var(--b-splitter-gutter-background);
+    transition: var(--b-splitter-gutter-transition);
 }
 
 :where(.b-splitter--horizontal > .b-splitter__gutter) {
@@ -75,31 +89,31 @@
     height: var(--b-splitter-gutter-size);
 }
 
+/* Active states for Gutter */
 :where(.b-splitter__gutter:hover),
-.b-splitter--dragging .b-splitter__gutter {
+:where(.b-splitter--dragging .b-splitter__gutter) {
     background-color: var(--b-splitter-gutter-hover-background);
 }
 
-/* --- HANDLE --- */
+/* --- 6. HANDLE (Visual indicator inside Gutter) --- */
 :where(.b-splitter__gutter-handle) {
     background-color: var(--b-splitter-handle-background);
     border-radius: var(--b-radius-full);
-    transition: background-color var(--b-duration-normal), transform var(--b-duration-normal);
+    transition: var(--b-splitter-handle-transition);
 }
 
-/* Горизонтальний спліттер - вертикальна ручка */
+/* Handle orientation */
 :where(.b-splitter--horizontal > .b-splitter__gutter .b-splitter__gutter-handle) {
-    width: 2px;
+    width: var(--b-splitter-handle-thickness);
     height: var(--b-splitter-handle-size);
 }
 
-/* Вертикальний спліттер - горизонтальна ручка */
 :where(.b-splitter--vertical > .b-splitter__gutter .b-splitter__gutter-handle) {
     width: var(--b-splitter-handle-size);
-    height: 2px;
+    height: var(--b-splitter-handle-thickness);
 }
 
-/* Підсвітка ручки при активності */
+/* Handle active highlights */
 :where(.b-splitter__gutter:hover .b-splitter__gutter-handle),
 :where(.b-splitter--dragging .b-splitter__gutter-handle) {
     background-color: var(--b-splitter-handle-active-background);

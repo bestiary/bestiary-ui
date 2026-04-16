@@ -1,37 +1,35 @@
 <template>
     <div class="view-content">
-        <h2>Password</h2>
 
-        <div class="section">
-            <h4>Basic</h4>
-            <div class="b-flex b-gap-2">
+        <section>
+            <h4 class="mb-3">Basic</h4>
+            <div class="section flex justify-center">
                 <BPassword v-model="value" :feedback="false"/>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h4>Feedback</h4>
-            <div class="b-flex b-flex-col b-gap-2">
+        <section class="mt-8">
+            <h4 class="mb-3">Feedback</h4>
+            <div class="section flex justify-center">
                 <BPassword placeholder="Password" v-model="value" :feedback="true"/>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h4>Toggle Mask</h4>
-            <div class="b-flex b-flex-col b-gap-2">
+        <section class="mt-8">
+            <h4 class="mb-3">Toggle Mask</h4>
+            <div class="section flex justify-center">
                 <BPassword placeholder="Password" v-model="value" :feedback="true" :toggleMask="true"/>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h4>Template</h4>
-            <div class="b-flex b-flex-col">
+        <section class="mt-8">
+            <h4 class="mb-3">Template</h4>
+            <div class="section flex justify-center">
                 <BPassword v-model="value" :feedback="true">
                     <template #header>
                         <div class="b-font-semibold b-text-xm b-mb-4">Reset Password</div>
                     </template>
                     <template #footer>
-                        <BDivider />
                         <ul class="b-pl-2 b-my-0 b-leading-normal b-text-sm">
                             <li>At least one lowercase</li>
                             <li>At least one uppercase</li>
@@ -41,20 +39,19 @@
                     </template>
                 </BPassword>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h4>Invalid</h4>
-            <div class="b-flex b-flex-col">
-                <BPassword placeholder="Password" v-model="value" :invalid="!value"/>
+        <section class="mt-8">
+            <h4 class="mb-3">Invalid</h4>
+            <div class="section flex justify-center">
+                <BPassword placeholder="Password" v-model="value" :invalid="value === ''"/>
             </div>
-        </div>
+        </section>
 
     </div>
 </template>
 
 <script setup>
-import { BPassword, BDivider } from "@bestiary-ui/components";
 import {ref} from "vue";
 
 const value = ref("");

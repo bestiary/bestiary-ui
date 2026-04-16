@@ -1,126 +1,66 @@
-import { execSync } from "child_process";
+import { spawn } from "child_process";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
-import fs from "fs-extra";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
 const root = resolve(__dirname, "..");
-const pkgDir = resolve(root, "packages");
-const distDir = resolve(pkgDir, "bestiary-ui");
 
-const args = process.argv.slice(2);
-const buildAll = args.length === 0;
+/**
+ * Runs a script as a child process.
+ * Set 'silent' to true if you want to manage output manually.
+ */
+async function runScript(scriptPath: string, name: string): Promise<void> {
+    return new Promise((resolve, reject) => {
+        console.log(`[${name}] 🚀 Started...`);
 
-async function clean(path: string) {
-    if (await fs.pathExists(path)) {
-        await fs.remove(path);
-    }
+        const child = spawn("npx", ["tsx", scriptPath], {
+            cwd: root,
+            stdio: "inherit",
+            shell: true
+        });
+
+        child.on("close", (code) => {
+            if (code === 0) {
+                console.log(`[${name}] ✅ Finished successfully.`);
+                resolve();
+            } else {
+                reject(new Error(`[${name}] ❌ Failed with code ${code}`));
+            }
+        });
+    });
 }
 
-async function fixPackageJson(pkgPath: string, destPath: string) {
-    const pkg = await fs.readJSON(pkgPath);
+async function main() {
+    const startTime = Date.now();
 
-    // 1. Fix paths (remove ../bestiary-ui/xxx/ prefix)
-    const fixPath = (p: string) => p ? p.replace(/\.\.\/bestiary-ui\/[^/]+\//, "./") : p;
+    try {
+        console.log("🚀 Starting Parallel Bestiary UI Build...\n");
 
-    if (pkg.main) pkg.main = fixPath(pkg.main);
-    if (pkg.module) pkg.module = fixPath(pkg.module);
-    if (pkg.types) pkg.types = fixPath(pkg.types);
-    if (pkg.exports) {
-        Object.keys(pkg.exports).forEach(key => {
-            const entry = pkg.exports[key];
-            if (typeof entry === "string") {
-                pkg.exports[key] = fixPath(entry);
-            } else if (typeof entry === "object") {
-                if (entry.types) entry.types = fixPath(entry.types);
-                if (entry.import) entry.import = fixPath(entry.import);
-                if (entry.require) entry.require = fixPath(entry.require);
-            }
-        })
-    }
+        const tasks = [
+            // runScript("scripts/build-utils.ts", "UTILS"),
+            runScript("scripts/build-style.ts", "STYLE"),
+            runScript("scripts/build-icons.ts", "ICONS"),
+            runScript("scripts/build-components.ts", "COMPONENTS")
+        ];
 
-    // 2. Fix dependencies (replace workspace:*)
-    const dependencyTypes = ['dependencies', 'peerDependencies', 'devDependencies'];
+        await Promise.all(tasks);
 
-    for (const type of dependencyTypes) {
-        if (pkg[type]) {
-            for (const dep of Object.keys(pkg[type])) {
-                if (pkg[type][dep].startsWith("workspace:")) {
-                    const depName = dep.replace("@bestiary-ui/", "");
-                    const depPkgPath = resolve(pkgDir, depName, "package.json");
-
-                    if (await fs.pathExists(depPkgPath)) {
-                        const depPkg = await fs.readJSON(depPkgPath);
-
-                        if (type === 'peerDependencies') {
-                            pkg[type][dep] = `>=${depPkg.version}`;
-                        } else {
-                            pkg[type][dep] = `^${depPkg.version}`;
-                        }
-                    }
-                }
-            }
+        // Пакування запускаємо тільки після успішного завершення всіх білдів
+        if (process.argv.includes("--pack")) {
+            await runScript("scripts/pack.ts", "PACKAGING");
         }
+
+        const duration = ((Date.now() - startTime) / 1000).toFixed(2);
+        console.log(`\n✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨`);
+        console.log(`✅ FULL BUILD COMPLETED IN ${duration}s`);
+        console.log(`✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨\n`);
+
+    } catch (error) {
+        console.error("\n💥 BUILD FAILED:");
+        console.error(error instanceof Error ? error.message : error);
+        process.exit(1);
     }
-
-    // 3. Fix files (allow all files in the root)
-    delete pkg.files;
-
-    await fs.writeJSON(destPath, pkg, { spaces: 4 });
 }
 
-async function buildUtils() {
-    console.log("🛠 Building Utils...");
-    const dest = resolve(distDir, "utils");
-    await clean(dest);
-    execSync("vite build", { stdio: "inherit", cwd: resolve(pkgDir, "utils") });
-    console.log("📦 Finalizing Utils...");
-    await fixPackageJson(resolve(pkgDir, "utils/package.json"), resolve(dest, "package.json"));
-}
-
-async function buildIcons() {
-    console.log("✨ Building Icons...");
-    const iconsRoot = resolve(pkgDir, "icons");
-    const dest = resolve(distDir, "icons");
-    await clean(dest);
-
-    // 1. Generate Vue components from SVGs
-    console.log("🏃 Generating components...");
-    execSync("tsx scripts/generate-icons.ts", { stdio: "inherit", cwd: root });
-
-    // 2. Build with Vite
-    execSync("vite build", { stdio: "inherit", cwd: resolve(pkgDir, "icons") });
-
-    await fs.copy(resolve(iconsRoot, "README.md"), resolve(dest, "README.md"));
-    await fs.copy(resolve(iconsRoot, "LICENSE"), resolve(dest, "LICENSE"));
-
-    console.log("📦 Finalizing Icons...");
-    await fixPackageJson(resolve(pkgDir, "icons/package.json"), resolve(dest, "package.json"));
-}
-
-async function build() {
-    if (buildAll) {
-        console.log("🧹 Cleaning All...");
-        await clean(distDir);
-        await fs.ensureDir(distDir);
-    } else {
-        await fs.ensureDir(distDir);
-    }
-
-    if (buildAll || args.includes("--utils")) {
-        await buildUtils();
-    }
-
-    if (buildAll || args.includes("--icons")) {
-        await buildIcons();
-    }
-
-    console.log("✅ Build complete!");
-}
-
-build().catch(err => {
-    console.error(err);
-    process.exit(1);
-});
+main();

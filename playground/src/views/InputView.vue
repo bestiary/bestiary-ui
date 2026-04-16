@@ -1,83 +1,76 @@
 <template>
     <div class="view-content">
-        <h2>Input Text</h2>
-
-        <div class="section">
-            <h4>Basic</h4>
-            <div class="b-flex b-gap-2">
-                <BInputText type="text" v-model="value1" />
+        <section>
+            <h4 class="mb-3">Basic</h4>
+            <div class="section flex justify-center">
+                <BInputText type="text" v-model="value1"/>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h4>Forms</h4>
-            <div class="b-flex b-flex-col b-gap-2 b-align-items-center">
-                <div class="flex flex-col gap-1">
-                    <BInputText name="username" type="text" placeholder="Username" fluid/>
-                </div>
-                <div class="flex flex-col gap-1">
-                    <BInputText name="email" type="text" placeholder="Email" fluid/>
-                </div>
+        <section class="mt-8">
+            <h4 class="mb-3">Forms</h4>
+            <div class="section flex flex-col gap-4">
+                <BInputText name="username" type="text" placeholder="Username" fluid/>
+                <BInputText name="email" type="text" placeholder="Email" fluid/>
                 <BButton type="submit" severity="secondary" label="Submit" fluid/>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h4>Sizes</h4>
-            <div class="b-flex b-gap-2 b-align-items-start">
-                <BInputText v-model="value1" type="text" size="small" placeholder="Small" />
-                <BInputText v-model="value2" type="text" size="medium" placeholder="Normal" />
-                <BInputText v-model="value3" type="text" size="large" placeholder="Large" />
+        <section class="mt-8">
+            <h4 class="mb-3">Sizes</h4>
+            <div class="section flex justify-center items-center gap-4">
+                <BInputText v-model="value1" type="text" size="small" placeholder="Small"/>
+                <BInputText v-model="value2" type="text" size="medium" placeholder="Medium"/>
+                <BInputText v-model="value3" type="text" size="large" placeholder="Large"/>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h4>Fluid</h4>
-            <div class="b-flex b-gap-2">
-                <BInputText type="text" fluid />
+        <section class="mt-8">
+            <h4 class="mb-3">Fluid</h4>
+            <div class="section">
+                <BInputText type="text" fluid/>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h4>Help Text</h4>
-            <div class="b-flex b-flex-col b-gap-2">
+        <section class="mt-8">
+            <h4 class="mb-3">Help Text</h4>
+            <div class="section flex flex-col gap-2">
                 <label for="username">Username</label>
-                <BInputText id="username" v-model="value1" aria-describedby="username-help" />
-                <BMessage size="small" severity="secondary" variant="simple">Enter your username to reset your password.</BMessage>
+                <BInputText id="username" v-model="value1" aria-describedby="username-help"/>
+                <BMessage size="small" severity="secondary" variant="simple">Enter your username to reset your
+                    password.
+                </BMessage>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h4>Filled</h4>
-            <div class="b-flex b-gap-2">
-                <BInputText type="text" v-model="value1" variant="filled" />
+        <section class="mt-8">
+            <h4 class="mb-3">Filled</h4>
+            <div class="section flex justify-center">
+                <BInputText type="text" v-model="value1" variant="filled"/>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h4>Disabled</h4>
-            <div class="b-flex b-gap-2">
-                <BInputText type="text" v-model="value1" disabled />
+        <section class="mt-8">
+            <h4 class="mb-3">Disabled</h4>
+            <div class="section flex justify-center">
+                <BInputText type="text" v-model="value1" disabled/>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h4>Invalid</h4>
-            <div class="b-flex b-gap-2">
-                <BInputText v-model="value1" :invalid="!value1" placeholder="Name" />
-                <BInputText v-model="value2" :invalid="!value2" variant="filled" placeholder="Name" />
+        <section class="mt-8">
+            <h4 class="mb-3">Invalid</h4>
+            <div class="section flex justify-center gap-2">
+                <BInputText v-model="value1" :invalid="!value1" placeholder="Name"/>
+                <BInputText v-model="value2" :invalid="!value2" variant="filled" placeholder="Email"/>
             </div>
-        </div>
-
+        </section>
     </div>
 </template>
 
 <script setup lang="ts">
-import {BInputText, BMessage, BButton} from "@bestiary-ui/components";
 import {ref} from "vue";
 
 const value1 = ref("");
 const value2 = ref("");
 const value3 = ref("");
-
 </script>
