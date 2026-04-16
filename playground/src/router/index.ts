@@ -33,6 +33,12 @@ const router = createRouter({
         },
 
         // Navigation
+        {
+            path: "/paginator",
+            name: "paginator",
+            component: () => import("../views/PaginatorView.vue"),
+            meta: {category: "Navigation", title: "Paginator"}
+        },
 
 
         // Data Entry

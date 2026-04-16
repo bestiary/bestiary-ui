@@ -1,0 +1,139 @@
+/**
+ * Bestiary UI — Paginator Component
+ */
+:where(.b-paginator) {
+    /* --- 1. LOCAL TOKENS --- */
+    --b-paginator-background:    var(--b-surface-section);
+    --b-paginator-padding:       var(--b-space-2) var(--b-space-4);
+    --b-paginator-border-radius: var(--b-radius-container);
+    --b-paginator-gap:           var(--b-space-1);
+
+    --b-paginator-button-size:   var(--b-size-8);
+    --b-paginator-button-radius: var(--b-radius-interactive);
+    --b-paginator-button-color:  var(--b-text-secondary);
+    --b-paginator-button-hover-bg: var(--b-overlay-hover);
+
+    --b-paginator-select-bg:      var(--b-surface-section);
+    --b-paginator-select-border:  var(--b-border-default);
+
+    --b-paginator-active-bg:     var(--b-primary-solid-background);
+    --b-paginator-active-color:  var(--b-primary-solid-text);
+    --b-paginator-input-width:   3.5rem;
+
+    /* --- 2. BASE STYLES --- */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--b-space-4);
+    padding: var(--b-space-2) var(--b-space-4);
+}
+
+:where(.b-paginator__left, .b-paginator__right) {
+    display: flex;
+    align-items: center;
+    gap: var(--b-space-3);
+    flex: 1;
+}
+
+:where(.b-paginator__right) {
+    justify-content: flex-end;
+}
+
+:where(.b-paginator__content) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--b-paginator-gap);
+    flex-wrap: wrap;
+}
+
+:where(.b-paginator__select) {
+    appearance: none;
+    padding: var(--b-space-1) var(--b-space-6) var(--b-space-1) var(--b-space-3);
+    background-color: var(--b-paginator-select-bg);
+    border: 1px solid var(--b-paginator-select-border);
+    border-radius: var(--b-radius-interactive);
+    color: var(--b-text-primary);
+    font-size: var(--b-text-sm);
+    cursor: pointer;
+
+    /* Simple custom arrow */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--b-space-2) center;
+    background-size: 1em;
+}
+
+:where(.b-paginator__select:focus) {
+    outline: 2px solid var(--b-primary-solid-background);
+    outline-offset: -1px;
+}
+
+:where(.b-paginator__pages) {
+    display: flex;
+    gap: var(--b-paginator-gap);
+}
+
+:where(.b-paginator__button) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: var(--b-paginator-button-size);
+    height: var(--b-paginator-button-size);
+    padding: 0 var(--b-space-2);
+
+    background: transparent;
+    color: var(--b-paginator-button-color);
+    border: none;
+    border-radius: var(--b-paginator-button-radius);
+    cursor: pointer;
+
+    font-family: inherit;
+    font-size: var(--b-text-sm);
+    font-weight: var(--b-font-weight-medium);
+    transition: all var(--b-duration-normal) var(--b-ease-base);
+    user-select: none;
+}
+
+:where(.b-paginator__button svg) {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* Hover State */
+:where(.b-paginator__button:not(:disabled):not(.is-active):hover) {
+    background-color: var(--b-paginator-button-hover-bg);
+    color: var(--b-text-primary);
+}
+
+/* Active State */
+:where(.b-paginator__button.is-active) {
+    background-color: var(--b-paginator-active-bg);
+    color: var(--b-paginator-active-color);
+    cursor: default;
+}
+
+/* Disabled State */
+:where(.b-paginator__button:disabled) {
+    opacity: var(--b-state-disabled-opacity);
+    cursor: not-allowed;
+}
+
+:where(.b-paginator__report) {
+    font-size: var(--b-text-sm);
+    padding: 0 var(--b-space-3);
+}
+
+:where(.b-paginator__input) {
+    width: var(--b-paginator-input-width);
+    text-align: center;
+    padding: var(--b-space-1);
+    background: var(--b-paginator-select-bg);
+    border: 1px solid var(--b-paginator-select-border);
+    border-radius: var(--b-radius-interactive);
+    color: var(--b-text-primary);
+}
+
+:where(.b-paginator__input::-webkit-inner-spin-button) {
+    display: none;
+}

@@ -15,6 +15,8 @@ export * from "./data-display/card";
 export * from "./data-display/table";
 export * from "./data-display/tag";
 
+export * from "./navigation/paginator";
+
 export * from "./feedback/message";
 export * from "./feedback/skeleton";
 

@@ -3,6 +3,8 @@
 @import "./layout/divider.css";
 @import "./layout/splitter.css";
 
+@import "./navigation/paginator.css";
+
 @import "./data-display/accordion.css";
 @import "./data-display/avatar.css";
 @import "./data-display/avatar-group.css";
