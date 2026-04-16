@@ -3,6 +3,7 @@
 @import "./layout/divider.css";
 @import "./layout/splitter.css";
 
+@import "./data-display/accordion.css";
 @import "./data-display/avatar.css";
 @import "./data-display/avatar-group.css";
 @import "./data-display/badge.css";

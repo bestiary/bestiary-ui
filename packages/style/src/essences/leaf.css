@@ -34,7 +34,7 @@
     --b-primary-950: oklch(var(--b-primary-950-channels));
 
     /* 2.2 Global Interaction Overlays */
-    --b-overlay-hover: ;
+    --b-overlay-hover: var(--b-slate-100);
     --b-overlay-active: ;
     --b-state-disabled-opacity: 0.75;
 
@@ -49,7 +49,7 @@
     /* 2.4 Typography & Selection */
     --b-text-primary:   var(--b-slate-800);
     --b-text-secondary: var(--b-slate-700);
-    --b-text-muted:     var(--b-slate-600);
+    --b-text-muted:     var(--b-slate-400);
     --b-text-contrast:  var(--b-white);
 
     --b-text-selection-background: oklch(var(--b-primary-500-channels) / 30%);

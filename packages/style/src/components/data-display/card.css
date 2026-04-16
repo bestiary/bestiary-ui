@@ -9,6 +9,7 @@
     --b-card-padding:              var(--b-space-5);
     --b-card-gap:                  var(--b-space-2);
     --b-card-border-radius:        var(--b-radius-container);
+    --b-card-border-color:         var(--b-border-subtle);
 
     /* Colors & Visuals */
     --b-card-background:           var(--b-surface-section);
@@ -18,7 +19,7 @@
 
     /* Typography Roles */
     --b-card-title-font-size:      var(--b-h5-size);
-    --b-card-title-font-weight:    var(--b-h5-size);
+    --b-card-title-font-weight:    var(--b-font-weight-bold); /* Fixed typo from size to weight */
     --b-card-title-color:          var(--b-text-primary);
 
     --b-card-subtitle-font-size:   var(--b-caption-size);
@@ -38,13 +39,48 @@
     background-color: var(--b-card-background);
     color: var(--b-card-color);
     border-radius: var(--b-card-border-radius);
-    box-shadow: var(--b-card-shadow);
+    border: 1px solid var(--b-card-border-color);
 
     transition: transform var(--b-duration-normal) var(--b-ease-out),
-                box-shadow var(--b-duration-normal) var(--b-ease-out);
+    box-shadow var(--b-duration-normal) var(--b-ease-out);
 }
 
-/* --- 3. INTERNAL ELEMENTS --- */
+/* --- 3. SIZE MODIFIERS --- */
+:where(.b-card--size-small) {
+    --b-card-padding: var(--b-space-3);
+    --b-card-gap: var(--b-space-1);
+}
+:where(.b-card--size-large) {
+    --b-card-padding: var(--b-space-8);
+    --b-card-gap: var(--b-space-4);
+}
+:where(.b-card--size-none)  {
+    --b-card-padding: 0;
+    --b-card-gap: 0;
+}
+
+/* --- 4. SHADOW MODIFIERS --- */
+:where(.b-card--shadow-always) {
+    box-shadow: var(--b-card-shadow);
+}
+:where(.b-card--shadow-hover) {
+    box-shadow: none;
+}
+:where(.b-card--shadow-hover:hover) {
+    box-shadow: var(--b-card-shadow);
+}
+:where(.b-card--shadow-never) {
+    box-shadow: none;
+}
+
+/* --- 5. INTERNAL ELEMENTS --- */
+
+/* Header: Usually for images, removes radius conflicts */
+:where(.b-card__header img) {
+    display: block;
+    width: 100%;
+    height: auto;
+}
 
 /* Body Wrapper: Contains title, content, and footer */
 :where(.b-card__body) {
@@ -58,17 +94,28 @@
 :where(.b-card__title-group) {
     display: flex;
     flex-direction: column;
-    gap: var(--b-card-gap);
+    gap: var(--b-space-1); /* Internal gap between title and subtitle */
 }
 
 :where(.b-card__title) {
     font-size: var(--b-card-title-font-size);
     font-weight: var(--b-card-title-font-weight);
     color: var(--b-card-title-color);
+    line-height: var(--b-line-height-tight);
 }
 
 :where(.b-card__subtitle) {
     font-size: var(--b-card-subtitle-font-size);
     font-weight: var(--b-card-subtitle-font-weight);
     color: var(--b-card-subtitle-color);
+}
+
+:where(.b-card__content) {
+    font-size: var(--b-card-content-font-size);
+    font-weight: var(--b-card-content-font-weight);
+    color: var(--b-card-content-color);
+}
+
+:where(.b-card__footer) {
+    padding-top: var(--b-card-gap);
 }

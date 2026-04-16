@@ -8,6 +8,7 @@ export * from "./data-entry/checkbox";
 
 export * from "./data-display/avatar";
 export * from "./data-display/avatar-group";
+export * from "./data-display/accordion";
 export * from "./data-display/badge";
 export * from "./data-display/overlaybadge";
 export * from "./data-display/card";

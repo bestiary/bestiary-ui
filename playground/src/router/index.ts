@@ -15,7 +15,7 @@ const router = createRouter({
             path: "/buttons",
             name: "buttons",
             component: () => import("../views/ButtonView.vue"),
-            meta: { category: "General", title: "Button" }
+            meta: {category: "General", title: "Button"}
         },
 
         // Layout
@@ -23,13 +23,13 @@ const router = createRouter({
             path: "/divider",
             name: "divider",
             component: () => import("../views/DividerView.vue"),
-            meta: { category: "Layout", title: "Divider" }
+            meta: {category: "Layout", title: "Divider"}
         },
         {
             path: "/splitter",
             name: "splitter",
             component: () => import("../views/SplitterView.vue"),
-            meta: { category: "Layout", title: "Splitter" }
+            meta: {category: "Layout", title: "Splitter"}
         },
 
         // Navigation
@@ -40,63 +40,69 @@ const router = createRouter({
             path: "/input",
             name: "input",
             component: () => import("../views/InputView.vue"),
-            meta: { category: "Data Entry", title: "InputText" }
+            meta: {category: "Data Entry", title: "InputText"}
         },
         {
             path: "/password",
             name: "password",
             component: () => import("../views/PasswordView.vue"),
-            meta: { category: "Data Entry", title: "Password" }
+            meta: {category: "Data Entry", title: "Password"}
         },
         {
             path: "/textarea",
             name: "textarea",
             component: () => import("../views/TextareaView.vue"),
-            meta: { category: "Data Entry", title: "Textarea" }
+            meta: {category: "Data Entry", title: "Textarea"}
         },
         {
             path: "/checkbox",
             name: "checkbox",
             component: () => import("../views/CheckboxView.vue"),
-            meta: { category: "Data Entry", title: "Checkbox" }
+            meta: {category: "Data Entry", title: "Checkbox"}
         },
         {
             path: "/rating",
             name: "rating",
             component: () => import("../views/RatingView.vue"),
-            meta: { category: "Data Entry", title: "Rating" }
+            meta: {category: "Data Entry", title: "Rating"}
         },
 
         // Data Display
         {
+            path: "/accordion",
+            name: "accordion",
+            component: () => import("../views/AccordionView.vue"),
+            meta: {category: "Data Display", title: "Accordion"}
+        },
+        {
             path: "/avatar",
             name: "avatar",
             component: () => import("../views/AvatarView.vue"),
-            meta: { category: "Data Display", title: "Avatar" }
+            meta: {category: "Data Display", title: "Avatar"}
         },
         {
             path: "/badge",
             name: "badge",
             component: () => import("../views/BadgeView.vue"),
-            meta: { category: "Data Display", title: "Badge" }
+            meta: {category: "Data Display", title: "Badge"}
         },
         {
             path: "/card",
             name: "card",
             component: () => import("../views/CardView.vue"),
-            meta: { category: "Data Display", title: "Card" }
+            meta: {category: "Data Display", title: "Card"}
         },
         {
             path: "/table",
             name: "table",
             component: () => import("../views/TableView.vue"),
-            meta: { category: "Data Display", title: "Table" }
+            meta: {category: "Data Display", title: "Table"}
         },
         {
             path: "/tag",
             name: "tag",
             component: () => import("../views/TagView.vue"),
-            meta: { category: "Data Display", title: "Tag" }
+            meta: {category: "Data Display", title: "Tag"}
         },
 
         // Feedback
@@ -104,13 +110,13 @@ const router = createRouter({
             path: "/message",
             name: "message",
             component: () => import("../views/MessageView.vue"),
-            meta: { category: "Feedback", title: "Message" }
+            meta: {category: "Feedback", title: "Message"}
         },
         {
             path: "/skeleton",
             name: "skeleton",
             component: () => import("../views/SkeletonView.vue"),
-            meta: { category: "Feedback", title: "Skeleton" }
+            meta: {category: "Feedback", title: "Skeleton"}
         },
     ]
 });

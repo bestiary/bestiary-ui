@@ -1,0 +1,115 @@
+/**
+ * Bestiary UI — Accordion Component
+ */
+:where(.b-accordion) {
+    /* --- 1. LOCAL TOKENS --- */
+    --b-accordion-border-color:     var(--b-border-subtle);
+    /* Використовуємо одну зміну для синхронізації всіх етапів анімації */
+    --b-accordion-transition:       0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --b-accordion-header-padding:   var(--b-space-4) var(--b-space-5);
+    --b-accordion-header-background: var(--b-surface-section);
+    --b-accordion-header-hover-background: var(--b-overlay-hover);
+    --b-accordion-header-color:      var(--b-text-primary);
+
+    --b-accordion-content-padding:   var(--b-space-5);
+    --b-accordion-content-background: var(--b-surface-section);
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+:where(.b-accordion-panel) {
+    border-bottom: 1px solid var(--b-accordion-border-color);
+}
+
+:where(.b-accordion-panel.is-disabled) {
+    --b-accordion-header-color: var(--b-text-muted);
+}
+
+/* --- 2. HEADER --- */
+:where(.b-accordion-header) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--b-accordion-header-padding);
+    background: var(--b-accordion-header-background);
+    color: var(--b-accordion-header-color);
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    font-size: var(--b-text-md);
+    font-weight: var(--b-font-weight-medium);
+    transition: background-color var(--b-accordion-transition);
+}
+
+:where(.b-accordion-header:not(:disabled):hover) {
+    background-color: var(--b-accordion-header-hover-background);
+}
+
+:where(.b-accordion-header__content) {
+    flex: 1;
+}
+
+/* --- 3. CONTENT (Smooth Grid Logic) --- */
+:where(.b-accordion-content) {
+    display: grid;
+    grid-template-rows: 0fr; /* Закрито за замовчуванням */
+    opacity: 0;
+    overflow: hidden;
+    background: var(--b-accordion-content-background);
+
+    transition:
+            grid-template-rows var(--b-accordion-transition),
+            opacity var(--b-accordion-transition);
+}
+
+:where(.b-accordion-panel.is-active > .b-accordion-content) {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+
+:where(.b-accordion-content__inner) {
+    min-height: 0;
+    padding-inline: var(--b-accordion-content-padding);
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: padding var(--b-accordion-transition);
+}
+
+:where(.b-accordion-panel.is-active .b-accordion-content__inner) {
+    padding-top: var(--b-accordion-content-padding);
+    padding-bottom: var(--b-accordion-content-padding);
+}
+
+/* --- 4. VUE TRANSITION FIX (Forcing Initial State) --- */
+
+.b-accordion-slide-enter-from,
+.b-accordion-slide-leave-to {
+    grid-template-rows: 0fr !important;
+    opacity: 0 !important;
+}
+
+.b-accordion-slide-enter-from .b-accordion-content__inner,
+.b-accordion-slide-leave-to .b-accordion-content__inner {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.b-accordion-slide-enter-active,
+.b-accordion-slide-leave-active {
+    transition: var(--b-accordion-transition);
+}
+
+/* --- 5. ICONS --- */
+:where(.b-accordion-toggle-svg) {
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: transform var(--b-accordion-transition);
+}
+:where(.is-rotated) {
+    transform: rotate(180deg);
+}
