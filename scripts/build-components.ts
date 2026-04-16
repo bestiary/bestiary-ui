@@ -25,6 +25,7 @@ async function buildComponents() {
     await build({
         configFile: false,
         root: compDir,
+        logLevel: "warn",
         ...viteConfig,
     });
 

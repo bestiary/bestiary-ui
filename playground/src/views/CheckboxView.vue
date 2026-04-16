@@ -1,8 +1,3 @@
-<script setup lang="ts">
-
-import {BCheckbox} from "@bestiary-ui/components";
-</script>
-
 <template>
     <div class="view-content">
         <section>

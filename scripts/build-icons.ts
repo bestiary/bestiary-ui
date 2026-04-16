@@ -17,7 +17,7 @@ async function buildIcons() {
         execSync("npx tsx scripts/generate-icons.ts", { stdio: "inherit", cwd: root });
 
         console.log("📦 Compiling with Vite...");
-        execSync("npx vite build", { stdio: "inherit", cwd: pkgDir });
+        execSync("pnpm exec vite build --logLevel warn", { stdio: "inherit", cwd: pkgDir });
 
         console.log("📄 Copying metadata...");
         await fs.copy(resolve(pkgDir, "README.md"), resolve(destDir, "README.md"));
@@ -46,7 +46,7 @@ async function fixPackageJson(srcPath: string, destPath: string) {
             types: "./index.d.ts",
             import: "./index.js"
         },
-        "./*": "./*" // Дозволяємо TypeScript-компілятору та IDE доступ до вкладених .d.ts файлів
+        "./*": "./*"
     };
 
     // Резолв залежностей workspace:*

@@ -6,8 +6,8 @@ import { normalizePath, type UserConfig } from "vite"; // Додали UserConfi
 
 export const getCommonConfig = async (currentDir: string, outDir: string): Promise<UserConfig> => {
     const srcDir = resolve(currentDir, "src");
-    const entries = await glob(["**/*.ts", "!**/*.d.ts", "!**/__tests__/**"], {
-        cwd: srcDir,
+    const entries = await glob(["src/index.ts", "src/plugin.ts", "src/**/index.ts"], {
+        cwd: currentDir,
         absolute: true,
     });
 
@@ -42,7 +42,6 @@ export const getCommonConfig = async (currentDir: string, outDir: string): Promi
             emptyOutDir: false,
             lib: {
                 entry: input,
-                formats: ["es", "cjs"] // Vite автоматично розуміє це як LibraryFormats[]
             },
             rollupOptions: {
                 external: [

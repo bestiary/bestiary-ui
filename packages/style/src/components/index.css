@@ -9,6 +9,7 @@
 @import "./data-display/overlay-badge.css";
 @import "./data-display/card.css";
 @import "./data-display/table.css";
+@import "./data-display/tag.css";
 
 @import "./data-entry/icon-field.css";
 @import "./data-entry/input-text.css";

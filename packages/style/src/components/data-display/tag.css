@@ -1,0 +1,62 @@
+/**
+ * Bestiary UI — Tag Component
+ */
+:where(.b-tag) {
+    /* --- 1. LOCAL COMPONENT TOKENS --- */
+    --b-tag-background:    var(--b-primary-subtle-background);
+    --b-tag-color:         var(--b-primary-subtle-text);
+    --b-tag-padding-x:     var(--b-space-2);
+    --b-tag-padding-y:     var(--b-space-1);
+    --b-tag-border-radius: var(--b-radius-interactive);
+    --b-tag-gap:           var(--b-space-1);
+
+    --b-tag-font-size:     var(--b-text-sm);
+    --b-tag-font-weight:   var(--b-font-weight-bold);
+    --b-tag-icon-size:     var(--b-tag-font-size);
+
+    /* --- 2. BASE STYLES --- */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    gap: var(--b-tag-gap);
+
+    padding-inline: var(--b-tag-padding-x);
+    padding-block: var(--b-tag-padding-y);
+
+    background-color: var(--b-tag-background);
+    color: var(--b-tag-color);
+    border-radius: var(--b-tag-border-radius);
+
+    font-size: var(--b-tag-font-size);
+    font-weight: var(--b-tag-font-weight);
+    white-space: nowrap;
+}
+
+:where(.b-tag:has(.b-tag__icon, svg)) {
+    padding-inline-start: calc(var(--b-tag-padding-x) * 0.5);
+}
+
+/* --- 3. SEVERITY MODIFIERS --- */
+:where(.b-tag--severity-primary)   { --b-tag-background: var(--b-primary-subtle-background);   --b-tag-color: var(--b-primary-subtle-text); }
+:where(.b-tag--severity-secondary) { --b-tag-background: var(--b-secondary-subtle-background); --b-tag-color: var(--b-secondary-subtle-text); }
+:where(.b-tag--severity-info)      { --b-tag-background: var(--b-info-subtle-background);      --b-tag-color: var(--b-info-subtle-text); }
+:where(.b-tag--severity-success)   { --b-tag-background: var(--b-success-subtle-background);   --b-tag-color: var(--b-success-subtle-text); }
+:where(.b-tag--severity-warn)      { --b-tag-background: var(--b-warning-subtle-background);   --b-tag-color: var(--b-warning-subtle-text); }
+:where(.b-tag--severity-danger)    { --b-tag-background: var(--b-error-subtle-background);     --b-tag-color: var(--b-error-subtle-text); }
+:where(.b-tag--severity-contrast)  { --b-tag-background: var(--b-contrast-solid-background);   --b-tag-color: var(--b-contrast-solid-text); }
+
+/* --- 4. SHAPE MODIFIERS --- */
+:where(.b-tag--rounded) {
+    --b-tag-border-radius: var(--b-radius-full);
+}
+
+/* --- 5. INTERNAL ELEMENTS --- */
+:where(.b-tag__icon) {
+    width: var(--b-tag-icon-size);
+    height: var(--b-tag-icon-size);
+}
+
+:where(.b-tag__label) {
+    line-height: var(--b-line-height-none);
+}

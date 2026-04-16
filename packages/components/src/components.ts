@@ -12,6 +12,7 @@ export * from "./data-display/badge";
 export * from "./data-display/overlaybadge";
 export * from "./data-display/card";
 export * from "./data-display/table";
+export * from "./data-display/tag";
 
 export * from "./feedback/message";
 export * from "./feedback/skeleton";

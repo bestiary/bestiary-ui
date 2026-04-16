@@ -92,6 +92,12 @@ const router = createRouter({
             component: () => import("../views/TableView.vue"),
             meta: { category: "Data Display", title: "Table" }
         },
+        {
+            path: "/tag",
+            name: "tag",
+            component: () => import("../views/TagView.vue"),
+            meta: { category: "Data Display", title: "Tag" }
+        },
 
         // Feedback
         {

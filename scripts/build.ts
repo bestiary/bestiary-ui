@@ -6,26 +6,50 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const root = resolve(__dirname, "..");
 
+const cyan = (text: string) => `\x1b[36m${text}\x1b[0m`;
+const green = (text: string) => `\x1b[32m${text}\x1b[0m`;
+const gray = (text: string) => `\x1b[90m${text}\x1b[0m`;
+const bold = (text: string) => `\x1b[1m${text}\x1b[0m`;
+
 /**
  * Runs a script as a child process.
  * Set 'silent' to true if you want to manage output manually.
  */
 async function runScript(scriptPath: string, name: string): Promise<void> {
     return new Promise((resolve, reject) => {
-        console.log(`[${name}] 🚀 Started...`);
+        console.log(`\n${bold(cyan('●'))} ${bold(name)} ${gray('building...')}`);
 
-        const child = spawn("npx", ["tsx", scriptPath], {
+        const command = `pnpm exec tsx ${scriptPath}`;
+
+        const child = spawn(command, {
             cwd: root,
-            stdio: "inherit",
-            shell: true
+            stdio: "pipe",
+            shell: true,
+            env: {
+                ...process.env,
+                NPM_CONFIG_LOGLEVEL: "error"
+            }
+        });
+
+        child.stdout.on("data", (data) => {
+            const line = data.toString().trim();
+            if (!line) return;
+            if (line.includes("building for production") || line.includes("modules transformed")) return;
+            console.log(`  ${gray('│')} ${line}`);
+        });
+
+        child.stderr.on("data", (data) => {
+            const line = data.toString().trim();
+            if (line.includes("Outside emitted")) return;
+            console.error(`  \x1b[31m│\x1b[0m ${line}`);
         });
 
         child.on("close", (code) => {
             if (code === 0) {
-                console.log(`[${name}] ✅ Finished successfully.`);
+                console.log(`  ${green('✓')} ${gray('Done')}`);
                 resolve();
             } else {
-                reject(new Error(`[${name}] ❌ Failed with code ${code}`));
+                reject(new Error(`${name} failed`));
             }
         });
     });
@@ -34,31 +58,25 @@ async function runScript(scriptPath: string, name: string): Promise<void> {
 async function main() {
     const startTime = Date.now();
 
+    console.log(`\n${bold('📦 BESTIARY UI')}`);
+    console.log(gray('—————————————————————————————————————————————————'));
+
     try {
-        console.log("🚀 Starting Parallel Bestiary UI Build...\n");
+        await runScript("scripts/build-style.ts", "Style System");
+        await runScript("scripts/build-icons.ts", "Icon Library");
+        await runScript("scripts/build-components.ts", "Vue Components");
 
-        const tasks = [
-            // runScript("scripts/build-utils.ts", "UTILS"),
-            runScript("scripts/build-style.ts", "STYLE"),
-            runScript("scripts/build-icons.ts", "ICONS"),
-            runScript("scripts/build-components.ts", "COMPONENTS")
-        ];
-
-        await Promise.all(tasks);
-
-        // Пакування запускаємо тільки після успішного завершення всіх білдів
         if (process.argv.includes("--pack")) {
-            await runScript("scripts/pack.ts", "PACKAGING");
+            await runScript("scripts/pack.ts", "Packaging");
         }
 
         const duration = ((Date.now() - startTime) / 1000).toFixed(2);
-        console.log(`\n✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨`);
-        console.log(`✅ FULL BUILD COMPLETED IN ${duration}s`);
-        console.log(`✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨\n`);
+
+        console.log(gray('\n—————————————————————————————————————————————————'));
+        console.log(`${green('✨ Success!')} ${bold('Build completed in ' + duration + 's')}\n`);
 
     } catch (error) {
-        console.error("\n💥 BUILD FAILED:");
-        console.error(error instanceof Error ? error.message : error);
+        console.error(`\n\x1b[31m\x1b[1mFAILED\x1b[0m ${error instanceof Error ? error.message : ''}`);
         process.exit(1);
     }
 }

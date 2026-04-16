@@ -83,8 +83,8 @@
     --b-primary-solid-background:       var(--b-primary-500);
     --b-primary-solid-background-hover: var(--b-primary-600);
     --b-primary-solid-text:             var(--b-white);
-    --b-primary-subtle-background:      var(--b-primary-50);
-    --b-primary-subtle-border:          var(--b-primary-100);
+    --b-primary-subtle-background:      var(--b-primary-100);
+    --b-primary-subtle-border:          var(--b-primary-200);
     --b-primary-subtle-text:            var(--b-primary-600);
     --b-primary-outline-border:         var(--b-primary-500);
     --b-primary-outline-text:           var(--b-primary-500);
@@ -107,7 +107,7 @@
     --b-success-solid-background:       var(--b-lime-500);
     --b-success-solid-background-hover: var(--b-lime-600);
     --b-success-solid-text:             var(--b-white);
-    --b-success-subtle-background:      var(--b-lime-50);
+    --b-success-subtle-background:      var(--b-lime-100);
     --b-success-subtle-border:          var(--b-lime-200);
     --b-success-subtle-text:            var(--b-lime-600);
     --b-success-outline-border:         var(--b-lime-600);
@@ -119,7 +119,7 @@
     --b-error-solid-background:       var(--b-red-500);
     --b-error-solid-background-hover: var(--b-red-600);
     --b-error-solid-text:             var(--b-white);
-    --b-error-subtle-background:      var(--b-red-50);
+    --b-error-subtle-background:      var(--b-red-100);
     --b-error-subtle-border:          var(--b-red-200);
     --b-error-subtle-text:            var(--b-red-600);
     --b-error-outline-border:         var(--b-red-600);
@@ -131,7 +131,7 @@
     --b-warning-solid-background:       var(--b-yellow-500);
     --b-warning-solid-background-hover: var(--b-yellow-600);
     --b-warning-solid-text:             var(--b-white);
-    --b-warning-subtle-background:      var(--b-yellow-50);
+    --b-warning-subtle-background:      var(--b-yellow-100);
     --b-warning-subtle-border:          var(--b-yellow-200);
     --b-warning-subtle-text:            var(--b-yellow-600);
     --b-warning-outline-border:         var(--b-yellow-600);
@@ -143,7 +143,7 @@
     --b-info-solid-background:       var(--b-blue-500);
     --b-info-solid-background-hover: var(--b-blue-600);
     --b-info-solid-text:             var(--b-white);
-    --b-info-subtle-background:      var(--b-blue-50);
+    --b-info-subtle-background:      var(--b-blue-100);
     --b-info-subtle-border:          var(--b-blue-200);
     --b-info-subtle-text:            var(--b-blue-600);
     --b-info-outline-border:         var(--b-blue-600);

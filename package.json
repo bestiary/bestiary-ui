@@ -6,13 +6,13 @@
   "scripts": {
     "dev": "pnpm -C playground dev",
 
-    "pack:libs": "pnpm exec tsx scripts/pack.ts",
-
     "build": "tsx scripts/build.ts",
     "build:components": "tsx scripts/build-components.ts",
     "build:utils": "tsx scripts/build-utils.ts",
     "build:style": "tsx scripts/build-style.ts",
     "build:icons": "tsx scripts/build-icons.ts",
+
+    "pack:libs": "pnpm exec tsx scripts/pack.ts",
 
     "change": "changeset",
     "version-pack": "changeset version",

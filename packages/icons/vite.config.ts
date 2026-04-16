@@ -9,6 +9,7 @@ export default defineConfig({
             outDir: resolve(__dirname, "../../build/icons"),
             entryRoot: resolve(__dirname, "generated"),
             insertTypesEntry: true,
+            logLevel: "error",
         })
     ],
     build: {
