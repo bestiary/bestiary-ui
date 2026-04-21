@@ -1,2 +1,2 @@
-export * from "./table.ts";
-export * from "./column.ts";
+export * from "./table";
+export * from "./column";

@@ -1,75 +1,150 @@
-.b-data-table {
-    /* --- Local Tokens --- */
-    --b-table-background:           var(--b-surface-section);
-    --b-table-header-background:    var(--b-surface-variant);
-    --b-table-border-color:         var(--b-border-subtle);
-    --b-table-row-hover-background: var(--b-overlay-hover);
-    --b-table-text-color:           var(--b-text-primary);
+/**
+ * Bestiary UI — Table Component
+ */
+:where(.b-table) {
+    /* --- 1. LOCAL TOKENS --- */
+    --b-table-background:             var(--b-surface-section);
+    --b-table-border-color:   var(--b-border-subtle);
+    --b-table-header-background:      var(--b-surface-section);
+    --b-table-header-color:   var(--b-text-primary);
 
-    --b-table-padding-x:            var(--b-space-4);
-    --b-table-padding-y:            var(--b-space-2);
-    --b-table-font-size:            var(--b-text-sm);
+    --b-table-th-padding:     var(--b-space-4);
+    --b-table-td-padding:     var(--b-space-4);
 
-    background: var(--b-table-background);
-    border: 1px solid var(--b-table-border-color);
-    border-radius: var(--b-radius-container);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    box-shadow: var(--b-shadow-sm);
+    --b-table-row-hover-background:   var(--b-overlay-hover);
+    --b-table-striped-background:     var(--b-surface-ground);
+
+    /* --- 2. BASE STYLES --- */
+    position: relative;
+    box-sizing: border-box;
+    background-color: var(--b-table-background);
 }
 
-.b-data-table__wrapper {
+:where(.b-table__wrapper) {
     overflow-x: auto;
+    width: 100%;
 }
 
-table {
+:where(.b-table__el) {
     width: 100%;
     border-collapse: collapse;
-    color: var(--b-table-text-color);
-    font-size: var(--b-table-font-size);
+    border-spacing: 0;
+    font-size: var(--b-text-sm);
 }
 
-th {
-    background: var(--b-table-header-background);
-    padding: var(--b-table-padding-y) var(--b-table-padding-x);
+:where(.b-table__th) {
     text-align: left;
+    padding: var(--b-table-th-padding);
+    background-color: var(--b-table-header-background);
+    color: var(--b-table-header-color);
     font-weight: var(--b-font-weight-bold);
-    white-space: nowrap;
-}
-
-td {
-    padding: var(--b-table-padding-y) var(--b-table-padding-x);
     border-bottom: 1px solid var(--b-table-border-color);
 }
 
+:where(.b-table__td) {
+    padding: var(--b-table-td-padding);
+    border-bottom: 1px solid var(--b-table-border-color);
+    color: var(--b-text-secondary);
+}
+
+:where(.b-table__th.is-sortable) {
+    cursor: pointer;
+    user-select: none;
+    transition: background-color var(--b-duration-fast);
+}
+
+:where(.b-table__th.is-sortable:hover) {
+    background-color: var(--b-overlay-hover);
+}
+
+:where(.b-table__th-content) {
+    display: flex;
+    align-items: center;
+    gap: var(--b-space-2);
+}
+
+:where(.b-table__sort-icon-group) {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 0.75rem;
+    height: 0.75rem;
+    gap: 2px;
+}
+
+:where(.b-table__sort-icon) {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+    display: block;
+    transition: color var(--b-duration-fast), transform var(--b-duration-fast);
+}
+
+:where(.b-table__th.is-sortable:hover .b-table__sort-icon) {
+    opacity: 0.8;
+}
+
+:where(.b-table__sort-icon.is-active) {
+    color: var(--b-primary-solid-background);
+    opacity: 1 !important;
+}
+
+/* --- 3. MODIFIERS --- */
+
 /* Striped Rows */
-.b-data-table--striped tr:nth-child(even) td {
-    background-color: var(--b-surface-ground);
+:where(.b-table--striped .b-table__tbody .b-table__tr:nth-child(even)) {
+    background-color: var(--b-table-striped-background);
 }
 
 /* Row Hover */
-.b-data-table--hover tr:hover td {
+:where(.b-table--hover .b-table__tbody .b-table__tr:hover) {
     background-color: var(--b-table-row-hover-background);
-    cursor: default;
 }
 
 /* Gridlines */
-.b-data-table--gridlines td,
-.b-data-table--gridlines th {
+:where(.b-table--gridlines .b-table__th),
+:where(.b-table--gridlines .b-table__td) {
     border: 1px solid var(--b-table-border-color);
 }
 
-/* Sizes Mappings */
-.b-data-table--size-small {
-    --b-table-padding-y: var(--b-space-1);
-    --b-table-font-size: var(--b-text-xs);
+/* Sizes */
+:where(.b-table--size-small) { --b-table-th-padding: var(--b-space-2); --b-table-td-padding: var(--b-space-2); }
+:where(.b-table--size-large) { --b-table-th-padding: var(--b-space-6); --b-table-td-padding: var(--b-space-6); }
+
+/* Loading State */
+:where(.b-table--loading) {
+    pointer-events: none;
+    user-select: none;
 }
-.b-data-table--size-small {
-    --b-table-padding-y: var(--b-space-1);
-    --b-table-font-size: var(--b-text-xs);
+
+:where(.b-table__loading-overlay) {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    background-color: rgba(var(--b-surface-section-rgb, 255, 255, 255), 0.6);
+    backdrop-filter: blur(1px);
+    transition: opacity var(--b-duration-normal);
 }
-.b-data-table--size-large {
-    --b-table-padding-y: var(--b-space-4);
-    --b-table-font-size: var(--b-text-md);
+
+/* Fallback Spinner */
+:where(.b-table__loading-spinner) {
+    --b-table-spinner-size: 2.5rem;
+    --b-table-spinner-color: var(--b-primary-solid-background);
+    --b-table-spinner-width: 3px;
+
+    width: var(--b-table-spinner-size);
+    height: var(--b-table-spinner-size);
+    border: var(--b-table-spinner-width) solid var(--b-border-subtle);
+    border-top-color: var(--b-table-spinner-color);
+    border-radius: 50%;
+
+    animation: b-table-spin 0.8s linear infinite;
+}
+
+@keyframes b-table-spin {
+    to { transform: rotate(360deg); }
 }

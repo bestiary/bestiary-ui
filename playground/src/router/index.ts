@@ -72,6 +72,12 @@ const router = createRouter({
             component: () => import("../views/RatingView.vue"),
             meta: {category: "Data Entry", title: "Rating"}
         },
+        {
+            path: "/select-button",
+            name: "select-button",
+            component: () => import("../views/SelectButtonView.vue"),
+            meta: {category: "Data Entry", title: "SelectButton"}
+        },
 
         // Data Display
         {

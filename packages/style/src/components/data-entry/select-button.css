@@ -1,0 +1,107 @@
+/**
+ * Bestiary UI — SelectButton Component (Fixed Height Segmented Style)
+ */
+:where(.b-select-button) {
+    /* --- 1. LOCAL TOKENS --- */
+    --b-select-button-height:        var(--b-control-size-md);
+    --b-select-button-background:            var(--b-surface-ground);
+    --b-select-button-padding:       var(--b-space-1);
+    --b-select-button-border-radius: var(--b-radius-lg);
+
+    --b-select-button-item-color:    var(--b-text-secondary);
+    --b-select-button-item-radius:   calc(var(--b-select-button-border-radius) - var(--b-select-button-padding));
+    --b-select-button-item-px:       var(--b-space-4);
+
+    --b-select-button-active-background:     var(--b-surface-section);
+    --b-select-button-active-color:  var(--b-text-primary);
+    --b-select-button-active-shadow: var(--b-shadow-sm);
+
+    /* --- 2. BASE STYLES --- */
+    display: inline-flex;
+    align-items: stretch;
+    position: relative;
+    box-sizing: border-box;
+
+    height: var(--b-select-button-height);
+    background-color: var(--b-select-button-background);
+    padding: var(--b-select-button-padding);
+    border-radius: var(--b-select-button-border-radius);
+    gap: var(--b-space-1);
+
+    user-select: none;
+}
+
+:where(.b-select-button__item) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    height: 100%;
+    padding-inline: var(--b-select-button-item-px);
+
+    background: transparent;
+    color: var(--b-select-button-item-color);
+    border: none;
+    border-radius: var(--b-select-button-item-radius);
+
+    cursor: pointer;
+    font-family: inherit;
+    font-size: var(--b-text-sm);
+    font-weight: var(--b-font-weight-medium);
+    white-space: nowrap;
+
+    transition:
+            background-color var(--b-duration-fast) var(--b-ease-out),
+            color var(--b-duration-fast) var(--b-ease-out),
+            box-shadow var(--b-duration-fast) var(--b-ease-out),
+            transform var(--b-duration-fast) var(--b-ease-out);
+}
+
+/* Selected State */
+:where(.b-select-button__item.is-selected) {
+    background-color: var(--b-select-button-active-background);
+    color: var(--b-select-button-active-color);
+    box-shadow: var(--b-select-button-active-shadow);
+}
+
+/* Interaction States */
+:where(.b-select-button__item:not(.is-selected):not(:disabled):hover) {
+    background-color: var(--b-overlay-hover);
+    color: var(--b-text-primary);
+}
+
+:where(.b-select-button__item:active:not(:disabled)) {
+    transform: scale(0.97);
+}
+
+:where(.b-select-button__item:disabled) {
+    cursor: not-allowed;
+    opacity: var(--b-state-disabled-opacity);
+}
+
+/* --- 3. SIZE MODIFIERS (Mapping to Control Grid) --- */
+
+:where(.b-select-button--size-small) {
+    --b-select-button-height:  var(--b-control-size-sm);
+    --b-select-button-item-px: var(--b-space-3);
+    font-size: var(--b-text-xs);
+}
+
+:where(.b-select-button--size-medium) {
+    --b-select-button-height: var(--b-control-size-md);
+}
+
+:where(.b-select-button--size-large) {
+    --b-select-button-height:  var(--b-control-size-lg);
+    --b-select-button-item-px: var(--b-space-6);
+    font-size: var(--b-text-md);
+}
+
+:where(.b-select-button--fluid) {
+    width: 100%;
+}
+
+/* Invalid State */
+:where(.b-select-button--invalid) {
+    border: 1px solid var(--b-error-outline-border);
+}

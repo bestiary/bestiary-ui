@@ -5,6 +5,7 @@ export * from "./data-entry/password";
 export * from "./data-entry/textarea";
 export * from "./data-entry/rating";
 export * from "./data-entry/checkbox";
+export * from "./data-entry/select-button";
 
 export * from "./data-display/avatar";
 export * from "./data-display/avatar-group";
