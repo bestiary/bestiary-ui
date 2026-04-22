@@ -10,6 +10,10 @@ export interface ColumnProps {
      */
     header?: string;
     /**
+     * Property name to use in filtering.
+     */
+    filterField?: string;
+    /**
      * Whether the column is sortable.
      * @default false
      */
@@ -27,4 +31,23 @@ export interface ColumnProps {
      * @default false
      */
     hidden?: boolean;
+    /**
+     * Type of the column data (text, numeric, date, boolean).
+     * @default "text"
+     */
+    dataType?: string;
+    /**
+     * Whether to display the filter menu icon.
+     * @default true
+     */
+    showFilterMenu?: boolean;
+    /**
+     * Inline style of the filter menu popover.
+     */
+    filterMenuStyle?: CSSProperties | string;
+    /**
+     * Whether to display the filter match modes in the filter menu.
+     * @default true
+     */
+    showFilterMatchModes?: boolean;
 }

@@ -16,5 +16,13 @@ defineSlots<{
     header?: (props: {}) => any;
     /** Custom content for the cell body */
     body?: (props: { data: any, column: ColumnProps, index: number }) => any;
+    /** Custom content for the filter UI */
+    filter?: (props: { filterModel: any, filterCallback: () => void }) => any;
+    /** Custom content for the filter clear button */
+    filterclear?: (props: { filterCallback: () => void }) => any;
+    /** Custom content for the filter apply button */
+    filterapply?: (props: { filterCallback: () => void }) => any;
+    /** Custom content for the filter menu footer */
+    filterfooter?: (props: {}) => any;
 }>();
 </script>

@@ -2,27 +2,50 @@
  * Bestiary UI — Table Component
  */
 :where(.b-table) {
-    /* --- 1. LOCAL TOKENS --- */
+    /* --- 1. LOCAL COMPONENT TOKENS --- */
+
+    /* Layout & Sizing */
     --b-table-background:             var(--b-surface-section);
-    --b-table-border-color:   var(--b-border-subtle);
+    --b-table-border-color:           var(--b-border-subtle);
+    --b-table-border-radius:          var(--b-radius-container);
+
+    --b-table-th-padding:             var(--b-space-4);
+    --b-table-td-padding:             var(--b-space-4);
+
+    /* Header */
     --b-table-header-background:      var(--b-surface-section);
-    --b-table-header-color:   var(--b-text-primary);
+    --b-table-header-color:           var(--b-text-primary);
+    --b-table-header-font-weight:     var(--b-font-weight-bold);
 
-    --b-table-th-padding:     var(--b-space-4);
-    --b-table-td-padding:     var(--b-space-4);
-
+    /* Rows & States */
     --b-table-row-hover-background:   var(--b-overlay-hover);
     --b-table-striped-background:     var(--b-surface-ground);
+    --b-table-transition:             var(--b-duration-fast) var(--b-ease-base);
+
+    /* Sorting Icons (Refactored for smaller size) */
+    --b-table-sort-group-size:        1rem;
+    --b-table-sort-icon-size:         0.5rem;
+    --b-table-sort-icon-color:        var(--b-text-muted);
+    --b-table-sort-active-color:      var(--b-primary-solid-background);
+
+    /* Filtering */
+    --b-table-filter-menu-gap:        var(--b-space-2);
+    --b-table-popover-width:          15rem;
+    --b-table-popover-background:     var(--b-surface-overlay);
+    --b-table-popover-shadow:         var(--b-shadow-lg);
 
     /* --- 2. BASE STYLES --- */
     position: relative;
     box-sizing: border-box;
     background-color: var(--b-table-background);
+    border-radius: var(--b-table-border-radius);
 }
 
 :where(.b-table__wrapper) {
     overflow-x: auto;
     width: 100%;
+    position: relative;
+    border-radius: inherit;
 }
 
 :where(.b-table__el) {
@@ -37,8 +60,9 @@
     padding: var(--b-table-th-padding);
     background-color: var(--b-table-header-background);
     color: var(--b-table-header-color);
-    font-weight: var(--b-font-weight-bold);
+    font-weight: var(--b-table-header-font-weight);
     border-bottom: 1px solid var(--b-table-border-color);
+    white-space: nowrap;
 }
 
 :where(.b-table__td) {
@@ -47,20 +71,21 @@
     color: var(--b-text-secondary);
 }
 
+/* --- 3. SORTING --- */
 :where(.b-table__th.is-sortable) {
     cursor: pointer;
     user-select: none;
-    transition: background-color var(--b-duration-fast);
+    transition: background-color var(--b-table-transition);
 }
 
 :where(.b-table__th.is-sortable:hover) {
-    background-color: var(--b-overlay-hover);
+    background-color: var(--b-table-row-hover-background);
 }
 
 :where(.b-table__th-content) {
     display: flex;
     align-items: center;
-    gap: var(--b-space-2);
+    gap: var(--b-table-filter-menu-gap);
 }
 
 :where(.b-table__sort-icon-group) {
@@ -68,29 +93,87 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 0.75rem;
-    height: 0.75rem;
-    gap: 2px;
+    width: var(--b-table-sort-group-size);
+    height: var(--b-table-sort-group-size);
+    gap: 1px;
 }
 
 :where(.b-table__sort-icon) {
-    width: 100%;
-    height: 100%;
+    width: var(--b-table-sort-icon-size);
+    height: 30%; /* Тонші стрілки */
     fill: currentColor;
+    color: var(--b-table-sort-icon-color);
     display: block;
-    transition: color var(--b-duration-fast), transform var(--b-duration-fast);
-}
-
-:where(.b-table__th.is-sortable:hover .b-table__sort-icon) {
-    opacity: 0.8;
+    transition: var(--b-table-transition);
+    opacity: 0.4;
 }
 
 :where(.b-table__sort-icon.is-active) {
-    color: var(--b-primary-solid-background);
+    color: var(--b-table-sort-active-color);
     opacity: 1 !important;
 }
 
-/* --- 3. MODIFIERS --- */
+/* --- 4. FILTERING --- */
+:where(.b-table__tr--filter) {
+    background-color: var(--b-table-header-background);
+}
+
+:where(.b-table__td--filter) {
+    padding: var(--b-space-2) var(--b-table-td-padding);
+    border-bottom: 1px solid var(--b-table-border-color);
+}
+
+:where(.b-table__td--filter .b-input-text) {
+    width: 100%;
+}
+
+:where(.b-table__filter-menu-container) {
+    position: relative;
+    display: inline-flex;
+    margin-inline-start: auto;
+}
+
+:where(.b-table__filter-menu-button) {
+    background: transparent;
+    border: none;
+    color: var(--b-text-muted);
+    cursor: pointer;
+    padding: var(--b-space-1);
+    border-radius: var(--b-radius-sm);
+    transition: var(--b-table-transition);
+}
+
+:where(.b-table__filter-menu-button:hover),
+:where(.b-table__filter-menu-button.is-active) {
+    background-color: var(--b-overlay-hover);
+    color: var(--b-primary-solid-background);
+}
+
+:where(.b-table__filter-popover) {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: var(--b-z-popover);
+    min-width: var(--b-table-popover-width);
+    margin-top: var(--b-space-2);
+    padding: var(--b-space-4);
+
+    background-color: var(--b-table-popover-background);
+    border: 1px solid var(--b-table-border-color);
+    border-radius: var(--b-radius-lg);
+    box-shadow: var(--b-table-popover-shadow);
+}
+
+:where(.b-table__filter-popover-footer) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--b-space-4);
+    padding-top: var(--b-space-3);
+    border-top: 1px solid var(--b-table-border-color);
+}
+
+/* --- 5. MODIFIERS --- */
 
 /* Striped Rows */
 :where(.b-table--striped .b-table__tbody .b-table__tr:nth-child(even)) {
@@ -98,7 +181,7 @@
 }
 
 /* Row Hover */
-:where(.b-table--hover .b-table__tbody .b-table__tr:hover) {
+:where(.b-table--hover .b-table__tbody .b-table__tr:not(.b-table__tr--empty):hover) {
     background-color: var(--b-table-row-hover-background);
 }
 
@@ -109,10 +192,16 @@
 }
 
 /* Sizes */
-:where(.b-table--size-small) { --b-table-th-padding: var(--b-space-2); --b-table-td-padding: var(--b-space-2); }
-:where(.b-table--size-large) { --b-table-th-padding: var(--b-space-6); --b-table-td-padding: var(--b-space-6); }
+:where(.b-table--size-small) {
+    --b-table-th-padding: var(--b-space-2);
+    --b-table-td-padding: var(--b-space-2);
+}
+:where(.b-table--size-large) {
+    --b-table-th-padding: var(--b-space-6);
+    --b-table-td-padding: var(--b-space-6);
+}
 
-/* Loading State */
+/* --- 6. LOADING STATE --- */
 :where(.b-table--loading) {
     pointer-events: none;
     user-select: none;
@@ -130,7 +219,6 @@
     transition: opacity var(--b-duration-normal);
 }
 
-/* Fallback Spinner */
 :where(.b-table__loading-spinner) {
     --b-table-spinner-size: 2.5rem;
     --b-table-spinner-color: var(--b-primary-solid-background);
@@ -141,7 +229,6 @@
     border: var(--b-table-spinner-width) solid var(--b-border-subtle);
     border-top-color: var(--b-table-spinner-color);
     border-radius: 50%;
-
     animation: b-table-spin 0.8s linear infinite;
 }
 
