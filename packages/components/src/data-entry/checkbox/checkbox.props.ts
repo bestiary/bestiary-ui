@@ -3,44 +3,57 @@ export type CheckboxVariant = "outline" | "filled";
 
 export interface CheckboxProps {
     /**
-     * Value associated with the checkbox when used in a group or array.
-     * @default null
+     * Unique identifier of the inner input element.
+     */
+    inputId?: string;
+    /**
+     * Name of the inner input element.
+     */
+    name?: string;
+    /**
+     * Value of the checkbox when used in a group (array model).
      */
     value?: any;
-
     /**
-     * Size of the checkbox component.
+     * When present, it specifies that the component should be checked.
+     * Often used for boolean-only state.
+     * @default false
+     */
+    binary?: boolean;
+    /**
+     * Value in checked state.
+     * @default true
+     */
+    trueValue?: any;
+    /**
+     * Value in unchecked state.
+     * @default false
+     */
+    falseValue?: any;
+    /**
+     * Size of the checkbox.
      * @default "medium"
      */
     size?: CheckboxSize;
-
     /**
-     * Visual style variant of the checkbox.
+     * Visual style variant.
      * @default "outline"
      */
     variant?: CheckboxVariant;
-
-    /**
-     * Indicates if the checkbox is in an invalid state.
-     * @default false
-     */
-    invalid?: boolean;
-
     /**
      * Whether the checkbox is disabled.
-     * @default false
      */
     disabled?: boolean;
-
     /**
      * Whether the checkbox is read-only.
-     * @default false
      */
     readonly?: boolean;
-
     /**
-     * Whether the checkbox is in an indeterminate state (neither checked nor unchecked).
-     * @default false
+     * Whether the checkbox is invalid.
+     */
+    invalid?: boolean;
+    /**
+     * Whether the checkbox is in an indeterminate state.
      */
     indeterminate?: boolean;
 }
