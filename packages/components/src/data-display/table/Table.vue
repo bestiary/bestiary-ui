@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, Fragment, type VNode, useSlots, ref, onMounted, onUnmounted, type CSSProperties } from 'vue';
+import { computed, Fragment, type VNode, ref, onMounted, onUnmounted } from 'vue';
 import type { DataTableFilterMeta, SortMeta, TableProps } from './table.props';
 import type { ColumnProps } from './column.props';
 import { FilterService } from "./filter.service";
@@ -8,7 +8,53 @@ import BButton from '../../general/button/Button.vue';
 
 defineOptions({ name: "BTable" });
 
-const slots = useSlots();
+/**
+ * Component slots documentation
+ */
+const slots = defineSlots<{
+    /** Default slot expected to contain BColumn components */
+    default?: (props: {}) => any;
+
+    /** Custom content for the table header */
+    header?: (props: {}) => any;
+
+    /** Custom content for the table footer */
+    footer?: (props: {}) => any;
+
+    /** Custom content when no data is available */
+    empty?: (props: {}) => any;
+
+    /** Custom content for the loading overlay */
+    loading?: (props: {}) => any;
+
+    /** Custom content at the start of the paginator */
+    paginatorstart?: (props: {}) => any;
+
+    /** Custom content at the end of the paginator */
+    paginatorend?: (props: {}) => any;
+
+    /** Headless container for the paginator */
+    paginatorcontainer?: (props: {
+        first: number;
+        last: number;
+        rows: number;
+        page: number;
+        pageCount: number;
+        totalRecords: number;
+        firstPageCallback: () => void;
+        lastPageCallback: () => void;
+        prevPageCallback: () => void;
+        nextPageCallback: () => void;
+        rowChangeCallback: (value: number) => void;
+    }) => any;
+
+    /** Custom content for the filter clear button in menu mode */
+    filterclear?: (props: { field: string | undefined; filterCallback: () => void }) => any;
+
+    /** Custom content for the filter apply button in menu mode */
+    filterapply?: (props: { field: string | undefined; filterCallback: () => void }) => any;
+}>();
+
 const props = withDefaults(defineProps<TableProps>(), {
     value: () => [],
     size: "medium",
@@ -235,11 +281,30 @@ const onPage = (event: any) => {
                                         <component :is="col.slots.filter" :filterModel="d_filters[col.props.filterField || col.props.field!]" :filterCallback="filterCallback" />
                                     </div>
                                     <div class="b-table__filter-popover-footer">
-                                        <slot name="filterclear" :field="col.props.field" :filterCallback="() => clearColumnFilter(col.props.field!)">
-                                            <BButton label="Clear" size="small" variant="text" severity="secondary" @click="clearColumnFilter(col.props.field!)" />
+                                        <slot
+                                            name="filterclear"
+                                            :field="col.props.field"
+                                            :filterCallback="() => clearColumnFilter(col.props.field ?? '')"
+                                        >
+                                            <BButton
+                                                label="Clear"
+                                                size="small"
+                                                variant="text"
+                                                severity="secondary"
+                                                @click="clearColumnFilter(col.props.field ?? '')"
+                                            />
                                         </slot>
-                                        <slot name="filterapply" :field="col.props.field" :filterCallback="filterCallback">
-                                            <BButton label="Apply" size="small" @click="filterCallback(); activeFilterMenuField = null;" />
+
+                                        <slot
+                                            name="filterapply"
+                                            :field="col.props.field"
+                                            :filterCallback="filterCallback"
+                                        >
+                                            <BButton
+                                                label="Apply"
+                                                size="small"
+                                                @click="filterCallback(); activeFilterMenuField = null;"
+                                            />
                                         </slot>
                                     </div>
                                 </div>

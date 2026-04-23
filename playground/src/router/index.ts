@@ -39,6 +39,12 @@ const router = createRouter({
             component: () => import("../views/PaginatorView.vue"),
             meta: {category: "Navigation", title: "Paginator"}
         },
+        {
+            path: "/scroll-top",
+            name: "scroll-top",
+            component: () => import("../views/ScrollTopView.vue"),
+            meta: {category: "Navigation", title: "ScrollTop"}
+        },
 
 
         // Data Entry
@@ -116,6 +122,12 @@ const router = createRouter({
             component: () => import("../views/TagView.vue"),
             meta: {category: "Data Display", title: "Tag"}
         },
+        {
+            path: "/image",
+            name: "image",
+            component: () => import("../views/ImageView.vue"),
+            meta: {category: "Data Display", title: "Image"}
+        },
 
         // Feedback
         {
@@ -130,6 +142,18 @@ const router = createRouter({
             component: () => import("../views/SkeletonView.vue"),
             meta: {category: "Feedback", title: "Skeleton"}
         },
+        {
+            path: "/progress",
+            name: "progress",
+            component: () => import("../views/ProgressView.vue"),
+            meta: {category: "Feedback", title: "Progress"}
+        },
+        {
+            path: "/spin",
+            name: "spin",
+            component: () => import("../views/SpinView.vue"),
+            meta: {category: "Feedback", title: "Spin"}
+        }
     ]
 });
 

@@ -1,0 +1,137 @@
+/**
+ * Bestiary UI — Image Component
+ */
+:where(.b-image) {
+    /* --- 1. LOCAL COMPONENT TOKENS --- */
+    --b-image-border-radius:     var(--b-radius-lg);
+    --b-image-overlay-bg:        rgba(0, 0, 0, 0.5);
+    --b-image-indicator-color:   #ffffff;
+    --b-image-indicator-size:    2rem;
+
+    --b-image-preview-mask-bg:   rgba(0, 0, 0, 0.8);
+    --b-image-preview-btn-bg:    rgba(255, 255, 255, 0.1);
+    --b-image-preview-btn-hover-bg: rgba(255, 255, 255, 0.2);
+    --b-image-preview-btn-color: #ffffff;
+
+    /* --- 2. BASE STYLES --- */
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    overflow: hidden; /* Щоб індикатор не виходив за радіус */
+    border-radius: var(--b-image-border-radius);
+}
+
+:where(.b-image__el) {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: inherit;
+}
+
+/* --- 3. PREVIEW INDICATOR --- */
+:where(.b-image__preview-indicator) {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    cursor: pointer;
+    background-color: var(--b-image-overlay-bg);
+    color: var(--b-image-indicator-color);
+    transition: opacity var(--b-duration-normal) var(--b-ease-base);
+
+    /* Запобігає спрацюванню ховеру, поки ми не наведемо на картинку */
+    pointer-events: none;
+}
+
+:where(.b-image:hover .b-image__preview-indicator) {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+:where(.b-image__preview-icon) {
+    width: var(--b-image-indicator-size);
+    height: var(--b-image-indicator-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Примусово обмежуємо SVG всередині слота */
+:where(.b-image__preview-icon svg) {
+    width: 100% !important;
+    height: 100% !important;
+    fill: currentColor;
+    stroke: currentColor;
+}
+
+/* --- 4. FULLSCREEN PREVIEW --- */
+:where(.b-image__preview-mask) {
+    position: fixed;
+    inset: 0;
+    z-index: var(--b-z-overlay, 1000);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--b-image-preview-mask-bg);
+    backdrop-filter: blur(8px);
+}
+
+:where(.b-image__preview-toolbar) {
+    position: absolute;
+    top: var(--b-space-6);
+    right: var(--b-space-6);
+    display: flex;
+    gap: var(--b-space-2);
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem;
+    border-radius: 2rem;
+}
+
+:where(.b-image__preview-btn) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--b-size-10);
+    height: var(--b-size-10);
+    border: none;
+    border-radius: var(--b-radius-full);
+    background-color: transparent;
+    color: var(--b-image-preview-btn-color);
+    cursor: pointer;
+    transition: background-color var(--b-duration-fast);
+}
+
+:where(.b-image__preview-btn:hover) {
+    background-color: var(--b-image-preview-btn-hover-bg);
+}
+
+:where(.b-image__preview-container) {
+    width: 90vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+:where(.b-image__preview-img) {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--b-shadow-xl);
+}
+
+/* --- 5. TRANSITIONS --- */
+.b-image-fade-enter-active,
+.b-image-fade-leave-active {
+    transition: opacity var(--b-duration-normal);
+}
+
+.b-image-fade-enter-from,
+.b-image-fade-leave-to {
+    opacity: 0;
+}

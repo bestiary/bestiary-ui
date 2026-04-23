@@ -4,6 +4,7 @@
 @import "./layout/splitter.css";
 
 @import "./navigation/paginator.css";
+@import "./navigation/scroll-top.css";
 
 @import "./data-display/accordion.css";
 @import "./data-display/avatar.css";
@@ -13,6 +14,7 @@
 @import "./data-display/card.css";
 @import "./data-display/table.css";
 @import "./data-display/tag.css";
+@import "./data-display/image.css";
 
 @import "./data-entry/icon-field.css";
 @import "./data-entry/input-text.css";
@@ -24,3 +26,5 @@
 
 @import "./feedback/message.css";
 @import "./feedback/skeleton.css";
+@import "./feedback/progress.css";
+@import "./feedback/spin.css";

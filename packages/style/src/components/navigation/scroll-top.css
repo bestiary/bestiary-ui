@@ -1,0 +1,76 @@
+/**
+ * Bestiary UI — ScrollTop Component
+ */
+:where(.b-scrolltop) {
+    /* --- 1. LOCAL TOKENS --- */
+    --b-scrolltop-size:       var(--b-size-10);
+    --b-scrolltop-background: var(--b-primary-solid-background);
+    --b-scrolltop-color:      var(--b-primary-solid-text);
+    --b-scrolltop-radius:     var(--b-radius-interactive);
+    --b-scrolltop-shadow:     var(--b-shadow-lg);
+    --b-scrolltop-z-index:    var(--b-z-overlay);
+
+    --b-scrolltop-bottom:     var(--b-space-8);
+    --b-scrolltop-right:      var(--b-space-8);
+
+    /* --- 2. BASE STYLES --- */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed; /* For window mode */
+    bottom: var(--b-scrolltop-bottom);
+    right: var(--b-scrolltop-right);
+    z-index: var(--b-scrolltop-z-index);
+
+    width: var(--b-scrolltop-size);
+    height: var(--b-scrolltop-size);
+
+    background-color: var(--b-scrolltop-background);
+    color: var(--b-scrolltop-color);
+    border: none;
+    border-radius: var(--b-scrolltop-radius);
+    box-shadow: var(--b-scrolltop-shadow);
+
+    cursor: pointer;
+    transition: transform var(--b-duration-normal) var(--b-ease-out),
+    background-color var(--b-duration-normal);
+}
+
+:where(.b-scrolltop:hover) {
+    transform: translateY(-4px);
+    background-color: var(--b-primary-solid-background-hover);
+}
+
+:where(.b-scrolltop:active) {
+    transform: translateY(0) scale(0.95);
+}
+
+:where(.b-scrolltop--target-window) {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+}
+
+/* Local Parent Mode */
+:where(.b-scrolltop--target-parent) {
+    position: sticky !important;
+    display: flex;
+    margin-inline-start: auto;
+}
+
+:where(.b-scrolltop__icon) {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* --- 3. TRANSITIONS --- */
+.b-scrolltop--fade-enter-active,
+.b-scrolltop--fade-leave-active {
+    transition: opacity var(--b-duration-normal), transform var(--b-duration-normal);
+}
+
+.b-scrolltop--fade-enter-from,
+.b-scrolltop--fade-leave-to {
+    opacity: 0;
+    transform: scale(0.5);
+}

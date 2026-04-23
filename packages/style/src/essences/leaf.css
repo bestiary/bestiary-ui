@@ -92,8 +92,8 @@
 
     /* SECONDARY */
     --b-secondary-channels:               var(--b-slate-600-channels);
-    --b-secondary-solid-background:       var(--b-slate-200);
-    --b-secondary-solid-background-hover: var(--b-slate-300);
+    --b-secondary-solid-background:       var(--b-slate-300);
+    --b-secondary-solid-background-hover: var(--b-slate-400);
     --b-secondary-solid-text:             var(--b-slate-600);
     --b-secondary-subtle-background:      var(--b-slate-100);
     --b-secondary-subtle-border:          var(--b-slate-200);

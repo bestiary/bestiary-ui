@@ -15,11 +15,15 @@ export * from "./data-display/overlaybadge";
 export * from "./data-display/card";
 export * from "./data-display/table";
 export * from "./data-display/tag";
+export * from "./data-display/image";
 
 export * from "./navigation/paginator";
+export * from "./navigation/scroll-top";
 
 export * from "./feedback/message";
 export * from "./feedback/skeleton";
+export * from "./feedback/progress";
+export * from "./feedback/spin";
 
 export * from "./layout/divider";
 export * from "./layout/splitter";
