@@ -18,10 +18,10 @@ export default defineConfig({
             {
                 text: "Modules",
                 items: [
-                    { text: `Components (v${pkgComponents.version})`, link: "/collection/components/" },
-                    { text: `Icons (v${pkgIcons.version})`, link: "/collection/icons/" },
-                    { text: `Style (v${pkgStyle.version})`, link: "/collection/style/" },
-                    { text: `Utils (v${pkgUtils.version})`, link: "/collection/utils/" }
+                    { text: `Components (v${pkgComponents.version})`, link: "/components/" },
+                    { text: `Icons (v${pkgIcons.version})`, link: "/icons/" },
+                    { text: `Style (v${pkgStyle.version})`, link: "/style/" },
+                    { text: `Utils (v${pkgUtils.version})`, link: "/utils/" }
                 ]
             }
         ],
@@ -35,19 +35,19 @@ export default defineConfig({
                     ]
                 }
             ],
-            "/collection/components/": [
+            "/components/": [
                 {
                     text: "Getting Started",
                     items: [
-                        { text: "Introduction", link: "/collection/components/" },
-                        { text: `Changelog ${pkgComponents.version}`, link: "/collection/components/changelog" }
+                        { text: "Introduction", link: "/components/" },
+                        { text: `Changelog ${pkgComponents.version}`, link: "/components/changelog" }
                     ]
                 },
                 {
                     text: "General",
                     collapsed: false,
                     items: [
-                        { text: "Button", link: "/collection/components/general/button" },
+                        { text: "Button", link: "/components/general/button" },
                     ]
                 },
                 {
@@ -75,7 +75,7 @@ export default defineConfig({
                     text: "Data Display",
                     collapsed: false,
                     items: [
-                        { text: "Badge", link: "/collection/components/data-display/badge" },
+                        { text: "Badge", link: "/components/data-display/badge" },
                     ]
                 },
                 {
@@ -86,19 +86,52 @@ export default defineConfig({
                     ]
                 },
             ],
-            "/collection/style/": [
+
+            "/style/": [
                 {
-                    text: `Style v${pkgStyle.version}`,
+                    text: "Getting Started",
+                    collapsed: false,
+                    items:[
+                        { text: "Introduction", link: "/style/" },
+                        { text: "Installation", link: "/style/installation" },
+                        { text: "CSS Layers", link: "/style/css-layers" },
+                    ]
+                },
+                {
+                    text: "Design Tokens",
+                    collapsed: false,
                     items: [
-                        { text: "Introduction", link: "/collection/style/" },
+                        { text: "The Token Pipeline", link: "/style/token-pipeline" },
+                        { text: "Palettes", link: "/style/design-tokens/palettes" },
+                        { text: "Layout", link: "/style/design-tokens/layout" },
+                        { text: "Typography", link: "/style/design-tokens/typography" },
+                        { text: "Effects", link: "/style/design-tokens/effects" },
+                        { text: "Borders", link: "/style/design-tokens/borders" },
+                        { text: "Behavior", link: "/style/design-tokens/behavior" },
+                    ]
+                },
+                {
+                    text: "Component API",
+                    collapsed: false,
+                    items:[
+                        { text: "Button", link: "/style/components/button" },
+                        // Інші компоненти будуть тут...
+                    ]
+                },
+                {
+                    text: "Advanced & DX",
+                    items:[
+                        { text: "IDE Integration", link: "/style/ide-integration" },
+                        { text: "Performance & Exports", link: "/style/performance" },
                     ]
                 }
             ],
-            "/collection/icons/": [
+
+            "/icons/": [
                 {
                     text: `Icons v${pkgIcons.version}`,
                     items: [
-                        { text: "Icons", link: "/collection/icons/" },
+                        { text: "Icons", link: "/icons/" },
                     ]
                 }
             ]

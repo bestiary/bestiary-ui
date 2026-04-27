@@ -19,10 +19,10 @@
     "version-pack": "changeset version",
 
     "release:all": "pnpm build && changeset publish",
-    "release:utils": "pnpm build:utils && npm publish build/utils --access public",
+    "release:utils": "pnpm build:utils && npm publish ./build/utils --access public",
     "release:style": "pnpm build:style && npm publish ./build/style --access public",
-    "release:icons": "pnpm build:icons && npm publish build/icons --access public",
-    "release:components": "pnpm build:components && npm publish build/components --access public",
+    "release:icons": "pnpm build:icons && npm publish ./build/icons --access public",
+    "release:components": "pnpm build:components && npm publish ./build/components --access public",
 
     "docs:dev": "pnpm --filter @bestiary-ui/docs dev",
 

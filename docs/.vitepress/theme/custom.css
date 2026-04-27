@@ -15,7 +15,7 @@
 
     --vp-c-bg: #f1f3f4;
     --vp-c-bg-soft: #ffffff;
-    --vp-code-bg: var(--b-background-surface);
+    --vp-code-bg: var(--b-surface-section);
 }
 
 /* Dark Theme Overrides */
@@ -129,11 +129,11 @@
 
 .display-content {
     display: flex;
-    gap: var(--b-ref-space-2);
-    padding: var(--b-ref-space-4);
+    gap: var(--b-space-2);
+    padding: var(--b-space-4);
     justify-content: center;
-    border-radius: var(--b-ref-radius-lg);
-    background-color: var(--b-background-surface);
+    border-radius: var(--b-radius-lg);
+    background-color: var(--b-surface-section);
     border: 1px solid var(--vp-c-divider);
 }
 

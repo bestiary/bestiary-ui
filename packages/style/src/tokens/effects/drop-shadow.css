@@ -1,7 +1,7 @@
 @property --b-drop-shadow-color-channels {
     syntax: "<number>+";
     inherits: true;
-    initial-value: 0% 0 0;
+    initial-value: 0 0 0;
 }
 
 :where(html) {

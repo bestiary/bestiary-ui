@@ -1,4 +1,4 @@
-# Icons <Badge type="tip" text="v1.0.0" />
+# Icons <Badge type="tip" text="v1.0.1" />
 
 A comprehensive set of SVG icons designed for the Bestiary ecosystem. These components are based on [Heroicons](https://heroicons.com) and optimized for Vue 3.
 
