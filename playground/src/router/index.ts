@@ -45,6 +45,12 @@ const router = createRouter({
             component: () => import("../views/ScrollTopView.vue"),
             meta: {category: "Navigation", title: "ScrollTop"}
         },
+        {
+            path: "/breadcrumb",
+            name: "breadcrumb",
+            component: () => import("../views/BreadcrumbView.vue"),
+            meta: {category: "Navigation", title: "Breadcrumb"}
+        },
 
 
         // Data Entry
@@ -83,6 +89,12 @@ const router = createRouter({
             name: "select-button",
             component: () => import("../views/SelectButtonView.vue"),
             meta: {category: "Data Entry", title: "SelectButton"}
+        },
+        {
+            path: "/date-picker",
+            name: "date-picker",
+            component: () => import("../views/DatePickerView.vue"),
+            meta: {category: "Data Entry", title: "DatePicker"}
         },
 
         // Data Display
