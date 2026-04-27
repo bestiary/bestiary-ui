@@ -8,7 +8,7 @@ import pkgUtils from "../../packages/utils/package.json";
 
 export default defineConfig({
     title: "Bestiary UI",
-    description: "Modular ecosystem for high-performance Vue 3 applications",
+    description: "Modular ecosystem for high-performance web applications",
     base: "/bestiary-ui/",
 
     themeConfig: {

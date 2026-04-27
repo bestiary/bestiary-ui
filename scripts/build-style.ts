@@ -94,11 +94,31 @@ async function buildStyle() {
     const distPkg = {
         ...pkg,
         main: "./index.css",
-        exports: exports,
+        unpkg: "./index.bundle.css",
+        jsdelivr: "./index.bundle.css",
+        exports: {
+            ...exports,
+            "./bundle": "./index.bundle.css"
+        },
     };
+
+    // 6. COPY META FILES
+    console.log("📄 Copying meta files (LICENSE, CHANGELOG, README)...");
+    const packageRoot = resolve(root, "packages/style");
+    const metaFiles = ["LICENSE", "README.md", "CHANGELOG.md"];
+
+    for (const file of metaFiles) {
+        const srcPath = resolve(packageRoot, file);
+        const destPath = resolve(distDir, file);
+        if (await fs.pathExists(srcPath)) {
+            await fs.copyFile(srcPath, destPath);
+        }
+    }
 
     // Remove development-only paths
     delete distPkg.files;
+    delete distPkg.devDependencies;
+    delete distPkg.scripts;
 
     await fs.writeJson(resolve(distDir, "package.json"), distPkg, { spaces: 4 });
 

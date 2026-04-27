@@ -1,8 +1,16 @@
 {
     "name": "@bestiary-ui/style",
-    "version": "0.0.1",
-    "description": "Core styles and tokens for Bestiary UI",
+    "version": "0.1.0",
+    "description": "Core styles, variables, and CSS utilities for Bestiary UI",
+    "private": false,
+    "author": "Bestiary UI",
     "license": "MIT",
+    "homepage": "https://github.com/bestiary/bestiary-ui/tree/main/packages/style#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/bestiary/bestiary-ui.git",
+        "directory": "packages/style"
+    },
     "publishConfig": {
         "access": "public"
     }

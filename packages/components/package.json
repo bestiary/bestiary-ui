@@ -1,6 +1,6 @@
 {
     "name": "@bestiary-ui/components",
-    "version": "0.0.3",
+    "version": "0.1.0",
     "type": "module",
     "main": "./index.сjs",
     "module": "./index.js",
