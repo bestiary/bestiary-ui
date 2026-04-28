@@ -102,6 +102,7 @@ export default defineConfig({
                     collapsed: false,
                     items: [
                         { text: "The Token Pipeline", link: "/style/token-pipeline" },
+                        { text: "Semantic Contract", link: "/style/design-tokens/semantic-contract" },
                         { text: "Palettes", link: "/style/design-tokens/palettes" },
                         { text: "Layout", link: "/style/design-tokens/layout" },
                         { text: "Typography", link: "/style/design-tokens/typography" },

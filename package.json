@@ -25,6 +25,7 @@
     "release:components": "pnpm build:components && npm publish ./build/components --access public",
 
     "docs:dev": "pnpm --filter @bestiary-ui/docs dev",
+    "docs:build": "pnpm --filter @bestiary-ui/docs build",
 
     "typecheck": "vue-tsc --noEmit -p tsconfig.base.json --composite false"
   },

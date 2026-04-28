@@ -1,5 +1,12 @@
 import { Component } from "vue";
 
+export interface CalendarDay {
+    day: number;
+    month: number;
+    year: number;
+    otherMonth: boolean;
+}
+
 export type DatePickerSelectionMode = "single" | "multiple" | "range";
 export type DatePickerViewMode = "date" | "month" | "year";
 

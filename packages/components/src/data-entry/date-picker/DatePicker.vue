@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {computed, onMounted, onUnmounted, ref} from 'vue';
-import type {DatePickerProps} from './date-picker.props';
+import type {DatePickerProps, CalendarDay} from './date-picker.props';
 
 defineOptions({ name: "BDatePicker" });
 
@@ -30,13 +30,6 @@ const monthNames = [
     'January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
 ];
-
-interface CalendarDay {
-    day: number;
-    month: number;
-    year: number;
-    otherMonth: boolean;
-}
 
 /* --- Computed --- */
 const currentMonth = computed(() => viewDate.value.getMonth());

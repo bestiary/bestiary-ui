@@ -4,6 +4,7 @@ import { BestiaryUI } from "@bestiary-ui/components";
 import "@bestiary-ui/style";
 import "./custom.css";
 import IconGallery from "./components/IconGallery.vue";
+import PaletteGenerator from "./components/PaletteGenerator.vue";
 import DocTabs from "./components/doc-tab/DocTabs.vue";
 import DocTabPane from "./components/doc-tab/DocTabPane.vue";
 import {onMounted, watch} from "vue";
@@ -13,6 +14,7 @@ const theme: Theme = {
     enhanceApp({ app }) {
         app.use(BestiaryUI)
         app.component("IconGallery", IconGallery)
+        app.component("PaletteGenerator", PaletteGenerator);
         app.component("DocTabs", DocTabs)
         app.component("DocTabPane", DocTabPane)
     },
