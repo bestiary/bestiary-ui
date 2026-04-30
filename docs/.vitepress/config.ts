@@ -116,7 +116,6 @@ export default defineConfig({
                     collapsed: false,
                     items:[
                         { text: "Button", link: "/style/components/button" },
-                        // Інші компоненти будуть тут...
                     ]
                 },
                 {
