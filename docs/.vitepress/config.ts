@@ -106,7 +106,7 @@ const config: UserConfig<CustomThemeConfig> = {
             "/style/": [
                 {
                     text: "Getting Started",
-                    collapsed: false,
+                    collapsed: true,
                     items:[
                         { text: "Introduction", link: "/style/" },
                         { text: "Installation", link: "/style/installation" },
@@ -115,16 +115,31 @@ const config: UserConfig<CustomThemeConfig> = {
                 },
                 {
                     text: "Design Tokens",
+                    collapsed: true,
+                    items: [
+                        { text: "The Token Pipeline", link: "/style/tokens/token-pipeline" },
+                        { text: "Semantic Contract", link: "/style/tokens/semantic-contract" },
+                        { text: "Palettes", link: "/style/tokens/palettes" },
+                        { text: "Layout", link: "/style/tokens/layout" },
+                        { text: "Typography", link: "/style/tokens/typography" },
+                        { text: "Effects", link: "/style/tokens/effects" },
+                        { text: "Borders", link: "/style/tokens/borders" },
+                        { text: "Behavior", link: "/style/tokens/behavior" },
+                    ]
+                },
+                {
+                    text: "Atomic Utilities",
                     collapsed: false,
                     items: [
-                        { text: "The Token Pipeline", link: "/style/token-pipeline" },
-                        { text: "Semantic Contract", link: "/style/design-tokens/semantic-contract" },
-                        { text: "Palettes", link: "/style/design-tokens/palettes" },
-                        { text: "Layout", link: "/style/design-tokens/layout" },
-                        { text: "Typography", link: "/style/design-tokens/typography" },
-                        { text: "Effects", link: "/style/design-tokens/effects" },
-                        { text: "Borders", link: "/style/design-tokens/borders" },
-                        { text: "Behavior", link: "/style/design-tokens/behavior" },
+                        { text: "Overview", link: "/style/utilities/" },
+                        { text: "Spacing", link: "/style/utilities/spacing" },
+                        { text: "Sizing", link: "/style/utilities/sizing" },
+                        { text: "Layout", link: "/style/utilities/layout" },
+                        { text: "Composition", link: "/style/utilities/composition" },
+                        { text: "Typography", link: "/style/utilities/typography" },
+                        { text: "Interactivity", link: "/style/utilities/interactivity" },
+                        { text: "Effects", link: "/style/utilities/effects" },
+                        { text: "Borders", link: "/style/utilities/borders" },
                     ]
                 },
                 {

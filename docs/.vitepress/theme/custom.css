@@ -212,10 +212,6 @@
     border-radius: var(--b-radius-container) !important;
 }
 
-.custom-block.tip, .custom-block.info {
-    color: var(--b-text-primary) !important;
-}
-
 /* Badges */
 .VPBadge {
     background-color: var(--b-primary-subtle-background) !important;
