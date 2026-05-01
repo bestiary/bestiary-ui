@@ -7,7 +7,7 @@
 @property --b-inset-ring-color-channels {
     syntax: "<number>+";
     inherits: true;
-    initial-value: 0% 0 0;
+    initial-value: 0 0 0;
 }
 
 @property --b-inset-ring-alpha {

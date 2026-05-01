@@ -5,16 +5,15 @@
 }
 
 :where(html) {
-
-    /* Opacity levels */
-    --b-drop-shadow-alpha-xs:  5%;
-    --b-drop-shadow-alpha-sm:  15%;
-    --b-drop-shadow-alpha-md:  12%;
-    --b-drop-shadow-alpha-lg:  15%;
-    --b-drop-shadow-alpha-xl:  10%;
+    --b-drop-shadow-alpha-xs: 5%;
+    --b-drop-shadow-alpha-sm: 15%;
+    --b-drop-shadow-alpha-md: 12%;
+    --b-drop-shadow-alpha-lg: 15%;
+    --b-drop-shadow-alpha-xl: 10%;
     --b-drop-shadow-alpha-2xl: 15%;
+}
 
-    /* Drop shadow */
+:where(*) {
     --b-drop-shadow-none: 0 0 #0000;
 
     --b-drop-shadow-xs: 0 1px 1px oklch(var(--b-drop-shadow-color-channels) / var(--b-drop-shadow-alpha-xs));

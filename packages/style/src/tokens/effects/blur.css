@@ -1,23 +1,16 @@
-@property --b-blur-factor {
-    syntax: "<number>";
-    inherits: true;
-    initial-value: 1;
-}
-
 @property --b-blur {
     syntax: "<length>";
     inherits: true;
     initial-value: 0px;
 }
 
-:where(html) {
-    --b-blur-xs:   calc(4px  * var(--b-blur-factor));
-    --b-blur-sm:   calc(8px  * var(--b-blur-factor));
-    --b-blur-md:   calc(12px * var(--b-blur-factor));
-    --b-blur-lg:   calc(16px * var(--b-blur-factor));
-    --b-blur-xl:   calc(24px * var(--b-blur-factor));
-    --b-blur-2xl:  calc(40px * var(--b-blur-factor));
-    --b-blur-3xl:  calc(64px * var(--b-blur-factor));
-
+:where(*) {
+    --b-blur-xs:  4px;
+    --b-blur-sm:  8px;
+    --b-blur-md:  12px;
+    --b-blur-lg:  16px;
+    --b-blur-xl:  24px;
+    --b-blur-2xl: 40px;
+    --b-blur-3xl: 64px;
     --b-blur-none: 0px;
 }

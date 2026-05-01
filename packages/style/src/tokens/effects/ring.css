@@ -28,7 +28,7 @@
     initial-value: 1;
 }
 
-:where(html) {
+:where(*) {
     --b-ring:
             0 0 0 var(--b-ring-offset-width) var(--b-ring-offset-color, var(--b-surface-section, var(--b-surface-ground))),
             0 0 0 calc(var(--b-ring-offset-width) + var(--b-ring-width)) oklch(var(--b-ring-color-channels) / var(--b-ring-alpha));
