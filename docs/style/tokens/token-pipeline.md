@@ -64,11 +64,11 @@ The final tier is the **Mapping**. This is where **Primitives** (raw data) are a
 ## Token Categories
 The library's design tokens are organized into six core categories, reflecting the internal architecture of the package:
 
-| Category                                    | Description                                                                                 | Key Modules                              |
-|:--------------------------------------------|:--------------------------------------------------------------------------------------------|:-----------------------------------------|
-| [🎨 Palettes](./design-tokens/palettes)     | **The Color System**. OKLCH scales for all tints, brand colors, and shared common palettes. | `gray.css`, `blue.css`, `brands.css`     |
-| [📏 Layout](./design-tokens/layout)         | **The Grid & Geometry**. Spacing scales, sizing, breakpoints, and Z-index layers.           | `spacings.css`, `size.css`, `layers.css` |
-| [✍️ Typography](./design-tokens/typography) | **The Written Word**. Font families, semantic scales (H1-H6), weights, and leading.         | `font-size.css`, `line-height.css`       |
-| [✨ Effects](./design-tokens/effects)        | **Light & Depth**. The Shadow Engine, blurs, opacity levels, and ring systems.              | `shadow.css`, `blur.css`, `ring.css`     |
-| [💠 Borders](./design-tokens/borders)       | **Shapes & Outlines**. Border radii (including organic and blob shapes) and stroke weights. | `radius.css`, `strokes.css`              |
-| [⚡ Behavior](./design-tokens/behavior)      | **Motion & Interaction**. Transition durations and custom easing curves (Bezier).           | `time.css`, `ease.css`                   |
+| Category                        | Description                                                                                 | Key Modules                              |
+|:--------------------------------|:--------------------------------------------------------------------------------------------|:-----------------------------------------|
+| [🎨 Palettes](./palettes)       | **The Color System**. OKLCH scales for all tints, brand colors, and shared common palettes. | `gray.css`, `blue.css`, `brands.css`     |
+| [📏 Layout](./layout)           | **The Grid & Geometry**. Spacing scales, sizing, breakpoints, and Z-index layers.           | `spacings.css`, `size.css`, `layers.css` |
+| [✍️ Typography](./typography)   | **The Written Word**. Font families, semantic scales (H1-H6), weights, and leading.         | `font-size.css`, `line-height.css`       |
+| [✨ Effects](./effects)          | **Light & Depth**. The Shadow Engine, blurs, opacity levels, and ring systems.              | `shadow.css`, `blur.css`, `ring.css`     |
+| [💠 Borders](./borders)         | **Shapes & Outlines**. Border radii (including organic and blob shapes) and stroke weights. | `radius.css`, `strokes.css`              |
+| [⚡ Behavior](./behavior)        | **Motion & Interaction**. Transition durations and custom easing curves (Bezier).           | `time.css`, `ease.css`                   |
