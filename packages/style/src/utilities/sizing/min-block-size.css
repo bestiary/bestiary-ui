@@ -35,33 +35,33 @@
    Macro-heights for large layouts, hero sections, and sidebars.
    ------------------------------------------------------------ */
 
-.min-block-3xs { min-block-size: calc(var(--b-container-3xs) * var(--b-scale)); }
-.min-block-2xs { min-block-size: calc(var(--b-container-2xs) * var(--b-scale)); }
-.min-block-xs  { min-block-size: calc(var(--b-container-xs)  * var(--b-scale)); }
-.min-block-sm  { min-block-size: calc(var(--b-container-sm)  * var(--b-scale)); }
-.min-block-md  { min-block-size: calc(var(--b-container-md)  * var(--b-scale)); }
-.min-block-lg  { min-block-size: calc(var(--b-container-lg)  * var(--b-scale)); }
-.min-block-xl  { min-block-size: calc(var(--b-container-xl)  * var(--b-scale)); }
-.min-block-2xl { min-block-size: calc(var(--b-container-2xl) * var(--b-scale)); }
-.min-block-3xl { min-block-size: calc(var(--b-container-3xl) * var(--b-scale)); }
-.min-block-4xl { min-block-size: calc(var(--b-container-4xl) * var(--b-scale)); }
-.min-block-5xl { min-block-size: calc(var(--b-container-5xl) * var(--b-scale)); }
-.min-block-6xl { min-block-size: calc(var(--b-container-6xl) * var(--b-scale)); }
-.min-block-7xl { min-block-size: calc(var(--b-container-7xl) * var(--b-scale)); }
+.min-block-3xs { min-block-size: var(--b-container-3xs) !important; }
+.min-block-2xs { min-block-size: var(--b-container-2xs) !important; }
+.min-block-xs  { min-block-size: var(--b-container-xs) !important; }
+.min-block-sm  { min-block-size: var(--b-container-sm) !important; }
+.min-block-md  { min-block-size: var(--b-container-md) !important; }
+.min-block-lg  { min-block-size: var(--b-container-lg) !important; }
+.min-block-xl  { min-block-size: var(--b-container-xl) !important; }
+.min-block-2xl { min-block-size: var(--b-container-2xl) !important; }
+.min-block-3xl { min-block-size: var(--b-container-3xl) !important; }
+.min-block-4xl { min-block-size: var(--b-container-4xl) !important; }
+.min-block-5xl { min-block-size: var(--b-container-5xl) !important; }
+.min-block-6xl { min-block-size: var(--b-container-6xl) !important; }
+.min-block-7xl { min-block-size: var(--b-container-7xl) !important; }
 
 /* ------------------------------------------------------------
    4. FRACTIONAL SIZES
    Absolute percentage values used for vertical alignment logic.
    ------------------------------------------------------------ */
 
-.min-block-1-2  { min-block-size: var(--b-ref-fraction-1-2); }
-.min-block-1-3  { min-block-size: var(--b-ref-fraction-1-3); }
-.min-block-1-4  { min-block-size: var(--b-ref-fraction-1-4); }
-.min-block-1-5  { min-block-size: var(--b-ref-fraction-1-5); }
-.min-block-1-6  { min-block-size: var(--b-ref-fraction-1-6); }
-.min-block-2-3  { min-block-size: var(--b-ref-fraction-2-3); }
-.min-block-2-5  { min-block-size: var(--b-ref-fraction-2-5); }
-.min-block-3-4  { min-block-size: var(--b-ref-fraction-3-4); }
-.min-block-3-5  { min-block-size: var(--b-ref-fraction-3-5); }
-.min-block-4-5  { min-block-size: var(--b-ref-fraction-4-5); }
-.min-block-5-6  { min-block-size: var(--b-ref-fraction-5-6); }
+.min-block-1-2  { min-block-size: var(--b-fraction-1-2) !important; }
+.min-block-1-3  { min-block-size: var(--b-fraction-1-3) !important; }
+.min-block-1-4  { min-block-size: var(--b-fraction-1-4) !important; }
+.min-block-1-5  { min-block-size: var(--b-fraction-1-5) !important; }
+.min-block-1-6  { min-block-size: var(--b-fraction-1-6) !important; }
+.min-block-2-3  { min-block-size: var(--b-fraction-2-3) !important; }
+.min-block-2-5  { min-block-size: var(--b-fraction-2-5) !important; }
+.min-block-3-4  { min-block-size: var(--b-fraction-3-4) !important; }
+.min-block-3-5  { min-block-size: var(--b-fraction-3-5) !important; }
+.min-block-4-5  { min-block-size: var(--b-fraction-4-5) !important; }
+.min-block-5-6  { min-block-size: var(--b-fraction-5-6) !important; }
