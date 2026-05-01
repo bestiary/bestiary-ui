@@ -93,4 +93,3 @@ Fluid, liquid-like shapes perfect for background decorations or unique avatars.
 The `--b-radius` and `--b-stroke` tokens are registered via `@property`, allowing for:
 - **Smooth Morphing**: Animate between different radius sizes or blob shapes natively.
 - **Type Safety**: Values are validated as `<length>`, preventing layout shifts from invalid CSS assignments.
-```
