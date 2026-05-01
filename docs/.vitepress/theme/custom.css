@@ -1,149 +1,290 @@
+/* ------------------------------------------------------------
+   1. VITEPRESS TO BESTIARY UI MAPPING
+   Синхронізація внутрішніх змінних VitePress з токенами Bestiary
+   ------------------------------------------------------------ */
 :root {
-    --brand-color: #7dae78;
-    --brand-hover: #6b9a66;
+    /* Fonts */
+    --vp-font-family-base: var(--b-font-family-base);
+    --vp-font-family-mono: var(--b-font-family-mono);
 
-    /* VitePress Override - Light Theme */
-    --vp-c-brand-1: var(--brand-color);
-    --vp-c-brand-2: var(--brand-hover);
+    /* Brand & Accent */
+    --vp-c-brand-1: var(--b-primary-500);
+    --vp-c-brand-2: var(--b-primary-600);
+    --vp-c-brand-3: var(--b-primary-400);
+
+    /* Surfaces (Фони) */
+    --vp-c-bg: var(--b-surface-ground);
+    --vp-c-bg-soft: var(--b-surface-section);
+    --vp-c-bg-alt: var(--b-surface-variant);
+    --vp-c-bg-elv: var(--b-surface-floating);
+
+    /* UI Components Backgrounds */
+    --vp-nav-bg-color: var(--b-surface-section);
+    --vp-sidebar-bg-color: var(--b-surface-section);
+    --vp-code-block-bg: var(--b-surface-variant);
+    --vp-code-copy-code-bg: var(--b-surface-ground);
+
+    /* Text */
+    --vp-c-text-1: var(--b-text-primary);
+    --vp-c-text-2: var(--b-text-secondary);
+    --vp-c-text-3: var(--b-text-muted);
+
+    /* Inline Code */
+    --vp-code-bg: var(--b-primary-subtle-background);
+    --vp-code-color: var(--b-primary-subtle-text);
+
+    /* Custom Blocks (Tips, Info, etc.) */
+    --vp-custom-block-tip-bg: var(--b-info-subtle-background);
+    --vp-custom-block-tip-border: var(--b-info-subtle-border);
+    --vp-custom-block-tip-text: var(--b-info-subtle-text);
+    --vp-custom-block-tip-code-bg: var(--b-primary-subtle-background);
+
+    --vp-custom-block-info-bg: var(--b-info-subtle-background);
+    --vp-custom-block-info-border: var(--b-info-subtle-border);
+    --vp-custom-block-info-text: var(--b-info-subtle-text);
+    --vp-custom-block-info-code-bg: var(--b-primary-subtle-background);
+
+    /* Borders & Dividers */
+    --vp-c-divider: var(--b-border-subtle);
+    --vp-c-gutter: var(--b-border-default);
+
+    /* Hero Metrics */
+    --hero-name-size: var(--b-text-7xl);
+    --hero-text-size: var(--b-text-4xl);
+    --hero-tagline-size: var(--b-text-xl);
+
+    /* Hero Gradient */
     --vp-home-hero-name-color: transparent;
-    --vp-home-hero-name-background: linear-gradient(135deg, #7dae78 0%, #6b9a66 100%);
-
-    /* Sizes */
-    --hero-name-size: 68px;
-    --hero-text-size: 48px;
-    --hero-tagline-size: 22px;
-
-    --vp-c-bg: #f1f3f4;
-    --vp-c-bg-soft: #ffffff;
-    --vp-code-bg: var(--b-surface-section);
+    --vp-home-hero-name-background: linear-gradient(
+            135deg,
+            var(--b-primary-400) 0%,
+            var(--b-primary-600) 100%
+    );
 }
 
-/* Dark Theme Overrides */
-.dark {
-    --brand-hover: #8bc386;
-    --vp-home-hero-name-background: linear-gradient(135deg, #8bc386 0%, #7dae78 100%);
+/* ------------------------------------------------------------
+   2. LAYOUT & NAVIGATION (Navbar & Sidebar)
+   ------------------------------------------------------------ */
 
-    --vp-c-bg: #121214;
-    --vp-c-bg-soft: #1e1e20;
-    --vp-c-bg-alt: #121214;
-    --vp-c-divider: #2d2d30;
+/* Sidebar */
+.VPSidebar {
+    background-color: var(--vp-sidebar-bg-color) !important;
+    border-right: 1px solid var(--b-border-default) !important;
+    box-shadow: none !important;
+    transition: border-color var(--b-duration-normal), background-color var(--b-duration-normal);
 }
 
+.VPSidebarItem.level-0 .title-text {
+    font-weight: var(--b-font-weight-bold);
+    color: var(--b-text-primary);
+    text-transform: uppercase;
+    font-size: var(--b-text-xs);
+    letter-spacing: var(--b-letter-spacing-wider);
+}
+
+.VPSidebarItem.level-1 .link {
+    font-size: var(--b-text-sm);
+    color: var(--b-text-secondary);
+    border-left: 2px solid transparent;
+    padding-left: 16px !important;
+    transition: all var(--b-duration-fast) var(--b-ease-base);
+}
+
+.VPSidebarItem.level-1 .link:hover {
+    color: var(--vp-c-brand-1);
+    background-color: var(--b-primary-subtle-background);
+}
+
+.VPSidebarItem.level-1.is-active > .item > .link {
+    color: var(--b-primary-600) !important;
+    font-weight: var(--b-font-weight-semibold);
+    background-color: var(--b-primary-subtle-background);
+    border-left: 2px solid var(--b-primary-500) !important;
+}
+
+/* ------------------------------------------------------------
+   3. HERO SECTION
+   ------------------------------------------------------------ */
 .VPHero .name {
     font-size: var(--hero-name-size) !important;
-    font-weight: 800 !important;
-    letter-spacing: -0.02em !important;
-    line-height: 76px !important;
+    font-weight: var(--b-font-weight-black) !important;
+    letter-spacing: var(--b-letter-spacing-tight) !important;
+    line-height: var(--b-text-7xl--line-height) !important;
 }
 
 .VPHero .text {
     font-size: var(--hero-text-size) !important;
     color: var(--vp-c-text-1) !important;
-    font-weight: 700 !important;
+    font-weight: var(--b-font-weight-bold) !important;
+    line-height: var(--b-text-4xl--line-height) !important;
     max-width: 800px;
-    line-height: 50px !important;
 }
 
 .VPHero .tagline {
     font-size: var(--hero-tagline-size) !important;
     color: var(--vp-c-text-2) !important;
     max-width: 650px;
-    line-height: 1.5 !important;
+    line-height: var(--b-text-xl--line-height) !important;
 }
 
+/* Hero Buttons */
 .VPHero .actions .VPButton.brand {
-    border-radius: 8px !important;
-    background-color: var(--brand-color) !important;
-    color: #ffffff !important; /* Текст на кнопці завжди білий */
-    transition: background-color 0.3s ease;
+    border-radius: var(--b-radius-interactive) !important;
+    background-color: var(--b-primary-solid-background) !important;
+    color: var(--b-primary-solid-text) !important;
+    transition: all var(--b-duration-normal) var(--b-ease-base);
 }
 
 .VPHero .actions .VPButton.brand:hover {
-    background-color: var(--brand-hover) !important;
+    background-color: var(--b-primary-solid-background-hover) !important;
+    transform: translateY(-2px);
+    box-shadow: var(--b-shadow-md);
 }
 
 .VPHero .actions .VPButton.alt {
-    border-radius: 8px !important;
-    border-color: var(--vp-c-divider) !important;
+    border-radius: var(--b-radius-interactive) !important;
+    border-color: var(--b-border-default) !important;
 }
 
+/* ------------------------------------------------------------
+   4. FEATURES SECTION
+   ------------------------------------------------------------ */
 .VPFeature {
-    border-radius: 16px !important;
-    background-color: var(--vp-c-bg-soft) !important;
-    border: 1px solid var(--vp-c-divider) !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    border-radius: var(--b-radius-container) !important;
+    background-color: var(--b-surface-section) !important;
+    border: 1px solid var(--b-border-subtle) !important;
+    transition: all var(--b-duration-normal) var(--b-ease-accent) !important;
 }
 
 .VPFeature:hover {
     transform: translateY(-5px);
-    border-color: var(--brand-color) !important;
-    box-shadow: 0 12px 30px -10px rgba(125, 174, 120, 0.3) !important;
+    border-color: var(--vp-c-brand-1) !important;
+    box-shadow: var(--b-shadow-lg) !important;
 }
 
 .VPFeature .icon {
-    background-color: rgba(125, 174, 120, 0.1) !important;
-    border-radius: 10px !important;
-    width: 48px !important;
-    height: 48px !important;
+    background-color: var(--b-primary-subtle-background) !important;
+    border-radius: var(--b-radius-interactive) !important;
+    width: var(--b-size-12) !important;
+    height: var(--b-size-12) !important;
     display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 24px !important;
+    align-items: center;
+    justify-content: center;
 }
 
-.VPFeature .title {
-    font-size: 20px !important;
-    font-weight: 600 !important;
-    color: var(--vp-c-text-1) !important;
-    margin-top: 16px !important;
+/* ------------------------------------------------------------
+   5. DOCUMENTATION & CODE
+   ------------------------------------------------------------ */
+
+/* Code Blocks */
+.vp-doc div[class*="language-"] {
+    background-color: var(--vp-code-block-bg) !important;
+    box-shadow: var(--b-shadow-sm);
+    margin: 1.5rem 0;
 }
 
+.vp-doc div[class*="language-"] > span.lang {
+    color: var(--b-text-secondary) !important;
+    font-weight: var(--b-font-weight-bold);
+    font-size: var(--b-text-xs);
+}
+
+.vp-doc div[class*="language-"] button.copy {
+    border-radius: var(--b-radius-interactive);
+    background-color: transparent;
+    border: 1px solid var(--b-primary-outline-border);
+    transition: all var(--b-duration-fast);
+}
+
+.vp-doc div[class*="language-"] button.copy:hover {
+    background-color: var(--b-primary-overlay);
+    border: 1px solid var(--b-primary-outline-border);
+}
+
+.vp-doc div[class*="language-"] pre,
+.vp-doc div[class*="language-"] code {
+    font-family: var(--b-font-family-mono) !important;
+    font-size: var(--b-text-sm) !important;
+}
+
+/* Custom Blocks Styling */
+.custom-block {
+    border-radius: var(--b-radius-container) !important;
+}
+
+.custom-block.tip, .custom-block.info {
+    color: var(--b-text-primary) !important;
+}
+
+/* Badges */
+.VPBadge {
+    background-color: var(--b-primary-subtle-background) !important;
+    border: 1px solid var(--b-primary-subtle-border) !important;
+    color: var(--b-primary-subtle-text) !important;
+    font-weight: var(--b-font-weight-medium);
+}
+
+/* Playground / Display Content */
+.display-content {
+    display: flex;
+    gap: var(--b-space-4);
+    padding: var(--b-space-8);
+    justify-content: center;
+    border-radius: var(--b-radius-container);
+    background-color: var(--b-surface-section);
+    border: 1px solid var(--b-border-default);
+    box-shadow: var(--b-shadow-sm);
+}
+
+/* ------------------------------------------------------------
+   6. GLOBAL OVERRIDES & RESPONSIVENESS
+   ------------------------------------------------------------ */
 .vp-doc h2 {
     border-top: none;
+    font-weight: var(--b-font-weight-bold);
 }
 
-.VPFeature .details {
-    font-size: 15px !important;
-    color: var(--vp-c-text-2) !important;
-    line-height: 1.6 !important;
-    margin-top: 8px !important;
+table code {
+    white-space: nowrap;
 }
 
-.VPBadge {
-    background-color: var(--vp-c-bg-soft) !important;
-    border: 1px solid var(--brand-color) !important;
+@media (min-width: 1440px) {
+    .VPSidebar[data-v-b1ca5285] {
+        padding-left: 32px !important;
+        width: var(--vp-sidebar-width) !important;
+    }
+    .VPNavBar.has-sidebar .title[data-v-467b3125] {
+        padding-left: 32px !important;
+        width: var(--vp-sidebar-width) !important;
+    }
+    .VPNavBar.has-sidebar .content[data-v-467b3125] {
+        padding-left: var(--vp-sidebar-width) !important;
+    }
+    .VPNavBar.has-sidebar .divider[data-v-467b3125] {
+        padding-left: var(--vp-sidebar-width) !important;
+    }
 }
 
-.vp-doc div[class*="language-"] {
-    background-color: var(--vp-code-bg);
-    border: 1px solid var(--vp-c-divider);
+@media (min-width: 960px) {
+    .VPNavBar:not(.home) {
+        background-color: var(--vp-nav-bg-color) !important;
+    }
 }
 
 @media (max-width: 960px) {
     :root {
-        --hero-name-size: 48px;
-        --hero-text-size: 36px;
-        --hero-tagline-size: 18px;
+        --hero-name-size: var(--b-text-5xl);
+        --hero-text-size: var(--b-text-3xl);
     }
-}
-
-.display-content {
-    display: flex;
-    gap: var(--b-space-2);
-    padding: var(--b-space-4);
-    justify-content: center;
-    border-radius: var(--b-radius-lg);
-    background-color: var(--b-surface-section);
-    border: 1px solid var(--vp-c-divider);
+    .VPSidebar {
+        border-right: none !important;
+        box-shadow: var(--b-shadow-xl) !important;
+    }
 }
 
 @media (max-width: 640px) {
     :root {
-        --hero-name-size: 40px;
-        --hero-text-size: 28px;
+        --hero-name-size: var(--b-text-4xl);
+        --hero-text-size: var(--b-text-2xl);
     }
-}
-
-:root {
-    --vp-font-family-base: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
 }

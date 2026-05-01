@@ -1,13 +1,9 @@
-# Semantic Contract <Badge type="tip" text="v0.1.0" />
-
+# Semantic Contract <VersionBadge module="style" />
 The **Semantic Contract** is the strictly typed API of Bestiary UI. It defines all available functional tokens using the **CSS Houdini (@property)** API.
 
 By consuming these tokens instead of raw values, your application remains consistent across different **Themes** (geometry) and **Essences** (colors).
 
----
-
 ## Block 1: Theme (Geometry & Motion)
-
 These tokens define the physical characteristics of the interface. They are typically populated by the `data-theme` attribute.
 
 ### 1.1 Typography Roles
@@ -60,10 +56,7 @@ Strict integers for managing layers.
 | `--b-z-overlay`         | `1000`  | Backdrops       |
 | `--b-z-modal` / `toast` | `1100`  | Global popups   |
 
----
-
 ## Block 2: Essence (Color Matrix)
-
 These tokens define the mood and color distribution. They are typically populated by the `data-essence` attribute and support smooth transitions via Houdini.
 
 ### 2.1 Surface System
@@ -106,10 +99,7 @@ Specific tokens for consistent form experiences.
 - `--b-form-control-border` (with `-hover` and `-active` states)
 - `--b-form-control-placeholder`
 
----
-
 ## Technical Specs
-
 All tokens are registered via `@property`. This means:
 1. **Inheritance**: All tokens inherit by default (`inherits: true`).
 2. **Animation**: You can transition colors, lengths, and even z-indices.

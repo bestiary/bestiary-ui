@@ -1,4 +1,4 @@
-import { defineConfig } from "vitepress";
+import { defineConfig, type UserConfig, type DefaultTheme } from "vitepress";
 import { resolve } from "path";
 
 import pkgComponents from "../../packages/components/package.json";
@@ -6,12 +6,28 @@ import pkgIcons from "../../packages/icons/package.json";
 import pkgStyle from "../../packages/style/package.json";
 import pkgUtils from "../../packages/utils/package.json";
 
-export default defineConfig({
+interface CustomThemeConfig extends DefaultTheme.Config {
+    publicVersions: {
+        style: string;
+        icons: string;
+        components: string;
+        utils: string;
+    };
+}
+
+const config: UserConfig<CustomThemeConfig> = {
     title: "Bestiary UI",
     description: "Modular ecosystem for high-performance web applications",
     base: "/bestiary-ui/",
 
     themeConfig: {
+        publicVersions: {
+            style: pkgStyle.version,
+            icons: pkgIcons.version,
+            components: pkgComponents.version,
+            utils: pkgUtils.version
+        },
+
         nav: [
             { text: "Home", link: "/" },
             { text: "Guide", link: "/guide/installation" },
@@ -157,4 +173,6 @@ export default defineConfig({
             }
         }
     }
-});
+};
+
+export default defineConfig(config);

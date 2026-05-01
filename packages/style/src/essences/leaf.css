@@ -39,39 +39,38 @@
     --b-state-disabled-opacity: 0.75;
 
     /* 2.3 Surfaces */
-    --b-surface-ground:   oklch(0.9819 0.0029 264.54);
+    --b-surface-ground:   var(--b-stone-100);
     --b-surface-section:  var(--b-white);
-    --b-surface-variant:  var(--b-slate-200);
-    --b-surface-floating: var(--b-white);
+    --b-surface-variant:  var(--b-stone-200);
+    --b-surface-floating: var(--b-stone-300);
     --b-surface-overlay:  oklch(var(--b-black-channels) / 50%);
-    --b-surface-contrast: oklch(0.1408 0.0044 285.82);
+    --b-surface-contrast: var(--b-stone-950);
 
     /* 2.4 Typography & Selection */
-    --b-text-primary:   var(--b-slate-800);
-    --b-text-secondary: var(--b-slate-700);
-    --b-text-muted:     var(--b-slate-400);
+    --b-text-primary:   var(--b-stone-700);
+    --b-text-secondary: var(--b-stone-600);
+    --b-text-muted:     var(--b-stone-500);
     --b-text-contrast:  var(--b-white);
 
     --b-text-selection-background: oklch(var(--b-primary-500-channels) / 30%);
 
     /* 2.5 Form Controls (Inputs) */
-    --b-form-control-background:    var(--b-surface-section);
-    --b-form-control-border:        oklch(0.9197 0.004 286.32);
-    --b-form-control-border-hover:  oklch(0.8711 0.0055 286.29);
+    --b-form-control-background:    var(--b-white);
+    --b-form-control-border:        var(--b-stone-200);
+    --b-form-control-border-hover:  var(--b-stone-300);
     --b-form-control-border-active: var(--b-primary-400);
-    --b-form-control-placeholder:   oklch(0.5517 0.0138 285.94);
+    --b-form-control-placeholder:   var(--b-stone-500);
 
     /* 2.6 System Borders & Rings */
-    --b-border-default: oklch(0.9197 0.004 286.32);
-    --b-border-subtle:  oklch(0.959 0.004 286.32);
+    --b-border-default: var(--b-stone-300);
+    --b-border-subtle:  var(--b-stone-200);
     --b-focus-ring:     var(--b-primary-400);
 
     /* 2.7 Shadow and Blur Engine */
     --b-shadow-color-channels: var(--b-primary-500-channels);
 
-
     /* 2.8 Scrollbar */
-    --b-scrollbar-thumb: oklch(0.9197 0.004 286.32);
+    --b-scrollbar-thumb: var(--b-primary-500);
     --b-scrollbar-track: transparent;
 
     /* ------------------------------------------------------------
@@ -166,45 +165,132 @@
 /* ==========================================
    DARK THEME OVERRIDES
    ========================================== */
-:where(
-    html[data-essence="leaf"],
-    html[data-essence="leaf"][data-color-mode="dark"]
-) {
-    /* Brand Dark */
-    /*--b-color-primary-hover:   var(--b-essence-primary-400);*/
-    /*--b-color-primary-active:  var(--b-essence-primary-300);*/
-    /*--b-color-primary-muted:   rgba(125, 174, 120, 0.15);*/
-    /*--b-text-on-primary:       var(--b-ref-neutral-950);*/
+:where(html[data-essence="leaf"][data-color-mode="dark"]) {
+    /* 2.2 Global Interaction Overlays */
+    --b-overlay-hover: var(--b-slate-100);
+    --b-overlay-active: ;
+    --b-state-disabled-opacity: 0.75;
 
-    /*--b-color-secondary:       var(--b-ref-neutral-700);*/
-    /*--b-color-secondary-hover: var(--b-ref-neutral-600);*/
-    /*--b-text-on-secondary:     var(--b-ref-neutral-50);*/
+    /* 2.3 Surfaces */
+    --b-surface-ground:   var(--b-stone-950);
+    --b-surface-section:  var(--b-stone-900);
+    --b-surface-variant:  var(--b-stone-800);
+    --b-surface-floating: var(--b-stone-700);
+    --b-surface-overlay:  oklch(var(--b-white-channels) / 50%);
+    --b-surface-contrast: var(--b-stone-50);
 
-    /*--b-color-contrast:        var(--b-ref-neutral-100);*/
-    /*--b-color-contrast-hover:  var(--b-ref-neutral-300);*/
-    /*--b-text-on-contrast:      var(--b-ref-neutral-950);*/
+    /* 2.4 Typography & Selection */
+    --b-text-primary:   var(--b-stone-50);
+    --b-text-secondary: var(--b-stone-300);
+    --b-text-muted:     var(--b-stone-400);
+    --b-text-contrast:  var(--b-white);
 
-    /*!* Surfaces Dark *!*/
-    /*--b-background-base:    var(--b-ref-neutral-900);*/
-    /*--b-background-surface: var(--b-ref-neutral-800);*/
-    /*--b-background-overlay: rgba(0, 0, 0, 0.7);*/
+    --b-text-selection-background: oklch(var(--b-primary-500-channels) / 30%);
 
-    /*!* Text Dark *!*/
-    /*--b-text-main:        var(--b-ref-neutral-50);*/
-    /*--b-text-muted:       var(--b-ref-neutral-400);*/
-    /*--b-text-placeholder: var(--b-ref-neutral-500);*/
+    /* 2.5 Form Controls (Inputs) */
+    --b-form-control-background:    var(--b-surface-section);
+    --b-form-control-border:        var(--b-stone-800);
+    --b-form-control-border-hover:  var(--b-stone-700);
+    --b-form-control-border-active: var(--b-stone-600);
+    --b-form-control-placeholder:   var(--b-text-muted);
 
-    /*!* Borders Dark *!*/
-    /*--b-border-color:     var(--b-ref-neutral-700);*/
-    /*--b-focus-ring-color: var(--b-ref-green-900);*/
+    /* 2.6 System Borders & Rings */
+    --b-border-default: var(--b-stone-800);
+    --b-border-subtle:  var(--b-stone-700);
+    --b-focus-ring:     var(--b-primary-400);
 
-    /*!* Statuses Muted Dark (using transparent versions for glow effect) *!*/
-    /*--b-background-success-muted: rgba(74, 222, 128, 0.1);*/
-    /*--b-background-error-muted:   rgba(248, 113, 113, 0.1);*/
-    /*--b-background-warning-muted: rgba(251, 191, 36, 0.1);*/
-    /*--b-background-info-muted:    rgba(56, 189, 248, 0.1);*/
+    /* 2.7 Shadow and Blur Engine */
+    --b-shadow-color-channels: var(--b-primary-500-channels);
 
-    /*!* Scrollbar Dark *!*/
-    /*--b-scrollbar-thumb-background: var(--b-ref-neutral-600);*/
-    /*--b-scrollbar-track-background: var(--b-ref-neutral-800);*/
+    /* 2.8 Scrollbar */
+    --b-scrollbar-thumb: var(--b-primary-500);
+    --b-scrollbar-track: transparent;
+
+    /* ------------------------------------------------------------
+       2.9 THE SEMANTIC MATRIX (Functional Color Groups)
+       ------------------------------------------------------------ */
+
+    /* PRIMARY (Brand) */
+    --b-primary-channels:               var(--b-primary-600-channels);
+    --b-primary-solid-background:       var(--b-primary-500);
+    --b-primary-solid-background-hover: var(--b-primary-600);
+    --b-primary-solid-text:             var(--b-white);
+    --b-primary-subtle-background:      var(--b-primary-900);
+    --b-primary-subtle-border:          var(--b-primary-800);
+    --b-primary-subtle-text:            var(--b-primary-500);
+    --b-primary-outline-border:         var(--b-primary-500);
+    --b-primary-outline-text:           var(--b-primary-500);
+    --b-primary-overlay:                var(--b-primary-100);
+
+    /* SECONDARY */
+    --b-secondary-channels:               var(--b-slate-600-channels);
+    --b-secondary-solid-background:       var(--b-slate-300);
+    --b-secondary-solid-background-hover: var(--b-slate-400);
+    --b-secondary-solid-text:             var(--b-slate-600);
+    --b-secondary-subtle-background:      var(--b-slate-900);
+    --b-secondary-subtle-border:          var(--b-slate-800);
+    --b-secondary-subtle-text:            var(--b-slate-500);
+    --b-secondary-outline-border:         var(--b-slate-500);
+    --b-secondary-outline-text:           var(--b-slate-500);
+    --b-secondary-overlay:                var(--b-slate-200);
+
+    /* SUCCESS */
+    --b-success-channels:               var(--b-lime-600-channels);
+    --b-success-solid-background:       var(--b-lime-500);
+    --b-success-solid-background-hover: var(--b-lime-600);
+    --b-success-solid-text:             var(--b-white);
+    --b-success-subtle-background:      var(--b-lime-100);
+    --b-success-subtle-border:          var(--b-lime-200);
+    --b-success-subtle-text:            var(--b-lime-600);
+    --b-success-outline-border:         var(--b-lime-600);
+    --b-success-outline-text:           var(--b-lime-600);
+    --b-success-overlay:                var(--b-lime-100);
+
+    /* ERROR */
+    --b-error-channels:               var(--b-red-600-channels);
+    --b-error-solid-background:       var(--b-red-500);
+    --b-error-solid-background-hover: var(--b-red-600);
+    --b-error-solid-text:             var(--b-white);
+    --b-error-subtle-background:      var(--b-red-100);
+    --b-error-subtle-border:          var(--b-red-200);
+    --b-error-subtle-text:            var(--b-red-600);
+    --b-error-outline-border:         var(--b-red-600);
+    --b-error-outline-text:           var(--b-red-600);
+    --b-error-overlay:                var(--b-red-100);
+
+    /* WARNING */
+    --b-warning-channels:               var(--b-yellow-600-channels);
+    --b-warning-solid-background:       var(--b-yellow-500);
+    --b-warning-solid-background-hover: var(--b-yellow-600);
+    --b-warning-solid-text:             var(--b-white);
+    --b-warning-subtle-background:      var(--b-yellow-100);
+    --b-warning-subtle-border:          var(--b-yellow-200);
+    --b-warning-subtle-text:            var(--b-yellow-600);
+    --b-warning-outline-border:         var(--b-yellow-600);
+    --b-warning-outline-text:           var(--b-yellow-600);
+    --b-warning-overlay:                var(--b-yellow-100);
+
+    /* INFO */
+    --b-info-channels:               var(--b-blue-600-channels);
+    --b-info-solid-background:       var(--b-blue-500);
+    --b-info-solid-background-hover: var(--b-blue-600);
+    --b-info-solid-text:             var(--b-white);
+    --b-info-subtle-background:      var(--b-blue-100);
+    --b-info-subtle-border:          var(--b-blue-200);
+    --b-info-subtle-text:            var(--b-blue-600);
+    --b-info-outline-border:         var(--b-blue-600);
+    --b-info-outline-text:           var(--b-blue-600);
+    --b-info-overlay:                var(--b-blue-100);
+
+    /* CONTRAST (Inverse) */
+    --b-contrast-channels:               var(--b-slate-600-channels);
+    --b-contrast-solid-background:       var(--b-slate-900);
+    --b-contrast-solid-background-hover: var(--b-slate-800);
+    --b-contrast-solid-text:             var(--b-text-contrast);
+    --b-contrast-subtle-background:      initial;
+    --b-contrast-subtle-border:          initial;
+    --b-contrast-subtle-text:            initial;
+    --b-contrast-outline-border:         var(--b-slate-950);
+    --b-contrast-outline-text:           var(--b-slate-950);
+    --b-contrast-overlay:                var(--b-slate-50);
 }

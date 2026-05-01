@@ -1,4 +1,4 @@
-# Layout
+# Layout <VersionBadge module="style" />
 Layout tokens define the spatial relationship between elements. They cover everything from micro-spacings and sizing to responsive breakpoints and stacking contexts.
 
 ## Sizing & Spacing
@@ -111,7 +111,6 @@ Tokens for maintaining consistent proportions for images, videos, and cards.
 | `--b-aspect-golden`      | `1.618 / 1` | Balanced layouts                                                 |
 
 ## Stacking Context (Layers)
-
 Z-index management is simplified through a named layering system. Instead of random numbers, use the hierarchical scale.
 
 | Token               | Value           | Intent                              |

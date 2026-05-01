@@ -1,9 +1,7 @@
-# Primitive Palettes
-
+# Primitive Palettes <VersionBadge module="style" />
 Bestiary UI Style features a high-performance color system driven by the **OKLCH** color space. These primitive palettes are the foundational "ink" of the system, providing raw color scales defined with zero specificity.
 
 ## The OKLCH Advantage
-
 All primitives are defined using the **OKLCH** color model (Lightness, Chroma, Hue). This ensures perceptually uniform brightness across all hues and provides access to the P3 wide color gamut.
 
 ### Using Raw Channels
@@ -15,8 +13,6 @@ Every color in our palettes exports a `-channels` variable. You can use it to cr
   background-color: oklch(var(--b-amber-500-channels) / 30%);
 }
 ```
-
----
 
 ## Common Colors
 Fundamental static colors that remain constant regardless of the active theme or essence.
@@ -44,8 +40,6 @@ Fundamental static colors that remain constant regardless of the active theme or
     </div>
   </div>
 </div>
-
----
 
 ## Available Palettes
 Each palette consists of 11 steps from `50` to `950`.
@@ -82,7 +76,6 @@ Click **Var** to copy the CSS variable name, or **LCH** to copy the full `oklch(
 <PaletteGenerator name="olive" />
 
 ## Semantic Usage
-
 Primitives provide the raw data, but you should generally use **Semantic Tokens** from the [Contract](./semantic-contract) in your components to ensure they respond correctly to Essence and Theme changes.
 
 ```css

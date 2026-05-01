@@ -3,6 +3,7 @@ import DefaultTheme from "vitepress/theme";
 import { BestiaryUI } from "@bestiary-ui/components";
 import "@bestiary-ui/style";
 import "./custom.css";
+import VersionBadge from "./components/VersionBadge.vue";
 import IconGallery from "./components/IconGallery.vue";
 import PaletteGenerator from "./components/PaletteGenerator.vue";
 import DocTabs from "./components/doc-tab/DocTabs.vue";
@@ -13,26 +14,33 @@ const theme: Theme = {
     extends: DefaultTheme,
     enhanceApp({ app }) {
         app.use(BestiaryUI)
-        app.component("IconGallery", IconGallery)
+        app.component("VersionBadge", VersionBadge);
+        app.component("IconGallery", IconGallery);
         app.component("PaletteGenerator", PaletteGenerator);
-        app.component("DocTabs", DocTabs)
-        app.component("DocTabPane", DocTabPane)
+        app.component("DocTabs", DocTabs);
+        app.component("DocTabPane", DocTabPane);
     },
     setup() {
         const { isDark } = useData()
 
-        // Функція для синхронізації теми
         const syncTheme = (dark: boolean) => {
             if (typeof document !== 'undefined') {
-                document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light')
+                const html = document.documentElement;
+
+                html.setAttribute("data-color-mode", dark ? "dark" : "light");
+
+                if(!html.hasAttribute("data-theme")) {
+                    html.setAttribute("data-theme", "forest");
+                }
+                if(!html.hasAttribute("data-essence")) {
+                    html.setAttribute("data-essence", "leaf");
+                }
             }
         }
 
-        // Стежимо за зміною теми у VitePress
-        watch(isDark, (val) => syncTheme(val))
+        watch(isDark, (val) => syncTheme(val));
 
-        // Встановлюємо початкове значення при завантаженні
-        onMounted(() => syncTheme(isDark.value))
+        onMounted(() => syncTheme(isDark.value));
     }
 };
 

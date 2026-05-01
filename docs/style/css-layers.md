@@ -1,9 +1,7 @@
-# CSS Layers
-
+# CSS Layers <VersionBadge module="style" />
 **Bestiary UI Style** uses the modern CSS `@layer` at-rule to explicitly manage the cascade. This ensures that styles are applied in a predictable order, preventing specificity wars and making it easy to override library styles with your own.
 
 ## The Layer Orchestration
-
 All styles in the library are organized into four orchestrated layers. They are declared in the following order (from lowest to highest priority):
 
 1.  `b-tokens` (Lowest priority)
@@ -15,8 +13,6 @@ All styles in the library are organized into four orchestrated layers. They are 
 /* Internal library orchestration */
 @layer b-tokens, b-reset, b-components, b-utilities;
 ```
-
----
 
 ## Detailed Breakdown
 
@@ -31,8 +27,6 @@ This is where the logic for complex elements resides (e.g., `.b-btn`, `.b-card`)
 
 ### 4. `b-utilities`
 Contains atomic classes for rapid styling (e.g., `.flex`, `.p-4`). This layer has the **highest priority** within the library to ensure that a utility class always wins over a component's internal style.
-
----
 
 ## Interacting with Layers
 

@@ -1,11 +1,9 @@
-# Style <Badge type="tip" text="v0.1.0" />
-
+# Style <VersionBadge module="style" />
 **@bestiary-ui/style** is a high-performance, framework-agnostic CSS foundation built for the modern web. It serves as the core of the Bestiary UI ecosystem, providing design tokens, a semantic theming engine, and atomic utilities.
 
 Unlike traditional CSS frameworks, it leverages cutting-edge browser features like **CSS Houdini**, **OKLCH color space**, and **CSS Layers** to provide a strictly typed, yet infinitely flexible styling system.
 
 ## The ATC Paradigm
-
 The library follows the **Atomic-Token-Component (ATC)** architecture:
 
 1.  **Atomic Utilities**: High-priority classes for rapid layout adjustments.
@@ -32,7 +30,6 @@ Our shadows are calculated dynamically using registered color channels. This all
 Built with RTL (Right-to-Left) support from day one. By using **CSS Logical Properties** (`inline-start`, `block-end`) instead of physical ones (`left`, `top`), your interfaces are globally accessible without a single line of extra code.
 
 ## The Cascade Guard (CSS Layers)
-
 To solve the "specificity war," we encapsulate the entire library into orchestrated **CSS Layers** using `@layer`:
 
 1.  `b-tokens`: Low-priority data registration.

@@ -1,4 +1,4 @@
-# Typography
+# Typography <VersionBadge module="style" />
 Typography tokens manage everything related to text presentation, from font stacks and scales to line clamping and specialized OKLCH-based text shadows.
 
 ## Font Families
@@ -67,8 +67,6 @@ Fine-tune the horizontal density of your text.
 | `--b-letter-spacing-wide`    | `0.025em`  |
 | `--b-letter-spacing-wider`   | `0.05em`   |
 | `--b-letter-spacing-widest`  | `0.1em`    |
-
----
 
 ## Line Clamp (Truncation)
 Tokens to control multi-line text truncation. Requires `display: -webkit-box` and `box-orient: vertical` (usually handled by utility classes).

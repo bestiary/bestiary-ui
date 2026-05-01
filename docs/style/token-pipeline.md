@@ -1,9 +1,7 @@
-# The Token Pipeline
-
+# The Token Pipeline <VersionBadge module="style" />
 Bestiary UI Style uses a sophisticated three-tier pipeline to manage design data. This architecture ensures that styles are not only consistent but also type-safe, performant, and animatable at the browser engine level.
 
 ## 1. Primitives (Zero-Specificity Reference)
-
 Primitives are the raw "source of truth" values. They are defined within the `:where(html)` selector, which ensures **zero specificity**. This means they provide values without competing with your application's CSS selectors.
 
 Our primitives are organized into logical modules and imported via a global manifest:
@@ -26,10 +24,7 @@ Unlike traditional HEX/RGB palettes, we store colors as **OKLCH channels**. This
 }
 ```
 
----
-
 ## 2. The Semantic Contract (Houdini API)
-
 The **Contract** is a collection of typed slots. Instead of just passing strings, we register our tokens using the **CSS Houdini `@property` API** in `contract.css`.
 
 ### Why it matters:
@@ -52,8 +47,6 @@ The **Contract** is a collection of typed slots. Instead of just passing strings
 }
 ```
 
----
-
 ## 3. Thematic Orchestration
 
 The final tier is the **Mapping**. This is where **Primitives** (raw data) are assigned to the **Contract** (semantic slots) based on the active **Theme** or **Essence**.
@@ -68,10 +61,7 @@ The final tier is the **Mapping**. This is where **Primitives** (raw data) are a
     `--b-primary-solid-background: var(--b-blue-500)`.
 4.  **Usage**: A component uses `var(--b-primary-solid-background)`.
 
----
-
 ## Token Categories
-
 The library's design tokens are organized into six core categories, reflecting the internal architecture of the package:
 
 | Category                                    | Description                                                                                 | Key Modules                              |
