@@ -129,7 +129,7 @@ const config: UserConfig<CustomThemeConfig> = {
                 },
                 {
                     text: "Atomic Utilities",
-                    collapsed: false,
+                    collapsed: true,
                     items: [
                         { text: "Overview", link: "/style/utilities/" },
                         { text: "Spacing", link: "/style/utilities/spacing" },
@@ -149,13 +149,6 @@ const config: UserConfig<CustomThemeConfig> = {
                         { text: "Button", link: "/style/components/button" },
                     ]
                 },
-                {
-                    text: "Advanced & DX",
-                    items:[
-                        { text: "IDE Integration", link: "/style/ide-integration" },
-                        { text: "Performance & Exports", link: "/style/performance" },
-                    ]
-                }
             ],
 
             "/icons/": [

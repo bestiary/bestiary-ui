@@ -2,7 +2,7 @@
 Border utilities provide classes for adding individual borders, creating dividers between elements, and defining essential shapes like circles and pills.
 
 ## Border Width (Individual Sides)
-Utilities to add a border to a specific side of an element. These classes use the system's [Default Stroke](../design-tokens/borders#stroke-weights) token.
+Utilities to add a border to a specific side of an element. These classes use the system's [Default Stroke](../tokens/borders#stroke-weights) token.
 
 | Class         | CSS Property          | Token                |
 |:--------------|:----------------------|:---------------------|
@@ -32,7 +32,7 @@ Dividers add a border between child elements in a container. They are perfect fo
 ```
 
 ## Essential Shapes
-Quickly transform the corners of an element. For more complex scales, refer to the [Borders Tokens](../design-tokens/borders) section.
+Quickly transform the corners of an element. For more complex scales, refer to the [Borders Tokens](../tokens/borders) section.
 
 | Class          | CSS Property       | Token                      |
 |:---------------|:-------------------|:---------------------------|
