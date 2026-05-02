@@ -1,5 +1,5 @@
 # Effects <VersionBadge module="style" />
-Effects utilities manage the visual depth, transparency, and softening of elements. They leverage the core [Shadow Engine](../design-tokens/effects) and global blur/alpha tokens to create polished, modern interfaces.
+Effects utilities manage the visual depth, transparency, and softening of elements. They leverage the core [Shadow Engine](../tokens/effects) and global blur/alpha tokens to create polished, modern interfaces.
 
 ## Box Shadow (Elevation)
 Utilities for controlling the elevation and depth of an element. These classes use multi-layered shadows to ensure a soft, realistic look.

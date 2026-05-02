@@ -2,7 +2,7 @@
 Typography utilities provide a wide range of classes for fine-tuning text presentation. While Bestiary UI components handle standard semantic roles, these utilities allow for rapid adjustments of font metrics, alignment, and decorative effects.
 
 ## Font Size
-Font size utilities control the magnitude of your text. Bestiary UI uses a **paired system**: applying a size class automatically applies the optimal `line-height` defined in the [Typography Tokens](../design-tokens/typography).
+Font size utilities control the magnitude of your text. Bestiary UI uses a **paired system**: applying a size class automatically applies the optimal `line-height` defined in the [Typography Tokens](../tokens/typography).
 
 | Class      | Font Size (Rem) | Pixels (16px base) | Leading (Line Height) |
 |:-----------|:----------------|:-------------------|:----------------------|
@@ -156,7 +156,7 @@ Defines the visual style of the decoration line.
 | `decoration-wavy`   | `wavy`       | Sinusoidal wavy line.               |
 
 ### Decoration Thickness
-Controls the weight of the decoration line. Bestiary UI maps these to the system's [Stroke Scale](../design-tokens/borders#stroke-weights) for consistency.
+Controls the weight of the decoration line. Bestiary UI maps these to the system's [Stroke Scale](../tokens/borders#stroke-weights) for consistency.
 
 | Class             | Value                     | Intent                                     |
 |:------------------|:--------------------------|:-------------------------------------------|
