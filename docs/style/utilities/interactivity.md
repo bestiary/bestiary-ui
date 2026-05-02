@@ -96,7 +96,7 @@ Optimizes how elements respond to touch-screen gestures.
 ```html
 <div class="surface-section p-4 radius-md">
   <span class="text-secondary select-none">API Key:</span>
-  <code class="select-all font-mono ml-2">sk_test_4eC39HqLyjWDarjtT1zdp7dc</code>
+  <code class="select-all font-mono ml-2">sk_test_your_key_here</code>
 </div>
 ```
 
