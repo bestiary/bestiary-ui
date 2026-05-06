@@ -13,7 +13,7 @@ const props = defineProps({
     }
 })
 
-const version = theme.value.publicVersions[props.module]
+const version = theme.value.publicVersions?.[props.module] || "0.0.0"
 </script>
 
 <template>

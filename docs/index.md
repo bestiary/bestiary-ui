@@ -4,7 +4,7 @@ layout: home
 hero:
     name: "Bestiary UI"
     text: "Modular ecosystem for high-performance Vue 3 applications"
-    tagline: "A collection of specialized packages for creating modern interfaces."
+    tagline: "A collection of specialized packages for creating modern interfaces"
     actions:
         - theme: brand
           text: Get Started
@@ -15,7 +15,7 @@ hero:
 
 features:
     - icon: 🧱
-      title: Components
+      title: Vue Components
       details: A set of high-level, fully typed Vue 3 components. Built with performance and tree-shaking in mind.
       link: /components/index
     - icon: ✨
