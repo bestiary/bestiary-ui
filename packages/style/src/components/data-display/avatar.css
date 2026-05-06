@@ -6,17 +6,33 @@
     /* --- 1. LOCAL COMPONENT TOKENS (Internal API) --- */
 
     --b-avatar-size:          var(--b-control-size-md);
-    --b-avatar-border-radius: var(--b-radius-interactive);
+    --b-avatar-font-size:     var(--b-text-md);
+    --b-avatar-icon-size:     var(--b-icon-size-md);
 
+    --b-avatar-border-radius: var(--b-radius-interactive);
     --b-avatar-background:    var(--b-secondary-solid-background);
     --b-avatar-color:         var(--b-primary-subtle-text);
 
     --b-avatar-font-family:   var(--b-font-family-display);
-    --b-avatar-font-size:     var(--b-text-md);
     --b-avatar-font-weight:   var(--b-font-weight-medium);
-    --b-avatar-icon-size:     var(--b-icon-size-md);
-
     --b-avatar-transition:    var(--b-duration-normal) var(--b-ease-base);
+
+    /* --- STATE VARIABLES --- */
+    --b-avatar-sm-size:      var(--b-control-size-sm);
+    --b-avatar-sm-font-size: var(--b-text-sm);
+    --b-avatar-sm-icon-size: var(--b-icon-size-sm);
+
+    --b-avatar-md-size:      var(--b-control-size-md);
+    --b-avatar-md-font-size: var(--b-text-md);
+    --b-avatar-md-icon-size: var(--b-icon-size-md);
+
+    --b-avatar-lg-size:      var(--b-control-size-lg);
+    --b-avatar-lg-font-size: var(--b-text-lg);
+    --b-avatar-lg-icon-size: var(--b-icon-size-lg);
+
+    --b-avatar-xl-size:      var(--b-control-size-xl);
+    --b-avatar-xl-font-size: var(--b-text-xl);
+    --b-avatar-xl-icon-size: var(--b-icon-size-xl);
 
     /* --- 2. BASE STYLES --- */
 
@@ -66,24 +82,24 @@
    3. SIZE MODIFIERS
    ============================================================ */
 :where(.b-avatar--size-small) {
-    --b-avatar-size:      var(--b-control-size-sm);
-    --b-avatar-font-size: var(--b-text-sm);
-    --b-avatar-icon-size: var(--b-icon-size-sm);
+    --b-avatar-size:      var(--b-avatar-sm-size);
+    --b-avatar-font-size: var(--b-avatar-sm-font-size);
+    --b-avatar-icon-size: var(--b-avatar-sm-icon-size);
 }
 :where(.b-avatar--size-medium) {
-    --b-avatar-size:      var(--b-control-size-md);
-    --b-avatar-font-size: var(--b-text-md);
-    --b-avatar-icon-size: var(--b-icon-size-md);
+    --b-avatar-size:      var(--b-avatar-md-size);
+    --b-avatar-font-size: var(--b-avatar-md-font-size);
+    --b-avatar-icon-size: var(--b-avatar-md-icon-size);
 }
 :where(.b-avatar--size-large) {
-    --b-avatar-size:      var(--b-control-size-lg);
-    --b-avatar-font-size: var(--b-text-lg);
-    --b-avatar-icon-size: var(--b-icon-size-lg);
+    --b-avatar-size:      var(--b-avatar-lg-size);
+    --b-avatar-font-size: var(--b-avatar-lg-font-size);
+    --b-avatar-icon-size: var(--b-avatar-lg-icon-size);
 }
 :where(.b-avatar--size-xlarge) {
-    --b-avatar-size:      var(--b-control-size-xl);
-    --b-avatar-font-size: var(--b-text-xl);
-    --b-avatar-icon-size: var(--b-icon-size-xl);
+    --b-avatar-size:      var(--b-avatar-xl-size);
+    --b-avatar-font-size: var(--b-avatar-xl-font-size);
+    --b-avatar-icon-size: var(--b-avatar-xl-icon-size);
 }
 
 /* ============================================================
