@@ -1,41 +1,44 @@
-import { Component } from "vue";
+import {Component} from "vue";
 
 export type AvatarSize = "small" | "medium" | "large" | "xlarge";
 export type AvatarShape = "square" | "circle";
 
+/**
+ * Props for the BAvatar component
+ */
 export interface AvatarProps {
     /**
-     * Size of the avatar.
+     * The size of the avatar.
+     * @values "small", "medium", "large", "xlarge"
      * @default "medium"
      */
     size?: AvatarSize;
 
     /**
-     * Shape of the avatar.
+     * The shape of the avatar.
+     * @values "square", "circle"
      * @default "square"
      */
     shape?: AvatarShape;
 
     /**
-     * Text label to be displayed inside the avatar.
-     * @default undefined
+     * Text label (e.g., initials) to display.
+     * Truncated to 2 characters.
      */
     label?: string;
 
     /**
-     * Icon to be displayed inside the avatar. Can be a component or a string.
-     * @default undefined
+     * Icon component or string class to display.
      */
     icon?: string | Component;
 
     /**
-     * URL of the image to be displayed as the avatar.
-     * @default undefined
+     * Source URL of the avatar image.
      */
     image?: string;
 
     /**
-     * Alternative text for the image
+     * Accessible description for the image.
      * @default "avatar"
      */
     imageAlt?: string;

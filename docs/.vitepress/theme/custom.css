@@ -221,10 +221,10 @@
 }
 
 /* Playground / Display Content */
-.display-content {
+.card {
     display: flex;
     gap: var(--b-space-4);
-    padding: var(--b-space-8);
+    padding: var(--b-space-4);
     justify-content: center;
     border-radius: var(--b-radius-container);
     background-color: var(--b-surface-section);

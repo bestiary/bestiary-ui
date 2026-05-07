@@ -2,6 +2,10 @@
 import {computed, ref, watch} from "vue";
 import type {AvatarProps} from "./avatar.props";
 
+/**
+ * BAvatar - A flexible component for displaying user profile pictures,
+ * initials, or icons with fallback support.
+ */
 defineOptions({
     name: "BAvatar"
 });
@@ -9,20 +13,24 @@ defineOptions({
 const props = withDefaults(defineProps<AvatarProps>(), {
     size: "medium",
     shape: "square",
-    label: undefined,
-    icon: undefined,
-    image: undefined,
     imageAlt: "avatar"
 });
 
 const emit = defineEmits<{
-    error: [event: Event]
+    /** Emitted when the image fails to load */
+    (e: 'error', event: Event): void
 }>();
 
 const isImageError = ref(false);
 
-const displayLabel = computed(() => props.label?.substring(0, 3));
+/**
+ * Truncates label to 2 characters for visual consistency
+ */
+const displayLabel = computed(() => props.label?.substring(0, 2));
 
+/**
+ * Resets error state if the image source changes
+ */
 watch(() => props.image, () => {
     isImageError.value = false;
 });
@@ -46,7 +54,7 @@ function handleImageError(event: Event) {
                 v-if="image && !isImageError"
                 class="b-avatar__image"
                 :src="image"
-                :alt="imageAlt || ''"
+                :alt="imageAlt"
                 @error="handleImageError"
             />
             <component
