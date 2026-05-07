@@ -1,11 +1,11 @@
 import { Component } from "vue";
 
-export type ButtonSeverity = "primary" | "secondary" | "success" | "warn" | "danger" | "info" | "contrast";
+export type ButtonSeverity = "primary" | "secondary" | "success" | "info" | "warn" | "danger" | "contrast";
 export type ButtonVariant = "outline" | "default" | "text" | "link";
 export type ButtonSize = "small" | "medium" | "large" | "xlarge";
 export type ButtonIconPos = "top" | "left" | "bottom" | "right";
 export type ButtonBadgePos = "top" | "left" | "bottom" | "right";
-export type ButtonBadgeSeverity = "primary" | "secondary" | "info" | "success" | "warn" | "danger" | "contrast";
+export type ButtonBadgeSeverity = "primary" | "secondary" | "success" | "info" | "warn" | "danger" | "contrast";
 export type ButtonType = "button" | "submit" | "reset";
 
 export interface ButtonProps {
@@ -62,11 +62,6 @@ export interface ButtonProps {
     badgeSeverity?: ButtonBadgeSeverity;
 
     /**
-     * Custom loading icon component.
-     */
-    loadingIcon?: string | Component;
-
-    /**
      * The text label of the button.
      */
     label?: string;
@@ -94,4 +89,29 @@ export interface ButtonProps {
      * @default false
      */
     loading?: boolean;
+
+    /**
+     * Custom loading icon component.
+     */
+    loadingIcon?: string | Component;
+
+    /**
+     * URL for the button if it should act as an external link.
+     */
+    href?: string;
+
+    /**
+     * Vue-router path if it should act as a router-link.
+     */
+    to?: string | object;
+
+    /**
+     * Target attribute for links (e.g., "_blank").
+     */
+    target?: string;
+
+    /**
+     * ARIA label for accessibility, especially important for icon-only buttons.
+     */
+    ariaLabel?: string;
 }

@@ -50,8 +50,7 @@ const config: UserConfig<CustomThemeConfig> = {
                         {
                             text: "Getting Started",
                             items: [
-                                {text: "Introduction", link: "/components/"},
-                                {text: `Changelog ${pkgComponents.version}`, link: "/components/changelog"}
+                                {text: "Introduction", link: "/components/"}
                             ]
                         },
                         {
@@ -111,9 +110,39 @@ const config: UserConfig<CustomThemeConfig> = {
                             collapsed: false,
                             items: [
                                 {
+                                    text: "General",
+                                    items: [
+
+                                    ]
+                                },
+                                {
+                                    text: "Layout",
+                                    items: [
+
+                                    ]
+                                },
+                                {
+                                    text: "Navigation",
+                                    items: [
+
+                                    ]
+                                },
+                                {
+                                    text: "Data Entry",
+                                    items: [
+
+                                    ]
+                                },
+                                {
                                     text: "Data Display",
                                     items: [
                                         {text: "Avatar", link: "/style/components/data-display/avatar"},
+                                    ]
+                                },
+                                {
+                                    text: "Feedback",
+                                    items: [
+
                                     ]
                                 }
                             ]
@@ -156,6 +185,50 @@ const config: UserConfig<CustomThemeConfig> = {
                         {
                             text: "Вступ", items: [
                                 {text: "Встановлення", link: "/ua/guide/installation"}
+                            ]
+                        }
+                    ],
+                    "/ua/components/": [
+                        {
+                            text: "Початок роботи",
+                            items: [
+                                {text: "Вступ", link: "/components/"}
+                            ]
+                        },
+                        {
+                            text: "Основне",
+                            items: [
+
+                            ]
+                        },
+                        {
+                            text: "Макет",
+                            items: [
+
+                            ]
+                        },
+                        {
+                            text: "Навігація",
+                            items: [
+
+                            ]
+                        },
+                        {
+                            text: "Введення даних",
+                            items: [
+
+                            ]
+                        },
+                        {
+                            text: "Відображення даних",
+                            items: [
+                                {text: "Avatar", link: "/ua/components/data-display/avatar"},
+                            ]
+                        },
+                        {
+                            text: "Відгуки",
+                            items: [
+
                             ]
                         }
                     ],
@@ -203,9 +276,39 @@ const config: UserConfig<CustomThemeConfig> = {
                             collapsed: false,
                             items: [
                                 {
+                                    text: "Основне",
+                                    items: [
+
+                                    ]
+                                },
+                                {
+                                    text: "Макет",
+                                    items: [
+
+                                    ]
+                                },
+                                {
+                                    text: "Навігація",
+                                    items: [
+
+                                    ]
+                                },
+                                {
+                                    text: "Введення даних",
+                                    items: [
+
+                                    ]
+                                },
+                                {
                                     text: "Відображення даних",
                                     items: [
                                         {text: "Avatar", link: "/ua/style/components/data-display/avatar"},
+                                    ]
+                                },
+                                {
+                                    text: "Відгуки",
+                                    items: [
+
                                     ]
                                 }
                             ]

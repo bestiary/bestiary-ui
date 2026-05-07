@@ -8,7 +8,6 @@
     /* Layout & Spacing */
     --b-button-height:           var(--b-control-size-md);
     --b-button-padding-x:        var(--b-space-3);
-    --b-button-padding-y:        var(--b-space-1);
     --b-button-gap:              var(--b-space-2);
 
     /* Borders & Shapes */
@@ -36,6 +35,110 @@
     --b-button-transition:       all var(--b-duration-normal) var(--b-ease-base);
     --b-button-shadow:           none;
 
+    /* Variant: outline */
+    --b-button-outline-border-color:     var(--b-primary-outline-border);
+    --b-button-outline-color:            var(--b-primary-outline-text);
+    --b-button-outline-hover-background: var(--b-primary-overlay);
+
+    /* Variant: text */
+    --b-button-text-hover-background:    var(--b-primary-overlay);
+    --b-button-text-color:               var(--b-primary-outline-text);
+
+    /* Variant: link */
+    --b-button-link-color:               var(--b-primary-outline-text);
+    --b-button-link-hover-color:         var(--b-primary-outline-text);
+
+    /* Severity Tokens */
+    --b-button-primary-shadow-color-channels: var(--b-primary-channels);
+    --b-button-primary-background:            var(--b-primary-solid-background);
+    --b-button-primary-color:                 var(--b-primary-solid-text);
+    --b-button-primary-border-color:          var(--b-primary-solid-background);
+    --b-button-primary-hover-background:      var(--b-primary-solid-background-hover);
+    --b-button-primary-hover-border:          var(--b-primary-solid-background-hover);
+
+    --b-button-primary-variant-background:    var(--b-primary-overlay);
+    --b-button-primary-variant-color:         var(--b-primary-outline-text);
+    --b-button-primary-variant-border:        var(--b-primary-subtle-border);
+
+    --b-button-secondary-shadow-color-channels: var(--b-secondary-channels);
+    --b-button-secondary-background:            var(--b-secondary-solid-background);
+    --b-button-secondary-color:                 var(--b-secondary-solid-text);
+    --b-button-secondary-border-color:          var(--b-secondary-solid-background);
+    --b-button-secondary-hover-background:      var(--b-secondary-solid-background-hover);
+    --b-button-secondary-hover-border:          var(--b-secondary-solid-background-hover);
+    --b-button-secondary-variant-background:    var(--b-secondary-overlay);
+    --b-button-secondary-variant-color:         var(--b-secondary-outline-text);
+    --b-button-secondary-variant-border:        var(--b-secondary-subtle-border);
+
+    --b-button-success-shadow-color-channels: var(--b-success-channels);
+    --b-button-success-background:            var(--b-success-solid-background);
+    --b-button-success-color:                 var(--b-success-solid-text);
+    --b-button-success-border-color:          var(--b-success-solid-background);
+    --b-button-success-hover-background:      var(--b-success-solid-background-hover);
+    --b-button-success-hover-border:          var(--b-success-solid-background-hover);
+    --b-button-success-variant-background:    var(--b-success-overlay);
+    --b-button-success-variant-color:         var(--b-success-outline-text);
+    --b-button-success-variant-border:        var(--b-success-subtle-border);
+
+    --b-button-info-shadow-color-channels: var(--b-info-channels);
+    --b-button-info-background:            var(--b-info-solid-background);
+    --b-button-info-color:                 var(--b-info-solid-text);
+    --b-button-info-border-color:          var(--b-info-solid-background);
+    --b-button-info-hover-background:      var(--b-info-solid-background-hover);
+    --b-button-info-hover-border:          var(--b-info-solid-background-hover);
+    --b-button-info-variant-background:    var(--b-info-overlay);
+    --b-button-info-variant-color:         var(--b-info-outline-text);
+    --b-button-info-variant-border:        var(--b-info-subtle-border);
+
+    --b-button-warn-shadow-color-channels: var(--b-warning-channels);
+    --b-button-warn-background:            var(--b-warning-solid-background);
+    --b-button-warn-color:                 var(--b-warning-solid-text);
+    --b-button-warn-border-color:          var(--b-warning-solid-background);
+    --b-button-warn-hover-background:      var(--b-warning-solid-background-hover);
+    --b-button-warn-hover-border:          var(--b-warning-solid-background-hover);
+    --b-button-warn-variant-background:    var(--b-warning-overlay);
+    --b-button-warn-variant-color:         var(--b-warning-outline-text);
+    --b-button-warn-variant-border:        var(--b-warning-subtle-border);
+
+    --b-button-error-shadow-color-channels: var(--b-error-channels);
+    --b-button-error-background:            var(--b-error-solid-background);
+    --b-button-error-color:                 var(--b-error-solid-text);
+    --b-button-error-border-color:          var(--b-error-solid-background);
+    --b-button-error-hover-background:      var(--b-error-solid-background-hover);
+    --b-button-error-hover-border:          var(--b-error-solid-background-hover);
+    --b-button-error-variant-background:    var(--b-error-overlay);
+    --b-button-error-variant-color:         var(--b-error-outline-text);
+    --b-button-error-variant-border:        var(--b-error-subtle-border);
+
+    --b-button-contrast-shadow-color-channels: var(--b-contrast-channels);
+    --b-button-contrast-background:            var(--b-contrast-solid-background);
+    --b-button-contrast-color:                 var(--b-contrast-solid-text);
+    --b-button-contrast-border-color:          var(--b-contrast-solid-background);
+    --b-button-contrast-hover-background:      var(--b-contrast-solid-background-hover);
+    --b-button-contrast-hover-border:          var(--b-contrast-solid-background-hover);
+    --b-button-contrast-variant-background:    var(--b-contrast-overlay);
+    --b-button-contrast-variant-color:         var(--b-contrast-outline-text);
+    --b-button-contrast-variant-border:        var(--b-contrast-subtle-border);
+
+
+
+    /* Size tokens */
+    --b-button-sm-height:    var(--b-control-size-sm);
+    --b-button-sm-padding-x: var(--b-space-2);
+    --b-button-sm-font-size: var(--b-text-sm);
+
+    --b-button-md-height:    var(--b-control-size-md);
+    --b-button-md-padding-x: var(--b-space-3);
+    --b-button-md-font-size: var(--b-text-md);
+
+    --b-button-lg-height:    var(--b-control-size-lg);
+    --b-button-lg-padding-x: var(--b-space-4);
+    --b-button-lg-font-size: var(--b-text-md);
+
+    --b-button-xl-height:    var(--b-control-size-xl);
+    --b-button-xl-padding-x: var(--b-space-5);
+    --b-button-xl-font-size: var(--b-text-lg);
+
     /* --- 2. BASE STYLES --- */
     display: inline-flex;
     align-items: center;
@@ -44,7 +147,7 @@
     box-sizing: border-box;
 
     height: var(--b-button-height);
-    padding: var(--b-button-padding-y) var(--b-button-padding-x);
+    padding-inline: var(--b-button-padding-x);
     gap: var(--b-button-gap);
 
     background-color: var(--b-button-background);
@@ -90,23 +193,21 @@
 
 /* ============================================================
    3. SEVERITY MAPPING
-   Maps functional color groups (Success, Danger, etc.) to the
-   button's internal variables.
    ============================================================ */
 
 :where(.b-button--severity-primary) {
-    --b-shadow-color-channels:     var(--b-primary-channels);
+    --b-shadow-color-channels:     var(--b-button-primary-shadow-color-channels);
 
-    --b-button-background:         var(--b-primary-solid-background);
-    --b-button-color:              var(--b-primary-solid-text);
-    --b-button-border-color:       var(--b-primary-solid-background);
+    --b-button-background:         var(--b-button-primary-background);
+    --b-button-color:              var(--b-button-primary-color);
+    --b-button-border-color:       var(--b-button-primary-background);
 
-    --b-button-hover-background:   var(--b-primary-solid-background-hover);
-    --b-button-hover-border:       var(--b-primary-solid-background-hover);
+    --b-button-hover-background:   var(--b-button-primary-hover-background);
+    --b-button-hover-border:       var(--b-button-primary-hover-border);
     /* Context for Variants */
-    --b-button-variant-background: var(--b-primary-overlay);
-    --b-button-variant-color:      var(--b-primary-outline-text);
-    --b-button-variant-border:     var(--b-primary-subtle-border);
+    --b-button-variant-background: var(--b-button-primary-variant-background);
+    --b-button-variant-color:      var(--b-button-primary-variant-color);
+    --b-button-variant-border:     var(--b-button-primary-variant-border);
 }
 
 :where(.b-button--severity-secondary) {
@@ -246,24 +347,24 @@
    ============================================================ */
 
 :where(.b-button--size-small)   {
-    --b-button-height:    var(--b-control-size-sm);
-    --b-button-padding-x: var(--b-space-2);
-    --b-button-font-size: var(--b-text-sm);
+    --b-button-height:    var(--b-button-sm-height);
+    --b-button-padding-x: var(--b-button-sm-padding-x);
+    --b-button-font-size: var(--b-button-sm-font-size);
 }
 :where(.b-button--size-medium)  {
-    --b-button-height:    var(--b-control-size-md);
-    --b-button-padding-x: var(--b-space-3);
-    --b-button-font-size: var(--b-text-md);
+    --b-button-height:    var(--b-button-md-height);
+    --b-button-padding-x: var(--b-button-md-padding-x);
+    --b-button-font-size: var(--b-button-md-font-size);
 }
 :where(.b-button--size-large)   {
-    --b-button-height:    var(--b-control-size-lg);
-    --b-button-padding-x: var(--b-space-4);
-    --b-button-font-size: var(--b-text-md);
+    --b-button-height:    var(--b-button-lg-height);
+    --b-button-padding-x: var(--b-button-lg-padding-x);
+    --b-button-font-size: var(--b-button-lg-font-size);
 }
 :where(.b-button--size-xlarge)  {
-    --b-button-height:    var(--b-control-size-xl);
-    --b-button-padding-x: var(--b-space-5);
-    --b-button-font-size: var(--b-text-lg);
+    --b-button-height:    var(--b-button-xl-height);
+    --b-button-padding-x: var(--b-button-xl-padding-x);
+    --b-button-font-size: var(--b-button-xl-font-size);
 }
 
 /* ============================================================

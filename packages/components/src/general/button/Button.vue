@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { ButtonProps } from "./button.props";
-import { BBadge } from "../../data-display/badge";
+import {computed} from "vue";
+import type {ButtonProps} from "./button.props";
+import {BBadge} from "../../data-display/badge";
 
 defineOptions({
     name: "BButton"
@@ -30,25 +30,25 @@ const props = withDefaults(defineProps<ButtonProps>(), {
     loading: false
 });
 
-const classes = computed(() => {
+const isIconOnly = computed(() => {
     const hasIcon = !!props.icon || !!slots.icon;
     const hasContent = !!slots.default || !!props.label;
-
-    return [
-        "b-button",
-        `b-button--severity-${props.severity}`,
-        `b-button--variant-${props.variant}`,
-        `b-button--size-${props.size}`,
-        {
-            "b-button--rounded": props.rounded,
-            "b-button--loading": props.loading,
-            "b-button--raised": props.raised,
-            "b-button--icon-only": (hasIcon || props.loading) && !hasContent && !props.badge,
-            [`b-button--icon-${props.iconPos}`]: hasIcon && hasContent,
-            [`b-button--badge-${props.badgePos}`]: props.badge,
-        }
-    ];
+    return (hasIcon || props.loading) && !hasContent && !props.badge;
 });
+
+const classes = computed(() => [
+    "b-button",
+    `b-button--severity-${props.severity}`,
+    `b-button--variant-${props.variant}`,
+    `b-button--size-${props.size}`,
+    `b-button--icon-${props.iconPos}`,
+    {
+        "b-button--rounded": props.rounded,
+        "b-button--loading": props.loading,
+        "b-button--raised": props.raised,
+        "b-button--icon-only": isIconOnly.value,
+    }
+]);
 </script>
 
 <template>
@@ -57,13 +57,14 @@ const classes = computed(() => {
         :class="classes"
         :disabled="disabled || loading"
         :aria-busy="loading"
-        :aria-live="loading ? 'polite' : 'off'">
-
-            <!-- Loading logic -->
-            <slot name="loadingicon" class="b-button__loading-icon" v-if="loading">
+        :aria-label="isIconOnly ? (label || ariaLabel) : undefined"
+    >
+        <!-- Icon / Loading Section -->
+        <span v-if="loading || icon || $slots.icon" class="b-button__icon-wrapper">
+            <slot v-if="loading" name="loadingicon">
                 <component
-                    :is="loadingIcon"
                     v-if="loadingIcon"
+                    :is="loadingIcon"
                     class="b-button__loading-icon"
                 />
                 <svg v-else class="b-button__loading-icon" viewBox="0 0 24 24" width="1em" height="1em" fill="none">
@@ -71,29 +72,25 @@ const classes = computed(() => {
                     <path class="b-button__loading-icon__path" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
             </slot>
+            <slot v-else name="icon">
+                <component :is="icon" class="b-button__icon" aria-hidden="true"/>
+            </slot>
+        </span>
 
-            <!-- Icon -->
-            <template v-else-if="icon || $slots.icon">
-                <slot name="icon" class="b-button__icon">
-                    <component :is="icon" class="b-button__icon"/>
-                </slot>
-            </template>
+        <!-- Label Section -->
+        <span v-if="$slots.default || label" class="b-button__label">
+            <slot>{{ label }}</slot>
+        </span>
 
-            <!-- Text label -->
-            <span v-if="$slots.default || label" class="b-button__label">
-                <slot class="b-button__label">{{ label }}</slot>
-            </span>
-
-            <!-- Badge -->
-            <BBadge
-                v-if="badge"
-                :severity="badgeSeverity"
-                shape="circle"
-                size="small"
-                class="b-button__badge"
-            >
-                {{ badge }}
-            </BBadge>
-
+        <!-- Badge Section -->
+        <BBadge
+            v-if="badge"
+            :severity="badgeSeverity"
+            shape="circle"
+            size="small"
+            class="b-button__badge"
+        >
+            {{ badge }}
+        </BBadge>
     </button>
 </template>
