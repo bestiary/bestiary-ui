@@ -3,7 +3,7 @@
  */
 
 :where(.b-button) {
-    /* --- 1. LOCAL COMPONENT TOKENS (Internal API) --- */
+    /* --- 1. DEFAULT TOKENS --- */
 
     /* Layout & Spacing */
     --b-button-height:           var(--b-control-size-md);
@@ -36,90 +36,73 @@
     --b-button-shadow:           none;
 
     /* Variant: outline */
-    --b-button-outline-border-color:     var(--b-primary-outline-border);
-    --b-button-outline-color:            var(--b-primary-outline-text);
-    --b-button-outline-hover-background: var(--b-primary-overlay);
+    --b-button-outline-background:         transparent;
+    --b-button-outline-border-color:       var(--b-primary-outline-border);
+    --b-button-outline-color:              var(--b-primary-outline-text);
+    --b-button-outline-hover-background:   var(--b-primary-overlay);
+    --b-button-outline-hover-color:        var(--b-primary-outline-text);
+    --b-button-outline-hover-border-color: var(--b-primary-subtle-border);
 
     /* Variant: text */
-    --b-button-text-hover-background:    var(--b-primary-overlay);
-    --b-button-text-color:               var(--b-primary-outline-text);
+    --b-button-text-color:            var(--b-primary-outline-text);
+    --b-button-text-hover-background: var(--b-primary-overlay);
+    --b-button-text-hover-color:      var(--b-primary-outline-text);
 
     /* Variant: link */
-    --b-button-link-color:               var(--b-primary-outline-text);
-    --b-button-link-hover-color:         var(--b-primary-outline-text);
+    --b-button-link-color:       var(--b-primary-outline-text);
+    --b-button-link-hover-color: var(--b-primary-outline-text);
+
+    /* API */
 
     /* Severity Tokens */
-    --b-button-primary-shadow-color-channels: var(--b-primary-channels);
-    --b-button-primary-background:            var(--b-primary-solid-background);
-    --b-button-primary-color:                 var(--b-primary-solid-text);
-    --b-button-primary-border-color:          var(--b-primary-solid-background);
-    --b-button-primary-hover-background:      var(--b-primary-solid-background-hover);
-    --b-button-primary-hover-border:          var(--b-primary-solid-background-hover);
 
-    --b-button-primary-variant-background:    var(--b-primary-overlay);
-    --b-button-primary-variant-color:         var(--b-primary-outline-text);
-    --b-button-primary-variant-border:        var(--b-primary-subtle-border);
+    /* Primary */
+    --b-button-primary-background:         var(--b-primary-solid-background);
+    --b-button-primary-color:              var(--b-primary-solid-text);
+    --b-button-primary-border-color:       var(--b-primary-solid-background);
+    --b-button-primary-hover-background:   var(--b-primary-solid-background-hover);
+    --b-button-primary-hover-color:        var(--b-primary-solid-text);
+    --b-button-primary-hover-border-color: var(--b-primary-solid-background-hover);
+
+    --b-button-outline-primary-background:         transparent;
+    --b-button-outline-primary-color:              var(--b-primary-outline-text);
+    --b-button-outline-primary-border-color:       var(--b-primary-outline-border);
+    --b-button-outline-primary-hover-background:   var(--b-primary-overlay);
+    --b-button-outline-primary-hover-color:        var(--b-primary-outline-text);
+    --b-button-outline-primary-hover-border-color: var(--b-primary-subtle-border);
+
+    --b-button-text-primary-color:            var(--b-primary-outline-text);
+    --b-button-text-primary-hover-background: var(--b-primary-overlay);
+    --b-button-text-primary-hover-color:      var(--b-primary-outline-text);
+
+    --b-button-link-primary-color:       var(--b-primary-subtle-text);
+    --b-button-link-primary-hover-color: var(--b-primary-outline-text);
+
+    --b-button-primary-shadow-color-channels: var(--b-primary-channels);
+
+    /* Secondary */
+    --b-button-secondary-background:         var(--b-secondary-solid-background);
+    --b-button-secondary-color:              var(--b-secondary-solid-text);
+    --b-button-secondary-border-color:       var(--b-secondary-solid-background);
+    --b-button-secondary-hover-background:   var(--b-secondary-solid-background-hover);
+    --b-button-secondary-hover-color:        var(--b-secondary-solid-text);
+    --b-button-secondary-hover-border-color: var(--b-secondary-solid-background-hover);
+
+    --b-button-outline-secondary-background:         transparent;
+    --b-button-outline-secondary-color:              var(--b-secondary-outline-text);
+    --b-button-outline-secondary-border-color:       var(--b-secondary-outline-border);
+    --b-button-outline-secondary-hover-background:   var(--b-secondary-overlay);
+    --b-button-outline-secondary-hover-color:        var(--b-secondary-outline-text);
+    --b-button-outline-secondary-hover-border-color: var(--b-secondary-subtle-border);
+
+    --b-button-text-secondary-color:            var(--b-secondary-outline-text);
+    --b-button-text-secondary-hover-background: var(--b-secondary-overlay);
+    --b-button-text-secondary-hover-color:      var(--b-secondary-outline-text);
+
+    --b-button-link-secondary-color:       var(--b-secondary-subtle-text);
+    --b-button-link-secondary-hover-color: var(--b-secondary-outline-text);
 
     --b-button-secondary-shadow-color-channels: var(--b-secondary-channels);
-    --b-button-secondary-background:            var(--b-secondary-solid-background);
-    --b-button-secondary-color:                 var(--b-secondary-solid-text);
-    --b-button-secondary-border-color:          var(--b-secondary-solid-background);
-    --b-button-secondary-hover-background:      var(--b-secondary-solid-background-hover);
-    --b-button-secondary-hover-border:          var(--b-secondary-solid-background-hover);
-    --b-button-secondary-variant-background:    var(--b-secondary-overlay);
-    --b-button-secondary-variant-color:         var(--b-secondary-outline-text);
-    --b-button-secondary-variant-border:        var(--b-secondary-subtle-border);
-
-    --b-button-success-shadow-color-channels: var(--b-success-channels);
-    --b-button-success-background:            var(--b-success-solid-background);
-    --b-button-success-color:                 var(--b-success-solid-text);
-    --b-button-success-border-color:          var(--b-success-solid-background);
-    --b-button-success-hover-background:      var(--b-success-solid-background-hover);
-    --b-button-success-hover-border:          var(--b-success-solid-background-hover);
-    --b-button-success-variant-background:    var(--b-success-overlay);
-    --b-button-success-variant-color:         var(--b-success-outline-text);
-    --b-button-success-variant-border:        var(--b-success-subtle-border);
-
-    --b-button-info-shadow-color-channels: var(--b-info-channels);
-    --b-button-info-background:            var(--b-info-solid-background);
-    --b-button-info-color:                 var(--b-info-solid-text);
-    --b-button-info-border-color:          var(--b-info-solid-background);
-    --b-button-info-hover-background:      var(--b-info-solid-background-hover);
-    --b-button-info-hover-border:          var(--b-info-solid-background-hover);
-    --b-button-info-variant-background:    var(--b-info-overlay);
-    --b-button-info-variant-color:         var(--b-info-outline-text);
-    --b-button-info-variant-border:        var(--b-info-subtle-border);
-
-    --b-button-warn-shadow-color-channels: var(--b-warning-channels);
-    --b-button-warn-background:            var(--b-warning-solid-background);
-    --b-button-warn-color:                 var(--b-warning-solid-text);
-    --b-button-warn-border-color:          var(--b-warning-solid-background);
-    --b-button-warn-hover-background:      var(--b-warning-solid-background-hover);
-    --b-button-warn-hover-border:          var(--b-warning-solid-background-hover);
-    --b-button-warn-variant-background:    var(--b-warning-overlay);
-    --b-button-warn-variant-color:         var(--b-warning-outline-text);
-    --b-button-warn-variant-border:        var(--b-warning-subtle-border);
-
-    --b-button-error-shadow-color-channels: var(--b-error-channels);
-    --b-button-error-background:            var(--b-error-solid-background);
-    --b-button-error-color:                 var(--b-error-solid-text);
-    --b-button-error-border-color:          var(--b-error-solid-background);
-    --b-button-error-hover-background:      var(--b-error-solid-background-hover);
-    --b-button-error-hover-border:          var(--b-error-solid-background-hover);
-    --b-button-error-variant-background:    var(--b-error-overlay);
-    --b-button-error-variant-color:         var(--b-error-outline-text);
-    --b-button-error-variant-border:        var(--b-error-subtle-border);
-
-    --b-button-contrast-shadow-color-channels: var(--b-contrast-channels);
-    --b-button-contrast-background:            var(--b-contrast-solid-background);
-    --b-button-contrast-color:                 var(--b-contrast-solid-text);
-    --b-button-contrast-border-color:          var(--b-contrast-solid-background);
-    --b-button-contrast-hover-background:      var(--b-contrast-solid-background-hover);
-    --b-button-contrast-hover-border:          var(--b-contrast-solid-background-hover);
-    --b-button-contrast-variant-background:    var(--b-contrast-overlay);
-    --b-button-contrast-variant-color:         var(--b-contrast-outline-text);
-    --b-button-contrast-variant-border:        var(--b-contrast-subtle-border);
-
 
 
     /* Size tokens */
@@ -196,108 +179,77 @@
    ============================================================ */
 
 :where(.b-button--severity-primary) {
-    --b-shadow-color-channels:     var(--b-button-primary-shadow-color-channels);
+    --b-button-background:       var(--b-button-primary-background);
+    --b-button-color:            var(--b-button-primary-color);
+    --b-button-border-color:     var(--b-button-primary-border-color);
+    --b-button-hover-background: var(--b-button-primary-hover-background);
+    --b-button-hover-color:      var(--b-button-primary-hover-color);
+    --b-button-hover-border:     var(--b-button-primary-hover-border-color);
 
-    --b-button-background:         var(--b-button-primary-background);
-    --b-button-color:              var(--b-button-primary-color);
-    --b-button-border-color:       var(--b-button-primary-background);
-
-    --b-button-hover-background:   var(--b-button-primary-hover-background);
-    --b-button-hover-border:       var(--b-button-primary-hover-border);
     /* Context for Variants */
-    --b-button-variant-background: var(--b-button-primary-variant-background);
-    --b-button-variant-color:      var(--b-button-primary-variant-color);
-    --b-button-variant-border:     var(--b-button-primary-variant-border);
+    --b-button-outline-background:         var(--b-button-outline-primary-background);
+    --b-button-outline-color:              var(--b-button-outline-primary-color);
+    --b-button-outline-border-color:       var(--b-button-outline-primary-border-color);
+    --b-button-outline-hover-background:   var(--b-button-outline-primary-hover-background);
+    --b-button-outline-hover-color:        var(--b-button-outline-primary-hover-color);
+    --b-button-outline-hover-border-color: var(--b-button-outline-primary-hover-border-color);
+
+    --b-button-text-color:            var(--b-button-text-primary-color);
+    --b-button-text-hover-background: var(--b-button-text-primary-hover-background);
+    --b-button-text-hover-color:      var(--b-button-text-primary-hover-color);
+
+    --b-button-link-color: var(--b-button-link-primary-color);
+    --b-button-link-hover-color: var(--b-button-link-primary-hover-color);
+
+    /* Shadow */
+    --b-shadow-color-channels:     var(--b-button-primary-shadow-color-channels);
 }
 
 :where(.b-button--severity-secondary) {
-    --b-shadow-color-channels:     var(--b-secondary-channels);
+    --b-button-background:       var(--b-button-secondary-background);
+    --b-button-color:            var(--b-button-secondary-color);
+    --b-button-border-color:     var(--b-button-secondary-border-color);
+    --b-button-hover-background: var(--b-button-secondary-hover-background);
+    --b-button-hover-color:      var(--b-button-secondary-hover-color);
+    --b-button-hover-border:     var(--b-button-secondary-hover-border-color);
 
-    --b-button-background:         var(--b-secondary-solid-background);
-    --b-button-color:              var(--b-secondary-solid-text);
-    --b-button-border-color:       var(--b-secondary-solid-background);
-
-    --b-button-hover-background:   var(--b-secondary-solid-background-hover);
-    --b-button-hover-border:       var(--b-secondary-solid-background-hover);
     /* Context for Variants */
-    --b-button-variant-background: var(--b-secondary-overlay);
-    --b-button-variant-color:      var(--b-secondary-subtle-text);
-    --b-button-variant-border:     var(--b-border-default);
+    --b-button-outline-background:         var(--b-button-outline-secondary-background);
+    --b-button-outline-color:              var(--b-button-outline-secondary-color);
+    --b-button-outline-border-color:       var(--b-button-outline-secondary-border-color);
+    --b-button-outline-hover-background:   var(--b-button-outline-secondary-hover-background);
+    --b-button-outline-hover-color:        var(--b-button-outline-secondary-hover-color);
+    --b-button-outline-hover-border-color: var(--b-button-outline-secondary-hover-border-color);
+
+    --b-button-text-color:            var(--b-button-text-secondary-color);
+    --b-button-text-hover-background: var(--b-button-text-secondary-hover-background);
+    --b-button-text-hover-color:      var(--b-button-text-secondary-hover-color);
+
+    --b-button-link-color: var(--b-button-link-secondary-color);
+    --b-button-link-hover-color: var(--b-button-link-secondary-hover-color);
+
+    /* Shadow */
+    --b-shadow-color-channels:     var(--b-button-primary-shadow-color-channels);
 }
 
 :where(.b-button--severity-success) {
-    --b-shadow-color-channels:     var(--b-success-channels);
 
-    --b-button-background:         var(--b-success-solid-background);
-    --b-button-color:              var(--b-success-solid-text);
-    --b-button-border-color:       var(--b-success-solid-background);
-
-    --b-button-hover-background:   var(--b-success-solid-background-hover);
-    --b-button-hover-border:       var(--b-success-solid-background-hover);
-    /* Context for Variants */
-    --b-button-variant-background: var(--b-success-overlay);
-    --b-button-variant-color:      var(--b-success-outline-text);
-    --b-button-variant-border:     var(--b-success-subtle-border);
 }
 
 :where(.b-button--severity-warn) {
-    --b-shadow-color-channels:     var(--b-warning-channels);
 
-    --b-button-background:         var(--b-warning-solid-background);
-    --b-button-color:              var(--b-warning-solid-text);
-    --b-button-border-color:       var(--b-warning-solid-background);
-
-    --b-button-hover-background:   var(--b-warning-solid-background-hover);
-    --b-button-hover-border:       var(--b-warning-solid-background-hover);
-    /* Context for Variants */
-    --b-button-variant-background: var(--b-warning-overlay);
-    --b-button-variant-color:      var(--b-warning-outline-text);
-    --b-button-variant-border:     var(--b-warning-subtle-border);
 }
 
 :where(.b-button--severity-danger) {
-    --b-shadow-color-channels:     var(--b-error-channels);
 
-    --b-button-background:         var(--b-error-solid-background);
-    --b-button-color:              var(--b-error-solid-text);
-    --b-button-border-color:       var(--b-error-solid-background);
-
-    --b-button-hover-background:   var(--b-error-solid-background-hover);
-    --b-button-hover-border:       var(--b-error-solid-background-hover);
-    /* Context for Variants */
-    --b-button-variant-background: var(--b-error-overlay);
-    --b-button-variant-color:      var(--b-error-outline-text);
-    --b-button-variant-border:     var(--b-error-subtle-border);
 }
 
 :where(.b-button--severity-info) {
-    --b-shadow-color-channels:     var(--b-info-channels);
 
-    --b-button-background:         var(--b-info-solid-background);
-    --b-button-color:              var(--b-info-solid-text);
-    --b-button-border-color:       var(--b-info-solid-background);
-
-    --b-button-hover-background:   var(--b-info-solid-background-hover);
-    --b-button-hover-border:       var(--b-info-solid-background-hover);
-    /* Context for Variants */
-    --b-button-variant-background: var(--b-info-overlay);
-    --b-button-variant-color:      var(--b-info-outline-text);
-    --b-button-variant-border:     var(--b-info-subtle-border);
 }
 
 :where(.b-button--severity-contrast) {
-    --b-shadow-color-channels:     var(--b-contrast-channels);
 
-    --b-button-background:         var(--b-contrast-solid-background);
-    --b-button-color:              var(--b-contrast-solid-text);
-    --b-button-border-color:       var(--b-contrast-solid-background);
-
-    --b-button-hover-background:   var(--b-contrast-solid-background-hover);
-    --b-button-hover-border:       var(--b-contrast-solid-background-hover);
-    /* Context for Variants */
-    --b-button-variant-background: var(--b-contrast-overlay);
-    --b-button-variant-color:      var(--b-contrast-outline-text);
-    --b-button-variant-border:     var(--b-contrast-outline-border);
 }
 
 /* ============================================================
@@ -307,34 +259,34 @@
 
 /* Outline: Transparent background with a colored border */
 :where(.b-button--variant-outline) {
-    --b-button-background:       transparent;
-    --b-button-color:            var(--b-button-variant-color);
-    --b-button-border-color:     var(--b-button-variant-border);
+    --b-button-background:       var(--b-button-outline-primary-background);
+    --b-button-color:            var(--b-button-outline-color);
+    --b-button-border-color:     var(--b-button-outline-border-color);
 
-    --b-button-hover-background: var(--b-button-variant-background);
-    --b-button-hover-color:      var(--b-button-variant-color);
-    --b-button-hover-border:     var(--b-button-variant-border);
+    --b-button-hover-background: var(--b-button-outline-hover-background);
+    --b-button-hover-color:      var(--b-button-outline-hover-color);
+    --b-button-hover-border:     var(--b-button-outline-hover-border-color);
 }
 
 /* Text: Transparent background with colored text and subtle hover */
 :where(.b-button--variant-text) {
     --b-button-background:       transparent;
-    --b-button-color:            var(--b-button-variant-color);
+    --b-button-color:            var(--b-button-text-color);
     --b-button-border-color:     transparent;
 
-    --b-button-hover-background: var(--b-button-variant-background);
-    --b-button-hover-color:      var(--b-button-variant-color);
+    --b-button-hover-background: var(--b-button-text-hover-background);
+    --b-button-hover-color:      var(--b-button-text-hover-color);
     --b-button-hover-border:     transparent;
 }
 
 /* Link: Pure text button with underline on hover */
 :where(.b-button--variant-link) {
     --b-button-background:       transparent;
-    --b-button-color:            var(--b-button-variant-color);
+    --b-button-color:            var(--b-button-link-color);
     --b-button-border-color:     transparent;
 
     --b-button-hover-background: transparent;
-    --b-button-hover-color:      var(--b-primary-outline-text);
+    --b-button-hover-color:      var(--b-button-link-hover-color);
     --b-button-hover-border:     transparent;
 
     :where(&:hover) {
