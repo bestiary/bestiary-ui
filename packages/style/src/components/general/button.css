@@ -1,22 +1,45 @@
+/**
+ * Bestiary UI — Button Component
+ */
+
 :where(.b-button) {
-    /* Size variants */
+    /* ============================================================
+       1. SOURCE TOKENS (Global settings)
+       ============================================================ */
+
+    /* --- Sizing Strategy --- */
     --b-button-sm-height:    var(--b-control-size-sm);
-    --b-button-sm-padding: var(--b-space-2);
+    --b-button-sm-padding:   var(--b-space-2);
     --b-button-sm-font-size: var(--b-text-sm);
 
     --b-button-md-height:    var(--b-control-size-md);
-    --b-button-md-padding: var(--b-space-3);
+    --b-button-md-padding:   var(--b-space-3);
     --b-button-md-font-size: var(--b-text-md);
 
     --b-button-lg-height:    var(--b-control-size-lg);
-    --b-button-lg-padding: var(--b-space-4);
+    --b-button-lg-padding:   var(--b-space-4);
     --b-button-lg-font-size: var(--b-text-md);
 
     --b-button-xl-height:    var(--b-control-size-xl);
-    --b-button-xl-padding: var(--b-space-5);
+    --b-button-xl-padding:   var(--b-space-5);
     --b-button-xl-font-size: var(--b-text-lg);
 
-    /* Severity variants */
+    /* --- Common Visuals --- */
+    --b-button-border-width:  var(--b-stroke-default);
+    --b-button-border-style:  solid;
+    --b-button-border-radius: var(--b-radius-interactive);
+    --b-button-gap:           var(--b-space-2);
+    --b-button-font-weight:   var(--b-body-weight);
+    --b-button-shadow:        var(--b-shadow-md);
+    --b-button-transition:    all var(--b-duration-normal) var(--b-ease-base);
+
+    /* Focus Ring (Accessibility) */
+    --b-button-focus-ring-width:  var(--b-stroke-focus);
+    --b-button-focus-ring-style:  solid;
+    --b-button-focus-ring-color:  var(--b-primary-500);
+    --b-button-focus-ring-offset: 2px;
+
+    /* --- Severity: Primary --- */
     --b-button-primary-background:         var(--b-primary-solid-background);
     --b-button-primary-color:              var(--b-primary-solid-text);
     --b-button-primary-border-color:       var(--b-primary-solid-background);
@@ -39,7 +62,9 @@
     --b-button-link-primary-hover-color:      var(--b-primary-outline-text);
 
     --b-button-primary-shadow-color-channels: var(--b-primary-channels);
+    --b-button-primary-focus-ring-color:      var(--b-primary-outline-border);
 
+    /* --- Severity: Secondary --- */
     --b-button-secondary-background:         var(--b-secondary-solid-background);
     --b-button-secondary-color:              var(--b-secondary-solid-text);
     --b-button-secondary-border-color:       var(--b-secondary-solid-background);
@@ -62,7 +87,9 @@
     --b-button-link-secondary-hover-color:      var(--b-secondary-outline-text);
 
     --b-button-secondary-shadow-color-channels: var(--b-secondary-channels);
+    --b-button-secondary-focus-ring-color:      var(--b-secondary-outline-border);
 
+    /* --- Severity: Success --- */
     --b-button-success-background:         var(--b-success-solid-background);
     --b-button-success-color:              var(--b-success-solid-text);
     --b-button-success-border-color:       var(--b-success-solid-background);
@@ -85,7 +112,9 @@
     --b-button-link-success-hover-color:      var(--b-success-outline-text);
 
     --b-button-success-shadow-color-channels: var(--b-success-channels);
+    --b-button-success-focus-ring-color:      var(--b-success-outline-border);
 
+    /* --- Severity: Info --- */
     --b-button-info-background:         var(--b-info-solid-background);
     --b-button-info-color:              var(--b-info-solid-text);
     --b-button-info-border-color:       var(--b-info-solid-background);
@@ -108,7 +137,9 @@
     --b-button-link-info-hover-color:      var(--b-info-outline-text);
 
     --b-button-info-shadow-color-channels: var(--b-info-channels);
+    --b-button-info-focus-ring-color:      var(--b-info-outline-border);
 
+    /* --- Severity: Warn --- */
     --b-button-warn-background:         var(--b-warning-solid-background);
     --b-button-warn-color:              var(--b-warning-solid-text);
     --b-button-warn-border-color:       var(--b-warning-solid-background);
@@ -131,7 +162,9 @@
     --b-button-link-warn-hover-color:      var(--b-warning-outline-text);
 
     --b-button-warn-shadow-color-channels: var(--b-warning-channels);
+    --b-button-warn-focus-ring-color:      var(--b-warning-outline-border);
 
+    /* --- Severity: Danger --- */
     --b-button-danger-background:         var(--b-error-solid-background);
     --b-button-danger-color:              var(--b-error-solid-text);
     --b-button-danger-border-color:       var(--b-error-solid-background);
@@ -154,7 +187,9 @@
     --b-button-link-danger-hover-color:      var(--b-error-outline-text);
 
     --b-button-danger-shadow-color-channels: var(--b-error-channels);
+    --b-button-danger-focus-ring-color:      var(--b-error-outline-border);
 
+    /* --- Severity: Contrast --- */
     --b-button-contrast-background:         var(--b-contrast-solid-background);
     --b-button-contrast-color:              var(--b-contrast-solid-text);
     --b-button-contrast-border-color:       var(--b-contrast-solid-background);
@@ -177,27 +212,26 @@
     --b-button-link-contrast-hover-color:      var(--b-contrast-outline-text);
 
     --b-button-contrast-shadow-color-channels: var(--b-contrast-channels);
+    --b-button-contrast-focus-ring-color:      var(--b-contrast-outline-border);
 
+    /* ============================================================
+       2. ACTIVE MAPPING (Variables actually used by renderer)
+       ============================================================ */
 
-    --b-button-border-width:  var(--b-stroke-default);
-    --b-button-border-style:  solid;
-    --b-button-border-radius: var(--b-radius-interactive);
-    --b-button-gap:           var(--b-space-2);
-    --b-button-font-weight:   var(--b-body-weight);
-    --b-button-shadow:        var(--b-shadow-md);
-
-    /* Size variables */
+    /* Default Mapping (Medium, Primary Solid) */
     --b-button-height:    var(--b-button-md-height);
     --b-button-padding:   var(--b-button-md-padding);
     --b-button-font-size: var(--b-button-md-font-size);
+    --b-button-icon-size: var(--b-button-font-size);
 
-    /* Severity variables */
     --b-button-background:         var(--b-button-primary-background);
     --b-button-color:              var(--b-button-primary-color);
     --b-button-border-color:       var(--b-button-primary-border-color);
     --b-button-hover-background:   var(--b-button-primary-hover-background);
     --b-button-hover-color:        var(--b-button-primary-hover-color);
     --b-button-hover-border-color: var(--b-button-primary-hover-border-color);
+
+    --b-shadow-color-channels: var(--b-button-primary-shadow-color-channels);
 
     --b-button-outline-background:         var(--b-button-outline-primary-background);
     --b-button-outline-color:              var(--b-button-outline-primary-color);
@@ -214,6 +248,9 @@
     --b-button-link-hover-color: var(--b-button-link-primary-hover-color);
 }
 
+/* ============================================================
+   3. BASE RENDERER
+   ============================================================ */
 :where(.b-button) {
     display: inline-flex;
     align-items: center;
@@ -223,67 +260,76 @@
     text-align: center;
     overflow: hidden;
     position: relative;
+    box-sizing: border-box;
 
-    border: var(--b-button-border-width) var(--b-button-border-style);
+    border: var(--b-button-border-width) var(--b-button-border-style) var(--b-button-border-color);
     border-radius: var(--b-button-border-radius);
     gap: var(--b-button-gap);
     font-weight: var(--b-button-font-weight);
     line-height: var(--b-line-height-none);
+    transition: var(--b-button-transition);
 
-    /* Size style */
     height: var(--b-button-height);
     padding-inline: var(--b-button-padding);
     font-size: var(--b-button-font-size);
 
-    /* Severity style */
     background-color: var(--b-button-background);
     color: var(--b-button-color);
-    border-color: var(--b-button-border-color);
 
-    :where(&:not(:disabled):hover) {
-        background-color: var(--b-button-hover-background);
-        color: var(--b-button-hover-color);
-        border-color: var(--b-button-hover-border-color);
-    }
-
-    :where(&:not(:disabled):active) {
-        transform: translateY(1px);
-        filter: brightness(0.95);
-    }
-
-    :where(&:disabled) {
-        opacity: var(--b-state-disabled-opacity);
-        cursor: not-allowed;
-        pointer-events: none;
-        box-shadow: none;
-    }
+    outline: none;
 }
 
-:where(.b-button--raised) {
-    box-shadow: var(--b-button-shadow);
+/* --- Interaction States --- */
+
+:where(.b-button:not(:disabled):hover) {
+    background-color: var(--b-button-hover-background);
+    color:            var(--b-button-hover-color);
+    border-color:     var(--b-button-hover-border-color);
 }
 
+:where(.b-button:not(:disabled):active) {
+    transform: translateY(1px);
+    filter: brightness(0.95);
+}
+
+:where(.b-button:focus-visible) {
+    outline: var(--b-button-focus-ring-width) var(--b-button-focus-ring-style) var(--b-button-focus-ring-color);
+    outline-offset: var(--b-button-focus-ring-offset);
+}
+
+:where(.b-button:disabled) {
+    opacity: var(--b-state-disabled-opacity, 0.5);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ============================================================
+   4. MODIFIERS (Applying Tokens)
+   ============================================================ */
+
+/* Sizes */
 :where(.b-button--size-small)   {
     --b-button-height:    var(--b-button-sm-height);
-    --b-button-padding: var(--b-button-sm-padding);
+    --b-button-padding:   var(--b-button-sm-padding);
     --b-button-font-size: var(--b-button-sm-font-size);
 }
 :where(.b-button--size-medium)  {
     --b-button-height:    var(--b-button-md-height);
-    --b-button-padding: var(--b-button-md-padding);
+    --b-button-padding:   var(--b-button-md-padding);
     --b-button-font-size: var(--b-button-md-font-size);
 }
 :where(.b-button--size-large)   {
     --b-button-height:    var(--b-button-lg-height);
-    --b-button-padding: var(--b-button-lg-padding);
+    --b-button-padding:   var(--b-button-lg-padding);
     --b-button-font-size: var(--b-button-lg-font-size);
 }
 :where(.b-button--size-xlarge)  {
     --b-button-height:    var(--b-button-xl-height);
-    --b-button-padding: var(--b-button-xl-padding);
+    --b-button-padding:   var(--b-button-xl-padding);
     --b-button-font-size: var(--b-button-xl-font-size);
 }
 
+/* --- Severities --- */
 :where(.b-button--severity-primary) {
     --b-button-background:         var(--b-button-primary-background);
     --b-button-color:              var(--b-button-primary-color);
@@ -306,7 +352,8 @@
     --b-button-link-color:       var(--b-button-link-primary-color);
     --b-button-link-hover-color: var(--b-button-link-primary-hover-color);
     
-    --b-shadow-color-channels: var(--b-button-primary-shadow-color-channels);
+    --b-shadow-color-channels:   var(--b-button-primary-shadow-color-channels);
+    --b-button-focus-ring-color: var(--b-button-primary-focus-ring-color);
 }
 :where(.b-button--severity-secondary) {
     --b-button-background:         var(--b-button-secondary-background);
@@ -331,6 +378,7 @@
     --b-button-link-hover-color: var(--b-button-link-secondary-hover-color);
     
     --b-shadow-color-channels: var(--b-button-secondary-shadow-color-channels);
+    --b-button-focus-ring-color: var(--b-button-secondary-focus-ring-color);
 }
 :where(.b-button--severity-success) {
     --b-button-background:         var(--b-button-success-background);
@@ -355,6 +403,7 @@
     --b-button-link-hover-color: var(--b-button-link-success-hover-color);
     
     --b-shadow-color-channels: var(--b-button-success-shadow-color-channels);
+    --b-button-focus-ring-color: var(--b-button-success-focus-ring-color);
 }
 :where(.b-button--severity-info) {
     --b-button-background:         var(--b-button-info-background);
@@ -379,6 +428,7 @@
     --b-button-link-hover-color: var(--b-button-link-info-hover-color);
 
     --b-shadow-color-channels: var(--b-button-info-shadow-color-channels);
+    --b-button-focus-ring-color: var(--b-button-info-focus-ring-color);
 }
 :where(.b-button--severity-warn) {
     --b-button-background:         var(--b-button-warn-background);
@@ -403,6 +453,7 @@
     --b-button-link-hover-color: var(--b-button-link-warn-hover-color);
 
     --b-shadow-color-channels: var(--b-button-warn-shadow-color-channels);
+    --b-button-focus-ring-color: var(--b-button-warn-focus-ring-color);
 }
 :where(.b-button--severity-danger) {
     --b-button-background:         var(--b-button-danger-background);
@@ -427,6 +478,7 @@
     --b-button-link-hover-color: var(--b-button-link-danger-hover-color);
 
     --b-shadow-color-channels: var(--b-button-danger-shadow-color-channels);
+    --b-button-focus-ring-color: var(--b-button-danger-focus-ring-color);
 }
 :where(.b-button--severity-contrast) {
     --b-button-background:         var(--b-button-contrast-background);
@@ -451,6 +503,16 @@
     --b-button-link-hover-color: var(--b-button-link-contrast-hover-color);
 
     --b-shadow-color-channels: var(--b-button-contrast-shadow-color-channels);
+    --b-button-focus-ring-color: var(--b-button-contrast-focus-ring-color);
+}
+
+/* --- Variants --- */
+:where(.b-button--raised) {
+    box-shadow: var(--b-button-shadow);
+}
+
+:where(.b-button--rounded) {
+    --b-button-border-radius: var(--b-radius-full);
 }
 
 :where(.b-button--variant-outline) {
@@ -463,39 +525,44 @@
 }
 
 :where(.b-button--variant-text) {
-    --b-button-background:       transparent;
+    --b-button-background:         transparent;
+    --b-button-border-color:       transparent;
+    --b-button-hover-border-color: transparent;
+    /* Uses text mapping */
     --b-button-color:            var(--b-button-text-color);
-    --b-button-border-color:     transparent;
-
     --b-button-hover-background: var(--b-button-text-hover-background);
     --b-button-hover-color:      var(--b-button-text-hover-color);
-    --b-button-hover-border-color:     transparent;
 }
 
 :where(.b-button--variant-link) {
     --b-button-background:       transparent;
-    --b-button-color:            var(--b-button-link-color);
     --b-button-border-color:     transparent;
-
     --b-button-hover-background: transparent;
-    --b-button-hover-color:      var(--b-button-link-hover-color);
     --b-button-hover-border-color:     transparent;
+    /* Uses text mapping */
+    --b-button-color:            var(--b-button-link-color);
+    --b-button-hover-color:      var(--b-button-link-hover-color);
 
     :where(&:hover) {
         text-decoration: underline;
     }
 }
 
-:where(.b-button--icon-top), :where(.b-button--badge-top)       { flex-direction: column; height: auto; }
-:where(.b-button--icon-bottom), :where(.b-button--badge-bottom) { flex-direction: column-reverse; height: auto; }
-:where(.b-button--icon-right), :where(.b-button--badge-right)   { flex-direction: row-reverse; }
-:where(.b-button--icon-left), :where(.b-button--badge-left)     { flex-direction: row; }
+/* ============================================================
+   5. INTERNAL ELEMENTS & LAYOUT
+   ============================================================ */
 
+/* --- Icon Only Logic --- */
 :where(.b-button--icon-only) {
     width:   var(--b-button-height);
-    height:  var(--b-button-height);
     padding: 0;
+    flex-shrink: 0;
 }
+
+:where(.b-button--icon-top), :where(.b-button--badge-top)       { flex-direction: column; height: auto; padding-block: var(--b-space-2); }
+:where(.b-button--icon-bottom), :where(.b-button--badge-bottom) { flex-direction: column-reverse; height: auto; padding-block: var(--b-space-2); }
+:where(.b-button--icon-right), :where(.b-button--badge-right)   { flex-direction: row-reverse; }
+:where(.b-button--icon-left), :where(.b-button--badge-left)     { flex-direction: row; }
 
 :where(.b-button__icon), :where(.b-button__loading-icon) {
     display:         flex;
@@ -506,13 +573,11 @@
     flex-shrink:     0;
 }
 
-:where(.b-button--rounded) {
-    --b-button-border-radius: var(--b-radius-full);
-}
-
+/* --- Loading State --- */
 :where(.b-button--loading) {
     pointer-events: none;
-    opacity: 0.8;
+    /*opacity: 0.8;*/
+    filter: contrast(0.9);
 }
 
 :where(.b-button__loading-icon) {
