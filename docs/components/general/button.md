@@ -1,235 +1,258 @@
-<DocTabs :tabs="[
-{ id: 'features', label: 'Features' },
-{ id: 'api', label: 'API' },
-{ id: 'theming', label: 'Theming' }
-]">
+<script setup>
+import { MagnifyingGlassOutline, PlusOutline, CheckOutline } from "@bestiary-ui/icons";
+</script>
 
-<DocTabPane id="features">
+# Button <VersionBadge module="components" />
+Button is an extension to standard button element with icons and theming.
 
-# Button
-
-Button is an extension to standard input element with icons and theming.
+::: info Theming
+Detailed information about CSS classes, customization tokens, and manual HTML implementation can be found in the [Style API Documentation](../../style/components/general/button).
+:::
 
 ## Import
 
-```ts
-import { BButton } from '@bestiary-ui/components';
+```javascript
+import { BButton } from "@bestiary-ui/components";
 ```
 
-## Basic
+## Getting Started
+A basic button is defined with the `label` property.
 
-Text to display on a button is defined with the label property.
-
-<div class="display-content">
-  <BButton label="Submit" />
+<div class="card">
+    <BButton label="Submit" />
 </div>
 
 ```vue
 <BButton label="Submit" />
 ```
 
-## Icons
-
-Buttons can be enhanced with icons from `@bestiary-ui/icons`. You can place icons in four different positions or use
-them as standalone icon buttons.
-
-<script setup>
-import { 
-  PlusSolid, 
-  ArrowRightOutline, 
-  TrashSolid, 
-  CloudArrowUpOutline,
-  ChevronDownSolid
-} from '@bestiary-ui/icons'
-</script>
-
-<div class="display-content">
-    <BButton :icon="PlusSolid" label="Add Item" />
-    <BButton severity="secondary" :icon="ArrowRightOutline" iconPos="right" label="Next" />
-    <BButton severity="info" :icon="CloudArrowUpOutline" iconPos="top" label="Upload" />
-    <BButton severity="danger" :icon="TrashSolid" />
-    <BButton severity="secondary" :icon="PlusSolid" rounded />
-</div>
-
-```vue
-<BButton :icon="PlusSolid" label="Add Item" />
-<BButton severity="secondary" :icon="ArrowRightOutline" iconPos="right" label="Next" />
-<BButton severity="info" :icon="CloudArrowUpOutline" iconPos="top" label="Upload" />
-<BButton severity="danger" :icon="TrashSolid" />
-<BButton severity="secondary" :icon="PlusSolid" rounded />
-```
-
-## States
-
-Handle asynchronous actions and interactivity states.
-
-<div class="display-content">
-  <BButton loading label="Loading..." />
-  <BButton loading type="success" />
-  <BButton disabled label="Disabled" />
-</div>
-
-```vue
-<BButton loading label="Loading..." />
-<BButton loading type="success" />
-<BButton disabled label="Disabled" />
-```
-
 ## Severity
+Severities define the color scheme of the button. Valid values are `primary` (default), `secondary`, `success`, `info`, `warn`, `danger` and `contrast`.
 
-The `severity` property defines the variant of a button.
-
-<div class="display-content">
-  <BButton severity="primary" label="Primary" />
-  <BButton severity="secondary" label="Secondary" />
-  <BButton severity="success" label="Success" />
-  <BButton severity="warn" label="Warning" />
-  <BButton severity="danger" label="Danger" />
-  <BButton severity="info" label="Info" />
+<div class="card">
+    <BButton label="Primary" />
+    <BButton label="Secondary" severity="secondary" />
+    <BButton label="Success" severity="success" />
+    <BButton label="Info" severity="info" />
+    <BButton label="Warn" severity="warn" />
+    <BButton label="Danger" severity="danger" />
+    <BButton label="Contrast" severity="contrast" />
 </div>
 
 ```vue
-<BButton severity="primary" label="Primary" />
-<BButton severity="secondary" label="Secondary" />
-<BButton severity="success" label="Success" />
-<BButton severity="warn" label="Warning" />
-<BButton severity="danger" label="Danger" />
-<BButton severity="info" label="Info" />
+<BButton label="Primary" />
+<BButton label="Secondary" severity="secondary" />
+<BButton label="Success" severity="success" />
+<BButton label="Info" severity="info" />
+<BButton label="Warn" severity="warn" />
+<BButton label="Danger" severity="danger" />
+<BButton label="Contrast" severity="contrast" />
+```
+
+## Raised
+Raised buttons display a shadow for an elevated effect.
+
+<div class="card">
+    <BButton label="Primary" raised />
+    <BButton label="Secondary" severity="secondary" raised />
+    <BButton label="Success" severity="success" raised />
+    <BButton label="Info" severity="info" raised />
+    <BButton label="Warn" severity="warn" raised />
+    <BButton label="Danger" severity="danger" raised />
+    <BButton label="Contrast" severity="contrast" raised />
+</div>
+
+```vue
+<BButton label="Primary" raised />
+<BButton label="Secondary" severity="secondary" raised />
+<BButton label="Success" severity="success" raised />
+<BButton label="Info" severity="info" raised />
+<BButton label="Warn" severity="warn" raised />
+<BButton label="Danger" severity="danger" raised />
+<BButton label="Contrast" severity="contrast" raised />
+```
+
+## Rounded
+Rounded buttons have a pill-shaped design.
+
+<div class="card">
+    <BButton label="Primary" rounded />
+    <BButton label="Secondary" severity="secondary" rounded />
+    <BButton label="Success" severity="success" rounded />
+    <BButton label="Info" severity="info" rounded />
+    <BButton label="Warn" severity="warn" rounded />
+    <BButton label="Danger" severity="danger" rounded />
+    <BButton label="Contrast" severity="contrast" rounded />
+</div>
+
+```vue
+<BButton label="Primary" rounded />
+<BButton label="Secondary" severity="secondary" rounded />
+<BButton label="Success" severity="success" rounded />
+<BButton label="Info" severity="info" rounded />
+<BButton label="Warn" severity="warn" rounded />
+<BButton label="Danger" severity="danger" rounded />
+<BButton label="Contrast" severity="contrast" rounded />
+```
+
+## Text
+Text buttons are displayed without a background or border.
+
+<div class="card">
+    <BButton label="Primary" variant="text" />
+    <BButton label="Secondary" severity="secondary" variant="text" />
+    <BButton label="Success" severity="success" variant="text" />
+    <BButton label="Info" severity="info" variant="text" />
+    <BButton label="Warn" severity="warn" variant="text" />
+    <BButton label="Danger" severity="danger" variant="text" />
+    <BButton label="Contrast" severity="contrast" variant="text" />
+</div>
+
+```vue
+<BButton label="Primary" variant="text" />
+<BButton label="Secondary" severity="secondary" variant="text" />
+<BButton label="Success" severity="success" variant="text" />
+<BButton label="Info" severity="info" variant="text" />
+<BButton label="Warn" severity="warn" variant="text" />
+<BButton label="Danger" severity="danger" variant="text" />
+<BButton label="Contrast" severity="contrast" variant="text" />
+```
+
+## Outlined
+Outlined buttons display a border without a background.
+
+<div class="card">
+    <BButton label="Primary" variant="outline" />
+    <BButton label="Secondary" severity="secondary" variant="outline" />
+    <BButton label="Success" severity="success" variant="outline" />
+    <BButton label="Info" severity="info" variant="outline" />
+    <BButton label="Warn" severity="warn" variant="outline" />
+    <BButton label="Danger" severity="danger" variant="outline" />
+    <BButton label="Contrast" severity="contrast" variant="outline" />
+</div>
+
+```vue
+<BButton label="Primary" variant="outline" />
+<BButton label="Secondary" severity="secondary" variant="outline" />
+<BButton label="Success" severity="success" variant="outline" />
+<BButton label="Info" severity="info" variant="outline" />
+<BButton label="Warn" severity="warn" variant="outline" />
+<BButton label="Danger" severity="danger" variant="outline" />
+<BButton label="Contrast" severity="contrast" variant="outline" />
+```
+
+## Link
+Link buttons are displayed as a link element with a label.
+
+<div class="card">
+    <BButton label="Primary" variant="link" />
+    <BButton label="Secondary" severity="secondary" variant="link" />
+    <BButton label="Success" severity="success" variant="link" />
+    <BButton label="Info" severity="info" variant="link" />
+    <BButton label="Warn" severity="warn" variant="link" />
+    <BButton label="Danger" severity="danger" variant="link" />
+    <BButton label="Contrast" severity="contrast" variant="link" />
+</div>
+
+```vue
+<BButton label="Primary" variant="link" />
+<BButton label="Secondary" severity="secondary" variant="link" />
+<BButton label="Success" severity="success" variant="link" />
+<BButton label="Info" severity="info" variant="link" />
+<BButton label="Warn" severity="warn" variant="link" />
+<BButton label="Danger" severity="danger" variant="link" />
+<BButton label="Contrast" severity="contrast" variant="link" />
 ```
 
 ## Sizes
+Button provides `small`, `medium` (default), `large` and `xlarge` sizes.
 
-Bestiary UI supports four standard vertical sizes to maintain consistent rhythm across forms and toolbars.
-
-<div class="display-content">
-  <BButton size="small" label="Small" />
-  <BButton size="medium" label="Medium" />
-  <BButton size="large" label="Large" />
-  <BButton size="xlarge" label="X-Large" />
+<div class="card items-center">
+    <BButton label="Small" size="small" />
+    <BButton label="Medium" size="medium" />
+    <BButton label="Large" size="large" />
+    <BButton label="X-Large" size="xlarge" />
 </div>
 
 ```vue
-<BButton size="small" label="Small" />
-<BButton size="medium" label="Medium" />
-<BButton size="large" label="Large" />
-<BButton size="xlarge" label="X-Large" />
+<BButton label="Small" size="small" />
+<BButton label="Medium" size="medium" />
+<BButton label="Large" size="large" />
+<BButton label="X-Large" size="xlarge" />
 ```
 
-## Badges
+## Icons
+An icon can be added to a button using the `icon` property.
 
-Integrated badges are perfect for showing notifications or counts directly on the action element.
-
-<div class="display-content">
-  <BButton badge="8" badgeSeverity="info" label="Notifications" />
-  <BButton type="info" badge="99+" badgeSeverity="success" label="Messages" />
+<div class="card">
+    <BButton label="Search" :icon="MagnifyingGlassOutline" />
+    <BButton label="Add" :icon="PlusOutline" iconPos="right" />
 </div>
 
 ```vue
-<BButton badge="8" badgeSeverity="info" label="Notifications" />
-<BButton type="info" badge="99+" badgeSeverity="success" label="Messages" />
+<BButton label="Search" :icon="MagnifyingGlassOutline" />
+<BButton label="Add" :icon="PlusOutline" iconPos="right" />
 ```
 
-## Rounded & Shapes
+### Icon Only
+When only an icon is provided without a label, the button is rendered as a square.
 
-Control the corner radius for different UI styles.
-
-<div class="display-content">
-  <BButton rounded label="Rounded Pill" />
-  <BButton severity="secondary" :icon="PlusSolid" rounded />
-  <BButton severity="info" :icon="ChevronDownSolid" />
+<div class="card">
+    <BButton :icon="CheckOutline" />
 </div>
 
 ```vue
-<BButton rounded label="Rounded Pill" />
-<BButton severity="secondary" :icon="PlusSolid" rounded />
-<BButton severity="info" :icon="ChevronDownSolid" />
+<BButton :icon="CheckOutline" />
 ```
 
-</DocTabPane>
+## Loading
+The `loading` property displays a spinner icon and disables the button.
 
-<DocTabPane id="api">
+<div class="card">
+    <BButton label="Submit" loading />
+</div>
 
-# API
-
-API defines helper props, events and others for the PrimeVue Button module.
-
-## Button
-
-Button is an extension to standard button element with icons and theming.
-
-### Props
-
-| Name            | Type                                                                                                       | Default     | Description                                     |
-|:----------------|:-----------------------------------------------------------------------------------------------------------|:------------|:------------------------------------------------|
-| `type`          | ButtonType\<"primary" \| "secondary" \| "success" \| warning \| "danger \| "info"\>                        | `"primary"` | Semantic style.                                 |
-| `size`          | ButtonSize\<"small" \| "medium" \| "large" \| "xlarge"\>                                                   | `"medium"`  | Vertical height.                                |
-| `icon`          | Component                                                                                                  | `null`      | Icon component from `@bestiary-ui/icons`.       |
-| `iconPos`       | ButtonIconPos\<"left" \| "right" \| "top" \| "bottom"\>                                                    | `"left"`    | Icon position.                                  |
-| `label`         | String                                                                                                     | `null`      | Text label (or use default slot).               |
-| `badge`         | String \| Number                                                                                           | `null`      | Value for the integrated badge.                 |
-| `badgePos`      | ButtonBadgePos\<"top" \| "left" \| "bottom" \| "right"\>                                                   | `"right"`   | Badge position.                                 |
-| `badgeSeverity` | ButtonBadgeSeverity\<"primary" \| "secondary" \| "info" \| "success" \| "warn" \| "danger" \| "contrast"\> | `"primary"` | Color type for the badge.                       |
-| `rounded`       | Boolean                                                                                                    | `false`     | Enables full border radius (pill shape).        |
-| `loading`       | Boolean                                                                                                    | `false`     | Disables button and shows a spinner.            |
-| `disabled`      | Boolean                                                                                                    | `false`     | Disables user interaction.                      |
-
-### Slots
-Defines valid slots in Button component.
-
-| Name          | Parameters                 | Return Type | Description                                                                                                                                                      |
-|:--------------|:---------------------------|:------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `default`     | scope: \{ class: string \} | VNode\[ \]  | Custom content such as icons, images and text can be placed inside the button via the default slot. Note that when slot is used, label property is not included. |
-| `icon`        | scope: \{ class: string \} | VNode\[ \]  | Custom icon template. If used, it overrides the `icon` property.                                                                                                 |
-| `loadingicon` | scope: \{ class: string \} | VNode\[ \]  | Custom loading icon template. Visible when `loading` prop is set to true.                                                                                        |
-</DocTabPane>
-
-<DocTabPane id="theming">
-
-# Button Theming
-
-## Button CSS Classes
-List of Button class names.
-
-| Class                  | Description                                 |
-|:-----------------------|:--------------------------------------------|
-| b-button               | Class name of the root element              |
-| b-button__content      | Class name of the content bontainer element |
-| b-button__label        | Class name of the label element             |
-| b-button__badge        | Class name of the badge element             |
-| b-button__icon         | Class name of the icon element              |
-| b-button__loading-icon | Class name of the loading icon element      |
-
-## Design Tokens
-List of design tokens.
-
-| Variable                    | Default Value                 |
-|:----------------------------|:------------------------------|
-| --b-button-height           | Height of root                |
-| --b-button-width            | Min width of root             |
-| --b-button-padding-x        | Padding x of root             | 
-| --b-button-padding-y        | Padding y of root             | 
-| --b-button-gap              | Gap inside content            |
-| --b-button-background       | Background color of root      |
-| --b-button-color            | Color of content              |
-| --b-button-hover-background | Background when hover of root |
-| --b-button-hover-color      | Color when hover of root      |
-| --b-button-border-radius    | Border radius of root         |
-| --b-button-border-width     | Border width of root          | 
-| --b-button-border-style     | Border style of root          |
-| --b-button-border-color     | Border color of root          |
-| --b-button-font-size        | Font size of root             |
-| --b-button-font-weight      | Font weight of root           |
-| --b-button-icon-size        | Icon size of root             |
-| --b-button-transition       | Transition of root            |
-
-```css
-/* Example: Customizing a specific area */
-.auth-form {
-    --b-button-border-radius: 0px;
-    --b-button-font-weight: 700;
-}
+```vue
+<BButton label="Submit" loading />
 ```
 
-</DocTabPane>
+## Badge
+Buttons can display a badge using the `badge` property.
 
-</DocTabs>
+<div class="card">
+    <BButton label="Emails" badge="8" badgeSeverity="contrast" />
+</div>
+
+```vue
+<BButton label="Emails" badge="8" badgeSeverity="contrast" />
+```
+
+## API
+
+### Button Properties
+
+| Name            | Type                  | Default     | Description                                                                                               |
+|:----------------|:----------------------|:------------|:----------------------------------------------------------------------------------------------------------|
+| `label`         | `string`              | `undefined` | Text of the button.                                                                                       |
+| `severity`      | `string`              | `primary`   | Severity level. Valid values are `primary`, `secondary`, `success`, `info`, `warn`, `danger`, `contrast`. |
+| `variant`       | `string`              | `default`   | Visual style. Valid values are `default`, `outline`, `text`, `link`.                                      |
+| `size`          | `string`              | `medium`    | Size of the button. Valid values are `small`, `medium`, `large`, `xlarge`.                                |
+| `raised`        | `boolean`             | `false`     | When enabled, displays a shadow.                                                                          |
+| `rounded`       | `boolean`             | `false`     | When enabled, adds a pill shape.                                                                          |
+| `icon`          | `string \| Component` | `undefined` | Icon to display.                                                                                          |
+| `iconPos`       | `string`              | `left`      | Position of the icon. Valid values are `top`, `left`, `bottom`, `right`.                                  |
+| `loading`       | `boolean`             | `false`     | Whether the button is in loading state.                                                                   |
+| `loadingIcon`   | `string \| Component` | `undefined` | Custom loading icon.                                                                                      |
+| `badge`         | `string \| number`    | `undefined` | Content of the badge.                                                                                     |
+| `badgeSeverity` | `string`              | `primary`   | Color of the badge.                                                                                       |
+| `disabled`      | `boolean`             | `false`     | When enabled, prevents interaction.                                                                       |
+| `type`          | `string`              | `button`    | HTML button type.                                                                                         |
+| `ariaLabel`     | `string`              | `undefined` | Accessible label for the element.                                                                         |
+
+### Button Slots
+
+| Name          | Description                             |
+|:--------------|:----------------------------------------|
+| `default`     | Custom content for the button label.    |
+| `icon`        | Custom icon content.                    |
+| `loadingicon` | Custom content for the loading spinner. |

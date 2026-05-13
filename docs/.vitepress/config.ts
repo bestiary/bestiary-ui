@@ -52,6 +52,7 @@ const config: UserConfig<CustomThemeConfig> = {
                     "/components/": [
                         {
                             text: "Getting Started",
+                            collapsed: false,
                             items: [
                                 {text: "Introduction", link: "/components/"}
                             ]
