@@ -377,7 +377,7 @@
     --b-button-link-color:       var(--b-button-link-secondary-color);
     --b-button-link-hover-color: var(--b-button-link-secondary-hover-color);
     
-    --b-shadow-color-channels: var(--b-button-secondary-shadow-color-channels);
+    --b-shadow-color-channels:   var(--b-button-secondary-shadow-color-channels);
     --b-button-focus-ring-color: var(--b-button-secondary-focus-ring-color);
 }
 :where(.b-button--severity-success) {
@@ -402,7 +402,7 @@
     --b-button-link-color:       var(--b-button-link-success-color);
     --b-button-link-hover-color: var(--b-button-link-success-hover-color);
     
-    --b-shadow-color-channels: var(--b-button-success-shadow-color-channels);
+    --b-shadow-color-channels:   var(--b-button-success-shadow-color-channels);
     --b-button-focus-ring-color: var(--b-button-success-focus-ring-color);
 }
 :where(.b-button--severity-info) {
@@ -427,7 +427,7 @@
     --b-button-link-color:       var(--b-button-link-info-color);
     --b-button-link-hover-color: var(--b-button-link-info-hover-color);
 
-    --b-shadow-color-channels: var(--b-button-info-shadow-color-channels);
+    --b-shadow-color-channels:   var(--b-button-info-shadow-color-channels);
     --b-button-focus-ring-color: var(--b-button-info-focus-ring-color);
 }
 :where(.b-button--severity-warn) {
@@ -452,7 +452,7 @@
     --b-button-link-color:       var(--b-button-link-warn-color);
     --b-button-link-hover-color: var(--b-button-link-warn-hover-color);
 
-    --b-shadow-color-channels: var(--b-button-warn-shadow-color-channels);
+    --b-shadow-color-channels:   var(--b-button-warn-shadow-color-channels);
     --b-button-focus-ring-color: var(--b-button-warn-focus-ring-color);
 }
 :where(.b-button--severity-danger) {
@@ -477,7 +477,7 @@
     --b-button-link-color:       var(--b-button-link-danger-color);
     --b-button-link-hover-color: var(--b-button-link-danger-hover-color);
 
-    --b-shadow-color-channels: var(--b-button-danger-shadow-color-channels);
+    --b-shadow-color-channels:   var(--b-button-danger-shadow-color-channels);
     --b-button-focus-ring-color: var(--b-button-danger-focus-ring-color);
 }
 :where(.b-button--severity-contrast) {
@@ -502,7 +502,7 @@
     --b-button-link-color:       var(--b-button-link-contrast-color);
     --b-button-link-hover-color: var(--b-button-link-contrast-hover-color);
 
-    --b-shadow-color-channels: var(--b-button-contrast-shadow-color-channels);
+    --b-shadow-color-channels:   var(--b-button-contrast-shadow-color-channels);
     --b-button-focus-ring-color: var(--b-button-contrast-focus-ring-color);
 }
 
@@ -576,7 +576,6 @@
 /* --- Loading State --- */
 :where(.b-button--loading) {
     pointer-events: none;
-    /*opacity: 0.8;*/
     filter: contrast(0.9);
 }
 

@@ -19,6 +19,9 @@ const config: UserConfig<CustomThemeConfig> = {
     title: "Bestiary UI",
     description: "Modular ecosystem for high-performance web applications",
     base: "/bestiary-ui/",
+    head: [
+        ['link', { rel: 'icon', href: '/bestiary-ui/favicon.ico' }]
+    ],
 
     locales: {
         root: {
