@@ -1,6 +1,5 @@
 /* ------------------------------------------------------------
    1. VITEPRESS TO BESTIARY UI MAPPING
-   Синхронізація внутрішніх змінних VitePress з токенами Bestiary
    ------------------------------------------------------------ */
 :root {
     /* Fonts */
@@ -242,6 +241,11 @@
 
 table code {
     white-space: nowrap;
+}
+
+.vp-doc [class^="b-"],
+.vp-doc [class*=" b-"] {
+    all: revert-layer;
 }
 
 @media (min-width: 1440px) {

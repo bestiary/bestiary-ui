@@ -115,7 +115,7 @@ const config: UserConfig<CustomThemeConfig> = {
                                 {
                                     text: "General",
                                     items: [
-
+                                        {text: "Button", link: "/style/components/general/button"}
                                     ]
                                 },
                                 {

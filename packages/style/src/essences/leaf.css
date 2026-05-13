@@ -113,17 +113,17 @@
     --b-success-outline-text:           var(--b-lime-600);
     --b-success-overlay:                var(--b-lime-100);
 
-    /* ERROR */
-    --b-error-channels:               var(--b-red-600-channels);
-    --b-error-solid-background:       var(--b-red-500);
-    --b-error-solid-background-hover: var(--b-red-600);
-    --b-error-solid-text:             var(--b-white);
-    --b-error-subtle-background:      var(--b-red-100);
-    --b-error-subtle-border:          var(--b-red-200);
-    --b-error-subtle-text:            var(--b-red-600);
-    --b-error-outline-border:         var(--b-red-600);
-    --b-error-outline-text:           var(--b-red-600);
-    --b-error-overlay:                var(--b-red-100);
+    /* INFO */
+    --b-info-channels:               var(--b-blue-600-channels);
+    --b-info-solid-background:       var(--b-blue-500);
+    --b-info-solid-background-hover: var(--b-blue-600);
+    --b-info-solid-text:             var(--b-white);
+    --b-info-subtle-background:      var(--b-blue-100);
+    --b-info-subtle-border:          var(--b-blue-200);
+    --b-info-subtle-text:            var(--b-blue-600);
+    --b-info-outline-border:         var(--b-blue-600);
+    --b-info-outline-text:           var(--b-blue-600);
+    --b-info-overlay:                var(--b-blue-100);
 
     /* WARNING */
     --b-warning-channels:               var(--b-yellow-600-channels);
@@ -137,17 +137,17 @@
     --b-warning-outline-text:           var(--b-yellow-600);
     --b-warning-overlay:                var(--b-yellow-100);
 
-    /* INFO */
-    --b-info-channels:               var(--b-blue-600-channels);
-    --b-info-solid-background:       var(--b-blue-500);
-    --b-info-solid-background-hover: var(--b-blue-600);
-    --b-info-solid-text:             var(--b-white);
-    --b-info-subtle-background:      var(--b-blue-100);
-    --b-info-subtle-border:          var(--b-blue-200);
-    --b-info-subtle-text:            var(--b-blue-600);
-    --b-info-outline-border:         var(--b-blue-600);
-    --b-info-outline-text:           var(--b-blue-600);
-    --b-info-overlay:                var(--b-blue-100);
+    /* ERROR */
+    --b-error-channels:               var(--b-red-600-channels);
+    --b-error-solid-background:       var(--b-red-500);
+    --b-error-solid-background-hover: var(--b-red-600);
+    --b-error-solid-text:             var(--b-white);
+    --b-error-subtle-background:      var(--b-red-100);
+    --b-error-subtle-border:          var(--b-red-200);
+    --b-error-subtle-text:            var(--b-red-600);
+    --b-error-outline-border:         var(--b-red-600);
+    --b-error-outline-text:           var(--b-red-600);
+    --b-error-overlay:                var(--b-red-100);
 
     /* CONTRAST (Inverse) */
     --b-contrast-channels:               var(--b-slate-600-channels);
@@ -212,85 +212,85 @@
 
     /* PRIMARY (Brand) */
     --b-primary-channels:               var(--b-primary-600-channels);
-    --b-primary-solid-background:       var(--b-primary-500);
-    --b-primary-solid-background-hover: var(--b-primary-600);
+    --b-primary-solid-background:       var(--b-primary-600);
+    --b-primary-solid-background-hover: var(--b-primary-500);
     --b-primary-solid-text:             var(--b-white);
     --b-primary-subtle-background:      var(--b-primary-900);
     --b-primary-subtle-border:          var(--b-primary-800);
     --b-primary-subtle-text:            var(--b-primary-500);
-    --b-primary-outline-border:         var(--b-primary-500);
-    --b-primary-outline-text:           var(--b-primary-500);
-    --b-primary-overlay:                var(--b-primary-900);
+    --b-primary-outline-border:         var(--b-primary-600);
+    --b-primary-outline-text:           var(--b-primary-600);
+    --b-primary-overlay:                var(--b-primary-950);
 
     /* SECONDARY */
-    --b-secondary-channels:               var(--b-slate-600-channels);
-    --b-secondary-solid-background:       var(--b-slate-300);
-    --b-secondary-solid-background-hover: var(--b-slate-400);
-    --b-secondary-solid-text:             var(--b-slate-600);
-    --b-secondary-subtle-background:      var(--b-slate-900);
-    --b-secondary-subtle-border:          var(--b-slate-800);
-    --b-secondary-subtle-text:            var(--b-slate-500);
-    --b-secondary-outline-border:         var(--b-slate-500);
-    --b-secondary-outline-text:           var(--b-slate-500);
-    --b-secondary-overlay:                var(--b-slate-900);
+    --b-secondary-channels:               var(--b-stone-600-channels);
+    --b-secondary-solid-background:       var(--b-stone-500);
+    --b-secondary-solid-background-hover: var(--b-stone-400);
+    --b-secondary-solid-text:             var(--b-stone-900);
+    --b-secondary-subtle-background:      var(--b-stone-900);
+    --b-secondary-subtle-border:          var(--b-stone-800);
+    --b-secondary-subtle-text:            var(--b-stone-500);
+    --b-secondary-outline-border:         var(--b-stone-400);
+    --b-secondary-outline-text:           var(--b-stone-400);
+    --b-secondary-overlay:                var(--b-stone-800);
 
     /* SUCCESS */
     --b-success-channels:               var(--b-lime-600-channels);
-    --b-success-solid-background:       var(--b-lime-500);
-    --b-success-solid-background-hover: var(--b-lime-600);
+    --b-success-solid-background:       var(--b-lime-600);
+    --b-success-solid-background-hover: var(--b-lime-500);
     --b-success-solid-text:             var(--b-white);
     --b-success-subtle-background:      var(--b-lime-100);
     --b-success-subtle-border:          var(--b-lime-200);
     --b-success-subtle-text:            var(--b-lime-600);
     --b-success-outline-border:         var(--b-lime-600);
     --b-success-outline-text:           var(--b-lime-600);
-    --b-success-overlay:                var(--b-lime-900);
-
-    /* ERROR */
-    --b-error-channels:               var(--b-red-600-channels);
-    --b-error-solid-background:       var(--b-red-500);
-    --b-error-solid-background-hover: var(--b-red-600);
-    --b-error-solid-text:             var(--b-white);
-    --b-error-subtle-background:      var(--b-red-100);
-    --b-error-subtle-border:          var(--b-red-200);
-    --b-error-subtle-text:            var(--b-red-600);
-    --b-error-outline-border:         var(--b-red-600);
-    --b-error-outline-text:           var(--b-red-600);
-    --b-error-overlay:                var(--b-red-900);
-
-    /* WARNING */
-    --b-warning-channels:               var(--b-yellow-600-channels);
-    --b-warning-solid-background:       var(--b-yellow-500);
-    --b-warning-solid-background-hover: var(--b-yellow-600);
-    --b-warning-solid-text:             var(--b-white);
-    --b-warning-subtle-background:      var(--b-yellow-100);
-    --b-warning-subtle-border:          var(--b-yellow-200);
-    --b-warning-subtle-text:            var(--b-yellow-600);
-    --b-warning-outline-border:         var(--b-yellow-600);
-    --b-warning-outline-text:           var(--b-yellow-600);
-    --b-warning-overlay:                var(--b-yellow-900);
+    --b-success-overlay:                var(--b-lime-950);
 
     /* INFO */
     --b-info-channels:               var(--b-blue-600-channels);
-    --b-info-solid-background:       var(--b-blue-500);
-    --b-info-solid-background-hover: var(--b-blue-600);
+    --b-info-solid-background:       var(--b-blue-600);
+    --b-info-solid-background-hover: var(--b-blue-500);
     --b-info-solid-text:             var(--b-white);
     --b-info-subtle-background:      var(--b-blue-100);
     --b-info-subtle-border:          var(--b-blue-200);
     --b-info-subtle-text:            var(--b-blue-600);
     --b-info-outline-border:         var(--b-blue-600);
     --b-info-outline-text:           var(--b-blue-600);
-    --b-info-overlay:                var(--b-blue-900);
+    --b-info-overlay:                var(--b-blue-950);
+
+    /* WARNING */
+    --b-warning-channels:               var(--b-yellow-600-channels);
+    --b-warning-solid-background:       var(--b-yellow-600);
+    --b-warning-solid-background-hover: var(--b-yellow-500);
+    --b-warning-solid-text:             var(--b-white);
+    --b-warning-subtle-background:      var(--b-yellow-100);
+    --b-warning-subtle-border:          var(--b-yellow-200);
+    --b-warning-subtle-text:            var(--b-yellow-600);
+    --b-warning-outline-border:         var(--b-yellow-600);
+    --b-warning-outline-text:           var(--b-yellow-600);
+    --b-warning-overlay:                var(--b-yellow-950);
+
+    /* ERROR */
+    --b-error-channels:               var(--b-red-600-channels);
+    --b-error-solid-background:       var(--b-red-600);
+    --b-error-solid-background-hover: var(--b-red-500);
+    --b-error-solid-text:             var(--b-white);
+    --b-error-subtle-background:      var(--b-red-100);
+    --b-error-subtle-border:          var(--b-red-200);
+    --b-error-subtle-text:            var(--b-red-600);
+    --b-error-outline-border:         var(--b-red-600);
+    --b-error-outline-text:           var(--b-red-600);
+    --b-error-overlay:                var(--b-red-950);
 
     /* CONTRAST (Inverse) */
-    --b-contrast-channels:               var(--b-slate-600-channels);
-    --b-contrast-solid-background:       var(--b-slate-900);
-    --b-contrast-solid-background-hover: var(--b-slate-800);
-    --b-contrast-solid-text:             var(--b-text-contrast);
+    --b-contrast-channels:               var(--b-stone-600-channels);
+    --b-contrast-solid-background:       var(--b-stone-100);
+    --b-contrast-solid-background-hover: var(--b-stone-300);
+    --b-contrast-solid-text:             var(--b-stone-900);
     --b-contrast-subtle-background:      initial;
     --b-contrast-subtle-border:          initial;
     --b-contrast-subtle-text:            initial;
-    --b-contrast-outline-border:         var(--b-slate-950);
-    --b-contrast-outline-text:           var(--b-slate-950);
-    --b-contrast-overlay:                var(--b-slate-50);
+    --b-contrast-outline-border:         var(--b-stone-100);
+    --b-contrast-outline-text:           var(--b-stone-100);
+    --b-contrast-overlay:                var(--b-stone-700);
 }

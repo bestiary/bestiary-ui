@@ -36,7 +36,6 @@
     /* Focus Ring (Accessibility) */
     --b-button-focus-ring-width:  var(--b-stroke-focus);
     --b-button-focus-ring-style:  solid;
-    --b-button-focus-ring-color:  var(--b-primary-500);
     --b-button-focus-ring-offset: 2px;
 
     /* --- Severity: Primary --- */
@@ -231,8 +230,6 @@
     --b-button-hover-color:        var(--b-button-primary-hover-color);
     --b-button-hover-border-color: var(--b-button-primary-hover-border-color);
 
-    --b-shadow-color-channels: var(--b-button-primary-shadow-color-channels);
-
     --b-button-outline-background:         var(--b-button-outline-primary-background);
     --b-button-outline-color:              var(--b-button-outline-primary-color);
     --b-button-outline-border-color:       var(--b-button-outline-primary-border-color);
@@ -246,6 +243,9 @@
 
     --b-button-link-color:       var(--b-button-link-primary-color);
     --b-button-link-hover-color: var(--b-button-link-primary-hover-color);
+
+    --b-shadow-color-channels:   var(--b-button-primary-shadow-color-channels);
+    --b-button-focus-ring-color: var(--b-button-primary-focus-ring-color);
 }
 
 /* ============================================================

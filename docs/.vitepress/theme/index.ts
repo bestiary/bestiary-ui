@@ -1,8 +1,8 @@
 import {Theme, useData} from "vitepress";
 import DefaultTheme from "vitepress/theme";
-import { BestiaryUI } from "@bestiary-ui/components";
-import "@bestiary-ui/style";
 import "./custom.css";
+import "@bestiary-ui/style";
+import { BestiaryUI } from "@bestiary-ui/components";
 import VersionBadge from "./components/VersionBadge.vue";
 import IconGallery from "./components/IconGallery.vue";
 import PaletteGenerator from "./components/PaletteGenerator.vue";
