@@ -65,6 +65,13 @@ const config: UserConfig<CustomThemeConfig> = {
                             ]
                         },
                         {
+                            text: "Layout",
+                            collapsed: false,
+                            items: [
+                                {text: "Divider", link: "/components/layout/divider"}
+                            ]
+                        },
+                        {
                             text: "Data Display",
                             collapsed: false,
                             items: [
