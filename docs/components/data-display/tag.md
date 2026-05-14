@@ -1,13 +1,8 @@
-This is the documentation for the **Tag** Vue component, following the Bestiary UI architecture and PrimeVue-inspired structure.
-
----
-
 <script setup>
-import { CheckOutline, InfoOutline, XCircleOutline, ExclamationOutline } from '@bestiary-ui/icons'
+import { CheckOutline, InformationCircleOutline, ExclamationTriangleOutline, XCircleOutline } from "@bestiary-ui/icons";
 </script>
 
 # Tag <VersionBadge module="components" />
-
 Tag component is used to categorize content or display status.
 
 ::: info Theming
@@ -36,7 +31,7 @@ A tag is defined with the `value` property.
 ## Severity
 Severities define the color scheme of the tag. Valid values are `primary` (default), `secondary`, `success`, `info`, `warn`, `danger` and `contrast`.
 
-<div class="card b-flex-wrap">
+<div class="card">
     <BTag value="Primary" />
     <BTag value="Secondary" severity="secondary" />
     <BTag value="Success" severity="success" />
@@ -71,10 +66,10 @@ The `rounded` property adds a pill-shaped design to the tag.
 ## Icons
 An icon can be added to a tag using the `icon` property. The layout automatically adjusts the padding to balance the icon.
 
-<div class="card b-flex-wrap">
+<div class="card">
     <BTag value="Success" severity="success" :icon="CheckOutline" />
-    <BTag value="Info" severity="info" :icon="InfoOutline" />
-    <BTag value="Warning" severity="warn" :icon="ExclamationOutline" />
+    <BTag value="Info" severity="info" :icon="InformationCircleOutline" />
+    <BTag value="Warning" severity="warn" :icon="ExclamationTriangleOutline" />
     <BTag value="Danger" severity="danger" :icon="XCircleOutline" />
 </div>
 

@@ -29,8 +29,8 @@
     --b-tag-danger-color:         var(--b-error-subtle-text);
 
     /* Severity: Contrast */
-    --b-tag-contrast-background:  var(--b-contrast-solid-background);
-    --b-tag-contrast-color:       var(--b-contrast-solid-text);
+    --b-tag-contrast-background:  var(--b-contrast-subtle-background);
+    --b-tag-contrast-color:       var(--b-contrast-subtle-text);
 
     /* Base Mapping */
     --b-tag-background:    var(--b-tag-primary-background);

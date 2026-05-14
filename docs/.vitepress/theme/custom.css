@@ -206,6 +206,11 @@
     font-size: var(--b-text-sm) !important;
 }
 
+.vp-doc table {
+    width: 100%;
+    display: table;
+}
+
 /* Custom Blocks Styling */
 .custom-block {
     border-radius: var(--b-radius-container) !important;
