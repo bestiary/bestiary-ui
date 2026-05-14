@@ -122,7 +122,7 @@ const config: UserConfig<CustomThemeConfig> = {
                                 {
                                     text: "Layout",
                                     items: [
-
+                                        {text: "Divider", link: "/style/components/layout/divider"}
                                     ]
                                 },
                                 {

@@ -5,19 +5,21 @@ export type DividerType = "solid" | "dashed" | "dotted" | "double";
 
 export interface DividerProps {
     /**
-     * Location of the divider's signature
+     * Alignment of the content inside the divider.
+     * For horizontal: "left", "center", "right".
+     * For vertical: "top", "center", "bottom".
      * @default "left"
      */
     align?: DividerAlign;
 
     /**
-     * Divider direction
+     * The orientation of the divider.
      * @default "horizontal"
      */
     layout?: DividerLayout;
 
     /**
-     * Style of divider line
+     * Border style of the divider line.
      * @default "solid"
      */
     type?: DividerType;
