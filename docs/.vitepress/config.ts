@@ -75,7 +75,8 @@ const config: UserConfig<CustomThemeConfig> = {
                             text: "Data Display",
                             collapsed: false,
                             items: [
-                                {text: "Avatar", link: "/components/data-display/avatar"}
+                                {text: "Avatar", link: "/components/data-display/avatar"},
+                                {text: "Badge", link: "/components/data-display/badge"}
                             ]
                         },
                     ],
@@ -148,6 +149,7 @@ const config: UserConfig<CustomThemeConfig> = {
                                     text: "Data Display",
                                     items: [
                                         {text: "Avatar", link: "/style/components/data-display/avatar"},
+                                        {text: "Badge", link: "/style/components/data-display/badge"},
                                     ]
                                 },
                                 {

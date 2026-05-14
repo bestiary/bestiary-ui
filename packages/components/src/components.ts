@@ -11,7 +11,6 @@ export * from "./data-entry/date-picker";
 export * from "./data-display/avatar";
 export * from "./data-display/accordion";
 export * from "./data-display/badge";
-export * from "./data-display/overlaybadge";
 export * from "./data-display/card";
 export * from "./data-display/table";
 export * from "./data-display/tag";

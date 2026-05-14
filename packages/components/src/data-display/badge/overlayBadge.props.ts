@@ -1,4 +1,4 @@
-import { BadgeProps } from "../badge/badge.props";
+import { BadgeProps } from "./badge.props";
 
 export interface OverlayBadgeProps extends BadgeProps {
     /**

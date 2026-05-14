@@ -1,7 +1,2 @@
-import Badge from "./Badge.vue";
-import { withInstall } from "../../utils/with-install.ts";
-
-export const BBadge = withInstall(Badge);
-export default BBadge;
-
-export * from "./badge.props.ts";
+export * from "./badge";
+export * from "./overaly-badge";
