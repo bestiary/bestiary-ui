@@ -4,6 +4,7 @@ export type BadgeSize = "small" | "medium" | "large" | "xlarge";
 export interface BadgeProps {
     /**
      * Value to be displayed inside the badge.
+     * If not provided and slot is empty, badge renders as a dot.
      */
     value?: string | number;
 
