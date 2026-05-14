@@ -1,12 +1,12 @@
 import { Component } from "vue";
 
-export type TagSeverity = "primary" | "secondary" | "success" | "warn" | "danger" | "info" | "contrast";
+export type TagSeverity = "primary" | "secondary" | "success" | "info" | "warn" | "danger" | "contrast";
 
 export interface TagProps {
     /**
      * Value to be displayed inside the tag.
      */
-    value?: any;
+    value?: string | number;
 
     /**
      * Severity level of the tag. Affects the color scheme.
@@ -21,7 +21,7 @@ export interface TagProps {
     rounded?: boolean;
 
     /**
-     * Icon to display next to the value. Can be a component or a string.
+     * Icon to display next to the value. Can be a component or a string name.
      */
     icon?: string | Component;
 }

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { TagProps } from "./tag.props";
+import type { TagProps } from "./tag.props";
 
 defineOptions({
     name: "BTag"
@@ -21,25 +21,26 @@ const props = withDefaults(defineProps<TagProps>(), {
     rounded: false,
 });
 
+const hasIcon = computed(() => !!props.icon || !!slots.icon);
+
 const classes = computed(() => [
     "b-tag",
     `b-tag--severity-${props.severity}`,
     {
         "b-tag--rounded": props.rounded,
+        "b-tag--has-icon": hasIcon.value
     }
 ]);
 </script>
 
 <template>
-    <span :class="classes">
+    <span :class="classes" role="status">
         <!-- Icon Section -->
-        <slot name="icon">
-            <component
-                :is="icon"
-                v-if="icon"
-                class="b-tag__icon"
-            />
-        </slot>
+        <span v-if="hasIcon" class="b-tag__icon-wrapper">
+            <slot name="icon">
+                <component :is="icon" class="b-tag__icon" aria-hidden="true" />
+            </slot>
+        </span>
 
         <!-- Label Section -->
         <span v-if="value || $slots.default" class="b-tag__label">
