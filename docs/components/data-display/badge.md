@@ -1,152 +1,154 @@
-<script setup>
-import { BellOutline, EnvelopeOutline } from "@bestiary-ui/icons";
-</script>
+<script setup> import { BellOutline } from "@bestiary-ui/icons"; </script> 
 
 # Badge <VersionBadge module="components" />
-Badge is a small status indicator for numbers, short text, or simple signals.
+Badges are small status descriptors used to highlight item information. The Vue implementation provides `<BBadge>` for standalone use and `<BOverlayBadge>` for anchoring a badge to another element.
 
 ::: info Theming
-Detailed information about CSS classes, customization tokens, and manual HTML implementation can be found in the [Style API Documentation](../../style/components/data-display/badge).
+This component is built on top of the Bestiary UI CSS framework. For CSS classes, anatomy, and CSS custom properties (tokens), refer to the [Badge Style API](../../style/components/data-display/badge.md).
 :::
 
 ## Import
 
-```javascript
-import { BBadge, BOverlayBadge } from "@bestiary-ui/components";
+```vue
+<script setup>
+import { BBadge, BOverlayBadge } from '@bestiary-ui/components';
+</script>
 ```
 
-## Getting Started
-A badge is defined with the `value` property.
+## API Reference
+
+### Props
+The following props apply to both `<BBadge>` and `<BOverlayBadge>`.
+
+| Name        | Type               | Default     | Description                                                                                                                    |
+|:------------|:-------------------|:------------|:-------------------------------------------------------------------------------------------------------------------------------|
+| `value`     | `string \| number` | `null`      | Value to be displayed inside the badge. If not provided and the default slot is empty, the badge renders as a dot.             |
+| `severity`  | `BadgeSeverity`    | `'primary'` | Defines the color scheme. Valid values: `'primary'`, `'secondary'`, `'info'`, `'success'`, `'warn'`, `'danger'`, `'contrast'`. |
+| `size`      | `BadgeSize`        | `'medium'`  | Size of the badge. Valid values: `'small'`, `'medium'`, `'large'`, `'xlarge'`.                                                 |
+| `rounded`   | `boolean`          | `false`     | Whether the badge has fully rounded corners (pill/circle shape).                                                               |
+| `ariaLabel` | `string`           | `null`      | Screen reader text. Crucial when the badge value is just a number or a dot.                                                    |
+
+### Slots
+
+**`BBadge`**
+
+| Name      | Description                                                           |
+|:----------|:----------------------------------------------------------------------|
+| `default` | Content to be displayed inside the badge. Overrides the `value` prop. |
+
+**`BOverlayBadge`**
+
+| Name      | Description                                                                                 |
+|:----------|:--------------------------------------------------------------------------------------------|
+| `default` | The content that the badge will overlay (e.g., an Icon or Button).                          |
+| `value`   | Custom content to be displayed inside the badge itself (passed to `<BBadge>` default slot). |
+
+## Examples
+
+### Basic
+Use the `value` prop to set the badge content. Alternatively, use the `default` slot for custom elements.
 
 <div class="card">
-    <BBadge value="2" />
-    <BBadge value="New" />
+    <BBadge value="1" severity="primary" />
+    <BBadge value="2" severity="secondary" />
+    <BBadge value="3" severity="info" />
+    <BBadge value="4" severity="success" />
+    <BBadge value="5" severity="warn" />
+    <BBadge value="6" severity="danger" />
+    <BBadge value="7" severity="contrast" />
 </div>
 
 ```vue
-<BBadge value="2" />
-<BBadge value="New" />
+<template>
+    <BBadge value="1" severity="primary" />
+    <BBadge value="2" severity="secondary" />
+    <BBadge value="3" severity="info" />
+    <BBadge value="4" severity="success" />
+    <BBadge value="5" severity="warn" />
+    <BBadge value="6" severity="danger" />
+    <BBadge value="7" severity="contrast" />
+</template>
 ```
 
-## Severity
-Severities define the color scheme of the badge. Valid values are `primary` (default), `secondary`, `success`, `info`, `warn`, `danger` and `contrast`.
-
-<div class="card">
-    <BBadge value="Primary" />
-    <BBadge value="Secondary" severity="secondary" />
-    <BBadge value="Success" severity="success" />
-    <BBadge value="Info" severity="info" />
-    <BBadge value="Warn" severity="warn" />
-    <BBadge value="Danger" severity="danger" />
-    <BBadge value="Contrast" severity="contrast" />
-</div>
-
-```vue
-<BBadge value="Primary" />
-<BBadge value="Secondary" severity="secondary" />
-<BBadge value="Success" severity="success" />
-<BBadge value="Info" severity="info" />
-<BBadge value="Warn" severity="warn" />
-<BBadge value="Danger" severity="danger" />
-<BBadge value="Contrast" severity="contrast" />
-```
-
-## Sizes
-Badge provides `small`, `medium` (default), `large` and `xlarge` sizes.
+### Sizes
+The `size` prop scales the badge dimensions and typography uniformly.
 
 <div class="card items-center">
-    <BBadge value="8" size="small" />
-    <BBadge value="8" size="medium" />
-    <BBadge value="8" size="large" />
-    <BBadge value="8" size="xlarge" />
+    <BBadge value="1" size="small" />
+    <BBadge value="2" size="medium" />
+    <BBadge value="3" size="large" />
+    <BBadge value="4" size="xlarge" />
 </div>
 
 ```vue
-<BBadge value="8" size="small" />
-<BBadge value="8" size="medium" />
-<BBadge value="8" size="large" />
-<BBadge value="8" size="xlarge" />
+<template>
+    <BBadge value="1" size="small" />
+    <BBadge value="2" size="medium" />
+    <BBadge value="3" size="large" />
+    <BBadge value="4" size="xlarge" />
+</template>
 ```
 
-## Rounded
-The `rounded` property adds a pill-shaped design to the badge.
+### Rounded & Dot
 
-<div class="card">
-    <BBadge value="Rounded" rounded />
+Setting `rounded` applies a pill shape. If `value` is undefined and no default slot is passed, the badge automatically collapses into a `.b-badge--dot`.
+
+<div class="card flex-col items-center">
+    <div class="flex gap-4">
+        <BBadge value="1" severity="primary" />
+        <BBadge value="2" severity="secondary" />
+        <BBadge value="3" severity="info" />
+        <BBadge value="4" severity="success" />
+        <BBadge value="5" severity="warn" />
+        <BBadge value="6" severity="danger" />
+        <BBadge value="7" severity="contrast" />
+    </div>
+    <div class="flex gap-4">
+        <BBadge severity="primary" />
+        <BBadge severity="secondary" />
+        <BBadge severity="info" />
+        <BBadge severity="success" />
+        <BBadge severity="warn" />
+        <BBadge severity="danger" />
+        <BBadge severity="contrast" />
+    </div>
 </div>
 
 ```vue
-<BBadge value="Rounded" rounded />
-```
+<template>
+    <!-- Rounded Pill -->
+    <BBadge value="1" severity="primary" />
+    <BBadge value="2" severity="secondary" />
+    <BBadge value="3" severity="info" />
+    <BBadge value="4" severity="success" />
+    <BBadge value="5" severity="warn" />
+    <BBadge value="6" severity="danger" />
+    <BBadge value="7" severity="contrast" />
 
-## Dot Variant
-If no `value` is provided and the default slot is empty, the badge automatically renders as a small indicator dot.
-
-<div class="card">
-    <BBadge severity="danger" />
+    <!-- Dot (No value or slot provided) -->
+    <BBadge severity="primary" />
+    <BBadge severity="secondary" />
+    <BBadge severity="info" />
     <BBadge severity="success" />
-</div>
-
-```vue
-<BBadge severity="danger" />
+    <BBadge severity="warn" />
+    <BBadge severity="danger" />
+    <BBadge severity="contrast" />
+</template>
 ```
 
-## OverlayBadge
-`BOverlayBadge` is a wrapper component that anchors a badge to the top-right corner of its content.
+### Overlay Badge
+Wrap an element with `<BOverlayBadge>` to anchor an indicator to its top-right corner. It accepts the same props as `<BBadge>`.
 
 <div class="card">
-    <BOverlayBadge value="3">
-        <BellOutline class="size-8" />
-    </BOverlayBadge>
-    <BOverlayBadge severity="danger" rounded>
-        <EnvelopeOutline class="size-8" />
-        <template #value>8</template>
-    </BOverlayBadge>
-    <BOverlayBadge severity="success">
-        <BButton label="Notifications" />
+    <BOverlayBadge severity="danger">
+        <BButton :icon="BellOutline" variant="outline"></BButton>
     </BOverlayBadge>
 </div>
 
 ```vue
-<BOverlayBadge value="3">
-    <BellOutline />
-</BOverlayBadge>
-
-<BOverlayBadge severity="danger" rounded>
-    <EnvelopeOutline />
-    <template #value>8</template>
-</BOverlayBadge>
-
-<BOverlayBadge severity="success">
-    <BButton label="Notifications" />
-</BOverlayBadge>
+<template>
+    <BOverlayBadge severity="danger">
+        <BButton :icon="BellOutline" variant="outline"></BButton>
+    </BOverlayBadge>
+</template>
 ```
-
-## API
-
-### Badge Properties
-
-| Name       | Type      | Default  | Description                                                                    |
-|:-----------|:----------|:---------|:-------------------------------------------------------------------------------|
-| `value`    | `string \| number` | `undefined` | Value to be displayed inside the badge. If empty, renders as a dot. |
-| `severity` | `string`  | `primary` | Severity level. Valid values are `primary`, `secondary`, `success`, `info`, `warn`, `danger`, `contrast`. |
-| `size`     | `string`  | `medium`  | Size of the badge. Valid values are `small`, `medium`, `large`, `xlarge`. |
-| `rounded`  | `boolean` | `false`   | When enabled, adds fully rounded corners.                                     |
-
-### Badge Slots
-
-| Name      | Description                                            |
-|:----------|:-------------------------------------------------------|
-| `default` | Custom content to display inside the badge. Overrides the value prop. |
-
----
-
-### OverlayBadge Properties
-*OverlayBadge inherits all properties from **Badge Properties**.*
-
-### OverlayBadge Slots
-
-| Name      | Description                                            |
-|:----------|:-------------------------------------------------------|
-| `default` | The content that the badge will overlay.               |
-| `value`   | Custom content to be displayed inside the badge.       |
