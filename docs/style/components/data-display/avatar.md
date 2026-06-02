@@ -1,205 +1,200 @@
 # Avatar Style API <VersionBadge module="style" />
-A modular visual element for representing users or entities through images, initials, or icons.
+Avatars are visual indicators for users or entities, supporting images, icons, and text (initials). The system provides flexible sizing, shape modifiers, and a dedicated grouping container with automatic overlapping and border management.
 
 ## Anatomy
-The component follows a strict BEM structure. Use the correct internal class based on the content type:
 
-| Class              | Role          | Requirement                                       |
-|:-------------------|:--------------|:--------------------------------------------------|
-| `.b-avatar`        | **Container** | The main wrapper. Sets dimensions and background. |
-| `.b-avatar__image` | **Image**     | Used for user photos.                             |
-| `.b-avatar__label` | **Initials**  | Used for text. Automatically uppercased.          |
-| `.b-avatar__icon`  | **Icon**      | Wrapper for SVG icons. Sets dimensions.           |
+### Avatar
+
+| Class               | Role          | Description                                                                 |
+|:--------------------|:--------------|:----------------------------------------------------------------------------|
+| `.b-avatar`         | **Container** | The root element. Sets dimensions, background, typography, and alignment.   |
+| `.b-avatar__image`  | **Element**   | An `<img>` tag mapped to cover the entire container.                        |
+| `.b-avatar__icon`   | **Element**   | Wrapper for SVG or icon fonts, standardizing dimensions.                    |
+| `.b-avatar__label`  | **Element**   | Wrapper for text initials, applying uppercase formatting and font displays. |
+
+### Avatar Group
+
+| Class              | Role          | Description                                                                     |
+|:-------------------|:--------------|:--------------------------------------------------------------------------------|
+| `.b-avatar-group`  | **Container** | A flex wrapper for multiple avatars. Applies negative margins for overlapping.  |
 
 ## Modifiers
-Predefined classes to change the scale and shape of the avatar.
 
-### Sizes
-| Class                    | Size Token           | Default Pixels |
-|:-------------------------|:---------------------|:---------------|
-| `.b-avatar--size-small`  | `--b-avatar-sm-size` | `16px`         |
-| `.b-avatar--size-medium` | `--b-avatar-md-size` | `24px`         |
-| `.b-avatar--size-large`  | `--b-avatar-lg-size` | `32px`         |
-| `.b-avatar--size-xlarge` | `--b-avatar-xl-size` | `48px`         |
+### 1. Sizes
+Scales the container size, font size (for initials), and icon size proportionally based on the system control scales.
 
-### Shapes
-| Class                     | Radius Token             | Description               |
-|:--------------------------|:-------------------------|:--------------------------|
-| `.b-avatar--shape-square` | `--b-radius-interactive` | Standard rounded corners. |
-| `.b-avatar--shape-circle` | `--b-radius-full`        | Perfect circular shape.   |
+| Class                     | Container Size             | Font Size           | Icon Size               |
+|:--------------------------|:---------------------------|:--------------------|:------------------------|
+| `.b-avatar--size-small`   | `var(--b-control-size-sm)` | `var(--b-text-sm)`  | `var(--b-icon-size-sm)` |
+| `.b-avatar--size-medium`  | `var(--b-control-size-md)` | `var(--b-text-md)`  | `var(--b-icon-size-md)` |
+| `.b-avatar--size-large`   | `var(--b-control-size-lg)` | `var(--b-text-lg)`  | `var(--b-icon-size-lg)` |
+| `.b-avatar--size-xlarge`  | `var(--b-control-size-xl)` | `var(--b-text-xl)`  | `var(--b-icon-size-xl)` |
+
+### 2. Shapes
+
+| Class                       | Border Radius Mapping         |
+|:----------------------------|:------------------------------|
+| `.b-avatar--shape-square`   | `var(--b-radius-interactive)` |
+| `.b-avatar--shape-circle`   | `var(--b-radius-full)`        |
 
 ## Public API Tokens
-Bestiary UI provides a multi-level token system. You can modify **Core Tokens** for a specific instance or redefine **Scale Presets** to change how all avatars of a certain size look across your application.
 
-### 1. Core Tokens
-These tokens are directly consumed by the `.b-avatar` container. Use them for specific, one-off styling.
+### 1. Avatar Active Mapping (Renderer API)
+Override these on a specific instance for one-off customizations.
 
-| Token                      | Description                               |
-|:---------------------------|:------------------------------------------|
-| `--b-avatar-size`          | Width and height of the root container.   |
-| `--b-avatar-background`    | Background color of the container.        |
-| `--b-avatar-color`         | Color for initials and icons.             |
-| `--b-avatar-border-radius` | Corner rounding of the container.         |
-| `--b-avatar-border`        | Border shorthand (e.g., `2px solid red`). |
-| `--b-avatar-font-size`     | Font size for initials.                   |
-| `--b-avatar-font-family`   | Font family for initials.                 |
-| `--b-avatar-font-weight`   | Font weight for initials.                 |
-| `--b-avatar-icon-size`     | Size of the SVG icon.                     |
-| `--b-avatar-transition`    | Transition timing and easing.             |
+| Token                      | Default                                       |
+|:---------------------------|:----------------------------------------------| 
+| `--b-avatar-size`          | `var(--b-control-size-md)`                    |
+| `--b-avatar-font-size`     | `var(--b-text-md)`                            |
+| `--b-avatar-icon-size`     | `var(--b-icon-size-md)`                       |
+| `--b-avatar-border-radius` | `var(--b-radius-interactive)`                 |
+| `--b-avatar-background`    | `var(--b-secondary-solid-background)`         |
+| `--b-avatar-color`         | `var(--b-primary-subtle-text)`                |
+| `--b-avatar-border`        | `0px solid transparent`                       |
+| `--b-avatar-font-family`   | `var(--b-font-family-display)`                |
+| `--b-avatar-font-weight`   | `var(--b-font-weight-medium)`                 |
+| `--b-avatar-transition`    | `var(--b-duration-normal) var(--b-ease-base)` |
 
-### 2. Scale Presets
-These tokens define the default values for each size modifier. When you use `.b-avatar--size-small`, it assigns the `sm` tokens to the core tokens.
+### 2. Avatar Group Tokens
+Controls the layout and visual separation of avatars inside a `.b-avatar-group`. The group automatically injects the border tokens into its child avatars.
 
-| Token                     | Description                     |
-|:--------------------------|:--------------------------------|
-| `--b-avatar-sm-size`      | Width/Height for small size.    |
-| `--b-avatar-sm-font-size` | Font size for small initials.   |
-| `--b-avatar-sm-icon-size` | Icon size for small size.       |
-| `--b-avatar-md-size`      | Width/Height for medium size.   |
-| `--b-avatar-md-font-size` | Font size for medium initials.  |
-| `--b-avatar-md-icon-size` | Icon size for medium size.      |
-| `--b-avatar-lg-size`      | Width/Height for large size.    |
-| `--b-avatar-lg-font-size` | Font size for large initials.   |
-| `--b-avatar-lg-icon-size` | Icon size for large size.       |
-| `--b-avatar-xl-size`      | Width/Height for x-large size.  |
-| `--b-avatar-xl-font-size` | Font size for x-large initials. |
-| `--b-avatar-xl-icon-size` | Icon size for x-large size.     |
-
-### 3. Group Tokens
-Specific tokens for the `.b-avatar-group` component.
-
-| Token                           | Description                        |
-|:--------------------------------|:-----------------------------------|
-| `--b-avatar-group-overlap`      | Negative margin for items overlap. |
-| `--b-avatar-group-border-width` | Protective border thickness.       |
-| `--b-avatar-group-border-color` | Color of the protective border.    |
+| Token                           | Default                       | Description                                |
+|:--------------------------------|:------------------------------|:-------------------------------------------|
+| `--b-avatar-group-overlap`      | `calc(var(--b-space-3) * -1)` | The negative margin between avatars.       |
+| `--b-avatar-group-border-width` | `var(--b-stroke-md)`          | The thickness of the separating border.    |
+| `--b-avatar-group-border-color` | `var(--b-surface-section)`    | The color of the protective border cutout. |
 
 ## Examples & Implementation
 
-### Basic Implementation
-The simplest form of an avatar using an image or a text label.
+### Content Types (Text, Icon, Image)
+By default, an avatar has a square shape and medium size.
 
-<div class="card">
-  <div class="b-avatar">
-    <img src="https://i.pravatar.cc/150?u=1" class="b-avatar__image" alt="User">
-  </div>
-  <div class="b-avatar">
-    <span class="b-avatar__label">JD</span>
-  </div>
-</div>
-
-::: code-group
-```html [Image]
-<div class="b-avatar">
-  <img src="avatar.jpg" class="b-avatar__image" alt="John Doe">
-</div>
-```
-```html [Label]
-<div class="b-avatar">
-  <span class="b-avatar__label">JD</span>
-</div>
-```
-:::
-
-### With Icon
-Using a centered icon inside the avatar container.
-
-<div class="card">
-    <div class="b-avatar b-avatar--size-large b-avatar--shape-circle">
+<div class="card flex gap-4">
+    <div class="b-avatar b-avatar--size-medium b-avatar--shape-square">
+        <span class="b-avatar__label" aria-hidden="true">JD</span>
+    </div>
+    <div class="b-avatar b-avatar--size-medium b-avatar--shape-square">
         <svg class="b-avatar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>
         </svg>
     </div>
-</div>
-
-```html
-<div class="b-avatar b-avatar--size-large b-avatar--shape-circle">
-    <svg class="b-avatar__icon">...</svg>
-</div>
-```
-
-### Size Variations
-Using size modifiers to scale the component.
-
-<div class="card items-center">
-  <div class="b-avatar b-avatar--size-small"><span class="b-avatar__label">SM</span></div>
-  <div class="b-avatar b-avatar--size-medium"><span class="b-avatar__label">MD</span></div>
-  <div class="b-avatar b-avatar--size-large"><span class="b-avatar__label">LG</span></div>
-  <div class="b-avatar b-avatar--size-xlarge"><span class="b-avatar__label">XL</span></div>
-</div>
-
-```html
-<div class="b-avatar b-avatar--size-small"><span class="b-avatar__label">SM</span></div>
-<div class="b-avatar b-avatar--size-medium"><span class="b-avatar__label">MD</span></div>
-<div class="b-avatar b-avatar--size-large"><span class="b-avatar__label">LG</span></div>
-<div class="b-avatar b-avatar--size-xlarge"><span class="b-avatar__label">XL</span></div>
-```
-
-### Shape Variations
-Switching between square (rounded) and circular designs.
-
-<div class="card">
-  <div class="b-avatar b-avatar--shape-square"><span class="b-avatar__label">SQ</span></div>
-  <div class="b-avatar b-avatar--shape-circle"><span class="b-avatar__label">CR</span></div>
-</div>
-
-```html
-<div class="b-avatar b-avatar--shape-square"><span class="b-avatar__label">SQ</span></div>
-<div class="b-avatar b-avatar--shape-circle"><span class="b-avatar__label">CR</span></div>
-```
-
-### With Badge
-Avatars can be combined with status badges.
-
-<div class="card">
-    <div class="b-overlay-badge">
-        <div class="b-avatar b-avatar--size-large b-avatar--shape-circle">
-            <img src="https://i.pravatar.cc/150?u=5" class="b-avatar__image" alt="User">
-        </div>
-        <div class="b-overlay-badge__badge b-badge b-badge--severity-primary"></div>
+    <div class="b-avatar b-avatar--size-medium b-avatar--shape-square">
+        <img class="b-avatar__image" src="https://i.pravatar.cc/150?u=1" alt="User profile picture" />
     </div>
 </div>
 
 ```html
-<div class="b-overlay-badge">
+<!-- Text Label -->
+<div class="b-avatar b-avatar--size-medium b-avatar--shape-square" aria-label="John Doe">
+    <span class="b-avatar__label" aria-hidden="true">JD</span>
+</div>
+
+<!-- SVG Icon -->
+<div class="b-avatar b-avatar--size-medium b-avatar--shape-square" aria-label="Guest User">
+    <svg class="b-avatar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <!-- SVG Paths -->
+    </svg>
+</div>
+
+<!-- Image -->
+<div class="b-avatar b-avatar--size-medium b-avatar--shape-square">
+    <img class="b-avatar__image" src="/path/to/image.jpg" alt="User profile picture" />
+</div>
+```
+
+### Sizes
+
+The component supports a standardized size scale from `small` to `xlarge`.
+
+<div class="card flex items-center gap-4">
+    <div class="b-avatar b-avatar--size-small b-avatar--shape-square">
+        <span class="b-avatar__label" aria-hidden="true">SM</span>
+    </div>
+    <div class="b-avatar b-avatar--size-medium b-avatar--shape-square">
+        <span class="b-avatar__label" aria-hidden="true">MD</span>
+    </div>
+    <div class="b-avatar b-avatar--size-large b-avatar--shape-square">
+        <span class="b-avatar__label" aria-hidden="true">LG</span>
+    </div>
+    <div class="b-avatar b-avatar--size-xlarge b-avatar--shape-square">
+        <span class="b-avatar__label" aria-hidden="true">XL</span>
+    </div>
+</div>
+
+```html
+<div class="b-avatar b-avatar--size-small b-avatar--shape-square">
+    <span class="b-avatar__label" aria-hidden="true">SM</span>
+</div>
+<div class="b-avatar b-avatar--size-medium b-avatar--shape-square">
+    <span class="b-avatar__label" aria-hidden="true">MD</span>
+</div>
+<div class="b-avatar b-avatar--size-large b-avatar--shape-square">
+    <span class="b-avatar__label" aria-hidden="true">LG</span>
+</div>
+<div class="b-avatar b-avatar--size-xlarge b-avatar--shape-square">
+    <span class="b-avatar__label" aria-hidden="true">XL</span>
+</div>
+```
+
+### Shapes
+You can toggle between interactive radii (`square`) and fully rounded geometry (`circle`).
+
+<div class="card flex gap-4">
+    <div class="b-avatar b-avatar--size-large b-avatar--shape-square">
+        <span class="b-avatar__label" aria-hidden="true">SQ</span>
+    </div>
     <div class="b-avatar b-avatar--size-large b-avatar--shape-circle">
-        <img src="avatar.jpg" class="b-avatar__image" alt="User">
-    </div>
-    <div class="b-overlay-badge__badge b-badge b-badge--severity-primary"></div>
-</div>
-```
-
-### Custom Styling (Token Overrides)
-Example of using Public API Tokens to create a custom-colored large avatar.
-
-<div class="card">
-    <div class="b-avatar" style="--b-avatar-size: 64px; --b-avatar-background: var(--b-amber-500); --b-avatar-color: black; --b-avatar-border: 4px solid var(--b-amber-200);">
-        <span class="b-avatar__label">VIP</span>
+        <span class="b-avatar__label" aria-hidden="true">CI</span>
     </div>
 </div>
 
 ```html
-<div class="b-avatar" style="--b-avatar-size: 64px; --b-avatar-background: var(--b-amber-500); --b-avatar-color: black; --b-avatar-border: 4px solid var(--b-amber-200);">
-    <span class="b-avatar__label">VIP</span>
+<div class="b-avatar b-avatar--size-large b-avatar--shape-square">
+    <span class="b-avatar__label" aria-hidden="true">SQ</span>
+</div>
+<div class="b-avatar b-avatar--size-large b-avatar--shape-circle">
+    <span class="b-avatar__label" aria-hidden="true">CI</span>
 </div>
 ```
 
 ### Avatar Group
-Stacking multiple avatars with automatic overlap.
+Wrap avatars in a `.b-avatar-group` to stack them visually. The group container calculates overlapping margins and automatically applies a border ring to each avatar using `--b-avatar-group-border-color`.
 
 <div class="card">
-  <div class="b-avatar-group">
-    <div class="b-avatar b-avatar--shape-circle"><span class="b-avatar__label">A</span></div>
-    <div class="b-avatar b-avatar--shape-circle"><span class="b-avatar__label">B</span></div>
-    <div class="b-avatar b-avatar--shape-circle"><span class="b-avatar__label">C</span></div>
-  </div>
+    <div class="b-avatar-group" role="group" aria-label="User avatars">
+        <div class="b-avatar b-avatar--size-medium b-avatar--shape-circle">
+            <img class="b-avatar__image" src="https://i.pravatar.cc/150?u=1" alt="User 1" />
+        </div>
+        <div class="b-avatar b-avatar--size-medium b-avatar--shape-circle">
+            <img class="b-avatar__image" src="https://i.pravatar.cc/150?u=2" alt="User 2" />
+        </div>
+        <div class="b-avatar b-avatar--size-medium b-avatar--shape-circle">
+            <img class="b-avatar__image" src="https://i.pravatar.cc/150?u=3" alt="User 3" />
+        </div>
+        <div class="b-avatar b-avatar--size-medium b-avatar--shape-circle">
+            <span class="b-avatar__label" aria-hidden="true">+3</span>
+        </div>
+    </div>
 </div>
 
 ```html
-<div class="b-avatar-group">
-    <div class="b-avatar b-avatar--shape-circle"><span class="b-avatar__label">A</span></div>
-    <div class="b-avatar b-avatar--shape-circle"><span class="b-avatar__label">B</span></div>
-    <div class="b-avatar b-avatar--shape-circle"><span class="b-avatar__label">C</span></div>
+<div class="b-avatar-group" role="group" aria-label="User avatars">
+    <div class="b-avatar b-avatar--size-medium b-avatar--shape-circle">
+        <img class="b-avatar__image" src="/user-1.jpg" alt="User 1" />
+    </div>
+    <div class="b-avatar b-avatar--size-medium b-avatar--shape-circle">
+        <img class="b-avatar__image" src="/user-2.jpg" alt="User 2" />
+    </div>
+    <div class="b-avatar b-avatar--size-medium b-avatar--shape-circle">
+        <img class="b-avatar__image" src="/user-3.jpg" alt="User 3" />
+    </div>
+    <div class="b-avatar b-avatar--size-medium b-avatar--shape-circle">
+        <span class="b-avatar__label" aria-hidden="true">+3</span>
+    </div>
 </div>
 ```
+
+::: tip Design Note
+If placing an `.b-avatar-group` over a non-default background (like a dark header or primary block), override `--b-avatar-group-border-color` locally to match your container's background color so the separation rings blend seamlessly.
+:::
