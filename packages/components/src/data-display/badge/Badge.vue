@@ -1,30 +1,28 @@
 <script setup lang="ts">
-import {computed, useSlots} from "vue";
-import { BadgeProps } from "./badge.props.ts";
+import { computed, useSlots } from 'vue';
+import type { BadgeProps } from './badge.props';
 
 defineOptions({
-    name: "BBadge"
+    name: 'BBadge'
 });
 
-/**
- * Component slots documentation
- */
 defineSlots<{
     /** Content to be displayed inside the badge. Overrides the value prop. */
-    default?: (props: {}) => any;
+    default?: (props: Record<string, never>) => any;
 }>();
-const slots = useSlots();
 
 const props = withDefaults(defineProps<BadgeProps>(), {
-    severity: "primary",
-    size: "medium",
+    severity: 'primary',
+    size: 'medium',
     rounded: false
 });
 
-/**
- * Determine if the badge is in "dot" mode (no content)
- */
-const isDot = computed(() => !props.value && !slots.default);
+const slots = useSlots();
+
+const isDot = computed(() => {
+    const hasValue = props.value !== undefined && props.value !== null && props.value !== '';
+    return !hasValue && !slots.default;
+});
 
 const classes = computed(() => [
     'b-badge',
@@ -38,9 +36,13 @@ const classes = computed(() => [
 </script>
 
 <template>
-    <span :class="classes" role="status">
-        <slot v-if="!isDot">
-            {{ value }}
-        </slot>
+    <span
+        :class="classes"
+        role="status"
+        :aria-label="ariaLabel"
+    >
+        <span v-if="!isDot" :aria-hidden="!!ariaLabel">
+            <slot>{{ value }}</slot>
+        </span>
     </span>
 </template>

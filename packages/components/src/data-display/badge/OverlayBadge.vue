@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { BBadge } from "./badge";
-import type { OverlayBadgeProps } from './overlayBadge.props';
+import { BBadge } from './badge';
+import type { OverlayBadgeProps } from './overlay-badge.props';
 
 defineOptions({
     name: 'BOverlayBadge',
@@ -9,14 +9,14 @@ defineOptions({
 
 defineSlots<{
     /** The content that the badge will overlay (e.g., an Icon or Button) */
-    default?: (props: {}) => any;
-    /** Custom content to be displayed inside the badge */
-    value?: (props: {}) => any;
+    default?: (props: Record<string, never>) => any;
+    /** Custom content to be displayed inside the badge itself */
+    value?: (props: Record<string, never>) => any;
 }>();
 
 const props = withDefaults(defineProps<OverlayBadgeProps>(), {
-    severity: "primary",
-    size: "medium",
+    severity: 'primary',
+    size: 'medium',
     rounded: false
 });
 </script>
@@ -24,9 +24,8 @@ const props = withDefaults(defineProps<OverlayBadgeProps>(), {
 <template>
     <div class="b-overlay-badge">
         <slot />
-        <BBadge
-            v-bind="props"
-        >
+
+        <BBadge v-bind="props">
             <template v-if="$slots.value" #default>
                 <slot name="value" />
             </template>

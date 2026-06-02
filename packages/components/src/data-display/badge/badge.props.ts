@@ -1,28 +1,33 @@
-export type BadgeSeverity = "primary" | "secondary" | "info" | "success" | "warn" | "danger" | "contrast";
-export type BadgeSize = "small" | "medium" | "large" | "xlarge";
+export type BadgeSeverity = 'primary' | 'secondary' | 'info' | 'success' | 'warn' | 'danger' | 'contrast';
+export type BadgeSize = 'small' | 'medium' | 'large' | 'xlarge';
 
 export interface BadgeProps {
     /**
      * Value to be displayed inside the badge.
-     * If not provided and slot is empty, badge renders as a dot.
+     * If not provided and the default slot is empty, the badge renders as a dot.
      */
     value?: string | number;
 
     /**
      * Severity level of the badge. Affects the color scheme.
-     * @default "primary"
+     * @default 'primary'
      */
     severity?: BadgeSeverity;
 
     /**
      * Size of the badge.
-     * @default "medium"
+     * @default 'medium'
      */
     size?: BadgeSize;
 
     /**
-     * Whether the badge has fully rounded corners.
+     * Whether the badge has fully rounded corners (pill shape).
      * @default false
      */
     rounded?: boolean;
+
+    /**
+     * Screen reader text. Crucial when the badge value is just a number or a dot.
+     */
+    ariaLabel?: string;
 }

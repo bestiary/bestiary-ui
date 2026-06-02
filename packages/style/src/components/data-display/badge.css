@@ -1,71 +1,25 @@
 /**
- * Bestiary UI — Badge Component
+ * Bestiary UI — Badge Component Styles
  */
 
 /* ============================================================
    1. B-BADGE COMPONENT
    ============================================================ */
 :where(.b-badge) {
-    /* --- 1.1 LOCAL COMPONENT TOKENS (Internal API) --- */
+    /* --- Structural Tokens */
+    --b-badge-background:    var(--b-primary-solid-background);
+    --b-badge-color:         var(--b-primary-solid-text);
 
-    /* Severity: Primary */
-    --b-badge-primary-background: var(--b-primary-solid-background);
-    --b-badge-primary-color:      var(--b-primary-solid-text);
-
-    /* Severity: Secondary */
-    --b-badge-secondary-background: var(--b-secondary-solid-background);
-    --b-badge-secondary-color:      var(--b-secondary-solid-text);
-
-    /* Severity: Success */
-    --b-badge-success-background: var(--b-success-solid-background);
-    --b-badge-success-color:      var(--b-success-solid-text);
-
-    /* Severity: Info */
-    --b-badge-info-background: var(--b-info-solid-background);
-    --b-badge-info-color:      var(--b-info-solid-text);
-
-    /* Severity: Warning */
-    --b-badge-warn-background: var(--b-warning-solid-background);
-    --b-badge-warn-color:      var(--b-warning-solid-text);
-
-    /* Severity: Danger */
-    --b-badge-danger-background: var(--b-error-solid-background);
-    --b-badge-danger-color:      var(--b-error-solid-text);
-
-    /* Severity: Contrast */
-    --b-badge-contrast-background: var(--b-contrast-solid-background);
-    --b-badge-contrast-color:      var(--b-contrast-solid-text);
-
-    /* --- Active Mapping (Variables used by renderer) --- */
-    --b-badge-background:    var(--b-badge-primary-background);
-    --b-badge-color:         var(--b-badge-primary-color);
-
-    /* Sizing Tokens */
-    --b-badge-sm-size:      var(--b-size-4);
-    --b-badge-sm-font-size: var(--b-text-2xs);
-
-    --b-badge-md-size:      var(--b-size-5);
-    --b-badge-md-font-size: var(--b-text-xs);
-
-    --b-badge-lg-size:      var(--b-size-6);
-    --b-badge-lg-font-size: var(--b-text-md);
-
-    --b-badge-xl-size:      var(--b-size-7);
-    --b-badge-xl-font-size: var(--b-text-lg);
-
-    /* --- Layout Mapping --- */
-    --b-badge-size:          var(--b-badge-md-size);
-    --b-badge-font-size:     var(--b-badge-md-font-size);
+    --b-badge-size:          var(--b-size-5);
+    --b-badge-font-size:     var(--b-text-xs);
     --b-badge-padding-x:     calc(var(--b-badge-size) / 3.5);
     --b-badge-border-radius: var(--b-radius-interactive);
 
     --b-badge-font-family:   var(--b-font-family-base);
     --b-badge-font-weight:   var(--b-font-weight-medium);
     --b-badge-transition:    var(--b-duration-normal) var(--b-ease-base);
-}
 
-/* --- 1.2 BASE STYLES --- */
-:where(.b-badge) {
+    /* --- Base Styles --- */
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -88,25 +42,61 @@
     transition: var(--b-badge-transition);
 }
 
-/* --- 1.3 SEVERITY MODIFIERS --- */
-:where(.b-badge--severity-secondary) { --b-badge-background: var(--b-badge-secondary-background); --b-badge-color: var(--b-badge-secondary-color); }
-:where(.b-badge--severity-info)      { --b-badge-background: var(--b-badge-info-background);      --b-badge-color: var(--b-badge-info-color); }
-:where(.b-badge--severity-success)   { --b-badge-background: var(--b-badge-success-background);   --b-badge-color: var(--b-badge-success-color); }
-:where(.b-badge--severity-warn)      { --b-badge-background: var(--b-badge-warn-background);      --b-badge-color: var(--b-badge-warn-color); }
-:where(.b-badge--severity-danger)    { --b-badge-background: var(--b-badge-danger-background);    --b-badge-color: var(--b-badge-danger-color); }
-:where(.b-badge--severity-contrast)  { --b-badge-background: var(--b-badge-contrast-background);  --b-badge-color: var(--b-badge-contrast-color); }
+/* --- Severity Modifiers (Direct token overrides) --- */
+:where(.b-badge--severity-primary) {
+    --b-badge-background: var(--b-primary-solid-background);
+    --b-badge-color: var(--b-primary-solid-text);
+}
+:where(.b-badge--severity-secondary) {
+    --b-badge-background: var(--b-secondary-solid-background);
+    --b-badge-color: var(--b-secondary-solid-text);
+}
+:where(.b-badge--severity-info) {
+    --b-badge-background: var(--b-info-solid-background);
+    --b-badge-color: var(--b-info-solid-text);
+}
+:where(.b-badge--severity-success) {
+    --b-badge-background: var(--b-success-solid-background);
+    --b-badge-color: var(--b-success-solid-text);
+}
+:where(.b-badge--severity-warn) {
+    --b-badge-background: var(--b-warning-solid-background);
+    --b-badge-color: var(--b-warning-solid-text);
+}
+:where(.b-badge--severity-danger) {
+    --b-badge-background: var(--b-error-solid-background);
+    --b-badge-color: var(--b-error-solid-text);
+}
+:where(.b-badge--severity-contrast) {
+    --b-badge-background: var(--b-contrast-solid-background);
+    --b-badge-color: var(--b-contrast-solid-text);
+}
 
-/* --- 1.4 SIZE MODIFIERS --- */
-:where(.b-badge--size-small)   { --b-badge-size: var(--b-badge-sm-size); --b-badge-font-size: var(--b-badge-sm-font-size); }
-:where(.b-badge--size-medium)  { --b-badge-size: var(--b-badge-md-size); --b-badge-font-size: var(--b-badge-md-font-size); }
-:where(.b-badge--size-large)   { --b-badge-size: var(--b-badge-lg-size); --b-badge-font-size: var(--b-badge-lg-font-size); }
-:where(.b-badge--size-xlarge)  { --b-badge-size: var(--b-badge-xl-size); --b-badge-font-size: var(--b-badge-xl-font-size); }
+/* --- Size Modifiers --- */
+:where(.b-badge--size-small) {
+    --b-badge-size: var(--b-size-4);
+    --b-badge-font-size: var(--b-text-2xs);
+}
+:where(.b-badge--size-medium) {
+    --b-badge-size: var(--b-size-5);
+    --b-badge-font-size: var(--b-text-xs);
+}
+:where(.b-badge--size-large) {
+    --b-badge-size: var(--b-size-6);
+    --b-badge-font-size: var(--b-text-md);
+}
+:where(.b-badge--size-xlarge) {
+    --b-badge-size: var(--b-size-7);
+    --b-badge-font-size: var(--b-text-lg);
+}
 
-/* --- 1.5 SHAPES & STATES --- */
-:where(.b-badge--rounded) { --b-badge-border-radius: 9999px; }
+/* --- Shapes & States --- */
+:where(.b-badge--rounded) {
+    --b-badge-border-radius: 9999px;
+}
 
 :where(.b-badge--dot) {
-    --b-badge-size: 0.5rem;
+    --b-badge-size: calc(var(--b-size-4) / 2);
     width: var(--b-badge-size);
     min-width: var(--b-badge-size);
     padding: 0;
@@ -115,7 +105,6 @@
 /* ============================================================
    2. B-OVERLAY-BADGE COMPONENT
    ============================================================ */
-
 :where(.b-overlay-badge) {
     position: relative;
     display: inline-flex;
@@ -123,7 +112,6 @@
 }
 
 :where(.b-overlay-badge .b-badge) {
-    /* --- 2.1 LOCAL OVERLAY TOKENS --- */
     --b-overlay-badge-offset-x: 5%;
     --b-overlay-badge-offset-y: 5%;
     --b-overlay-badge-ring-width: var(--b-stroke-strong);
@@ -132,14 +120,10 @@
     position: absolute;
     z-index: var(--b-z-base, 1);
 
-    /* Alignment to top-right corner */
     inset-block-start: var(--b-overlay-badge-offset-y);
     inset-inline-end: var(--b-overlay-badge-offset-x);
-
-    /* Center the badge on the actual corner point */
     transform: translate(50%, -50%);
 
-    /* Cutout effect */
     box-shadow: 0 0 0 var(--b-overlay-badge-ring-width) var(--b-overlay-badge-ring-color);
 }
 

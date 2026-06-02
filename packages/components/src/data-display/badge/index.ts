@@ -1,2 +1,2 @@
-export * from "./badge";
-export * from "./overaly-badge";
+export * from './badge';
+export * from './overlay-badge';
