@@ -1,18 +1,12 @@
 <script setup lang="ts">
 
-/**
- * BAvatarGroup - A wrapper to display multiple BAvatar components
- * in a stacked or horizontal list.
- */
 defineOptions({
-    name: "BAvatarGroup"
+    name: 'BAvatarGroup'
 });
 
 defineSlots<{
-    /**
-     * Default slot for nesting BAvatar components
-     */
-    default?: (props: {}) => any;
+    /** Default slot for nesting BAvatar components */
+    default?: (props: Record<string, never>) => any;
 }>();
 </script>
 

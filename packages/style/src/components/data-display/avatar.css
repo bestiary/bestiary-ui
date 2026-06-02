@@ -7,11 +7,11 @@
    ============================================================ */
 
 :where(.b-avatar) {
-    /* --- PUBLIC API TOKENS --- */
-
+    /* --- Structural Tokens (Default: Medium, Square, Secondary) --- */
     --b-avatar-size:          var(--b-control-size-md);
     --b-avatar-font-size:     var(--b-text-md);
     --b-avatar-icon-size:     var(--b-icon-size-md);
+
     --b-avatar-border-radius: var(--b-radius-interactive);
     --b-avatar-background:    var(--b-secondary-solid-background);
     --b-avatar-color:         var(--b-primary-subtle-text);
@@ -21,24 +21,7 @@
     --b-avatar-font-weight:   var(--b-font-weight-medium);
     --b-avatar-transition:    var(--b-duration-normal) var(--b-ease-base);
 
-    /* --- INTERNAL SIZE MAPPING --- */
-    --b-avatar-sm-size:      var(--b-control-size-sm);
-    --b-avatar-sm-font-size: var(--b-text-sm);
-    --b-avatar-sm-icon-size: var(--b-icon-size-sm);
-
-    --b-avatar-md-size:      var(--b-control-size-md);
-    --b-avatar-md-font-size: var(--b-text-md);
-    --b-avatar-md-icon-size: var(--b-icon-size-md);
-
-    --b-avatar-lg-size:      var(--b-control-size-lg);
-    --b-avatar-lg-font-size: var(--b-text-lg);
-    --b-avatar-lg-icon-size: var(--b-icon-size-lg);
-
-    --b-avatar-xl-size:      var(--b-control-size-xl);
-    --b-avatar-xl-font-size: var(--b-text-xl);
-    --b-avatar-xl-icon-size: var(--b-icon-size-xl);
-
-    /* --- BASE STYLES --- */
+    /* --- Base Styles --- */
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -68,9 +51,16 @@
 }
 
 :where(.b-avatar__icon) {
+    /* Set both dimensions (for SVG) and font-size (for icon fonts) */
     width: var(--b-avatar-icon-size);
     height: var(--b-avatar-icon-size);
+    font-size: var(--b-avatar-icon-size);
     flex-shrink: 0;
+
+    /* Center icon font glyphs if they are inside a span */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 :where(.b-avatar__image) {
@@ -79,26 +69,26 @@
     object-fit: cover;
 }
 
-/* --- Modifiers: Size --- */
+/* --- Modifiers: Size (Direct token overrides) --- */
 :where(.b-avatar--size-small) {
-    --b-avatar-size:      var(--b-avatar-sm-size);
-    --b-avatar-font-size: var(--b-avatar-sm-font-size);
-    --b-avatar-icon-size: var(--b-avatar-sm-icon-size);
+    --b-avatar-size:      var(--b-control-size-sm);
+    --b-avatar-font-size: var(--b-text-sm);
+    --b-avatar-icon-size: var(--b-icon-size-sm);
 }
 :where(.b-avatar--size-medium) {
-    --b-avatar-size:      var(--b-avatar-md-size);
-    --b-avatar-font-size: var(--b-avatar-md-font-size);
-    --b-avatar-icon-size: var(--b-avatar-md-icon-size);
+    --b-avatar-size:      var(--b-control-size-md);
+    --b-avatar-font-size: var(--b-text-md);
+    --b-avatar-icon-size: var(--b-icon-size-md);
 }
 :where(.b-avatar--size-large) {
-    --b-avatar-size:      var(--b-avatar-lg-size);
-    --b-avatar-font-size: var(--b-avatar-lg-font-size);
-    --b-avatar-icon-size: var(--b-avatar-lg-icon-size);
+    --b-avatar-size:      var(--b-control-size-lg);
+    --b-avatar-font-size: var(--b-text-lg);
+    --b-avatar-icon-size: var(--b-icon-size-lg);
 }
 :where(.b-avatar--size-xlarge) {
-    --b-avatar-size:      var(--b-avatar-xl-size);
-    --b-avatar-font-size: var(--b-avatar-xl-font-size);
-    --b-avatar-icon-size: var(--b-avatar-xl-icon-size);
+    --b-avatar-size:      var(--b-control-size-xl);
+    --b-avatar-font-size: var(--b-text-xl);
+    --b-avatar-icon-size: var(--b-icon-size-xl);
 }
 
 /* --- Modifiers: Shape --- */
@@ -113,7 +103,7 @@
    2. AVATAR GROUP COMPONENT
    ============================================================ */
 :where(.b-avatar-group) {
-    /* --- PUBLIC API TOKENS --- */
+    /* --- Group Structural Tokens --- */
     --b-avatar-group-overlap:      calc(var(--b-space-3) * -1);
     --b-avatar-group-border-width: var(--b-stroke-md);
     --b-avatar-group-border-color: var(--b-surface-section);
@@ -127,6 +117,7 @@
 :where(.b-avatar-group .b-avatar + .b-avatar) {
     margin-inline-start: var(--b-avatar-group-overlap);
 }
+
 /* Injection into children */
 :where(.b-avatar-group .b-avatar) {
     --b-avatar-border: var(--b-avatar-group-border-width) solid var(--b-avatar-group-border-color);

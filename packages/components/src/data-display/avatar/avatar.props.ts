@@ -1,23 +1,18 @@
-import {Component} from "vue";
+import { Component } from 'vue';
 
-export type AvatarSize = "small" | "medium" | "large" | "xlarge";
-export type AvatarShape = "square" | "circle";
+export type AvatarSize = 'small' | 'medium' | 'large' | 'xlarge';
+export type AvatarShape = 'square' | 'circle';
 
-/**
- * Props for the BAvatar component
- */
 export interface AvatarProps {
     /**
      * The size of the avatar.
-     * @values "small", "medium", "large", "xlarge"
-     * @default "medium"
+     * @default 'medium'
      */
     size?: AvatarSize;
 
     /**
      * The shape of the avatar.
-     * @values "square", "circle"
-     * @default "square"
+     * @default 'square'
      */
     shape?: AvatarShape;
 
@@ -39,7 +34,12 @@ export interface AvatarProps {
 
     /**
      * Accessible description for the image.
-     * @default "avatar"
+     * @default 'avatar'
      */
     imageAlt?: string;
+
+    /**
+     * Accessible description for the wrapper (used when image is not present).
+     */
+    ariaLabel?: string;
 }
