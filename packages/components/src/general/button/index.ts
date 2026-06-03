@@ -1,6 +1,7 @@
-import Button from "./Button.vue";
-import { withInstall } from "../../utils/with-install";
+import Button from './Button.vue';
+import { withInstall } from '../../utils/with-install';
 
 export const BButton = withInstall(Button);
 export default BButton;
-export * from "./button.props";
+
+export * from './button.props';

@@ -1,29 +1,35 @@
-import { Component } from "vue";
+import { Component } from 'vue';
 
-export type ButtonSeverity = "primary" | "secondary" | "success" | "info" | "warn" | "danger" | "contrast";
-export type ButtonVariant = "outline" | "default" | "text" | "link";
-export type ButtonSize = "small" | "medium" | "large" | "xlarge";
-export type ButtonIconPos = "top" | "left" | "bottom" | "right";
-export type ButtonBadgePos = "top" | "left" | "bottom" | "right";
-export type ButtonBadgeSeverity = "primary" | "secondary" | "success" | "info" | "warn" | "danger" | "contrast";
-export type ButtonType = "button" | "submit" | "reset";
+export type ButtonSeverity = 'primary' | 'secondary' | 'info' | 'success' | 'warn' | 'danger' | 'contrast';
+export type ButtonVariant = 'outline' | 'default' | 'text' | 'link';
+export type ButtonType = 'button' | 'submit' | 'reset';
+export type ButtonSize = 'small' | 'medium' | 'large' | 'xlarge';
+export type ButtonIconPos = 'top' | 'left' | 'bottom' | 'right';
+export type ButtonBadgePos = 'top' | 'left' | 'bottom' | 'right';
+export type ButtonBadgeSeverity = 'primary' | 'secondary' | 'info' | 'success' | 'warn' | 'danger' | 'contrast';
 
 export interface ButtonProps {
     /**
      * Severity level of the button. Affects the color scheme.
-     * @default "primary"
+     * @default 'primary'
      */
     severity?: ButtonSeverity;
 
     /**
      * Visual style variant of the button.
-     * @default "default"
+     * @default 'default'
      */
     variant?: ButtonVariant;
 
     /**
+     * HTML type attribute for the button element.
+     * @default 'button'
+     */
+    type?: ButtonType;
+
+    /**
      * Size of the button.
-     * @default "medium"
+     * @default 'medium'
      */
     size?: ButtonSize;
 
@@ -40,7 +46,7 @@ export interface ButtonProps {
 
     /**
      * Position of the icon relative to the label.
-     * @default "left"
+     * @default 'left'
      */
     iconPos?: ButtonIconPos;
 
@@ -51,13 +57,13 @@ export interface ButtonProps {
 
     /**
      * Position of the badge.
-     * @default "right"
+     * @default 'right'
      */
     badgePos?: ButtonBadgePos;
 
     /**
      * Color scheme of the badge.
-     * @default "primary"
+     * @default 'primary'
      */
     badgeSeverity?: ButtonBadgeSeverity;
 
@@ -71,12 +77,6 @@ export interface ButtonProps {
      * @default false
      */
     rounded?: boolean;
-
-    /**
-     * HTML type attribute for the button element.
-     * @default "button"
-     */
-    type?: ButtonType;
 
     /**
      * Whether the button is disabled.
@@ -106,7 +106,7 @@ export interface ButtonProps {
     to?: string | object;
 
     /**
-     * Target attribute for links (e.g., "_blank").
+     * Target attribute for links (e.g., '_blank').
      */
     target?: string;
 
