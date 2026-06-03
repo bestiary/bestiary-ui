@@ -1,424 +1,223 @@
 # Button Style API <VersionBadge module="style" />
-A highly customizable, performant interactive element. The button architecture is built to handle complex internal layouts (icons, labels, badges) while remaining strictly bound to the design system's tokens.
+Buttons are interactive elements used to trigger actions. The Style API provides a robust token pipeline that separates severities (colors) from variants (solid, outline, text), allowing for highly flexible and accessible button configurations.
 
-## 1. Anatomy (Classes)
-The component uses a BEM-based structure to ensure consistent internal alignment and spacing.
+## Anatomy
+The button component uses a flexbox layout to automatically align icons, text, and badges.
 
-| Class                     | Role              | Requirement                                                                  |
-|:--------------------------|:------------------|:-----------------------------------------------------------------------------|
-| `.b-button`               | **Root**          | The main container. Sets base layout, typography, and interactive logic.     |
-| `.b-button__icon-wrapper` | **Icon Slot**     | Required if using an icon or loader. Handles spacing between icon and label. |
-| `.b-button__icon`         | **Static Icon**   | Standard SVG element. Automatically sized via tokens.                        |
-| `.b-button__loading-icon` | **Animated Icon** | Uses a built-in CSS keyframe animation for spinning.                         |
-| `.b-button__label`        | **Content**       | The primary text container.                                                  |
-| `.b-button__badge`        | **Annotation**    | Nested badge for counters. Styled via the Badge component.                   |
+| Class                         | Role          | Description                                                                   |
+|:------------------------------|:--------------|:------------------------------------------------------------------------------|
+| `.b-button`                   | **Container** | The root element (`<button>` or `<a>`). Manages flex layout and typography.   |
+| `.b-button__icon-wrapper`     | **Wrapper**   | Centers the icon and maintains structural consistency.                        |
+| `.b-button__icon`             | **Element**   | Sizing wrapper for normal SVG or font icons.                                  |
+| `.b-button__loading-icon`     | **Element**   | Sizing wrapper for the loading spinner. Includes a continuous spin animation. |
+| `.b-button__label`            | **Element**   | Wraps the text content.                                                       |
 
-## 2. Modifiers
+## Modifiers
 
-### Severities (Colors)
-These classes map the button's color matrix to the active **Essence**.
+### 1. Variants (Styles)
+Controls how the button consumes the color tokens. By default, buttons use the **Solid** variant.
 
-| Class                           | Essence Role                               |
-|:--------------------------------|:-------------------------------------------|
-| `.b-button--severity-primary`   | Main branding actions (Default).           |
-| `.b-button--severity-secondary` | Secondary or neutral actions.              |
-| `.b-button--severity-success`   | Positive, completion, or "Go" actions.     |
-| `.b-button--severity-info`      | Informational or neutral guidance.         |
-| `.b-button--severity-warn`      | Cautions and medium-priority alerts.       |
-| `.b-button--severity-danger`    | Destructive, error, or high-alert actions. |
-| `.b-button--severity-contrast`  | High-contrast or inverted theme actions.   |
+| Class                        | Description                                                                      |
+|:-----------------------------|:---------------------------------------------------------------------------------|
+| `.b-button--variant-default` | **Solid**: Uses solid background and text tokens.                                |
+| `.b-button--variant-outline` | **Outline**: Transparent background, colored borders and text.                   |
+| `.b-button--variant-text`    | **Text**: No borders or background until hovered.                                |
+| `.b-button--variant-link`    | **Link**: Behaves like an inline link, underlining on hover without backgrounds. |
 
-### Variants (Visual Weight)
-Controls the emphasis level of the button.
+### 2. Severities (Colors)
+Mapped to the system's **Essence** matrix. Severities inject a "Local Palette" which the chosen variant then consumes.
 
-| Class                        | Style       | Visual result                                     |
-|:-----------------------------|:------------|:--------------------------------------------------|
-| *(None)*                     | **Solid**   | Full background color. Highest emphasis.          |
-| `.b-button--variant-outline` | **Outline** | Transparent background with a border.             |
-| `.b-button--variant-text`    | **Text**    | No background or border. Subtle emphasis.         |
-| `.b-button--variant-link`    | **Link**    | Behaves like a hyperlink with underline on hover. |
+| Class                           | Local Palette Injection                       |
+|:--------------------------------|:----------------------------------------------|
+| `.b-button--severity-primary`   | Primary essence colors (Default).             |
+| `.b-button--severity-secondary` | Secondary / Neutral colors.                   |
+| `.b-button--severity-info`      | Informational colors.                         |
+| `.b-button--severity-success`   | Positive / Success colors.                    |
+| `.b-button--severity-warn`      | Warning colors.                               |
+| `.b-button--severity-danger`    | Critical / Error colors.                      |
+| `.b-button--severity-contrast`  | High-contrast (inverted) mode.                |
 
-### Sizes
-Standardized scales for height, padding, and font size.
+### 3. Sizes
+Scales height, padding, and font sizes.
 
-| Class                    | Size Token        |
-|:-------------------------|:------------------|
-| `.b-button--size-small`  | `--b-button-sm-*` |
-| `.b-button--size-medium` | `--b-button-md-*` |
-| `.b-button--size-large`  | `--b-button-lg-*` |
-| `.b-button--size-xlarge` | `--b-button-xl-*` |
+| Class                    | Height Token               | Padding Token      | Font Size Token     |
+|:-------------------------|:---------------------------|:-------------------|:--------------------|
+| `.b-button--size-small`  | `var(--b-control-size-sm)` | `var(--b-space-2)` | `var(--b-text-sm)`  |
+| `.b-button--size-medium` | `var(--b-control-size-md)` | `var(--b-space-3)` | `var(--b-text-md)`  |
+| `.b-button--size-large`  | `var(--b-control-size-lg)` | `var(--b-space-4)` | `var(--b-text-md)`  |
+| `.b-button--size-xlarge` | `var(--b-control-size-xl)` | `var(--b-space-5)` | `var(--b-text-lg)`  |
 
-## 3. Interactive States & Behaviors
+### 4. Layout & States
 
-### Dynamic States
-The button responds to standard browser interactions and custom library states.
-
-| Class / State        | Effect                                                                               |
-|:---------------------|:-------------------------------------------------------------------------------------|
-| `:hover`             | Switches background/border/text to the hover tokens of the current severity.         |
-| `:active`            | Applies a `translateY(1px)` and a slight brightness reduction.                       |
-| `:focus-visible`     | Applies the **Focus Ring** (width, style, color, and offset).                        |
-| `:disabled`          | Reduces opacity to `0.5`, sets cursor to `not-allowed`, and blocks events.           |
-| `.b-button--loading` | Disables pointer events and applies `contrast(0.9)`. The loader spins automatically. |
-
-### Layout Modifiers
-Controls the orientation and density of the component.
-
-- `.b-button--raised`: Applies the system's `shadow-md` elevation.
-- `.b-button--rounded`: Forces a perfect "pill" shape (`radius-full`).
-- `.b-button--icon-only`: Squares the button and removes horizontal padding.
-- `.b-button--icon-[top \| right \| bottom \| left]`: Sets the layout direction for the label and icon relative to each other.
+| Class / Attribute             | Description                                                                   |
+|:------------------------------|:------------------------------------------------------------------------------|
+| `.b-button--icon-only`        | Forces a square aspect ratio (`width` = `height`) and removes side padding.   |
+| `.b-button--icon-[pos]`       | Modifies flex direction. `[pos]` can be `left`, `right`, `top`, or `bottom`.  |
+| `.b-button--badge-[pos]`      | Similar to icon positioning, controls the badge placement.                    |
+| `.b-button--rounded`          | Forces a fully rounded pill shape (`var(--b-radius-full)`).                   |
+| `.b-button--raised`           | Adds a drop shadow (`var(--b-shadow-md)`).                                    |
+| `.b-button--loading`          | Disables pointer events and reduces contrast slightly.                        |
+| `:disabled` / `aria-disabled` | Reduces opacity to `0.5` and sets cursor to `not-allowed`.                    |
 
 ## Public API Tokens
-The Button component utilizes a sophisticated set of CSS variables categorized into three main layers: **Visual Presets**, **Severity Matrices**, and **Active Functional Tokens**.
+Override these on a specific instance for one-off customizations without breaking the variant/severity pipeline.
 
-## 1. Global Visual Presets
-These tokens define the shared aesthetic properties of all buttons, regardless of their size or color.
-
-| Token                          | Default Value                 | Description                                                          |
-|:-------------------------------|:------------------------------|:---------------------------------------------------------------------|
-| `--b-button-border-width`      | `var(--b-stroke-default)`     | Thickness of the button border.                                      |
-| `--b-button-border-style`      | `solid`                       | CSS border-style for the container.                                  |
-| `--b-button-border-radius`     | `var(--b-radius-interactive)` | Global corner rounding.                                              |
-| `--b-button-gap`               | `var(--b-space-2)`            | Space between the icon and the label.                                |
-| `--b-button-font-weight`       | `var(--b-body-weight)`        | Font weight of the button label.                                     |
-| `--b-button-shadow`            | `var(--b-shadow-md)`          | Elevation shadow used when the `.b-button--raised` class is applied. |
-| `--b-button-transition`        | `all 200ms ease`              | Transition timing and easing for interactions.                       |
-| **Accessibility**              |                               |                                                                      |
-| `--b-button-focus-ring-width`  | `var(--b-stroke-focus)`       | Thickness of the focus outline.                                      |
-| `--b-button-focus-ring-style`  | `solid`                       | Style of the focus outline.                                          |
-| `--b-button-focus-ring-offset` | `2px`                         | Distance between the button and the focus ring.                      |
-
-## 2. Sizing Presets
-These tokens define the dimensions for each of the four available size scales.
-
-| Size             | Height Token           | Padding Token           | Font Size Token           |
-|:-----------------|:-----------------------|:------------------------|:--------------------------|
-| **Small (sm)**   | `--b-button-sm-height` | `--b-button-sm-padding` | `--b-button-sm-font-size` |
-| **Medium (md)**  | `--b-button-md-height` | `--b-button-md-padding` | `--b-button-md-font-size` |
-| **Large (lg)**   | `--b-button-lg-height` | `--b-button-lg-padding` | `--b-button-lg-font-size` |
-| **X-Large (xl)** | `--b-button-xl-height` | `--b-button-xl-padding` | `--b-button-xl-font-size` |
-
-## 3. Severity Matrices
-Each severity (e.g., `primary`, `success`, `danger`) contains a matrix of tokens for every visual variant (**Solid**, **Outline**, **Text**, and **Link**).
-
-### Color States Mapping
-Every severity follows the same internal naming convention. For any given severity `{name}`, the following tokens are registered:
-
-#### Solid Variant
-| Token                                  | Description                           |
-|:---------------------------------------|:--------------------------------------|
-| `--b-button-{name}-background`         | Default solid background color.       |
-| `--b-button-{name}-color`              | Text/icon color for solid background. |
-| `--b-button-{name}-border-color`       | Border color for solid variant.       |
-| `--b-button-{name}-hover-background`   | Background color on hover.            |
-| `--b-button-{name}-hover-color`        | Text color on hover.                  |
-| `--b-button-{name}-hover-border-color` | Border color on hover.                |
-
-#### Outline Variant
-| Token                                          | Description                       |
-|:-----------------------------------------------|:----------------------------------|
-| `--b-button-outline-{name}-background`         | Background (usually transparent). |
-| `--b-button-outline-{name}-color`              | Text/icon color for outline.      |
-| `--b-button-outline-{name}-border-color`       | Border color for outline.         |
-| `--b-button-outline-{name}-hover-background`   | Background overlay on hover.      |
-| `--b-button-outline-{name}-hover-color`        | Text color on hover.              |
-| `--b-button-outline-{name}-hover-border-color` | Border color on hover.            |
-
-#### Text & Link Variants
-| Token                                     | Description                                    |
-|:------------------------------------------|:-----------------------------------------------|
-| `--b-button-text-{name}-color`            | Text color for the text-only variant.          |
-| `--b-button-text-{name}-hover-background` | Subtle background tint on hover.               |
-| `--b-button-text-{name}-hover-color`      | Text color for the text-only variant on hover. |
-| `--b-button-link-{name}-color`            | Text color for the link variant.               |
-| `--b-button-link-{name}-hover-color`      | Text color for the link variant on hover.      |
-
-#### Contextual Effects
-| Token                                     | Description                                |
-|:------------------------------------------|:-------------------------------------------|
-| `--b-button-{name}-shadow-color-channels` | OKLCH channels used for the raised shadow. |
-| `--b-button-{name}-focus-ring-color`      | Color of the accessibility focus ring.     |
-
-::: info Available Matrices
-The above tokens exist for the following severities: `primary`, `secondary`, `success`, `info`, `warn`, `danger`, and `contrast`.
-:::
-
-## 4. Active Functional Tokens (The Renderer API)
-These are the tokens consumed directly by the `.b-button` CSS class. Modifiers (`--size`, `--severity`, `--variant`) work by re-mapping the **Presets** to these **Active** variables.
-
-**Override these via `style` on a specific instance for one-off customizations.**
-
-### Dimension API
-| Token                  | Source (Default)          |
-|:-----------------------|:--------------------------|
-| `--b-button-height`    | `--b-button-md-height`    |
-| `--b-button-padding`   | `--b-button-md-padding`   |
-| `--b-button-font-size` | `--b-button-md-font-size` |
-| `--b-button-icon-size` | Equal to font-size.       |
-
-### Visual Identity API
-| Token Group              | Specific Tokens                                                                                                  |
-|:-------------------------|:-----------------------------------------------------------------------------------------------------------------|
-| **Active Solid**         | `--b-button-background`, `--b-button-color`, `--b-button-border-color`                                           |
-| **Active Solid Hover**   | `--b-button-hover-background`, `--b-button-hover-color`, `--b-button-hover-border-color`                         |
-| **Active Outline**       | `--b-button-outline-background`, `--b-button-outline-color`, `--b-button-outline-border-color`                   |
-| **Active Outline Hover** | `--b-button-outline-hover-background`, `--b-button-outline-hover-color`, `--b-button-outline-hover-border-color` |
-| **Active Text**          | `--b-button-text-color`, `--b-button-text-hover-background`, `--b-button-text-hover-color`                       |
-| **Active Link**          | `--b-button-link-color`, `--b-button-link-hover-color`                                                           |
-| **Active Effects**       | `--b-shadow-color-channels`, `--b-button-focus-ring-color`                                                       |
-
-## 5. Token Lifecycle Note
-When you apply a modifier like `.b-button--severity-success`, the CSS engine performs a "Mapping Injection":
-1. It takes values from the **Success Severity Matrix**.
-2. It assigns them to the **Active Functional Tokens**.
-3. The **Base Renderer** uses these active tokens to draw the button on the screen.
+| Token                      | Default                                           |
+|:---------------------------|:--------------------------------------------------|
+| `--b-button-height`        | `var(--b-control-size-md)`                        |
+| `--b-button-padding`       | `var(--b-space-3)`                                |
+| `--b-button-font-size`     | `var(--b-text-md)`                                |
+| `--b-button-icon-size`     | `1.1em`                                           |
+| `--b-button-border-width`  | `var(--b-stroke-default)`                         |
+| `--b-button-border-radius` | `var(--b-radius-interactive)`                     |
+| `--b-button-gap`           | `var(--b-space-2)`                                |
+| `--b-button-font-weight`   | `var(--b-body-weight)`                            |
+| `--b-button-transition`    | `all var(--b-duration-normal) var(--b-ease-base)` |
 
 ## Examples & Implementation
-This section demonstrates the manual HTML implementation of the Button component. For the best experience, it is recommended to use these structures alongside the global `@bestiary-ui/style` package.
 
-## Basic
-A standard button consists of the `.b-button` root and a `.b-button__label` span. It defaults to the **Primary** severity and **Medium** size.
+### Basic Variants
+The combination of `.b-button` and its variant modifiers.
 
 <div class="card">
-    <button class="b-button">
-        <span class="b-button__label">Submit</span>
+    <button class="b-button" type="button">
+        <span class="b-button__label">Solid (Default)</span>
+    </button>
+    <button class="b-button b-button--variant-outline" type="button">
+        <span class="b-button__label">Outline</span>
+    </button>
+    <button class="b-button b-button--variant-text" type="button">
+        <span class="b-button__label">Text</span>
+    </button>
+    <button class="b-button b-button--variant-link" type="button">
+        <span class="b-button__label">Link</span>
     </button>
 </div>
 
 ```html
-<button class="b-button">
-    <span class="b-button__label">Submit</span>
+<button class="b-button" type="button">
+    <span class="b-button__label">Solid (Default)</span>
+</button>
+<button class="b-button b-button--variant-outline" type="button">
+    <span class="b-button__label">Outline</span>
+</button>
+<button class="b-button b-button--variant-text" type="button">
+    <span class="b-button__label">Text</span>
+</button>
+<button class="b-button b-button--variant-link" type="button">
+    <span class="b-button__label">Link</span>
 </button>
 ```
 
-## Severity
-Severities define the color context of the button, mapped to the current design essence.
+### Severities
+Applying severities works across all variants via CSS custom property injection.
 
 <div class="card">
-    <button class="b-button b-button--severity-primary"><span class="b-button__label">Primary</span></button>
-    <button class="b-button b-button--severity-secondary"><span class="b-button__label">Secondary</span></button>
-    <button class="b-button b-button--severity-success"><span class="b-button__label">Success</span></button>
-    <button class="b-button b-button--severity-info"><span class="b-button__label">Info</span></button>
-    <button class="b-button b-button--severity-warn"><span class="b-button__label">Warn</span></button>
-    <button class="b-button b-button--severity-danger"><span class="b-button__label">Danger</span></button>
-    <button class="b-button b-button--severity-contrast"><span class="b-button__label">Contrast</span></button>
+    <button class="b-button b-button--severity-primary" type="button"><span class="b-button__label">Primary</span></button>
+    <button class="b-button b-button--severity-secondary" type="button"><span class="b-button__label">Secondary</span></button>
+    <button class="b-button b-button--severity-success" type="button"><span class="b-button__label">Success</span></button>
+    <button class="b-button b-button--severity-info" type="button"><span class="b-button__label">Info</span></button>
+    <button class="b-button b-button--severity-warn" type="button"><span class="b-button__label">Warning</span></button>
+    <button class="b-button b-button--severity-danger" type="button"><span class="b-button__label">Danger</span></button>
+    <button class="b-button b-button--severity-contrast" type="button"><span class="b-button__label">Contrast</span></button>
 </div>
 
 ```html
-<button class="b-button b-button--severity-primary">...</button>
-<button class="b-button b-button--severity-secondary">...</button>
-<button class="b-button b-button--severity-success">...</button>
-<button class="b-button b-button--severity-info">...</button>
-<button class="b-button b-button--severity-warn">...</button>
-<button class="b-button b-button--severity-danger">...</button>
-<button class="b-button b-button--severity-contrast">...</button>
+<button class="b-button b-button--severity-primary" type="button"><span class="b-button__label">Primary</span></button>
+<button class="b-button b-button--severity-secondary" type="button"><span class="b-button__label">Secondary</span></button>
+<button class="b-button b-button--severity-success" type="button"><span class="b-button__label">Success</span></button>
+<button class="b-button b-button--severity-info" type="button"><span class="b-button__label">Info</span></button>
+<button class="b-button b-button--severity-warn" type="button"><span class="b-button__label">Warning</span></button>
+<button class="b-button b-button--severity-danger" type="button"><span class="b-button__label">Danger</span></button>
+<button class="b-button b-button--severity-contrast" type="button"><span class="b-button__label">Contrast</span></button>
 ```
 
-## Raised
-Adds an elevation shadow using the dynamic Shadow Engine.
-
-<div class="card">
-    <button class="b-button b-button--severity-primary b-button--raised"><span class="b-button__label">Primary</span></button>
-    <button class="b-button b-button--severity-secondary b-button--raised"><span class="b-button__label">Secondary</span></button>
-    <button class="b-button b-button--severity-success b-button--raised"><span class="b-button__label">Success</span></button>
-    <button class="b-button b-button--severity-info b-button--raised"><span class="b-button__label">Info</span></button>
-    <button class="b-button b-button--severity-warn b-button--raised"><span class="b-button__label">Warn</span></button>
-    <button class="b-button b-button--severity-danger b-button--raised"><span class="b-button__label">Danger</span></button>
-    <button class="b-button b-button--severity-contrast b-button--raised"><span class="b-button__label">Contrast</span></button>
-</div>
-
-```html
-<button class="b-button b-button--severity-primary b-button--raised"><span class="b-button__label">Primary</span></button>
-<button class="b-button b-button--severity-secondary b-button--raised"><span class="b-button__label">Secondary</span></button>
-<button class="b-button b-button--severity-success b-button--raised"><span class="b-button__label">Success</span></button>
-<button class="b-button b-button--severity-info b-button--raised"><span class="b-button__label">Info</span></button>
-<button class="b-button b-button--severity-warn b-button--raised"><span class="b-button__label">Warn</span></button>
-<button class="b-button b-button--severity-danger b-button--raised"><span class="b-button__label">Danger</span></button>
-<button class="b-button b-button--severity-contrast b-button--raised"><span class="b-button__label">Contrast</span></button>
-```
-
-## Rounded
-Forces a "pill" shape using the maximum border-radius token.
-
-<div class="card ">
-    <button class="b-button b-button--rounded"><span class="b-button__label">Rounded</span></button>
-</div>
-
-```html
-<button class="b-button b-button--rounded">...</button>
-```
-
-## Text
-Subtle visual style without background or borders.
-
-<div class="card">
-    <button class="b-button b-button--severity-primary b-button--variant-text"><span class="b-button__label">Primary</span></button>
-    <button class="b-button b-button--severity-secondary b-button--variant-text"><span class="b-button__label">Secondary</span></button>
-    <button class="b-button b-button--severity-success b-button--variant-text"><span class="b-button__label">Success</span></button>
-    <button class="b-button b-button--severity-info b-button--variant-text"><span class="b-button__label">Info</span></button>
-    <button class="b-button b-button--severity-warn b-button--variant-text"><span class="b-button__label">Warn</span></button>
-    <button class="b-button b-button--severity-danger b-button--variant-text"><span class="b-button__label">Danger</span></button>
-    <button class="b-button b-button--severity-contrast b-button--variant-text"><span class="b-button__label">Contrast</span></button>
-</div>
-
-```html
-<button class="b-button b-button--severity-primary b-button--variant-text"><span class="b-button__label">Primary</span></button>
-<button class="b-button b-button--severity-secondary b-button--variant-text"><span class="b-button__label">Secondary</span></button>
-<button class="b-button b-button--severity-success b-button--variant-text"><span class="b-button__label">Success</span></button>
-<button class="b-button b-button--severity-info b-button--variant-text"><span class="b-button__label">Info</span></button>
-<button class="b-button b-button--severity-warn b-button--variant-text"><span class="b-button__label">Warn</span></button>
-<button class="b-button b-button--severity-danger b-button--variant-text"><span class="b-button__label">Danger</span></button>
-<button class="b-button b-button--severity-contrast b-button--variant-text"><span class="b-button__label">Contrast</span></button>
-```
-
-## Outlined
-Medium-emphasis style with a border and transparent background.
-
-<div class="card">
-    <button class="b-button b-button--severity-primary b-button--variant-outline"><span class="b-button__label">Primary</span></button>
-    <button class="b-button b-button--severity-secondary b-button--variant-outline"><span class="b-button__label">Secondary</span></button>
-    <button class="b-button b-button--severity-success b-button--variant-outline"><span class="b-button__label">Success</span></button>
-    <button class="b-button b-button--severity-info b-button--variant-outline"><span class="b-button__label">Info</span></button>
-    <button class="b-button b-button--severity-warn b-button--variant-outline"><span class="b-button__label">Warn</span></button>
-    <button class="b-button b-button--severity-danger b-button--variant-outline"><span class="b-button__label">Danger</span></button>
-    <button class="b-button b-button--severity-contrast b-button--variant-outline"><span class="b-button__label">Contrast</span></button>
-</div>
-
-```html
-<button class="b-button b-button--severity-primary b-button--variant-outline"><span class="b-button__label">Primary</span></button>
-<button class="b-button b-button--severity-secondary b-button--variant-outline"><span class="b-button__label">Secondary</span></button>
-<button class="b-button b-button--severity-success b-button--variant-outline"><span class="b-button__label">Success</span></button>
-<button class="b-button b-button--severity-info b-button--variant-outline"><span class="b-button__label">Info</span></button>
-<button class="b-button b-button--severity-warn b-button--variant-outline"><span class="b-button__label">Warn</span></button>
-<button class="b-button b-button--severity-danger b-button--variant-outline"><span class="b-button__label">Danger</span></button>
-<button class="b-button b-button--severity-contrast b-button--variant-outline"><span class="b-button__label">Contrast</span></button>
-```
-
-## Link
-Behaves like a hyperlink, often used for low-priority actions or navigation.
-
-<div class="card">
-    <button class="b-button b-button--severity-primary b-button--variant-link"><span class="b-button__label">Primary</span></button>
-    <button class="b-button b-button--severity-secondary b-button--variant-link"><span class="b-button__label">Secondary</span></button>
-    <button class="b-button b-button--severity-success b-button--variant-link"><span class="b-button__label">Success</span></button>
-    <button class="b-button b-button--severity-info b-button--variant-link"><span class="b-button__label">Info</span></button>
-    <button class="b-button b-button--severity-warn b-button--variant-link"><span class="b-button__label">Warn</span></button>
-    <button class="b-button b-button--severity-danger b-button--variant-link"><span class="b-button__label">Danger</span></button>
-    <button class="b-button b-button--severity-contrast b-button--variant-link"><span class="b-button__label">Contrast</span></button>
-</div>
-
-```html
-<button class="b-button b-button--severity-primary b-button--variant-link"><span class="b-button__label">Primary</span></button>
-<button class="b-button b-button--severity-secondary b-button--variant-link"><span class="b-button__label">Secondary</span></button>
-<button class="b-button b-button--severity-success b-button--variant-link"><span class="b-button__label">Success</span></button>
-<button class="b-button b-button--severity-info b-button--variant-link"><span class="b-button__label">Info</span></button>
-<button class="b-button b-button--severity-warn b-button--variant-link"><span class="b-button__label">Warn</span></button>
-<button class="b-button b-button--severity-danger b-button--variant-link"><span class="b-button__label">Danger</span></button>
-<button class="b-button b-button--severity-contrast b-button--variant-link"><span class="b-button__label">Contrast</span></button>
-```
-
-## Sizes
-Standardized scales for different density requirements.
+### Sizes & Shapes
 
 <div class="card items-center">
-    <button class="b-button b-button--size-small"><span class="b-button__label">Small</span></button>
-    <button class="b-button b-button--size-medium"><span class="b-button__label">Medium</span></button>
-    <button class="b-button b-button--size-large"><span class="b-button__label">Large</span></button>
-    <button class="b-button b-button--size-xlarge"><span class="b-button__label">X-Large</span></button>
+    <button class="b-button b-button--size-small" type="button"><span class="b-button__label">Small</span></button>
+    <button class="b-button b-button--size-medium" type="button"><span class="b-button__label">Medium</span></button>
+    <button class="b-button b-button--size-large" type="button"><span class="b-button__label">Large</span></button>
+    <button class="b-button b-button--size-xlarge b-button--rounded" type="button"><span class="b-button__label">XLarge Rounded</span></button>
+    <button class="b-button b-button--raised b-button--variant-text" type="button"><span class="b-button__label">Raised</span></button>
 </div>
 
 ```html
-<button class="b-button b-button--size-small">...</button>
-<button class="b-button b-button--size-medium">...</button>
-<button class="b-button b-button--size-large">...</button>
-<button class="b-button b-button--size-xlarge">...</button>
+<button class="b-button b-button--size-small" type="button">...</button>
+<button class="b-button b-button--size-large b-button--rounded" type="button">...</button>
+<button class="b-button b-button--raised" type="button">...</button>
 ```
 
-## Icons
-Buttons can contain icons. Use `.b-button__icon-wrapper` for proper alignment.
-
-### Icon Only
-Use `.b-button--icon-only` for perfectly square buttons.
+### Icons & Placement
+Wrap the icon in `.b-button__icon-wrapper`. Use `.b-button--icon-[pos]` on the root to control flex direction.
 
 <div class="card">
-    <button class="b-button b-button--icon-only b-button--severity-primary">
+    <button class="b-button b-button--icon-left" type="button">
         <span class="b-button__icon-wrapper">
-            <svg class="b-button__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
+            <svg class="b-button__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+        <span class="b-button__label">Left Icon</span>
+    </button>
+    <button class="b-button b-button--icon-right b-button--variant-outline" type="button">
+        <span class="b-button__icon-wrapper">
+            <svg class="b-button__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+        <span class="b-button__label">Right Icon</span>
+    </button>
+    <button class="b-button b-button--icon-only b-button--rounded" type="button" aria-label="Submit">
+        <span class="b-button__icon-wrapper">
+            <svg class="b-button__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </span>
     </button>
 </div>
 
 ```html
-<button class="b-button b-button--icon-only">
+<!-- Left Icon -->
+<button class="b-button b-button--icon-left" type="button">
     <span class="b-button__icon-wrapper">
-        <svg class="b-button__icon">...</svg>
+        <svg class="b-button__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">...</svg>
+    </span>
+    <span class="b-button__label">Left Icon</span>
+</button>
+
+<!-- Right Icon -->
+<button class="b-button b-button--icon-right b-button--variant-outline" type="button">
+    <span class="b-button__icon-wrapper">
+        <svg class="b-button__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">...</svg>
+    </span>
+    <span class="b-button__label">Right Icon</span>
+</button>
+
+<!-- Icon Only (Requires aria-label) -->
+<button class="b-button b-button--icon-only b-button--rounded" type="button" aria-label="Submit">
+    <span class="b-button__icon-wrapper">
+        <svg class="b-button__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">...</svg>
     </span>
 </button>
 ```
 
-### Icon with Label
-Control icon position using `.b-button--icon-[left|right|top|bottom]`.
+### Loading State
+Apply the `.b-button--loading` modifier. The `.b-button__loading-icon` handles the infinite spin animation automatically.
 
-<div class="card">
-    <button class="b-button b-button--icon-left">
-        <span class="b-button__icon-wrapper"><svg class="b-button__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></span>
-        <span class="b-button__label">Back</span>
-    </button>
-    <button class="b-button b-button--icon-right">
-        <span class="b-button__label">Forward</span>
-        <span class="b-button__icon-wrapper"><svg class="b-button__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-    </button>
-</div>
-
-```html
-<!-- Icon on the right -->
-<button class="b-button b-button--icon-right">
-    <span class="b-button__label">Forward</span>
-    <span class="b-button__icon-wrapper">...</span>
-</button>
-```
-
-## Loading
-The `.b-button--loading` state disables interaction and displays a spinning indicator.
-
-<div class="card">
-    <button class="b-button b-button--loading" disabled aria-busy="true">
+<div class="card flex flex-wrap gap-4">
+    <button class="b-button b-button--loading b-button--icon-left" type="button" aria-busy="true">
         <span class="b-button__icon-wrapper">
-            <svg class="b-button__loading-icon" viewBox="0 0 24 24" width="24" height="24">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" opacity="0.25"></circle>
-                <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+            <svg class="b-button__loading-icon" viewBox="0 0 24 24" width="1em" height="1em" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" stroke="transparent" stroke-width="4"></circle>
+                <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
         </span>
-        <span class="b-button__label">Loading</span>
+        <span class="b-button__label">Processing...</span>
     </button>
 </div>
 
 ```html
-<button class="b-button b-button--loading" disabled>
+<button class="b-button b-button--loading b-button--icon-left" type="button" aria-busy="true">
     <span class="b-button__icon-wrapper">
-        <svg class="b-button__loading-icon">...</svg>
+        <svg class="b-button__loading-icon" viewBox="0 0 24 24">
+            <!-- Spinner Paths -->
+        </svg>
     </span>
-    <span class="b-button__label">Loading</span>
+    <span class="b-button__label">Processing...</span>
 </button>
 ```
-
-## Badge
-Combining Button with the **Badge** component for counters.
-
-<div class="card">
-    <button class="b-button">
-        <span class="b-button__label">Messages</span>
-        <span class="b-button__badge b-badge b-badge--size-small b-badge--severity-info b-badge--shape-circle">8</span>
-    </button>
-</div>
-
-```html
-<button class="b-button">
-    <span class="b-button__label">Messages</span>
-    <span class="b-button__badge b-badge b-badge--size-small b-badge--severity-info b-badge--shape-circle">8</span>
-</button>
-```
-
