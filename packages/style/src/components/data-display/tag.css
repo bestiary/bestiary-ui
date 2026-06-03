@@ -1,40 +1,14 @@
 /**
- * Bestiary UI — Tag Component
+ * Bestiary UI — Tag Component Styles
  */
+
+/* ============================================================
+   1. B-TAG COMPONENT
+   ============================================================ */
 :where(.b-tag) {
-    /* --- 1. LOCAL COMPONENT TOKENS --- */
-
-    /* Severity: Primary */
-    --b-tag-primary-background:   var(--b-primary-subtle-background);
-    --b-tag-primary-color:        var(--b-primary-subtle-text);
-
-    /* Severity: Secondary */
-    --b-tag-secondary-background: var(--b-secondary-subtle-background);
-    --b-tag-secondary-color:      var(--b-secondary-subtle-text);
-
-    /* Severity: Success */
-    --b-tag-success-background:   var(--b-success-subtle-background);
-    --b-tag-success-color:        var(--b-success-subtle-text);
-
-    /* Severity: Info */
-    --b-tag-info-background:      var(--b-info-subtle-background);
-    --b-tag-info-color:           var(--b-info-subtle-text);
-
-    /* Severity: Warning */
-    --b-tag-warn-background:      var(--b-warning-subtle-background);
-    --b-tag-warn-color:           var(--b-warning-subtle-text);
-
-    /* Severity: Danger */
-    --b-tag-danger-background:    var(--b-error-subtle-background);
-    --b-tag-danger-color:         var(--b-error-subtle-text);
-
-    /* Severity: Contrast */
-    --b-tag-contrast-background:  var(--b-contrast-subtle-background);
-    --b-tag-contrast-color:       var(--b-contrast-subtle-text);
-
-    /* Base Mapping */
-    --b-tag-background:    var(--b-tag-primary-background);
-    --b-tag-color:         var(--b-tag-primary-color);
+    /* --- Structural Tokens (Default: Primary Subtle) --- */
+    --b-tag-background:    var(--b-primary-subtle-background);
+    --b-tag-color:         var(--b-primary-subtle-text);
 
     --b-tag-padding-x:     var(--b-space-2);
     --b-tag-padding-y:     var(--b-space-1);
@@ -45,10 +19,8 @@
     --b-tag-font-weight:   var(--b-font-weight-bold);
     --b-tag-icon-size:     1.1em;
     --b-tag-transition:    var(--b-duration-normal) var(--b-ease-base);
-}
 
-:where(.b-tag) {
-    /* --- 2. BASE STYLES --- */
+    /* --- Base Styles --- */
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -69,40 +41,58 @@
     transition: var(--b-tag-transition);
 }
 
-/* ============================================================
-   3. MODIFIERS
-   ============================================================ */
+/* --- Severity Modifiers (Direct token overrides) --- */
+:where(.b-tag--severity-primary) {
+    --b-tag-background: var(--b-primary-subtle-background);
+    --b-tag-color: var(--b-primary-subtle-text);
+}
+:where(.b-tag--severity-secondary) {
+    --b-tag-background: var(--b-secondary-subtle-background);
+    --b-tag-color: var(--b-secondary-subtle-text);
+}
+:where(.b-tag--severity-info) {
+    --b-tag-background: var(--b-info-subtle-background);
+    --b-tag-color: var(--b-info-subtle-text);
+}
+:where(.b-tag--severity-success) {
+    --b-tag-background: var(--b-success-subtle-background);
+    --b-tag-color: var(--b-success-subtle-text);
+}
+:where(.b-tag--severity-warn) {
+    --b-tag-background: var(--b-warning-subtle-background);
+    --b-tag-color: var(--b-warning-subtle-text);
+}
+:where(.b-tag--severity-danger) {
+    --b-tag-background: var(--b-error-subtle-background);
+    --b-tag-color: var(--b-error-subtle-text);
+}
+:where(.b-tag--severity-contrast) {
+    --b-tag-background: var(--b-contrast-subtle-background);
+    --b-tag-color: var(--b-contrast-subtle-text);
+}
 
-/* Severity Mapping */
-:where(.b-tag--severity-primary)   { --b-tag-background: var(--b-tag-primary-background);   --b-tag-color: var(--b-tag-primary-color); }
-:where(.b-tag--severity-secondary) { --b-tag-background: var(--b-tag-secondary-background); --b-tag-color: var(--b-tag-secondary-color); }
-:where(.b-tag--severity-info)      { --b-tag-background: var(--b-tag-info-background);      --b-tag-color: var(--b-tag-info-color); }
-:where(.b-tag--severity-success)   { --b-tag-background: var(--b-tag-success-background);   --b-tag-color: var(--b-tag-success-color); }
-:where(.b-tag--severity-warn)      { --b-tag-background: var(--b-tag-warn-background);      --b-tag-color: var(--b-tag-warn-color); }
-:where(.b-tag--severity-danger)    { --b-tag-background: var(--b-tag-danger-background);    --b-tag-color: var(--b-tag-danger-color); }
-:where(.b-tag--severity-contrast)  { --b-tag-background: var(--b-tag-contrast-background);  --b-tag-color: var(--b-tag-contrast-color); }
-
-/* Shape */
+/* --- Modifiers --- */
 :where(.b-tag--rounded) {
     --b-tag-border-radius: var(--b-radius-full);
 }
 
-/* Logic for icons: adjust padding if icon is present */
+/* Adjust padding dynamically if icon is present */
 :where(.b-tag--has-icon) {
     padding-inline-start: calc(var(--b-tag-padding-x) * 0.75);
 }
 
-/* --- 4. INTERNAL ELEMENTS --- */
-:where(.b-tag__icon-wrapper) {
+/* --- Internal Elements --- */
+:where(.b-tag__icon) {
+    /* Dimensions for SVG, font-size for icon-fonts */
+    width: var(--b-tag-icon-size);
+    height: var(--b-tag-icon-size);
+    font-size: var(--b-tag-icon-size);
+    flex-shrink: 0;
+
+    /* Proper alignment for glyphs */
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-}
-
-:where(.b-tag__icon) {
-    width: var(--b-tag-icon-size);
-    height: var(--b-tag-icon-size);
 }
 
 :where(.b-tag__label) {

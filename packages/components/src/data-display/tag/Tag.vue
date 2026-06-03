@@ -1,46 +1,52 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import type { TagProps } from "./tag.props";
+import { computed } from 'vue';
+import type { TagProps } from './tag.props';
 
 defineOptions({
-    name: "BTag"
+    name: 'BTag'
 });
 
-/**
- * Component slots documentation
- */
 const slots = defineSlots<{
     /** Default slot for custom content, overrides or appends to the value prop */
-    default?: (props: {}) => any;
+    default?: (props: Record<string, never>) => any;
     /** Slot for a custom icon */
-    icon?: (props: {}) => any;
+    icon?: (props: Record<string, never>) => any;
 }>();
 
 const props = withDefaults(defineProps<TagProps>(), {
-    severity: "primary",
+    severity: 'primary',
     rounded: false,
 });
 
 const hasIcon = computed(() => !!props.icon || !!slots.icon);
+const isStringIcon = computed(() => typeof props.icon === 'string');
 
 const classes = computed(() => [
-    "b-tag",
+    'b-tag',
     `b-tag--severity-${props.severity}`,
     {
-        "b-tag--rounded": props.rounded,
-        "b-tag--has-icon": hasIcon.value
+        'b-tag--rounded': props.rounded,
+        'b-tag--has-icon': hasIcon.value
     }
 ]);
 </script>
 
 <template>
-    <span :class="classes" role="status">
+    <span :class="classes" role="status" :aria-label="ariaLabel">
         <!-- Icon Section -->
-        <span v-if="hasIcon" class="b-tag__icon-wrapper">
-            <slot name="icon">
-                <component :is="icon" class="b-tag__icon" aria-hidden="true" />
-            </slot>
-        </span>
+        <slot v-if="hasIcon" name="icon">
+            <span
+                v-if="isStringIcon"
+                :class="['b-tag__icon', icon]"
+                aria-hidden="true"
+            ></span>
+            <component
+                v-else-if="icon"
+                :is="icon"
+                class="b-tag__icon"
+                aria-hidden="true"
+            />
+        </slot>
 
         <!-- Label Section -->
         <span v-if="value || $slots.default" class="b-tag__label">

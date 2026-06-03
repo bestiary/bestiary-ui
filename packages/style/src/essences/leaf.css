@@ -154,9 +154,9 @@
     --b-contrast-solid-background:       var(--b-slate-900);
     --b-contrast-solid-background-hover: var(--b-slate-800);
     --b-contrast-solid-text:             var(--b-text-contrast);
-    --b-contrast-subtle-background:      initial;
-    --b-contrast-subtle-border:          initial;
-    --b-contrast-subtle-text:            initial;
+    --b-contrast-subtle-background:      var(--b-slate-200);
+    --b-contrast-subtle-border:          var(--b-slate-300);
+    --b-contrast-subtle-text:            var(--b-slate-800);
     --b-contrast-outline-border:         var(--b-slate-950);
     --b-contrast-outline-text:           var(--b-slate-950);
     --b-contrast-overlay:                var(--b-slate-50);

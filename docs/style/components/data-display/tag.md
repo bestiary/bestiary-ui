@@ -1,137 +1,128 @@
 # Tag Style API <VersionBadge module="style" />
-Tags are compact elements used to categorize, label, or organize content. They support semantic colors, rounded shapes, and integrated icons with automatic layout adjustment.
+Tags are compact elements used to categorize, label, or organize items. Unlike badges, tags are typically interactive or descriptive keywords, featuring a subtle color palette, optional icons, and specific spacing adjustments.
 
 ## Anatomy
-The component follows a strict BEM structure to manage icons and labels consistently.
+The tag is composed of a flexible container and internal slots for icons and text.
 
-| Class                  | Role          | Requirement                                                       |
-|:-----------------------|:--------------|:------------------------------------------------------------------|
-| `.b-tag`               | **Root**      | The main container. Sets dimensions, padding, and base colors.    |
-| `.b-tag__icon-wrapper` | **Icon Slot** | Used if an icon is present. Manages flex alignment and shrinkage. |
-| `.b-tag__icon`         | **Icon**      | Standard SVG element. Sized relative to the font (1.1em).         |
-| `.b-tag__label`        | **Content**   | The text container. Forces single-line display.                   |
+| Class            | Role          | Description                                                                     |
+|:-----------------|:--------------|:--------------------------------------------------------------------------------|
+| `.b-tag`         | **Container** | The root element. Sets background, padding, typography, and flex layout.        |
+| `.b-tag__icon`   | **Element**   | Wrapper for SVG or icon fonts. Ensures consistent `1.1em` sizing and alignment. |
+| `.b-tag__label`  | **Element**   | Wraps the text content, normalizing line height.                                |
 
 ## Modifiers
 
-### 1. Severities (Color Matrix)
-Maps the tag to the current **Essence**. Unlike buttons, tags mostly use **subtle** (transparent) backgrounds by default.
+### 1. Severities (Colors)
+Mapped to the system's **Essence** matrix using **subtle** tokens.
 
-| Class                        | Essence Mapping    | Visual Characteristic                  |
-|:-----------------------------|:-------------------|:---------------------------------------|
-| `.b-tag--severity-primary`   | `Primary Subtle`   | Default brand colors.                  |
-| `.b-tag--severity-secondary` | `Secondary Subtle` | Neutral/De-emphasized context.         |
-| `.b-tag--severity-success`   | `Success Subtle`   | Positive/Completed status.             |
-| `.b-tag--severity-info`      | `Info Subtle`      | Informational guidance.                |
-| `.b-tag--severity-warn`      | `Warning Subtle`   | Cautions or alerts.                    |
-| `.b-tag--severity-danger`    | `Error Subtle`     | Critical errors or destructive states. |
-| `.b-tag--severity-contrast`  | `Contrast Solid`   | High-contrast (Solid background).      |
+| Class                        | Background Token                        | Text Color Token                  |
+|:-----------------------------|:----------------------------------------|:----------------------------------|
+| `.b-tag--severity-primary`   | `var(--b-primary-subtle-background)`    | `var(--b-primary-subtle-text)`    |
+| `.b-tag--severity-secondary` | `var(--b-secondary-subtle-background)`  | `var(--b-secondary-subtle-text)`  |
+| `.b-tag--severity-info`      | `var(--b-info-subtle-background)`       | `var(--b-info-subtle-text)`       |
+| `.b-tag--severity-success`   | `var(--b-success-subtle-background)`    | `var(--b-success-subtle-text)`    |
+| `.b-tag--severity-warn`      | `var(--b-warning-subtle-background)`    | `var(--b-warning-subtle-text)`    |
+| `.b-tag--severity-danger`    | `var(--b-error-subtle-background)`      | `var(--b-error-subtle-text)`      |
+| `.b-tag--severity-contrast`  | `var(--b-contrast-subtle-background)`   | `var(--b-contrast-subtle-text)`   |
 
-### 2. Shapes
-- `.b-tag--rounded`: Applies `--b-radius-full` to create a "pill" shape.
+### 2. Layout & Shapes
 
-### 3. Layout Adjustments
-- `.b-tag--has-icon`: Automatically reduces the starting padding to visually balance the icon's presence.
+| Class              | Description                                                                                              |
+|:-------------------|:---------------------------------------------------------------------------------------------------------|
+| `.b-tag--rounded`  | Forces a perfect pill shape by overriding `--b-tag-border-radius` with `var(--b-radius-full)`.           |
+| `.b-tag--has-icon` | Dynamically reduces the inline-start padding (`0.75x`) to balance visual weight when an icon is present. |
 
 ## Public API Tokens
-Bestiary UI Tag uses a hierarchical token system. You can customize a single instance or change the entire palette.
+Override these on a specific instance for one-off customizations.
 
-### 1. Active Mapping (Renderer API)
-Override these locally via the `style` attribute.
-
-| Token                   | Default                        | Description                   |
-|:------------------------|:-------------------------------|:------------------------------|
-| `--b-tag-background`    | *Derived from Severity*        | Background color.             |
-| `--b-tag-color`         | *Derived from Severity*        | Text and icon color.          |
-| `--b-tag-padding-x`     | `var(--b-space-2)`             | Horizontal padding.           |
-| `--b-tag-padding-y`     | `var(--b-space-1)`             | Vertical padding.             |
-| `--b-tag-border-radius` | `var(--b-radius-interactive)`  | Corner rounding.              |
-| `--b-tag-gap`           | `calc(var(--b-space-1) * 1.5)` | Space between icon and label. |
-| `--b-tag-font-size`     | `var(--b-text-sm)`             | Text magnitude.               |
-| `--b-tag-font-weight`   | `var(--b-font-weight-bold)`    | Label thickness.              |
-
-### 2. Severity Matrix Presets
-Global settings for each color role. Change these in your theme to affect all tags globally.
-
-| Severity      | Background Token               | Text/Icon Color Token     | Visual Mapping     |
-|:--------------|:-------------------------------|:--------------------------|:-------------------|
-| **Primary**   | `--b-tag-primary-background`   | `--b-tag-primary-color`   | `Primary Subtle`   |
-| **Secondary** | `--b-tag-secondary-background` | `--b-tag-secondary-color` | `Secondary Subtle` |
-| **Success**   | `--b-tag-success-background`   | `--b-tag-success-color`   | `Success Subtle`   |
-| **Info**      | `--b-tag-info-background`      | `--b-tag-info-color`      | `Info Subtle`      |
-| **Warning**   | `--b-tag-warn-background`      | `--b-tag-warn-color`      | `Warning Subtle`   |
-| **Danger**    | `--b-tag-danger-background`    | `--b-tag-danger-color`    | `Error Subtle`     |
-| **Contrast**  | `--b-tag-contrast-background`  | `--b-tag-contrast-color`  | `Contrast Solid`   |
+| Token                   | Default                                       |
+|:------------------------|:----------------------------------------------|
+| `--b-tag-background`    | `var(--b-primary-subtle-background)`          |
+| `--b-tag-color`         | `var(--b-primary-subtle-text)`                |
+| `--b-tag-padding-x`     | `var(--b-space-2)`                            |
+| `--b-tag-padding-y`     | `var(--b-space-1)`                            |
+| `--b-tag-border-radius` | `var(--b-radius-interactive)`                 |
+| `--b-tag-gap`           | `calc(var(--b-space-1) * 1.5)`                |
+| `--b-tag-font-size`     | `var(--b-text-sm)`                            |
+| `--b-tag-font-weight`   | `var(--b-font-weight-bold)`                   |
+| `--b-tag-icon-size`     | `1.1em`                                       |
+| `--b-tag-transition`    | `var(--b-duration-normal) var(--b-ease-base)` |
 
 ## Examples & Implementation
 
-### Basic Structure
-The simplest form with just a label.
+### Basic Severities
+Standard tags mapping to the essence matrix.
 
-<div class="card">
-    <span class="b-tag b-tag--severity-primary">
-        <span class="b-tag__label">Tag</span>
+<div class="card flex flex-wrap gap-2">
+    <span class="b-tag b-tag--severity-primary" role="status"><span class="b-tag__label">Primary</span></span>
+    <span class="b-tag b-tag--severity-secondary" role="status"><span class="b-tag__label">Secondary</span></span>
+    <span class="b-tag b-tag--severity-info" role="status"><span class="b-tag__label">Info</span></span>
+    <span class="b-tag b-tag--severity-success" role="status"><span class="b-tag__label">Success</span></span>
+    <span class="b-tag b-tag--severity-warn" role="status"><span class="b-tag__label">Warning</span></span>
+    <span class="b-tag b-tag--severity-danger" role="status"><span class="b-tag__label">Danger</span></span>
+    <span class="b-tag b-tag--severity-contrast" role="status"><span class="b-tag__label">Contrast</span></span>
+</div>
+
+```html
+<span class="b-tag b-tag--severity-primary" role="status">
+    <span class="b-tag__label">Primary</span>
+</span>
+<span class="b-tag b-tag--severity-success" role="status">
+    <span class="b-tag__label">Success</span>
+</span>
+```
+
+### With Icons
+When adding an icon, apply the `.b-tag--has-icon` modifier to the root element. This adjusts the internal padding to prevent the tag from looking visually off-center.
+
+<div class="card flex flex-wrap gap-2">
+    <span class="b-tag b-tag--severity-primary b-tag--has-icon" role="status">
+        <svg class="b-tag__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <span class="b-tag__label">User</span>
+    </span>
+    <span class="b-tag b-tag--severity-success b-tag--has-icon" role="status">
+        <svg class="b-tag__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        <span class="b-tag__label">Verified</span>
+    </span>
+    <span class="b-tag b-tag--severity-warn b-tag--has-icon" role="status">
+        <svg class="b-tag__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <span class="b-tag__label">Pending</span>
     </span>
 </div>
 
 ```html
-<span class="b-tag b-tag--severity-primary">
-    <span class="b-tag__label">Tag</span>
+<span class="b-tag b-tag--severity-success b-tag--has-icon" role="status">
+    <svg class="b-tag__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <!-- SVG Paths -->
+    </svg>
+    <span class="b-tag__label">Verified</span>
 </span>
 ```
 
-### Rounded (Pill)
-Pill-shaped tags are often used for status indicators.
+### Rounded Shape
+Use the `.b-tag--rounded` modifier to apply a pill shape to any tag variation.
 
-<div class="card">
-    <span class="b-tag b-tag--severity-success b-tag--rounded">
-        <span class="b-tag__label">Completed</span>
+<div class="card flex gap-2">
+    <span class="b-tag b-tag--severity-primary b-tag--rounded" role="status">
+        <span class="b-tag__label">Design System</span>
+    </span>
+    <span class="b-tag b-tag--severity-secondary b-tag--rounded" role="status">
+        <span class="b-tag__label">Architecture</span>
     </span>
 </div>
 
 ```html
-<span class="b-tag b-tag--rounded b-tag--severity-success">
-    <span class="b-tag__label">Completed</span>
+<span class="b-tag b-tag--severity-primary b-tag--rounded" role="status">
+    <span class="b-tag__label">Design System</span>
 </span>
 ```
-
-### With Icon
-Combining icons with labels for better visual context.
-
-<div class="card">
-    <span class="b-tag b-tag--severity-info b-tag--has-icon">
-        <span class="b-tag__icon-wrapper">
-            <svg class="b-tag__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <path d="M12 16V12M12 8H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </span>
-        <span class="b-tag__label">Information</span>
-    </span>
-</div>
-
-```html
-<span class="b-tag b-tag--severity-info b-tag--has-icon">
-    <span class="b-tag__icon-wrapper">
-        <svg class="b-tag__icon">...</svg>
-    </span>
-    <span class="b-tag__label">Information</span>
-</span>
-```
-
-### Custom Token Overrides
-Using tokens to create unique branded tags without new CSS.
-
-<div class="card">
-    <span class="b-tag" style="--b-tag-background: var(--b-rose-500); --b-tag-color: white; --b-tag-font-weight: 900;">
-        <span class="b-tag__label">SPECIAL</span>
-    </span>
-</div>
-
-```html
-<span class="b-tag" style="--b-tag-background: var(--b-rose-500); --b-tag-color: white;">
-    <span class="b-tag__label">SPECIAL</span>
-</span>
-```
-
-::: tip Design Note
-The `1.1em` icon size ensures that icons automatically scale with the font size, staying visually consistent whether you use a global font-size override or keep the default `text-sm`.
-:::

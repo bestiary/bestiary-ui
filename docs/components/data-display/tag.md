@@ -3,100 +3,112 @@ import { CheckOutline, InformationCircleOutline, ExclamationTriangleOutline, XCi
 </script>
 
 # Tag <VersionBadge module="components" />
-Tag component is used to categorize content or display status.
+Tags are compact elements used to categorize, label, or organize items. The Vue implementation provides `<BTag>` with built-in support for icons, dynamic rounding, and automatic structural spacing.
 
 ::: info Theming
-Detailed information about CSS classes, customization tokens, and manual HTML implementation can be found in the [Style API Documentation](../../style/components/data-display/tag).
+This component is built on top of the Bestiary UI CSS framework. For CSS classes, anatomy, and CSS custom properties (tokens), refer to the [Tag Style API](../../style/components/data-display/tag.md).
 :::
 
 ## Import
 
-```javascript
-import { BTag } from "@bestiary-ui/components";
-```
-
-## Getting Started
-A tag is defined with the `value` property.
-
-<div class="card">
-    <BTag value="New" />
-    <BTag value="Featured" />
-</div>
-
 ```vue
-<BTag value="New" />
-<BTag value="Featured" />
+<script setup>
+import { BTag } from '@bestiary-ui/components';
+</script>
 ```
 
-## Severity
-Severities define the color scheme of the tag. Valid values are `primary` (default), `secondary`, `success`, `info`, `warn`, `danger` and `contrast`.
+## API Reference
+
+### Props
+
+| Name        | Type                  | Default     | Description                                                                                                                    |
+|:------------|:----------------------|:------------|:-------------------------------------------------------------------------------------------------------------------------------| 
+| `value`     | `string \| number`    | `null`      | Value to be displayed inside the tag.                                                                                          |
+| `severity`  | `TagSeverity`         | `'primary'` | Defines the color scheme. Valid values: `'primary'`, `'secondary'`, `'info'`, `'success'`, `'warn'`, `'danger'`, `'contrast'`. |
+| `rounded`   | `boolean`             | `false`     | Whether the tag has fully rounded corners (pill shape).                                                                        |
+| `icon`      | `string \| Component` | `null`      | Icon class (e.g., `'pi pi-check'`) or an injected Vue component to display.                                                    |
+| `ariaLabel` | `string`              | `null`      | Accessible description for screen readers. Useful when the tag contains only an icon or ambiguous text.                        |
+
+### Slots
+
+| Name      | Description                                                               |
+|:----------|:--------------------------------------------------------------------------|
+| `default` | Custom content to be displayed. Overrides or appends to the `value` prop. |
+| `icon`    | Custom icon implementation. Overrides the `icon` prop.                    |
+
+## Examples
+
+### Basic
+Use the `value` prop to set the tag content, and `severity` to apply semantic colors.
 
 <div class="card">
-    <BTag value="Primary" />
+    <BTag value="Primary" severity="primary" />
     <BTag value="Secondary" severity="secondary" />
-    <BTag value="Success" severity="success" />
     <BTag value="Info" severity="info" />
-    <BTag value="Warn" severity="warn" />
+    <BTag value="Success" severity="success" />
+    <BTag value="Warning" severity="warn" />
     <BTag value="Danger" severity="danger" />
     <BTag value="Contrast" severity="contrast" />
 </div>
 
 ```vue
-<BTag value="Primary" />
-<BTag value="Secondary" severity="secondary" />
-<BTag value="Success" severity="success" />
-<BTag value="Info" severity="info" />
-<BTag value="Warn" severity="warn" />
-<BTag value="Danger" severity="danger" />
-<BTag value="Contrast" severity="contrast" />
-```
-
-## Pill
-The `rounded` property adds a pill-shaped design to the tag.
-
-<div class="card">
-    <BTag value="Pill" rounded />
-    <BTag value="Completed" severity="success" rounded />
-</div>
-
-```vue
-<BTag value="Completed" severity="success" rounded />
-```
-
-## Icons
-An icon can be added to a tag using the `icon` property. The layout automatically adjusts the padding to balance the icon.
-
-<div class="card">
-    <BTag value="Success" severity="success" :icon="CheckOutline" />
-    <BTag value="Info" severity="info" :icon="InformationCircleOutline" />
-    <BTag value="Warning" severity="warn" :icon="ExclamationTriangleOutline" />
-    <BTag value="Danger" severity="danger" :icon="XCircleOutline" />
-</div>
-
-```vue
-<script setup>
-import { CheckOutline } from '@bestiary-ui/icons'
-</script>
-
 <template>
-    <BTag value="Success" severity="success" :icon="CheckOutline" />
+    <BTag value="Primary" severity="primary" />
+    <BTag value="Secondary" severity="secondary" />
+    <BTag value="Info" severity="info" />
+    <BTag value="Success" severity="success" />
+    <BTag value="Warning" severity="warn" />
+    <BTag value="Danger" severity="danger" />
+    <BTag value="Contrast" severity="contrast" />
 </template>
 ```
 
-## API
+### With Icons
+Icons can be passed as string classes (for font icons), as injected Vue components, or via the `#icon` slot. The component automatically adjusts padding when an icon is present.
 
-### Tag Properties
+<div class="card flex flex-wrap gap-2">
+    <BTag value="Component Prop" :icon="CheckOutline" severity="success" />
+    <BTag value="Slot Icon" severity="warn">
+        <template #icon>
+            <svg viewBox="0 0 24 24" fill="none" width="24" height="24" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+        </template>
+    </BTag>
+</div>
 
-| Name       | Type                  | Default     | Description                                                                    |
-|:-----------|:----------------------|:------------|:-------------------------------------------------------------------------------|
-| `value`    | `string \| number`    | `undefined` | Value to be displayed inside the tag.                                          |
-| `severity` | `string`              | `primary`   | Severity level. Valid values are `primary`, `secondary`, `success`, `info`, `warn`, `danger`, `contrast`. |
-| `rounded`  | `boolean`             | `false`     | Whether the tag has fully rounded corners (pill shape).                        |
-| `icon`     | `string \| Component` | `undefined` | Icon to display next to the value.                                             |
+```vue
+<template>
+    <!-- String class (e.g., PrimeIcons) -->
+    <BTag value="String Icon" icon="pi pi-user" severity="primary" />
+    
+    <!-- Injected Component -->
+    <BTag value="Component Prop" :icon="CheckOutline" severity="success" />
 
-### Tag Slots
+    <!-- Slot override -->
+    <BTag value="Slot Icon" severity="warn">
+        <template #icon>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <!-- SVG Paths -->
+            </svg>
+        </template>
+    </BTag>
+</template>
+```
 
-| Name      | Description                                            |
-|:----------|:-------------------------------------------------------|
-| `default` | Custom content for the tag label. Overrides the value prop. |
-| `icon`    | Custom icon content.                                   |
+### Rounded
+Use the `rounded` prop to apply a pill shape geometry to the tag.
+
+<div class="card">
+    <BTag value="Design System" severity="primary" rounded />
+    <BTag value="Architecture" severity="warn" rounded />
+</div>
+
+```vue
+<template>
+    <BTag value="Design System" severity="primary" rounded />
+    <BTag value="Architecture" severity="warn" rounded />
+</template>
+```
