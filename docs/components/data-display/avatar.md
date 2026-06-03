@@ -1,62 +1,84 @@
-<script setup>
-import { UserOutline } from '@bestiary-ui/icons'
-</script>
+<script setup> import { UserOutline } from '@bestiary-ui/icons'; </script>
 
 # Avatar <VersionBadge module="components" />
-Avatar is a visual element used to represent users or entities through images, initials, or icons.
+Avatars are visual indicators for users or entities, supporting images, icons, and text initials. The Vue implementation handles graceful fallbacks if an image fails to load and provides `<BAvatarGroup>` for easy stacking.
 
 ::: info Theming
-Detailed information about CSS classes, customization tokens, and manual HTML implementation can be found in the [Style API Documentation](../../style/components/data-display/avatar).
+This component is built on top of the Bestiary UI CSS framework. For CSS classes, anatomy, and CSS custom properties (tokens), refer to the [Avatar Style API](../../style/components/data-display/avatar.md).
 :::
 
 ## Import
 
-```javascript
-import { BAvatar, BAvatarGroup } from "@bestiary-ui/components";
-```
-
-## Getting Started
-The component priorities content in the following order: `image` -> `icon` -> `label` -> `slot`.
-
-### Image
-An image is displayed by providing a source URL via the `image` property.
-
-<div class="card">
-    <BAvatar image="https://i.pravatar.cc/150" imageAlt="User Name" />
-</div>
-
 ```vue
-<BAvatar image="avatar.jpg" imageAlt="User" />
+<script setup>
+import { BAvatar, BAvatarGroup } from '@bestiary-ui/components';
+</script>
 ```
 
-### Label
-The `label` property is used to display text, such as initials. Labels are automatically truncated to 2 characters.
+## API Reference
 
-<div class="card">
+### Props
+
+The following props apply to `<BAvatar>`.
+
+| Name        | Type                  | Default    | Description                                                                      |
+|:------------|:----------------------|:-----------|:---------------------------------------------------------------------------------|
+| `size`      | `AvatarSize`          | `'medium'` | Size of the avatar. Valid values: `'small'`, `'medium'`, `'large'`, `'xlarge'`.  |
+| `shape`     | `AvatarShape`         | `'square'` | Shape of the avatar. Valid values: `'square'`, `'circle'`.                       |
+| `label`     | `string`              | `null`     | Text label (e.g., initials) to display. Automatically truncated to 2 characters. |
+| `icon`      | `string \| Component` | `null`     | Icon class (e.g., `'pi pi-user'`) or an injected Vue component to display.       |
+| `image`     | `string`              | `null`     | Source URL of the avatar image.                                                  |
+| `imageAlt`  | `string`              | `'avatar'` | Accessible description for the image.                                            |
+| `ariaLabel` | `string`              | `null`     | Accessible description for the wrapper (used when the image is not present).     |
+
+### Events
+
+| Name    | Parameters     | Description                                          |
+|:--------|:---------------|:-----------------------------------------------------|
+| `error` | `event: Event` | Emitted when the provided `image` URL fails to load. |
+
+### Slots
+
+**`BAvatar`**
+
+| Name      | Description                                                                  |
+|:----------|:-----------------------------------------------------------------------------|
+| `default` | Overrides the internal content (image, icon, or label) with custom elements. |
+
+**`BAvatarGroup`**
+
+| Name      | Description                                                                 |
+|:----------|:----------------------------------------------------------------------------|
+| `default` | Slot for nesting `<BAvatar>` components. Handles overlapping automatically. |
+
+## Examples
+
+### Content Types
+The avatar dynamically switches between image, icon, and text initials depending on the provided props. The `label` is automatically truncated to 2 characters and capitalized.
+
+<div class="card flex gap-4">
     <BAvatar label="JD" />
-</div>
-
-```vue
-<BAvatar label="JD" />
-```
-
-### Icon
-An icon component or class can be assigned to the `icon` property.
-
-<div class="card">
     <BAvatar :icon="UserOutline" />
+    <BAvatar image="https://i.pravatar.cc/150?u=1" imageAlt="John Doe" />
 </div>
 
 ```vue
-<BAvatar :icon="UserOutline" />
-```
+<template>
+    <!-- Text Label -->
+    <BAvatar label="JD" />
 
-## Configurations
+    <!-- Vue Component Icon -->
+    <BAvatar :icon="UserOutline" />
+
+    <!-- Image -->
+    <BAvatar image="/path/to/image.jpg" imageAlt="John Doe" />
+</template>
+```
 
 ### Sizes
-Avatar offers four built-in sizes: `small`, `medium` (default), `large`, and `xlarge`.
+Use the `size` prop to scale the avatar component.
 
-<div class="card items-center">
+<div class="card flex items-center gap-4">
     <BAvatar label="SM" size="small" />
     <BAvatar label="MD" size="medium" />
     <BAvatar label="LG" size="large" />
@@ -64,73 +86,66 @@ Avatar offers four built-in sizes: `small`, `medium` (default), `large`, and `xl
 </div>
 
 ```vue
-<BAvatar label="SM" size="small" />
-<BAvatar label="MD" size="medium" />
-<BAvatar label="LG" size="large" />
-<BAvatar label="XL" size="xlarge" />
+<template>
+    <BAvatar label="SM" size="small" />
+    <BAvatar label="MD" size="medium" />
+    <BAvatar label="LG" size="large" />
+    <BAvatar label="XL" size="xlarge" />
+</template>
 ```
 
 ### Shapes
-The default shape is `square` (with rounded corners). Use the `shape` property with the value `circle` for a perfectly circular design.
+Use the `shape` prop to toggle between `square` (interactive radius) and `circle` (fully rounded).
 
-<div class="card">
-    <BAvatar label="SQ" shape="square" />
-    <BAvatar label="CR" shape="circle" />
+<div class="card flex gap-4">
+    <BAvatar label="SQ" size="large" shape="square" />
+    <BAvatar label="CI" size="large" shape="circle" />
 </div>
 
 ```vue
-<BAvatar label="SQ" shape="square" />
-<BAvatar label="CR" shape="circle" />
+<template>
+    <BAvatar label="SQ" size="large" shape="square" />
+    <BAvatar label="CI" size="large" shape="circle" />
+</template>
 ```
 
-## AvatarGroup
-Multiple avatars can be grouped together using the `BAvatarGroup` component to display them in a stack with an automatic overlap.
+### Avatar Group
+Wrap multiple `<BAvatar>` components in an `<BAvatarGroup>` to create an overlapping list. The separation borders are handled automatically.
 
 <div class="card">
     <BAvatarGroup>
         <BAvatar image="https://i.pravatar.cc/150?u=1" shape="circle" />
         <BAvatar image="https://i.pravatar.cc/150?u=2" shape="circle" />
         <BAvatar image="https://i.pravatar.cc/150?u=3" shape="circle" />
-        <BAvatar label="+5" shape="circle" />
+        <BAvatar label="+3" shape="circle" />
     </BAvatarGroup>
 </div>
 
 ```vue
-<BAvatarGroup>
-    <BAvatar image="https://i.pravatar.cc/150?u=1" shape="circle" />
-    <BAvatar image="https://i.pravatar.cc/150?u=2" shape="circle" />
-    <BAvatar image="https://i.pravatar.cc/150?u=3" shape="circle" />
-    <BAvatar label="+5" shape="circle" />
-</BAvatarGroup>
+<template>
+    <BAvatarGroup>
+        <BAvatar image="/user-1.jpg" shape="circle" />
+        <BAvatar image="/user-2.jpg" shape="circle" />
+        <BAvatar image="/user-3.jpg" shape="circle" />
+        <BAvatar label="+3" shape="circle" />
+    </BAvatarGroup>
+</template>
 ```
 
-## API
+### Image Fallback Behavior
+If the `image` URL fails to load, `<BAvatar>` catches the error and automatically falls back to rendering the `icon` or `label` if they are provided.
 
-### Avatar Properties
+<div class="card flex gap-4">
+    <BAvatar image="invalid-url.jpg" label="FB" size="large" />
+    <BAvatar image="invalid-url.jpg" :icon="UserOutline" size="large" />
+</div>
 
-| Name       | Type                  | Default     | Description                                                                    |
-|:-----------|:----------------------|:------------|:-------------------------------------------------------------------------------|
-| `size`     | `string`              | `medium`    | Size of the avatar. Valid values are `small`, `medium`, `large`, and `xlarge`. |
-| `shape`    | `string`              | `square`    | Shape of the avatar. Valid values are `square` and `circle`.                   |
-| `label`    | `string`              | `undefined` | Text initials to display. Truncated to 2 characters.                           |
-| `icon`     | `string \| Component` | `undefined` | Icon to display when image is not available.                                   |
-| `image`    | `string`              | `undefined` | Source URL of the image.                                                       |
-| `imageAlt` | `string`              | `avatar`    | Accessible description for the image.                                          |
-
-### Avatar Events
-
-| Name    | Parameters     | Description                                    |
-|:--------|:---------------|:-----------------------------------------------|
-| `error` | `event: Event` | Triggered when the image source fails to load. |
-
-### Avatar Slots
-
-| Name      | Description                                            |
-|:----------|:-------------------------------------------------------|
-| `default` | Custom content to display inside the avatar container. |
-
-### AvatarGroup Slots
-
-| Name      | Description                  |
-|:----------|:-----------------------------|
-| `default` | A set of BAvatar components. |
+```vue
+<template>
+    <!-- Will display "FB" because the image URL is broken -->
+    <BAvatar image="broken-link.jpg" label="FB" size="large" />
+    
+    <!-- Will display the icon because the image URL is broken -->
+    <BAvatar image="broken-link.jpg" icon="pi pi-exclamation-triangle" size="large" />
+</template>
+```
