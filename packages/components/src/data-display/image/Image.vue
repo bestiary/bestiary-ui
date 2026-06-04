@@ -1,14 +1,25 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, watch, onUnmounted, StyleValue } from 'vue';
 import type { ImageProps } from './image.props';
 
-defineOptions({ name: "BImage" });
+defineOptions({ name: 'BImage' });
 
 const props = withDefaults(defineProps<ImageProps>(), {
     preview: false
 });
 
 const emit = defineEmits(['show', 'hide', 'error']);
+
+defineSlots<{
+    /** Slot to override the main image. Receives binding props. */
+    image?: (props: { class: any; style: StyleValue; onClick: (e: MouseEvent) => void }) => any;
+    /** Slot for the hover indicator icon */
+    previewicon?: (props: Record<string, never>) => any;
+    /** Slot to override the large image in the preview overlay */
+    preview?: (props: { class: string; style: StyleValue; onClick: (e: MouseEvent) => void }) => any;
+    /** Legacy slot for the indicator */
+    indicator?: (props: Record<string, never>) => any;
+}>();
 
 const previewVisible = ref(false);
 const rotate = ref(0);
@@ -18,7 +29,7 @@ const imageProps = computed(() => ({
     src: props.src,
     alt: props.alt,
     srcset: props.srcset,
-    class: ['b-image__el', props.imageClass, { 'is-previewable': props.preview }],
+    class: ['b-image__el', props.imageClass, { 'b-image__el--previewable': props.preview }],
     style: props.imageStyle,
     ...props.imageAttributes
 }));
@@ -42,37 +53,44 @@ const previewImageStyle = computed(() => ({
 const onImageClick = (event: MouseEvent) => {
     if (props.preview) {
         previewVisible.value = true;
-        document.body.style.overflow = 'hidden';
         emit('show', event);
     }
 };
 
-const hidePreview = (event: MouseEvent) => {
+const hidePreview = (event?: MouseEvent) => {
     previewVisible.value = false;
     rotate.value = 0;
     scale.value = 1;
-    document.body.style.overflow = '';
     emit('hide', event);
 };
 
+// Controls
 const rotateRight = () => { rotate.value += 90; };
 const rotateLeft = () => { rotate.value -= 90; };
 const zoomIn = () => { scale.value += 0.1; };
 const zoomOut = () => { if (scale.value > 0.2) scale.value -= 0.1; };
 
-/**
- * Визначення слотів для типізації
- */
-defineSlots<{
-    /** Слот для основного зображення */
-    image?: (props: { class: any; style: any; onClick: (e: MouseEvent) => void }) => any;
-    /** Слот для іконки в індикаторі ховеру */
-    previewicon?: (props: {}) => any;
-    /** Слот для великого зображення в оверлеї прев'ю */
-    preview?: (props: { class: string; style: any; onClick: (e: MouseEvent) => void }) => any;
-    /** Застарілий слот для індикатора (для сумісності) */
-    indicator?: (props: {}) => any;
-}>();
+// Safe body lock and keyboard support
+const onKeyDown = (e: KeyboardEvent) => {
+    if (e.key === 'Escape') hidePreview();
+};
+
+watch(previewVisible, (isVisible) => {
+    if (isVisible) {
+        document.body.style.overflow = 'hidden';
+        document.addEventListener('keydown', onKeyDown);
+    } else {
+        document.body.style.overflow = '';
+        document.removeEventListener('keydown', onKeyDown);
+    }
+});
+
+onUnmounted(() => {
+    if (previewVisible.value) {
+        document.body.style.overflow = '';
+        document.removeEventListener('keydown', onKeyDown);
+    }
+});
 </script>
 
 <template>
@@ -93,7 +111,7 @@ defineSlots<{
         />
 
         <!-- Hover Indicator -->
-        <div v-if="preview" class="b-image__preview-indicator" @click="onImageClick">
+        <div v-if="preview" class="b-image__preview-indicator" aria-hidden="true" @click="onImageClick">
             <div class="b-image__preview-icon">
                 <slot name="previewicon">
                     <slot name="indicator">
@@ -108,7 +126,13 @@ defineSlots<{
         <!-- Fullscreen Portal -->
         <Teleport to="body">
             <transition name="b-image-fade">
-                <div v-if="previewVisible" class="b-image__preview-mask" @click="hidePreview">
+                <div
+                    v-if="previewVisible"
+                    class="b-image__preview-mask"
+                    role="dialog"
+                    aria-modal="true"
+                    @click="hidePreview"
+                >
                     <!-- Toolbar -->
                     <div class="b-image__preview-toolbar" @click.stop>
                         <button class="b-image__preview-btn" @click="rotateLeft" aria-label="Rotate Left">
