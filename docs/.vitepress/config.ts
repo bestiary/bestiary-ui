@@ -78,6 +78,7 @@ const config: UserConfig<CustomThemeConfig> = {
                                 {text: 'Avatar', link: '/components/data-display/avatar'},
                                 {text: 'Badge', link: '/components/data-display/badge'},
                                 {text: 'Card', link: '/components/data-display/card'},
+                                {text: 'Image', link: '/components/data-display/image'},
                                 {text: 'Tag', link: '/components/data-display/tag'}
                             ]
                         },
