@@ -1,23 +1,25 @@
 /**
- * Bestiary UI — Image Component
+ * Bestiary UI — Image Component Styles
  */
+
+/* ============================================================
+   1. B-IMAGE COMPONENT
+   ============================================================ */
 :where(.b-image) {
-    /* --- 1. LOCAL COMPONENT TOKENS --- */
-    --b-image-border-radius:     var(--b-radius-lg);
-    --b-image-overlay-bg:        rgba(0, 0, 0, 0.5);
-    --b-image-indicator-color:   #ffffff;
-    --b-image-indicator-size:    2rem;
+    /* --- Local Component Tokens --- */
+    --b-image-border-radius: var(--b-radius-container);
 
-    --b-image-preview-mask-bg:   rgba(0, 0, 0, 0.8);
-    --b-image-preview-btn-bg:    rgba(255, 255, 255, 0.1);
-    --b-image-preview-btn-hover-bg: rgba(255, 255, 255, 0.2);
-    --b-image-preview-btn-color: #ffffff;
+    /* Indicator */
+    --b-image-indicator-background: var(--b-surface-overlay);
+    --b-image-indicator-color:      var(--b-text-contrast);
+    --b-image-indicator-size:       var(--b-size-8);
 
-    /* --- 2. BASE STYLES --- */
+    /* --- Base Styles --- */
     display: inline-block;
     position: relative;
     vertical-align: middle;
-    overflow: hidden; /* Щоб індикатор не виходив за радіус */
+    overflow: hidden;
+    box-sizing: border-box;
     border-radius: var(--b-image-border-radius);
 }
 
@@ -26,23 +28,25 @@
     width: 100%;
     height: auto;
     border-radius: inherit;
+    object-fit: cover;
 }
 
-/* --- 3. PREVIEW INDICATOR --- */
+/* ============================================================
+   2. PREVIEW INDICATOR (Hover effect)
+   ============================================================ */
 :where(.b-image__preview-indicator) {
     position: absolute;
     inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--b-image-indicator-background);
+    color: var(--b-image-indicator-color);
+
     opacity: 0;
     cursor: pointer;
-    background-color: var(--b-image-overlay-bg);
-    color: var(--b-image-indicator-color);
+    pointer-events: none; /* Prevents blocking clicks when hidden */
     transition: opacity var(--b-duration-normal) var(--b-ease-base);
-
-    /* Запобігає спрацюванню ховеру, поки ми не наведемо на картинку */
-    pointer-events: none;
 }
 
 :where(.b-image:hover .b-image__preview-indicator) {
@@ -58,77 +62,97 @@
     justify-content: center;
 }
 
-/* Примусово обмежуємо SVG всередині слота */
-:where(.b-image__preview-icon svg) {
-    width: 100% !important;
-    height: 100% !important;
-    fill: currentColor;
-    stroke: currentColor;
+:where(.b-image__preview-icon > svg) {
+    width: 100%;
+    height: 100%;
 }
 
-/* --- 4. FULLSCREEN PREVIEW --- */
+/* ============================================================
+   3. FULLSCREEN PREVIEW (Teleported)
+   ============================================================ */
 :where(.b-image__preview-mask) {
+    /* Lightbox Overlay */
+    --b-image-mask-background:    oklch(var(--b-black-channels) / 40%);
+    --b-image-toolbar-background: oklch(var(--b-white-channels) / 10%);
+    --b-image-toolbar-hover:      oklch(var(--b-white-channels) / 20%);
+    --b-image-toolbar-color:      oklch(var(--b-white-channels));
+
     position: fixed;
     inset: 0;
-    z-index: var(--b-z-overlay, 1000);
+    z-index: var(--b-z-overlay);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--b-image-preview-mask-bg);
+
+    background-color: var(--b-image-mask-background);
     backdrop-filter: blur(8px);
+    outline: none; /* Remove focus ring on the mask itself */
 }
 
+/* --- Toolbar --- */
 :where(.b-image__preview-toolbar) {
     position: absolute;
-    top: var(--b-space-6);
-    right: var(--b-space-6);
-    display: flex;
-    gap: var(--b-space-2);
+    top: var(--b-space-4);
+    right: var(--b-space-4);
     z-index: 10;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 0.5rem;
-    border-radius: 2rem;
+    display: flex;
+    gap: var(--b-space-1);
+
+    background: var(--b-image-toolbar-background);
+    padding: var(--b-space-1);
+    border-radius: var(--b-radius-full); /* Pill shape */
 }
 
 :where(.b-image__preview-btn) {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: var(--b-size-10);
-    height: var(--b-size-10);
+    width: var(--b-control-size-md);
+    height: var(--b-control-size-md);
+
     border: none;
-    border-radius: var(--b-radius-full);
+    border-radius: 50%;
     background-color: transparent;
-    color: var(--b-image-preview-btn-color);
+    color: var(--b-image-toolbar-color);
     cursor: pointer;
     transition: background-color var(--b-duration-fast);
 }
 
 :where(.b-image__preview-btn:hover) {
-    background-color: var(--b-image-preview-btn-hover-bg);
+    background-color: var(--b-image-toolbar-hover);
 }
 
+:where(.b-image__preview-btn:focus-visible) {
+    outline: 2px solid var(--b-image-toolbar-color);
+    outline-offset: -2px;
+}
+
+/* --- Image Container --- */
 :where(.b-image__preview-container) {
-    width: 90vw;
-    height: 80vh;
+    width: 100%;
+    height: 100%;
+    padding: var(--b-space-8);
     display: flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
 }
 
 :where(.b-image__preview-img) {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: var(--b-shadow-xl);
+    will-change: transform;
 }
 
-/* --- 5. TRANSITIONS --- */
+/* ============================================================
+   4. TRANSITIONS
+   ============================================================ */
 .b-image-fade-enter-active,
 .b-image-fade-leave-active {
-    transition: opacity var(--b-duration-normal);
+    transition: opacity var(--b-duration-normal) var(--b-ease-out);
 }
 
 .b-image-fade-enter-from,
