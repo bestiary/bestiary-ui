@@ -58,6 +58,10 @@
     --b-card-padding: var(--b-space-3);
     --b-card-gap:     var(--b-space-1);
 }
+:where(.b-card--size-medium) {
+    --b-card-padding: var(--b-space-5);
+    --b-card-gap:     var(--b-space-2);
+}
 :where(.b-card--size-large) {
     --b-card-padding: var(--b-space-8);
     --b-card-gap:     var(--b-space-4);

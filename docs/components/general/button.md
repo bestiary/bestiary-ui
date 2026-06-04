@@ -6,7 +6,7 @@ import { MagnifyingGlassOutline, LinkOutline, CheckOutline, ArrowRightOutline } 
 Buttons are interactive elements used to trigger actions. The Vue implementation provides `<BButton>` with built-in support for icons, loading states, visual variants, routing (`href` / `to`), and embedded badges.
 
 ::: info Theming
-This component is built on top of the Bestiary UI CSS framework. For CSS classes, anatomy, and CSS custom properties (tokens), refer to the [Button Style API](/style/button).
+This component is built on top of the Bestiary UI CSS framework. For CSS classes, anatomy, and CSS custom properties (tokens), refer to the [Button Style API](../../style/components/general/button).
 :::
 
 ## Import
