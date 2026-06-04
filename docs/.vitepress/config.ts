@@ -153,6 +153,7 @@ const config: UserConfig<CustomThemeConfig> = {
                                         {text: 'Avatar', link: '/style/components/data-display/avatar'},
                                         {text: 'Badge', link: '/style/components/data-display/badge'},
                                         {text: 'Card', link: '/style/components/data-display/card'},
+                                        {text: 'Image', link: '/style/components/data-display/image'},
                                         {text: 'Tag', link: '/style/components/data-display/tag'},
                                     ]
                                 },
