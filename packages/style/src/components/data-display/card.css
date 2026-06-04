@@ -1,25 +1,24 @@
 /**
- * Bestiary UI — Card Component
+ * Bestiary UI — Card Component Styles
  */
 
+/* ============================================================
+   1. B-CARD COMPONENT
+   ============================================================ */
 :where(.b-card) {
-    /* --- 1. LOCAL COMPONENT TOKENS --- */
-
-    /* Layout & Spacing */
+    /* --- Structural Tokens (Default: Medium) --- */
     --b-card-padding:              var(--b-space-5);
     --b-card-gap:                  var(--b-space-2);
+
     --b-card-border-radius:        var(--b-radius-container);
     --b-card-border-color:         var(--b-border-subtle);
-
-    /* Colors & Visuals */
     --b-card-background:           var(--b-surface-section);
     --b-card-color:                var(--b-text-primary);
     --b-card-shadow:               var(--b-shadow-md);
-    --b-shadow-color-channels:     var(--b-black-channels);
 
-    /* Typography Roles */
+    /* Typography Tokens */
     --b-card-title-font-size:      var(--b-h5-size);
-    --b-card-title-font-weight:    var(--b-font-weight-bold); /* Fixed typo from size to weight */
+    --b-card-title-font-weight:    var(--b-font-weight-bold);
     --b-card-title-color:          var(--b-text-primary);
 
     --b-card-subtitle-font-size:   var(--b-caption-size);
@@ -30,36 +29,45 @@
     --b-card-content-font-weight:  var(--b-body-weight);
     --b-card-content-color:        var(--b-text-primary);
 
-    /* --- 2. BASE STYLES --- */
+    /* --- Base Styles --- */
     display: flex;
     flex-direction: column;
     overflow: hidden;
     position: relative;
+    box-sizing: border-box;
 
     background-color: var(--b-card-background);
     color: var(--b-card-color);
     border-radius: var(--b-card-border-radius);
     border: 1px solid var(--b-card-border-color);
 
-    transition: transform var(--b-duration-normal) var(--b-ease-out),
-    box-shadow var(--b-duration-normal) var(--b-ease-out);
+    /* Shadow configuration */
+    --b-shadow-color-channels: var(--b-black-channels);
+
+    transition:
+            transform var(--b-duration-normal) var(--b-ease-out),
+            box-shadow var(--b-duration-normal) var(--b-ease-out);
 }
 
-/* --- 3. SIZE MODIFIERS --- */
+/* ============================================================
+   2. MODIFIERS (Direct token overrides)
+   ============================================================ */
+
+/* --- Size --- */
 :where(.b-card--size-small) {
     --b-card-padding: var(--b-space-3);
-    --b-card-gap: var(--b-space-1);
+    --b-card-gap:     var(--b-space-1);
 }
 :where(.b-card--size-large) {
     --b-card-padding: var(--b-space-8);
-    --b-card-gap: var(--b-space-4);
+    --b-card-gap:     var(--b-space-4);
 }
 :where(.b-card--size-none)  {
     --b-card-padding: 0;
-    --b-card-gap: 0;
+    --b-card-gap:     0;
 }
 
-/* --- 4. SHADOW MODIFIERS --- */
+/* --- Shadow --- */
 :where(.b-card--shadow-always) {
     box-shadow: var(--b-card-shadow);
 }
@@ -73,19 +81,22 @@
     box-shadow: none;
 }
 
-/* --- 5. INTERNAL ELEMENTS --- */
+/* ============================================================
+   3. INTERNAL ELEMENTS
+   ============================================================ */
 
-/* Header: Usually for images, removes radius conflicts */
+/* Header */
 :where(.b-card__header img) {
     display: block;
     width: 100%;
     height: auto;
 }
 
-/* Body Wrapper: Contains title, content, and footer */
+/* Body Wrapper */
 :where(.b-card__body) {
     display: flex;
     flex-direction: column;
+    flex: 1 1 auto; /* Allows body to stretch if card has fixed height */
     gap: var(--b-card-gap);
     padding: var(--b-card-padding);
 }
@@ -94,7 +105,7 @@
 :where(.b-card__title-group) {
     display: flex;
     flex-direction: column;
-    gap: var(--b-space-1); /* Internal gap between title and subtitle */
+    gap: var(--b-space-1);
 }
 
 :where(.b-card__title) {
@@ -102,20 +113,25 @@
     font-weight: var(--b-card-title-font-weight);
     color: var(--b-card-title-color);
     line-height: var(--b-line-height-tight);
+    margin: 0; /* Reset in case user passes h1-h6 tags */
 }
 
 :where(.b-card__subtitle) {
     font-size: var(--b-card-subtitle-font-size);
     font-weight: var(--b-card-subtitle-font-weight);
     color: var(--b-card-subtitle-color);
+    margin: 0; /* Reset in case user passes p tags */
 }
 
+/* Content */
 :where(.b-card__content) {
     font-size: var(--b-card-content-font-size);
     font-weight: var(--b-card-content-font-weight);
     color: var(--b-card-content-color);
 }
 
+/* Footer */
 :where(.b-card__footer) {
     padding-top: var(--b-card-gap);
+    margin-top: auto; /* Pushes footer to bottom if card stretches */
 }

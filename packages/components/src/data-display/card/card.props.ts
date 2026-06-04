@@ -1,18 +1,25 @@
-import { CSSProperties } from "vue";
+import type { StyleValue } from 'vue';
 
-export type CardSize = "small" | "medium" | "large" | "none";
-export type CardShadow = "always" | "hover" | "never";
+export type CardSize = 'small' | 'medium' | 'large' | 'none';
+export type CardShadow = 'always' | 'hover' | 'never';
 
 export interface CardProps {
     /**
+     * The HTML tag to render the card as.
+     * Useful for semantic HTML (e.g., 'article', 'section').
+     * @default 'div'
+     */
+    tag?: string;
+
+    /**
      * Size of the card padding and spacing.
-     * @default "medium"
+     * @default 'medium'
      */
     size?: CardSize;
 
     /**
      * Shadow display mode.
-     * @default "always"
+     * @default 'always'
      */
     shadow?: CardShadow;
 
@@ -29,5 +36,5 @@ export interface CardProps {
     /**
      * Inline style for the card body section.
      */
-    bodyStyle?: CSSProperties;
+    bodyStyle?: StyleValue;
 }
