@@ -1,7 +1,12 @@
 /**
- * Bestiary UI — Divider Component
+ * Bestiary UI — Divider Component Styles
  */
+
+/* ============================================================
+   1. B-DIVIDER COMPONENT
+   ============================================================ */
 :where(.b-divider) {
+    /* --- Structural Tokens --- */
     --b-divider-width:        var(--b-stroke-default);
     --b-divider-border-style: solid;
     --b-divider-border-color: var(--b-border-subtle);
@@ -11,13 +16,13 @@
     --b-divider-padding-inline: var(--b-space-4);
     --b-divider-padding-block:  0;
 
-    --b-divider-content-background: var(--b-surface-section);
-    --b-divider-content-color:      var(--b-text-primary);
-    --b-divider-content-padding:    var(--b-space-2);
-    --b-divider-content-font-size:  var(--b-text-sm);
-}
+    --b-divider-content-background:  var(--b-surface-section);
+    --b-divider-content-color:       var(--b-text-primary);
+    --b-divider-content-padding:     var(--b-space-2);
+    --b-divider-content-font-size:   var(--b-text-sm);
+    --b-divider-content-font-weight: var(--b-font-weight-medium);
 
-:where(.b-divider) {
+    /* --- Base Styles --- */
     display: flex;
     position: relative;
     align-items: center;
@@ -25,23 +30,28 @@
     box-sizing: border-box;
 }
 
+/* --- The Line --- */
 :where(.b-divider)::before {
+    content: "";
     position: absolute;
     display: block;
-    content: "";
     z-index: 0;
 }
 
+/* --- The Content --- */
 :where(.b-divider__content) {
+    position: relative; /* Required for z-index to work */
     z-index: 1;
-    background: var(--b-divider-content-background);
+
+    background-color: var(--b-divider-content-background);
     color: var(--b-divider-content-color);
     font-size: var(--b-divider-content-font-size);
-    font-weight: var(--b-font-weight-medium);
+    font-weight: var(--b-divider-content-font-weight);
+    line-height: var(--b-line-height-none);
 }
 
 /* ============================================================
-   LAYOUTS
+   2. LAYOUTS
    ============================================================ */
 
 /* --- Horizontal --- */
@@ -63,11 +73,13 @@
     padding-inline: var(--b-divider-content-padding);
 }
 
-/* Vertical */
+/* --- Vertical --- */
 :where(.b-divider--layout-vertical) {
     min-height: 100%;
-    margin: 0 var(--b-space-4);
-    padding: var(--b-space-2) 0;
+    /* Invert margins/paddings for vertical layout */
+    margin: var(--b-divider-margin-inline) var(--b-divider-margin-block);
+    padding: var(--b-divider-padding-inline) 0;
+
     display: inline-flex;
     vertical-align: middle;
 }
@@ -85,21 +97,22 @@
 }
 
 /* ============================================================
-   ALIGNMENT & STYLES
+   3. MODIFIERS
    ============================================================ */
 
-/* Horizontal Align */
+/* --- Alignment (Horizontal) --- */
 :where(.b-divider--layout-horizontal.b-divider--align-left)   { justify-content: flex-start; }
 :where(.b-divider--layout-horizontal.b-divider--align-center) { justify-content: center; }
 :where(.b-divider--layout-horizontal.b-divider--align-right)  { justify-content: flex-end; }
 
-/* Vertical Align */
+/* --- Alignment (Vertical) --- */
 :where(.b-divider--layout-vertical.b-divider--align-top)      { align-items: flex-start; }
 :where(.b-divider--layout-vertical.b-divider--align-center)   { align-items: center; }
 :where(.b-divider--layout-vertical.b-divider--align-bottom)   { align-items: flex-end; }
 
-/* Line Styles */
+/* --- Line Types --- */
 :where(.b-divider--type-solid)  { --b-divider-border-style: solid; }
-:where(.b-divider--type-dotted) { --b-divider-border-style: dotted; }
 :where(.b-divider--type-dashed) { --b-divider-border-style: dashed; }
-:where(.b-divider--type-double) { --b-divider-width: 3px; --b-divider-border-style: double; }
+:where(.b-divider--type-dotted) { --b-divider-border-style: dotted; }
+:where(.b-divider--type-double) { --b-divider-border-style: double;}
+:where(.b-divider--type-none)   { --b-divider-border-style: none; }

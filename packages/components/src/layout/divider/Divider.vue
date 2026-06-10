@@ -1,31 +1,32 @@
 <script setup lang="ts">
-import {computed} from "vue";
-import type {DividerProps} from "./divider.props";
+import { computed } from 'vue';
+import type { DividerProps } from './divider.props';
 
-defineOptions({
-    name: "BDivider"
-});
+defineOptions({ name: 'BDivider' });
 
 const slots = defineSlots<{
     /** Content to be displayed within the divider line */
-    default?: (props: {}) => any;
+    default?: (props: Record<string, never>) => any;
 }>();
 
 const props = withDefaults(defineProps<DividerProps>(), {
-    align: "left",
-    layout: "horizontal",
-    type: "solid"
+    align: 'center',
+    layout: 'horizontal',
+    type: 'solid'
 });
 
 const classes = computed(() => [
-    "b-divider",
+    'b-divider',
     `b-divider--layout-${props.layout}`,
     `b-divider--align-${props.align}`,
     `b-divider--type-${props.type}`,
+    {
+        'b-divider--with-content': !!slots.default
+    }
 ]);
 
 const ariaOrientation = computed(() =>
-    props.layout === "vertical" ? "vertical" : "horizontal"
+    props.layout === 'vertical' ? 'vertical' : 'horizontal'
 );
 </script>
 
@@ -36,7 +37,7 @@ const ariaOrientation = computed(() =>
         :aria-orientation="ariaOrientation"
     >
         <div v-if="$slots.default" class="b-divider__content">
-            <slot/>
+            <slot />
         </div>
     </div>
 </template>
