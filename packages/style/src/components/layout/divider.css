@@ -114,5 +114,5 @@
 :where(.b-divider--type-solid)  { --b-divider-border-style: solid; }
 :where(.b-divider--type-dashed) { --b-divider-border-style: dashed; }
 :where(.b-divider--type-dotted) { --b-divider-border-style: dotted; }
-:where(.b-divider--type-double) { --b-divider-border-style: double;}
+:where(.b-divider--type-double) { --b-divider-border-style: double; --b-divider-width: 4px; }
 :where(.b-divider--type-none)   { --b-divider-border-style: none; }

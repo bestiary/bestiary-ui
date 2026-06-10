@@ -1,140 +1,123 @@
 # Divider Style API <VersionBadge module="style" />
-A visual separator between content blocks. It supports horizontal and vertical orientations, multiple line styles, and customizable content alignment.
+Dividers are used to visually separate content within a layout. The component supports both horizontal and vertical orientations, various line styles, and embedded content (text or icons) with precise alignment controls.
 
 ## Anatomy
-The component follows a clean BEM structure. The line itself is generated via a pseudo-element `::before`, allowing the content to sit on top of it.
+The divider uses a pseudo-element to draw the line, allowing the actual content wrapper to sit on top and mask the line using its background color.
 
-| Class                 | Role          | Description                                          |
-|:----------------------|:--------------|:-----------------------------------------------------|
-| `.b-divider`          | **Container** | The root element. Manages orientation and alignment. |
-| `.b-divider__content` | **Content**   | Wrapper for text or icons placed inside the divider. |
+| Class                  | Role             | Description                                                                                   |
+|:-----------------------|:-----------------|:----------------------------------------------------------------------------------------------|
+| `.b-divider`           | **Container**    | Root flex element. Requires `role="separator"` and `aria-orientation`.                        |
+| `::before`             | **Visual Line**  | Absolute positioned pseudo-element that renders the actual border line.                       |
+| `.b-divider__content`  | **Content Mask** | Wraps slotted content. Elevated via `z-index: 1` and uses a solid background to cut the line. |
 
 ## Modifiers
 
-### 1. Layout (Orientation)
-Defines the axis along which the divider is drawn.
+### 1. Layouts
+Defines the axis of the divider.
 
-| Class                           | Intent                                        |
-|:--------------------------------|:----------------------------------------------|
-| `.b-divider--layout-horizontal` | Horizontal line (Default).                    |
-| `.b-divider--layout-vertical`   | Vertical line for separating inline elements. |
+| Class                           | Description                                                                   |
+|:--------------------------------|:------------------------------------------------------------------------------|
+| `.b-divider--layout-horizontal` | Block-level element (`width: 100%`). Line is drawn horizontally.              |
+| `.b-divider--layout-vertical`   | Inline-flex element. Line is drawn vertically. Requires a parent with height. |
 
-### 2. Alignment
-Controls the position of the content inside the divider line.
+### 2. Line Types
+Overrides `--b-divider-border-style`.
 
-**For Horizontal Layout:**
-- `.b-divider--align-left`: Content at the start.
-- `.b-divider--align-center`: Content in the middle (Default).
-- `.b-divider--align-right`: Content at the end.
+| Class                       | CSS Border Style |
+|:----------------------------|:-----------------|
+| `.b-divider--type-solid`    | `solid`          |
+| `.b-divider--type-dashed`   | `dashed`         |
+| `.b-divider--type-dotted`   | `dotted`         |
+| `.b-divider--type-double`   | `double`         |
+| `.b-divider--type-none`     | `none`           |
 
-**For Vertical Layout:**
-- `.b-divider--align-top`: Content at the top.
-- `.b-divider--align-center`: Content in the center (Default).
-- `.b-divider--align-bottom`: Content at the bottom.
+### 3. Alignments
+Controls the placement of `.b-divider__content` along the main axis.
 
-### 3. Line Styles
-Quickly switch the border style of the separator.
+**For Horizontal Layouts:**
+- `.b-divider--align-left` (`justify-content: flex-start`)
+- `.b-divider--align-center` (`justify-content: center`)
+- `.b-divider--align-right` (`justify-content: flex-end`)
 
-| Class                     | Style Token Mapping | Result                     |
-|:--------------------------|:--------------------|:---------------------------|
-| `.b-divider--type-solid`  | `solid`             | Continuous line (Default). |
-| `.b-divider--type-dotted` | `dotted`            | Dotted line.               |
-| `.b-divider--type-dashed` | `dashed`            | Dashed line.               |
-| `.b-divider--type-double` | `double`            | Two parallel lines.        |
+**For Vertical Layouts:**
+- `.b-divider--align-top` (`align-items: flex-start`)
+- `.b-divider--align-center` (`align-items: center`)
+- `.b-divider--align-bottom` (`align-items: flex-end`)
 
 ## Public API Tokens
-The Divider component uses a set of local tokens for easy customization without breaking the layout logic.
+Override these on a specific instance for one-off customizations.
 
-### Line Configuration
-| Token                      | Default                   | Description                       |
-|:---------------------------|:--------------------------|:----------------------------------|
-| `--b-divider-width`        | `var(--b-stroke-default)` | Thickness of the line.            |
-| `--b-divider-border-style` | `solid`                   | Line style (solid, dashed, etc.). |
-| `--b-divider-border-color` | `var(--b-border-subtle)`  | Color of the line.                |
+### Structural Tokens
+| Token                        | Default                   | Description                                         |
+|:-----------------------------|:--------------------------|:----------------------------------------------------|
+| `--b-divider-width`          | `var(--b-stroke-default)` | Thickness of the line.                              |
+| `--b-divider-border-style`   | `solid`                   | CSS border style (controlled by type modifier).     |
+| `--b-divider-border-color`   | `var(--b-border-subtle)`  | Color of the line.                                  |
+| `--b-divider-margin-inline`  | `0`                       | Spacing on the left/right (for vertical spacing).   |
+| `--b-divider-margin-block`   | `var(--b-space-4)`        | Spacing on the top/bottom (for horizontal spacing). |
+| `--b-divider-padding-inline` | `var(--b-space-4)`        | Restricts content from hitting the absolute edges.  |
 
-### Spacing & Padding
-| Token                        | Default            | Description                              |
-|:-----------------------------|:-------------------|:-----------------------------------------|
-| `--b-divider-margin-block`   | `var(--b-space-4)` | Vertical margin (for horizontal layout). |
-| `--b-divider-padding-inline` | `var(--b-space-4)` | Space at the ends of the line.           |
-
-### Content Styling
-| Token                            | Default                    | Description                                   |
-|:---------------------------------|:---------------------------|:----------------------------------------------|
-| `--b-divider-content-background` | `var(--b-surface-section)` | Background behind the text (covers the line). |
-| `--b-divider-content-color`      | `var(--b-text-primary)`    | Text color inside the divider.                |
-| `--b-divider-content-padding`    | `var(--b-space-2)`         | Space between the line and the text.          |
+### Content Tokens
+| Token                              | Default                       | Description                                                   |
+|:-----------------------------------|:------------------------------|:--------------------------------------------------------------|
+| `--b-divider-content-background`   | `var(--b-surface-section)`    | Masks the line behind the text. Must match parent background. |
+| `--b-divider-content-color`        | `var(--b-text-primary)`       | Text color.                                                   |
+| `--b-divider-content-padding`      | `var(--b-space-2)`            | Space between the text and the line.                          |
+| `--b-divider-content-font-size`    | `var(--b-text-sm)`            | Typography sizing.                                            |
+| `--b-divider-content-font-weight`  | `var(--b-font-weight-medium)` | Typography weight.                                            |
 
 ## Examples & Implementation
 
-### Basic Horizontal
-A standard full-width separator.
+### Basic Dividers
+Standard horizontal layout without content.
 
-<div class="card flex flex-col gap-0 text-justify">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam architecto asperiores blanditiis consectetur, dicta eveniet magnam nisi nobis omnis perspiciatis placeat porro possimus qui quia quos recusandae, reprehenderit vero.</p>
-    <div class="b-divider b-divider--layout-horizontal" role="separator"></div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, ducimus eligendi facere fugiat labore molestiae natus nihil non nostrum quas reiciendis sunt veritatis voluptas? Amet dolorum esse ipsa magnam vel.</p>
+<div class="card flex-col items-center">
+    <div>Above Content</div>
+    <div class="b-divider b-divider--layout-horizontal b-divider--type-solid b-divider--align-center" role="separator" aria-orientation="horizontal"></div>
+    <div>Below Content</div>
 </div>
 
 ```html
-<div class="b-divider b-divider--layout-horizontal" role="separator"></div>
+<div>Above Content</div>
+<div class="b-divider b-divider--layout-horizontal b-divider--type-solid b-divider--align-center" role="separator" aria-orientation="horizontal"></div>
+<div>Below Content</div>
 ```
 
-### With Content & Alignment
-Text placed at different positions along the line.
+### With Content (Horizontal Alignment)
+When passing content, the text automatically breaks the line based on `--b-divider-content-background`.
 
-<div class="card flex flex-col">
-    <div class="b-divider b-divider--layout-horizontal b-divider--align-left" role="separator">
-        <div class="b-divider__content">Left Aligned</div>
+<div class="card flex-col">
+    <div class="b-divider b-divider--layout-horizontal b-divider--type-solid b-divider--align-left b-divider--with-content" role="separator" aria-orientation="horizontal">
+        <div class="b-divider__content">Left</div>
     </div>
-    <div class="b-divider b-divider--layout-horizontal b-divider--align-center" role="separator">
+    <div class="b-divider b-divider--layout-horizontal b-divider--type-solid b-divider--align-center b-divider--with-content" role="separator" aria-orientation="horizontal">
         <div class="b-divider__content">Center</div>
     </div>
-    <div class="b-divider b-divider--layout-horizontal b-divider--align-right" role="separator">
-        <div class="b-divider__content">Right Aligned</div>
+    <div class="b-divider b-divider--layout-horizontal b-divider--type-solid b-divider--align-right b-divider--with-content" role="separator" aria-orientation="horizontal">
+        <div class="b-divider__content">Right</div>
     </div>
 </div>
 
 ```html
-<div class="b-divider b-divider--layout-horizontal b-divider--align-left" role="separator">
-    <div class="b-divider__content">Left Aligned</div>
+<div class="b-divider b-divider--layout-horizontal b-divider--type-solid b-divider--align-left b-divider--with-content" role="separator" aria-orientation="horizontal">
+    <div class="b-divider__content">Left</div>
 </div>
-<div class="b-divider b-divider--layout-horizontal b-divider--align-center" role="separator">
+<div class="b-divider b-divider--layout-horizontal b-divider--type-solid b-divider--align-center b-divider--with-content" role="separator" aria-orientation="horizontal">
     <div class="b-divider__content">Center</div>
 </div>
-<div class="b-divider b-divider--layout-horizontal b-divider--align-right" role="separator">
-    <div class="b-divider__content">Right Aligned</div>
+<div class="b-divider b-divider--layout-horizontal b-divider--type-solid b-divider--align-right b-divider--with-content" role="separator" aria-orientation="horizontal">
+    <div class="b-divider__content">Right</div>
 </div>
 ```
 
-<div class="card justify-around" style="height: 200px;">
-    <div class="b-divider b-divider--layout-vertical b-divider--align-top" role="separator">
-        <div class="b-divider__content">Left Aligned</div>
-    </div>
-    <div class="b-divider b-divider--layout-vertical b-divider--align-center" role="separator">
-        <div class="b-divider__content">Center</div>
-    </div>
-    <div class="b-divider b-divider--layout-vertical b-divider--align-bottom" role="separator">
-        <div class="b-divider__content">Right Aligned</div>
-    </div>
-</div>
-
-```html
-<div class="b-divider b-divider--layout-vertical b-divider--align-top" role="separator">
-    <div class="b-divider__content">Left Aligned</div>
-</div>
-<div class="b-divider b-divider--layout-vertical b-divider--align-center" role="separator">
-    <div class="b-divider__content">Center</div>
-</div>
-<div class="b-divider b-divider--layout-vertical b-divider--align-bottom" role="separator">
-    <div class="b-divider__content">Right Aligned</div>
-</div>
-```
+::: tip Background Matching
+The `.b-divider__content` uses `var(--b-surface-section)` by default. If your divider is placed on a different background (like `var(--b-surface-base)`), override `--b-divider-content-background` so the cutout effect matches seamlessly.
+:::
 
 ### Line Types
-Demonstrating different border styles.
+Modify the `--b-divider-border-style` using type classes.
 
-<div class="card flex flex-col">
+<div class="card flex-col">
     <div class="b-divider b-divider--layout-horizontal b-divider--type-solid" role="separator"></div>
     <div class="b-divider b-divider--layout-horizontal b-divider--type-dashed" role="separator"></div>
     <div class="b-divider b-divider--layout-horizontal b-divider--type-dotted" role="separator"></div>
@@ -148,42 +131,23 @@ Demonstrating different border styles.
 <div class="b-divider b-divider--layout-horizontal b-divider--type-double" role="separator"></div>
 ```
 
-### Vertical Divider
-Ideal for separating buttons in a toolbar or links in a footer.
+### Vertical Layout
+Vertical dividers require a flex parent or a defined height to stretch appropriately. Alignment modifiers control vertical positioning.
 
-<div class="card">
-    <span>Home</span>
-    <div class="b-divider b-divider--layout-vertical" role="separator"></div>
-    <span>Docs</span>
-    <div class="b-divider b-divider--layout-vertical" role="separator"></div>
-    <span>Blog</span>
+<div class="card items-center">
+    <div>Panel 1</div>
+    <div class="b-divider b-divider--layout-vertical b-divider--align-center" role="separator" aria-orientation="vertical">
+        <div class="b-divider__content">OR</div>
+    </div>
+    <div>Panel 2</div>
 </div>
 
 ```html
 <div class="flex items-center">
-    <span>Home</span>
-    <div class="b-divider b-divider--layout-vertical" role="separator"></div>
-    <span>Docs</span>
-    <div class="b-divider b-divider--layout-vertical" role="separator"></div>
-    <span>Blog</span>
-</div>
-```
-
-### Custom Styling (Token Overrides)
-Override the line color and content background for specific sections.
-
-<div class="card">
-    <div class="b-divider b-divider--layout-horizontal" style="--b-divider-border-color: var(--b-primary-500); --b-divider-width: 2px;" role="separator">
-        <div class="b-divider__content" style="--b-divider-content-color: var(--b-primary-600);">Custom Brand Divider</div>
+    <div>Panel 1</div>
+    <div class="b-divider b-divider--layout-vertical b-divider--align-center" role="separator" aria-orientation="vertical">
+        <div class="b-divider__content">OR</div>
     </div>
-</div>
-
-```html
-<div class="b-divider b-divider--layout-horizontal" style="--b-divider-border-color: var(--b-primary-500); --b-divider-width: 2px;" role="separator">
-    <div class="b-divider__content" style="--b-divider-content-color: var(--b-primary-600);">Custom Brand Divider</div>
+    <div>Panel 2</div>
 </div>
 ```
-
-::: tip Accessibility
-The `role="separator"` attribute is automatically added to inform screen readers about the nature of the element. For horizontal dividers, `aria-orientation="horizontal"` is the browser default.
-:::
