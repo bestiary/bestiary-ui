@@ -1,143 +1,116 @@
-<script setup>
-import { MagnifyingGlassOutline } from "@bestiary-ui/icons";
-</script>
-
 # Divider <VersionBadge module="components" />
-
-Divider is used to separate content with a line.
+Dividers are used to visually separate content within a layout. The Vue implementation provides `<BDivider>` with built-in accessibility (`role="separator"`, `aria-orientation`), horizontal and vertical orientations, content slots, and various line styles.
 
 ::: info Theming
-Detailed information about CSS classes, customization tokens, and manual HTML implementation can be found in the [Style API Documentation](../../style/components/layout/divider).
+This component is built on top of the Bestiary UI CSS framework. For CSS classes, anatomy, and CSS custom properties (tokens), refer to the [Divider Style API](../../style/components/layout/divider).
 :::
 
 ## Import
 
-```javascript
-import { BDivider } from "@bestiary-ui/components";
+```vue
+<script setup>
+import { BDivider } from '@bestiary-ui/components';
+</script>
 ```
 
-## Getting Started
-A basic divider is defined as a horizontal line.
+## API Reference
 
-<div class="card flex-col gap-0">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+### Props
+
+| Name     | Type            | Default        | Description                                                                                                                             |
+|:---------|:----------------|:---------------|:----------------------------------------------------------------------------------------------------------------------------------------|
+| `align`  | `DividerAlign`  | `'center'`     | Alignment of the slotted content. Horizontal layout: `'left'`, `'center'`, `'right'`. Vertical layout: `'top'`, `'center'`, `'bottom'`. |
+| `layout` | `DividerLayout` | `'horizontal'` | Orientation of the divider. Valid values: `'horizontal'`, `'vertical'`.                                                                 |
+| `type`   | `DividerType`   | `'solid'`      | CSS border style of the divider line. Valid values: `'solid'`, `'dashed'`, `'dotted'`, `'double'`, `'none'`.                            |
+
+### Slots
+
+| Name      | Description                                                                                           |
+|:----------|:------------------------------------------------------------------------------------------------------|
+| `default` | Content to be displayed within the divider line. The line is automatically masked behind the content. |
+
+## Examples
+
+### Basic
+By default, the divider renders as a solid horizontal line.
+
+<div class="card flex-col items-center">
+    <p>Section One content...</p>
     <BDivider />
-    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-</div>
-
-```vue
-<p>Lorem ipsum...</p>
-<BDivider />
-<p>Sed do eiusmod...</p>
-```
-
-## Content
-Any content inside the divider is centered by default on top of the line.
-
-<div class="card flex-col gap-0">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur incidunt laudantium quaerat sequi velit? Ad, adipisci consequatur cum delectus dolore esse iste iure, laboriosam quae qui, quos repellendus sed similique!</p>
-    <BDivider>
-        <b>OR</b>
-    </BDivider>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ducimus laboriosam maxime nesciunt nobis odit quos totam. Cumque debitis ea eum ipsum itaque laudantium odio quo, repellat tenetur voluptatibus.</p>
-</div>
-
-```vue
-<p>Lorem ipsum...</p>
-<BDivider>
-    <b>OR</b>
-</BDivider>
-<p>Sed do eiusmod...</p>
-```
-
-### Icons as Content
-You can place icons inside the divider for a more visual separation.
-
-<div class="card flex-col gap-0">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium adipisci atque deleniti dolores magni maiores modi odio quae reiciendis? Architecto at ex excepturi facere id quo quod quos veritatis.</p>
-    <BDivider>
-        <MagnifyingGlassOutline class="size-4" />
-    </BDivider>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur ducimus eveniet ex nesciunt officiis praesentium reiciendis. Eius eveniet, fugiat. Alias deleniti dolore ducimus ea earum ipsum nisi perferendis quidem temporibus.</p>
+    <p>Section Two content...</p>
 </div>
 
 ```vue
 <template>
-    <p>Lorem...</p>
-    <BDivider>
-        <SearchOutline />
-    </BDivider>
-    <p>Lorem...</p>
+    <p>Section One content...</p>
+    <BDivider />
+    <p>Section Two content...</p>
 </template>
 ```
 
-## Vertical
-Vertical dividers are used to separate inline elements like toolbar items.
+### With Content & Alignment
+Passing content into the default slot places it over the line. Use the `align` prop to adjust its position.
 
-<div class="card">
-    <div class="flex items-center">
-        <span>Home</span>
-        <BDivider layout="vertical" />
-        <span>Docs</span>
-        <BDivider layout="vertical" />
-        <span>Blog</span>
+<div class="card flex-col">
+    <BDivider align="left">Left</BDivider>
+    <BDivider align="center">Center</BDivider>
+    <BDivider align="right">Right</BDivider>
+</div>
+
+```vue
+<template>
+    <BDivider align="left">Left</BDivider>
+    <BDivider align="center">Center</BDivider>
+    <BDivider align="right">Right</BDivider>
+</template>
+```
+
+::: tip Background Matching
+The slotted content is wrapped in a container that uses `var(--b-surface-section)` to mask the line behind it. If your divider is placed on a different background (like a primary panel), override `--b-divider-content-background` via inline styles or CSS classes so the cutout matches seamlessly.
+:::
+
+### Line Types
+Use the `type` prop to change the border style of the line.
+
+<div class="card flex-col">
+    <BDivider type="solid">Dashed</BDivider>
+    <BDivider type="dashed">Dashed</BDivider>
+    <BDivider type="dotted">Dotted</BDivider>
+    <BDivider type="double">Double</BDivider>
+</div>
+
+```vue
+<template>
+    <BDivider type="solid">Dashed</BDivider>
+    <BDivider type="dashed">Dashed</BDivider>
+    <BDivider type="dotted">Dotted</BDivider>
+    <BDivider type="double">Double</BDivider>
+</template>
+```
+
+### Vertical Layout
+Set `layout="vertical"` to draw a vertical line. This requires a parent container with a defined height or flexbox alignment.
+
+<div class="card items-center" style="height: 300px;">
+    <div>Panel 1</div>
+    <BDivider layout="vertical" align="top">Top</BDivider>
+    <div>Panel 2</div>
+    <BDivider layout="vertical" align="center">Center</BDivider>
+    <div>Panel 3</div>
+    <BDivider layout="vertical" align="bottom">Bottom</BDivider>
+    <div>Panel 4</div>
+</div>
+
+```vue
+<template>
+    <div class="flex items-center" style="height: 300px;">
+        <div>Panel 1</div>
+        <BDivider layout="vertical" align="top">Top</BDivider>
+        <div>Panel 2</div>
+        <BDivider layout="vertical" align="center">Center</BDivider>
+        <div>Panel 3</div>
+        <BDivider layout="vertical" align="bottom">Bottom</BDivider>
+        <div>Panel 4</div>
     </div>
-</div>
-
-```vue
-<div class="flex items-center">
-    <span>Home</span>
-    <BDivider layout="vertical" />
-    <span>Docs</span>
-    <BDivider layout="vertical" />
-    <span>Blog</span>
-</div>
+</template>
 ```
-
-## Alignment
-Content alignment within the divider can be adjusted using the `align` property.
-
-<div class="card flex-col">
-    <BDivider align="left"><b>Start</b></BDivider>
-    <BDivider align="center"><b>Center</b></BDivider>
-    <BDivider align="right"><b>End</b></BDivider>
-</div>
-
-```vue
-<BDivider align="left"><b>Start</b></BDivider>
-<BDivider align="center"><b>Center</b></BDivider>
-<BDivider align="right"><b>End</b></BDivider>
-```
-
-## Type
-The border style of the line can be set using the `type` property. Valid values are `solid` (default), `dotted`, `dashed`, and `double`.
-
-<div class="card flex-col">
-    <BDivider type="solid" />
-    <BDivider type="dashed" />
-    <BDivider type="dotted" />
-    <BDivider type="double" />
-</div>
-
-```vue
-<BDivider type="solid" />
-<BDivider type="dashed" />
-<BDivider type="dotted" />
-<BDivider type="double" />
-```
-
-## API
-
-### Divider Properties
-
-| Name     | Type     | Default      | Description                                                                                                                 |
-|:---------|:---------|:-------------|:----------------------------------------------------------------------------------------------------------------------------|
-| `layout` | `string` | `horizontal` | Orientation of the divider. Valid values are `horizontal` and `vertical`.                                                   |
-| `align`  | `string` | `center`     | Alignment of the content. Valid values are `left`, `center`, `right` (horizontal) and `top`, `center`, `bottom` (vertical). |
-| `type`   | `string` | `solid`      | Style of the border. Valid values are `solid`, `dashed`, `dotted`, `double`.                                                |
-
-### Divider Slots
-
-| Name      | Description                                   |
-|:----------|:----------------------------------------------|
-| `default` | Custom content to display inside the divider. |
