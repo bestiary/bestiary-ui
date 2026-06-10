@@ -1,26 +1,42 @@
 /**
- * Bestiary UI — Breadcrumb Component
+ * Bestiary UI — Breadcrumb Component Styles
  */
+
+/* ============================================================
+   1. B-BREADCRUMB COMPONENT
+   ============================================================ */
 :where(.b-breadcrumb) {
-    /* --- 1. LOCAL TOKENS --- */
+    /* --- Structural Tokens --- */
     --b-breadcrumb-padding:       var(--b-space-3) var(--b-space-4);
     --b-breadcrumb-background:    var(--b-surface-section);
-    --b-breadcrumb-border-radius: var(--b-radius-lg);
+    --b-breadcrumb-border-radius: var(--b-radius-container);
+    --b-breadcrumb-gap:           var(--b-space-2);
 
-    --b-breadcrumb-gap:             var(--b-space-2);
-    --b-breadcrumb-separator-color: var(--b-text-muted);
-
+    /* --- Typography & Colors --- */
+    --b-breadcrumb-font-size:        var(--b-text-sm);
+    --b-breadcrumb-font-weight:      var(--b-font-weight-medium);
     --b-breadcrumb-link-color:       var(--b-text-secondary);
     --b-breadcrumb-link-hover-color: var(--b-primary-solid-background);
-    --b-breadcrumb-transition:       color var(--b-duration-fast) var(--b-ease-base);
+    --b-breadcrumb-active-color:     var(--b-text-primary);
+    --b-breadcrumb-separator-color:  var(--b-text-muted);
 
-    /* --- 2. BASE STYLES --- */
+    /* --- Transitions --- */
+    --b-breadcrumb-transition: color var(--b-duration-fast) var(--b-ease-base),
+    box-shadow var(--b-duration-fast) var(--b-ease-base);
+
+    /* --- Base Styles --- */
     display: flex;
     padding: var(--b-breadcrumb-padding);
     background-color: var(--b-breadcrumb-background);
     border-radius: var(--b-breadcrumb-border-radius);
+    box-sizing: border-box;
 }
 
+/* ============================================================
+   2. INTERNAL ELEMENTS
+   ============================================================ */
+
+/* --- List Container --- */
 :where(.b-breadcrumb__list) {
     display: flex;
     align-items: center;
@@ -36,37 +52,63 @@
     align-items: center;
 }
 
+/* --- Link / Item Content --- */
 :where(.b-breadcrumb__link) {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: var(--b-space-1);
-    text-decoration: none;
+
     color: var(--b-breadcrumb-link-color);
-    font-size: var(--b-text-sm);
-    font-weight: var(--b-font-weight-normal);
+    font-size: var(--b-breadcrumb-font-size);
+    font-weight: var(--b-breadcrumb-font-weight);
+    line-height: var(--b-line-height-tight);
+    text-decoration: none;
+
+    border-radius: var(--b-radius-sm);
+    outline: none;
     transition: var(--b-breadcrumb-transition);
 }
 
-:where(.b-breadcrumb__link:not([aria-disabled="true"]):hover) {
+/* Interaction States */
+:where(.b-breadcrumb__link:not([aria-disabled="true"]):not([aria-current="page"]):hover) {
     color: var(--b-breadcrumb-link-hover-color);
 }
 
-:where(.b-breadcrumb__link[aria-disabled="true"]) {
-    opacity: var(--b-state-disabled-opacity);
-    pointer-events: none;
+:where(.b-breadcrumb__link:focus-visible) {
+    outline: var(--b-stroke-focus) solid var(--b-primary-outline-border);
+    outline-offset: 2px;
+}
+
+/* Current Page State */
+:where(.b-breadcrumb__link[aria-current="page"]) {
+    color: var(--b-breadcrumb-active-color);
     cursor: default;
 }
 
-/* Separator styling */
+/* Disabled State */
+:where(.b-breadcrumb__link[aria-disabled="true"]) {
+    opacity: var(--b-state-disabled-opacity, 0.5);
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+/* --- Separator --- */
 :where(.b-breadcrumb__separator) {
     display: flex;
     align-items: center;
     color: var(--b-breadcrumb-separator-color);
     user-select: none;
-    font-size: var(--b-text-xs);
+    font-size: calc(var(--b-breadcrumb-font-size) * 0.85);
 }
 
+/* --- Icon --- */
 :where(.b-breadcrumb__icon) {
-    width: 1rem;
-    height: 1rem;
+    /* Scales via em based on text size */
+    width: 1.1em;
+    height: 1.1em;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }

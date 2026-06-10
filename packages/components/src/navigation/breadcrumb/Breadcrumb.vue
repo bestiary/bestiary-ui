@@ -1,28 +1,50 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import {Component, computed} from 'vue';
 import type { BreadcrumbProps, BreadcrumbItem } from './breadcrumb.props';
 
-defineOptions({ name: "BBreadcrumb" });
+defineOptions({ name: 'BBreadcrumb' });
 
 const props = withDefaults(defineProps<BreadcrumbProps>(), {
     model: () => [],
-    separator: "/"
+    separator: '/'
 });
 
-/**
- * Component slots documentation
- */
 defineSlots<{
     /** Custom template for each item */
-    item?: (props: { item: BreadcrumbItem, label: string | undefined }) => any;
+    item?: (props: { item: BreadcrumbItem, label: string | undefined, isLast: boolean }) => any;
     /** Custom template for the separator */
-    separator?: (props: {}) => any;
+    separator?: (props: Record<string, never>) => any;
 }>();
 
 const visibleItems = computed(() => props.model.filter(item => item.visible !== false));
 
-const isTagLink = (item: BreadcrumbItem) => {
-    return !!(item.to && !item.disabled);
+const isStringIcon = (icon?: string | Component) => typeof icon === 'string';
+
+// Determines the correct HTML/Vue tag
+const getItemTag = (item: BreadcrumbItem) => {
+    if (item.disabled) return 'span';
+    if (item.to) return 'router-link';
+    if (item.url) return 'a';
+    return 'span'; // Fallback for text-only items
+};
+
+// Generates dynamic attributes based on the item state
+const getItemProps = (item: BreadcrumbItem, isLast: boolean) => {
+    const attrs: Record<string, any> = {};
+
+    if (item.disabled) {
+        attrs['aria-disabled'] = 'true';
+    } else {
+        if (item.to) attrs.to = item.to;
+        else if (item.url) attrs.href = item.url;
+    }
+
+    if (item.target) attrs.target = item.target;
+    if (isLast && !item.disabled && (item.to || item.url)) {
+        attrs['aria-current'] = 'page';
+    }
+
+    return attrs;
 };
 </script>
 
@@ -31,17 +53,16 @@ const isTagLink = (item: BreadcrumbItem) => {
         <ol class="b-breadcrumb__list">
 
             <!-- Home Item -->
-            <li v-if="home" class="b-breadcrumb__item b-breadcrumb__item--home">
-                <slot name="item" :item="home" :label="home.label">
+            <li v-if="home" :class="['b-breadcrumb__item b-breadcrumb__item--home', home.class]">
+                <slot name="item" :item="home" :label="home.label" :isLast="visibleItems.length === 0">
                     <component
-                        :is="isTagLink(home) ? 'router-link' : 'a'"
-                        :href="!isTagLink(home) ? (home.url || '#') : undefined"
-                        :to="isTagLink(home) ? home.to : undefined"
+                        :is="getItemTag(home)"
+                        v-bind="getItemProps(home, visibleItems.length === 0)"
                         class="b-breadcrumb__link"
-                        :target="home.target"
-                        :aria-disabled="home.disabled"
                     >
-                        <component :is="home.icon" v-if="home.icon" class="b-breadcrumb__icon" />
+                        <span v-if="isStringIcon(home.icon)" :class="['b-breadcrumb__icon', home.icon]" aria-hidden="true"></span>
+                        <component v-else-if="home.icon" :is="home.icon" class="b-breadcrumb__icon" aria-hidden="true" />
+
                         <span v-if="home.label" class="b-breadcrumb__label">{{ home.label }}</span>
                     </component>
                 </slot>
@@ -54,17 +75,16 @@ const isTagLink = (item: BreadcrumbItem) => {
 
             <!-- Model Items -->
             <template v-for="(item, index) in visibleItems" :key="index">
-                <li class="b-breadcrumb__item">
-                    <slot name="item" :item="item" :label="item.label">
+                <li :class="['b-breadcrumb__item', item.class]">
+                    <slot name="item" :item="item" :label="item.label" :isLast="index === visibleItems.length - 1">
                         <component
-                            :is="isTagLink(item) ? 'router-link' : 'a'"
-                            :href="!isTagLink(item) ? (item.url || '#') : undefined"
-                            :to="isTagLink(item) ? item.to : undefined"
+                            :is="getItemTag(item)"
+                            v-bind="getItemProps(item, index === visibleItems.length - 1)"
                             class="b-breadcrumb__link"
-                            :target="item.target"
-                            :aria-disabled="item.disabled"
                         >
-                            <component :is="item.icon" v-if="item.icon" class="b-breadcrumb__icon" />
+                            <span v-if="isStringIcon(item.icon)" :class="['b-breadcrumb__icon', item.icon]" aria-hidden="true"></span>
+                            <component v-else-if="item.icon" :is="item.icon" class="b-breadcrumb__icon" aria-hidden="true" />
+
                             <span v-if="item.label" class="b-breadcrumb__label">{{ item.label }}</span>
                         </component>
                     </slot>

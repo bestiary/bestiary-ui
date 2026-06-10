@@ -1,55 +1,31 @@
-import { Component } from "vue";
+import type { Component } from 'vue';
 
 export interface BreadcrumbItem {
-    /**
-     * Text of the item.
-     */
+    /** Text of the item. */
     label?: string;
-    /**
-     * Icon of the item.
-     */
+    /** Icon of the item. Can be a string class or Vue component. */
     icon?: string | Component;
-    /**
-     * External link to navigate to.
-     */
+    /** External link to navigate to. */
     url?: string;
-    /**
-     * Internal route object for router-link.
-     */
+    /** Internal route object for router-link. */
     to?: string | object;
-    /**
-     * Target attribute of the anchor element.
-     */
+    /** Target attribute of the anchor element. */
     target?: string;
-    /**
-     * Whether the item is disabled.
-     * @default false
-     */
+    /** Whether the item is disabled. @default false */
     disabled?: boolean;
-    /**
-     * Whether the item is visible.
-     * @default true
-     */
+    /** Whether the item is visible. @default true */
     visible?: boolean;
-    /**
-     * Custom data associated with the item.
-     */
+    /** Custom CSS class for the item. */
+    class?: any;
+    /** Custom data associated with the item. */
     [key: string]: any;
 }
 
 export interface BreadcrumbProps {
-    /**
-     * An array of menuitems.
-     * @default []
-     */
+    /** An array of menuitems. @default [] */
     model?: BreadcrumbItem[];
-    /**
-     * Configuration for the home item.
-     */
+    /** Configuration for the home item. */
     home?: BreadcrumbItem;
-    /**
-     * Custom separator between items.
-     * @default "/"
-     */
+    /** Custom separator between items. @default '/' */
     separator?: string;
 }
