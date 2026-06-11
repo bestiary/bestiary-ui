@@ -72,6 +72,12 @@ const config: UserConfig<CustomThemeConfig> = {
                             ]
                         },
                         {
+                            text: 'Navigation',
+                            items: [
+                                {text: 'Breadcrumb', link: '/components/navigation/breadcrumb'}
+                            ]
+                        },
+                        {
                             text: 'Data Display',
                             collapsed: false,
                             items: [
@@ -80,6 +86,18 @@ const config: UserConfig<CustomThemeConfig> = {
                                 {text: 'Card', link: '/components/data-display/card'},
                                 {text: 'Image', link: '/components/data-display/image'},
                                 {text: 'Tag', link: '/components/data-display/tag'}
+                            ]
+                        },
+                        {
+                            text: 'Data Entry',
+                            items: [
+
+                            ]
+                        },
+                        {
+                            text: 'Feedback',
+                            items: [
+
                             ]
                         },
                     ],
@@ -139,7 +157,7 @@ const config: UserConfig<CustomThemeConfig> = {
                                 {
                                     text: 'Navigation',
                                     items: [
-
+                                        {text: 'Breadcrumb', link: '/style/components/navigation/breadcrumb'}
                                     ]
                                 },
                                 {

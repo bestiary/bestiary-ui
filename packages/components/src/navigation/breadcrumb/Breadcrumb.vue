@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import {Component, computed} from 'vue';
+import { computed } from 'vue';
+import type { Component } from 'vue';
 import type { BreadcrumbProps, BreadcrumbItem } from './breadcrumb.props';
 
 defineOptions({ name: 'BBreadcrumb' });
