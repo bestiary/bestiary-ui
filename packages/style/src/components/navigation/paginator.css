@@ -1,42 +1,37 @@
 /**
- * Bestiary UI — Paginator Component
+ * Bestiary UI — Paginator Component Styles
  */
+
+/* ============================================================
+   1. B-PAGINATOR COMPONENT
+   ============================================================ */
 :where(.b-paginator) {
-    /* --- 1. LOCAL TOKENS --- */
-    --b-paginator-background:    var(--b-surface-section);
+    /* --- Structural Tokens --- */
     --b-paginator-padding:       var(--b-space-2) var(--b-space-4);
-    --b-paginator-border-radius: var(--b-radius-container);
     --b-paginator-gap:           var(--b-space-1);
 
     --b-paginator-button-size:   var(--b-size-8);
     --b-paginator-button-radius: var(--b-radius-interactive);
-    --b-paginator-button-color:  var(--b-text-secondary);
-    --b-paginator-button-hover-bg: var(--b-overlay-hover);
 
-    --b-paginator-select-bg:      var(--b-surface-section);
-    --b-paginator-select-border:  var(--b-border-default);
+    /* --- Colors --- */
+    --b-paginator-button-color:            var(--b-text-secondary);
+    --b-paginator-button-hover-background: var(--b-primary-overlay);
+    --b-paginator-button-hover-text:       var(--b-text-primary);
 
-    --b-paginator-active-bg:     var(--b-primary-solid-background);
-    --b-paginator-active-color:  var(--b-primary-solid-text);
-    --b-paginator-input-width:   3.5rem;
+    --b-paginator-active-background: var(--b-primary-solid-background);
+    --b-paginator-active-color:      var(--b-primary-solid-text);
 
-    /* --- 2. BASE STYLES --- */
+    --b-paginator-input-background: var(--b-surface-section);
+    --b-paginator-input-border:     var(--b-border-default);
+    --b-paginator-input-text:       var(--b-text-primary);
+
+    /* --- Base Styles --- */
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--b-space-4);
-    padding: var(--b-space-2) var(--b-space-4);
-}
-
-:where(.b-paginator__left, .b-paginator__right) {
-    display: flex;
-    align-items: center;
-    gap: var(--b-space-3);
-    flex: 1;
-}
-
-:where(.b-paginator__right) {
-    justify-content: flex-end;
+    padding: var(--b-paginator-padding);
+    box-sizing: border-box;
 }
 
 :where(.b-paginator__content) {
@@ -45,42 +40,25 @@
     justify-content: center;
     gap: var(--b-paginator-gap);
     flex-wrap: wrap;
+    flex: 1 1 auto;
 }
 
-:where(.b-paginator__select) {
-    appearance: none;
-    padding: var(--b-space-1) var(--b-space-6) var(--b-space-1) var(--b-space-3);
-    background-color: var(--b-paginator-select-bg);
-    border: 1px solid var(--b-paginator-select-border);
-    border-radius: var(--b-radius-interactive);
-    color: var(--b-text-primary);
-    font-size: var(--b-text-sm);
-    cursor: pointer;
-
-    /* Simple custom arrow */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right var(--b-space-2) center;
-    background-size: 1em;
-}
-
-:where(.b-paginator__select:focus) {
-    outline: 2px solid var(--b-primary-solid-background);
-    outline-offset: -1px;
-}
-
+/* ============================================================
+   2. BUTTONS & PAGES
+   ============================================================ */
 :where(.b-paginator__pages) {
     display: flex;
     gap: var(--b-paginator-gap);
 }
 
 :where(.b-paginator__button) {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     min-width: var(--b-paginator-button-size);
     height: var(--b-paginator-button-size);
     padding: 0 var(--b-space-2);
+    box-sizing: border-box;
 
     background: transparent;
     color: var(--b-paginator-button-color);
@@ -93,47 +71,96 @@
     font-weight: var(--b-font-weight-medium);
     transition: all var(--b-duration-normal) var(--b-ease-base);
     user-select: none;
+    outline: none;
 }
 
 :where(.b-paginator__button svg) {
-    width: 1.25rem;
+    width:  1.25rem;
     height: 1.25rem;
 }
 
-/* Hover State */
-:where(.b-paginator__button:not(:disabled):not(.is-active):hover) {
-    background-color: var(--b-paginator-button-hover-bg);
-    color: var(--b-text-primary);
+/* --- Interaction States --- */
+:where(.b-paginator__button:not(:disabled):not(.b-paginator__page--active):hover) {
+    background-color: var(--b-paginator-button-hover-background);
+    color: var(--b-paginator-button-hover-text);
 }
 
-/* Active State */
-:where(.b-paginator__button.is-active) {
-    background-color: var(--b-paginator-active-bg);
+:where(.b-paginator__button:focus-visible) {
+    outline: var(--b-stroke-focus) solid var(--b-primary-outline-border);
+    outline-offset: 2px;
+}
+
+/* --- Active State --- */
+:where(.b-paginator__page--active) {
+    background-color: var(--b-paginator-active-background);
     color: var(--b-paginator-active-color);
     cursor: default;
 }
 
-/* Disabled State */
+/* --- Disabled State --- */
 :where(.b-paginator__button:disabled) {
-    opacity: var(--b-state-disabled-opacity);
+    opacity: var(--b-state-disabled-opacity, 0.5);
     cursor: not-allowed;
 }
 
+/* ============================================================
+   3. INPUTS & SELECTS
+   ============================================================ */
+:where(.b-paginator__select),
+:where(.b-paginator__input) {
+    height: var(--b-paginator-button-size);
+    box-sizing: border-box;
+    background-color: var(--b-paginator-input-background);
+    border: 1px solid var(--b-paginator-input-border);
+    border-radius: var(--b-radius-interactive);
+    color: var(--b-paginator-input-text);
+
+    font-family: inherit;
+    font-size: var(--b-text-sm);
+    outline: none;
+    transition: border-color var(--b-duration-fast);
+}
+
+:where(.b-paginator__select:focus),
+:where(.b-paginator__input:focus) {
+    border-color: var(--b-primary-outline-border);
+    outline: var(--b-stroke-focus) solid var(--b-primary-outline-border);
+    outline-offset: -1px;
+}
+
+/* --- Select Dropdown --- */
+:where(.b-paginator__select) {
+    appearance: none;
+    padding: 0 var(--b-space-6) 0 var(--b-space-3);
+    cursor: pointer;
+
+    /* URL Encoded SVG with %236b7280 (gray-500) */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--b-space-2) center;
+    background-size: 1rem;
+}
+
+/* --- Jump To Page Input --- */
+:where(.b-paginator__input) {
+    width: 3.5rem;
+    text-align: center;
+    padding: 0 var(--b-space-1);
+    -moz-appearance: textfield; /* Firefox */
+}
+
+:where(.b-paginator__input::-webkit-inner-spin-button),
+:where(.b-paginator__input::-webkit-outer-spin-button) {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* ============================================================
+   4. REPORT (Text)
+   ============================================================ */
 :where(.b-paginator__report) {
     font-size: var(--b-text-sm);
-    padding: 0 var(--b-space-3);
-}
-
-:where(.b-paginator__input) {
-    width: var(--b-paginator-input-width);
-    text-align: center;
-    padding: var(--b-space-1);
-    background: var(--b-paginator-select-bg);
-    border: 1px solid var(--b-paginator-select-border);
-    border-radius: var(--b-radius-interactive);
-    color: var(--b-text-primary);
-}
-
-:where(.b-paginator__input::-webkit-inner-spin-button) {
-    display: none;
+    color: var(--b-text-secondary);
+    padding: 0 var(--b-space-2);
+    user-select: none;
 }

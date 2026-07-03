@@ -74,7 +74,8 @@ const config: UserConfig<CustomThemeConfig> = {
                         {
                             text: 'Navigation',
                             items: [
-                                {text: 'Breadcrumb', link: '/components/navigation/breadcrumb'}
+                                {text: 'Breadcrumb', link: '/components/navigation/breadcrumb'},
+                                {text: 'Paginator', link: '/components/navigation/paginator'},
                             ]
                         },
                         {
@@ -157,7 +158,8 @@ const config: UserConfig<CustomThemeConfig> = {
                                 {
                                     text: 'Navigation',
                                     items: [
-                                        {text: 'Breadcrumb', link: '/style/components/navigation/breadcrumb'}
+                                        {text: 'Breadcrumb', link: '/style/components/navigation/breadcrumb'},
+                                        {text: 'Paginator', link: '/style/components/navigation/paginator'}
                                     ]
                                 },
                                 {
