@@ -10,7 +10,7 @@ export const FilterService = {
         if (!filters || Object.keys(filters).length === 0) return value;
 
         return value.filter(row => {
-            // 1. Глобальний фільтр
+            // Global Filter
             if (filters['global']) {
                 const globalMeta = filters['global'] as FilterMetadata;
                 const globalValue = globalMeta.value;
@@ -24,7 +24,7 @@ export const FilterService = {
                 }
             }
 
-            // 2. Фільтри колонок
+            // Column Filters
             for (const field in filters) {
                 if (field === 'global') continue;
 
@@ -32,19 +32,14 @@ export const FilterService = {
                 const fieldValue = resolveFieldData(row, field);
 
                 if ('constraints' in filterMeta) {
-                    // Режим FilterOperatorMetadata (Advanced)
                     const operator = filterMeta.operator || 'and';
                     const matches = filterMeta.constraints.map(c =>
                         this.evaluate(fieldValue, c.value, c.matchMode)
                     );
 
-                    const isMatch = operator === 'and'
-                        ? matches.every(m => m)
-                        : matches.some(m => m);
-
+                    const isMatch = operator === 'and' ? matches.every(m => m) : matches.some(m => m);
                     if (!isMatch) return false;
                 } else {
-                    // Режим FilterMetadata (Basic)
                     if (!this.evaluate(fieldValue, filterMeta.value, filterMeta.matchMode)) {
                         return false;
                     }
@@ -56,13 +51,10 @@ export const FilterService = {
     },
 
     evaluate(value: any, filter: any, mode: string): boolean {
-        // Якщо фільтр порожній — пропускаємо всі значення
         if (filter === null || filter === undefined || filter === '') return true;
-
-        // Якщо значення в базі порожнє, а фільтр — ні — це не співпадіння
         if (value === null || value === undefined) return false;
 
-        // Date comparison
+        // Dates
         if (value instanceof Date || (typeof value === 'string' && !isNaN(Date.parse(value)) && mode.startsWith('date'))) {
             const vTime = new Date(value).getTime();
             const fTime = new Date(filter).getTime();
@@ -74,7 +66,7 @@ export const FilterService = {
             }
         }
 
-        // Boolean & Numeric Equals (без приведення до рядка для точності)
+        // Exact Matches
         if (typeof value === 'boolean' || typeof value === 'number') {
             switch (mode) {
                 case 'equals':    return value === filter;
@@ -82,7 +74,7 @@ export const FilterService = {
             }
         }
 
-        // String comparison
+        // Strings
         const v = String(value).toLowerCase();
         const f = String(filter).toLowerCase();
 

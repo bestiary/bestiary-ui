@@ -86,6 +86,7 @@ const config: UserConfig<CustomThemeConfig> = {
                                 {text: 'Badge', link: '/components/data-display/badge'},
                                 {text: 'Card', link: '/components/data-display/card'},
                                 {text: 'Image', link: '/components/data-display/image'},
+                                {text: 'Table', link: '/components/data-display/table'},
                                 {text: 'Tag', link: '/components/data-display/tag'}
                             ]
                         },
@@ -175,6 +176,7 @@ const config: UserConfig<CustomThemeConfig> = {
                                         {text: 'Badge', link: '/style/components/data-display/badge'},
                                         {text: 'Card', link: '/style/components/data-display/card'},
                                         {text: 'Image', link: '/style/components/data-display/image'},
+                                        {text: 'Table', link: '/style/components/data-display/table'},
                                         {text: 'Tag', link: '/style/components/data-display/tag'},
                                     ]
                                 },

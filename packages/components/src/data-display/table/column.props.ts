@@ -17,7 +17,7 @@ export interface ColumnProps {
      * Whether the column is sortable.
      * @default false
      */
-    sortable?: boolean;
+    sortable?: boolean | string;
     /**
      * Inline style of the column.
      */

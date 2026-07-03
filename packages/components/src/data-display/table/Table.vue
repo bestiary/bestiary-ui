@@ -1,76 +1,28 @@
 <script setup lang="ts">
-import { computed, Fragment, type VNode, ref, onMounted, onUnmounted } from 'vue';
+import { computed, Fragment, type VNode, ref, onUnmounted, watch } from 'vue';
 import type { DataTableFilterMeta, SortMeta, TableProps } from './table.props';
 import type { ColumnProps } from './column.props';
-import { FilterService } from "./filter.service";
+import { FilterService } from './filter.service';
 import BPaginator from '../../navigation/paginator/Paginator.vue';
 import BButton from '../../general/button/Button.vue';
 
-defineOptions({ name: "BTable" });
-
-/**
- * Component slots documentation
- */
-const slots = defineSlots<{
-    /** Default slot expected to contain BColumn components */
-    default?: (props: {}) => any;
-
-    /** Custom content for the table header */
-    header?: (props: {}) => any;
-
-    /** Custom content for the table footer */
-    footer?: (props: {}) => any;
-
-    /** Custom content when no data is available */
-    empty?: (props: {}) => any;
-
-    /** Custom content for the loading overlay */
-    loading?: (props: {}) => any;
-
-    /** Custom content at the start of the paginator */
-    paginatorstart?: (props: {}) => any;
-
-    /** Custom content at the end of the paginator */
-    paginatorend?: (props: {}) => any;
-
-    /** Headless container for the paginator */
-    paginatorcontainer?: (props: {
-        first: number;
-        last: number;
-        rows: number;
-        page: number;
-        pageCount: number;
-        totalRecords: number;
-        firstPageCallback: () => void;
-        lastPageCallback: () => void;
-        prevPageCallback: () => void;
-        nextPageCallback: () => void;
-        rowChangeCallback: (value: number) => void;
-    }) => any;
-
-    /** Custom content for the filter clear button in menu mode */
-    filterclear?: (props: { field: string | undefined; filterCallback: () => void }) => any;
-
-    /** Custom content for the filter apply button in menu mode */
-    filterapply?: (props: { field: string | undefined; filterCallback: () => void }) => any;
-}>();
+defineOptions({ name: 'BTable' });
 
 const props = withDefaults(defineProps<TableProps>(), {
     value: () => [],
-    size: "medium",
-    filterDisplay: undefined,
+    size: 'medium',
     globalFilterFields: () => [],
     loading: false,
     stripedRows: false,
     rowHover: false,
     showGridlines: false,
     paginator: false,
-    paginatorPosition: "bottom",
+    paginatorPosition: 'bottom',
     alwaysShowPaginator: true,
     rows: 10,
     first: 0,
     pageLinkSize: 5,
-    sortMode: "single",
+    sortMode: 'single',
     removableSort: false,
 });
 
@@ -83,23 +35,29 @@ const d_sortField = defineModel<string>('sortField');
 const d_sortOrder = defineModel<number>('sortOrder');
 const d_multiSortMeta = defineModel<SortMeta[]>('multiSortMeta', { default: () => [] });
 
-/* --- 1. OPTIMIZED HELPERS --- */
+const slots = defineSlots<any>(); // Type omitted for brevity, logic remains
 
-const fieldCache: Record<string, string[]> = {};
+/* --- Optimized Data Resolver --- */
+const fieldCache = new Map<string, string[]>();
 const resolveFieldData = (data: any, field: string | undefined): any => {
     if (!data || !field) return null;
     if (!field.includes('.')) return data[field];
 
-    // Cache the split path to improve performance during large loops
-    if (!fieldCache[field]) fieldCache[field] = field.split('.');
-    return fieldCache[field].reduce((obj, key) => (obj && obj[key] !== undefined ? obj[key] : null), data);
+    if (!fieldCache.has(field)) fieldCache.set(field, field.split('.'));
+    const path = fieldCache.get(field)!;
+
+    let obj = data;
+    for (let i = 0, len = path.length; i < len; i++) {
+        obj = obj[path[i]];
+        if (obj == null) return null;
+    }
+    return obj;
 };
 
-/* --- 2. FILTER MENU LOGIC --- */
-
+/* --- Filter Menu Logic --- */
 const activeFilterMenuField = ref<string | null>(null);
 
-const toggleFilterMenu = (event: MouseEvent, field: string) => {
+const toggleFilterMenu = (event: Event, field: string) => {
     event.stopPropagation();
     activeFilterMenuField.value = activeFilterMenuField.value === field ? null : field;
 };
@@ -121,11 +79,17 @@ const handleOutsideClick = (event: MouseEvent) => {
     }
 };
 
-onMounted(() => document.addEventListener('click', handleOutsideClick));
-onUnmounted(() => document.removeEventListener('click', handleOutsideClick));
+// Safe event listener registration
+watch(activeFilterMenuField, (newVal) => {
+    if (newVal) document.addEventListener('click', handleOutsideClick, { passive: true });
+    else document.removeEventListener('click', handleOutsideClick);
+});
 
-/* --- 3. DATA PROCESSING --- */
+onUnmounted(() => {
+    document.removeEventListener('click', handleOutsideClick);
+});
 
+/* --- Data Processing --- */
 const filteredData = computed(() => FilterService.filter(props.value, d_filters.value, props.globalFilterFields, resolveFieldData));
 
 const sortedData = computed(() => {
@@ -153,8 +117,7 @@ const sortedData = computed(() => {
 const dataToRender = computed(() => props.paginator ? sortedData.value.slice(d_first.value, d_first.value + d_rows.value) : sortedData.value);
 const totalRecordsCount = computed(() => props.totalRecords ?? filteredData.value.length);
 
-/* --- 4. COLUMN DISCOVERY --- */
-
+/* --- Column Discovery --- */
 interface ColumnSlotContext {
     props: ColumnProps;
     slots: Record<string, any>;
@@ -165,7 +128,12 @@ const columns = computed(() => {
     const findColumns = (nodes: VNode[]): ColumnSlotContext[] => {
         return nodes.flatMap(node => {
             if (node.type === Fragment && Array.isArray(node.children)) return findColumns(node.children as VNode[]);
-            if ((node.type as any)?.name === 'BColumn') {
+
+            // Safe check for production builds (name could be minified)
+            const type = node.type as any;
+            const name = type?.name || type?.__name;
+
+            if (name === 'BColumn') {
                 const rawProps = (node.props as any) || {};
                 return {
                     props: { ...rawProps, sortable: rawProps.sortable === '' ? true : !!rawProps.sortable } as ColumnProps,
@@ -178,8 +146,7 @@ const columns = computed(() => {
     return findColumns(children).filter(col => !col.props.hidden);
 });
 
-/* --- 5. PAGINATOR PROPS HELPER --- */
-
+/* --- Helpers & Handlers --- */
 const paginatorProps = computed(() => ({
     totalRecords: totalRecordsCount.value,
     rowsPerPageOptions: props.rowsPerPageOptions,
@@ -188,8 +155,6 @@ const paginatorProps = computed(() => ({
     alwaysShow: props.alwaysShowPaginator,
     pageLinkSize: props.pageLinkSize
 }));
-
-/* --- 6. HANDLERS --- */
 
 const filterCallback = () => { d_first.value = 0; emit('filter', { filters: d_filters.value }); };
 
@@ -200,7 +165,12 @@ const getColumnSortOrder = (field: string | undefined) => {
         : (d_multiSortMeta.value.find(m => m.field === field)?.order || 0);
 };
 
-const onSort = (event: MouseEvent, column: ColumnProps) => {
+const getAriaSort = (field: string | undefined) => {
+    const order = getColumnSortOrder(field);
+    return order === 1 ? 'ascending' : order === -1 ? 'descending' : 'none';
+};
+
+const onSort = (event: Event, column: ColumnProps) => {
     const target = event.target as HTMLElement;
     if (target.closest('.b-table__filter-menu-container')) return;
     if (!column.sortable || !column.field) return;
@@ -213,9 +183,10 @@ const onSort = (event: MouseEvent, column: ColumnProps) => {
         d_sortField.value = newOrder === 0 ? undefined : field;
         d_sortOrder.value = newOrder === 0 ? undefined : newOrder;
     } else {
+        const mouseEvent = event as MouseEvent;
         let meta = [...d_multiSortMeta.value];
         const index = meta.findIndex(m => m.field === field);
-        if (!event.metaKey && !event.ctrlKey) {
+        if (!mouseEvent.metaKey && !mouseEvent.ctrlKey) {
             meta = newOrder === 0 ? [] : [{ field, order: newOrder }];
         } else {
             if (index !== -1) {
@@ -241,7 +212,6 @@ const onPage = (event: any) => {
     <div :class="[ 'b-table', `b-table--size-${size}`, { 'b-table--striped': stripedRows, 'b-table--hover': rowHover, 'b-table--gridlines': showGridlines, 'b-table--loading': loading }]">
         <div v-if="$slots.header" class="b-table__header"><slot name="header" /></div>
 
-        <!-- REUSABLE PAGINATOR BLOCK -->
         <BPaginator
             v-if="paginator && (paginatorPosition === 'top' || paginatorPosition === 'both')"
             v-model:first="d_first" v-model:rows="d_rows" v-bind="paginatorProps" @page="onPage"
@@ -252,12 +222,17 @@ const onPage = (event: any) => {
         </BPaginator>
 
         <div class="b-table__wrapper">
-            <table :class="['b-table__el', tableClass]" :style="tableStyle">
+            <table :class="['b-table__el', tableClass]" :style="tableStyle" role="table">
                 <thead class="b-table__thead">
                 <tr class="b-table__tr">
                     <th v-for="col in columns" :key="col.props.field || col.props.header"
-                        :class="['b-table__th', { 'is-sortable': col.props.sortable }]"
-                        :style="col.props.style" @click="onSort($event, col.props)"
+                        :class="['b-table__th', { 'b-table__th--sortable': col.props.sortable }]"
+                        :style="col.props.style"
+                        role="columnheader"
+                        :aria-sort="col.props.sortable ? getAriaSort(col.props.field) : undefined"
+                        :tabindex="col.props.sortable ? 0 : undefined"
+                        @click="onSort($event, col.props)"
+                        @keydown.enter.prevent="onSort($event, col.props)"
                     >
                         <div class="b-table__th-content">
                             <div class="b-table__header-label">
@@ -265,46 +240,31 @@ const onPage = (event: any) => {
                                 <template v-else>{{ col.props.header }}</template>
                             </div>
 
-                            <!-- Sorting Icons (Large) -->
-                            <div v-if="col.props.sortable" class="b-table__sort-icon-group">
-                                <svg v-if="getColumnSortOrder(col.props.field) >= 0" class="b-table__sort-icon is-up" :class="{ 'is-active': getColumnSortOrder(col.props.field) === 1 }" viewBox="0 0 24 12"><path d="M12 2l10 10H2L12 2z"/></svg>
-                                <svg v-if="getColumnSortOrder(col.props.field) <= 0" class="b-table__sort-icon is-down" :class="{ 'is-active': getColumnSortOrder(col.props.field) === -1 }" viewBox="0 0 24 12"><path d="M12 10L2 0h20L12 10z"/></svg>
+                            <div v-if="col.props.sortable" class="b-table__sort-icon-group" aria-hidden="true">
+                                <svg v-if="getColumnSortOrder(col.props.field) >= 0" class="b-table__sort-icon b-table__sort-icon--up" :class="{ 'b-table__sort-icon--active': getColumnSortOrder(col.props.field) === 1 }" viewBox="0 0 24 12"><path d="M12 2l10 10H2L12 2z"/></svg>
+                                <svg v-if="getColumnSortOrder(col.props.field) <= 0" class="b-table__sort-icon b-table__sort-icon--down" :class="{ 'b-table__sort-icon--active': getColumnSortOrder(col.props.field) === -1 }" viewBox="0 0 24 12"><path d="M12 10L2 0h20L12 10z"/></svg>
                             </div>
 
-                            <!-- Filter Menu -->
                             <div v-if="filterDisplay === 'menu' && col.slots.filter" class="b-table__filter-menu-container">
-                                <button type="button" class="b-table__filter-menu-button" :class="{ 'is-active': activeFilterMenuField === (col.props.filterField || col.props.field) }" @click="toggleFilterMenu($event, col.props.filterField || col.props.field!)">
-                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3 4c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v2c0 .5-.2 1-.6 1.4L15 13v7a1 1 0 0 1-1.4.9l-4-2c-.4-.2-.6-.6-.6-.9v-5L3.6 7.4A2 2 0 0 1 3 6V4z"/></svg>
+                                <button type="button"
+                                        class="b-table__filter-menu-button"
+                                        :class="{ 'b-table__filter-menu-button--active': activeFilterMenuField === (col.props.filterField || col.props.field) }"
+                                        aria-haspopup="true"
+                                        :aria-expanded="activeFilterMenuField === (col.props.filterField || col.props.field)"
+                                        @click="toggleFilterMenu($event, col.props.filterField || col.props.field!)">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M3 4c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v2c0 .5-.2 1-.6 1.4L15 13v7a1 1 0 0 1-1.4.9l-4-2c-.4-.2-.6-.6-.6-.9v-5L3.6 7.4A2 2 0 0 1 3 6V4z"/></svg>
                                 </button>
-                                <div v-if="activeFilterMenuField === (col.props.filterField || col.props.field)" class="b-table__filter-popover">
+
+                                <div v-if="activeFilterMenuField === (col.props.filterField || col.props.field)" class="b-table__filter-popover" @click.stop>
                                     <div class="b-table__filter-popover-content">
                                         <component :is="col.slots.filter" :filterModel="d_filters[col.props.filterField || col.props.field!]" :filterCallback="filterCallback" />
                                     </div>
                                     <div class="b-table__filter-popover-footer">
-                                        <slot
-                                            name="filterclear"
-                                            :field="col.props.field"
-                                            :filterCallback="() => clearColumnFilter(col.props.field ?? '')"
-                                        >
-                                            <BButton
-                                                label="Clear"
-                                                size="small"
-                                                variant="text"
-                                                severity="secondary"
-                                                @click="clearColumnFilter(col.props.field ?? '')"
-                                            />
+                                        <slot name="filterclear" :field="col.props.field" :filterCallback="() => clearColumnFilter(col.props.field ?? '')">
+                                            <BButton label="Clear" size="small" variant="text" severity="secondary" @click="clearColumnFilter(col.props.field ?? '')" />
                                         </slot>
-
-                                        <slot
-                                            name="filterapply"
-                                            :field="col.props.field"
-                                            :filterCallback="filterCallback"
-                                        >
-                                            <BButton
-                                                label="Apply"
-                                                size="small"
-                                                @click="filterCallback(); activeFilterMenuField = null;"
-                                            />
+                                        <slot name="filterapply" :field="col.props.field" :filterCallback="filterCallback">
+                                            <BButton label="Apply" size="small" @click="filterCallback(); activeFilterMenuField = null;" />
                                         </slot>
                                     </div>
                                 </div>
@@ -328,7 +288,11 @@ const onPage = (event: any) => {
                         </td>
                     </tr>
                 </template>
-                <tr v-else-if="$slots.empty" class="b-table__tr b-table__tr--empty"><td :colspan="columns.length" class="b-table__td"><slot name="empty"/></td></tr>
+                <tr v-else class="b-table__tr b-table__tr--empty">
+                    <td :colspan="columns.length" class="b-table__td">
+                        <slot name="empty">No records found</slot>
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>
