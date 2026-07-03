@@ -2,20 +2,17 @@
 import { computed } from 'vue';
 import type { ProgressProps } from './progress.props';
 
-defineOptions({ name: "BProgress" });
+defineOptions({ name: 'BProgress' });
 
 const props = withDefaults(defineProps<ProgressProps>(), {
     value: 0,
-    mode: "determinate",
-    type: "linear",
+    mode: 'determinate',
+    type: 'linear',
     showValue: true,
-    severity: "primary",
+    severity: 'primary',
     strokeWidth: 4
 });
 
-/**
- * Component slots documentation
- */
 defineSlots<{
     /** Custom content for the progress label */
     default?: (props: { value: number }) => any;
@@ -24,17 +21,19 @@ defineSlots<{
 const isIndeterminate = computed(() => props.mode === 'indeterminate');
 const progressValue = computed(() => Math.min(Math.max(props.value, 0), 100));
 
-/* --- Circular Logic --- */
-const radius = 18; // Fixed radius for SVG internal coordination
-const circumference = 2 * Math.PI * radius;
-const dashOffset = computed(() => circumference - (progressValue.value / 100) * circumference);
+/* --- Circular SVG Logic --- */
+// Using a normalized 50x50 coordinate system to prevent clipping when strokeWidth is large
+const center = 25;
+const radius = computed(() => center - (props.strokeWidth / 2));
+const circumference = computed(() => 2 * Math.PI * radius.value);
+const dashOffset = computed(() => circumference.value - (progressValue.value / 100) * circumference.value);
 
 const classes = computed(() => [
-    "b-progress",
+    'b-progress',
     `b-progress--${props.type}`,
     `b-progress--severity-${props.severity}`,
     {
-        "b-progress--indeterminate": isIndeterminate.value
+        'b-progress--indeterminate': isIndeterminate.value
     }
 ]);
 
@@ -52,6 +51,7 @@ const style = computed(() => ({
         :aria-valuemin="0"
         :aria-valuemax="100"
         :aria-valuenow="isIndeterminate ? undefined : progressValue"
+        :aria-label="ariaLabel"
     >
         <!-- LINEAR TYPE -->
         <template v-if="type === 'linear'">
@@ -69,18 +69,18 @@ const style = computed(() => ({
 
         <!-- CIRCULAR TYPE -->
         <template v-else>
-            <svg class="b-progress__svg" viewBox="0 0 40 40">
+            <svg class="b-progress__svg" viewBox="0 0 50 50">
                 <!-- Background circle -->
                 <circle
                     class="b-progress__circle-track"
-                    cx="20" cy="20" :r="radius"
+                    :cx="center" :cy="center" :r="radius"
                     fill="none"
                     :stroke-width="strokeWidth"
                 />
                 <!-- Progress circle -->
                 <circle
                     class="b-progress__circle-value"
-                    cx="20" cy="20" :r="radius"
+                    :cx="center" :cy="center" :r="radius"
                     fill="none"
                     :stroke-width="strokeWidth"
                     stroke-linecap="round"

@@ -1,6 +1,6 @@
-export type ProgressMode = "determinate" | "indeterminate";
-export type ProgressType = "linear" | "circular";
-export type ProgressSeverity = "primary" | "secondary" | "success" | "info" | "warn" | "danger" | "contrast";
+export type ProgressMode = 'determinate' | 'indeterminate';
+export type ProgressType = 'linear' | 'circular';
+export type ProgressSeverity = 'primary' | 'secondary' | 'success' | 'info' | 'warn' | 'danger' | 'contrast';
 
 export interface ProgressProps {
     /**
@@ -11,13 +11,13 @@ export interface ProgressProps {
 
     /**
      * Defines the operation mode.
-     * @default "determinate"
+     * @default 'determinate'
      */
     mode?: ProgressMode;
 
     /**
      * Type of the progress bar.
-     * @default "linear"
+     * @default 'linear'
      */
     type?: ProgressType;
 
@@ -29,18 +29,23 @@ export interface ProgressProps {
 
     /**
      * Severity level of the progress bar.
-     * @default "primary"
+     * @default 'primary'
      */
     severity?: ProgressSeverity;
 
     /**
-     * Width of the stroke in circular mode.
+     * Width of the stroke in circular mode. Relative to a 50x50 SVG viewBox.
      * @default 4
      */
     strokeWidth?: number;
 
     /**
-     * Diameter of the circle in circular mode (e.g. '100px').
+     * Diameter of the circle in circular mode (e.g. '100px' or '4rem').
      */
     size?: string;
+
+    /**
+     * Accessible label for screen readers. Crucial when showValue is false.
+     */
+    ariaLabel?: string;
 }

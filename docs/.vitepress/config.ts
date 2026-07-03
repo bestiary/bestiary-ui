@@ -97,7 +97,7 @@ const config: UserConfig<CustomThemeConfig> = {
                         {
                             text: 'Feedback',
                             items: [
-
+                                {text: 'Progress', link: '/components/feedback/progress'}
                             ]
                         },
                     ],
@@ -179,7 +179,7 @@ const config: UserConfig<CustomThemeConfig> = {
                                 {
                                     text: 'Feedback',
                                     items: [
-
+                                        {text: 'Progress', link: '/style/components/feedback/progress'},
                                     ]
                                 }
                             ]
