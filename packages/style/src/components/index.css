@@ -23,7 +23,9 @@
 @import "./data-entry/checkbox.css";
 @import "./data-entry/select-button.css";
 @import "./data-entry/date-picker.css";
+@import "./data-entry/select.css";
 
+@import "./feedback/dialog.css";
 @import "./feedback/message.css";
 @import "./feedback/skeleton.css";
 @import "./feedback/progress.css";

@@ -1,0 +1,275 @@
+/**
+ * Bestiary UI — Select Component Styles
+ */
+
+/* ============================================================
+   1. B-SELECT COMPONENT
+   ============================================================ */
+:where(.b-select) {
+    /* --- Tokens --- */
+    --b-select-background:              var(--b-surface-section);
+    --b-select-border-color:    var(--b-border-default);
+    --b-select-radius:          var(--b-radius-interactive);
+    --b-select-color:           var(--b-text-primary);
+    --b-select-placeholder:     var(--b-text-muted);
+
+    --b-select-hover-border:    var(--b-stroke-strong);
+    --b-select-focus-border:    var(--b-primary-outline-border);
+    --b-select-invalid-border:  var(--b-error-outline-border);
+    --b-select-disabled-background:     var(--b-surface-ground);
+
+    --b-select-padding-y:       var(--b-space-2);
+    --b-select-padding-x:       var(--b-space-3);
+    --b-select-font-size:       var(--b-text-sm);
+    --b-select-height:          var(--b-control-size-md);
+
+    --b-select-transition:      border-color var(--b-duration-fast), box-shadow var(--b-duration-fast);
+
+    /* Overlay Tokens */
+    --b-select-overlay-background:      var(--b-surface-overlay);
+    --b-select-overlay-border:  var(--b-border-subtle);
+    --b-select-overlay-shadow:  var(--b-shadow-lg);
+    --b-select-overlay-radius:  var(--b-radius-lg);
+    --b-select-item-padding:    var(--b-space-2) var(--b-space-3);
+
+    --b-select-item-hover-background:   var(--b-overlay-hover);
+    --b-select-item-selected-background:var(--b-primary-subtle-background);
+    --b-select-item-selected-color: var(--b-primary-solid-text);
+
+    /* --- Base Styles --- */
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    cursor: pointer;
+    user-select: none;
+
+    height: var(--b-select-height);
+    background-color: var(--b-select-background);
+    border: 1px solid var(--b-select-border-color);
+    border-radius: var(--b-select-radius);
+    transition: var(--b-select-transition);
+    outline: none;
+}
+
+:where(.b-select--fluid) {
+    width: 100%;
+}
+
+:where(.b-select__label) {
+    flex: 1 1 auto;
+    padding: var(--b-select-padding-y) var(--b-select-padding-x);
+    font-size: var(--b-select-font-size);
+    color: var(--b-select-color);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+:where(.b-select__placeholder) {
+    color: var(--b-select-placeholder);
+}
+
+:where(.b-select__tools) {
+    display: flex;
+    align-items: center;
+    padding-right: var(--b-space-3);
+    gap: var(--b-space-2);
+    flex-shrink: 0;
+    color: var(--b-text-muted);
+}
+
+:where(.b-select__clear) {
+    display: flex;
+    align-items: center;
+    color: var(--b-text-muted);
+    transition: color var(--b-duration-fast);
+}
+
+:where(.b-select__clear:hover) {
+    color: var(--b-text-primary);
+}
+
+/* ============================================================
+   2. STATES
+   ============================================================ */
+:where(.b-select:not(.b-select--disabled):hover) {
+    border-color: var(--b-select-hover-border);
+}
+
+:where(.b-select--focus),
+:where(.b-select--open) {
+    border-color: var(--b-select-focus-border);
+    outline: var(--b-stroke-focus) solid var(--b-select-focus-border);
+    outline-offset: -1px;
+}
+
+:where(.b-select--invalid) {
+    border-color: var(--b-select-invalid-border);
+}
+
+:where(.b-select--invalid.b-select--focus) {
+    outline-color: var(--b-select-invalid-border);
+}
+
+:where(.b-select--disabled) {
+    background-color: var(--b-select-disabled-background);
+    opacity: var(--b-state-disabled-opacity, 0.6);
+    pointer-events: none;
+}
+
+/* ============================================================
+   3. SIZES & VARIANTS
+   ============================================================ */
+:where(.b-select--size-small) {
+    --b-select-height:    var(--b-control-size-sm);
+    --b-select-padding-x: var(--b-space-2);
+    --b-select-font-size: var(--b-text-sm);
+}
+
+:where(.b-select--size-large) {
+    --b-select-height:    var(--b-control-size-lg);
+    --b-select-padding-x: var(--b-space-4);
+    --b-select-font-size: var(--b-text-md);
+}
+
+:where(.b-select--variant-filled) {
+    --b-select-background: var(--b-surface-ground);
+    --b-select-border-color: transparent;
+}
+
+/* ============================================================
+   4. OVERLAY & LIST
+   ============================================================ */
+:where(.b-select__overlay) {
+    position: absolute;
+    z-index: var(--b-z-dropdown, 1000);
+    background-color: var(--b-select-overlay-background);
+    border: 1px solid var(--b-select-overlay-border);
+    border-radius: var(--b-select-overlay-radius);
+    box-shadow: var(--b-select-overlay-shadow);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+/* Filter Input */
+:where(.b-select__filter-container) {
+    position: relative;
+    padding: var(--b-space-2);
+    border-bottom: 1px solid var(--b-border-subtle);
+}
+
+:where(.b-select__filter-input) {
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--b-space-2) var(--b-space-7) var(--b-space-2) var(--b-space-3);
+    background: var(--b-surface-section);
+    border: 1px solid var(--b-border-default);
+    border-radius: var(--b-radius-interactive);
+    color: var(--b-text-primary);
+    outline: none;
+    font-family: inherit;
+}
+
+:where(.b-select__filter-input:focus) {
+    border-color: var(--b-primary-outline-border);
+}
+
+:where(.b-select__filter-icon) {
+    position: absolute;
+    right: var(--b-space-4);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--b-text-muted);
+    pointer-events: none;
+}
+
+/* List */
+:where(.b-select__list-wrapper) {
+    overflow-y: auto;
+    max-height: 15rem;
+    padding: var(--b-space-1);
+}
+
+:where(.b-select__list) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+:where(.b-select__item) {
+    padding: var(--b-select-item-padding);
+    color: var(--b-text-primary);
+    font-size: var(--b-text-sm);
+    border-radius: var(--b-radius-sm);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--b-space-2);
+    transition: background-color var(--b-duration-fast);
+}
+
+:where(.b-select__item--focused) {
+    background-color: var(--b-select-item-hover-background);
+}
+
+:where(.b-select__item--selected) {
+    background-color: var(--b-select-item-selected-background);
+    color: var(--b-select-item-selected-color);
+    font-weight: var(--b-font-weight-medium);
+}
+
+:where(.b-select__item--disabled) {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Group Header */
+:where(.b-select__item--group) {
+    cursor: default;
+    font-weight: var(--b-font-weight-bold);
+    color: var(--b-text-muted);
+    padding-top: var(--b-space-3);
+    background-color: transparent !important;
+}
+
+:where(.b-select__checkbox) {
+    width: 1.125rem;
+    height: 1.125rem;
+    border: 1px solid var(--b-stroke-strong);
+    border-radius: var(--b-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all var(--b-duration-fast);
+}
+
+:where(.b-select__item--selected .b-select__checkbox) {
+    background-color: var(--b-primary-solid-background);
+    border-color: var(--b-primary-solid-background);
+    color: var(--b-primary-solid-text);
+}
+
+:where(.b-select__empty) {
+    padding: var(--b-select-item-padding);
+    color: var(--b-text-muted);
+    text-align: center;
+    font-size: var(--b-text-sm);
+}
+
+/* ============================================================
+   5. TRANSITIONS
+   ============================================================ */
+.b-select-fade-enter-active,
+.b-select-fade-leave-active {
+    transition: opacity var(--b-duration-fast) var(--b-ease-out),
+    transform var(--b-duration-fast) var(--b-ease-out);
+}
+
+.b-select-fade-enter-from,
+.b-select-fade-leave-to {
+    opacity: 0;
+    transform: scaleY(0.95);
+}

@@ -99,6 +99,7 @@ const config: UserConfig<CustomThemeConfig> = {
                         {
                             text: 'Feedback',
                             items: [
+                                {text: 'Dialog', link: '/components/feedback/dialog'},
                                 {text: 'Progress', link: '/components/feedback/progress'}
                             ]
                         },
@@ -183,6 +184,7 @@ const config: UserConfig<CustomThemeConfig> = {
                                 {
                                     text: 'Feedback',
                                     items: [
+                                        {text: 'Dialog', link: '/style/components/feedback/dialog'},
                                         {text: 'Progress', link: '/style/components/feedback/progress'},
                                     ]
                                 }

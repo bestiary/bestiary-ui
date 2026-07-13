@@ -143,6 +143,12 @@ const router = createRouter({
 
         // Feedback
         {
+            path: "/dialog",
+            name: "dialog",
+            component: () => import("../views/DialogView.vue"),
+            meta: {category: "Feedback", title: "Dialog"}
+        },
+        {
             path: "/message",
             name: "message",
             component: () => import("../views/MessageView.vue"),

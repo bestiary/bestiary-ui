@@ -1,0 +1,199 @@
+/**
+ * Bestiary UI — Dialog Component Styles
+ */
+
+/* ============================================================
+   1. B-DIALOG MASK (Overlay & Positioning)
+   ============================================================ */
+:where(.b-dialog-mask) {
+    /* --- Mask Tokens --- */
+    --b-dialog-mask-background: transparent;
+
+    position: fixed;
+    inset: 0;
+    z-index: var(--b-z-modal, 1000);
+    display: flex;
+    box-sizing: border-box;
+    background-color: var(--b-dialog-mask-background);
+}
+
+:where(.b-dialog-mask--modal) {
+    /* Darken overlay using black channels for theming support */
+    --b-dialog-mask-background: oklch(var(--b-black-channels) / 50%);
+    backdrop-filter: blur(2px);
+}
+
+/* Flexbox alignments for the 9 defined positions */
+:where(.b-dialog-mask--center)      { align-items: center; justify-content: center; }
+:where(.b-dialog-mask--top)         { align-items: flex-start; justify-content: center; padding-top: var(--b-space-8); }
+:where(.b-dialog-mask--bottom)      { align-items: flex-end; justify-content: center; padding-bottom: var(--b-space-8); }
+:where(.b-dialog-mask--left)        { align-items: center; justify-content: flex-start; padding-left: var(--b-space-8); }
+:where(.b-dialog-mask--right)       { align-items: center; justify-content: flex-end; padding-right: var(--b-space-8); }
+:where(.b-dialog-mask--topleft)     { align-items: flex-start; justify-content: flex-start; padding: var(--b-space-8); }
+:where(.b-dialog-mask--topright)    { align-items: flex-start; justify-content: flex-end; padding: var(--b-space-8); }
+:where(.b-dialog-mask--bottomleft)  { align-items: flex-end; justify-content: flex-start; padding: var(--b-space-8); }
+:where(.b-dialog-mask--bottomright) { align-items: flex-end; justify-content: flex-end; padding: var(--b-space-8); }
+
+
+/* ============================================================
+   2. B-DIALOG (The Window)
+   ============================================================ */
+:where(.b-dialog) {
+    /* --- Dialog Tokens --- */
+    --b-dialog-background:              var(--b-surface-section);
+    --b-dialog-border:          1px solid var(--b-border-subtle);
+    --b-dialog-radius:          var(--b-radius-xl);
+    --b-dialog-shadow:          var(--b-shadow-2xl);
+    --b-dialog-color:           var(--b-text-primary);
+
+    --b-dialog-header-padding:  var(--b-space-5);
+    --b-dialog-header-gap:      var(--b-space-4);
+    --b-dialog-title-size:      var(--b-h5-size);
+    --b-dialog-title-weight:    var(--b-font-weight-bold);
+
+    --b-dialog-content-padding: 0 var(--b-space-5) var(--b-space-5) var(--b-space-5);
+
+    --b-dialog-footer-padding:  var(--b-space-4) var(--b-space-5);
+    --b-dialog-footer-gap:      var(--b-space-2);
+
+    --b-dialog-action-size:     var(--b-size-8);
+    --b-dialog-action-color:    var(--b-text-muted);
+    --b-dialog-action-hover-background: var(--b-overlay-hover);
+    --b-dialog-action-hover-color: var(--b-text-primary);
+
+    /* --- Base Styles --- */
+    display: flex;
+    flex-direction: column;
+    pointer-events: auto; /* Re-enable clicks inside the mask */
+    box-sizing: border-box;
+
+    background: var(--b-dialog-background);
+    color: var(--b-dialog-color);
+    border: var(--b-dialog-border);
+    border-radius: var(--b-dialog-radius);
+    box-shadow: var(--b-dialog-shadow);
+
+    max-width: 90vw;
+    max-height: 90vh;
+    scale: 1; /* Used for animation to avoid transform conflict with JS drag */
+}
+
+/* --- Maximized State --- */
+:where(.b-dialog--maximized) {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    border-radius: 0;
+    border: none;
+}
+
+
+/* ============================================================
+   3. INTERNAL ELEMENTS
+   ============================================================ */
+
+/* --- Header --- */
+:where(.b-dialog__header) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    padding: var(--b-dialog-header-padding);
+    gap: var(--b-dialog-header-gap);
+}
+
+:where(.b-dialog__header--draggable) {
+    cursor: move;
+    user-select: none;
+    touch-action: none; /* Prevents mobile scrolling when dragging */
+}
+
+:where(.b-dialog__title) {
+    font-size: var(--b-dialog-title-size);
+    font-weight: var(--b-dialog-title-weight);
+    line-height: var(--b-line-height-tight);
+    margin: 0;
+}
+
+/* --- Header Actions (Buttons) --- */
+:where(.b-dialog__header-actions) {
+    display: flex;
+    align-items: center;
+    gap: var(--b-space-1);
+}
+
+:where(.b-dialog__header-action) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--b-dialog-action-size);
+    height: var(--b-dialog-action-size);
+    font-size: 1.25rem;
+
+    background: transparent;
+    color: var(--b-dialog-action-color);
+    border: none;
+    border-radius: var(--b-radius-full);
+    cursor: pointer;
+    transition: background-color var(--b-duration-fast), color var(--b-duration-fast);
+    outline: none;
+}
+
+:where(.b-dialog__header-action:hover) {
+    background-color: var(--b-dialog-action-hover-background);
+    color: var(--b-dialog-action-hover-color);
+}
+
+:where(.b-dialog__header-action:focus-visible) {
+    outline: var(--b-stroke-focus) solid var(--b-primary-outline-border);
+}
+
+/* --- Content --- */
+:where(.b-dialog__content) {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: var(--b-dialog-content-padding);
+}
+
+/* Fix top padding if header is missing */
+:where(.b-dialog:not(:has(.b-dialog__header)) .b-dialog__content) {
+    padding-top: var(--b-space-5);
+}
+
+/* --- Footer --- */
+:where(.b-dialog__footer) {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--b-dialog-footer-gap);
+    padding: var(--b-dialog-footer-padding);
+    border-top: 1px solid var(--b-border-subtle);
+}
+
+
+/* ============================================================
+   4. TRANSITIONS (Vue `<Transition name="b-dialog-fade">`)
+   ============================================================ */
+.b-dialog-fade-enter-active,
+.b-dialog-fade-leave-active {
+    /* Animate mask opacity */
+    transition: opacity var(--b-duration-normal) var(--b-ease-base);
+}
+
+.b-dialog-fade-enter-from,
+.b-dialog-fade-leave-to {
+    opacity: 0;
+}
+
+/* Smooth scale inner dialog without touching transform */
+.b-dialog-fade-enter-active .b-dialog,
+.b-dialog-fade-leave-active .b-dialog {
+    transition: scale var(--b-duration-normal) var(--b-ease-out);
+}
+
+.b-dialog-fade-enter-from .b-dialog,
+.b-dialog-fade-leave-to .b-dialog {
+    scale: 0.95;
+}

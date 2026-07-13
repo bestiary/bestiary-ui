@@ -1,6 +1,7 @@
 export * from "./general/button";
 
 export * from "./data-entry/input-text";
+export * from "./data-entry/select";
 export * from "./data-entry/password";
 export * from "./data-entry/textarea";
 export * from "./data-entry/rating";
@@ -20,6 +21,7 @@ export * from "./navigation/paginator";
 export * from "./navigation/scroll-top";
 export * from "./navigation/breadcrumb";
 
+export * from "./feedback/dialog";
 export * from "./feedback/message";
 export * from "./feedback/skeleton";
 export * from "./feedback/progress";
