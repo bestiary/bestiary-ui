@@ -93,7 +93,7 @@ const config: UserConfig<CustomThemeConfig> = {
                         {
                             text: 'Data Entry',
                             items: [
-
+                                {text: 'InputText', link: '/components/data-entry/input-text'},
                             ]
                         },
                         {
@@ -167,7 +167,7 @@ const config: UserConfig<CustomThemeConfig> = {
                                 {
                                     text: 'Data Entry',
                                     items: [
-
+                                        {text: 'InputText', link: '/style/components/data-entry/input-text'},
                                     ]
                                 },
                                 {

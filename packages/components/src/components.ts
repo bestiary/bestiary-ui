@@ -8,6 +8,7 @@ export * from "./data-entry/rating";
 export * from "./data-entry/checkbox";
 export * from "./data-entry/select-button";
 export * from "./data-entry/date-picker";
+export * from "./data-entry/input-number";
 
 export * from "./data-display/avatar";
 export * from "./data-display/accordion";
@@ -26,6 +27,7 @@ export * from "./feedback/message";
 export * from "./feedback/skeleton";
 export * from "./feedback/progress";
 export * from "./feedback/spin";
+export * from "./feedback/toast";
 
 export * from "./layout/divider";
 export * from "./layout/splitter";

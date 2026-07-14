@@ -1,0 +1,289 @@
+/**
+ * Bestiary UI — InputNumber Component Styles
+ */
+
+/* ============================================================
+   1. B-INPUT-NUMBER COMPONENT
+   ============================================================ */
+:where(.b-input-number) {
+    /* --- Structural & Input Tokens --- */
+    --b-input-number-height:         var(--b-control-size-md);
+    --b-input-number-font-size:      var(--b-text-md);
+    --b-input-number-padding-x:      var(--b-space-3);
+
+    --b-input-number-background:     var(--b-surface-section);
+    --b-input-number-border-color:   var(--b-border-default);
+    --b-input-number-border-radius:  var(--b-radius-interactive);
+    --b-input-number-text-color:     var(--b-text-primary);
+
+    --b-input-number-hover-border:   var(--b-stroke-strong);
+    --b-input-number-focus-border:   var(--b-primary-outline-border);
+    --b-input-number-invalid-border: var(--b-error-outline-border);
+
+    /* --- Button Tokens --- */
+    --b-input-number-button-width:      3rem;
+    --b-input-number-button-background: var(--b-surface-ground);
+    --b-input-number-button-hover:      var(--b-overlay-hover);
+    --b-input-number-button-color:      var(--b-text-secondary);
+
+    display: inline-flex;
+    position: relative;
+    box-sizing: border-box;
+    align-items: stretch;
+}
+
+:where(.b-input-number--fluid) {
+    width: 100%;
+}
+
+/* --- Input Wrapper --- */
+:where(.b-input-number__input-wrapper) {
+    position: relative;
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 0; /* Prevents flex flex-overflow */
+}
+
+/* --- Native Input --- */
+:where(.b-input-number__input) {
+    width: 100%;
+    height: var(--b-input-number-height);
+    box-sizing: border-box;
+    appearance: none;
+    margin: 0;
+
+    padding: 0 var(--b-input-number-padding-x);
+    font-family: inherit;
+    font-size: var(--b-input-number-font-size);
+    color: var(--b-input-number-text-color);
+
+    background-color: var(--b-input-number-background);
+    border: 1px solid var(--b-input-number-border-color);
+    border-radius: var(--b-input-number-border-radius);
+
+    outline: none;
+    transition: border-color var(--b-duration-fast), box-shadow var(--b-duration-fast), background-color var(--b-duration-fast);
+}
+
+:where(.b-input-number__input::placeholder) {
+    color: var(--b-text-muted);
+    opacity: 1;
+}
+
+/* Remove native spinners */
+:where(.b-input-number__input::-webkit-outer-spin-button),
+:where(.b-input-number__input::-webkit-inner-spin-button) {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* ============================================================
+   2. INTERACTIVE STATES
+   ============================================================ */
+
+/* Hover */
+:where(.b-input-number:not(.b-input-number--disabled):not(:has(input[readonly])):hover .b-input-number__input) {
+    border-color: var(--b-input-number-hover-border);
+}
+
+/* Focus */
+:where(.b-input-number--focus .b-input-number__input),
+:where(.b-input-number__input:focus) {
+    border-color: var(--b-input-number-focus-border);
+    outline: var(--b-stroke-focus) solid var(--b-input-number-focus-border);
+    outline-offset: -1px;
+    z-index: 1; /* Keep outline above adjacent buttons */
+}
+
+/* Invalid */
+:where(.b-input-number--invalid .b-input-number__input) {
+    border-color: var(--b-input-number-invalid-border);
+}
+:where(.b-input-number--invalid .b-input-number__input:focus) {
+    outline-color: var(--b-input-number-invalid-border);
+}
+
+/* Disabled */
+:where(.b-input-number--disabled .b-input-number__input) {
+    background-color: var(--b-surface-ground);
+    color: var(--b-text-muted);
+    opacity: var(--b-state-disabled-opacity, 0.6);
+    cursor: not-allowed;
+}
+
+/* Readonly */
+:where(.b-input-number__input[readonly]:not(:disabled)) {
+    background-color: var(--b-surface-ground);
+    border-color: var(--b-border-subtle);
+}
+
+/* ============================================================
+   3. SIZES & VARIANTS
+   ============================================================ */
+
+/* --- Sizes --- */
+:where(.b-input-number--size-small) {
+    --b-input-number-height:    var(--b-control-size-sm);
+    --b-input-number-font-size: var(--b-text-sm);
+    --b-input-number-padding-x: var(--b-space-2);
+    --b-input-number-button-width: 2rem;
+}
+
+:where(.b-input-number--size-large) {
+    --b-input-number-height:    var(--b-control-size-lg);
+    --b-input-number-font-size: var(--b-text-lg);
+    --b-input-number-padding-x: var(--b-space-4);
+    --b-input-number-button-width: 4rem;
+}
+
+/* --- Filled Variant --- */
+:where(.b-input-number--variant-filled) {
+    --b-input-number-background: var(--b-surface-ground);
+    --b-input-number-border-color: transparent;
+}
+:where(.b-input-number--variant-filled.b-input-number--focus) {
+    --b-input-number-background: var(--b-surface-section);
+}
+
+/* ============================================================
+   4. BUTTONS & LAYOUTS
+   ============================================================ */
+
+:where(.b-input-number__button) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--b-input-number-button-background);
+    color: var(--b-input-number-button-color);
+    border: 1px solid var(--b-input-number-border-color);
+    cursor: pointer;
+    transition: background-color var(--b-duration-fast), color var(--b-duration-fast);
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
+:where(.b-input-number__button:hover:not(:disabled)) {
+    background-color: var(--b-input-number-button-hover);
+    color: var(--b-text-primary);
+}
+
+:where(.b-input-number__button:focus-visible) {
+    outline: var(--b-stroke-focus) solid var(--b-input-number-focus-border);
+    outline-offset: -2px;
+    z-index: 2;
+}
+
+:where(.b-input-number__button:disabled) {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* --- Stacked Layout (Default) --- */
+:where(.b-input-number--layout-stacked .b-input-number__stacked-group) {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    bottom: 1px;
+    width: 2rem; /* Stacked buttons are narrower */
+}
+
+:where(.b-input-number--layout-stacked .b-input-number__button) {
+    flex: 1 1 50%;
+    border: none;
+    border-left: 1px solid var(--b-border-subtle);
+    background: transparent;
+}
+
+:where(.b-input-number--layout-stacked .b-input-number__button--increment) {
+    border-bottom: 1px solid var(--b-border-subtle);
+    border-top-right-radius: calc(var(--b-input-number-border-radius) - 1px);
+}
+
+:where(.b-input-number--layout-stacked .b-input-number__button--decrement) {
+    border-bottom-right-radius: calc(var(--b-input-number-border-radius) - 1px);
+}
+
+/* Prevent text from hiding under stacked buttons */
+:where(.b-input-number--layout-stacked.b-input-number--has-buttons .b-input-number__input) {
+    padding-right: calc(2rem + var(--b-space-2));
+}
+
+/* --- Horizontal Layout --- */
+:where(.b-input-number--layout-horizontal) {
+    flex-direction: row;
+}
+
+:where(.b-input-number--layout-horizontal.b-input-number--has-buttons .b-input-number__input) {
+    border-radius: 0; /* Middle element */
+}
+
+:where(.b-input-number--layout-horizontal .b-input-number__button) {
+    width: var(--b-input-number-button-width);
+}
+
+/* Avoid double borders by removing the inner border of buttons */
+:where(.b-input-number--layout-horizontal .b-input-number__button--decrement) {
+    border-right: none;
+    border-top-left-radius: var(--b-input-number-border-radius);
+    border-bottom-left-radius: var(--b-input-number-border-radius);
+}
+
+:where(.b-input-number--layout-horizontal .b-input-number__button--increment) {
+    border-left: none;
+    border-top-right-radius: var(--b-input-number-border-radius);
+    border-bottom-right-radius: var(--b-input-number-border-radius);
+}
+
+/* --- Vertical Layout --- */
+:where(.b-input-number--layout-vertical) {
+    flex-direction: column;
+}
+
+:where(.b-input-number--layout-vertical.b-input-number--has-buttons .b-input-number__input) {
+    border-radius: 0;
+    text-align: center;
+}
+
+:where(.b-input-number--layout-vertical .b-input-number__button) {
+    width: 100%;
+    height: var(--b-input-number-button-width);
+}
+
+:where(.b-input-number--layout-vertical .b-input-number__button--increment) {
+    border-bottom: none;
+    border-top-left-radius: var(--b-input-number-border-radius);
+    border-top-right-radius: var(--b-input-number-border-radius);
+}
+
+:where(.b-input-number--layout-vertical .b-input-number__button--decrement) {
+    border-top: none;
+    border-bottom-left-radius: var(--b-input-number-border-radius);
+    border-bottom-right-radius: var(--b-input-number-border-radius);
+}
+
+/* ============================================================
+   5. UTILITIES (Clear Icon)
+   ============================================================ */
+:where(.b-input-number__clear) {
+    position: absolute;
+    right: var(--b-space-3);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--b-text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: color var(--b-duration-fast);
+}
+
+:where(.b-input-number__clear:hover) {
+    color: var(--b-text-primary);
+}
+
+/* Push clear icon left if stacked buttons are present */
+:where(.b-input-number--layout-stacked.b-input-number--has-buttons .b-input-number__clear) {
+    right: calc(2rem + var(--b-space-2));
+}

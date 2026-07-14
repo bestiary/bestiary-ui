@@ -1,0 +1,241 @@
+/**
+ * Bestiary UI — Toast Component Styles
+ */
+
+/* ============================================================
+   1. B-TOAST CONTAINER (Positions & Layering)
+   ============================================================ */
+:where(.b-toast) {
+    position: fixed;
+    width: 25rem;
+    max-width: 90vw;
+    z-index: var(--b-z-toast, 2000);
+
+    /* Disable pointer events on container so user can click through the empty space */
+    pointer-events: none;
+}
+
+/* --- Viewport Alignments --- */
+:where(.b-toast--top-right)    { top: var(--b-space-5); right: var(--b-space-5); }
+:where(.b-toast--top-left)     { top: var(--b-space-5); left: var(--b-space-5); }
+:where(.b-toast--top-center)   { top: var(--b-space-5); left: 50%; transform: translateX(-50%); }
+
+:where(.b-toast--bottom-right)  { bottom: var(--b-space-5); right: var(--b-space-5); }
+:where(.b-toast--bottom-left)   { bottom: var(--b-space-5); left: var(--b-space-5); }
+:where(.b-toast--bottom-center) { bottom: var(--b-space-5); left: 50%; transform: translateX(-50%); }
+
+:where(.b-toast--center) { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+:where(.b-toast__container) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--b-space-3);
+}
+
+/* ============================================================
+   2. B-TOAST-MESSAGE (The Item)
+   ============================================================ */
+:where(.b-toast-message) {
+    /* --- Base Structural Tokens --- */
+    --b-toast-background:      var(--b-surface-section);
+    --b-toast-border-color:    var(--b-border-subtle);
+    --b-toast-text-color:      var(--b-text-primary);
+    --b-toast-icon-color:      var(--b-text-primary);
+
+    --b-toast-radius:          var(--b-radius-lg);
+    --b-toast-shadow:          var(--b-shadow-lg);
+
+    /* Re-enable pointer events for the actual toast card */
+    pointer-events: auto;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    background-color: var(--b-toast-background);
+    border: 1px solid var(--b-toast-border-color);
+    border-radius: var(--b-toast-radius);
+    box-shadow: var(--b-toast-shadow);
+    color: var(--b-toast-text-color);
+
+    will-change: transform, opacity;
+}
+
+/* ============================================================
+   3. SEVERITIES (Local Palette Injection)
+   ============================================================ */
+:where(.b-toast-message--severity-info) {
+    --b-toast-background:   var(--b-info-subtle-background);
+    --b-toast-border-color: var(--b-info-outline-border);
+    --b-toast-icon-color:   var(--b-info-solid-background);
+}
+:where(.b-toast-message--severity-success) {
+    --b-toast-background:   var(--b-success-subtle-background);
+    --b-toast-border-color: var(--b-success-outline-border);
+    --b-toast-icon-color:   var(--b-success-solid-background);
+}
+:where(.b-toast-message--severity-warn) {
+    --b-toast-background:   var(--b-warning-subtle-background);
+    --b-toast-border-color: var(--b-warning-outline-border);
+    --b-toast-icon-color:   var(--b-warning-solid-background);
+}
+:where(.b-toast-message--severity-error) {
+    --b-toast-background:   var(--b-error-subtle-background);
+    --b-toast-border-color: var(--b-error-outline-border);
+    --b-toast-icon-color:   var(--b-error-solid-background);
+}
+:where(.b-toast-message--severity-secondary) {
+    --b-toast-background:   var(--b-secondary-subtle-background);
+    --b-toast-border-color: var(--b-secondary-outline-border);
+    --b-toast-icon-color:   var(--b-secondary-solid-background);
+}
+:where(.b-toast-message--severity-contrast) {
+    --b-toast-background:   var(--b-contrast-subtle-background);
+    --b-toast-border-color: var(--b-contrast-outline-border);
+    --b-toast-icon-color:   var(--b-contrast-solid-background);
+}
+
+/* ============================================================
+   4. INTERNAL LAYOUT
+   ============================================================ */
+:where(.b-toast-message__content) {
+    display: flex;
+    align-items: flex-start;
+    padding: var(--b-space-4);
+    gap: var(--b-space-3);
+}
+
+:where(.b-toast-message__icon) {
+    color: var(--b-toast-icon-color);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+:where(.b-toast-message__text) {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--b-space-1);
+    word-break: break-word;
+}
+
+:where(.b-toast-message__summary) {
+    font-weight: var(--b-font-weight-bold);
+    font-size: var(--b-text-md);
+    line-height: var(--b-line-height-tight);
+}
+
+:where(.b-toast-message__detail) {
+    font-size: var(--b-text-sm);
+    color: var(--b-text-secondary);
+    line-height: var(--b-line-height-normal);
+}
+
+/* --- Close Button --- */
+:where(.b-toast-message__close) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: var(--b-size-6);
+    height: var(--b-size-6);
+    margin: calc(var(--b-space-1) * -1) calc(var(--b-space-1) * -1) 0 0;
+
+    background-color: transparent;
+    border: none;
+    border-radius: var(--b-radius-full);
+    color: var(--b-text-muted);
+    cursor: pointer;
+    transition: background-color var(--b-duration-fast), color var(--b-duration-fast);
+    outline: none;
+}
+
+:where(.b-toast-message__close:hover) {
+    background-color: var(--b-surface-hover, rgba(128, 128, 128, 0.1));
+    color: var(--b-toast-text-color);
+}
+
+:where(.b-toast-message__close:focus-visible) {
+    outline: var(--b-stroke-focus) solid var(--b-toast-icon-color);
+    outline-offset: -1px;
+}
+
+/* ============================================================
+   5. STACKED MODE
+   ============================================================ */
+:where(.b-toast--stacked .b-toast__container) {
+    position: relative;
+    gap: 0;
+}
+
+:where(.b-toast--stacked .b-toast-message) {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    transition: transform var(--b-duration-normal) var(--b-ease-out),
+    opacity var(--b-duration-normal) var(--b-ease-out);
+}
+
+/* Top item (fully visible) */
+:where(.b-toast--stacked .b-toast-message:nth-last-child(1)) {
+    position: relative;
+    z-index: 3;
+}
+
+/* Top-oriented stacks: shift elements down */
+:where(.b-toast--stacked:not([class*="bottom"]) .b-toast-message:nth-last-child(2)) {
+    transform: translateY(12px) scale(0.95);
+    z-index: 2;
+    opacity: 0.8;
+}
+:where(.b-toast--stacked:not([class*="bottom"]) .b-toast-message:nth-last-child(3)) {
+    transform: translateY(24px) scale(0.9);
+    z-index: 1;
+    opacity: 0.6;
+}
+
+/* Bottom-oriented stacks: shift elements up */
+:where(.b-toast--stacked[class*="bottom"] .b-toast-message:nth-last-child(2)) {
+    transform: translateY(-12px) scale(0.95);
+    z-index: 2;
+    opacity: 0.8;
+}
+:where(.b-toast--stacked[class*="bottom"] .b-toast-message:nth-last-child(3)) {
+    transform: translateY(-24px) scale(0.9);
+    z-index: 1;
+    opacity: 0.6;
+}
+
+/* Expand on Hover */
+:where(.b-toast--stacked:hover .b-toast-message) {
+    position: relative;
+    transform: translateY(0) scale(1) !important;
+    opacity: 1 !important;
+    margin-bottom: var(--b-space-3);
+}
+
+/* ============================================================
+   6. TRANSITIONS (<TransitionGroup name="b-toast-list">)
+   ============================================================ */
+.b-toast-list-enter-active,
+.b-toast-list-leave-active,
+.b-toast-list-move {
+    transition: all var(--b-duration-normal) var(--b-ease-out);
+}
+
+.b-toast-list-enter-from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+}
+
+.b-toast-list-leave-to {
+    opacity: 0;
+    transform: scale(0.85);
+}
+
+/* Ensure leaving items are taken out of flow for smooth list movement */
+.b-toast-list-leave-active {
+    position: absolute;
+    width: 100%;
+}

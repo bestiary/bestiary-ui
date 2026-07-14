@@ -1,41 +1,55 @@
 /**
- * Bestiary UI — DatePicker Component
+ * Bestiary UI — DatePicker Component Styles
  */
-:where(.b-datepicker) {
-    /* --- 1. LOCAL COMPONENT TOKENS --- */
 
-    /* Input Trigger Tokens */
-    --b-datepicker-input-bg:            var(--b-surface-section);
-    --b-datepicker-input-border:        var(--b-form-control-border);
-    --b-datepicker-input-border-hover:  var(--b-form-control-border-hover);
+/* ============================================================
+   1. TOKENS (Trigger & Panel)
+   ============================================================ */
+
+/* --- Trigger Tokens (Applied to container) --- */
+:where(.b-datepicker) {
+    --b-datepicker-height:              var(--b-control-size-md);
+    --b-datepicker-font-size:           var(--b-text-md);
+    --b-datepicker-padding-x:           var(--b-space-3);
+
+    --b-datepicker-input-background:    var(--b-surface-section);
+    --b-datepicker-input-border:        var(--b-border-default);
     --b-datepicker-input-color:         var(--b-text-primary);
     --b-datepicker-input-radius:        var(--b-radius-interactive);
-    --b-datepicker-input-height:        var(--b-control-size-md);
-    --b-datepicker-input-px:            var(--b-space-3);
 
-    /* Panel & Overlay Tokens */
-    --b-datepicker-panel-bg:            var(--b-surface-section);
+    --b-datepicker-input-hover-border:  var(--b-stroke-strong);
+    --b-datepicker-input-focus-border:  var(--b-primary-outline-border);
+    --b-datepicker-input-invalid-border:var(--b-error-outline-border);
+
+    --b-datepicker-transition:          border-color var(--b-duration-fast), box-shadow var(--b-duration-fast);
+}
+
+/* --- Panel Tokens (Applied directly due to Teleport) --- */
+:where(.b-datepicker__panel) {
+    --b-datepicker-panel-background:    var(--b-surface-section);
     --b-datepicker-panel-border:        var(--b-border-subtle);
     --b-datepicker-panel-radius:        var(--b-radius-lg);
-    --b-datepicker-panel-shadow:        var(--b-shadow-lg);
-    --b-datepicker-z-index:             var(--b-z-popover);
+    --b-datepicker-panel-shadow:        var(--b-shadow-xl);
+    --b-datepicker-z-index:             var(--b-z-popover, 1000);
 
-    /* Calendar Grid Tokens */
     --b-datepicker-cell-size:           2.25rem;
     --b-datepicker-cell-radius:         var(--b-radius-full);
 
-    --b-datepicker-active-bg:           var(--b-primary-solid-background);
+    --b-datepicker-hover-background:    var(--b-surface-hover);
+    --b-datepicker-active-background:   var(--b-primary-solid-background);
     --b-datepicker-active-color:        var(--b-primary-solid-text);
-    --b-datepicker-hover-bg:            var(--b-overlay-hover);
     --b-datepicker-today-outline:       var(--b-primary-solid-background);
+}
 
-    /* Transitions */
-    --b-datepicker-transition:          var(--b-duration-normal) var(--b-ease-base);
 
-    /* --- 2. BASE STYLES --- */
+/* ============================================================
+   2. TRIGGER CONTAINER & INPUT
+   ============================================================ */
+:where(.b-datepicker) {
     display: inline-flex;
     position: relative;
     vertical-align: middle;
+    box-sizing: border-box;
 }
 
 :where(.b-datepicker--fluid) {
@@ -43,13 +57,8 @@
     width: 100%;
 }
 
-:where(.b-datepicker--disabled) {
-    opacity: var(--b-state-disabled-opacity);
-    pointer-events: none;
-}
-
-/* --- 3. INPUT TRIGGER --- */
-:where(.b-datepicker__input-wrapper) {
+:where(.b-datepicker__trigger) {
+    display: flex;
     position: relative;
     width: 100%;
     cursor: pointer;
@@ -57,59 +66,60 @@
 
 :where(.b-datepicker__input) {
     width: 100%;
-    height: var(--b-datepicker-input-height);
-    padding-inline: var(--b-datepicker-input-px) var(--b-space-10); /* Right padding for icon */
+    height: var(--b-datepicker-height);
+    padding-inline: var(--b-datepicker-padding-x);
 
-    background-color: var(--b-datepicker-input-bg);
+    background-color: var(--b-datepicker-input-background);
     border: 1px solid var(--b-datepicker-input-border);
     border-radius: var(--b-datepicker-input-radius);
     color: var(--b-datepicker-input-color);
 
     font-family: inherit;
-    font-size: var(--b-text-sm);
-    line-height: 1;
+    font-size: var(--b-datepicker-font-size);
+    box-sizing: border-box;
     cursor: pointer;
     outline: none;
-    transition: border-color var(--b-datepicker-transition), box-shadow var(--b-datepicker-transition);
+    transition: var(--b-datepicker-transition);
 }
 
-/* Input States */
-:where(.b-datepicker:not(.b-datepicker--disabled) .b-datepicker__input-wrapper:hover .b-datepicker__input) {
-    border-color: var(--b-datepicker-input-border-hover);
-}
-
-:where(.b-datepicker--open .b-datepicker__input) {
-    border-color: var(--b-primary-solid-background);
-    box-shadow: var(--b-focus-ring);
-    --b-ring-color-channels: var(--b-primary-channels);
-}
-
-:where(.b-datepicker__input-icon) {
-    position: absolute;
-    top: 50%;
-    right: var(--b-datepicker-input-px);
-    transform: translateY(-50%);
-    width: 1.25rem;
-    height: 1.25rem;
+:where(.b-datepicker__input::placeholder) {
     color: var(--b-text-muted);
-    display: flex;
-    align-items: center;
+    opacity: 1;
+}
+
+/* --- Input States --- */
+:where(.b-datepicker:not(.b-datepicker--disabled) .b-datepicker__input:hover) {
+    border-color: var(--b-datepicker-input-hover-border);
+}
+
+:where(.b-datepicker--open .b-datepicker__input),
+:where(.b-datepicker__input:focus) {
+    border-color: var(--b-datepicker-input-focus-border);
+    outline: var(--b-stroke-focus) solid var(--b-datepicker-input-focus-border);
+    outline-offset: -1px;
+    z-index: 1;
+}
+
+:where(.b-datepicker--invalid .b-datepicker__input) {
+    border-color: var(--b-datepicker-input-invalid-border);
+}
+
+:where(.b-datepicker--disabled) {
+    opacity: var(--b-state-disabled-opacity, 0.6);
     pointer-events: none;
 }
-
-/* --- TRIGGER CONTAINER --- */
-:where(.b-datepicker__trigger) {
-    display: flex;
-    position: relative;
-    width: 100%;
+:where(.b-datepicker--disabled .b-datepicker__input) {
+    background-color: var(--b-surface-ground);
+    color: var(--b-text-muted);
+    cursor: not-allowed;
 }
 
-/* --- BUTTON DISPLAY MODE --- */
-:where(.b-datepicker__trigger.is-display-button) {
-    --b-datepicker-input-radius-right: 0; /* Прибираємо закруглення справа у інпуту */
-}
+/* ============================================================
+   3. TRIGGER VARIANTS & ICONS
+   ============================================================ */
 
-:where(.b-datepicker__trigger.is-display-button .b-datepicker__input) {
+/* --- Button Mode (Appended Button) --- */
+:where(.b-datepicker__trigger--icon-button .b-datepicker__input) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     flex: 1;
@@ -120,7 +130,7 @@
     align-items: center;
     justify-content: center;
     width: var(--b-control-size-md);
-    height: var(--b-datepicker-input-height);
+    height: var(--b-datepicker-height);
 
     background-color: var(--b-primary-solid-background);
     color: var(--b-primary-solid-text);
@@ -129,60 +139,74 @@
     border-radius: 0 var(--b-datepicker-input-radius) var(--b-datepicker-input-radius) 0;
 
     cursor: pointer;
-    transition: background-color var(--b-duration-normal);
+    transition: background-color var(--b-duration-fast);
+    outline: none;
 }
 
 :where(.b-datepicker__icon-btn:hover:not(:disabled)) {
     background-color: var(--b-primary-solid-background-hover);
 }
 
-:where(.b-datepicker__icon-btn svg) {
-    width: 1.15rem;
-    height: 1.15rem;
+:where(.b-datepicker__icon-btn:focus-visible) {
+    outline: var(--b-stroke-focus) solid var(--b-datepicker-input-focus-border);
+    z-index: 2;
 }
 
-/* --- INPUT DISPLAY MODE --- */
-:where(.b-datepicker__trigger.is-display-input .b-datepicker__input) {
-    padding-inline-end: var(--b-space-10); /* Місце для іконки всередині */
+:where(.b-datepicker__icon-btn svg) {
+    width: 1.15em;
+    height: 1.15em;
+}
+
+/* --- Input Mode (Icon inside Input) --- */
+:where(.b-datepicker__trigger--icon-input .b-datepicker__input) {
+    padding-inline-end: var(--b-space-10);
 }
 
 :where(.b-datepicker__input-icon) {
     position: absolute;
     top: 50%;
-    right: var(--b-datepicker-input-px);
+    right: var(--b-datepicker-padding-x);
     transform: translateY(-50%);
     display: flex;
     align-items: center;
-    cursor: pointer;
     color: var(--b-text-muted);
+    pointer-events: none;
+    z-index: 2;
 }
 
-/* --- 4. CALENDAR PANEL --- */
+:where(.b-datepicker__input-icon svg) {
+    width: 1.25em;
+    height: 1.25em;
+}
+
+
+/* ============================================================
+   4. PANEL (Teleported Overlay & Inline)
+   ============================================================ */
 :where(.b-datepicker__panel) {
-    background-color: var(--b-datepicker-panel-bg);
+    position: absolute;
+    z-index: var(--b-datepicker-z-index);
+    min-width: 18rem;
+    padding: var(--b-space-4);
+    box-sizing: border-box;
+
+    background-color: var(--b-datepicker-panel-background);
     border: 1px solid var(--b-datepicker-panel-border);
     border-radius: var(--b-datepicker-panel-radius);
-    padding: var(--b-space-4);
-    min-width: 18rem;
-    box-sizing: border-box;
-}
-
-/* Overlay Mode Positioning */
-:where(.b-datepicker:not(.b-datepicker--inline) .b-datepicker__panel) {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    margin-top: var(--b-space-2);
-    z-index: var(--b-datepicker-z-index);
     box-shadow: var(--b-datepicker-panel-shadow);
 }
 
-/* Inline Mode Reset */
-:where(.b-datepicker--inline) {
-    display: block;
+:where(.b-datepicker__panel--inline) {
+    position: static;
+    display: inline-block;
+    box-shadow: none;
+    z-index: auto;
 }
 
-/* --- 5. CALENDAR HEADER --- */
+
+/* ============================================================
+   5. CALENDAR HEADER
+   ============================================================ */
 :where(.b-datepicker__header) {
     display: flex;
     align-items: center;
@@ -205,20 +229,30 @@
     justify-content: center;
     width: var(--b-size-8);
     height: var(--b-size-8);
+
     border: none;
     background: transparent;
     border-radius: var(--b-radius-full);
-    cursor: pointer;
     color: var(--b-text-secondary);
-    transition: background-color var(--b-duration-fast);
+
+    cursor: pointer;
+    transition: background-color var(--b-duration-fast), color var(--b-duration-fast);
+    outline: none;
 }
 
 :where(.b-datepicker__nav-btn:hover) {
-    background-color: var(--b-datepicker-hover-bg);
+    background-color: var(--b-datepicker-hover-background);
     color: var(--b-text-primary);
 }
 
-/* --- 6. CALENDAR GRID --- */
+:where(.b-datepicker__nav-btn:focus-visible) {
+    outline: var(--b-stroke-focus) solid var(--b-primary-outline-border);
+}
+
+
+/* ============================================================
+   6. CALENDAR GRID (Days)
+   ============================================================ */
 :where(.b-datepicker__weekdays),
 :where(.b-datepicker__days) {
     display: grid;
@@ -242,32 +276,47 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    font-family: inherit;
     font-size: var(--b-text-sm);
+    color: var(--b-text-primary);
     border-radius: var(--b-datepicker-cell-radius);
+
+    cursor: pointer;
     transition: background-color var(--b-duration-fast), color var(--b-duration-fast);
+    outline: none;
 }
 
-/* Day States */
-:where(.b-datepicker__day:not(.is-selected):hover) {
-    background-color: var(--b-datepicker-hover-bg);
+/* --- Day States --- */
+:where(.b-datepicker__day:not(.b-datepicker__day--selected):not(:disabled):hover) {
+    background-color: var(--b-datepicker-hover-background);
 }
 
-:where(.b-datepicker__day.is-selected) {
-    background-color: var(--b-datepicker-active-bg);
+:where(.b-datepicker__day:focus-visible) {
+    outline: var(--b-stroke-focus) solid var(--b-primary-outline-border);
+}
+
+:where(.b-datepicker__day--selected) {
+    background-color: var(--b-datepicker-active-background);
     color: var(--b-datepicker-active-color);
+    font-weight: var(--b-font-weight-medium);
 }
 
-:where(.b-datepicker__day.is-today) {
+:where(.b-datepicker__day--today) {
     box-shadow: inset 0 0 0 1px var(--b-datepicker-today-outline);
     font-weight: var(--b-font-weight-bold);
 }
 
-:where(.b-datepicker__day.is-other-month) {
+:where(.b-datepicker__day--other-month) {
     opacity: 0.3;
 }
 
-:where(.b-datepicker__day.is-disabled) {
+:where(.b-datepicker__day:disabled),
+:where(.b-datepicker__day--disabled) {
     opacity: var(--b-state-disabled-opacity, 0.4);
     cursor: not-allowed;
     pointer-events: none;
@@ -275,25 +324,28 @@
     text-decoration: line-through;
 }
 
-:where(.b-datepicker__day.is-disabled:hover) {
-    background-color: transparent;
-}
 
-/* --- 7. FOOTER --- */
+/* ============================================================
+   7. FOOTER
+   ============================================================ */
 :where(.b-datepicker__footer) {
     margin-top: var(--b-space-4);
     padding-top: var(--b-space-3);
     border-top: 1px solid var(--b-datepicker-panel-border);
 }
 
-/* --- 8. TRANSITIONS --- */
+
+/* ============================================================
+   8. TRANSITIONS
+   ============================================================ */
 .b-datepicker-fade-enter-active,
 .b-datepicker-fade-leave-active {
-    transition: opacity 0.2s var(--b-ease-out), transform 0.2s var(--b-ease-out);
+    transition: opacity var(--b-duration-fast) var(--b-ease-out),
+    transform var(--b-duration-fast) var(--b-ease-out);
 }
 
 .b-datepicker-fade-enter-from,
 .b-datepicker-fade-leave-to {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: scaleY(0.95);
 }

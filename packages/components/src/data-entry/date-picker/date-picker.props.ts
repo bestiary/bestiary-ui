@@ -1,4 +1,4 @@
-import { Component } from "vue";
+import type { Component } from 'vue';
 
 export interface CalendarDay {
     day: number;
@@ -7,85 +7,63 @@ export interface CalendarDay {
     otherMonth: boolean;
 }
 
-export type DatePickerSelectionMode = "single" | "multiple" | "range";
-export type DatePickerViewMode = "date" | "month" | "year";
+export type DatePickerSelectionMode = 'single' | 'multiple' | 'range';
+export type DatePickerViewMode = 'date' | 'month' | 'year';
+export type DatePickerSize = 'small' | 'medium' | 'large';
+export type DatePickerVariant = 'outline' | 'filled';
 
 export interface DatePickerProps {
-    /**
-     * Value of the component.
-     */
+    /** Value of the component. Supports Date, Date[] or string depending on configuration. */
     modelValue?: any;
-    /**
-     * Selection mode of the datepicker.
-     * @default "single"
-     */
+
+    /** Selection mode of the datepicker. @default 'single' */
     selectionMode?: DatePickerSelectionMode;
-    /**
-     * Format of the date.
-     * @default "mm/dd/yy"
-     */
+
+    /** Format of the date. Tokens: dd, mm, yy, etc. @default 'mm/dd/yy' */
     dateFormat?: string;
-    /**
-     * Whether to display the calendar as an overlay or inline.
-     * @default false
-     */
+
+    /** Whether to display the calendar as an inline block instead of an overlay. @default false */
     inline?: boolean;
-    /**
-     * Whether to display the time picker.
-     * @default false
-     */
-    showTime?: boolean;
-    /**
-     * Whether to show seconds in time picker.
-     * @default false
-     */
-    showSeconds?: boolean;
-    /**
-     * Min date that can be selected.
-     */
+
+    /** Min date that can be selected. */
     minDate?: Date;
-    /**
-     * Max date that can be selected.
-     */
+
+    /** Max date that can be selected. */
     maxDate?: Date;
-    /**
-     * Whether the month and year can be manipulated with keyboard or only via UI.
-     * @default true
-     */
+
+    /** Whether to allow entering the date manually via typing. @default true */
     manualInput?: boolean;
-    /**
-     * Whether to show the week number.
-     * @default false
-     */
-    showWeek?: boolean;
-    /**
-     * Whether the component is disabled.
-     * @default false
-     */
+
+    /** Whether the component is disabled. @default false */
     disabled?: boolean;
-    /**
-     * Placeholder text for the input.
-     */
+
+    /** Placeholder text for the input. */
     placeholder?: string;
-    /**
-     * Whether to display an icon.
-     * @default false
-     */
+
+    /** Whether to display an icon next to/inside the input. @default false */
     showIcon?: boolean;
-    /**
-     * Display mode of the icon.
-     * @default "button"
-     */
-    iconDisplay?: "button" | "input";
-    /**
-     * Whether to show the overlay on input focus.
-     * @default true
-     */
+
+    /** Display mode of the icon. @default 'button' */
+    iconDisplay?: 'button' | 'input';
+
+    /** Whether to show the overlay on input focus. @default true */
     showOnFocus?: boolean;
-    /**
-     * Icon to display.
-     */
+
+    /** Icon string class or Vue component to display. */
     icon?: string | Component;
 
-    fluid: boolean;
+    /** Spans 100% width of the container. @default false */
+    fluid?: boolean;
+
+    /** Specifies the component size. @default 'medium' */
+    size?: DatePickerSize;
+
+    /** Visual style variant of the input. @default 'outline' */
+    variant?: DatePickerVariant;
+
+    /** Indicates invalid state. Applies error styling. @default false */
+    invalid?: boolean;
+
+    /** A valid query selector or HTMLElement to specify where the overlay gets attached. @default 'body' */
+    appendTo?: string | HTMLElement;
 }
