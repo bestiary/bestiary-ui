@@ -9,6 +9,7 @@ export * from "./data-entry/checkbox";
 export * from "./data-entry/select-button";
 export * from "./data-entry/date-picker";
 export * from "./data-entry/input-number";
+export * from "./data-entry/listbox";
 
 export * from "./data-display/avatar";
 export * from "./data-display/accordion";
@@ -21,6 +22,7 @@ export * from "./data-display/image";
 export * from "./navigation/paginator";
 export * from "./navigation/scroll-top";
 export * from "./navigation/breadcrumb";
+export * from "./navigation/tabs";
 
 export * from "./feedback/dialog";
 export * from "./feedback/message";

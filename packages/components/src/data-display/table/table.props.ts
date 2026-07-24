@@ -5,6 +5,7 @@ export type TableSize = 'small' | 'medium' | 'large';
 export type PaginatorPosition = 'top' | 'bottom' | 'both';
 export type SortMode = 'single' | 'multiple';
 export type FilterDisplay = 'row' | 'menu';
+export type TableSelectionMode = "single" | "multiple";
 
 export type FilterMatchMode =
     | 'startsWith' | 'contains' | 'notContains' | 'endsWith'
@@ -155,4 +156,14 @@ export interface TableProps extends PaginatorProps {
      * An array of fields to search against globally.
      */
     globalFilterFields?: string[];
+    /**
+     * Specifies the selection mode.
+     * @default null
+     */
+    selectionMode?: TableSelectionMode;
+    /**
+     * Defines whether metaKey (Ctrl/Cmd) is required for multiple selection.
+     * @default false
+     */
+    metaKeySelection?: boolean;
 }

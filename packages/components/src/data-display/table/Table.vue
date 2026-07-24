@@ -24,9 +24,15 @@ const props = withDefaults(defineProps<TableProps>(), {
     pageLinkSize: 5,
     sortMode: 'single',
     removableSort: false,
+    metaKeySelection: false
 });
 
-const emit = defineEmits(['update:filters', 'filter', 'page', 'sort', 'update:first', 'update:rows', 'update:sortField', 'update:sortOrder', 'update:multiSortMeta']);
+const emit = defineEmits([
+    'update:filters', 'filter', 'page', 'sort', 'update:first',
+    'update:rows', 'update:sortField', 'update:sortOrder',
+    'update:multiSortMeta', 'update:selection', 'row-select',
+    'row-unselect', 'row-click'
+]);
 
 const d_filters = defineModel<DataTableFilterMeta>('filters', { default: () => ({}) });
 const d_first = defineModel<number>('first', { default: 0 });
@@ -34,8 +40,9 @@ const d_rows = defineModel<number>('rows', { default: 10 });
 const d_sortField = defineModel<string>('sortField');
 const d_sortOrder = defineModel<number>('sortOrder');
 const d_multiSortMeta = defineModel<SortMeta[]>('multiSortMeta', { default: () => [] });
+const d_selection = defineModel<any | any[]>('selection');
 
-const slots = defineSlots<any>(); // Type omitted for brevity, logic remains
+const slots = defineSlots<any>();
 
 /* --- Optimized Data Resolver --- */
 const fieldCache = new Map<string, string[]>();
@@ -53,6 +60,34 @@ const resolveFieldData = (data: any, field: string | undefined): any => {
     }
     return obj;
 };
+
+/* --- Column Discovery --- */
+interface ColumnSlotContext {
+    props: ColumnProps;
+    slots: Record<string, any>;
+}
+
+const columns = computed(() => {
+    const children = slots.default ? slots.default({}) : [];
+    const findColumns = (nodes: VNode[]): ColumnSlotContext[] => {
+        return nodes.flatMap(node => {
+            if (node.type === Fragment && Array.isArray(node.children)) return findColumns(node.children as VNode[]);
+
+            const type = node.type as any;
+            const name = type?.name || type?.__name;
+
+            if (name === 'BColumn') {
+                const rawProps = (node.props as any) || {};
+                return {
+                    props: { ...rawProps, sortable: rawProps.sortable === '' ? true : !!rawProps.sortable } as ColumnProps,
+                    slots: (node.children as any) || {}
+                };
+            }
+            return [];
+        });
+    };
+    return findColumns(children).filter(col => !col.props.hidden);
+});
 
 /* --- Filter Menu Logic --- */
 const activeFilterMenuField = ref<string | null>(null);
@@ -79,15 +114,12 @@ const handleOutsideClick = (event: MouseEvent) => {
     }
 };
 
-// Safe event listener registration
 watch(activeFilterMenuField, (newVal) => {
     if (newVal) document.addEventListener('click', handleOutsideClick, { passive: true });
     else document.removeEventListener('click', handleOutsideClick);
 });
 
-onUnmounted(() => {
-    document.removeEventListener('click', handleOutsideClick);
-});
+onUnmounted(() => document.removeEventListener('click', handleOutsideClick));
 
 /* --- Data Processing --- */
 const filteredData = computed(() => FilterService.filter(props.value, d_filters.value, props.globalFilterFields, resolveFieldData));
@@ -117,34 +149,104 @@ const sortedData = computed(() => {
 const dataToRender = computed(() => props.paginator ? sortedData.value.slice(d_first.value, d_first.value + d_rows.value) : sortedData.value);
 const totalRecordsCount = computed(() => props.totalRecords ?? filteredData.value.length);
 
-/* --- Column Discovery --- */
-interface ColumnSlotContext {
-    props: ColumnProps;
-    slots: Record<string, any>;
-}
-
-const columns = computed(() => {
-    const children = slots.default ? slots.default({}) : [];
-    const findColumns = (nodes: VNode[]): ColumnSlotContext[] => {
-        return nodes.flatMap(node => {
-            if (node.type === Fragment && Array.isArray(node.children)) return findColumns(node.children as VNode[]);
-
-            // Safe check for production builds (name could be minified)
-            const type = node.type as any;
-            const name = type?.name || type?.__name;
-
-            if (name === 'BColumn') {
-                const rawProps = (node.props as any) || {};
-                return {
-                    props: { ...rawProps, sortable: rawProps.sortable === '' ? true : !!rawProps.sortable } as ColumnProps,
-                    slots: (node.children as any) || {}
-                };
-            }
-            return [];
-        });
-    };
-    return findColumns(children).filter(col => !col.props.hidden);
+/* --- SELECTION LOGIC --- */
+const computedSelectionMode = computed(() => {
+    if (props.selectionMode) return props.selectionMode;
+    const selCol = columns.value.find(c => c.props.selectionMode);
+    return selCol ? selCol.props.selectionMode : null;
 });
+
+const isSelected = (row: any) => {
+    if (d_selection.value == null) return false;
+
+    if (computedSelectionMode.value === 'multiple' || Array.isArray(d_selection.value)) {
+        return (d_selection.value as any[]).some(selectedRow =>
+            props.dataKey ? selectedRow[props.dataKey] === row[props.dataKey] : selectedRow === row
+        );
+    }
+
+    return props.dataKey
+        ? d_selection.value[props.dataKey] === row[props.dataKey]
+        : d_selection.value === row;
+};
+
+const allSelected = computed(() => {
+    if (!dataToRender.value.length || !Array.isArray(d_selection.value)) return false;
+    return dataToRender.value.every(row => isSelected(row));
+});
+
+const toggleAll = () => {
+    if (computedSelectionMode.value !== 'multiple') return;
+
+    let selection = Array.isArray(d_selection.value) ? [...d_selection.value] : [];
+
+    if (allSelected.value) {
+        dataToRender.value.forEach(row => {
+            selection = selection.filter(r => props.dataKey ? r[props.dataKey] !== row[props.dataKey] : r !== row);
+        });
+    } else {
+        dataToRender.value.forEach(row => {
+            if (!isSelected(row)) selection.push(row);
+        });
+    }
+
+    d_selection.value = selection;
+};
+
+const onRowClick = (row: any, event: MouseEvent) => {
+    emit('row-click', { originalEvent: event, data: row });
+
+    if (!computedSelectionMode.value) return;
+
+    const target = event.target as HTMLElement;
+    // Ігноруємо кліки по активних елементах всередині рядка (окрім наших чекбоксів/радіо)
+    if (!target.closest('.b-table__checkbox') && !target.closest('.b-table__radio')) {
+        if (['BUTTON', 'INPUT', 'A', 'SELECT', 'TEXTAREA'].includes(target.tagName)) {
+            return;
+        }
+    }
+
+    const selected = isSelected(row);
+    const metaKey = event.metaKey || event.ctrlKey;
+    const mode = computedSelectionMode.value;
+
+    if (mode === 'multiple') {
+        let selection = Array.isArray(d_selection.value) ? [...d_selection.value] : [];
+
+        if (props.metaKeySelection) {
+            if (metaKey) {
+                if (selected) {
+                    selection = selection.filter(r => props.dataKey ? r[props.dataKey] !== row[props.dataKey] : r !== row);
+                    emit('row-unselect', { originalEvent: event, data: row });
+                } else {
+                    selection.push(row);
+                    emit('row-select', { originalEvent: event, data: row });
+                }
+            } else {
+                selection = [row];
+                emit('row-select', { originalEvent: event, data: row });
+            }
+        } else {
+            if (selected) {
+                selection = selection.filter(r => props.dataKey ? r[props.dataKey] !== row[props.dataKey] : r !== row);
+                emit('row-unselect', { originalEvent: event, data: row });
+            } else {
+                selection.push(row);
+                emit('row-select', { originalEvent: event, data: row });
+            }
+        }
+        d_selection.value = selection;
+    }
+    else if (mode === 'single') {
+        if (selected && props.metaKeySelection && metaKey) {
+            d_selection.value = null;
+            emit('row-unselect', { originalEvent: event, data: row });
+        } else {
+            d_selection.value = row;
+            emit('row-select', { originalEvent: event, data: row });
+        }
+    }
+};
 
 /* --- Helpers & Handlers --- */
 const paginatorProps = computed(() => ({
@@ -172,7 +274,7 @@ const getAriaSort = (field: string | undefined) => {
 
 const onSort = (event: Event, column: ColumnProps) => {
     const target = event.target as HTMLElement;
-    if (target.closest('.b-table__filter-menu-container')) return;
+    if (target.closest('.b-table__filter-menu-container') || target.closest('.b-table__checkbox')) return;
     if (!column.sortable || !column.field) return;
 
     const field = column.field;
@@ -225,26 +327,36 @@ const onPage = (event: any) => {
             <table :class="['b-table__el', tableClass]" :style="tableStyle" role="table">
                 <thead class="b-table__thead">
                 <tr class="b-table__tr">
-                    <th v-for="col in columns" :key="col.props.field || col.props.header"
+                    <th v-for="col in columns" :key="col.props.field || col.props.header || Math.random()"
                         :class="['b-table__th', { 'b-table__th--sortable': col.props.sortable }]"
                         :style="col.props.style"
                         role="columnheader"
                         :aria-sort="col.props.sortable ? getAriaSort(col.props.field) : undefined"
                         :tabindex="col.props.sortable ? 0 : undefined"
-                        @click="onSort($event, col.props)"
-                        @keydown.enter.prevent="onSort($event, col.props)"
+                        @click="col.props.sortable ? onSort($event, col.props) : null"
+                        @keydown.enter.prevent="col.props.sortable ? onSort($event, col.props) : null"
                     >
                         <div class="b-table__th-content">
-                            <div class="b-table__header-label">
+                            <!-- SELECTION ALL CHECKBOX -->
+                            <div v-if="col.props.selectionMode === 'multiple'"
+                                 class="b-table__checkbox"
+                                 :class="{ 'b-table__checkbox--checked': allSelected }"
+                                 @click.stop="toggleAll">
+                                <svg v-if="allSelected" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                            </div>
+
+                            <div v-else class="b-table__header-label">
                                 <component :is="col.slots.header" v-if="col.slots?.header" />
                                 <template v-else>{{ col.props.header }}</template>
                             </div>
 
+                            <!-- SORT ICON -->
                             <div v-if="col.props.sortable" class="b-table__sort-icon-group" aria-hidden="true">
                                 <svg v-if="getColumnSortOrder(col.props.field) >= 0" class="b-table__sort-icon b-table__sort-icon--up" :class="{ 'b-table__sort-icon--active': getColumnSortOrder(col.props.field) === 1 }" viewBox="0 0 24 12"><path d="M12 2l10 10H2L12 2z"/></svg>
                                 <svg v-if="getColumnSortOrder(col.props.field) <= 0" class="b-table__sort-icon b-table__sort-icon--down" :class="{ 'b-table__sort-icon--active': getColumnSortOrder(col.props.field) === -1 }" viewBox="0 0 24 12"><path d="M12 10L2 0h20L12 10z"/></svg>
                             </div>
 
+                            <!-- FILTER MENU -->
                             <div v-if="filterDisplay === 'menu' && col.slots.filter" class="b-table__filter-menu-container">
                                 <button type="button"
                                         class="b-table__filter-menu-button"
@@ -281,10 +393,36 @@ const onPage = (event: any) => {
                 <tbody class="b-table__tbody">
                 <template v-if="dataToRender.length">
                     <tr v-for="(row, rowIndex) in dataToRender" :key="dataKey ? row[dataKey] : rowIndex"
-                        :class="['b-table__tr', rowClass?.(row)]" :style="rowStyle?.(row)">
+                        :class="[
+                            'b-table__tr',
+                            rowClass?.(row),
+                            { 'b-table__tr--selected': isSelected(row), 'b-table__tr--selectable': computedSelectionMode }
+                        ]"
+                        :style="rowStyle?.(row)"
+                        :aria-selected="isSelected(row) ? 'true' : undefined"
+                        @click="onRowClick(row, $event)">
+
                         <td v-for="(col, colIndex) in columns" :key="colIndex" class="b-table__td" :style="col.props.style">
-                            <component :is="col.slots.body" v-if="col.slots?.body" :data="row" :index="rowIndex" :column="col.props" />
-                            <template v-else>{{ resolveFieldData(row, col.props.field) }}</template>
+
+                            <!-- SELECTION ROW CHECKBOX/RADIO -->
+                            <template v-if="col.props.selectionMode === 'multiple'">
+                                <div class="b-table__checkbox" :class="{ 'b-table__checkbox--checked': isSelected(row) }">
+                                    <svg v-if="isSelected(row)" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                                </div>
+                            </template>
+
+                            <template v-else-if="col.props.selectionMode === 'single'">
+                                <div class="b-table__radio" :class="{ 'b-table__radio--checked': isSelected(row) }">
+                                    <div v-if="isSelected(row)" class="b-table__radio-inner"></div>
+                                </div>
+                            </template>
+
+                            <!-- STANDARD CONTENT -->
+                            <template v-else>
+                                <component :is="col.slots.body" v-if="col.slots?.body" :data="row" :index="rowIndex" :column="col.props" />
+                                <template v-else>{{ resolveFieldData(row, col.props.field) }}</template>
+                            </template>
+
                         </td>
                     </tr>
                 </template>

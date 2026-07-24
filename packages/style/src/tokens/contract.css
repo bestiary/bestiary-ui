@@ -211,6 +211,21 @@
 
 @property --b-secondary-overlay                { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 
+/* INFO */
+@property --b-info-channels               { syntax: "<number>+"; inherits: true; initial-value: 0 0 0; }
+@property --b-info-solid-background       { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
+@property --b-info-solid-background-hover { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
+@property --b-info-solid-text             { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
+
+@property --b-info-subtle-background      { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
+@property --b-info-subtle-border          { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
+@property --b-info-subtle-text            { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
+
+@property --b-info-outline-border         { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
+@property --b-info-outline-text           { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
+
+@property --b-info-overlay                { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
+
 /* SUCCESS */
 @property --b-success-channels               { syntax: "<number>+"; inherits: true; initial-value: 0 0 0; }
 @property --b-success-solid-background       { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
@@ -225,21 +240,6 @@
 @property --b-success-outline-text           { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 
 @property --b-success-overlay                { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
-
-/* ERROR */
-@property --b-error-channels               { syntax: "<number>+"; inherits: true; initial-value: 0 0 0; }
-@property --b-error-solid-background       { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
-@property --b-error-solid-background-hover { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
-@property --b-error-solid-text             { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
-
-@property --b-error-subtle-background      { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
-@property --b-error-subtle-border          { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
-@property --b-error-subtle-text            { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
-
-@property --b-error-outline-border         { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
-@property --b-error-outline-text           { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
-
-@property --b-error-overlay                { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 
 /* WARNING */
 @property --b-warning-channels               { syntax: "<number>+"; inherits: true; initial-value: 0 0 0; }
@@ -256,20 +256,20 @@
 
 @property --b-warning-overlay                { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 
-/* INFO */
-@property --b-info-channels               { syntax: "<number>+"; inherits: true; initial-value: 0 0 0; }
-@property --b-info-solid-background       { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
-@property --b-info-solid-background-hover { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
-@property --b-info-solid-text             { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
+/* ERROR */
+@property --b-error-channels               { syntax: "<number>+"; inherits: true; initial-value: 0 0 0; }
+@property --b-error-solid-background       { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
+@property --b-error-solid-background-hover { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
+@property --b-error-solid-text             { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 
-@property --b-info-subtle-background      { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
-@property --b-info-subtle-border          { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
-@property --b-info-subtle-text            { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
+@property --b-error-subtle-background      { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
+@property --b-error-subtle-border          { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
+@property --b-error-subtle-text            { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 
-@property --b-info-outline-border         { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
-@property --b-info-outline-text           { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
+@property --b-error-outline-border         { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
+@property --b-error-outline-text           { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 
-@property --b-info-overlay                { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
+@property --b-error-overlay                { syntax: "<color>"; inherits: true; initial-value: 0 0 0; }
 
 /* CONTRAST (Inverse) */
 @property --b-contrast-channels               { syntax: "<number>+"; inherits: true; initial-value: 0 0 0; }

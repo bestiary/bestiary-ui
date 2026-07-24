@@ -1,0 +1,173 @@
+/**
+ * Bestiary UI — Tabs Component Styles
+ */
+
+/* ============================================================
+   1. TOKENS
+   ============================================================ */
+:where(.b-tabs) {
+    --b-tabs-border-color:           var(--b-border-subtle);
+    --b-tabs-border-width:           1px;
+
+    --b-tabs-tab-padding:            var(--b-space-3) var(--b-space-4);
+    --b-tabs-tab-color:              var(--b-text-secondary);
+    --b-tabs-tab-hover-color:        var(--b-text-primary);
+    --b-tabs-tab-hover-background:   var(--b-overlay-hover);
+
+    --b-tabs-tab-active-color:       var(--b-primary-solid-background);
+
+    --b-tabs-tab-font-size:          var(--b-text-md);
+    --b-tabs-tab-font-weight:        var(--b-font-weight-medium);
+
+    --b-tabs-active-bar-height:      2px;
+    --b-tabs-active-bar-background:  var(--b-primary-solid-background);
+
+    --b-tabs-nav-btn-width:          var(--b-size-8);
+    --b-tabs-nav-btn-color:          var(--b-text-secondary);
+    --b-tabs-nav-btn-background:     var(--b-surface-section);
+
+    --b-tabs-panel-padding:          var(--b-space-4) 0;
+    --b-tabs-panel-color:            var(--b-text-primary);
+
+    --b-tabs-transition:             var(--b-duration-normal) var(--b-ease-out);
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================================================
+   2. TABLIST & SCROLLING
+   ============================================================ */
+:where(.b-tablist) {
+    display: flex;
+    position: relative;
+    border-bottom: var(--b-tabs-border-width) solid var(--b-tabs-border-color);
+}
+
+:where(.b-tablist__content) {
+    flex: 1 1 auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbar for Chrome/Safari */
+:where(.b-tablist__content::-webkit-scrollbar) {
+    display: none;
+}
+
+:where(.b-tablist__list) {
+    display: flex;
+    position: relative; /* Container for absolute active-bar */
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigators (Prev/Next buttons when overflowing) */
+:where(.b-tablist__nav-btn) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: var(--b-tabs-nav-btn-width);
+
+    background-color: var(--b-tabs-nav-btn-background);
+    color: var(--b-tabs-nav-btn-color);
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+    transition: color var(--b-tabs-transition);
+}
+
+:where(.b-tablist__nav-btn:hover) {
+    color: var(--b-text-primary);
+}
+
+/* Gradient shadows to indicate scrollable areas */
+:where(.b-tablist__nav-btn--prev) {
+    box-shadow: 4px 0 8px -4px rgba(0,0,0,0.1);
+}
+:where(.b-tablist__nav-btn--next) {
+    box-shadow: -4px 0 8px -4px rgba(0,0,0,0.1);
+}
+
+
+/* ============================================================
+   3. THE TAB (Button)
+   ============================================================ */
+:where(.b-tab) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    gap: var(--b-space-2);
+    margin: 0;
+
+    padding: var(--b-tabs-tab-padding);
+    background-color: transparent;
+    color: var(--b-tabs-tab-color);
+    border: none;
+    border-radius: var(--b-radius-sm) var(--b-radius-sm) 0 0;
+
+    font-family: inherit;
+    font-size: var(--b-tabs-tab-font-size);
+    font-weight: var(--b-tabs-tab-font-weight);
+    white-space: nowrap;
+    cursor: pointer;
+
+    transition: background-color var(--b-tabs-transition), color var(--b-tabs-transition);
+    outline: none;
+}
+
+/* Hover */
+:where(.b-tab:not(.b-tab--disabled):not(.b-tab--active):hover) {
+    background-color: var(--b-tabs-tab-hover-background);
+    color: var(--b-tabs-tab-hover-color);
+}
+
+/* Active */
+:where(.b-tab--active) {
+    color: var(--b-tabs-tab-active-color);
+}
+
+/* Focus */
+:where(.b-tab:focus-visible) {
+    background-color: var(--b-tabs-tab-hover-background);
+    outline: var(--b-stroke-focus) solid var(--b-primary-outline-border);
+    outline-offset: -2px;
+}
+
+/* Disabled */
+:where(.b-tab--disabled) {
+    opacity: var(--b-state-disabled-opacity, 0.6);
+    cursor: not-allowed;
+}
+
+
+/* ============================================================
+   4. ACTIVE BAR (Inkbar)
+   ============================================================ */
+:where(.b-tablist__active-bar) {
+    position: absolute;
+    bottom: calc(var(--b-tabs-border-width) * -1); /* Cover the bottom border */
+    height: var(--b-tabs-active-bar-height);
+    background-color: var(--b-tabs-active-bar-background);
+    z-index: 1;
+    transition: left var(--b-tabs-transition), width var(--b-tabs-transition);
+}
+
+
+/* ============================================================
+   5. TAB PANELS
+   ============================================================ */
+:where(.b-tabpanel) {
+    padding: var(--b-tabs-panel-padding);
+    color: var(--b-tabs-panel-color);
+    outline: none;
+}
+
+:where(.b-tabpanel:focus-visible) {
+    outline: var(--b-stroke-focus) solid var(--b-primary-outline-border);
+    outline-offset: -2px;
+}

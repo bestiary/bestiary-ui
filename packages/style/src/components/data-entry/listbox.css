@@ -1,0 +1,215 @@
+/**
+ * Bestiary UI — Listbox Component Styles
+ */
+
+/* ============================================================
+   1. B-LISTBOX COMPONENT
+   ============================================================ */
+:where(.b-listbox) {
+    /* --- Structural Tokens --- */
+    --b-listbox-background:             var(--b-surface-section);
+    --b-listbox-border-color:           var(--b-border-default);
+    --b-listbox-border-radius:          var(--b-radius-interactive);
+    --b-listbox-color:                  var(--b-text-primary);
+
+    --b-listbox-invalid-border:         var(--b-error-outline-border);
+    --b-listbox-focus-border:           var(--b-primary-outline-border);
+
+    /* --- List & Item Tokens --- */
+    --b-listbox-item-padding:           var(--b-space-2) var(--b-space-3);
+    --b-listbox-item-gap:               var(--b-space-2);
+    --b-listbox-item-radius:            var(--b-radius-sm);
+
+    --b-listbox-item-hover-background:          var(--b-overlay-hover);
+    --b-listbox-item-selected-background:       var(--b-primary-subtle-background);
+    --b-listbox-item-selected-color:            var(--b-primary-solid-text);
+    --b-listbox-item-striped-background:        var(--b-surface-ground);
+
+    /* --- Base Styles --- */
+    display: inline-flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    background-color: var(--b-listbox-background);
+    border: 1px solid var(--b-listbox-border-color);
+    border-radius: var(--b-listbox-border-radius);
+    color: var(--b-listbox-color);
+
+    transition: border-color var(--b-duration-fast);
+}
+
+:where(.b-listbox--fluid) {
+    width: 100%;
+}
+
+:where(.b-listbox--invalid) {
+    border-color: var(--b-listbox-invalid-border);
+}
+
+:where(.b-listbox--disabled) {
+    opacity: var(--b-state-disabled-opacity, 0.6);
+    pointer-events: none;
+    background-color: var(--b-surface-ground);
+}
+
+/* ============================================================
+   2. HEADER & FILTER
+   ============================================================ */
+:where(.b-listbox__header) {
+    display: flex;
+    align-items: center;
+    gap: var(--b-space-3);
+    padding: var(--b-space-2) var(--b-space-3);
+    border-bottom: 1px solid var(--b-border-subtle);
+    background-color: var(--b-surface-section);
+    border-radius: var(--b-listbox-border-radius) var(--b-listbox-border-radius) 0 0;
+}
+
+:where(.b-listbox__filter-container) {
+    position: relative;
+    flex: 1 1 auto;
+}
+
+:where(.b-listbox__filter-input) {
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--b-space-2) var(--b-space-7) var(--b-space-2) var(--b-space-2);
+    background-color: var(--b-surface-section);
+    border: 1px solid var(--b-border-default);
+    border-radius: var(--b-radius-interactive);
+    color: var(--b-text-primary);
+    outline: none;
+    font-family: inherit;
+    font-size: var(--b-text-sm);
+    transition: border-color var(--b-duration-fast);
+}
+
+:where(.b-listbox__filter-input:focus) {
+    border-color: var(--b-listbox-focus-border);
+}
+
+:where(.b-listbox__filter-icon) {
+    position: absolute;
+    right: var(--b-space-3);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--b-text-muted);
+    pointer-events: none;
+    display: flex;
+}
+
+/* ============================================================
+   3. LIST & ITEMS
+   ============================================================ */
+:where(.b-listbox__list-wrapper) {
+    overflow-y: auto;
+    padding: var(--b-space-1);
+}
+
+:where(.b-listbox__list) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    outline: none; /* Focus outline managed visually */
+}
+
+/* Add focus ring to the list wrapper when list is focused */
+:where(.b-listbox__list:focus-visible) {
+    outline: var(--b-stroke-focus) solid var(--b-listbox-focus-border);
+    outline-offset: -2px;
+    border-radius: var(--b-radius-sm);
+}
+
+:where(.b-listbox__item) {
+    display: flex;
+    align-items: center;
+    gap: var(--b-listbox-item-gap);
+    padding: var(--b-listbox-item-padding);
+    color: var(--b-text-primary);
+    font-size: var(--b-text-sm);
+    border-radius: var(--b-listbox-item-radius);
+    cursor: pointer;
+    transition: background-color var(--b-duration-fast), color var(--b-duration-fast);
+}
+
+:where(.b-listbox__item-label) {
+    flex: 1 1 auto;
+}
+
+/* --- Item States --- */
+:where(.b-listbox__item:not(.b-listbox__item--group):not(.b-listbox__item--disabled):hover),
+:where(.b-listbox__item--focused:not(.b-listbox__item--selected)) {
+    background-color: var(--b-listbox-item-hover-background);
+}
+
+:where(.b-listbox__item--selected) {
+    background-color: var(--b-listbox-item-selected-background);
+    color: var(--b-listbox-item-selected-color);
+    font-weight: var(--b-font-weight-medium);
+}
+
+/* Striped logic (applied to non-group items) */
+:where(.b-listbox--striped .b-listbox__item:not(.b-listbox__item--group):nth-child(even)) {
+    background-color: var(--b-listbox-item-striped-background);
+}
+:where(.b-listbox--striped .b-listbox__item:not(.b-listbox__item--group):nth-child(even):hover) {
+    background-color: var(--b-listbox-item-hover-background);
+}
+:where(.b-listbox--striped .b-listbox__item--selected) {
+    background-color: var(--b-listbox-item-selected-background) !important;
+}
+
+:where(.b-listbox__item--disabled) {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* --- Group Headers --- */
+:where(.b-listbox__item--group) {
+    cursor: default;
+    font-weight: var(--b-font-weight-bold);
+    color: var(--b-text-muted);
+    padding-top: var(--b-space-3);
+    background-color: transparent !important;
+}
+
+/* ============================================================
+   4. CHECKBOX & CHECKMARK
+   ============================================================ */
+:where(.b-listbox__checkbox) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.125rem;
+    height: 1.125rem;
+    border: 1px solid var(--b-border-strong);
+    border-radius: var(--b-radius-sm);
+    flex-shrink: 0;
+    transition: all var(--b-duration-fast);
+}
+
+:where(.b-listbox__header-checkbox) {
+    cursor: pointer;
+}
+
+:where(.b-listbox__checkbox--checked) {
+    background-color: var(--b-primary-solid-background);
+    border-color: var(--b-primary-solid-background);
+    color: var(--b-primary-solid-text);
+}
+
+:where(.b-listbox__checkmark) {
+    display: flex;
+    align-items: center;
+    color: var(--b-primary-solid-text);
+}
+
+/* ============================================================
+   5. EMPTY STATE
+   ============================================================ */
+:where(.b-listbox__empty) {
+    padding: var(--b-listbox-item-padding);
+    color: var(--b-text-muted);
+    text-align: center;
+    font-size: var(--b-text-sm);
+}

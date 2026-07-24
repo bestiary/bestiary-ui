@@ -1,0 +1,27 @@
+@property --b-bg-custom {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: transparent;
+}
+
+.bg-custom      { background-color: var(--b-bg-custom) !important; }
+.bg-inherit     { background-color: inherit !important; }
+.bg-current     { background-color: currentColor !important; }
+.bg-transparent { background-color: transparent !important; }
+
+.bg-white {background-color: var(--b-white) !important; }
+.bg-black {background-color: var(--b-black) !important; }
+
+.bg-ground   { background-color: var(--b-surface-ground) !important; }
+.bg-section  { background-color: var(--b-surface-section) !important; }
+.bg-variant  { background-color: var(--b-surface-variant) !important; }
+.bg-floating { background-color: var(--b-surface-floating) !important; }
+.bg-overlay  { background-color: var(--b-surface-overlay) !important; }
+
+.bg-primary   { background-color: var(--b-primary-solid-background) !important; }
+.bg-secondary { background-color: var(--b-secondary-solid-background) !important; }
+.bg-info      { background-color: var(--b-info-solid-background) !important; }
+.bg-success   { background-color: var(--b-success-solid-background) !important; }
+.bg-warning   { background-color: var(--b-warning-solid-background) !important; }
+.bg-error     { background-color: var(--b-error-solid-background) !important; }
+.bg-contrast  { background-color: var(--b-contrast-solid-background) !important; }

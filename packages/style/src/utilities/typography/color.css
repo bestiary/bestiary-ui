@@ -1,0 +1,18 @@
+@property --b-text-custom-color {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: transparent;
+}
+
+.text-custom-color { color: var(--b-text-custom-color) !important; }
+.text-inherit      { color: inherit !important; }
+.text-current      { color: currentColor !important; }
+.text-transparent  { color: transparent !important; }
+
+.text-white { color: var(--b-white) !important; }
+.text-black { color: var(--b-black) !important; }
+
+.text-primary   { color: var(--b-text-primary) !important; }
+.text-secondary { color: var(--b-text-secondary) !important; }
+.text-muted     { color: var(--b-text-muted) !important; }
+.text-contrast  { color: var(--b-text-contrast) !important; }

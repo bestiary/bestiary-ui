@@ -257,6 +257,61 @@
     animation: b-table-spin 0.8s linear infinite;
 }
 
+/* ============================================================
+   SELECTION (Checkboxes & Radios)
+   ============================================================ */
+:where(.b-table__checkbox),
+:where(.b-table__radio) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.125rem;
+    height: 1.125rem;
+    border: 1px solid var(--b-border-default);
+    background-color: var(--b-surface-ground);
+    cursor: pointer;
+    transition: all var(--b-duration-fast);
+}
+
+:where(.b-table__checkbox) {
+    border-radius: var(--b-radius-sm);
+}
+
+:where(.b-table__radio) {
+    border-radius: var(--b-radius-full);
+}
+
+:where(.b-table__checkbox--checked),
+:where(.b-table__radio--checked) {
+    background-color: var(--b-primary-solid-background);
+    border-color: var(--b-primary-solid-background);
+    color: var(--b-primary-solid-text);
+}
+
+:where(.b-table__radio-inner) {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: var(--b-primary-solid-text);
+}
+
+/* ============================================================
+   SELECTED ROW STATE
+   ============================================================ */
+:where(.b-table__tr--selectable) {
+    cursor: pointer;
+}
+
+:where(.b-table__tr--selected),
+:where(.b-table--hover .b-table__tbody .b-table__tr--selected:not(.b-table__tr--empty):hover) {
+    background-color: var(--b-primary-subtle-background);
+    color: var(--b-primary-solid-text);
+}
+
+:where(.b-table__tr--selected .b-table__td) {
+    color: inherit;
+}
+
 @keyframes b-table-spin {
     to { transform: rotate(360deg); }
 }

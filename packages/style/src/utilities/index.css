@@ -55,6 +55,10 @@
 @import "./typography/text-formatting.css";
 @import "./typography/text-shadow.css";
 @import "./typography/typography.css";
+@import "./typography/color.css";
+
+/* --- 6. BACKGROUNDS --- */
+@import "./backgrounds/background-color.css";
 
 /* --- 6. INTERACTIVITY --- */
 @import "./interactivity/cursor.css";

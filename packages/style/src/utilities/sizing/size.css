@@ -25,15 +25,15 @@
 /* --- 3. NUMERIC SCALE (Icon & Avatar Sizes) --- */
 /* Using the spacing scale to ensure consistency across the UI */
 .size-0 { inline-size: 0 !important; block-size: 0 !important; }
-.size-1 { inline-size: var(--b-space-1) !important; block-size: var(--b-space-1) !important; }
-.size-2 { inline-size: var(--b-space-2) !important; block-size: var(--b-space-2) !important; }
-.size-3 { inline-size: var(--b-space-3) !important; block-size: var(--b-space-3) !important; }
-.size-4 { inline-size: var(--b-space-4) !important; block-size: var(--b-space-4) !important; }
-.size-5 { inline-size: var(--b-space-5) !important; block-size: var(--b-space-5) !important; }
-.size-6 { inline-size: var(--b-space-6) !important; block-size: var(--b-space-6) !important; }
-.size-8 { inline-size: var(--b-space-8) !important; block-size: var(--b-space-8) !important; }
-.size-10 { inline-size: var(--b-space-10) !important; block-size: var(--b-space-10) !important; }
-.size-12 { inline-size: var(--b-space-12) !important; block-size: var(--b-space-12) !important; }
+.size-1 { inline-size: var(--b-size-1) !important; block-size: var(--b-size-1) !important; }
+.size-2 { inline-size: var(--b-size-2) !important; block-size: var(--b-size-2) !important; }
+.size-3 { inline-size: var(--b-size-3) !important; block-size: var(--b-size-3) !important; }
+.size-4 { inline-size: var(--b-size-4) !important; block-size: var(--b-size-4) !important; }
+.size-5 { inline-size: var(--b-size-5) !important; block-size: var(--b-size-5) !important; }
+.size-6 { inline-size: var(--b-size-6) !important; block-size: var(--b-size-6) !important; }
+.size-8 { inline-size: var(--b-size-8) !important; block-size: var(--b-size-8) !important; }
+.size-10 { inline-size: var(--b-size-10) !important; block-size: var(--b-size-10) !important; }
+.size-12 { inline-size: var(--b-size-12) !important; block-size: var(--b-size-12) !important; }
 
 /* --- 4. SPECIALS --- */
 .size-px {

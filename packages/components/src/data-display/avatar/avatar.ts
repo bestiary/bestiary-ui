@@ -3,5 +3,3 @@ import { withInstall } from '../../utils/with-install';
 
 export const BAvatar = withInstall(Avatar);
 export default BAvatar;
-
-export * from './avatar.props';

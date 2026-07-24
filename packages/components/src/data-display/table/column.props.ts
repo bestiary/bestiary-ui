@@ -1,5 +1,7 @@
 import type { CSSProperties } from "vue";
 
+export type ColumnSelectionMode = "single" | "multiple";
+
 export interface ColumnProps {
     /**
      * Property of a row data to display.
@@ -50,4 +52,9 @@ export interface ColumnProps {
      * @default true
      */
     showFilterMatchModes?: boolean;
+    /**
+     * Enables row selection mode for this column.
+     * Renders a checkbox or radio button.
+     */
+    selectionMode?: ColumnSelectionMode;
 }

@@ -6,6 +6,7 @@
 @import "./navigation/paginator.css";
 @import "./navigation/scroll-top.css";
 @import "./navigation/breadcrumb.css";
+@import "./navigation/tabs.css";
 
 @import "./data-display/accordion.css";
 @import "./data-display/avatar.css";
@@ -25,6 +26,7 @@
 @import "./data-entry/date-picker.css";
 @import "./data-entry/select.css";
 @import "./data-entry/input-number.css";
+@import "./data-entry/listbox.css";
 
 @import "./feedback/dialog.css";
 @import "./feedback/message.css";
